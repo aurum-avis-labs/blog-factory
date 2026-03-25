@@ -98,4 +98,15 @@ Go to **Actions → Manual Publish → Run workflow**, select a brand or `all`.
 cd preview && npm run dev
 ```
 
-Renders all brands' blogs locally with a brand switcher UI.
+The preview site is a standalone Astro project that renders all brands' blogs with a brand switcher UI.
+
+**How it discovers content:**
+
+1. A pre-build script (`preview/scripts/sync-content.ts`) scans the `brands/` directory
+2. For each brand folder found, it copies content into `preview/src/content/blog/{brand}/{lang}/`
+3. Images are copied to `preview/src/assets/blog/{brand}/` (namespaced to avoid collisions)
+4. Image paths in MDX are rewritten from `@/assets/blog/...` to `@/assets/blog/{brand}/...`
+
+The `BrandSwitcher` nav bar reads `brands.config.ts` to list all brands. Brands with no content yet will show "No blog posts found."
+
+**Routes:** `/{brand}/blog/` (default language), `/{brand}/{lang}/blog/` (other languages)
