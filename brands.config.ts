@@ -47,14 +47,6 @@ export const brands: BrandConfig[] = [
     defaultLanguage: "en",
   },
   {
-    id: "beauty-corner",
-    displayName: "Beauty Corner",
-    repo: "aurum-avis-labs/beauty-corner-landing-page",
-    domain: "https://www.kosmetik-wettswil.ch",
-    languages: ["de", "en"],
-    defaultLanguage: "de",
-  },
-  {
     id: "holist-iq",
     displayName: "Holist-IQ",
     repo: "aurum-avis-labs/holist-iq-landing-page",
