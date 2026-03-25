@@ -1,5 +1,5 @@
 # Copy this file to .github/workflows/deploy-blog-update.yml in each landing page repo.
-# Set the BLOG_BRAND repository variable to the brand ID (e.g., "aurum").
+# Brand ID is auto-derived from the repo name (strips "-landing*" suffix).
 # Requires AZURE_STATIC_WEB_APPS_API_TOKEN secret for deployment.
 
 name: Deploy Blog Update
@@ -24,7 +24,6 @@ jobs:
       - name: Fetch blog content and build
         run: npm run build
         env:
-          BLOG_BRAND: ${{ vars.BLOG_BRAND }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to Azure Static Web Apps

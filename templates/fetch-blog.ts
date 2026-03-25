@@ -4,13 +4,16 @@
  * Pre-build script for landing pages. Fetches blog content from the
  * blog-factory GitHub repo for this brand using git sparse-checkout.
  *
- * Reads BLOG_BRAND env var to determine which brand's content to fetch.
+ * Brand ID is derived automatically from the repo name by stripping
+ * everything from "-landing" onward (e.g., "do-for-me-landingpage" → "do-for-me").
+ * Can be overridden with BLOG_BRAND env var.
+ *
  * Places MDX files in src/content/blog/{lang}/ and images in src/assets/blog/.
  *
  * Usage: npx tsx scripts/fetch-blog.ts
  *
- * Required env vars:
- *   BLOG_BRAND    - Brand ID (e.g., "aurum", "do-for-me")
+ * Optional env vars:
+ *   BLOG_BRAND    - Override auto-detected brand ID
  *   GITHUB_TOKEN  - Token with read access to blog-factory repo (optional for public repos)
  */
 
@@ -19,11 +22,35 @@ import fs from "fs";
 import path from "path";
 
 const BLOG_FACTORY_REPO = "aurum-avis-labs/blog-factory";
-const BRAND = process.env.BLOG_BRAND;
 const TOKEN = process.env.GITHUB_TOKEN || process.env.BLOG_FACTORY_TOKEN;
 
+function detectBrand(): string | null {
+  // 1. Explicit env var
+  if (process.env.BLOG_BRAND) return process.env.BLOG_BRAND;
+
+  // 2. Derive from git remote origin URL
+  try {
+    const remote = execSync("git remote get-url origin", { encoding: "utf-8" }).trim();
+    // Extract repo name from URL (handles both HTTPS and SSH)
+    const repoName = remote.replace(/\.git$/, "").split("/").pop();
+    if (repoName) {
+      const brand = repoName.replace(/-landing.*$/, "");
+      if (brand && brand !== repoName) return brand;
+    }
+  } catch {}
+
+  // 3. Derive from directory name
+  const dirName = path.basename(process.cwd());
+  const brand = dirName.replace(/-landing.*$/, "");
+  if (brand && brand !== dirName) return brand;
+
+  return null;
+}
+
+const BRAND = detectBrand();
+
 if (!BRAND) {
-  console.log("BLOG_BRAND not set, skipping blog content fetch.");
+  console.log("Could not detect brand. Set BLOG_BRAND env var or ensure repo name contains '-landing'.");
   process.exit(0);
 }
 
