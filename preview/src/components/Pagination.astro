@@ -1,0 +1,84 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+}
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+if (totalPages <= 1) return null;
+
+const getPageNumbers = () => {
+  const pages: (number | string)[] = [];
+  pages.push(1);
+  if (currentPage > 3) pages.push("...");
+  for (
+    let i = Math.max(2, currentPage - 1);
+    i <= Math.min(totalPages - 1, currentPage + 1);
+    i++
+  ) {
+    if (!pages.includes(i)) pages.push(i);
+  }
+  if (currentPage < totalPages - 2) pages.push("...");
+  if (totalPages > 1 && !pages.includes(totalPages)) pages.push(totalPages);
+  return pages;
+};
+
+const pageNumbers = getPageNumbers();
+const getPageUrl = (page: number) =>
+  page === 1 ? baseUrl : `${baseUrl}${page}/`;
+const prevUrl = currentPage > 1 ? getPageUrl(currentPage - 1) : null;
+const nextUrl = currentPage < totalPages ? getPageUrl(currentPage + 1) : null;
+---
+
+<nav class="flex justify-center mt-16" aria-label="Pagination">
+  <div class="flex items-center gap-2">
+    {
+      prevUrl ? (
+        <a
+          href={prevUrl}
+          class="w-10 h-10 flex items-center justify-center rounded-lg border border-border bg-background hover:bg-muted transition-colors"
+        >
+          &larr;
+        </a>
+      ) : (
+        <span class="w-10 h-10 flex items-center justify-center rounded-lg border border-border bg-background opacity-50 cursor-not-allowed">
+          &larr;
+        </span>
+      )
+    }
+    {
+      pageNumbers.map((page) =>
+        page === "..." ? (
+          <span class="px-2 text-muted-foreground">...</span>
+        ) : page === currentPage ? (
+          <span class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-primary-foreground font-medium">
+            {page}
+          </span>
+        ) : (
+          <a
+            href={getPageUrl(page as number)}
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-border bg-background hover:bg-muted transition-colors"
+          >
+            {page}
+          </a>
+        )
+      )
+    }
+    {
+      nextUrl ? (
+        <a
+          href={nextUrl}
+          class="w-10 h-10 flex items-center justify-center rounded-lg border border-border bg-background hover:bg-muted transition-colors"
+        >
+          &rarr;
+        </a>
+      ) : (
+        <span class="w-10 h-10 flex items-center justify-center rounded-lg border border-border bg-background opacity-50 cursor-not-allowed">
+          &rarr;
+        </span>
+      )
+    }
+  </div>
+</nav>

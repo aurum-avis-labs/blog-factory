@@ -1,0 +1,38 @@
+name: Auto-Publish Blog Changes
+
+on:
+  push:
+    branches: [main]
+    paths: ["brands/**"]
+
+jobs:
+  detect-and-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect changed brands
+        id: changes
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- brands/ \
+            | cut -d'/' -f2 | sort -u | paste -sd',' -)
+          echo "brands=$CHANGED" >> $GITHUB_OUTPUT
+          echo "Changed brands: $CHANGED"
+
+      - name: Setup Node.js
+        if: steps.changes.outputs.brands != ''
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        if: steps.changes.outputs.brands != ''
+        run: npm ci
+
+      - name: Dispatch to landing pages
+        if: steps.changes.outputs.brands != ''
+        run: npx tsx scripts/dispatch-deploys.ts --brands="${{ steps.changes.outputs.brands }}"
+        env:
+          CROSS_REPO_PAT: ${{ secrets.CROSS_REPO_PAT }}

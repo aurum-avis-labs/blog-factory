@@ -1,0 +1,45 @@
+name: Manual Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: "Brand to publish"
+        required: true
+        type: choice
+        options:
+          - all
+          - aurum
+          - do-for-me
+          - gold-crew
+          - postology
+          - beauty-corner
+          - holist-iq
+          - kitchen-crew
+      dry_run:
+        description: "Dry run (show what would happen without dispatching)"
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Dispatch to landing pages
+        run: |
+          npx tsx scripts/dispatch-deploys.ts \
+            --brands="${{ inputs.brand }}" \
+            ${{ inputs.dry_run && '--dry-run' || '' }}
+        env:
+          CROSS_REPO_PAT: ${{ secrets.CROSS_REPO_PAT }}

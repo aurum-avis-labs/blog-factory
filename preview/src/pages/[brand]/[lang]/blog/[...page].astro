@@ -1,0 +1,94 @@
+---
+/**
+ * Blog listing for a brand's non-default language.
+ * URL: /{brand}/{lang}/blog/
+ */
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import Pagination from "@/components/Pagination.astro";
+import { brands } from "@/lib/brands";
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+
+  return brands.flatMap((brand) => {
+    // Generate paths for all non-default languages
+    const nonDefaultLangs = brand.languages.filter(
+      (l) => l !== brand.defaultLanguage
+    );
+
+    return nonDefaultLangs.flatMap((lang) => {
+      const posts = allPosts
+        .filter((p) => p.id.startsWith(`${brand.id}/${lang}/`))
+        .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+      return paginate(posts, {
+        params: { brand: brand.id, lang },
+        props: {
+          brandId: brand.id,
+          brandName: brand.displayName,
+          lang,
+          allLanguages: brand.languages,
+          defaultLanguage: brand.defaultLanguage,
+        },
+        pageSize: 10,
+      });
+    });
+  });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const { brandId, brandName, lang, allLanguages, defaultLanguage } = Astro.props;
+---
+
+<BaseLayout
+  title={`Blog (${lang.toUpperCase()})${page.currentPage > 1 ? ` - Page ${page.currentPage}` : ""} | ${brandName}`}
+  brand={brandId}
+>
+  <main class="min-h-screen bg-background pb-20 pt-12">
+    <div class="container mx-auto px-4">
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-2">
+          {brandName} Blog
+          <span class="text-muted-foreground text-xl">({lang.toUpperCase()})</span>
+        </h1>
+        <p class="text-muted-foreground">{page.total} posts</p>
+        <div class="flex gap-2 mt-4">
+          {allLanguages.map((l: string) => (
+            <a
+              href={l === defaultLanguage ? `/${brandId}/blog` : `/${brandId}/${l}/blog`}
+              class:list={[
+                "px-3 py-1 rounded-full text-xs font-medium uppercase transition-colors",
+                l === lang
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80",
+              ]}
+            >
+              {l}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {page.data.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-14">
+          {page.data.map((post) => (
+            <BlogCard post={post} brand={brandId} lang={lang} />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20 bg-muted/20 rounded-2xl">
+          <p class="text-muted-foreground text-lg">No blog posts found for this language.</p>
+        </div>
+      )}
+
+      <Pagination
+        currentPage={page.currentPage}
+        totalPages={page.lastPage}
+        baseUrl={`/${brandId}/${lang}/blog/`}
+      />
+    </div>
+  </main>
+</BaseLayout>
