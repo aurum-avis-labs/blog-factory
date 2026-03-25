@@ -14,7 +14,6 @@
  *
  * Optional env vars:
  *   BLOG_BRAND    - Override auto-detected brand ID
- *   GITHUB_TOKEN  - Token with read access to blog-factory repo (optional for public repos)
  */
 
 import { execSync } from "child_process";
@@ -22,7 +21,6 @@ import fs from "fs";
 import path from "path";
 
 const BLOG_FACTORY_REPO = "aurum-avis-labs/blog-factory";
-const TOKEN = process.env.GITHUB_TOKEN || process.env.BLOG_FACTORY_TOKEN;
 
 function detectBrand(): string | null {
   // 1. Explicit env var
@@ -90,10 +88,7 @@ console.log(`Fetching blog content for brand: ${BRAND}`);
 // Clean up from any previous run
 cleanup();
 
-// Build clone URL
-const repoUrl = TOKEN
-  ? `https://x-access-token:${TOKEN}@github.com/${BLOG_FACTORY_REPO}.git`
-  : `https://github.com/${BLOG_FACTORY_REPO}.git`;
+const repoUrl = `https://github.com/${BLOG_FACTORY_REPO}.git`;
 
 try {
   // Sparse checkout: only fetch the brand's directory

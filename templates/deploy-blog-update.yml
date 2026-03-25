@@ -1,5 +1,6 @@
 # Copy this file to .github/workflows/deploy-blog-update.yml in each landing page repo.
 # Brand ID is auto-derived from the repo name (strips "-landing*" suffix).
+# blog-factory is a public repo — no token needed for fetching content.
 # Requires AZURE_STATIC_WEB_APPS_API_TOKEN secret for deployment.
 
 name: Deploy Blog Update
@@ -7,6 +8,7 @@ name: Deploy Blog Update
 on:
   repository_dispatch:
     types: [blog-update]
+  workflow_dispatch: {}
 
 jobs:
   build-and-deploy:
@@ -23,8 +25,6 @@ jobs:
 
       - name: Fetch blog content and build
         run: npm run build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
