@@ -106,48 +106,106 @@
         </div>
       </div>
 
-      <!-- ── Preview Tab ──────────────────────────────────────────── -->
+      <!-- ── Preview / Staging Tab ─────────────────────────────────── -->
       <div class="tab-panel" id="tab-preview">
-        <div class="preview-empty" id="preview-empty">
-          <div class="preview-empty-icon">✦</div>
-          <p>Generate a blog post to preview it here.</p>
-        </div>
-        <div id="preview-content" style="display:none;">
-          <div class="preview-header">
+
+        <!-- ── Staging list ─────────────────────────────────────── -->
+        <div id="staging-list-view">
+          <div class="staging-header">
             <div>
-              <div class="preview-slug-label">Slug</div>
-              <div class="preview-slug" id="preview-slug-display">—</div>
+              <div class="staging-title">Staging</div>
+              <div class="staging-desc">Posts awaiting review — approve to publish or reject to discard.</div>
+            </div>
+            <button class="btn-ghost" id="btn-refresh-staging">↺ Refresh</button>
+          </div>
+          <div id="staging-empty" class="staging-empty" style="display:none;">
+            <div class="staging-empty-icon">✦</div>
+            <p>No posts in staging.<br/>Generate a blog post to get started.</p>
+          </div>
+          <div id="staging-list" class="staging-list"></div>
+        </div>
+
+        <!-- ── Detail view ──────────────────────────────────────── -->
+        <div id="staging-detail-view" style="display:none;">
+          <div class="preview-header">
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <button class="btn-ghost" id="btn-back-staging" style="width:fit-content;">← Staging</button>
+              <div class="preview-slug" id="detail-slug-display">—</div>
             </div>
             <div class="preview-actions">
-              <button class="btn-ghost" id="btn-back">← Back to Edit</button>
-              <button class="btn-primary" id="btn-push">
-                <span class="btn-icon">🚀</span> Approve &amp; Push to GitHub
+              <button class="btn-reject" id="btn-reject-detail">✕ Reject</button>
+              <button class="btn-primary" id="btn-approve-detail">
+                <span class="btn-icon">🚀</span> Approve &amp; Push
               </button>
             </div>
           </div>
-          <div class="lang-tabs" id="lang-tabs"></div>
-          <div class="mdx-panels" id="mdx-panels"></div>
-          <div id="images-section" style="display:none;">
-            <div class="section-title">Generated Images</div>
-            <div class="images-grid" id="images-grid"></div>
+          <div class="preview-tabs-bar">
+            <div class="lang-tabs" id="detail-lang-tabs"></div>
+            <div class="view-toggle" id="detail-view-toggle">
+              <button class="view-btn active" data-view="rendered">Rendered</button>
+              <button class="view-btn" data-view="raw">Raw MDX</button>
+            </div>
           </div>
-          <div id="push-log-container" style="display:none; margin-top: 24px;">
-            <div class="section-title">Push Progress</div>
-            <div class="log-box" id="push-log-box"></div>
+          <!-- Split: article + chat -->
+          <div class="detail-split">
+            <div class="detail-article">
+              <div class="mdx-panels" id="detail-mdx-panels"></div>
+              <div id="detail-push-log" style="display:none; margin-top:24px;">
+                <div class="section-title">Push Progress</div>
+                <div class="log-box" id="detail-push-log-box"></div>
+              </div>
+            </div>
+            <div class="detail-chat">
+              <div class="chat-header">
+                <span>Refine</span>
+                <span class="chat-lang-badge" id="chat-lang-badge">—</span>
+              </div>
+              <div class="chat-history" id="chat-history">
+                <div class="chat-empty" id="chat-empty">No refinements yet. Describe what to change below.</div>
+              </div>
+              <div class="chat-input-area">
+                <textarea class="chat-input" id="chat-input" placeholder="e.g. Make the intro shorter, add a pricing section, change the tone…" rows="3"></textarea>
+                <button class="btn-primary chat-send" id="btn-chat-send">Send ↵</button>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
 
       <!-- ── Existing Posts Tab ───────────────────────────────────── -->
       <div class="tab-panel" id="tab-existing">
-        <div id="existing-no-brand" class="muted">Select a brand in the top bar to view its posts.</div>
-        <div id="existing-loading" style="display:none;" class="muted">Loading posts…</div>
-        <div id="existing-empty" style="display:none;" class="muted">No posts found for this brand yet.</div>
-        <div id="existing-table-wrap" style="display:none;">
-          <table class="posts-table">
-            <thead><tr><th>Slug</th><th>Languages</th><th>Link</th></tr></thead>
-            <tbody id="existing-tbody"></tbody>
-          </table>
+        <!-- List view -->
+        <div id="existing-list-view">
+          <div id="existing-no-brand" class="muted">Select a brand in the top bar to view its posts.</div>
+          <div id="existing-loading" style="display:none;" class="muted">Loading posts…</div>
+          <div id="existing-empty" style="display:none;" class="muted">No posts found for this brand yet.</div>
+          <div id="existing-table-wrap" style="display:none;">
+            <table class="posts-table">
+              <thead><tr><th>Slug</th><th>Languages</th><th></th></tr></thead>
+              <tbody id="existing-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Post detail view -->
+        <div id="existing-detail-view" style="display:none;">
+          <div class="preview-header">
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <button class="btn-ghost" id="btn-back-existing" style="width:fit-content;">← Posts</button>
+              <div class="preview-slug" id="existing-slug-display">—</div>
+            </div>
+            <div class="preview-actions">
+              <a class="btn-ghost" id="existing-live-link" href="#" target="_blank" style="text-decoration:none;">View Live ↗</a>
+            </div>
+          </div>
+          <div class="preview-tabs-bar">
+            <div class="lang-tabs" id="existing-lang-tabs"></div>
+            <div class="view-toggle" id="existing-view-toggle">
+              <button class="view-btn active" data-view="rendered">Rendered</button>
+              <button class="view-btn" data-view="raw">Raw MDX</button>
+            </div>
+          </div>
+          <div class="mdx-panels" id="existing-mdx-panels"></div>
         </div>
       </div>
 
@@ -255,6 +313,7 @@
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

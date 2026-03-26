@@ -175,6 +175,85 @@ function today(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+// ── Staging ────────────────────────────────────────────────────────────────────
+const STAGING_DIR = resolve(__dirname, '.staging');
+
+interface ChatMessage {
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: string;
+}
+
+interface StagedPost {
+  id: string;
+  brandId: string;
+  brandName: string;
+  slug: string;
+  createdAt: string;
+  languages: string[];
+  posts: Record<string, string>;
+  images: Array<{ filename: string; base64: string; previewUrl: string }>;
+  chatHistory: Record<string, ChatMessage[]>;
+  originalPrompt: string;
+  originalContext?: string;
+}
+
+interface StagedSummary {
+  id: string;
+  brandId: string;
+  brandName: string;
+  slug: string;
+  createdAt: string;
+  languages: string[];
+  imageCount: number;
+}
+
+function ensureStagingDir() {
+  if (!existsSync(STAGING_DIR)) mkdirSync(STAGING_DIR, { recursive: true });
+}
+
+function newStagingId(): string {
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
+}
+
+function saveStaged(post: StagedPost): void {
+  ensureStagingDir();
+  writeFileSync(resolve(STAGING_DIR, `${post.id}.json`), JSON.stringify(post), 'utf-8');
+}
+
+function listStaged(): StagedSummary[] {
+  ensureStagingDir();
+  return readdirSync(STAGING_DIR)
+    .filter(f => f.endsWith('.json'))
+    .map(f => {
+      try {
+        const p = JSON.parse(readFileSync(resolve(STAGING_DIR, f), 'utf-8')) as StagedPost;
+        return {
+          id: p.id,
+          brandId: p.brandId,
+          brandName: p.brandName,
+          slug: p.slug,
+          createdAt: p.createdAt,
+          languages: p.languages,
+          imageCount: p.images?.length ?? 0,
+        } satisfies StagedSummary;
+      } catch { return null; }
+    })
+    .filter((p): p is StagedSummary => p !== null)
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
+function getStaged(id: string): StagedPost | null {
+  const p = resolve(STAGING_DIR, `${id}.json`);
+  if (!existsSync(p)) return null;
+  return JSON.parse(readFileSync(p, 'utf-8')) as StagedPost;
+}
+
+function deleteStaged(id: string): void {
+  const p = resolve(STAGING_DIR, `${id}.json`);
+  if (existsSync(p)) unlinkSync(p);
+}
+
 // ── AI helpers ─────────────────────────────────────────────────────────────────
 async function generateWithAzure(system: string, prompt: string): Promise<string> {
   const endpoint   = process.env.AZURE_OPENAI_ENDPOINT;
@@ -202,6 +281,80 @@ async function generateWithAzure(system: string, prompt: string): Promise<string
   }
   const data = await res.json() as { choices: Array<{ message: { content: string } }> };
   return data.choices[0].message.content;
+}
+
+// Vision-capable call — accepts base64 images alongside text
+async function generateWithAzureVision(
+  system: string,
+  textPrompt: string,
+  images: Array<{ base64: string; mimeType?: string }>
+): Promise<string> {
+  const endpoint   = process.env.AZURE_OPENAI_ENDPOINT;
+  const key        = process.env.AZURE_OPENAI_API_KEY;
+  const deployment = process.env.AZURE_OPENAI_DEPLOYMENT ?? 'gpt-5.3-chat';
+  if (!endpoint || endpoint.includes('your-resource')) throw new Error('AZURE_OPENAI_ENDPOINT not configured');
+  if (!key || key.includes('xxx')) throw new Error('AZURE_OPENAI_API_KEY not configured');
+
+  const url = `${endpoint}openai/deployments/${deployment}/chat/completions?api-version=2024-12-01-preview`;
+  const imageContent = images.map(img => ({
+    type: 'image_url',
+    image_url: { url: `data:${img.mimeType ?? 'image/png'};base64,${img.base64}` },
+  }));
+
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${key}`, 'content-type': 'application/json' },
+    body: JSON.stringify({
+      model: deployment,
+      messages: [
+        { role: 'system', content: system },
+        { role: 'user', content: [{ type: 'text', text: textPrompt }, ...imageContent] },
+      ],
+      max_completion_tokens: 2048,
+    }),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Azure OpenAI Vision ${res.status}: ${err}`);
+  }
+  const data = await res.json() as { choices: Array<{ message: { content: string } }> };
+  return data.choices[0].message.content;
+}
+
+// Analyse style reference images and return a concise visual style description
+async function buildStyleDescription(styleRefs: Array<{ name: string; base64: string }>): Promise<string> {
+  if (styleRefs.length === 0) return '';
+  const system = `You are a visual art director. Analyse the provided brand style reference images and return a concise visual style guide (max 120 words) that can be pasted directly into an image generation prompt. Focus on: color palette, lighting, composition style, mood, subject matter, photographic vs illustrative style, and anything that must be consistent across all images. Be specific and descriptive.`;
+  const prompt = `These are ${styleRefs.length} brand style reference image(s). Describe the visual style in a way that an image generation model can replicate it consistently.`;
+  return generateWithAzureVision(system, prompt, styleRefs);
+}
+
+// Generate N tailored image prompts based on the actual blog content
+async function generateImagePrompts(
+  blogContent: string,
+  imageCount: number,
+  topic: string,
+  styleDescription: string,
+  brandDisplayName: string,
+): Promise<string[]> {
+  const system = `You are a visual art director writing image generation prompts for a blog post. You will receive the full blog post content and must return exactly ${imageCount} image generation prompt(s) — one per image — that are tightly tailored to the article's content and structure.
+
+Rules:
+- img1 is always the hero image (appears near the top, sets the scene for the whole article)
+- Subsequent images illustrate specific sections or concepts mentioned in the article
+- Each prompt must be self-contained and highly specific (what to show, style, lighting, mood, composition)
+- No text, logos, or UI overlays in images
+- Keep each prompt under 120 words
+${styleDescription ? `- Mandatory visual style to match:\n${styleDescription}` : '- Use a clean, professional, editorial photography style'}
+
+Return ONLY a JSON array of strings, e.g. ["prompt for img1", "prompt for img2"]. No explanation.`;
+
+  const userPrompt = `Brand: ${brandDisplayName}\nTopic: ${topic}\n\nFull blog post:\n${blogContent.slice(0, 6000)}`;
+  const raw = await generateWithAzure(system, userPrompt);
+  // Parse JSON array from response
+  const match = raw.match(/\[[\s\S]*\]/);
+  if (!match) throw new Error('Image prompt generation returned unexpected format');
+  return JSON.parse(match[0]) as string[];
 }
 
 async function generateImage(promptText: string): Promise<string> {
@@ -280,6 +433,31 @@ app.get('/api/existing/:brandId', (req: Request, res: Response): void => {
       result[lang] = getExistingSlugs(brandId, lang);
     }
     res.json(result);
+  } catch (err) {
+    res.status(500).json({ error: String(err) });
+  }
+});
+
+// ── GET /api/existing/:brandId/:lang/:slug ────────────────────────────────────
+app.get('/api/existing/:brandId/:lang/:slug', (req: Request, res: Response): void => {
+  try {
+    const { brandId, lang, slug } = req.params as Record<string, string>;
+    const mdxPath = resolve(REPO_ROOT, 'brands', brandId, lang, `${slug}.mdx`);
+    if (!existsSync(mdxPath)) { res.status(404).json({ error: 'Not found' }); return; }
+    const mdx = readFileSync(mdxPath, 'utf-8');
+
+    const imgDir = resolve(REPO_ROOT, 'brands', brandId, 'images', slug);
+    const images: Array<{ filename: string; previewUrl: string }> = [];
+    if (existsSync(imgDir)) {
+      for (const f of readdirSync(imgDir)) {
+        if (/\.(png|jpe?g|gif|webp)$/i.test(f)) {
+          const b64 = readFileSync(resolve(imgDir, f)).toString('base64');
+          const mime = f.match(/\.jpe?g$/i) ? 'image/jpeg' : 'image/png';
+          images.push({ filename: f, previewUrl: `data:${mime};base64,${b64}` });
+        }
+      }
+    }
+    res.json({ mdx, images });
   } catch (err) {
     res.status(500).json({ error: String(err) });
   }
@@ -400,25 +578,57 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
       const imageReady    = !imageEndpoint.includes('your-resource') && !imageKey.includes('xxx') && !!process.env.AZURE_IMAGE_DEPLOYMENT;
 
       if (imageReady) {
-        for (let i = 1; i <= imageCount; i++) {
-          send('log', `Generating image ${i}/${imageCount}…`);
-          const styleGuide = styleRefs.length > 0
-            ? ` Match the visual style of the brand's reference images: consistent color palette, composition, and mood.`
-            : '';
-          const imgPrompt = i === 1
-            ? `Professional hero image for a blog post about: ${prompt}. Clean, modern, suitable for a tech/business blog. No text overlay.${styleGuide}`
-            : `Supporting illustration for a blog post about: ${prompt}. Style consistent with a professional tech/business blog, image ${i} of ${imageCount}. No text.${styleGuide}`;
-          const base64 = await generateImage(imgPrompt);
-          images.push({ filename: `img${i}.png`, base64, previewUrl: `data:image/png;base64,${base64}` });
-          send('log', `✓ Image ${i} ready`);
+        // 4a. Analyse style references visually (if any)
+        let styleDescription = '';
+        if (styleRefs.length > 0) {
+          send('log', `Analysing ${styleRefs.length} style reference image(s)…`);
+          styleDescription = await buildStyleDescription(styleRefs);
+          send('log', '✓ Style description ready');
+        }
+
+        // 4b. Generate tailored prompts from actual blog content
+        send('log', `Writing ${imageCount} tailored image prompt(s) from article content…`);
+        const primaryLang = Object.keys(posts)[0];
+        const primaryContent = posts[primaryLang] ?? '';
+        const imagePrompts = await generateImagePrompts(
+          primaryContent,
+          imageCount,
+          prompt,
+          styleDescription,
+          brand.displayName,
+        );
+        send('log', '✓ Image prompts ready');
+
+        // 4c. Generate each image with its tailored prompt
+        for (let i = 0; i < imageCount; i++) {
+          send('log', `Generating image ${i + 1}/${imageCount}…`);
+          const base64 = await generateImage(imagePrompts[i] ?? `Professional illustration for: ${prompt}`);
+          images.push({ filename: `img${i + 1}.png`, base64, previewUrl: `data:image/png;base64,${base64}` });
+          send('log', `✓ Image ${i + 1} ready`);
         }
       } else {
         send('log', '⚠ Image generation not configured — skipping');
       }
     }
 
+    // Save to staging (persists across browser refreshes)
+    const stagedId = newStagingId();
+    saveStaged({
+      id: stagedId,
+      brandId,
+      brandName: brand.displayName,
+      slug,
+      createdAt: new Date().toISOString(),
+      languages: Object.keys(posts),
+      posts,
+      images,
+      chatHistory: {},
+      originalPrompt: prompt,
+      originalContext: context,
+    });
+
     send('log', '✅ Generation complete!');
-    send('done', { slug, posts, images });
+    send('done', { stagingId: stagedId });
     res.end();
 
   } catch (err) {
@@ -472,6 +682,69 @@ app.post('/api/push', async (req: Request, res: Response) => {
     send('done', { ok: true });
     res.end();
 
+  } catch (err) {
+    send('error', String(err));
+    res.end();
+  }
+});
+
+// ── GET /api/staging ──────────────────────────────────────────────────────────
+app.get('/api/staging', (_req: Request, res: Response) => {
+  try { res.json(listStaged()); }
+  catch (err) { res.status(500).json({ error: String(err) }); }
+});
+
+// ── GET /api/staging/:id ──────────────────────────────────────────────────────
+app.get('/api/staging/:id', (req: Request, res: Response): void => {
+  const post = getStaged(String(req.params['id']));
+  if (!post) { res.status(404).json({ error: 'Not found' }); return; }
+  res.json(post);
+});
+
+// ── DELETE /api/staging/:id ───────────────────────────────────────────────────
+app.delete('/api/staging/:id', (req: Request, res: Response) => {
+  try { deleteStaged(String(req.params['id'])); res.json({ ok: true }); }
+  catch (err) { res.status(500).json({ error: String(err) }); }
+});
+
+// ── POST /api/staging/:id/push ────────────────────────────────────────────────
+app.post('/api/staging/:id/push', async (req: Request, res: Response) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+  res.flushHeaders();
+
+  const send = (type: string, data: unknown) =>
+    res.write(`data: ${JSON.stringify({ type, data })}\n\n`);
+
+  try {
+    const post = getStaged(String(req.params['id']));
+    if (!post) throw new Error('Staged post not found');
+
+    const { id, brandId, slug, posts, images } = post;
+
+    for (const [lang, mdx] of Object.entries(posts)) {
+      const dir = resolve(REPO_ROOT, 'brands', brandId, lang);
+      mkdirSync(dir, { recursive: true });
+      writeFileSync(resolve(dir, `${slug}.mdx`), mdx, 'utf-8');
+      send('log', `✓ Written brands/${brandId}/${lang}/${slug}.mdx`);
+    }
+
+    for (const img of images ?? []) {
+      const dir = resolve(REPO_ROOT, 'brands', brandId, 'images', slug);
+      mkdirSync(dir, { recursive: true });
+      writeFileSync(resolve(dir, img.filename), Buffer.from(img.base64, 'base64'));
+      send('log', `✓ Written brands/${brandId}/images/${slug}/${img.filename}`);
+    }
+
+    send('log', 'Committing and pushing to main…');
+    const result = await gitCommitAndPush(`feat(content): add "${slug}" for ${brandId}`);
+    send('log', `🚀 ${result}`);
+    send('log', 'Auto-publish workflow will trigger shortly.');
+
+    deleteStaged(id);
+    send('done', { ok: true });
+    res.end();
   } catch (err) {
     send('error', String(err));
     res.end();
@@ -579,6 +852,119 @@ app.delete('/api/brand-context/:brandId/style-refs/:filename', (req: Request, re
     res.json({ ok: true });
   } catch (err) {
     res.status(500).json({ error: String(err) });
+  }
+});
+
+// ── POST /api/staging/:id/refine ──────────────────────────────────────────────
+app.post('/api/staging/:id/refine', async (req: Request, res: Response) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+  res.flushHeaders();
+
+  const send = (type: string, data: unknown) =>
+    res.write(`data: ${JSON.stringify({ type, data })}\n\n`);
+
+  try {
+    const id = String(req.params['id']);
+    const { lang, message } = req.body as { lang: string; message: string };
+
+    const staged = getStaged(id);
+    if (!staged) throw new Error('Staged post not found');
+
+    const brands = loadBrands();
+    const brand = brands.find(b => b.id === staged.brandId);
+    if (!brand) throw new Error('Brand not found');
+
+    const globalInstructions = readInstructions();
+    const brandContext       = readBrandContext(staged.brandId);
+    const extraContextFiles  = readAllContextFiles(staged.brandId);
+    const currentMdx = staged.posts[lang];
+    if (!currentMdx) throw new Error(`No content for language "${lang}"`);
+
+    const history: ChatMessage[] = staged.chatHistory?.[lang] ?? [];
+
+    const system = `You are a professional blog editor for ${brand.displayName} (${brand.domain}).
+
+You are refining an existing MDX blog post based on user feedback. Apply changes precisely and return the complete updated MDX.
+
+ORIGINAL GENERATION CONTEXT:
+- Topic: ${staged.originalPrompt}${staged.originalContext ? `\n- Additional context: ${staged.originalContext}` : ''}
+- Language: ${lang}
+
+${globalInstructions ? `GLOBAL WRITING INSTRUCTIONS:\n${globalInstructions}\n` : ''}${brandContext ? `BRAND CONTEXT:\n${brandContext}\n` : ''}${extraContextFiles ? `ADDITIONAL BRAND DOCUMENTS:\n${extraContextFiles}\n` : ''}
+RULES:
+- Preserve MDX frontmatter structure exactly
+- Keep all image imports and <Image /> components in place unless explicitly asked to change them
+- Description must stay under 160 characters
+- Respond in this exact format:
+CHANGES: [one sentence describing what changed]
+---
+[complete updated MDX, no code fences]`;
+
+    // Build conversation: history pairs + current MDX + new request
+    const messages: Array<{ role: string; content: string }> = [
+      { role: 'system', content: system },
+    ];
+    for (const h of history) {
+      messages.push({ role: h.role, content: h.content });
+    }
+    messages.push({
+      role: 'user',
+      content: `Current MDX:\n\`\`\`\n${currentMdx}\n\`\`\`\n\nRefinement request: ${message}`,
+    });
+
+    send('log', 'Refining…');
+
+    const endpoint   = process.env.AZURE_OPENAI_ENDPOINT!;
+    const key        = process.env.AZURE_OPENAI_API_KEY!;
+    const deployment = process.env.AZURE_OPENAI_DEPLOYMENT ?? 'gpt-5.3-chat';
+    const url = `${endpoint}openai/deployments/${deployment}/chat/completions?api-version=2024-12-01-preview`;
+
+    const apiRes = await fetch(url, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${key}`, 'content-type': 'application/json' },
+      body: JSON.stringify({ model: deployment, messages, max_completion_tokens: 8192 }),
+    });
+    if (!apiRes.ok) {
+      const err = await apiRes.text();
+      throw new Error(`Azure OpenAI ${apiRes.status}: ${err}`);
+    }
+    const apiData = await apiRes.json() as { choices: Array<{ message: { content: string } }> };
+    const raw = apiData.choices[0].message.content;
+
+    // Parse "CHANGES: ...\n---\n[mdx]"
+    const sepIdx = raw.indexOf('\n---\n');
+    let changesSummary = 'Updated.';
+    let updatedMdx = raw;
+    if (sepIdx !== -1 && raw.startsWith('CHANGES:')) {
+      changesSummary = raw.slice('CHANGES:'.length, sepIdx).trim();
+      updatedMdx = raw.slice(sepIdx + 5).trim();
+    }
+    updatedMdx = updatedMdx.replace(/^```(?:mdx)?\n?/i, '').replace(/\n?```\s*$/i, '').trim();
+    // Re-add opening --- if model stripped it but kept the closing ---
+    if (!updatedMdx.startsWith('---') && updatedMdx.includes('\n---\n')) {
+      updatedMdx = '---\n' + updatedMdx;
+    }
+
+    // Persist updated MDX + append to chat history
+    staged.posts[lang] = updatedMdx;
+    if (!staged.chatHistory) staged.chatHistory = {};
+    if (!staged.chatHistory[lang]) staged.chatHistory[lang] = [];
+    const now = new Date().toISOString();
+    staged.chatHistory[lang].push(
+      { role: 'user',      content: message,        timestamp: now },
+      { role: 'assistant', content: changesSummary, timestamp: now },
+    );
+    saveStaged(staged);
+
+    send('mdx',     updatedMdx);
+    send('summary', changesSummary);
+    send('done',    {});
+    res.end();
+  } catch (err) {
+    send('error', String(err));
+    res.end();
   }
 });
 

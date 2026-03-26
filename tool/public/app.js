@@ -5,7 +5,7 @@
 let brands = [];
 let config = { azureOpenAI: false, azureDalle: false };
 let selectedImageCount = 0;
-let generatedData = null;
+let currentStagingId = null;     // ID of the staged post open in detail view
 let activeBrand = null;          // global brand object — drives all tabs
 let activeBrandContext = '';     // brand selected in settings brand-context section
 
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   bindImageCountToggle();
   bindGlobalBrandSelect();
   bindGenerateBtn();
-  bindPreviewActions();
+  bindStagingActions();
   bindSettings();
 });
 
@@ -145,8 +145,8 @@ function switchTab(name) {
     p.classList.toggle('active', p.id === `tab-${name}`)
   );
 
-  // Auto-load existing posts when switching to that tab
   if (name === 'existing') refreshExistingTab();
+  if (name === 'preview') { closeStagingDetail(); loadStagingList(); }
 }
 
 // ── Image count toggle ─────────────────────────────────────────────────────────
@@ -225,9 +225,11 @@ async function handleGenerate() {
       },
       error: msg => addLog('ERROR: ' + msg, 'log-err'),
       done: data => {
-        generatedData = data;
-        addLog('→ Switching to Preview tab…', 'log-gold');
-        setTimeout(() => { renderPreview(generatedData); switchTab('preview'); }, 600);
+        addLog('→ Saved to staging. Opening preview…', 'log-gold');
+        setTimeout(() => {
+          loadStagingList().then(() => openStagingDetail(data.stagingId));
+          switchTab('preview');
+        }, 600);
       },
     });
   } catch (err) {
@@ -258,55 +260,436 @@ async function streamSSE(res, handlers) {
   }
 }
 
-// ── Preview ────────────────────────────────────────────────────────────────────
-function renderPreview(data) {
-  document.getElementById('preview-empty').style.display = 'none';
-  document.getElementById('preview-content').style.display = '';
-  document.getElementById('preview-slug-display').textContent = data.slug;
+// ── Staging list ───────────────────────────────────────────────────────────────
+async function loadStagingList() {
+  const list  = document.getElementById('staging-list');
+  const empty = document.getElementById('staging-empty');
+  try {
+    const posts = await api('/api/staging');
+    list.innerHTML = '';
+    if (!posts.length) {
+      empty.style.display = '';
+      return;
+    }
+    empty.style.display = 'none';
+    posts.forEach(p => list.appendChild(buildStagingCard(p)));
+  } catch (e) {
+    list.innerHTML = `<span class="muted">Error loading staging: ${e.message}</span>`;
+  }
+}
 
-  const langTabs  = document.getElementById('lang-tabs');
-  const mdxPanels = document.getElementById('mdx-panels');
+function buildStagingCard(p) {
+  const card = document.createElement('div');
+  card.className = 'staging-card';
+  card.dataset.id = p.id;
+
+  const date = new Date(p.createdAt).toLocaleDateString('en-US',
+    { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+  const langPills = p.languages.map(l =>
+    `<span class="lang-pill has">${l.toUpperCase()}</span>`).join('');
+  const imgNote = p.imageCount > 0
+    ? `<span class="staging-card-img-count">🖼 ${p.imageCount} image${p.imageCount > 1 ? 's' : ''}</span>`
+    : '';
+
+  card.innerHTML = `
+    <div class="staging-card-body">
+      <div class="staging-card-brand">${p.brandName}</div>
+      <div class="staging-card-slug">${p.slug}</div>
+      <div class="staging-card-meta">${langPills}${imgNote}<span>${date}</span></div>
+    </div>
+    <div class="staging-card-actions">
+      <button class="btn-reject" data-action="reject">✕ Reject</button>
+      <button class="btn-primary" data-action="approve">🚀 Approve &amp; Push</button>
+    </div>`;
+
+  // Click card body → open detail
+  card.querySelector('.staging-card-body').addEventListener('click', () => openStagingDetail(p.id));
+
+  // Reject button
+  card.querySelector('[data-action="reject"]').addEventListener('click', async e => {
+    e.stopPropagation();
+    if (!confirm(`Reject and delete "${p.slug}"?`)) return;
+    await rejectStaged(p.id);
+    await loadStagingList();
+  });
+
+  // Approve button
+  card.querySelector('[data-action="approve"]').addEventListener('click', async e => {
+    e.stopPropagation();
+    await openStagingDetail(p.id);
+    handleApprove(p.id);
+  });
+
+  return card;
+}
+
+function closeStagingDetail() {
+  document.getElementById('staging-list-view').style.display = '';
+  document.getElementById('staging-detail-view').style.display = 'none';
+  currentStagingId = null;
+}
+
+async function openStagingDetail(id) {
+  currentStagingId = id;
+  let post;
+  try {
+    post = await api(`/api/staging/${id}`);
+  } catch {
+    alert('Could not load staged post — it may have been approved or rejected.');
+    closeStagingDetail();
+    return;
+  }
+
+  document.getElementById('staging-list-view').style.display = 'none';
+  document.getElementById('staging-detail-view').style.display = '';
+  document.getElementById('detail-slug-display').textContent = post.slug;
+  document.getElementById('detail-push-log').style.display = 'none';
+  document.getElementById('detail-push-log-box').innerHTML = '';
+
+  // Reset approve/reject buttons
+  const approveBtn = document.getElementById('btn-approve-detail');
+  const rejectBtn  = document.getElementById('btn-reject-detail');
+  approveBtn.disabled = false;
+  rejectBtn.disabled  = false;
+  approveBtn.innerHTML = '<span class="btn-icon">🚀</span> Approve &amp; Push';
+  rejectBtn.textContent = '✕ Reject';
+
+  // Render language panels
+  const langTabs  = document.getElementById('detail-lang-tabs');
+  const mdxPanels = document.getElementById('detail-mdx-panels');
   langTabs.innerHTML = mdxPanels.innerHTML = '';
 
-  Object.keys(data.posts).forEach((lang, idx) => {
+  // Reset view toggle
+  document.querySelectorAll('#detail-view-toggle .view-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.view === 'rendered')
+  );
+
+  const langs = Object.keys(post.posts);
+
+  function activeLang() {
+    const active = langTabs.querySelector('.lang-tab.active');
+    return active ? active.textContent.toLowerCase() : langs[0];
+  }
+
+  function renderChatHistory(lang) {
+    const history = (post.chatHistory ?? {})[lang] ?? [];
+    const box = document.getElementById('chat-history');
+    const empty = document.getElementById('chat-empty');
+    // Remove old bubbles (keep empty placeholder)
+    box.querySelectorAll('.chat-bubble').forEach(el => el.remove());
+    empty.style.display = history.length ? 'none' : '';
+    history.forEach(msg => {
+      const bubble = document.createElement('div');
+      bubble.className = `chat-bubble ${msg.role}`;
+      bubble.textContent = msg.content;
+      box.appendChild(bubble);
+    });
+    box.scrollTop = box.scrollHeight;
+    document.getElementById('chat-lang-badge').textContent = lang.toUpperCase();
+  }
+
+  langs.forEach((lang, idx) => {
     const btn = document.createElement('button');
     btn.className = `lang-tab${idx === 0 ? ' active' : ''}`;
     btn.textContent = lang.toUpperCase();
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.lang-tab').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.mdx-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('#detail-lang-tabs .lang-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('#detail-mdx-panels .mdx-panel').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
-      document.getElementById(`mdx-${lang}`).classList.add('active');
+      document.getElementById(`detail-mdx-${lang}`).classList.add('active');
+      renderChatHistory(lang);
     });
     langTabs.appendChild(btn);
 
     const panel = document.createElement('div');
     panel.className = `mdx-panel${idx === 0 ? ' active' : ''}`;
-    panel.id = `mdx-${lang}`;
+    panel.id = `detail-mdx-${lang}`;
+
+    const rendered = document.createElement('div');
+    rendered.className = 'bp-rendered';
+    rendered.innerHTML = renderBlogPostHTML(post.posts[lang], post.images);
+
+    const raw = document.createElement('div');
+    raw.className = 'bp-raw';
+    raw.style.display = 'none';
     const code = document.createElement('div');
     code.className = 'mdx-code';
-    code.innerHTML = syntaxHighlight(data.posts[lang]);
-    panel.appendChild(code);
+    code.innerHTML = syntaxHighlight(post.posts[lang]);
+    raw.appendChild(code);
+
+    panel.appendChild(rendered);
+    panel.appendChild(raw);
     mdxPanels.appendChild(panel);
   });
 
-  const imagesSection = document.getElementById('images-section');
-  const imagesGrid    = document.getElementById('images-grid');
-  imagesGrid.innerHTML = '';
-  if (data.images?.length) {
-    imagesSection.style.display = '';
-    data.images.forEach(img => {
-      const card = document.createElement('div');
-      card.className = 'img-card';
-      card.innerHTML = `<img src="${img.previewUrl}" alt="${img.filename}" loading="lazy" /><div class="img-card-label">${img.filename}</div>`;
-      imagesGrid.appendChild(card);
-    });
-  } else {
-    imagesSection.style.display = 'none';
+  // Initialise chat for first language
+  renderChatHistory(langs[0]);
+
+  // Chat send handler
+  const chatInput = document.getElementById('chat-input');
+  const chatSend  = document.getElementById('btn-chat-send');
+
+  // Remove any previous listener by replacing node
+  const newSend = chatSend.cloneNode(true);
+  chatSend.parentNode.replaceChild(newSend, chatSend);
+
+  async function sendRefinement() {
+    const lang = activeLang();
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    chatInput.value = '';
+    chatInput.disabled = true;
+    newSend.disabled = true;
+
+    const box = document.getElementById('chat-history');
+    document.getElementById('chat-empty').style.display = 'none';
+
+    // Append user bubble immediately
+    const userBubble = document.createElement('div');
+    userBubble.className = 'chat-bubble user';
+    userBubble.textContent = message;
+    box.appendChild(userBubble);
+
+    // Thinking indicator
+    const thinkBubble = document.createElement('div');
+    thinkBubble.className = 'chat-bubble thinking';
+    thinkBubble.textContent = 'Refining…';
+    box.appendChild(thinkBubble);
+    box.scrollTop = box.scrollHeight;
+
+    try {
+      const res = await fetch(`/api/staging/${id}/refine`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ lang, message }),
+      });
+
+      let updatedMdx = null;
+      let summary = null;
+
+      await streamSSE(res, {
+        mdx:     d => { updatedMdx = d; },
+        summary: d => { summary = d; },
+        error:   d => { throw new Error(d); },
+      });
+
+      // Update in-memory post
+      if (!post.chatHistory) post.chatHistory = {};
+      if (!post.chatHistory[lang]) post.chatHistory[lang] = [];
+      const now = new Date().toISOString();
+      post.chatHistory[lang].push(
+        { role: 'user',      content: message,           timestamp: now },
+        { role: 'assistant', content: summary || 'Done.', timestamp: now },
+      );
+      if (updatedMdx) post.posts[lang] = updatedMdx;
+
+      // Update rendered panel
+      if (updatedMdx) {
+        const panel = document.getElementById(`detail-mdx-${lang}`);
+        if (panel) {
+          panel.querySelector('.bp-rendered').innerHTML = renderBlogPostHTML(updatedMdx, post.images);
+          const codeEl = panel.querySelector('.mdx-code');
+          if (codeEl) codeEl.innerHTML = syntaxHighlight(updatedMdx);
+        }
+      }
+
+      // Replace thinking with assistant summary
+      thinkBubble.className = 'chat-bubble assistant';
+      thinkBubble.textContent = summary || 'Done.';
+
+    } catch (err) {
+      thinkBubble.className = 'chat-bubble assistant';
+      thinkBubble.textContent = `Error: ${err.message}`;
+    } finally {
+      chatInput.disabled = false;
+      newSend.disabled = false;
+      chatInput.focus();
+      box.scrollTop = box.scrollHeight;
+    }
   }
 
-  document.getElementById('push-log-container').style.display = 'none';
-  document.getElementById('push-log-box').innerHTML = '';
+  newSend.addEventListener('click', sendRefinement);
+  chatInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendRefinement(); }
+  });
+}
+
+async function rejectStaged(id) {
+  await api(`/api/staging/${id}`, { method: 'DELETE' });
+}
+
+async function handleApprove(id) {
+  const approveBtn = document.getElementById('btn-approve-detail');
+  const rejectBtn  = document.getElementById('btn-reject-detail');
+  if (!approveBtn) return;
+
+  approveBtn.disabled = true;
+  rejectBtn.disabled  = true;
+  approveBtn.innerHTML = '<span class="btn-icon">⏳</span> Pushing…';
+
+  const logContainer = document.getElementById('detail-push-log');
+  const logBox = document.getElementById('detail-push-log-box');
+  logContainer.style.display = '';
+  logBox.innerHTML = '';
+
+  const addLog = (text, cls = '') => {
+    const span = document.createElement('span');
+    span.className = cls;
+    span.textContent = text + '\n';
+    logBox.appendChild(span);
+    logBox.scrollTop = logBox.scrollHeight;
+  };
+
+  try {
+    const res = await fetch(`/api/staging/${id}/push`, { method: 'POST' });
+    await streamSSE(res, {
+      log:   msg => addLog(msg, msg.startsWith('🚀') || msg.startsWith('✓') ? 'log-ok' : ''),
+      error: msg => addLog('ERROR: ' + msg, 'log-err'),
+      done:  () => {
+        addLog('✅ Done! Auto-publish workflow is now running.', 'log-ok');
+        approveBtn.innerHTML = '<span class="btn-icon">✅</span> Pushed!';
+        // Remove from list, go back after a moment
+        setTimeout(() => { closeStagingDetail(); loadStagingList(); }, 2000);
+      },
+    });
+  } catch (err) {
+    addLog('Network error: ' + err.message, 'log-err');
+    approveBtn.disabled = false;
+    rejectBtn.disabled  = false;
+    approveBtn.innerHTML = '<span class="btn-icon">🚀</span> Approve &amp; Push';
+  }
+}
+
+// ── Staging action bindings ────────────────────────────────────────────────────
+function bindStagingActions() {
+  document.getElementById('btn-refresh-staging').addEventListener('click', loadStagingList);
+
+  document.getElementById('btn-back-staging').addEventListener('click', () => {
+    closeStagingDetail();
+    loadStagingList();
+  });
+
+  document.getElementById('btn-approve-detail').addEventListener('click', () => {
+    if (currentStagingId) handleApprove(currentStagingId);
+  });
+
+  document.getElementById('btn-reject-detail').addEventListener('click', async () => {
+    const slug = document.getElementById('detail-slug-display').textContent;
+    if (!confirm(`Reject and delete "${slug}"?`)) return;
+    await rejectStaged(currentStagingId);
+    closeStagingDetail();
+    loadStagingList();
+  });
+
+  // View toggle in detail
+  document.querySelectorAll('#detail-view-toggle .view-btn').forEach(btn =>
+    btn.addEventListener('click', () => {
+      const view = btn.dataset.view;
+      document.querySelectorAll('#detail-view-toggle .view-btn').forEach(b =>
+        b.classList.toggle('active', b.dataset.view === view)
+      );
+      document.querySelectorAll('#detail-mdx-panels .bp-rendered').forEach(el =>
+        el.style.display = view === 'rendered' ? '' : 'none'
+      );
+      document.querySelectorAll('#detail-mdx-panels .bp-raw').forEach(el =>
+        el.style.display = view === 'raw' ? '' : 'none'
+      );
+    })
+  );
+}
+
+// ── MDX parsing helpers ────────────────────────────────────────────────────────
+function parseFrontmatter(mdx) {
+  const match = mdx.trimStart().match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)([\s\S]*)$/);
+  if (!match) return { meta: {}, body: mdx };
+  const meta = {};
+  match[1].split('\n').forEach(line => {
+    const m = line.match(/^([\w-]+):\s*(.*)/);
+    if (!m) return;
+    const key = m[1], raw = m[2].trim();
+    if (raw.startsWith('[')) {
+      // array: ["a", "b"] or [a, b]
+      meta[key] = raw.slice(1, -1).split(',')
+        .map(s => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
+    } else {
+      meta[key] = raw.replace(/^["']|["']$/g, '');
+    }
+  });
+  return { meta, body: match[2] };
+}
+
+// Build varName → previewUrl map from MDX import statements
+function buildImageMap(mdx, images) {
+  const map = {};
+  const re = /^import\s+(\w+)\s+from\s+['"][^'"]*\/([^'"\/]+)['"]/gm;
+  let m;
+  while ((m = re.exec(mdx)) !== null) {
+    const varName = m[1], filename = m[2];
+    const img = images?.find(i => i.filename === filename);
+    if (img) map[varName] = img.previewUrl;
+  }
+  return map;
+}
+
+// Strip imports + replace <Image> JSX with <img> tags for markdown rendering
+function processBodyForRender(body, imageMap) {
+  // Remove import lines
+  let out = body.replace(/^import\s+.+from\s+['"][^'"]+['"]\s*;?\r?\n?/gm, '');
+  // Replace <Image src={varName} alt="..." ... /> with markdown image
+  out = out.replace(/<Image\b([^/]*?)\/>/gs, (_, attrs) => {
+    const srcM = attrs.match(/src=\{(\w+)\}/);
+    const altM = attrs.match(/alt="([^"]*)"/);
+    const src  = srcM ? (imageMap[srcM[1]] || '') : '';
+    const alt  = altM ? altM[1] : '';
+    return src ? `\n\n![${alt}](${src})\n\n` : '';
+  });
+  // Remove any remaining unknown JSX tags (keep known HTML)
+  const knownTags = /^(img|a|strong|em|code|pre|blockquote|ul|ol|li|h[1-6]|p|br|hr|table|thead|tbody|tr|th|td|div|span|section|article)$/i;
+  out = out.replace(/<(\/?)([\w-]+)([^>]*)>/g, (full, slash, tag) =>
+    knownTags.test(tag) ? full : ''
+  );
+  return out;
+}
+
+function renderBlogPostHTML(mdx, images) {
+  const { meta, body } = parseFrontmatter(mdx);
+  const imageMap        = buildImageMap(mdx, images);
+  const processedBody   = processBodyForRender(body, imageMap);
+
+  // Date formatting
+  let dateStr = '';
+  if (meta.pubDate) {
+    try {
+      dateStr = new Date(meta.pubDate).toLocaleDateString('en-US',
+        { year: 'numeric', month: 'long', day: 'numeric' });
+    } catch { dateStr = meta.pubDate; }
+  }
+
+  // Meta line (date · author)
+  const metaParts = [dateStr, meta.author].filter(Boolean);
+  const metaHtml  = metaParts.map((p, i) =>
+    i === 0 ? `<span>${p}</span>` : `<span class="bp-meta-sep">·</span><span>${p}</span>`
+  ).join('');
+
+  // Tags
+  const tags    = Array.isArray(meta.tags) ? meta.tags : (meta.tags ? [meta.tags] : []);
+  const tagsHtml = tags.map(t => `<span class="bp-tag">${t}</span>`).join('');
+
+  // Body — render markdown to HTML
+  const bodyHtml = typeof marked !== 'undefined'
+    ? marked.parse(processedBody)
+    : `<pre>${processedBody}</pre>`;
+
+  return `
+    <div class="blog-post-view">
+      ${metaHtml ? `<div class="bp-meta">${metaHtml}</div>` : ''}
+      ${meta.title ? `<h1 class="bp-title">${meta.title}</h1>` : ''}
+      ${meta.description ? `<p class="bp-desc">${meta.description}</p>` : ''}
+      ${tagsHtml ? `<div class="bp-tags">${tagsHtml}</div>` : ''}
+      <hr class="bp-divider" />
+      <div class="bp-body">${bodyHtml}</div>
+    </div>`;
 }
 
 function syntaxHighlight(mdx) {
@@ -331,62 +714,11 @@ function syntaxHighlight(mdx) {
   }).join('\n');
 }
 
-// ── Preview actions ────────────────────────────────────────────────────────────
-function bindPreviewActions() {
-  document.getElementById('btn-back').addEventListener('click', () => switchTab('generate'));
-  document.getElementById('btn-push').addEventListener('click', handlePush);
-}
-
-async function handlePush() {
-  if (!generatedData) return;
-  if (!activeBrand) return alert('Brand not set — go back and re-generate.');
-
-  const btn = document.getElementById('btn-push');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="btn-icon">⏳</span> Pushing…';
-
-  const logContainer = document.getElementById('push-log-container');
-  const logBox = document.getElementById('push-log-box');
-  logContainer.style.display = '';
-  logBox.innerHTML = '';
-
-  const addLog = (text, cls = '') => {
-    const span = document.createElement('span');
-    span.className = cls;
-    span.textContent = text + '\n';
-    logBox.appendChild(span);
-    logBox.scrollTop = logBox.scrollHeight;
-  };
-
-  try {
-    const res = await fetch('/api/push', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        brandId: activeBrand.id,
-        slug: generatedData.slug,
-        posts: generatedData.posts,
-        images: generatedData.images || [],
-      }),
-    });
-    await streamSSE(res, {
-      log: msg => addLog(msg, (msg.startsWith('🚀') || msg.startsWith('✓')) ? 'log-ok' : ''),
-      error: msg => addLog('ERROR: ' + msg, 'log-err'),
-      done: () => {
-        addLog('✅ Done! Auto-publish workflow is now running.', 'log-ok');
-        btn.innerHTML = '<span class="btn-icon">✅</span> Pushed!';
-      },
-    });
-  } catch (err) {
-    addLog('Network error: ' + err.message, 'log-err');
-    btn.disabled = false;
-    btn.innerHTML = '<span class="btn-icon">🚀</span> Approve &amp; Push to GitHub';
-  }
-}
 
 // ── Existing posts tab ─────────────────────────────────────────────────────────
 function refreshExistingTab() {
-  const noBrand   = document.getElementById('existing-no-brand');
+  const noBrand = document.getElementById('existing-no-brand');
+  closeExistingDetail();
   if (!activeBrand) {
     noBrand.style.display = '';
     document.getElementById('existing-loading').style.display = 'none';
@@ -396,6 +728,11 @@ function refreshExistingTab() {
   }
   noBrand.style.display = 'none';
   loadExistingPosts(activeBrand.id);
+}
+
+function closeExistingDetail() {
+  document.getElementById('existing-list-view').style.display  = '';
+  document.getElementById('existing-detail-view').style.display = 'none';
 }
 
 async function loadExistingPosts(brandId) {
@@ -411,18 +748,30 @@ async function loadExistingPosts(brandId) {
     const data  = await api(`/api/existing/${brandId}`);
     const brand = brands.find(b => b.id === brandId);
     const langs = brand ? brand.languages : Object.keys(data);
-    const allSlugs = new Set(langs.flatMap(l => data[l] || []));
+    const allSlugs = [...new Set(langs.flatMap(l => data[l] || []))].sort();
 
-    if (!allSlugs.size) { empty.style.display = ''; return; }
+    if (!allSlugs.length) { empty.style.display = ''; return; }
 
-    tbody.innerHTML = [...allSlugs].sort().map(slug => {
+    tbody.innerHTML = '';
+    allSlugs.forEach(slug => {
       const pills = langs.map(l => {
         const has = (data[l] || []).includes(slug);
         return `<span class="lang-pill ${has ? 'has' : ''}">${l.toUpperCase()}</span>`;
       }).join('');
-      const ghUrl = `https://github.com/aurum-avis-labs/blog-factory/tree/main/brands/${brandId}`;
-      return `<tr><td>${slug}</td><td>${pills}</td><td><a class="gh-link" href="${ghUrl}" target="_blank">View ↗</a></td></tr>`;
-    }).join('');
+      const liveUrl = brand ? `${brand.domain}/blog/${slug}` : '#';
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="post-slug-cell">${slug}</td>
+        <td>${pills}</td>
+        <td style="text-align:right;white-space:nowrap;">
+          <a class="btn-ghost btn-sm" href="${liveUrl}" target="_blank" style="text-decoration:none;margin-right:8px;">Live ↗</a>
+          <button class="btn-ghost btn-sm btn-preview-existing">Preview</button>
+        </td>`;
+      tr.querySelector('.btn-preview-existing').addEventListener('click', () =>
+        openExistingDetail(brandId, slug, langs.filter(l => (data[l] || []).includes(slug)), brand)
+      );
+      tbody.appendChild(tr);
+    });
 
     tableWrap.style.display = '';
   } catch (err) {
@@ -430,6 +779,83 @@ async function loadExistingPosts(brandId) {
     empty.style.display = '';
   } finally {
     loading.style.display = 'none';
+  }
+}
+
+async function openExistingDetail(brandId, slug, langs, brand) {
+  document.getElementById('existing-list-view').style.display  = 'none';
+  document.getElementById('existing-detail-view').style.display = '';
+  document.getElementById('existing-slug-display').textContent  = slug;
+
+  const liveUrl = brand ? `${brand.domain}/blog/${slug}` : '#';
+  document.getElementById('existing-live-link').href = liveUrl;
+
+  const langTabs  = document.getElementById('existing-lang-tabs');
+  const mdxPanels = document.getElementById('existing-mdx-panels');
+  langTabs.innerHTML = mdxPanels.innerHTML = '';
+
+  // Reset view toggle
+  document.querySelectorAll('#existing-view-toggle .view-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.view === 'rendered')
+  );
+  document.querySelectorAll('#existing-mdx-panels .bp-raw').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('#existing-mdx-panels .bp-rendered').forEach(el => el.style.display = '');
+
+  // Bind view toggle
+  document.querySelectorAll('#existing-view-toggle .view-btn').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('#existing-view-toggle .view-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const isRendered = btn.dataset.view === 'rendered';
+      document.querySelectorAll('#existing-mdx-panels .bp-rendered').forEach(el => el.style.display = isRendered ? '' : 'none');
+      document.querySelectorAll('#existing-mdx-panels .bp-raw').forEach(el => el.style.display = isRendered ? 'none' : '');
+    };
+  });
+
+  // Bind back button
+  document.getElementById('btn-back-existing').onclick = closeExistingDetail;
+
+  // Load each language
+  for (const [idx, lang] of langs.entries()) {
+    const btn = document.createElement('button');
+    btn.className = `lang-tab${idx === 0 ? ' active' : ''}`;
+    btn.textContent = lang.toUpperCase();
+    btn.addEventListener('click', () => {
+      langTabs.querySelectorAll('.lang-tab').forEach(b => b.classList.remove('active'));
+      mdxPanels.querySelectorAll('.mdx-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(`existing-mdx-${lang}`).classList.add('active');
+    });
+    langTabs.appendChild(btn);
+
+    const panel = document.createElement('div');
+    panel.className = `mdx-panel${idx === 0 ? ' active' : ''}`;
+    panel.id = `existing-mdx-${lang}`;
+
+    // Placeholder while loading
+    panel.innerHTML = `<div class="muted" style="padding:20px">Loading ${lang.toUpperCase()}…</div>`;
+    mdxPanels.appendChild(panel);
+
+    // Fetch MDX async
+    api(`/api/existing/${brandId}/${lang}/${slug}`).then(({ mdx, images }) => {
+      const rendered = document.createElement('div');
+      rendered.className = 'bp-rendered';
+      rendered.innerHTML = renderBlogPostHTML(mdx, images);
+
+      const raw = document.createElement('div');
+      raw.className = 'bp-raw';
+      raw.style.display = 'none';
+      const code = document.createElement('div');
+      code.className = 'mdx-code';
+      code.innerHTML = syntaxHighlight(mdx);
+      raw.appendChild(code);
+
+      panel.innerHTML = '';
+      panel.appendChild(rendered);
+      panel.appendChild(raw);
+    }).catch(() => {
+      panel.innerHTML = `<div class="muted" style="padding:20px">Could not load ${lang.toUpperCase()} version.</div>`;
+    });
   }
 }
 
