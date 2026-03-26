@@ -321,11 +321,18 @@ async function generateWithAzureVision(
   return data.choices[0].message.content;
 }
 
-// Analyse style reference images and return a concise visual style description
+// Analyse style reference images — extracts character + style description for prompt injection
 async function buildStyleDescription(styleRefs: Array<{ name: string; base64: string }>): Promise<string> {
   if (styleRefs.length === 0) return '';
-  const system = `You are a visual art director. Analyse the provided brand style reference images and return a concise visual style guide (max 120 words) that can be pasted directly into an image generation prompt. Focus on: color palette, lighting, composition style, mood, subject matter, photographic vs illustrative style, and anything that must be consistent across all images. Be specific and descriptive.`;
-  const prompt = `These are ${styleRefs.length} brand style reference image(s). Describe the visual style in a way that an image generation model can replicate it consistently.`;
+  const system = `You are a visual art director. Analyse the provided brand style reference images and return a detailed description (max 150 words) for use in image generation prompts. Cover:
+1. Character/subject details — physical features, outfit, colors, distinctive traits (important for consistency)
+2. Art style — illustrative vs photographic, rendering technique, line work
+3. Color palette — dominant and accent colors with hex-like descriptions
+4. Lighting and mood
+5. Composition style
+
+Be highly specific so an image model can recreate the same character and aesthetic consistently.`;
+  const prompt = `These are ${styleRefs.length} brand style/character reference image(s). Describe everything needed to reproduce this style and character consistently across new images.`;
   return generateWithAzureVision(system, prompt, styleRefs);
 }
 
@@ -336,53 +343,96 @@ async function generateImagePrompts(
   topic: string,
   styleDescription: string,
   brandDisplayName: string,
+  hasReferenceImages: boolean,
 ): Promise<string[]> {
-  const system = `You are a visual art director writing image generation prompts for a blog post. You will receive the full blog post content and must return exactly ${imageCount} image generation prompt(s) — one per image — that are tightly tailored to the article's content and structure.
+  const styleBlock = styleDescription
+    ? `STYLE & CHARACTER (mandatory for all images — reference image is also passed directly):\n${styleDescription}`
+    : 'Use a clean, professional, editorial photography style.';
 
-Rules:
-- img1 is always the hero image (appears near the top, sets the scene for the whole article)
-- Subsequent images illustrate specific sections or concepts mentioned in the article
-- Each prompt must be self-contained and highly specific (what to show, style, lighting, mood, composition)
-- No text, logos, or UI overlays in images
-- Keep each prompt under 120 words
-${styleDescription ? `- Mandatory visual style to match:\n${styleDescription}` : '- Use a clean, professional, editorial photography style'}
+  const referenceNote = hasReferenceImages
+    ? `REFERENCE IMAGE NOTE: A reference image is passed alongside each prompt via the edits API. Your prompt MUST explicitly say "preserve the character's exact appearance, outfit, colors, and art style from the reference image" — but the SCENE itself must be completely unique per image.`
+    : '';
 
-Return ONLY a JSON array of strings, e.g. ["prompt for img1", "prompt for img2"]. No explanation.`;
+  const system = `You are a visual art director creating ${imageCount} image generation prompt(s) for a blog post. Each image must illustrate a DIFFERENT, SPECIFIC section of the article.
 
-  const userPrompt = `Brand: ${brandDisplayName}\nTopic: ${topic}\n\nFull blog post:\n${blogContent.slice(0, 6000)}`;
+CRITICAL VARIETY RULES — strictly enforced:
+- Every image must depict a completely different scene, subject, action, and setting
+- Different camera angle for each: e.g. close-up, wide establishing shot, overhead, eye-level
+- Different primary subject per image: e.g. img1 = character in environment, img2 = object/tool detail, img3 = interaction/process
+- Explicitly forbidden: two images with the same composition, same background, same pose, or same primary focus
+- img1 is the hero — broad, atmospheric, sets the overall tone
+- img2+ each map to a NAMED section or concept from the article — quote the section topic in the prompt so the scene is unmistakably different
+
+PROMPT FORMAT — each prompt must include:
+1. Primary subject and action (what is happening)
+2. Environment/setting (where, what surrounds it)
+3. Camera framing (close-up / wide / overhead / etc.)
+4. Lighting and mood
+5. ${hasReferenceImages ? '"Preserve character appearance from reference image"' : 'Art style and rendering'}
+
+No text, logos, or UI elements in any image. Max 130 words per prompt.
+
+${referenceNote}
+
+${styleBlock}
+
+Return ONLY a valid JSON array of exactly ${imageCount} string(s). No explanation outside the array.`;
+
+  const userPrompt = `Brand: ${brandDisplayName}\nTopic: ${topic}\n\nFull blog post (read all sections before writing prompts):\n${blogContent.slice(0, 7000)}`;
   const raw = await generateWithAzure(system, userPrompt);
-  // Parse JSON array from response
   const match = raw.match(/\[[\s\S]*\]/);
   if (!match) throw new Error('Image prompt generation returned unexpected format');
   return JSON.parse(match[0]) as string[];
 }
 
-async function generateImage(promptText: string): Promise<string> {
-  const endpoint   = process.env.AZURE_IMAGE_ENDPOINT ?? process.env.AZURE_OPENAI_ENDPOINT;
+// Generate one image — uses /images/edits (multipart) when a reference image is supplied,
+// falls back to /images/generations (JSON) when there are none.
+async function generateImage(promptText: string, referenceBase64?: string): Promise<string> {
+  const endpoint   = (process.env.AZURE_IMAGE_ENDPOINT ?? process.env.AZURE_OPENAI_ENDPOINT ?? '').replace(/\/$/, '') + '/';
   const key        = process.env.AZURE_IMAGE_API_KEY  ?? process.env.AZURE_OPENAI_API_KEY;
   const deployment = process.env.AZURE_IMAGE_DEPLOYMENT ?? 'gpt-image-1.5';
   if (!endpoint || endpoint.includes('your-resource')) throw new Error('AZURE_IMAGE_ENDPOINT not configured');
   if (!key || key.includes('xxx')) throw new Error('AZURE_IMAGE_API_KEY not configured');
 
-  const url = `${endpoint}openai/deployments/${deployment}/images/generations?api-version=2024-02-01`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Authorization': `Bearer ${key}`, 'content-type': 'application/json' },
-    body: JSON.stringify({
-      prompt: promptText,
-      n: 1,
-      size: '1024x1024',
-      quality: 'medium',
-      output_format: 'png',
-      output_compression: 100,
-    }),
-  });
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Image generation ${res.status}: ${err}`);
+  const API_VERSION = '2025-04-01-preview';
+
+  if (referenceBase64) {
+    // ── /images/edits: passes reference image for character/style consistency ──
+    const url = `${endpoint}openai/deployments/${deployment}/images/edits?api-version=${API_VERSION}`;
+    const imageBuffer = Buffer.from(referenceBase64, 'base64');
+    const form = new FormData();
+    form.append('image', new Blob([imageBuffer], { type: 'image/png' }), 'reference.png');
+    form.append('prompt', promptText);
+    form.append('n', '1');
+    form.append('size', '1024x1024');
+    form.append('quality', 'high');
+
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${key}` }, // no Content-Type — fetch sets multipart boundary
+      body: form,
+    });
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`Image edit ${res.status}: ${err}`);
+    }
+    const data = await res.json() as { data: Array<{ b64_json: string }> };
+    return data.data[0].b64_json;
+  } else {
+    // ── /images/generations: text-only fallback ────────────────────────────────
+    const url = `${endpoint}openai/deployments/${deployment}/images/generations?api-version=${API_VERSION}`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${key}`, 'content-type': 'application/json' },
+      body: JSON.stringify({ prompt: promptText, n: 1, size: '1024x1024', quality: 'high', output_format: 'png' }),
+    });
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`Image generation ${res.status}: ${err}`);
+    }
+    const data = await res.json() as { data: Array<{ b64_json: string }> };
+    return data.data[0].b64_json;
   }
-  const data = await res.json() as { data: Array<{ b64_json: string }> };
-  return data.data[0].b64_json; // base64 PNG
 }
 
 // ── Express app ────────────────────────────────────────────────────────────────
@@ -578,12 +628,16 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
       const imageReady    = !imageEndpoint.includes('your-resource') && !imageKey.includes('xxx') && !!process.env.AZURE_IMAGE_DEPLOYMENT;
 
       if (imageReady) {
-        // 4a. Analyse style references visually (if any)
+        const hasRefs = styleRefs.length > 0;
+        // Primary reference image passed directly to /images/edits for character consistency
+        const primaryRef = hasRefs ? styleRefs[0].base64 : undefined;
+
+        // 4a. Analyse style references visually — builds character + style description for prompts
         let styleDescription = '';
-        if (styleRefs.length > 0) {
-          send('log', `Analysing ${styleRefs.length} style reference image(s)…`);
+        if (hasRefs) {
+          send('log', `Analysing ${styleRefs.length} style reference image(s) for character & style…`);
           styleDescription = await buildStyleDescription(styleRefs);
-          send('log', '✓ Style description ready');
+          send('log', '✓ Character & style description ready');
         }
 
         // 4b. Generate tailored prompts from actual blog content
@@ -596,13 +650,15 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
           prompt,
           styleDescription,
           brand.displayName,
+          hasRefs,
         );
         send('log', '✓ Image prompts ready');
 
-        // 4c. Generate each image with its tailored prompt
+        // 4c. Generate each image — passes reference image via /images/edits when available
         for (let i = 0; i < imageCount; i++) {
-          send('log', `Generating image ${i + 1}/${imageCount}…`);
-          const base64 = await generateImage(imagePrompts[i] ?? `Professional illustration for: ${prompt}`);
+          const mode = primaryRef ? 'with reference image' : 'text-only';
+          send('log', `Generating image ${i + 1}/${imageCount} (${mode})…`);
+          const base64 = await generateImage(imagePrompts[i] ?? `Professional illustration for: ${prompt}`, primaryRef);
           images.push({ filename: `img${i + 1}.png`, base64, previewUrl: `data:image/png;base64,${base64}` });
           send('log', `✓ Image ${i + 1} ready`);
         }
