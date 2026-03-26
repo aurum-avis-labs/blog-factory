@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Factory — Aurum Avis Labs</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="layout">
+
+    <!-- ── Top bar ─────────────────────────────────────────────────── -->
+    <header class="topbar">
+      <div class="topbar-brand">
+        <span class="logo-mark">✦</span>
+        <span class="logo-name">Blog Factory</span>
+        <span class="logo-sep">/</span>
+        <span class="logo-sub">Aurum Avis Labs</span>
+      </div>
+
+      <!-- Global brand selector -->
+      <div class="topbar-brand-select">
+        <select id="global-brand-select" class="topbar-select">
+          <option value="">Select brand…</option>
+        </select>
+      </div>
+
+      <!-- Page tabs -->
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="generate">Generate</button>
+        <button class="tab-btn" data-tab="preview">Preview</button>
+        <button class="tab-btn" data-tab="existing">Existing Posts</button>
+      </nav>
+
+      <!-- Settings — far right -->
+      <button class="topbar-settings-btn tab-btn" data-tab="settings" title="Settings">
+        ⚙ Settings
+      </button>
+    </header>
+
+    <!-- ── Main content ───────────────────────────────────────────── -->
+    <main class="main">
+
+      <!-- ── Generate Tab ─────────────────────────────────────────── -->
+      <div class="tab-panel active" id="tab-generate">
+        <div class="form-grid">
+
+          <div class="brand-info-bar hidden" id="brand-info-bar">
+            <div class="brand-info-item">
+              <span class="binfo-label">Domain</span>
+              <span class="binfo-val" id="binfo-domain">—</span>
+            </div>
+            <div class="brand-info-item">
+              <span class="binfo-label">Repo</span>
+              <span class="binfo-val" id="binfo-repo">—</span>
+            </div>
+            <div class="brand-info-item">
+              <span class="binfo-label">Languages</span>
+              <span class="binfo-val" id="binfo-langs">—</span>
+            </div>
+          </div>
+
+          <div class="field" id="field-languages">
+            <label class="field-label">Languages</label>
+            <div class="checkbox-group" id="lang-checkboxes">
+              <span class="muted">Select a brand in the top bar first</span>
+            </div>
+          </div>
+
+          <div class="field field-full">
+            <label class="field-label">Blog Topic / Prompt</label>
+            <textarea id="prompt-input" class="input textarea" rows="3"
+              placeholder="e.g. Why AI virtual teams are the future of work for SMBs"></textarea>
+          </div>
+
+          <div class="field field-full">
+            <label class="field-label">Additional Context <span class="optional">(optional)</span></label>
+            <textarea id="context-input" class="input textarea" rows="2"
+              placeholder="e.g. Focus on cost angle, target audience: SMB founders…"></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Images</label>
+            <div class="toggle-group">
+              <button class="toggle-btn active" data-count="0">None</button>
+              <button class="toggle-btn" data-count="2">2</button>
+              <button class="toggle-btn" data-count="3">3</button>
+              <button class="toggle-btn" data-count="4">4</button>
+            </div>
+            <p class="field-hint" id="dalle-hint"></p>
+          </div>
+
+          <div class="field field-full">
+            <button class="btn-primary" id="generate-btn">
+              <span class="btn-icon">✦</span> Generate Blog Post
+            </button>
+          </div>
+
+          <div class="field field-full" id="log-container" style="display:none;">
+            <label class="field-label">Progress</label>
+            <div class="log-box" id="log-box"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── Preview Tab ──────────────────────────────────────────── -->
+      <div class="tab-panel" id="tab-preview">
+        <div class="preview-empty" id="preview-empty">
+          <div class="preview-empty-icon">✦</div>
+          <p>Generate a blog post to preview it here.</p>
+        </div>
+        <div id="preview-content" style="display:none;">
+          <div class="preview-header">
+            <div>
+              <div class="preview-slug-label">Slug</div>
+              <div class="preview-slug" id="preview-slug-display">—</div>
+            </div>
+            <div class="preview-actions">
+              <button class="btn-ghost" id="btn-back">← Back to Edit</button>
+              <button class="btn-primary" id="btn-push">
+                <span class="btn-icon">🚀</span> Approve &amp; Push to GitHub
+              </button>
+            </div>
+          </div>
+          <div class="lang-tabs" id="lang-tabs"></div>
+          <div class="mdx-panels" id="mdx-panels"></div>
+          <div id="images-section" style="display:none;">
+            <div class="section-title">Generated Images</div>
+            <div class="images-grid" id="images-grid"></div>
+          </div>
+          <div id="push-log-container" style="display:none; margin-top: 24px;">
+            <div class="section-title">Push Progress</div>
+            <div class="log-box" id="push-log-box"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Existing Posts Tab ───────────────────────────────────── -->
+      <div class="tab-panel" id="tab-existing">
+        <div id="existing-no-brand" class="muted">Select a brand in the top bar to view its posts.</div>
+        <div id="existing-loading" style="display:none;" class="muted">Loading posts…</div>
+        <div id="existing-empty" style="display:none;" class="muted">No posts found for this brand yet.</div>
+        <div id="existing-table-wrap" style="display:none;">
+          <table class="posts-table">
+            <thead><tr><th>Slug</th><th>Languages</th><th>Link</th></tr></thead>
+            <tbody id="existing-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── Settings Tab ─────────────────────────────────────────── -->
+      <div class="tab-panel" id="tab-settings">
+
+        <!-- API Connections -->
+        <div class="settings-section">
+          <div class="settings-title">API Connections</div>
+          <div class="settings-desc" style="margin-bottom:14px;">Read from <code>tool/.env.local</code> — restart the server after changing keys.</div>
+          <div class="api-status-grid">
+            <div class="api-status-item" id="status-azure">
+              <span class="status-dot"></span>
+              <div>
+                <div class="api-status-name">Azure OpenAI</div>
+                <div class="api-status-detail" id="status-azure-detail">Text generation</div>
+              </div>
+              <span class="status-badge">—</span>
+            </div>
+            <div class="api-status-item" id="status-dalle">
+              <span class="status-dot"></span>
+              <div>
+                <div class="api-status-name">Image Generation</div>
+                <div class="api-status-detail" id="status-dalle-detail">gpt-image-1.5</div>
+              </div>
+              <span class="status-badge">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Global Writing Instructions -->
+        <div class="settings-section">
+          <div class="settings-section-header">
+            <div>
+              <div class="settings-title">Global Writing Instructions</div>
+              <div class="settings-desc">Applied to every post across all brands — tone, formatting rules, forbidden words, SEO guidelines, CTA requirements.</div>
+            </div>
+            <button class="btn-save" id="save-instructions-btn">Save</button>
+          </div>
+          <textarea id="global-instructions" class="input textarea settings-textarea"
+            placeholder="e.g. Always write in an authoritative but approachable tone. Never use buzzwords like 'game-changer'. End every post with a clear call-to-action. Max 3 sentences per paragraph…"></textarea>
+          <div class="save-status" id="instructions-save-status"></div>
+        </div>
+
+        <!-- Brand Context -->
+        <div class="settings-section">
+          <div class="settings-section-header">
+            <div>
+              <div class="settings-title">Brand Context</div>
+              <div class="settings-desc">Brand-specific context injected at generation time — audience, products, tone nuances, competitors to avoid.</div>
+            </div>
+          </div>
+
+          <!-- Brand picker -->
+          <div class="context-sub-section">
+            <label class="field-label" style="margin-bottom:8px;">Brand</label>
+            <select id="context-brand-select" class="input" style="max-width:280px;">
+              <option value="">Select a brand…</option>
+            </select>
+          </div>
+
+          <!-- Brand description -->
+          <div class="context-sub-section" id="brand-desc-section">
+            <div class="context-sub-header">
+              <span class="context-sub-label">Brand Description</span>
+              <button class="btn-save btn-save-sm" id="save-context-btn">Save</button>
+            </div>
+            <textarea id="brand-context" class="input textarea settings-textarea"
+              placeholder="Select a brand above, then describe it here — audience, products, tone nuances, competitors to avoid…"></textarea>
+            <div class="save-status" id="context-save-status"></div>
+          </div>
+
+          <!-- Context .md files -->
+          <div class="context-sub-section" id="context-files-section">
+            <div class="context-sub-header">
+              <span class="context-sub-label">Context Files <span class="optional">(.md / .txt — appended to brand context at generation time)</span></span>
+              <label class="btn-upload" id="add-file-btn">
+                + Add File
+                <input type="file" id="context-file-input" accept=".md,.txt" multiple />
+              </label>
+            </div>
+            <div class="file-list" id="context-file-list">
+              <span class="muted">Select a brand to manage context files</span>
+            </div>
+          </div>
+
+          <!-- Style reference images -->
+          <div class="context-sub-section" id="style-refs-section">
+            <div class="context-sub-header">
+              <span class="context-sub-label">Style References <span class="optional">(images — used to guide image generation)</span></span>
+              <label class="btn-upload" id="add-img-btn">
+                + Add Images
+                <input type="file" id="style-ref-input" accept="image/png,image/jpeg,image/webp" multiple />
+              </label>
+            </div>
+            <div class="style-refs-grid" id="style-refs-grid">
+              <span class="muted">Select a brand to manage style references</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
