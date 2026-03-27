@@ -328,9 +328,20 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
       jobLog(job, `✓ ${lang.toUpperCase()} post ready (${mdx.length} chars)`);
     }
 
+    // Extract the LLM-written alt texts from the English (or first) MDX before generating images.
+    // The LLM writes context-aware, language-appropriate alt text for each <Image> tag;
+    // we store these on the image objects so staging/push code can use them if needed.
+    function extractAltFromMdx(mdx: string, imgVar: string): string {
+      const match = mdx.match(new RegExp(`<Image\\s[^>]*src=\\{${imgVar}\\}[^>]*alt="([^"]+)"`));
+      if (!match) {
+        // Also try alt before src
+        const match2 = mdx.match(new RegExp(`<Image\\s[^>]*alt="([^"]+)"[^>]*src=\\{${imgVar}\\}`));
+        return match2?.[1] ?? '';
+      }
+      return match[1];
+    }
+
     const images: Array<{ filename: string; base64: string; previewUrl: string; alt: string }> = [];
-    // alt text map: imgN.png → concise alt string, built from the image prompt
-    const altMap: Record<string, string> = {};
 
     if (imageCount > 0) {
       const imageEndpoint = process.env.AZURE_IMAGE_ENDPOINT ?? process.env.AZURE_OPENAI_ENDPOINT ?? '';
@@ -351,18 +362,15 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
           styleDescription, brand.displayName, hasRefs,
         );
         jobLog(job, '✓ Image prompts ready');
+        // Use the English post (or first available) as the source of alt text
+        const altSourceMdx = posts['en'] ?? posts[Object.keys(posts)[0]] ?? '';
         for (let i = 0; i < imageCount; i++) {
           const mode = primaryRef ? 'with reference image' : 'text-only';
           jobLog(job, `Generating image ${i + 1}/${imageCount} (${mode})…`);
-          // Derive a concise alt text from the image prompt (strip style/quality clauses, cap at 120 chars)
           const rawPrompt = imagePrompts[i] ?? `Illustration for: ${prompt}`;
-          const alt = rawPrompt
-            .replace(/\b(hyper-?realistic|photorealistic|cinematic|8k|uhd|high quality|sharp focus|masterpiece|trending on artstation)[^,.]*/gi, '')
-            .replace(/\s{2,}/g, ' ')
-            .trim()
-            .slice(0, 120)
-            .replace(/[,.\s]+$/, '');
-          altMap[`img${i + 1}.png`] = alt;
+          // Prefer the LLM-written alt from the MDX; fall back to a trimmed version of the image prompt
+          const alt = extractAltFromMdx(altSourceMdx, `img${i + 1}`) ||
+            rawPrompt.replace(/\s{2,}/g, ' ').trim().slice(0, 120).replace(/[,.\s]+$/, '');
           try {
             const base64 = await generateImage(rawPrompt, primaryRef);
             images.push({ filename: `img${i + 1}.png`, base64, previewUrl: `data:image/png;base64,${base64}`, alt });
@@ -372,21 +380,6 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
           }
         }
       } else { jobLog(job, '⚠ Image generation not configured — skipping'); }
-    }
-
-    // Patch alt text in every language's MDX: replace the LLM placeholder with the real prompt-derived alt
-    // Pattern: <Image src={imgN} alt="..." ...  />  — we replace the alt value per image index
-    for (const lang of Object.keys(posts)) {
-      let mdx = posts[lang];
-      for (const [filename, alt] of Object.entries(altMap)) {
-        const imgVar = filename.replace('.png', ''); // img1, img2 …
-        // Replace alt="anything" on the specific <Image src={imgN} ...> tag
-        mdx = mdx.replace(
-          new RegExp(`(<Image\\s+src=\\{${imgVar}\\}[^>]*?)alt="[^"]*"`, 'g'),
-          `$1alt="${alt.replace(/"/g, "'")}"`,
-        );
-      }
-      posts[lang] = mdx;
     }
 
     const stagedId = newStagingId();
