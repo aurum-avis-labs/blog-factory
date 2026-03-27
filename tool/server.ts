@@ -193,7 +193,7 @@ interface StagedPost {
   createdAt: string;
   languages: string[];
   posts: Record<string, string>;
-  images: Array<{ filename: string; base64: string; previewUrl: string }>;
+  images: Array<{ filename: string; base64: string; previewUrl: string; alt: string }>;
   chatHistory: Record<string, ChatMessage[]>;
   originalPrompt: string;
   originalContext?: string;
@@ -328,7 +328,10 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
       jobLog(job, `✓ ${lang.toUpperCase()} post ready (${mdx.length} chars)`);
     }
 
-    const images: Array<{ filename: string; base64: string; previewUrl: string }> = [];
+    const images: Array<{ filename: string; base64: string; previewUrl: string; alt: string }> = [];
+    // alt text map: imgN.png → concise alt string, built from the image prompt
+    const altMap: Record<string, string> = {};
+
     if (imageCount > 0) {
       const imageEndpoint = process.env.AZURE_IMAGE_ENDPOINT ?? process.env.AZURE_OPENAI_ENDPOINT ?? '';
       const imageKey      = process.env.AZURE_IMAGE_API_KEY  ?? process.env.AZURE_OPENAI_API_KEY  ?? '';
@@ -351,15 +354,39 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
         for (let i = 0; i < imageCount; i++) {
           const mode = primaryRef ? 'with reference image' : 'text-only';
           jobLog(job, `Generating image ${i + 1}/${imageCount} (${mode})…`);
+          // Derive a concise alt text from the image prompt (strip style/quality clauses, cap at 120 chars)
+          const rawPrompt = imagePrompts[i] ?? `Illustration for: ${prompt}`;
+          const alt = rawPrompt
+            .replace(/\b(hyper-?realistic|photorealistic|cinematic|8k|uhd|high quality|sharp focus|masterpiece|trending on artstation)[^,.]*/gi, '')
+            .replace(/\s{2,}/g, ' ')
+            .trim()
+            .slice(0, 120)
+            .replace(/[,.\s]+$/, '');
+          altMap[`img${i + 1}.png`] = alt;
           try {
-            const base64 = await generateImage(imagePrompts[i] ?? `Professional illustration for: ${prompt}`, primaryRef);
-            images.push({ filename: `img${i + 1}.png`, base64, previewUrl: `data:image/png;base64,${base64}` });
+            const base64 = await generateImage(rawPrompt, primaryRef);
+            images.push({ filename: `img${i + 1}.png`, base64, previewUrl: `data:image/png;base64,${base64}`, alt });
             jobLog(job, `✓ Image ${i + 1} ready`);
           } catch (imgErr) {
             jobLog(job, `⚠ Image ${i + 1} failed (skipping): ${String(imgErr)}`);
           }
         }
       } else { jobLog(job, '⚠ Image generation not configured — skipping'); }
+    }
+
+    // Patch alt text in every language's MDX: replace the LLM placeholder with the real prompt-derived alt
+    // Pattern: <Image src={imgN} alt="..." ...  />  — we replace the alt value per image index
+    for (const lang of Object.keys(posts)) {
+      let mdx = posts[lang];
+      for (const [filename, alt] of Object.entries(altMap)) {
+        const imgVar = filename.replace('.png', ''); // img1, img2 …
+        // Replace alt="anything" on the specific <Image src={imgN} ...> tag
+        mdx = mdx.replace(
+          new RegExp(`(<Image\\s+src=\\{${imgVar}\\}[^>]*?)alt="[^"]*"`, 'g'),
+          `$1alt="${alt.replace(/"/g, "'")}"`,
+        );
+      }
+      posts[lang] = mdx;
     }
 
     const stagedId = newStagingId();
