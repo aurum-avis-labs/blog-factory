@@ -5,6 +5,7 @@ import { dirname, join, resolve } from 'path';
 import { createServer } from 'http';
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import { EventEmitter } from 'events';
 
 const execAsync = promisify(exec);
 const __filename = fileURLToPath(import.meta.url);
@@ -208,6 +209,177 @@ interface StagedSummary {
   languages: string[];
   imageCount: number;
   status: 'pending' | 'approved';
+}
+
+// ── Job queue ──────────────────────────────────────────────────────────────────
+interface JobBody {
+  brandId: string;
+  languages: string[];
+  prompt: string;
+  context?: string;
+  imageCount: number;
+}
+
+interface Job {
+  id: string;
+  brandId: string;
+  brandName: string;
+  topic: string;
+  languages: string[];
+  imageCount: number;
+  status: 'queued' | 'running' | 'complete' | 'failed';
+  progress: string[];
+  createdAt: string;
+  completedAt?: string;
+  stagingId?: string;
+  error?: string;
+  _body: JobBody;
+}
+
+const jobStore = new Map<string, Job>();
+const jobQueue: string[] = [];      // ordered list of queued job IDs
+const jobEmitter = new EventEmitter();
+const MAX_CONCURRENT = 2;
+let runningJobs = 0;
+
+function newJobId(): string {
+  return `job-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 5)}`;
+}
+
+function jobLog(job: Job, msg: string): void {
+  job.progress.push(msg);
+  jobEmitter.emit(`${job.id}:log`, msg);
+}
+
+function jobDone(job: Job, stagingId: string): void {
+  job.status = 'complete';
+  job.stagingId = stagingId;
+  job.completedAt = new Date().toISOString();
+  jobEmitter.emit(`${job.id}:done`, { stagingId });
+}
+
+function jobFail(job: Job, error: string): void {
+  job.status = 'failed';
+  job.error = error;
+  job.completedAt = new Date().toISOString();
+  jobEmitter.emit(`${job.id}:error`, error);
+}
+
+async function runJob(job: Job): Promise<void> {
+  const { brandId, languages, prompt, context, imageCount } = job._body;
+  try {
+    jobLog(job, `Loading brand config for "${brandId}"…`);
+    const brands = loadBrands();
+    const brand = brands.find(b => b.id === brandId);
+    if (!brand) throw new Error(`Brand "${brandId}" not found`);
+
+    const globalInstructions = readInstructions();
+    const brandContext       = readBrandContext(brandId);
+    const extraContextFiles  = readAllContextFiles(brandId);
+    const styleRefs          = listStyleRefs(brandId);
+
+    jobLog(job, 'Reading existing posts from local repo…');
+    const existingByLang: Record<string, string[]> = {};
+    for (const lang of languages) existingByLang[lang] = getExistingSlugs(brandId, lang);
+
+    const posts: Record<string, string> = {};
+    let slug = '';
+
+    for (const lang of languages) {
+      jobLog(job, `Generating ${lang.toUpperCase()} post with Azure OpenAI…`);
+      const imageInstructions = imageCount > 0
+        ? `Include ${imageCount} image${imageCount > 1 ? 's' : ''}. Add this import block immediately after the frontmatter ---:\n\nimport { Image } from 'astro:assets';\n${Array.from({ length: imageCount }, (_, i) => `import img${i + 1} from '@/assets/blog/POST_SLUG/img${i + 1}.png';`).join('\n')}\n\nPlace <Image src={imgN} alt="descriptive alt text" width={700} quality={80} class="w-full" /> at natural content breaks. img1 appears near the top as the hero.`
+        : 'Do not include any images. Omit the image field from frontmatter.';
+      const existingList = existingByLang[lang]?.length
+        ? existingByLang[lang].map(s => `- ${s}`).join('\n') : 'None yet.';
+
+      const system = `You are a professional blog writer for ${brand.displayName} (${brand.domain}).
+Write a complete, high-quality MDX blog post in ${lang === 'en' ? 'English' : lang === 'de' ? 'German' : lang === 'fr' ? 'French' : lang === 'it' ? 'Italian' : lang}.
+FRONTMATTER (mandatory, exact format):
+---
+title: "Post Title"
+description: "Under 160 chars"
+pubDate: ${today()}
+author: "${brand.displayName}"
+${imageCount > 0 ? 'image: "@/assets/blog/POST_SLUG/img1.png"' : ''}
+tags: ["tag1", "tag2", "tag3"]
+draft: false
+relatedPosts: []
+---
+RULES:
+- Slug must be localized to the post language
+- Use POST_SLUG as a placeholder in all image paths
+- Use h2, h3 headings only — never h1
+- Description must be under 160 characters
+- Write 600–900 words of substantive, insightful content
+- Professional tone, not salesy
+- Include 2–3 relevant tags
+${imageInstructions}
+${globalInstructions ? `\nGLOBAL WRITING INSTRUCTIONS:\n${globalInstructions}` : ''}
+${brandContext ? `\nBRAND CONTEXT:\n${brandContext}` : ''}
+${extraContextFiles ? `\nADDITIONAL BRAND DOCUMENTS:\n${extraContextFiles}` : ''}
+Existing posts to avoid duplicating:\n${existingList}
+Return ONLY the raw MDX. No explanation, no code fences.`;
+
+      let mdx = await generateWithAzure(system, `Topic: ${prompt}${context ? `\n\nAdditional context: ${context}` : ''}`);
+      mdx = mdx.replace(/^```(?:mdx)?\n?/i, '').replace(/\n?```\s*$/i, '').trim();
+      if (!slug) { slug = generateSlug(extractTitle(mdx)); jobLog(job, `Slug: "${slug}"`); }
+      posts[lang] = mdx.replace(/POST_SLUG/g, slug);
+      jobLog(job, `✓ ${lang.toUpperCase()} post ready (${mdx.length} chars)`);
+    }
+
+    const images: Array<{ filename: string; base64: string; previewUrl: string }> = [];
+    if (imageCount > 0) {
+      const imageEndpoint = process.env.AZURE_IMAGE_ENDPOINT ?? process.env.AZURE_OPENAI_ENDPOINT ?? '';
+      const imageKey      = process.env.AZURE_IMAGE_API_KEY  ?? process.env.AZURE_OPENAI_API_KEY  ?? '';
+      const imageReady    = !imageEndpoint.includes('your-resource') && !imageKey.includes('xxx') && !!process.env.AZURE_IMAGE_DEPLOYMENT;
+      if (imageReady) {
+        const hasRefs = styleRefs.length > 0;
+        const primaryRef = hasRefs ? styleRefs[0].base64 : undefined;
+        let styleDescription = '';
+        if (hasRefs) {
+          jobLog(job, `Analysing ${styleRefs.length} style reference image(s)…`);
+          styleDescription = await buildStyleDescription(styleRefs);
+          jobLog(job, '✓ Character & style description ready');
+        }
+        jobLog(job, `Writing ${imageCount} tailored image prompt(s)…`);
+        const imagePrompts = await generateImagePrompts(
+          posts[Object.keys(posts)[0]] ?? '', imageCount, prompt,
+          styleDescription, brand.displayName, hasRefs,
+        );
+        jobLog(job, '✓ Image prompts ready');
+        for (let i = 0; i < imageCount; i++) {
+          const mode = primaryRef ? 'with reference image' : 'text-only';
+          jobLog(job, `Generating image ${i + 1}/${imageCount} (${mode})…`);
+          const base64 = await generateImage(imagePrompts[i] ?? `Professional illustration for: ${prompt}`, primaryRef);
+          images.push({ filename: `img${i + 1}.png`, base64, previewUrl: `data:image/png;base64,${base64}` });
+          jobLog(job, `✓ Image ${i + 1} ready`);
+        }
+      } else { jobLog(job, '⚠ Image generation not configured — skipping'); }
+    }
+
+    const stagedId = newStagingId();
+    saveStaged({ id: stagedId, brandId, brandName: brand.displayName, slug, createdAt: new Date().toISOString(),
+      languages: Object.keys(posts), posts, images, chatHistory: {}, originalPrompt: prompt, originalContext: context, status: 'pending' });
+    jobLog(job, '✅ Generation complete!');
+    jobDone(job, stagedId);
+  } catch (err) {
+    const msg = String(err);
+    jobLog(job, `❌ ${msg}`);
+    jobFail(job, msg);
+  }
+}
+
+function processQueue(): void {
+  while (jobQueue.length > 0 && runningJobs < MAX_CONCURRENT) {
+    const jobId = jobQueue.shift()!;
+    const job = jobStore.get(jobId);
+    if (!job || job.status !== 'queued') continue;
+    job.status = 'running';
+    runningJobs++;
+    jobEmitter.emit(`${job.id}:status`, 'running');
+    runJob(job).finally(() => { runningJobs--; processQueue(); });
+  }
 }
 
 function ensureStagingDir() {
@@ -517,184 +689,98 @@ app.get('/api/existing/:brandId/:lang/:slug', (req: Request, res: Response): voi
 });
 
 // ── POST /api/generate ─────────────────────────────────────────────────────────
-app.post('/api/generate', async (req: Request, res: Response) => {
+// ── POST /api/jobs — queue a new generation job ────────────────────────────────
+app.post('/api/jobs', (req: Request, res: Response) => {
+  try {
+    const body = req.body as JobBody;
+    if (!body.brandId || !body.languages?.length || !body.prompt)
+      return res.status(400).json({ error: 'brandId, languages, and prompt are required' }) as unknown as void;
+
+    const brands = loadBrands();
+    const brand = brands.find(b => b.id === body.brandId);
+    if (!brand) return res.status(404).json({ error: `Brand "${body.brandId}" not found` }) as unknown as void;
+
+    const id = newJobId();
+    const job: Job = {
+      id, brandId: body.brandId, brandName: brand.displayName,
+      topic: body.prompt, languages: body.languages,
+      imageCount: body.imageCount ?? 0,
+      status: 'queued', progress: [],
+      createdAt: new Date().toISOString(),
+      _body: body,
+    };
+    // Compute queue position label before pushing
+    const position = jobQueue.length + 1;
+    jobStore.set(id, job);
+    jobQueue.push(id);
+    job.progress.push(`Queued at position ${position}`);
+    processQueue();
+    res.json({ jobId: id, position });
+  } catch (err) { res.status(500).json({ error: String(err) }); }
+});
+
+// ── GET /api/jobs — list all jobs ──────────────────────────────────────────────
+app.get('/api/jobs', (_req: Request, res: Response) => {
+  const list = Array.from(jobStore.values())
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+    .map(j => ({
+      id: j.id, brandId: j.brandId, brandName: j.brandName, topic: j.topic,
+      languages: j.languages, imageCount: j.imageCount, status: j.status,
+      createdAt: j.createdAt, completedAt: j.completedAt,
+      stagingId: j.stagingId, error: j.error,
+      progressCount: j.progress.length,
+      lastLog: j.progress[j.progress.length - 1] ?? '',
+    }));
+  res.json(list);
+});
+
+// ── GET /api/jobs/:id/stream — SSE stream for a single job ─────────────────────
+app.get('/api/jobs/:id/stream', (req: Request, res: Response): void => {
+  const job = jobStore.get(String(req.params['id']));
+  if (!job) { res.status(404).end(); return; }
+
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
   res.setHeader('Connection', 'keep-alive');
   res.flushHeaders();
 
-  const send = (type: string, data: unknown) =>
+  const write = (type: string, data: unknown) =>
     res.write(`data: ${JSON.stringify({ type, data })}\n\n`);
 
-  try {
-    const { brandId, languages, prompt, context, imageCount } = req.body as {
-      brandId: string;
-      languages: string[];
-      prompt: string;
-      context?: string;
-      imageCount: number;
-    };
+  // Replay all buffered progress
+  job.progress.forEach(p => write('log', p));
 
-    // 1. Load brand config + instructions + brand context
-    send('log', `Loading brand config for "${brandId}"…`);
-    const brands = loadBrands();
-    const brand = brands.find(b => b.id === brandId);
-    if (!brand) throw new Error(`Brand "${brandId}" not found`);
+  // If already terminal, close immediately
+  if (job.status === 'complete') { write('done', { stagingId: job.stagingId }); res.end(); return; }
+  if (job.status === 'failed')   { write('error', job.error); res.end(); return; }
 
-    const globalInstructions = readInstructions();
-    const brandContext       = readBrandContext(brandId);
-    const extraContextFiles  = readAllContextFiles(brandId);
-    const styleRefs          = listStyleRefs(brandId);
+  const onLog    = (m: string)  => write('log', m);
+  const onStatus = (s: string)  => write('status', s);
+  const onDone   = (d: unknown) => { write('done', d); res.end(); };
+  const onError  = (e: string)  => { write('error', e); res.end(); };
 
-    // 2. Read existing slugs from local filesystem
-    send('log', 'Reading existing posts from local repo…');
-    const existingByLang: Record<string, string[]> = {};
-    for (const lang of languages) {
-      existingByLang[lang] = getExistingSlugs(brandId, lang);
-    }
+  jobEmitter.on(`${job.id}:log`, onLog);
+  jobEmitter.on(`${job.id}:status`, onStatus);
+  jobEmitter.on(`${job.id}:done`, onDone);
+  jobEmitter.on(`${job.id}:error`, onError);
 
-    // 3. Generate MDX per language
-    const posts: Record<string, string> = {};
-    let slug = '';
+  req.on('close', () => {
+    jobEmitter.off(`${job.id}:log`, onLog);
+    jobEmitter.off(`${job.id}:status`, onStatus);
+    jobEmitter.off(`${job.id}:done`, onDone);
+    jobEmitter.off(`${job.id}:error`, onError);
+  });
+});
 
-    for (const lang of languages) {
-      send('log', `Generating ${lang.toUpperCase()} post with Azure OpenAI…`);
-
-      const imageInstructions = imageCount > 0
-        ? `Include ${imageCount} image${imageCount > 1 ? 's' : ''}. Add this import block immediately after the frontmatter ---:\n\nimport { Image } from 'astro:assets';\n${Array.from({ length: imageCount }, (_, i) => `import img${i + 1} from '@/assets/blog/POST_SLUG/img${i + 1}.png';`).join('\n')}\n\nPlace <Image src={imgN} alt="descriptive alt text" width={700} quality={80} class="w-full" /> at natural content breaks. img1 appears near the top as the hero.`
-        : 'Do not include any images. Omit the image field from frontmatter.';
-
-      const existingList = existingByLang[lang]?.length
-        ? existingByLang[lang].map(s => `- ${s}`).join('\n')
-        : 'None yet.';
-
-      const system = `You are a professional blog writer for ${brand.displayName} (${brand.domain}).
-
-Write a complete, high-quality MDX blog post in ${lang === 'en' ? 'English' : lang === 'de' ? 'German' : lang === 'fr' ? 'French' : lang === 'it' ? 'Italian' : lang}.
-
-FRONTMATTER (mandatory, exact format):
----
-title: "Post Title"
-description: "Under 160 chars"
-pubDate: ${today()}
-author: "${brand.displayName}"
-${imageCount > 0 ? 'image: "@/assets/blog/POST_SLUG/img1.png"' : ''}
-tags: ["tag1", "tag2", "tag3"]
-draft: false
-relatedPosts: []
----
-
-RULES:
-- Slug must be localized to the post language (German title → German slug)
-- Use POST_SLUG as a placeholder in all image paths — it will be replaced with the actual slug
-- Use h2, h3 headings only — never h1
-- Description must be under 160 characters — hard limit
-- Write 600–900 words of substantive, insightful content
-- Professional tone, not salesy
-- Include 2–3 relevant tags
-
-${imageInstructions}
-
-${globalInstructions ? `GLOBAL WRITING INSTRUCTIONS (always follow these):\n${globalInstructions}` : ''}
-
-${brandContext ? `BRAND CONTEXT:\n${brandContext}` : ''}
-
-${extraContextFiles ? `ADDITIONAL BRAND DOCUMENTS:\n${extraContextFiles}` : ''}
-
-Existing posts to avoid duplicating:
-${existingList}
-
-Return ONLY the raw MDX. No explanation, no code fences.`;
-
-      const userPrompt = `Topic: ${prompt}${context ? `\n\nAdditional context: ${context}` : ''}`;
-      let mdx = await generateWithAzure(system, userPrompt);
-
-      // Strip accidental code fences
-      mdx = mdx.replace(/^```(?:mdx)?\n?/i, '').replace(/\n?```\s*$/i, '').trim();
-
-      // Extract slug from first language generated
-      if (!slug) {
-        slug = generateSlug(extractTitle(mdx));
-        send('log', `Slug: "${slug}"`);
-      }
-
-      posts[lang] = mdx.replace(/POST_SLUG/g, slug);
-      send('log', `✓ ${lang.toUpperCase()} post ready (${mdx.length} chars)`);
-    }
-
-    // 4. Generate images
-    const images: Array<{ filename: string; base64: string; previewUrl: string }> = [];
-
-    if (imageCount > 0) {
-      const imageEndpoint = process.env.AZURE_IMAGE_ENDPOINT ?? process.env.AZURE_OPENAI_ENDPOINT ?? '';
-      const imageKey      = process.env.AZURE_IMAGE_API_KEY  ?? process.env.AZURE_OPENAI_API_KEY  ?? '';
-      const imageReady    = !imageEndpoint.includes('your-resource') && !imageKey.includes('xxx') && !!process.env.AZURE_IMAGE_DEPLOYMENT;
-
-      if (imageReady) {
-        const hasRefs = styleRefs.length > 0;
-        // Primary reference image passed directly to /images/edits for character consistency
-        const primaryRef = hasRefs ? styleRefs[0].base64 : undefined;
-
-        // 4a. Analyse style references visually — builds character + style description for prompts
-        let styleDescription = '';
-        if (hasRefs) {
-          send('log', `Analysing ${styleRefs.length} style reference image(s) for character & style…`);
-          styleDescription = await buildStyleDescription(styleRefs);
-          send('log', '✓ Character & style description ready');
-        }
-
-        // 4b. Generate tailored prompts from actual blog content
-        send('log', `Writing ${imageCount} tailored image prompt(s) from article content…`);
-        const primaryLang = Object.keys(posts)[0];
-        const primaryContent = posts[primaryLang] ?? '';
-        const imagePrompts = await generateImagePrompts(
-          primaryContent,
-          imageCount,
-          prompt,
-          styleDescription,
-          brand.displayName,
-          hasRefs,
-        );
-        send('log', '✓ Image prompts ready');
-
-        // 4c. Generate each image — passes reference image via /images/edits when available
-        for (let i = 0; i < imageCount; i++) {
-          const mode = primaryRef ? 'with reference image' : 'text-only';
-          send('log', `Generating image ${i + 1}/${imageCount} (${mode})…`);
-          const base64 = await generateImage(imagePrompts[i] ?? `Professional illustration for: ${prompt}`, primaryRef);
-          images.push({ filename: `img${i + 1}.png`, base64, previewUrl: `data:image/png;base64,${base64}` });
-          send('log', `✓ Image ${i + 1} ready`);
-        }
-      } else {
-        send('log', '⚠ Image generation not configured — skipping');
-      }
-    }
-
-    // Save to staging (persists across browser refreshes)
-    const stagedId = newStagingId();
-    saveStaged({
-      id: stagedId,
-      brandId,
-      brandName: brand.displayName,
-      slug,
-      createdAt: new Date().toISOString(),
-      languages: Object.keys(posts),
-      posts,
-      images,
-      chatHistory: {},
-      originalPrompt: prompt,
-      originalContext: context,
-      status: 'pending',
-    });
-
-    send('log', '✅ Generation complete!');
-    send('done', { stagingId: stagedId });
-    res.end();
-
-  } catch (err) {
-    send('error', String(err));
-    res.end();
-  }
+// ── DELETE /api/jobs/:id — cancel a queued job ─────────────────────────────────
+app.delete('/api/jobs/:id', (req: Request, res: Response): void => {
+  const job = jobStore.get(String(req.params['id']));
+  if (!job) { res.status(404).json({ error: 'Not found' }); return; }
+  if (job.status === 'running') { res.status(409).json({ error: 'Cannot cancel a running job' }); return; }
+  const idx = jobQueue.indexOf(job.id);
+  if (idx !== -1) jobQueue.splice(idx, 1);
+  jobStore.delete(job.id);
+  res.json({ ok: true });
 });
 
 // ── POST /api/push ─────────────────────────────────────────────────────────────

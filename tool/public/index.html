@@ -30,7 +30,7 @@
       <!-- Page tabs -->
       <nav class="tabs">
         <button class="tab-btn active" data-tab="generate">Generate</button>
-        <button class="tab-btn" data-tab="preview">Preview</button>
+        <button class="tab-btn" data-tab="posts">Posts</button>
         <button class="tab-btn" data-tab="existing">Existing Posts</button>
       </nav>
 
@@ -98,51 +98,64 @@
             </button>
           </div>
 
-          <div class="field field-full" id="log-container" style="display:none;">
-            <label class="field-label">Progress</label>
-            <div class="log-box" id="log-box"></div>
-          </div>
 
         </div>
       </div>
 
-      <!-- ── Preview / Staging Tab ─────────────────────────────────── -->
-      <div class="tab-panel" id="tab-preview">
+      <!-- ── Posts Tab ─────────────────────────────────────────────── -->
+      <div class="tab-panel" id="tab-posts">
 
-        <!-- ── Staging list ─────────────────────────────────────── -->
+        <!-- ── List view ─────────────────────────────────────────── -->
         <div id="staging-list-view">
-          <div class="staging-header">
-            <div>
-              <div class="staging-title">Staging</div>
-              <div class="staging-desc">Approve posts to mark them ready. Push all approved posts in one commit.</div>
+
+          <!-- Header -->
+          <div class="posts-header">
+            <div class="posts-header-title">Posts</div>
+            <div class="posts-header-actions">
+              <button class="btn-ghost" id="btn-refresh-staging">↺ Refresh</button>
+              <button class="btn-push-all" id="btn-push-all" style="display:none;">
+                <span class="btn-icon">🚀</span> Push Approved
+                <span class="push-all-badge" id="push-all-count"></span>
+              </button>
             </div>
-            <button class="btn-ghost" id="btn-refresh-staging">↺ Refresh</button>
           </div>
-          <div id="staging-empty" class="staging-empty" style="display:none;">
-            <div class="staging-empty-icon">✦</div>
-            <p>No posts in staging.<br/>Generate a blog post to get started.</p>
-          </div>
-          <div id="staging-list" class="staging-list"></div>
-          <div id="push-all-bar" class="push-all-bar" style="display:none;">
-            <div class="push-all-info">
-              <span id="push-all-count" class="push-all-count"></span>
-              <span class="push-all-note">approved and ready to publish</span>
+
+          <!-- In Progress section -->
+          <div class="posts-section" id="jobs-section">
+            <div class="posts-section-header">
+              <span class="posts-section-label">In Progress</span>
+              <span class="posts-section-count" id="jobs-count">0</span>
             </div>
-            <button class="btn-primary" id="btn-push-all">
-              <span class="btn-icon">🚀</span> Push All Approved
-            </button>
+            <div id="jobs-empty" class="jobs-empty" style="display:none;">No active jobs.</div>
+            <div id="jobs-list" class="jobs-list"></div>
           </div>
+
+          <!-- Ready for Review section -->
+          <div class="posts-section" id="staging-section">
+            <div class="posts-section-header">
+              <span class="posts-section-label">Ready for Review</span>
+              <span class="posts-section-count" id="staging-count">0</span>
+            </div>
+            <div id="staging-empty" class="staging-empty" style="display:none;">
+              <div class="staging-empty-icon">✦</div>
+              <p>No posts awaiting review.<br/>Generate a blog post to get started.</p>
+            </div>
+            <div id="staging-list" class="staging-list"></div>
+          </div>
+
+          <!-- Push log -->
           <div id="push-all-log-container" style="display:none; margin-top:16px;">
             <div class="section-title">Push Progress</div>
             <div class="log-box" id="push-all-log-box"></div>
           </div>
+
         </div>
 
         <!-- ── Detail view ──────────────────────────────────────── -->
         <div id="staging-detail-view" style="display:none;">
           <div class="preview-header">
             <div style="display:flex;flex-direction:column;gap:6px;">
-              <button class="btn-ghost" id="btn-back-staging" style="width:fit-content;">← Staging</button>
+              <button class="btn-ghost" id="btn-back-staging" style="width:fit-content;">← Posts</button>
               <div class="preview-slug" id="detail-slug-display">—</div>
             </div>
             <div class="preview-actions">
@@ -319,6 +332,9 @@
 
     </main>
   </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
   <script src="app.js"></script>

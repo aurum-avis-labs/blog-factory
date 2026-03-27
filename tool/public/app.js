@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   bindGenerateBtn();
   bindStagingActions();
   bindSettings();
+  startJobPolling();
 });
 
 // ── API helpers ────────────────────────────────────────────────────────────────
@@ -146,7 +147,7 @@ function switchTab(name) {
   );
 
   if (name === 'existing') refreshExistingTab();
-  if (name === 'preview') { closeStagingDetail(); loadStagingList(); }
+  if (name === 'posts') { closeStagingDetail(); loadPostsTab(); }
 }
 
 // ── Image count toggle ─────────────────────────────────────────────────────────
@@ -185,28 +186,15 @@ async function handleGenerate() {
   const context = document.getElementById('context-input').value.trim();
   const langs   = selectedLanguages();
 
-  if (!prompt)      return alert('Please enter a blog topic.');
+  if (!prompt)       return alert('Please enter a blog topic.');
   if (!langs.length) return alert('Please select at least one language.');
 
   const btn = document.getElementById('generate-btn');
   btn.disabled = true;
-  btn.innerHTML = '<span class="btn-icon">⏳</span> Generating…';
-
-  const logContainer = document.getElementById('log-container');
-  const logBox = document.getElementById('log-box');
-  logContainer.style.display = '';
-  logBox.innerHTML = '';
-
-  const addLog = (text, cls = '') => {
-    const span = document.createElement('span');
-    span.className = cls;
-    span.textContent = text + '\n';
-    logBox.appendChild(span);
-    logBox.scrollTop = logBox.scrollHeight;
-  };
+  btn.innerHTML = '<span class="btn-icon">⏳</span> Queuing…';
 
   try {
-    const res = await fetch('/api/generate', {
+    const data = await api('/api/jobs', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -218,26 +206,42 @@ async function handleGenerate() {
       }),
     });
 
-    await streamSSE(res, {
-      log: msg => {
-        const cls = msg.startsWith('✅') ? 'log-ok' : msg.startsWith('⚠') ? 'log-gold' : '';
-        addLog(msg, cls);
-      },
-      error: msg => addLog('ERROR: ' + msg, 'log-err'),
-      done: data => {
-        addLog('→ Saved to staging. Opening preview…', 'log-gold');
-        setTimeout(() => {
-          loadStagingList().then(() => openStagingDetail(data.stagingId));
-          switchTab('preview');
-        }, 600);
-      },
-    });
+    // Clear form
+    document.getElementById('prompt-input').value  = '';
+    document.getElementById('context-input').value = '';
+
+    // Toast
+    const pos = data.position > 0 ? ` (position ${data.position + 1} in queue)` : '';
+    showToast('success', '✦ Job queued', `Generating for ${activeBrand.displayName}${pos}. Check the Posts tab.`);
+
+    // Switch to posts tab
+    switchTab('posts');
+
   } catch (err) {
-    addLog('Network error: ' + err.message, 'log-err');
+    showToast('error', 'Queue failed', err.message);
   } finally {
     btn.disabled = false;
     btn.innerHTML = '<span class="btn-icon">✦</span> Generate Blog Post';
   }
+}
+
+// ── Toast ───────────────────────────────────────────────────────────────────────
+function showToast(type, title, msg, duration = 5000) {
+  const container = document.getElementById('toast-container');
+  const el = document.createElement('div');
+  el.className = `toast toast-${type}`;
+  el.innerHTML = `
+    <div class="toast-icon">${type === 'success' ? '✅' : '❌'}</div>
+    <div class="toast-body">
+      <div class="toast-title">${title}</div>
+      ${msg ? `<div class="toast-msg">${msg}</div>` : ''}
+    </div>`;
+  container.appendChild(el);
+  setTimeout(() => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    setTimeout(() => el.remove(), 350);
+  }, duration);
 }
 
 // ── SSE stream helper ──────────────────────────────────────────────────────────
@@ -260,33 +264,139 @@ async function streamSSE(res, handlers) {
   }
 }
 
+// ── Posts tab ──────────────────────────────────────────────────────────────────
+let _jobPollTimer = null;
+
+function startJobPolling() {
+  stopJobPolling();
+  _jobPollTimer = setInterval(() => {
+    const panel = document.getElementById('tab-posts');
+    if (panel && panel.classList.contains('active')) loadPostsTab();
+  }, 3000);
+}
+
+function stopJobPolling() {
+  if (_jobPollTimer) { clearInterval(_jobPollTimer); _jobPollTimer = null; }
+}
+
+async function loadPostsTab() {
+  await Promise.all([loadJobsList(), loadStagingList()]);
+}
+
+// ── Jobs list ──────────────────────────────────────────────────────────────────
+async function loadJobsList() {
+  const list  = document.getElementById('jobs-list');
+  const empty = document.getElementById('jobs-empty');
+  const count = document.getElementById('jobs-count');
+  try {
+    const jobs = await api('/api/jobs');
+    const active = jobs.filter(j => j.status === 'queued' || j.status === 'running');
+    count.textContent = active.length;
+    if (!active.length) {
+      list.innerHTML = '';
+      empty.style.display = '';
+      return;
+    }
+    empty.style.display = 'none';
+    // Update existing cards, add new ones, remove stale ones
+    const existing = new Set([...list.querySelectorAll('.job-card')].map(c => c.dataset.id));
+    const incoming = new Set(active.map(j => j.id));
+    // Remove stale
+    existing.forEach(id => { if (!incoming.has(id)) list.querySelector(`[data-id="${id}"]`)?.remove(); });
+    // Update or insert
+    active.forEach((job, i) => {
+      const existing = list.querySelector(`[data-id="${job.id}"]`);
+      if (existing) {
+        updateJobCard(existing, job);
+      } else {
+        const card = buildJobCard(job);
+        if (i < list.children.length) list.insertBefore(card, list.children[i]);
+        else list.appendChild(card);
+      }
+    });
+  } catch (e) {
+    list.innerHTML = `<span class="muted">Error: ${e.message}</span>`;
+  }
+}
+
+function buildJobCard(job) {
+  const card = document.createElement('div');
+  card.dataset.id = job.id;
+  refreshJobCard(card, job);
+  return card;
+}
+
+function updateJobCard(card, job) {
+  const prevStatus = card.dataset.status;
+  if (prevStatus === job.status && job.status !== 'running') return; // no change needed
+  refreshJobCard(card, job);
+}
+
+function refreshJobCard(card, job) {
+  card.dataset.id     = job.id;
+  card.dataset.status = job.status;
+  card.className      = `job-card is-${job.status}`;
+
+  const langs = (job.languages || []).map(l =>
+    `<span class="lang-pill has">${l.toUpperCase()}</span>`).join('');
+
+  const latestLog = job.progress?.length
+    ? job.progress[job.progress.length - 1]
+    : (job.status === 'queued' ? 'Waiting in queue…' : '');
+
+  const statusLabel = { queued: 'Queued', running: 'Running', complete: 'Done', failed: 'Failed' }[job.status] || job.status;
+
+  card.innerHTML = `
+    <div class="job-card-header">
+      <span class="job-status-dot"></span>
+      <div class="job-card-info">
+        <div class="job-card-topic">${job.topic || '—'}</div>
+        <div class="job-card-meta">
+          <span class="job-status-label">${statusLabel}</span>
+          <span>${job.brandName}</span>
+          ${langs}
+        </div>
+      </div>
+      <div class="job-card-actions">
+        ${job.status === 'queued' ? `<button class="btn-ghost btn-sm" data-action="cancel">Cancel</button>` : ''}
+      </div>
+    </div>
+    ${latestLog ? `<div class="job-log-area"><div class="job-log-box" id="jlog-${job.id}">${latestLog}</div></div>` : ''}`;
+
+  card.querySelector('[data-action="cancel"]')?.addEventListener('click', async e => {
+    e.stopPropagation();
+    try { await api(`/api/jobs/${job.id}`, { method: 'DELETE' }); } catch {}
+    await loadJobsList();
+  });
+}
+
 // ── Staging list ───────────────────────────────────────────────────────────────
 async function loadStagingList() {
   const list  = document.getElementById('staging-list');
   const empty = document.getElementById('staging-empty');
-  const bar   = document.getElementById('push-all-bar');
+  const count = document.getElementById('staging-count');
   try {
     const posts = await api('/api/staging');
     list.innerHTML = '';
+    count.textContent = posts.length;
     if (!posts.length) {
       empty.style.display = '';
-      bar.style.display = 'none';
-      return;
+    } else {
+      empty.style.display = 'none';
+      posts.forEach(p => list.appendChild(buildStagingCard(p)));
     }
-    empty.style.display = 'none';
-    posts.forEach(p => list.appendChild(buildStagingCard(p)));
-    updatePushAllBar(posts);
+    updatePushAllBtn(posts);
   } catch (e) {
     list.innerHTML = `<span class="muted">Error loading staging: ${e.message}</span>`;
   }
 }
 
-function updatePushAllBar(posts) {
-  const bar   = document.getElementById('push-all-bar');
-  const count = document.getElementById('push-all-count');
+function updatePushAllBtn(posts) {
+  const btn   = document.getElementById('btn-push-all');
+  const badge = document.getElementById('push-all-count');
   const n = posts.filter(p => p.status === 'approved').length;
-  bar.style.display = n > 0 ? '' : 'none';
-  count.textContent = `${n} post${n > 1 ? 's' : ''}`;
+  btn.style.display = n > 0 ? '' : 'none';
+  badge.textContent = n;
 }
 
 function buildStagingCard(p) {
@@ -561,10 +671,10 @@ async function handlePushAll() {
       error: msg => addLog('ERROR: ' + msg, 'log-err'),
       done:  d  => {
         addLog(`✅ Done! ${d.count} post(s) published. Auto-publish workflow is running.`, 'log-ok');
+        showToast('success', 'Published!', `${d.count} post(s) pushed. Deploy workflow triggered.`);
         btn.innerHTML = '<span class="btn-icon">✅</span> Pushed!';
         setTimeout(() => {
           btn.disabled = false;
-          btn.innerHTML = '<span class="btn-icon">🚀</span> Push All Approved';
           loadStagingList();
         }, 3000);
       },
@@ -572,13 +682,13 @@ async function handlePushAll() {
   } catch (err) {
     addLog('Network error: ' + err.message, 'log-err');
     btn.disabled = false;
-    btn.innerHTML = '<span class="btn-icon">🚀</span> Push All Approved';
+    loadStagingList();
   }
 }
 
 // ── Staging action bindings ────────────────────────────────────────────────────
 function bindStagingActions() {
-  document.getElementById('btn-refresh-staging').addEventListener('click', loadStagingList);
+  document.getElementById('btn-refresh-staging').addEventListener('click', loadPostsTab);
   document.getElementById('btn-push-all').addEventListener('click', handlePushAll);
 
   document.getElementById('btn-back-staging').addEventListener('click', () => {
