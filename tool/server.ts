@@ -579,7 +579,7 @@ async function generateImage(promptText: string, referenceBase64?: string): Prom
     form.append('image', new Blob([imageBuffer], { type: 'image/png' }), 'reference.png');
     form.append('prompt', promptText);
     form.append('n', '1');
-    form.append('size', '1024x1024');
+    form.append('size', '1792x1024');
     form.append('quality', 'high');
 
     const res = await fetch(url, {
@@ -599,7 +599,7 @@ async function generateImage(promptText: string, referenceBase64?: string): Prom
     const res = await fetch(url, {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${key}`, 'content-type': 'application/json' },
-      body: JSON.stringify({ prompt: promptText, n: 1, size: '1024x1024', quality: 'high', output_format: 'png' }),
+      body: JSON.stringify({ prompt: promptText, n: 1, size: '1792x1024', quality: 'high', output_format: 'png' }),
     });
     if (!res.ok) {
       const err = await res.text();

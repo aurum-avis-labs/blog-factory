@@ -55,6 +55,7 @@ async function fetchConfig() {
   }
   renderApiStatus('status-azure', config.azureOpenAI, 'Connected', 'Not configured');
   renderApiStatus('status-dalle', config.azureDalle,  'Connected', 'Not configured');
+  updateSidebarPills();
   updateDalleHint();
 }
 
@@ -64,6 +65,25 @@ function renderApiStatus(id, ok, okText, errText) {
   el.classList.toggle('ok', ok);
   el.classList.toggle('err', !ok);
   el.querySelector('.status-badge').textContent = ok ? okText : errText;
+}
+
+function updateSidebarPills() {
+  const pillAzure = document.getElementById('pill-azure');
+  const pillImage = document.getElementById('pill-image');
+  if (pillAzure) pillAzure.classList.toggle('ok', config.azureOpenAI);
+  if (pillImage) pillImage.classList.toggle('ok', config.azureDalle);
+}
+
+function bindSettingsNav() {
+  document.querySelectorAll('.settings-nav-item[data-section]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const section = document.getElementById(btn.dataset.section);
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelectorAll('.settings-nav-item').forEach(b =>
+        b.classList.toggle('active', b === btn)
+      );
+    });
+  });
 }
 
 // ── Brands ─────────────────────────────────────────────────────────────────────
@@ -133,13 +153,13 @@ function selectedLanguages() {
 
 // ── Tabs ───────────────────────────────────────────────────────────────────────
 function bindTabs() {
-  document.querySelectorAll('.tab-btn').forEach(btn => {
+  document.querySelectorAll('.nav-item[data-tab]').forEach(btn => {
     btn.addEventListener('click', () => switchTab(btn.dataset.tab));
   });
 }
 
 function switchTab(name) {
-  document.querySelectorAll('.tab-btn').forEach(b =>
+  document.querySelectorAll('.nav-item[data-tab]').forEach(b =>
     b.classList.toggle('active', b.dataset.tab === name)
   );
   document.querySelectorAll('.tab-panel').forEach(p =>
@@ -148,6 +168,7 @@ function switchTab(name) {
 
   if (name === 'existing') refreshExistingTab();
   if (name === 'posts') { closeStagingDetail(); loadPostsTab(); }
+  if (name === 'settings') bindSettingsNav();
 }
 
 // ── Image count toggle ─────────────────────────────────────────────────────────
