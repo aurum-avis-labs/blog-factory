@@ -351,9 +351,13 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
         for (let i = 0; i < imageCount; i++) {
           const mode = primaryRef ? 'with reference image' : 'text-only';
           jobLog(job, `Generating image ${i + 1}/${imageCount} (${mode})…`);
-          const base64 = await generateImage(imagePrompts[i] ?? `Professional illustration for: ${prompt}`, primaryRef);
-          images.push({ filename: `img${i + 1}.png`, base64, previewUrl: `data:image/png;base64,${base64}` });
-          jobLog(job, `✓ Image ${i + 1} ready`);
+          try {
+            const base64 = await generateImage(imagePrompts[i] ?? `Professional illustration for: ${prompt}`, primaryRef);
+            images.push({ filename: `img${i + 1}.png`, base64, previewUrl: `data:image/png;base64,${base64}` });
+            jobLog(job, `✓ Image ${i + 1} ready`);
+          } catch (imgErr) {
+            jobLog(job, `⚠ Image ${i + 1} failed (skipping): ${String(imgErr)}`);
+          }
         }
       } else { jobLog(job, '⚠ Image generation not configured — skipping'); }
     }
@@ -579,7 +583,7 @@ async function generateImage(promptText: string, referenceBase64?: string): Prom
     form.append('image', new Blob([imageBuffer], { type: 'image/png' }), 'reference.png');
     form.append('prompt', promptText);
     form.append('n', '1');
-    form.append('size', '1792x1024');
+    form.append('size', '1536x1024');
     form.append('quality', 'high');
 
     const res = await fetch(url, {
@@ -599,7 +603,7 @@ async function generateImage(promptText: string, referenceBase64?: string): Prom
     const res = await fetch(url, {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${key}`, 'content-type': 'application/json' },
-      body: JSON.stringify({ prompt: promptText, n: 1, size: '1792x1024', quality: 'high', output_format: 'png' }),
+      body: JSON.stringify({ prompt: promptText, n: 1, size: '1536x1024', quality: 'high', output_format: 'png' }),
     });
     if (!res.ok) {
       const err = await res.text();
