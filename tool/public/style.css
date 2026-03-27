@@ -742,15 +742,22 @@ code {
   transition: border-color 0.15s, background 0.15s;
 }
 .staging-card:hover { border-color: var(--gold-dim); background: var(--surface-2); }
+.staging-card.is-approved { border-color: rgba(74,222,128,0.3); }
+.staging-card.is-approved:hover { border-color: rgba(74,222,128,0.6); }
 
 .staging-card-body { flex: 1; min-width: 0; }
+.staging-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
 .staging-card-brand {
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--gold-dim);
-  margin-bottom: 5px;
 }
 .staging-card-slug {
   font-family: var(--font-mono);
@@ -771,6 +778,18 @@ code {
   flex-wrap: wrap;
 }
 .staging-card-img-count { color: var(--text-dim); }
+
+/* Status badges on cards */
+.status-badge.approved {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--green); background: rgba(74,222,128,0.1);
+  border: 1px solid rgba(74,222,128,0.25); border-radius: 4px; padding: 1px 7px;
+}
+.status-badge.pending {
+  font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-muted); background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: 4px; padding: 1px 7px;
+}
 
 .staging-card-actions {
   display: flex;
@@ -799,8 +818,31 @@ code {
 .btn-reject:hover:not(:disabled) { border-color: var(--red); color: var(--red); background: rgba(224,82,82,0.06); }
 .btn-reject:disabled { opacity: 0.4; cursor: not-allowed; }
 
-.staging-card .btn-primary { width: auto; font-size: 13px; padding: 7px 14px; }
-.staging-card .btn-reject  { font-size: 13px; }
+/* Approve action button */
+.btn-approve-action {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; background: none;
+  border: 1px solid var(--green); border-radius: var(--radius);
+  color: var(--green); font-family: inherit; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all 0.15s; white-space: nowrap;
+}
+.btn-approve-action:hover:not(:disabled):not(.is-approved) { background: rgba(74,222,128,0.1); }
+.btn-approve-action.is-approved { opacity: 0.55; cursor: default; }
+.btn-approve-action:disabled { cursor: not-allowed; }
+
+/* Push all bar */
+.push-all-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; margin-top: 16px; padding: 14px 20px;
+  background: rgba(74,222,128,0.05); border: 1px solid rgba(74,222,128,0.2);
+  border-radius: var(--radius-lg);
+}
+.push-all-info { display: flex; align-items: center; gap: 8px; }
+.push-all-count { font-weight: 700; color: var(--green); font-size: 14px; }
+.push-all-note { font-size: 13px; color: var(--text-muted); }
+.push-all-bar .btn-primary { width: auto; flex-shrink: 0; }
+
+.staging-card .btn-reject { font-size: 13px; }
 
 /* ── Preview tabs bar ────────────────────────────────────────────────────── */
 .preview-tabs-bar {

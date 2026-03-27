@@ -264,23 +264,34 @@ async function streamSSE(res, handlers) {
 async function loadStagingList() {
   const list  = document.getElementById('staging-list');
   const empty = document.getElementById('staging-empty');
+  const bar   = document.getElementById('push-all-bar');
   try {
     const posts = await api('/api/staging');
     list.innerHTML = '';
     if (!posts.length) {
       empty.style.display = '';
+      bar.style.display = 'none';
       return;
     }
     empty.style.display = 'none';
     posts.forEach(p => list.appendChild(buildStagingCard(p)));
+    updatePushAllBar(posts);
   } catch (e) {
     list.innerHTML = `<span class="muted">Error loading staging: ${e.message}</span>`;
   }
 }
 
+function updatePushAllBar(posts) {
+  const bar   = document.getElementById('push-all-bar');
+  const count = document.getElementById('push-all-count');
+  const n = posts.filter(p => p.status === 'approved').length;
+  bar.style.display = n > 0 ? '' : 'none';
+  count.textContent = `${n} post${n > 1 ? 's' : ''}`;
+}
+
 function buildStagingCard(p) {
   const card = document.createElement('div');
-  card.className = 'staging-card';
+  card.className = `staging-card${p.status === 'approved' ? ' is-approved' : ''}`;
   card.dataset.id = p.id;
 
   const date = new Date(p.createdAt).toLocaleDateString('en-US',
@@ -290,34 +301,40 @@ function buildStagingCard(p) {
   const imgNote = p.imageCount > 0
     ? `<span class="staging-card-img-count">🖼 ${p.imageCount} image${p.imageCount > 1 ? 's' : ''}</span>`
     : '';
+  const statusBadge = p.status === 'approved'
+    ? `<span class="status-badge approved">✓ Approved</span>`
+    : `<span class="status-badge pending">Pending</span>`;
 
   card.innerHTML = `
     <div class="staging-card-body">
-      <div class="staging-card-brand">${p.brandName}</div>
+      <div class="staging-card-top">
+        <div class="staging-card-brand">${p.brandName}</div>
+        ${statusBadge}
+      </div>
       <div class="staging-card-slug">${p.slug}</div>
       <div class="staging-card-meta">${langPills}${imgNote}<span>${date}</span></div>
     </div>
     <div class="staging-card-actions">
       <button class="btn-reject" data-action="reject">✕ Reject</button>
-      <button class="btn-primary" data-action="approve">🚀 Approve &amp; Push</button>
+      ${p.status === 'approved'
+        ? `<button class="btn-approve-action is-approved" data-action="approve">✓ Approved</button>`
+        : `<button class="btn-approve-action" data-action="approve">✓ Approve</button>`
+      }
     </div>`;
 
-  // Click card body → open detail
   card.querySelector('.staging-card-body').addEventListener('click', () => openStagingDetail(p.id));
 
-  // Reject button
   card.querySelector('[data-action="reject"]').addEventListener('click', async e => {
     e.stopPropagation();
     if (!confirm(`Reject and delete "${p.slug}"?`)) return;
-    await rejectStaged(p.id);
+    await api(`/api/staging/${p.id}`, { method: 'DELETE' });
     await loadStagingList();
   });
 
-  // Approve button
   card.querySelector('[data-action="approve"]').addEventListener('click', async e => {
     e.stopPropagation();
-    await openStagingDetail(p.id);
-    handleApprove(p.id);
+    await approveStaged(p.id);
+    await loadStagingList();
   });
 
   return card;
@@ -343,15 +360,15 @@ async function openStagingDetail(id) {
   document.getElementById('staging-list-view').style.display = 'none';
   document.getElementById('staging-detail-view').style.display = '';
   document.getElementById('detail-slug-display').textContent = post.slug;
-  document.getElementById('detail-push-log').style.display = 'none';
-  document.getElementById('detail-push-log-box').innerHTML = '';
 
-  // Reset approve/reject buttons
+  // Set approve button state based on current status
   const approveBtn = document.getElementById('btn-approve-detail');
   const rejectBtn  = document.getElementById('btn-reject-detail');
-  approveBtn.disabled = false;
-  rejectBtn.disabled  = false;
-  approveBtn.innerHTML = '<span class="btn-icon">🚀</span> Approve &amp; Push';
+  const isApproved = post.status === 'approved';
+  approveBtn.textContent = isApproved ? '✓ Approved' : '✓ Approve';
+  approveBtn.disabled = isApproved;
+  approveBtn.classList.toggle('is-approved', isApproved);
+  rejectBtn.disabled = false;
   rejectBtn.textContent = '✕ Reject';
 
   // Render language panels
@@ -515,21 +532,17 @@ async function openStagingDetail(id) {
   });
 }
 
-async function rejectStaged(id) {
-  await api(`/api/staging/${id}`, { method: 'DELETE' });
+async function approveStaged(id) {
+  await api(`/api/staging/${id}/approve`, { method: 'POST' });
 }
 
-async function handleApprove(id) {
-  const approveBtn = document.getElementById('btn-approve-detail');
-  const rejectBtn  = document.getElementById('btn-reject-detail');
-  if (!approveBtn) return;
+async function handlePushAll() {
+  const btn = document.getElementById('btn-push-all');
+  const logContainer = document.getElementById('push-all-log-container');
+  const logBox = document.getElementById('push-all-log-box');
 
-  approveBtn.disabled = true;
-  rejectBtn.disabled  = true;
-  approveBtn.innerHTML = '<span class="btn-icon">⏳</span> Pushing…';
-
-  const logContainer = document.getElementById('detail-push-log');
-  const logBox = document.getElementById('detail-push-log-box');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="btn-icon">⏳</span> Pushing…';
   logContainer.style.display = '';
   logBox.innerHTML = '';
 
@@ -542,42 +555,50 @@ async function handleApprove(id) {
   };
 
   try {
-    const res = await fetch(`/api/staging/${id}/push`, { method: 'POST' });
+    const res = await fetch('/api/staging/push-all', { method: 'POST' });
     await streamSSE(res, {
       log:   msg => addLog(msg, msg.startsWith('🚀') || msg.startsWith('✓') ? 'log-ok' : ''),
       error: msg => addLog('ERROR: ' + msg, 'log-err'),
-      done:  () => {
-        addLog('✅ Done! Auto-publish workflow is now running.', 'log-ok');
-        approveBtn.innerHTML = '<span class="btn-icon">✅</span> Pushed!';
-        // Remove from list, go back after a moment
-        setTimeout(() => { closeStagingDetail(); loadStagingList(); }, 2000);
+      done:  d  => {
+        addLog(`✅ Done! ${d.count} post(s) published. Auto-publish workflow is running.`, 'log-ok');
+        btn.innerHTML = '<span class="btn-icon">✅</span> Pushed!';
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.innerHTML = '<span class="btn-icon">🚀</span> Push All Approved';
+          loadStagingList();
+        }, 3000);
       },
     });
   } catch (err) {
     addLog('Network error: ' + err.message, 'log-err');
-    approveBtn.disabled = false;
-    rejectBtn.disabled  = false;
-    approveBtn.innerHTML = '<span class="btn-icon">🚀</span> Approve &amp; Push';
+    btn.disabled = false;
+    btn.innerHTML = '<span class="btn-icon">🚀</span> Push All Approved';
   }
 }
 
 // ── Staging action bindings ────────────────────────────────────────────────────
 function bindStagingActions() {
   document.getElementById('btn-refresh-staging').addEventListener('click', loadStagingList);
+  document.getElementById('btn-push-all').addEventListener('click', handlePushAll);
 
   document.getElementById('btn-back-staging').addEventListener('click', () => {
     closeStagingDetail();
     loadStagingList();
   });
 
-  document.getElementById('btn-approve-detail').addEventListener('click', () => {
-    if (currentStagingId) handleApprove(currentStagingId);
+  document.getElementById('btn-approve-detail').addEventListener('click', async () => {
+    if (!currentStagingId) return;
+    const btn = document.getElementById('btn-approve-detail');
+    await approveStaged(currentStagingId);
+    btn.textContent = '✓ Approved';
+    btn.classList.add('is-approved');
+    btn.disabled = true;
   });
 
   document.getElementById('btn-reject-detail').addEventListener('click', async () => {
     const slug = document.getElementById('detail-slug-display').textContent;
     if (!confirm(`Reject and delete "${slug}"?`)) return;
-    await rejectStaged(currentStagingId);
+    await api(`/api/staging/${currentStagingId}`, { method: 'DELETE' });
     closeStagingDetail();
     loadStagingList();
   });

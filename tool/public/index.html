@@ -114,7 +114,7 @@
           <div class="staging-header">
             <div>
               <div class="staging-title">Staging</div>
-              <div class="staging-desc">Posts awaiting review — approve to publish or reject to discard.</div>
+              <div class="staging-desc">Approve posts to mark them ready. Push all approved posts in one commit.</div>
             </div>
             <button class="btn-ghost" id="btn-refresh-staging">↺ Refresh</button>
           </div>
@@ -123,6 +123,19 @@
             <p>No posts in staging.<br/>Generate a blog post to get started.</p>
           </div>
           <div id="staging-list" class="staging-list"></div>
+          <div id="push-all-bar" class="push-all-bar" style="display:none;">
+            <div class="push-all-info">
+              <span id="push-all-count" class="push-all-count"></span>
+              <span class="push-all-note">approved and ready to publish</span>
+            </div>
+            <button class="btn-primary" id="btn-push-all">
+              <span class="btn-icon">🚀</span> Push All Approved
+            </button>
+          </div>
+          <div id="push-all-log-container" style="display:none; margin-top:16px;">
+            <div class="section-title">Push Progress</div>
+            <div class="log-box" id="push-all-log-box"></div>
+          </div>
         </div>
 
         <!-- ── Detail view ──────────────────────────────────────── -->
@@ -134,9 +147,7 @@
             </div>
             <div class="preview-actions">
               <button class="btn-reject" id="btn-reject-detail">✕ Reject</button>
-              <button class="btn-primary" id="btn-approve-detail">
-                <span class="btn-icon">🚀</span> Approve &amp; Push
-              </button>
+              <button class="btn-approve-action" id="btn-approve-detail">✓ Approve</button>
             </div>
           </div>
           <div class="preview-tabs-bar">
@@ -150,10 +161,6 @@
           <div class="detail-split">
             <div class="detail-article">
               <div class="mdx-panels" id="detail-mdx-panels"></div>
-              <div id="detail-push-log" style="display:none; margin-top:24px;">
-                <div class="section-title">Push Progress</div>
-                <div class="log-box" id="detail-push-log-box"></div>
-              </div>
             </div>
             <div class="detail-chat">
               <div class="chat-header">

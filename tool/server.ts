@@ -196,6 +196,7 @@ interface StagedPost {
   chatHistory: Record<string, ChatMessage[]>;
   originalPrompt: string;
   originalContext?: string;
+  status: 'pending' | 'approved';
 }
 
 interface StagedSummary {
@@ -206,6 +207,7 @@ interface StagedSummary {
   createdAt: string;
   languages: string[];
   imageCount: number;
+  status: 'pending' | 'approved';
 }
 
 function ensureStagingDir() {
@@ -236,6 +238,7 @@ function listStaged(): StagedSummary[] {
           createdAt: p.createdAt,
           languages: p.languages,
           imageCount: p.images?.length ?? 0,
+          status: p.status ?? 'pending',
         } satisfies StagedSummary;
       } catch { return null; }
     })
@@ -681,6 +684,7 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
       chatHistory: {},
       originalPrompt: prompt,
       originalContext: context,
+      status: 'pending',
     });
 
     send('log', '✅ Generation complete!');
@@ -763,8 +767,20 @@ app.delete('/api/staging/:id', (req: Request, res: Response) => {
   catch (err) { res.status(500).json({ error: String(err) }); }
 });
 
-// ── POST /api/staging/:id/push ────────────────────────────────────────────────
-app.post('/api/staging/:id/push', async (req: Request, res: Response) => {
+// ── POST /api/staging/:id/approve ─────────────────────────────────────────────
+app.post('/api/staging/:id/approve', (req: Request, res: Response): void => {
+  try {
+    const post = getStaged(String(req.params['id']));
+    if (!post) { res.status(404).json({ error: 'Not found' }); return; }
+    post.status = 'approved';
+    saveStaged(post);
+    res.json({ ok: true });
+  } catch (err) { res.status(500).json({ error: String(err) }); }
+});
+
+// ── POST /api/staging/push-all ────────────────────────────────────────────────
+// Writes all approved posts to disk in one go and pushes a single commit.
+app.post('/api/staging/push-all', async (_req: Request, res: Response) => {
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
   res.setHeader('Connection', 'keep-alive');
@@ -774,32 +790,43 @@ app.post('/api/staging/:id/push', async (req: Request, res: Response) => {
     res.write(`data: ${JSON.stringify({ type, data })}\n\n`);
 
   try {
-    const post = getStaged(String(req.params['id']));
-    if (!post) throw new Error('Staged post not found');
+    const approved = listStaged().filter(s => s.status === 'approved');
+    if (approved.length === 0) { send('error', 'No approved posts to push.'); res.end(); return; }
 
-    const { id, brandId, slug, posts, images } = post;
+    send('log', `Publishing ${approved.length} approved post(s)…`);
 
-    for (const [lang, mdx] of Object.entries(posts)) {
-      const dir = resolve(REPO_ROOT, 'brands', brandId, lang);
-      mkdirSync(dir, { recursive: true });
-      writeFileSync(resolve(dir, `${slug}.mdx`), mdx, 'utf-8');
-      send('log', `✓ Written brands/${brandId}/${lang}/${slug}.mdx`);
+    const pushed: string[] = [];
+    for (const summary of approved) {
+      const post = getStaged(summary.id);
+      if (!post) continue;
+
+      for (const [lang, mdx] of Object.entries(post.posts)) {
+        const dir = resolve(REPO_ROOT, 'brands', post.brandId, lang);
+        mkdirSync(dir, { recursive: true });
+        writeFileSync(resolve(dir, `${post.slug}.mdx`), mdx, 'utf-8');
+        send('log', `✓ Written brands/${post.brandId}/${lang}/${post.slug}.mdx`);
+      }
+
+      for (const img of post.images ?? []) {
+        const dir = resolve(REPO_ROOT, 'brands', post.brandId, 'images', post.slug);
+        mkdirSync(dir, { recursive: true });
+        writeFileSync(resolve(dir, img.filename), Buffer.from(img.base64, 'base64'));
+        send('log', `✓ Written brands/${post.brandId}/images/${post.slug}/${img.filename}`);
+      }
+
+      pushed.push(post.id);
     }
 
-    for (const img of images ?? []) {
-      const dir = resolve(REPO_ROOT, 'brands', brandId, 'images', slug);
-      mkdirSync(dir, { recursive: true });
-      writeFileSync(resolve(dir, img.filename), Buffer.from(img.base64, 'base64'));
-      send('log', `✓ Written brands/${brandId}/images/${slug}/${img.filename}`);
-    }
-
+    // Single commit for all approved posts
+    const slugList = approved.map(s => `"${s.slug}"`).join(', ');
     send('log', 'Committing and pushing to main…');
-    const result = await gitCommitAndPush(`feat(content): add "${slug}" for ${brandId}`);
+    const result = await gitCommitAndPush(`feat(content): publish ${approved.length} approved post(s): ${slugList}`);
     send('log', `🚀 ${result}`);
     send('log', 'Auto-publish workflow will trigger shortly.');
 
-    deleteStaged(id);
-    send('done', { ok: true });
+    // Clean up approved posts from staging
+    pushed.forEach(deleteStaged);
+    send('done', { ok: true, count: pushed.length });
     res.end();
   } catch (err) {
     send('error', String(err));
