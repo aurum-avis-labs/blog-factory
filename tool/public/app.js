@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   bindGenerateBtn();
   bindStagingActions();
   bindSettings();
+  startJobPolling();
 });
 
 // ── API helpers ────────────────────────────────────────────────────────────────
@@ -54,6 +55,7 @@ async function fetchConfig() {
   }
   renderApiStatus('status-azure', config.azureOpenAI, 'Connected', 'Not configured');
   renderApiStatus('status-dalle', config.azureDalle,  'Connected', 'Not configured');
+  updateSidebarPills();
   updateDalleHint();
 }
 
@@ -63,6 +65,25 @@ function renderApiStatus(id, ok, okText, errText) {
   el.classList.toggle('ok', ok);
   el.classList.toggle('err', !ok);
   el.querySelector('.status-badge').textContent = ok ? okText : errText;
+}
+
+function updateSidebarPills() {
+  const pillAzure = document.getElementById('pill-azure');
+  const pillImage = document.getElementById('pill-image');
+  if (pillAzure) pillAzure.classList.toggle('ok', config.azureOpenAI);
+  if (pillImage) pillImage.classList.toggle('ok', config.azureDalle);
+}
+
+function bindSettingsNav() {
+  document.querySelectorAll('.settings-nav-item[data-section]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const section = document.getElementById(btn.dataset.section);
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelectorAll('.settings-nav-item').forEach(b =>
+        b.classList.toggle('active', b === btn)
+      );
+    });
+  });
 }
 
 // ── Brands ─────────────────────────────────────────────────────────────────────
@@ -132,13 +153,13 @@ function selectedLanguages() {
 
 // ── Tabs ───────────────────────────────────────────────────────────────────────
 function bindTabs() {
-  document.querySelectorAll('.tab-btn').forEach(btn => {
+  document.querySelectorAll('.nav-item[data-tab]').forEach(btn => {
     btn.addEventListener('click', () => switchTab(btn.dataset.tab));
   });
 }
 
 function switchTab(name) {
-  document.querySelectorAll('.tab-btn').forEach(b =>
+  document.querySelectorAll('.nav-item[data-tab]').forEach(b =>
     b.classList.toggle('active', b.dataset.tab === name)
   );
   document.querySelectorAll('.tab-panel').forEach(p =>
@@ -146,7 +167,8 @@ function switchTab(name) {
   );
 
   if (name === 'existing') refreshExistingTab();
-  if (name === 'preview') { closeStagingDetail(); loadStagingList(); }
+  if (name === 'posts') { closeStagingDetail(); loadPostsTab(); }
+  if (name === 'settings') bindSettingsNav();
 }
 
 // ── Image count toggle ─────────────────────────────────────────────────────────
@@ -185,28 +207,15 @@ async function handleGenerate() {
   const context = document.getElementById('context-input').value.trim();
   const langs   = selectedLanguages();
 
-  if (!prompt)      return alert('Please enter a blog topic.');
+  if (!prompt)       return alert('Please enter a blog topic.');
   if (!langs.length) return alert('Please select at least one language.');
 
   const btn = document.getElementById('generate-btn');
   btn.disabled = true;
-  btn.innerHTML = '<span class="btn-icon">⏳</span> Generating…';
-
-  const logContainer = document.getElementById('log-container');
-  const logBox = document.getElementById('log-box');
-  logContainer.style.display = '';
-  logBox.innerHTML = '';
-
-  const addLog = (text, cls = '') => {
-    const span = document.createElement('span');
-    span.className = cls;
-    span.textContent = text + '\n';
-    logBox.appendChild(span);
-    logBox.scrollTop = logBox.scrollHeight;
-  };
+  btn.innerHTML = '<span class="btn-icon">⏳</span> Queuing…';
 
   try {
-    const res = await fetch('/api/generate', {
+    const data = await api('/api/jobs', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -218,26 +227,42 @@ async function handleGenerate() {
       }),
     });
 
-    await streamSSE(res, {
-      log: msg => {
-        const cls = msg.startsWith('✅') ? 'log-ok' : msg.startsWith('⚠') ? 'log-gold' : '';
-        addLog(msg, cls);
-      },
-      error: msg => addLog('ERROR: ' + msg, 'log-err'),
-      done: data => {
-        addLog('→ Saved to staging. Opening preview…', 'log-gold');
-        setTimeout(() => {
-          loadStagingList().then(() => openStagingDetail(data.stagingId));
-          switchTab('preview');
-        }, 600);
-      },
-    });
+    // Clear form
+    document.getElementById('prompt-input').value  = '';
+    document.getElementById('context-input').value = '';
+
+    // Toast
+    const pos = data.position > 0 ? ` (position ${data.position + 1} in queue)` : '';
+    showToast('success', '✦ Job queued', `Generating for ${activeBrand.displayName}${pos}. Check the Posts tab.`);
+
+    // Switch to posts tab
+    switchTab('posts');
+
   } catch (err) {
-    addLog('Network error: ' + err.message, 'log-err');
+    showToast('error', 'Queue failed', err.message);
   } finally {
     btn.disabled = false;
     btn.innerHTML = '<span class="btn-icon">✦</span> Generate Blog Post';
   }
+}
+
+// ── Toast ───────────────────────────────────────────────────────────────────────
+function showToast(type, title, msg, duration = 5000) {
+  const container = document.getElementById('toast-container');
+  const el = document.createElement('div');
+  el.className = `toast toast-${type}`;
+  el.innerHTML = `
+    <div class="toast-icon">${type === 'success' ? '✅' : '❌'}</div>
+    <div class="toast-body">
+      <div class="toast-title">${title}</div>
+      ${msg ? `<div class="toast-msg">${msg}</div>` : ''}
+    </div>`;
+  container.appendChild(el);
+  setTimeout(() => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    setTimeout(() => el.remove(), 350);
+  }, duration);
 }
 
 // ── SSE stream helper ──────────────────────────────────────────────────────────
@@ -260,27 +285,144 @@ async function streamSSE(res, handlers) {
   }
 }
 
-// ── Staging list ───────────────────────────────────────────────────────────────
-async function loadStagingList() {
-  const list  = document.getElementById('staging-list');
-  const empty = document.getElementById('staging-empty');
+// ── Posts tab ──────────────────────────────────────────────────────────────────
+let _jobPollTimer = null;
+
+function startJobPolling() {
+  stopJobPolling();
+  _jobPollTimer = setInterval(() => {
+    const panel = document.getElementById('tab-posts');
+    if (panel && panel.classList.contains('active')) loadPostsTab();
+  }, 3000);
+}
+
+function stopJobPolling() {
+  if (_jobPollTimer) { clearInterval(_jobPollTimer); _jobPollTimer = null; }
+}
+
+async function loadPostsTab() {
+  await Promise.all([loadJobsList(), loadStagingList()]);
+}
+
+// ── Jobs list ──────────────────────────────────────────────────────────────────
+async function loadJobsList() {
+  const list  = document.getElementById('jobs-list');
+  const empty = document.getElementById('jobs-empty');
+  const count = document.getElementById('jobs-count');
   try {
-    const posts = await api('/api/staging');
-    list.innerHTML = '';
-    if (!posts.length) {
+    const jobs = await api('/api/jobs');
+    const active = jobs.filter(j => j.status === 'queued' || j.status === 'running');
+    count.textContent = active.length;
+    if (!active.length) {
+      list.innerHTML = '';
       empty.style.display = '';
       return;
     }
     empty.style.display = 'none';
-    posts.forEach(p => list.appendChild(buildStagingCard(p)));
+    // Update existing cards, add new ones, remove stale ones
+    const existing = new Set([...list.querySelectorAll('.job-card')].map(c => c.dataset.id));
+    const incoming = new Set(active.map(j => j.id));
+    // Remove stale
+    existing.forEach(id => { if (!incoming.has(id)) list.querySelector(`[data-id="${id}"]`)?.remove(); });
+    // Update or insert
+    active.forEach((job, i) => {
+      const existing = list.querySelector(`[data-id="${job.id}"]`);
+      if (existing) {
+        updateJobCard(existing, job);
+      } else {
+        const card = buildJobCard(job);
+        if (i < list.children.length) list.insertBefore(card, list.children[i]);
+        else list.appendChild(card);
+      }
+    });
+  } catch (e) {
+    list.innerHTML = `<span class="muted">Error: ${e.message}</span>`;
+  }
+}
+
+function buildJobCard(job) {
+  const card = document.createElement('div');
+  card.dataset.id = job.id;
+  refreshJobCard(card, job);
+  return card;
+}
+
+function updateJobCard(card, job) {
+  const prevStatus = card.dataset.status;
+  if (prevStatus === job.status && job.status !== 'running') return; // no change needed
+  refreshJobCard(card, job);
+}
+
+function refreshJobCard(card, job) {
+  card.dataset.id     = job.id;
+  card.dataset.status = job.status;
+  card.className      = `job-card is-${job.status}`;
+
+  const langs = (job.languages || []).map(l =>
+    `<span class="lang-pill has">${l.toUpperCase()}</span>`).join('');
+
+  const latestLog = job.progress?.length
+    ? job.progress[job.progress.length - 1]
+    : (job.status === 'queued' ? 'Waiting in queue…' : '');
+
+  const statusLabel = { queued: 'Queued', running: 'Running', complete: 'Done', failed: 'Failed' }[job.status] || job.status;
+
+  card.innerHTML = `
+    <div class="job-card-header">
+      <span class="job-status-dot"></span>
+      <div class="job-card-info">
+        <div class="job-card-topic">${job.topic || '—'}</div>
+        <div class="job-card-meta">
+          <span class="job-status-label">${statusLabel}</span>
+          <span>${job.brandName}</span>
+          ${langs}
+        </div>
+      </div>
+      <div class="job-card-actions">
+        ${job.status === 'queued' ? `<button class="btn-ghost btn-sm" data-action="cancel">Cancel</button>` : ''}
+      </div>
+    </div>
+    ${latestLog ? `<div class="job-log-area"><div class="job-log-box" id="jlog-${job.id}">${latestLog}</div></div>` : ''}`;
+
+  card.querySelector('[data-action="cancel"]')?.addEventListener('click', async e => {
+    e.stopPropagation();
+    try { await api(`/api/jobs/${job.id}`, { method: 'DELETE' }); } catch {}
+    await loadJobsList();
+  });
+}
+
+// ── Staging list ───────────────────────────────────────────────────────────────
+async function loadStagingList() {
+  const list  = document.getElementById('staging-list');
+  const empty = document.getElementById('staging-empty');
+  const count = document.getElementById('staging-count');
+  try {
+    const posts = await api('/api/staging');
+    list.innerHTML = '';
+    count.textContent = posts.length;
+    if (!posts.length) {
+      empty.style.display = '';
+    } else {
+      empty.style.display = 'none';
+      posts.forEach(p => list.appendChild(buildStagingCard(p)));
+    }
+    updatePushAllBtn(posts);
   } catch (e) {
     list.innerHTML = `<span class="muted">Error loading staging: ${e.message}</span>`;
   }
 }
 
+function updatePushAllBtn(posts) {
+  const btn   = document.getElementById('btn-push-all');
+  const badge = document.getElementById('push-all-count');
+  const n = posts.filter(p => p.status === 'approved').length;
+  btn.style.display = n > 0 ? '' : 'none';
+  badge.textContent = n;
+}
+
 function buildStagingCard(p) {
   const card = document.createElement('div');
-  card.className = 'staging-card';
+  card.className = `staging-card${p.status === 'approved' ? ' is-approved' : ''}`;
   card.dataset.id = p.id;
 
   const date = new Date(p.createdAt).toLocaleDateString('en-US',
@@ -290,34 +432,40 @@ function buildStagingCard(p) {
   const imgNote = p.imageCount > 0
     ? `<span class="staging-card-img-count">🖼 ${p.imageCount} image${p.imageCount > 1 ? 's' : ''}</span>`
     : '';
+  const statusBadge = p.status === 'approved'
+    ? `<span class="status-badge approved">✓ Approved</span>`
+    : `<span class="status-badge pending">Pending</span>`;
 
   card.innerHTML = `
     <div class="staging-card-body">
-      <div class="staging-card-brand">${p.brandName}</div>
+      <div class="staging-card-top">
+        <div class="staging-card-brand">${p.brandName}</div>
+        ${statusBadge}
+      </div>
       <div class="staging-card-slug">${p.slug}</div>
       <div class="staging-card-meta">${langPills}${imgNote}<span>${date}</span></div>
     </div>
     <div class="staging-card-actions">
       <button class="btn-reject" data-action="reject">✕ Reject</button>
-      <button class="btn-primary" data-action="approve">🚀 Approve &amp; Push</button>
+      ${p.status === 'approved'
+        ? `<button class="btn-approve-action is-approved" data-action="approve">✓ Approved</button>`
+        : `<button class="btn-approve-action" data-action="approve">✓ Approve</button>`
+      }
     </div>`;
 
-  // Click card body → open detail
   card.querySelector('.staging-card-body').addEventListener('click', () => openStagingDetail(p.id));
 
-  // Reject button
   card.querySelector('[data-action="reject"]').addEventListener('click', async e => {
     e.stopPropagation();
     if (!confirm(`Reject and delete "${p.slug}"?`)) return;
-    await rejectStaged(p.id);
+    await api(`/api/staging/${p.id}`, { method: 'DELETE' });
     await loadStagingList();
   });
 
-  // Approve button
   card.querySelector('[data-action="approve"]').addEventListener('click', async e => {
     e.stopPropagation();
-    await openStagingDetail(p.id);
-    handleApprove(p.id);
+    await approveStaged(p.id);
+    await loadStagingList();
   });
 
   return card;
@@ -343,15 +491,15 @@ async function openStagingDetail(id) {
   document.getElementById('staging-list-view').style.display = 'none';
   document.getElementById('staging-detail-view').style.display = '';
   document.getElementById('detail-slug-display').textContent = post.slug;
-  document.getElementById('detail-push-log').style.display = 'none';
-  document.getElementById('detail-push-log-box').innerHTML = '';
 
-  // Reset approve/reject buttons
+  // Set approve button state based on current status
   const approveBtn = document.getElementById('btn-approve-detail');
   const rejectBtn  = document.getElementById('btn-reject-detail');
-  approveBtn.disabled = false;
-  rejectBtn.disabled  = false;
-  approveBtn.innerHTML = '<span class="btn-icon">🚀</span> Approve &amp; Push';
+  const isApproved = post.status === 'approved';
+  approveBtn.textContent = isApproved ? '✓ Approved' : '✓ Approve';
+  approveBtn.disabled = isApproved;
+  approveBtn.classList.toggle('is-approved', isApproved);
+  rejectBtn.disabled = false;
   rejectBtn.textContent = '✕ Reject';
 
   // Render language panels
@@ -515,21 +663,17 @@ async function openStagingDetail(id) {
   });
 }
 
-async function rejectStaged(id) {
-  await api(`/api/staging/${id}`, { method: 'DELETE' });
+async function approveStaged(id) {
+  await api(`/api/staging/${id}/approve`, { method: 'POST' });
 }
 
-async function handleApprove(id) {
-  const approveBtn = document.getElementById('btn-approve-detail');
-  const rejectBtn  = document.getElementById('btn-reject-detail');
-  if (!approveBtn) return;
+async function handlePushAll() {
+  const btn = document.getElementById('btn-push-all');
+  const logContainer = document.getElementById('push-all-log-container');
+  const logBox = document.getElementById('push-all-log-box');
 
-  approveBtn.disabled = true;
-  rejectBtn.disabled  = true;
-  approveBtn.innerHTML = '<span class="btn-icon">⏳</span> Pushing…';
-
-  const logContainer = document.getElementById('detail-push-log');
-  const logBox = document.getElementById('detail-push-log-box');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="btn-icon">⏳</span> Pushing…';
   logContainer.style.display = '';
   logBox.innerHTML = '';
 
@@ -542,42 +686,50 @@ async function handleApprove(id) {
   };
 
   try {
-    const res = await fetch(`/api/staging/${id}/push`, { method: 'POST' });
+    const res = await fetch('/api/staging/push-all', { method: 'POST' });
     await streamSSE(res, {
       log:   msg => addLog(msg, msg.startsWith('🚀') || msg.startsWith('✓') ? 'log-ok' : ''),
       error: msg => addLog('ERROR: ' + msg, 'log-err'),
-      done:  () => {
-        addLog('✅ Done! Auto-publish workflow is now running.', 'log-ok');
-        approveBtn.innerHTML = '<span class="btn-icon">✅</span> Pushed!';
-        // Remove from list, go back after a moment
-        setTimeout(() => { closeStagingDetail(); loadStagingList(); }, 2000);
+      done:  d  => {
+        addLog(`✅ Done! ${d.count} post(s) published. Auto-publish workflow is running.`, 'log-ok');
+        showToast('success', 'Published!', `${d.count} post(s) pushed. Deploy workflow triggered.`);
+        btn.innerHTML = '<span class="btn-icon">✅</span> Pushed!';
+        setTimeout(() => {
+          btn.disabled = false;
+          loadStagingList();
+        }, 3000);
       },
     });
   } catch (err) {
     addLog('Network error: ' + err.message, 'log-err');
-    approveBtn.disabled = false;
-    rejectBtn.disabled  = false;
-    approveBtn.innerHTML = '<span class="btn-icon">🚀</span> Approve &amp; Push';
+    btn.disabled = false;
+    loadStagingList();
   }
 }
 
 // ── Staging action bindings ────────────────────────────────────────────────────
 function bindStagingActions() {
-  document.getElementById('btn-refresh-staging').addEventListener('click', loadStagingList);
+  document.getElementById('btn-refresh-staging').addEventListener('click', loadPostsTab);
+  document.getElementById('btn-push-all').addEventListener('click', handlePushAll);
 
   document.getElementById('btn-back-staging').addEventListener('click', () => {
     closeStagingDetail();
     loadStagingList();
   });
 
-  document.getElementById('btn-approve-detail').addEventListener('click', () => {
-    if (currentStagingId) handleApprove(currentStagingId);
+  document.getElementById('btn-approve-detail').addEventListener('click', async () => {
+    if (!currentStagingId) return;
+    const btn = document.getElementById('btn-approve-detail');
+    await approveStaged(currentStagingId);
+    btn.textContent = '✓ Approved';
+    btn.classList.add('is-approved');
+    btn.disabled = true;
   });
 
   document.getElementById('btn-reject-detail').addEventListener('click', async () => {
     const slug = document.getElementById('detail-slug-display').textContent;
     if (!confirm(`Reject and delete "${slug}"?`)) return;
-    await rejectStaged(currentStagingId);
+    await api(`/api/staging/${currentStagingId}`, { method: 'DELETE' });
     closeStagingDetail();
     loadStagingList();
   });

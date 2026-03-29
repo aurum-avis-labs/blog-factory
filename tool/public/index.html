@@ -9,43 +9,82 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="layout">
+<div class="app">
 
-    <!-- ── Top bar ─────────────────────────────────────────────────── -->
-    <header class="topbar">
-      <div class="topbar-brand">
-        <span class="logo-mark">✦</span>
-        <span class="logo-name">Blog Factory</span>
-        <span class="logo-sep">/</span>
-        <span class="logo-sub">Aurum Avis Labs</span>
+  <!-- ── Sidebar ──────────────────────────────────────────────────────────── -->
+  <aside class="sidebar">
+
+    <div class="sidebar-brand">
+      <div class="brand-logo">
+        <div class="brand-mark">✦</div>
+        <div>
+          <div class="brand-name">Blog Factory</div>
+          <div class="brand-sub">Aurum Avis Labs</div>
+        </div>
       </div>
-
-      <!-- Global brand selector -->
-      <div class="topbar-brand-select">
-        <select id="global-brand-select" class="topbar-select">
+      <div class="sidebar-select-wrap">
+        <select id="global-brand-select" class="sidebar-brand-select">
           <option value="">Select brand…</option>
         </select>
       </div>
+    </div>
 
-      <!-- Page tabs -->
-      <nav class="tabs">
-        <button class="tab-btn active" data-tab="generate">Generate</button>
-        <button class="tab-btn" data-tab="preview">Preview</button>
-        <button class="tab-btn" data-tab="existing">Existing Posts</button>
-      </nav>
+    <nav class="sidebar-nav">
+      <div class="nav-group">
+        <div class="nav-group-label">Create</div>
+        <button class="nav-item active" data-tab="generate">
+          <span class="nav-icon">✦</span>
+          <span class="nav-label">Generate</span>
+        </button>
+        <button class="nav-item" data-tab="posts">
+          <span class="nav-icon">⬡</span>
+          <span class="nav-label">Posts</span>
+          <span class="nav-badge" id="nav-posts-badge" style="display:none;"></span>
+        </button>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">Library</div>
+        <button class="nav-item" data-tab="existing">
+          <span class="nav-icon">◫</span>
+          <span class="nav-label">Existing Posts</span>
+        </button>
+      </div>
+    </nav>
 
-      <!-- Settings — far right -->
-      <button class="topbar-settings-btn tab-btn" data-tab="settings" title="Settings">
-        ⚙ Settings
+    <div class="sidebar-footer">
+      <button class="nav-item" data-tab="settings">
+        <span class="nav-icon">⚙</span>
+        <span class="nav-label">Settings</span>
       </button>
-    </header>
+      <div class="api-pills">
+        <div class="api-pill" id="pill-azure">
+          <div class="api-pill-dot"></div>
+          <span>Text</span>
+        </div>
+        <div class="api-pill" id="pill-image">
+          <div class="api-pill-dot"></div>
+          <span>Image</span>
+        </div>
+      </div>
+    </div>
 
-    <!-- ── Main content ───────────────────────────────────────────── -->
-    <main class="main">
+  </aside>
 
-      <!-- ── Generate Tab ─────────────────────────────────────────── -->
-      <div class="tab-panel active" id="tab-generate">
-        <div class="form-grid">
+  <!-- ── Main ─────────────────────────────────────────────────────────────── -->
+  <div class="main">
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         Generate Tab
+    ──────────────────────────────────────────────────────────────────────── -->
+    <div class="tab-panel active" id="tab-generate">
+      <div class="generate-wrap">
+
+        <div class="generate-heading">
+          <h1 class="page-title">Generate Post</h1>
+          <p class="page-subtitle">Create a blog post in all configured languages for the selected brand.</p>
+        </div>
+
+        <div class="form-card">
 
           <div class="brand-info-bar hidden" id="brand-info-bar">
             <div class="brand-info-item">
@@ -62,258 +101,358 @@
             </div>
           </div>
 
-          <div class="field" id="field-languages">
-            <label class="field-label">Languages</label>
-            <div class="checkbox-group" id="lang-checkboxes">
-              <span class="muted">Select a brand in the top bar first</span>
+          <div class="form-grid">
+
+            <div class="field" id="field-languages">
+              <label class="field-label">Languages</label>
+              <div class="checkbox-group" id="lang-checkboxes">
+                <span class="muted">Select a brand in the sidebar first</span>
+              </div>
             </div>
-          </div>
 
-          <div class="field field-full">
-            <label class="field-label">Blog Topic / Prompt</label>
-            <textarea id="prompt-input" class="input textarea" rows="3"
-              placeholder="e.g. Why AI virtual teams are the future of work for SMBs"></textarea>
-          </div>
-
-          <div class="field field-full">
-            <label class="field-label">Additional Context <span class="optional">(optional)</span></label>
-            <textarea id="context-input" class="input textarea" rows="2"
-              placeholder="e.g. Focus on cost angle, target audience: SMB founders…"></textarea>
-          </div>
-
-          <div class="field">
-            <label class="field-label">Images</label>
-            <div class="toggle-group">
-              <button class="toggle-btn active" data-count="0">None</button>
-              <button class="toggle-btn" data-count="2">2</button>
-              <button class="toggle-btn" data-count="3">3</button>
-              <button class="toggle-btn" data-count="4">4</button>
+            <div class="field">
+              <label class="field-label">Images</label>
+              <div class="toggle-group">
+                <button class="toggle-btn active" data-count="0">None</button>
+                <button class="toggle-btn" data-count="2">2</button>
+                <button class="toggle-btn" data-count="3">3</button>
+                <button class="toggle-btn" data-count="4">4</button>
+              </div>
+              <p class="field-hint" id="dalle-hint"></p>
             </div>
-            <p class="field-hint" id="dalle-hint"></p>
-          </div>
 
-          <div class="field field-full">
-            <button class="btn-primary" id="generate-btn">
-              <span class="btn-icon">✦</span> Generate Blog Post
+            <div class="field field-full">
+              <label class="field-label">Blog Topic / Prompt</label>
+              <textarea id="prompt-input" class="input textarea" rows="3"
+                placeholder="e.g. Why AI virtual teams are the future of work for SMBs"></textarea>
+            </div>
+
+            <div class="field field-full">
+              <label class="field-label">Additional Context <span class="optional">(optional)</span></label>
+              <textarea id="context-input" class="input textarea" rows="2"
+                placeholder="e.g. Focus on cost angle, target audience: SMB founders…"></textarea>
+            </div>
+
+            <div class="field field-full">
+              <button class="btn-primary" id="generate-btn">
+                <span class="btn-icon">✦</span> Generate Blog Post
+              </button>
+            </div>
+
+          </div><!-- .form-grid -->
+        </div><!-- .form-card -->
+      </div><!-- .generate-wrap -->
+    </div><!-- #tab-generate -->
+
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         Posts Tab
+    ──────────────────────────────────────────────────────────────────────── -->
+    <div class="tab-panel" id="tab-posts">
+
+      <!-- List view ───────────────────────────────────────────────────── -->
+      <div id="staging-list-view" class="panel-content">
+
+        <div class="posts-header">
+          <div>
+            <div class="page-title">Posts</div>
+            <div class="page-subtitle">Review and approve generated posts before publishing</div>
+          </div>
+          <div class="posts-header-actions">
+            <button class="btn-ghost" id="btn-refresh-staging">↺ Refresh</button>
+            <button class="btn-push-all" id="btn-push-all" style="display:none;">
+              <span class="btn-icon">🚀</span> Push Approved
+              <span class="push-all-badge" id="push-all-count"></span>
             </button>
           </div>
-
-          <div class="field field-full" id="log-container" style="display:none;">
-            <label class="field-label">Progress</label>
-            <div class="log-box" id="log-box"></div>
-          </div>
-
         </div>
-      </div>
 
-      <!-- ── Preview / Staging Tab ─────────────────────────────────── -->
-      <div class="tab-panel" id="tab-preview">
-
-        <!-- ── Staging list ─────────────────────────────────────── -->
-        <div id="staging-list-view">
-          <div class="staging-header">
-            <div>
-              <div class="staging-title">Staging</div>
-              <div class="staging-desc">Posts awaiting review — approve to publish or reject to discard.</div>
-            </div>
-            <button class="btn-ghost" id="btn-refresh-staging">↺ Refresh</button>
+        <!-- In Progress -->
+        <div class="posts-section" id="jobs-section">
+          <div class="posts-section-header">
+            <span class="posts-section-label">In Progress</span>
+            <span class="posts-section-count" id="jobs-count">0</span>
           </div>
-          <div id="staging-empty" class="staging-empty" style="display:none;">
-            <div class="staging-empty-icon">✦</div>
-            <p>No posts in staging.<br/>Generate a blog post to get started.</p>
+          <div id="jobs-empty" class="jobs-empty" style="display:none;">No active jobs.</div>
+          <div id="jobs-list" class="jobs-list"></div>
+        </div>
+
+        <!-- Ready for Review -->
+        <div class="posts-section" id="staging-section">
+          <div class="posts-section-header">
+            <span class="posts-section-label">Ready for Review</span>
+            <span class="posts-section-count" id="staging-count">0</span>
+          </div>
+          <div id="staging-empty" style="display:none;">
+            <div class="empty-state">
+              <div class="empty-icon">✦</div>
+              <div class="empty-title">No posts awaiting review</div>
+              <div class="empty-desc">Generate a blog post above to get started.</div>
+            </div>
           </div>
           <div id="staging-list" class="staging-list"></div>
         </div>
 
-        <!-- ── Detail view ──────────────────────────────────────── -->
-        <div id="staging-detail-view" style="display:none;">
-          <div class="preview-header">
-            <div style="display:flex;flex-direction:column;gap:6px;">
-              <button class="btn-ghost" id="btn-back-staging" style="width:fit-content;">← Staging</button>
-              <div class="preview-slug" id="detail-slug-display">—</div>
-            </div>
-            <div class="preview-actions">
-              <button class="btn-reject" id="btn-reject-detail">✕ Reject</button>
-              <button class="btn-primary" id="btn-approve-detail">
-                <span class="btn-icon">🚀</span> Approve &amp; Push
-              </button>
-            </div>
+        <!-- Push log -->
+        <div id="push-all-log-container" style="display:none; margin-top:16px;">
+          <div class="section-title">Push Progress</div>
+          <div class="log-box" id="push-all-log-box"></div>
+        </div>
+
+      </div><!-- #staging-list-view -->
+
+      <!-- Detail view ─────────────────────────────────────────────────── -->
+      <div id="staging-detail-view" style="display:none;" class="detail-chrome">
+
+        <div class="detail-topbar">
+          <div class="detail-breadcrumb">
+            <button class="btn-ghost btn-sm" id="btn-back-staging">← Posts</button>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current" id="detail-slug-display">—</span>
           </div>
-          <div class="preview-tabs-bar">
-            <div class="lang-tabs" id="detail-lang-tabs"></div>
-            <div class="view-toggle" id="detail-view-toggle">
-              <button class="view-btn active" data-view="rendered">Rendered</button>
-              <button class="view-btn" data-view="raw">Raw MDX</button>
-            </div>
-          </div>
-          <!-- Split: article + chat -->
-          <div class="detail-split">
-            <div class="detail-article">
-              <div class="mdx-panels" id="detail-mdx-panels"></div>
-              <div id="detail-push-log" style="display:none; margin-top:24px;">
-                <div class="section-title">Push Progress</div>
-                <div class="log-box" id="detail-push-log-box"></div>
-              </div>
-            </div>
-            <div class="detail-chat">
-              <div class="chat-header">
-                <span>Refine</span>
-                <span class="chat-lang-badge" id="chat-lang-badge">—</span>
-              </div>
-              <div class="chat-history" id="chat-history">
-                <div class="chat-empty" id="chat-empty">No refinements yet. Describe what to change below.</div>
-              </div>
-              <div class="chat-input-area">
-                <textarea class="chat-input" id="chat-input" placeholder="e.g. Make the intro shorter, add a pricing section, change the tone…" rows="3"></textarea>
-                <button class="btn-primary chat-send" id="btn-chat-send">Send ↵</button>
-              </div>
-            </div>
+          <div class="detail-actions">
+            <button class="btn-reject" id="btn-reject-detail">✕ Reject</button>
+            <button class="btn-approve" id="btn-approve-detail">✓ Approve</button>
           </div>
         </div>
 
-      </div>
-
-      <!-- ── Existing Posts Tab ───────────────────────────────────── -->
-      <div class="tab-panel" id="tab-existing">
-        <!-- List view -->
-        <div id="existing-list-view">
-          <div id="existing-no-brand" class="muted">Select a brand in the top bar to view its posts.</div>
-          <div id="existing-loading" style="display:none;" class="muted">Loading posts…</div>
-          <div id="existing-empty" style="display:none;" class="muted">No posts found for this brand yet.</div>
-          <div id="existing-table-wrap" style="display:none;">
-            <table class="posts-table">
-              <thead><tr><th>Slug</th><th>Languages</th><th></th></tr></thead>
-              <tbody id="existing-tbody"></tbody>
-            </table>
+        <div class="detail-lang-bar">
+          <div class="lang-tabs" id="detail-lang-tabs"></div>
+          <div class="view-toggle" id="detail-view-toggle">
+            <button class="view-btn active" data-view="rendered">Rendered</button>
+            <button class="view-btn" data-view="raw">Raw MDX</button>
           </div>
         </div>
-        <!-- Post detail view -->
-        <div id="existing-detail-view" style="display:none;">
-          <div class="preview-header">
-            <div style="display:flex;flex-direction:column;gap:6px;">
-              <button class="btn-ghost" id="btn-back-existing" style="width:fit-content;">← Posts</button>
-              <div class="preview-slug" id="existing-slug-display">—</div>
+
+        <div class="detail-body">
+          <div class="detail-article">
+            <div class="mdx-panels" id="detail-mdx-panels"></div>
+          </div>
+          <div class="detail-chat">
+            <div class="chat-header">
+              <div class="chat-title">Refine</div>
+              <div class="chat-subtitle">Editing: <span id="chat-lang-badge">—</span></div>
             </div>
-            <div class="preview-actions">
-              <a class="btn-ghost" id="existing-live-link" href="#" target="_blank" style="text-decoration:none;">View Live ↗</a>
+            <div class="chat-messages" id="chat-history">
+              <div id="chat-empty">
+                <div class="chat-empty-hint">No refinements yet. Describe what to change below.</div>
+              </div>
+            </div>
+            <div class="chat-input-area">
+              <textarea class="chat-input" id="chat-input"
+                placeholder="e.g. Make the intro shorter, add a pricing section, change the tone…"
+                rows="3"></textarea>
+              <div class="chat-send-row">
+                <span class="chat-lang-selector">Editing active language</span>
+                <button class="chat-send" id="btn-chat-send">Send ↵</button>
+              </div>
             </div>
           </div>
-          <div class="preview-tabs-bar">
-            <div class="lang-tabs" id="existing-lang-tabs"></div>
-            <div class="view-toggle" id="existing-view-toggle">
-              <button class="view-btn active" data-view="rendered">Rendered</button>
-              <button class="view-btn" data-view="raw">Raw MDX</button>
-            </div>
+        </div><!-- .detail-body -->
+
+      </div><!-- #staging-detail-view -->
+
+    </div><!-- #tab-posts -->
+
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         Existing Posts Tab
+    ──────────────────────────────────────────────────────────────────────── -->
+    <div class="tab-panel" id="tab-existing">
+
+      <!-- List view ───────────────────────────────────────────────────── -->
+      <div id="existing-list-view" class="panel-content">
+        <div class="posts-header">
+          <div>
+            <div class="page-title">Existing Posts</div>
+            <div class="page-subtitle">All published posts for the selected brand</div>
           </div>
+        </div>
+        <div id="existing-no-brand" class="empty-hint">Select a brand in the sidebar to view its posts.</div>
+        <div id="existing-loading" style="display:none;" class="empty-hint">Loading posts…</div>
+        <div id="existing-empty"   style="display:none;" class="empty-hint">No posts found for this brand yet.</div>
+        <div id="existing-table-wrap" style="display:none;" class="tbl-wrap">
+          <table class="posts-table">
+            <thead>
+              <tr>
+                <th>Slug</th>
+                <th>Languages</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="existing-tbody"></tbody>
+          </table>
+        </div>
+      </div><!-- #existing-list-view -->
+
+      <!-- Detail view ─────────────────────────────────────────────────── -->
+      <div id="existing-detail-view" style="display:none;" class="detail-chrome">
+
+        <div class="detail-topbar">
+          <div class="detail-breadcrumb">
+            <button class="btn-ghost btn-sm" id="btn-back-existing">← Posts</button>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current" id="existing-slug-display">—</span>
+          </div>
+          <div class="detail-actions">
+            <a class="btn-ghost btn-sm" id="existing-live-link" href="#" target="_blank">View Live ↗</a>
+          </div>
+        </div>
+
+        <div class="detail-lang-bar">
+          <div class="lang-tabs" id="existing-lang-tabs"></div>
+          <div class="view-toggle" id="existing-view-toggle">
+            <button class="view-btn active" data-view="rendered">Rendered</button>
+            <button class="view-btn" data-view="raw">Raw MDX</button>
+          </div>
+        </div>
+
+        <div class="detail-article detail-article-solo">
           <div class="mdx-panels" id="existing-mdx-panels"></div>
         </div>
-      </div>
 
-      <!-- ── Settings Tab ─────────────────────────────────────────── -->
-      <div class="tab-panel" id="tab-settings">
+      </div><!-- #existing-detail-view -->
 
-        <!-- API Connections -->
-        <div class="settings-section">
-          <div class="settings-title">API Connections</div>
-          <div class="settings-desc" style="margin-bottom:14px;">Read from <code>tool/.env.local</code> — restart the server after changing keys.</div>
-          <div class="api-status-grid">
-            <div class="api-status-item" id="status-azure">
-              <span class="status-dot"></span>
+    </div><!-- #tab-existing -->
+
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         Settings Tab
+    ──────────────────────────────────────────────────────────────────────── -->
+    <div class="tab-panel" id="tab-settings">
+      <div class="settings-layout">
+
+        <!-- Inner sidebar nav -->
+        <div class="settings-sidebar">
+          <div class="settings-sidebar-title">Settings</div>
+          <button class="settings-nav-item active" data-section="settings-api">
+            <span class="settings-nav-icon">⚡</span>
+            API Connection
+          </button>
+          <button class="settings-nav-item" data-section="settings-instructions">
+            <span class="settings-nav-icon">✏</span>
+            Writing Instructions
+          </button>
+          <button class="settings-nav-item" data-section="settings-context">
+            <span class="settings-nav-icon">📁</span>
+            Brand Context
+          </button>
+        </div>
+
+        <!-- Settings content -->
+        <div class="settings-content">
+
+          <!-- API Connection ─────────────────────────────────────────── -->
+          <div class="settings-card" id="settings-api">
+            <div class="settings-card-header">
               <div>
-                <div class="api-status-name">Azure OpenAI</div>
-                <div class="api-status-detail" id="status-azure-detail">Text generation</div>
+                <div class="settings-card-title">API Connection</div>
+                <div class="settings-card-desc">Status is read from <code>tool/.env.local</code> — restart the server after changing keys.</div>
               </div>
-              <span class="status-badge">—</span>
             </div>
-            <div class="api-status-item" id="status-dalle">
-              <span class="status-dot"></span>
+            <div class="api-status-grid">
+              <div class="api-status-item" id="status-azure">
+                <span class="status-dot"></span>
+                <div>
+                  <div class="api-status-name">Azure OpenAI</div>
+                  <div class="api-status-detail" id="status-azure-detail">Text generation</div>
+                </div>
+                <span class="status-badge">—</span>
+              </div>
+              <div class="api-status-item" id="status-dalle">
+                <span class="status-dot"></span>
+                <div>
+                  <div class="api-status-name">Image Generation</div>
+                  <div class="api-status-detail" id="status-dalle-detail">gpt-image-1.5</div>
+                </div>
+                <span class="status-badge">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Writing Instructions ───────────────────────────────────── -->
+          <div class="settings-card" id="settings-instructions">
+            <div class="settings-card-header">
               <div>
-                <div class="api-status-name">Image Generation</div>
-                <div class="api-status-detail" id="status-dalle-detail">gpt-image-1.5</div>
+                <div class="settings-card-title">Writing Instructions</div>
+                <div class="settings-card-desc">Applied to every post across all brands — tone, formatting rules, forbidden words, SEO guidelines, CTA requirements.</div>
               </div>
-              <span class="status-badge">—</span>
+              <button class="btn-save" id="save-instructions-btn">Save</button>
             </div>
-          </div>
-        </div>
-
-        <!-- Global Writing Instructions -->
-        <div class="settings-section">
-          <div class="settings-section-header">
-            <div>
-              <div class="settings-title">Global Writing Instructions</div>
-              <div class="settings-desc">Applied to every post across all brands — tone, formatting rules, forbidden words, SEO guidelines, CTA requirements.</div>
-            </div>
-            <button class="btn-save" id="save-instructions-btn">Save</button>
-          </div>
-          <textarea id="global-instructions" class="input textarea settings-textarea"
-            placeholder="e.g. Always write in an authoritative but approachable tone. Never use buzzwords like 'game-changer'. End every post with a clear call-to-action. Max 3 sentences per paragraph…"></textarea>
-          <div class="save-status" id="instructions-save-status"></div>
-        </div>
-
-        <!-- Brand Context -->
-        <div class="settings-section">
-          <div class="settings-section-header">
-            <div>
-              <div class="settings-title">Brand Context</div>
-              <div class="settings-desc">Brand-specific context injected at generation time — audience, products, tone nuances, competitors to avoid.</div>
-            </div>
+            <textarea id="global-instructions" class="input textarea settings-textarea"
+              placeholder="e.g. Always write in an authoritative but approachable tone. Never use buzzwords like 'game-changer'. End every post with a clear call-to-action. Max 3 sentences per paragraph…"></textarea>
+            <div class="save-status" id="instructions-save-status"></div>
           </div>
 
-          <!-- Brand picker -->
-          <div class="context-sub-section">
-            <label class="field-label" style="margin-bottom:8px;">Brand</label>
-            <select id="context-brand-select" class="input" style="max-width:280px;">
-              <option value="">Select a brand…</option>
-            </select>
-          </div>
-
-          <!-- Brand description -->
-          <div class="context-sub-section" id="brand-desc-section">
-            <div class="context-sub-header">
-              <span class="context-sub-label">Brand Description</span>
-              <button class="btn-save btn-save-sm" id="save-context-btn">Save</button>
+          <!-- Brand Context ──────────────────────────────────────────── -->
+          <div class="settings-card" id="settings-context">
+            <div class="settings-card-header">
+              <div>
+                <div class="settings-card-title">Brand Context</div>
+                <div class="settings-card-desc">Brand-specific context injected at generation time — audience, products, tone nuances, competitors to avoid.</div>
+              </div>
             </div>
-            <textarea id="brand-context" class="input textarea settings-textarea"
-              placeholder="Select a brand above, then describe it here — audience, products, tone nuances, competitors to avoid…"></textarea>
-            <div class="save-status" id="context-save-status"></div>
-          </div>
 
-          <!-- Context .md files -->
-          <div class="context-sub-section" id="context-files-section">
-            <div class="context-sub-header">
-              <span class="context-sub-label">Context Files <span class="optional">(.md / .txt — appended to brand context at generation time)</span></span>
-              <label class="btn-upload" id="add-file-btn">
-                + Add File
-                <input type="file" id="context-file-input" accept=".md,.txt" multiple />
-              </label>
+            <!-- Brand picker -->
+            <div class="context-sub-section">
+              <label class="field-label" style="margin-bottom:8px;">Brand</label>
+              <select id="context-brand-select" class="input context-brand-select">
+                <option value="">Select a brand…</option>
+              </select>
             </div>
-            <div class="file-list" id="context-file-list">
-              <span class="muted">Select a brand to manage context files</span>
+
+            <!-- Brand description -->
+            <div class="context-sub-section" id="brand-desc-section">
+              <div class="context-sub-header">
+                <span class="context-sub-label">Brand Description</span>
+                <button class="btn-save btn-save-sm" id="save-context-btn">Save</button>
+              </div>
+              <textarea id="brand-context" class="input textarea settings-textarea"
+                placeholder="Select a brand above, then describe it here — audience, products, tone nuances, competitors to avoid…"></textarea>
+              <div class="save-status" id="context-save-status"></div>
             </div>
-          </div>
 
-          <!-- Style reference images -->
-          <div class="context-sub-section" id="style-refs-section">
-            <div class="context-sub-header">
-              <span class="context-sub-label">Style References <span class="optional">(images — used to guide image generation)</span></span>
-              <label class="btn-upload" id="add-img-btn">
-                + Add Images
-                <input type="file" id="style-ref-input" accept="image/png,image/jpeg,image/webp" multiple />
-              </label>
+            <!-- Context files -->
+            <div class="context-sub-section" id="context-files-section">
+              <div class="context-sub-header">
+                <span class="context-sub-label">Context Files <span class="optional">(.md / .txt — appended at generation)</span></span>
+                <label class="btn-upload" id="add-file-btn">
+                  + Add File
+                  <input type="file" id="context-file-input" accept=".md,.txt" multiple />
+                </label>
+              </div>
+              <div class="file-list" id="context-file-list">
+                <span class="muted">Select a brand to manage context files</span>
+              </div>
             </div>
-            <div class="style-refs-grid" id="style-refs-grid">
-              <span class="muted">Select a brand to manage style references</span>
+
+            <!-- Style reference images -->
+            <div class="context-sub-section" id="style-refs-section">
+              <div class="context-sub-header">
+                <span class="context-sub-label">Style References <span class="optional">(images — used to guide image generation)</span></span>
+                <label class="btn-upload" id="add-img-btn">
+                  + Add Images
+                  <input type="file" id="style-ref-input" accept="image/png,image/jpeg,image/webp" multiple />
+                </label>
+              </div>
+              <div class="style-refs-grid" id="style-refs-grid">
+                <span class="muted">Select a brand to manage style references</span>
+              </div>
             </div>
-          </div>
 
-        </div>
+          </div><!-- #settings-context -->
 
-      </div>
+        </div><!-- .settings-content -->
+      </div><!-- .settings-layout -->
+    </div><!-- #tab-settings -->
 
-    </main>
-  </div>
+  </div><!-- .main -->
+</div><!-- .app -->
 
-  <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-  <script src="app.js"></script>
+<!-- Toast container -->
+<div id="toast-container" class="toast-container"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
