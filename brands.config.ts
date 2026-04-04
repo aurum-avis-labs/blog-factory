@@ -1,5 +1,10 @@
 export interface BrandConfig {
-  /** Internal identifier — matches folder name under brands/ */
+  /**
+   * Folder name under `brands/{id}/`. Landing-site `fetch-blog` resolves the same id by
+   * stripping a `-landing…` suffix from the git remote or directory name (e.g. `do-for-me-landingpage`
+   * and `gold-crew-landing-page` both map to `do-for-me` / `gold-crew`), so the id here must match
+   * that stem, not the full repo name.
+   */
   id: string;
   /** Display name for preview UI */
   displayName: string;

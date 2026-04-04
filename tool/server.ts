@@ -48,6 +48,32 @@ interface BrandConfig {
 type ReferenceMode = 'auto' | 'none' | 'force-single';
 type ImageSource = 'ai' | 'unsplash';
 type ResolvedImageSource = 'ai' | 'unsplash';
+/** Matches landing-page blog collection `funnelStage` (GA4 funnel). */
+type FunnelStage = 'awareness' | 'interest' | 'consideration';
+type TextProvider = 'azure' | 'claude';
+
+function isAzureTextConfigured(): boolean {
+  return !!(
+    process.env.AZURE_OPENAI_ENDPOINT &&
+    !process.env.AZURE_OPENAI_ENDPOINT.includes('your-resource') &&
+    process.env.AZURE_OPENAI_API_KEY &&
+    !process.env.AZURE_OPENAI_API_KEY.includes('xxx')
+  );
+}
+
+function isClaudeConfigured(): boolean {
+  const k = process.env.ANTHROPIC_API_KEY;
+  return !!(k && !k.includes('xxx'));
+}
+
+function normalizeFunnelStage(v: unknown): FunnelStage {
+  if (v === 'interest' || v === 'consideration') return v;
+  return 'awareness';
+}
+
+function normalizeTextProvider(v: unknown): TextProvider {
+  return v === 'claude' ? 'claude' : 'azure';
+}
 
 interface StyleReference {
   name: string;
@@ -229,6 +255,24 @@ function splitMdx(mdx: string): { frontmatter: string; body: string } {
   const match = mdx.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) return { frontmatter: '', body: mdx };
   return { frontmatter: match[1], body: match[2] };
+}
+
+/** Astro content collections require `---` YAML fences; models sometimes emit bare `key:` lines at the top. */
+function ensureMdxFrontmatterFence(content: string): string {
+  const s = content.replace(/^\uFEFF/, '');
+  const start = s.trimStart();
+  if (start.startsWith('---')) return s;
+  const firstLine = start.split('\n')[0] ?? '';
+  if (!/^[A-Za-z0-9_-]+:\s/.test(firstLine)) return s;
+  const importRe = /^\s*import\s/m;
+  const m = importRe.exec(s);
+  const importIdx = m ? m.index : -1;
+  if (importIdx === -1) {
+    return `---\n${s.trimEnd()}\n---\n`;
+  }
+  const fm = s.slice(0, importIdx).trimEnd();
+  const rest = s.slice(importIdx);
+  return `---\n${fm}\n---\n\n${rest}`;
 }
 
 function stripMdxForPlanning(body: string): string {
@@ -601,6 +645,8 @@ interface StagedPost {
   referenceMode?: ReferenceMode;
   referenceName?: string;
   imagePromptSourceLanguage?: string;
+  funnelStage?: FunnelStage;
+  textProvider?: TextProvider;
   status: 'pending' | 'approved';
 }
 
@@ -612,6 +658,7 @@ interface StagedSummary {
   createdAt: string;
   languages: string[];
   imageCount: number;
+  funnelStage?: FunnelStage;
   status: 'pending' | 'approved';
 }
 
@@ -625,6 +672,10 @@ interface JobBody {
   imageSource?: ImageSource;
   referenceMode?: ReferenceMode;
   referenceName?: string;
+  /** Content funnel stage for landing-page frontmatter (default awareness). */
+  funnelStage?: FunnelStage;
+  /** MDX body generation provider (planning/refine may still use Azure). */
+  textProvider?: TextProvider;
 }
 
 interface Job {
@@ -677,6 +728,8 @@ async function runJob(job: Job): Promise<void> {
     brandId, languages, prompt, context, imageCount,
     imageSource = 'ai', referenceMode = 'auto', referenceName,
   } = job._body;
+  const funnelStage = normalizeFunnelStage(job._body.funnelStage);
+  const textProvider = normalizeTextProvider(job._body.textProvider);
   try {
     jobLog(job, `Loading brand config for "${brandId}"…`);
     const brands = loadBrands();
@@ -696,7 +749,7 @@ async function runJob(job: Job): Promise<void> {
     let slug = '';
 
     for (const lang of languages) {
-      jobLog(job, `Generating ${lang.toUpperCase()} post with Azure OpenAI…`);
+      jobLog(job, `Generating ${lang.toUpperCase()} post with ${textProvider === 'claude' ? 'Claude' : 'Azure OpenAI'}…`);
       const imageInstructions = imageCount > 0
         ? `Include ${imageCount} image${imageCount > 1 ? 's' : ''}. Add this import block immediately after the frontmatter ---:\n\nimport { Image } from 'astro:assets';\n${Array.from({ length: imageCount }, (_, i) => `import img${i + 1} from '@/assets/blog/POST_SLUG/img${i + 1}.png';`).join('\n')}\n\nPlace each <Image src={imgN} alt="descriptive alt text" width={700} quality={80} class="w-full" /> at natural section breaks inside the article body. The first inline image must appear only after the intro and after the first ## section heading. Do not place img1 directly below the title, description, or frontmatter.`
         : 'Do not include any images. Omit the image field from frontmatter.';
@@ -713,13 +766,15 @@ pubDate: ${today()}
 author: "${brand.displayName}"
 ${imageCount > 0 ? 'image: "@/assets/blog/POST_SLUG/img1.png"' : ''}
 tags: ["tag1", "tag2", "tag3"]
+funnelStage: "${funnelStage}"
 draft: false
 relatedPosts: []
 ---
 RULES:
 - Slug must be localized to the post language
 - Use POST_SLUG as a placeholder in all image paths
-- Use h2, h3 headings only — never h1
+- Use h2, h3, and h4 headings only — never h1 (the title is the page h1)
+- funnelStage must stay "${funnelStage}" — matches landing-page analytics funnel (awareness = top-of-funnel, interest = mid, consideration = bottom)
 - Description must be under 160 characters
 - Write 600–900 words of substantive, insightful content
 - Professional tone, not salesy
@@ -731,10 +786,16 @@ ${extraContextFiles ? `\nADDITIONAL BRAND DOCUMENTS:\n${extraContextFiles}` : ''
 Existing posts to avoid duplicating:\n${existingList}
 Return ONLY the raw MDX. No explanation, no code fences.`;
 
-      let mdx = await generateWithAzure(system, `Topic: ${prompt}${context ? `\n\nAdditional context: ${context}` : ''}`);
+      let mdx = await generateBlogMdx(
+        textProvider,
+        system,
+        `Topic: ${prompt}${context ? `\n\nAdditional context: ${context}` : ''}`,
+      );
       mdx = mdx.replace(/^```(?:mdx)?\n?/i, '').replace(/\n?```\s*$/i, '').trim();
       if (!slug) { slug = generateSlug(extractTitle(mdx)); jobLog(job, `Slug: "${slug}"`); }
-      posts[lang] = ensureFirstInlineImagePlacement(mdx.replace(/POST_SLUG/g, slug));
+      posts[lang] = ensureFirstInlineImagePlacement(
+        ensureMdxFrontmatterFence(mdx.replace(/POST_SLUG/g, slug)),
+      );
       jobLog(job, `✓ ${lang.toUpperCase()} post ready (${mdx.length} chars)`);
     }
 
@@ -859,13 +920,18 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
     }
 
     for (const lang of Object.keys(posts)) {
-      posts[lang] = normalizeMdxForAvailableImages(posts[lang], slug, images);
+      posts[lang] = normalizeMdxForAvailableImages(
+        setFrontmatterValue(ensureMdxFrontmatterFence(posts[lang]), 'funnelStage', funnelStage),
+        slug,
+        images,
+      );
     }
 
     const stagedId = newStagingId();
     saveStaged({ id: stagedId, brandId, brandName: brand.displayName, slug, createdAt: new Date().toISOString(),
       languages: Object.keys(posts), posts, images, chatHistory: {}, originalPrompt: prompt, originalContext: context,
-      imageSource, imagePlans, referenceMode, referenceName, imagePromptSourceLanguage, status: 'pending' });
+      imageSource, imagePlans, referenceMode, referenceName, imagePromptSourceLanguage,
+      funnelStage, textProvider, status: 'pending' });
     jobLog(job, '✅ Generation complete!');
     jobDone(job, stagedId);
   } catch (err) {
@@ -907,7 +973,7 @@ function listStaged(): StagedSummary[] {
     .map(f => {
       try {
         const p = JSON.parse(readFileSync(resolve(STAGING_DIR, f), 'utf-8')) as StagedPost;
-        return {
+        const s: StagedSummary = {
           id: p.id,
           brandId: p.brandId,
           brandName: p.brandName,
@@ -916,7 +982,9 @@ function listStaged(): StagedSummary[] {
           languages: p.languages,
           imageCount: p.images?.length ?? 0,
           status: p.status ?? 'pending',
-        } satisfies StagedSummary;
+        };
+        if (p.funnelStage) s.funnelStage = p.funnelStage;
+        return s;
       } catch { return null; }
     })
     .filter((p): p is StagedSummary => p !== null)
@@ -935,32 +1003,74 @@ function deleteStaged(id: string): void {
 }
 
 // ── AI helpers ─────────────────────────────────────────────────────────────────
-async function generateWithAzure(system: string, prompt: string): Promise<string> {
-  const endpoint   = process.env.AZURE_OPENAI_ENDPOINT;
-  const key        = process.env.AZURE_OPENAI_API_KEY;
-  const deployment = process.env.AZURE_OPENAI_DEPLOYMENT ?? 'gpt-5.3-chat';
-  if (!endpoint || endpoint.includes('your-resource')) throw new Error('AZURE_OPENAI_ENDPOINT not configured');
-  if (!key || key.includes('xxx')) throw new Error('AZURE_OPENAI_API_KEY not configured');
+async function chatCompleteWithProvider(
+  provider: TextProvider,
+  messages: Array<{ role: string; content: string }>,
+  opts?: { azureMaxCompletion?: number; claudeMaxTokens?: number },
+): Promise<string> {
+  const azureMax = opts?.azureMaxCompletion ?? 16384;
+  const claudeMax = opts?.claudeMaxTokens ?? 8192;
 
-  const url = `${endpoint}openai/deployments/${deployment}/chat/completions?api-version=2024-12-01-preview`;
-  const res = await fetch(url, {
+  if (provider === 'azure') {
+    if (!isAzureTextConfigured()) throw new Error('AZURE_OPENAI_ENDPOINT / AZURE_OPENAI_API_KEY not configured');
+    const endpoint   = process.env.AZURE_OPENAI_ENDPOINT!;
+    const key        = process.env.AZURE_OPENAI_API_KEY!;
+    const deployment = process.env.AZURE_OPENAI_DEPLOYMENT ?? 'gpt-5.3-chat';
+    const url = `${endpoint}openai/deployments/${deployment}/chat/completions?api-version=2024-12-01-preview`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${key}`, 'content-type': 'application/json' },
+      body: JSON.stringify({
+        model: deployment,
+        messages,
+        max_completion_tokens: azureMax,
+      }),
+    });
+    if (!res.ok) throw new Error(`Azure OpenAI ${res.status}: ${await res.text()}`);
+    const data = await res.json() as { choices: Array<{ message: { content: string } }> };
+    return data.choices[0].message.content;
+  }
+
+  if (!isClaudeConfigured()) throw new Error('ANTHROPIC_API_KEY not configured');
+  const model = process.env.ANTHROPIC_MODEL ?? 'claude-sonnet-4-20250514';
+  const system = messages[0]?.role === 'system' ? messages[0].content : '';
+  const tail = messages[0]?.role === 'system' ? messages.slice(1) : messages;
+  const claudeMessages = tail
+    .filter(m => m.role === 'user' || m.role === 'assistant')
+    .map(m => ({ role: m.role as 'user' | 'assistant', content: m.content }));
+
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: { 'Authorization': `Bearer ${key}`, 'content-type': 'application/json' },
+    headers: {
+      'x-api-key': process.env.ANTHROPIC_API_KEY!,
+      'anthropic-version': '2023-06-01',
+      'content-type': 'application/json',
+    },
     body: JSON.stringify({
-      model: deployment,
-      messages: [
-        { role: 'system', content: system },
-        { role: 'user',   content: prompt },
-      ],
-      max_completion_tokens: 16384,
+      model,
+      max_tokens: claudeMax,
+      system,
+      messages: claudeMessages,
     }),
   });
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Azure OpenAI ${res.status}: ${err}`);
-  }
-  const data = await res.json() as { choices: Array<{ message: { content: string } }> };
-  return data.choices[0].message.content;
+  if (!res.ok) throw new Error(`Anthropic ${res.status}: ${await res.text()}`);
+  const data = await res.json() as { content: Array<{ type: string; text?: string }> };
+  const block = data.content.find(c => c.type === 'text');
+  return block?.text ?? '';
+}
+
+async function generateBlogMdx(provider: TextProvider, system: string, userPrompt: string): Promise<string> {
+  return chatCompleteWithProvider(provider, [
+    { role: 'system', content: system },
+    { role: 'user', content: userPrompt },
+  ], { azureMaxCompletion: 16384, claudeMaxTokens: 16384 });
+}
+
+async function generateWithAzure(system: string, prompt: string): Promise<string> {
+  return chatCompleteWithProvider('azure', [
+    { role: 'system', content: system },
+    { role: 'user', content: prompt },
+  ]);
 }
 
 // Vision-capable call — accepts base64 images alongside text
@@ -1403,12 +1513,8 @@ app.get('/api/config', (_req: Request, res: Response) => {
   const imageKey      = process.env.AZURE_IMAGE_API_KEY  ?? process.env.AZURE_OPENAI_API_KEY  ?? '';
 
   res.json({
-    azureOpenAI: !!(
-      process.env.AZURE_OPENAI_ENDPOINT &&
-      !process.env.AZURE_OPENAI_ENDPOINT.includes('your-resource') &&
-      process.env.AZURE_OPENAI_API_KEY &&
-      !process.env.AZURE_OPENAI_API_KEY.includes('xxx')
-    ),
+    azureOpenAI: isAzureTextConfigured(),
+    claude: isClaudeConfigured(),
     azureDalle: !!(
       imageEndpoint && !imageEndpoint.includes('your-resource') &&
       imageKey      && !imageKey.includes('xxx') &&
@@ -1500,6 +1606,17 @@ app.post('/api/jobs', (req: Request, res: Response) => {
       const refs = listStyleRefs(body.brandId);
       if (!refs.some(ref => ref.name === body.referenceName))
         return res.status(400).json({ error: `Reference image "${body.referenceName}" not found for this brand` }) as unknown as void;
+    }
+
+    if (!isAzureTextConfigured() && !isClaudeConfigured()) {
+      return res.status(400).json({ error: 'No text generation provider configured (Azure OpenAI and/or ANTHROPIC_API_KEY)' }) as unknown as void;
+    }
+    const textProvider = normalizeTextProvider(body.textProvider);
+    if (textProvider === 'azure' && !isAzureTextConfigured()) {
+      return res.status(400).json({ error: 'Azure OpenAI is not configured; set AZURE_* in tool/.env.local or choose Claude.' }) as unknown as void;
+    }
+    if (textProvider === 'claude' && !isClaudeConfigured()) {
+      return res.status(400).json({ error: 'Anthropic API is not configured; set ANTHROPIC_API_KEY or choose Azure OpenAI.' }) as unknown as void;
     }
 
     const id = newJobId();
@@ -1604,13 +1721,13 @@ app.post('/api/push', async (req: Request, res: Response) => {
     };
 
     // 1. Write MDX files to disk
-      for (const [lang, mdx] of Object.entries(posts)) {
-        const dir  = resolve(REPO_ROOT, 'brands', brandId, lang);
-        const file = resolve(dir, `${slug}.mdx`);
-        mkdirSync(dir, { recursive: true });
-        writeFileSync(file, normalizeMdxForAvailableImages(mdx, slug, images), 'utf-8');
-        send('log', `✓ Written brands/${brandId}/${lang}/${slug}.mdx`);
-      }
+    for (const [lang, mdx] of Object.entries(posts)) {
+      const dir  = resolve(REPO_ROOT, 'brands', brandId, lang);
+      const file = resolve(dir, `${slug}.mdx`);
+      mkdirSync(dir, { recursive: true });
+      writeFileSync(file, normalizeMdxForAvailableImages(ensureMdxFrontmatterFence(mdx), slug, images), 'utf-8');
+      send('log', `✓ Written brands/${brandId}/${lang}/${slug}.mdx`);
+    }
 
     // 2. Write images to disk
     for (const img of images) {
@@ -1705,7 +1822,7 @@ app.post('/api/staging/push-all', async (_req: Request, res: Response) => {
         mkdirSync(dir, { recursive: true });
         writeFileSync(
           resolve(dir, `${post.slug}.mdx`),
-          normalizeMdxForAvailableImages(mdx, post.slug, post.images ?? []),
+          normalizeMdxForAvailableImages(ensureMdxFrontmatterFence(mdx), post.slug, post.images ?? []),
           'utf-8',
         );
         send('log', `✓ Written brands/${post.brandId}/${lang}/${post.slug}.mdx`);
@@ -1896,7 +2013,7 @@ ORIGINAL GENERATION CONTEXT:
 
 ${globalInstructions ? `GLOBAL WRITING INSTRUCTIONS:\n${globalInstructions}\n` : ''}${brandContext ? `BRAND CONTEXT:\n${brandContext}\n` : ''}${extraContextFiles ? `ADDITIONAL BRAND DOCUMENTS:\n${extraContextFiles}\n` : ''}
 RULES:
-- Preserve MDX frontmatter structure exactly
+- Preserve MDX frontmatter structure exactly (including funnelStage if present)
 - Keep all image imports, <Image /> components, external hotlinked image URLs, and Unsplash attribution lines in place unless explicitly asked to change them
 - Description must stay under 160 characters
 - Respond in this exact format:
@@ -1916,24 +2033,13 @@ CHANGES: [one sentence describing what changed]
       content: `Current MDX:\n\`\`\`\n${currentMdx}\n\`\`\`\n\nRefinement request: ${message}`,
     });
 
-    send('log', 'Refining…');
+    const provider: TextProvider = staged.textProvider ?? 'azure';
+    send('log', provider === 'claude' ? 'Refining with Claude…' : 'Refining with Azure OpenAI…');
 
-    const endpoint   = process.env.AZURE_OPENAI_ENDPOINT!;
-    const key        = process.env.AZURE_OPENAI_API_KEY!;
-    const deployment = process.env.AZURE_OPENAI_DEPLOYMENT ?? 'gpt-5.3-chat';
-    const url = `${endpoint}openai/deployments/${deployment}/chat/completions?api-version=2024-12-01-preview`;
-
-    const apiRes = await fetch(url, {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${key}`, 'content-type': 'application/json' },
-      body: JSON.stringify({ model: deployment, messages, max_completion_tokens: 8192 }),
+    const raw = await chatCompleteWithProvider(provider, messages, {
+      azureMaxCompletion: 8192,
+      claudeMaxTokens: 8192,
     });
-    if (!apiRes.ok) {
-      const err = await apiRes.text();
-      throw new Error(`Azure OpenAI ${apiRes.status}: ${err}`);
-    }
-    const apiData = await apiRes.json() as { choices: Array<{ message: { content: string } }> };
-    const raw = apiData.choices[0].message.content;
 
     // Parse "CHANGES: ...\n---\n[mdx]"
     const sepIdx = raw.indexOf('\n---\n');
@@ -1947,6 +2053,10 @@ CHANGES: [one sentence describing what changed]
     // Re-add opening --- if model stripped it but kept the closing ---
     if (!updatedMdx.startsWith('---') && updatedMdx.includes('\n---\n')) {
       updatedMdx = '---\n' + updatedMdx;
+    }
+    updatedMdx = ensureMdxFrontmatterFence(updatedMdx);
+    if (staged.funnelStage) {
+      updatedMdx = setFrontmatterValue(updatedMdx, 'funnelStage', staged.funnelStage);
     }
 
     // Persist updated MDX + append to chat history

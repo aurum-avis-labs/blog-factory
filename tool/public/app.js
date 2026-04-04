@@ -3,7 +3,7 @@
 
 // ── State ──────────────────────────────────────────────────────────────────────
 let brands = [];
-let config = { azureOpenAI: false, azureDalle: false, unsplash: false };
+let config = { azureOpenAI: false, claude: false, azureDalle: false, unsplash: false };
 let selectedImageCount = 0;
 let currentStagingId = null;     // ID of the staged post open in detail view
 let activeBrand = null;          // global brand object — drives all tabs
@@ -63,13 +63,15 @@ async function fetchConfig() {
   try {
     config = await api('/api/config');
   } catch {
-    config = { azureOpenAI: false, azureDalle: false, unsplash: false };
+    config = { azureOpenAI: false, claude: false, azureDalle: false, unsplash: false };
   }
   renderApiStatus('status-azure', config.azureOpenAI, 'Connected', 'Not configured');
+  renderApiStatus('status-claude', config.claude, 'Connected', 'Not configured');
   renderApiStatus('status-dalle', config.azureDalle,  'Connected', 'Not configured');
   renderApiStatus('status-unsplash', config.unsplash, 'Connected', 'Not configured');
   updateSidebarPills();
   updateDalleHint();
+  syncTextProviderUi();
 }
 
 function renderApiStatus(id, ok, okText, errText) {
@@ -83,8 +85,36 @@ function renderApiStatus(id, ok, okText, errText) {
 function updateSidebarPills() {
   const pillAzure = document.getElementById('pill-azure');
   const pillImage = document.getElementById('pill-image');
-  if (pillAzure) pillAzure.classList.toggle('ok', config.azureOpenAI);
+  if (pillAzure) pillAzure.classList.toggle('ok', !!(config.azureOpenAI || config.claude));
   if (pillImage) pillImage.classList.toggle('ok', !!(config.azureDalle || config.unsplash));
+}
+
+function syncTextProviderUi() {
+  const azureOk = !!config.azureOpenAI;
+  const claudeOk = !!config.claude;
+  const azureIn = document.querySelector('input[name="text-provider"][value="azure"]');
+  const claudeIn = document.querySelector('input[name="text-provider"][value="claude"]');
+  const azureLabel = document.getElementById('text-provider-azure-label');
+  const claudeLabel = document.getElementById('text-provider-claude-label');
+  const hint = document.getElementById('text-provider-hint');
+
+  if (azureIn) azureIn.disabled = !azureOk;
+  if (claudeIn) claudeIn.disabled = !claudeOk;
+  if (azureLabel) azureLabel.classList.toggle('is-disabled', !azureOk);
+  if (claudeLabel) claudeLabel.classList.toggle('is-disabled', !claudeOk);
+
+  if (hint) {
+    if (!azureOk && !claudeOk) {
+      hint.textContent = 'Configure Azure OpenAI and/or ANTHROPIC_API_KEY in tool/.env.local.';
+    } else {
+      hint.textContent = 'MDX body uses the selected API. Image planning and most auxiliary steps use Azure when configured.';
+    }
+  }
+
+  if (azureOk && !claudeOk && azureIn) azureIn.checked = true;
+  if (!azureOk && claudeOk && claudeIn) claudeIn.checked = true;
+  if (azureIn?.checked && !azureOk && claudeOk && claudeIn) claudeIn.checked = true;
+  if (claudeIn?.checked && !claudeOk && azureOk && azureIn) azureIn.checked = true;
 }
 
 function bindSettingsNav() {
@@ -369,6 +399,18 @@ async function handleGenerate() {
     return alert('Please select a reference image for "Use one reference for all".');
   }
 
+  const textProviderEl = document.querySelector('input[name="text-provider"]:checked');
+  const textProvider = textProviderEl?.value === 'claude' ? 'claude' : 'azure';
+  if (textProvider === 'azure' && !config.azureOpenAI) {
+    return alert('Azure OpenAI is not configured. Add AZURE_* keys in tool/.env.local or choose Claude.');
+  }
+  if (textProvider === 'claude' && !config.claude) {
+    return alert('Anthropic API is not configured. Add ANTHROPIC_API_KEY in tool/.env.local or choose Azure OpenAI.');
+  }
+
+  const funnelStage =
+    document.querySelector('input[name="funnel-stage"]:checked')?.value || 'awareness';
+
   const btn = document.getElementById('generate-btn');
   btn.disabled = true;
   btn.innerHTML = '<span class="btn-icon">⏳</span> Queuing…';
@@ -388,6 +430,8 @@ async function handleGenerate() {
         referenceName: selectedImageCount > 0 && selectedImageSource === 'ai' && selectedReferenceMode === 'force-single'
           ? selectedReferenceName
           : undefined,
+        funnelStage,
+        textProvider,
       }),
     });
 
@@ -596,6 +640,9 @@ function buildStagingCard(p) {
   const imgNote = p.imageCount > 0
     ? `<span class="staging-card-img-count">🖼 ${p.imageCount} image${p.imageCount > 1 ? 's' : ''}</span>`
     : '';
+  const funnelNote = p.funnelStage
+    ? `<span class="staging-card-funnel">${p.funnelStage}</span>`
+    : '';
   const statusBadge = p.status === 'approved'
     ? `<span class="status-badge approved">✓ Approved</span>`
     : `<span class="status-badge pending">Pending</span>`;
@@ -607,7 +654,7 @@ function buildStagingCard(p) {
         ${statusBadge}
       </div>
       <div class="staging-card-slug">${p.slug}</div>
-      <div class="staging-card-meta">${langPills}${imgNote}<span>${date}</span></div>
+      <div class="staging-card-meta">${langPills}${funnelNote}${imgNote}<span>${date}</span></div>
     </div>
     <div class="staging-card-actions">
       <button class="btn-reject" data-action="reject">✕ Reject</button>

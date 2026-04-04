@@ -110,6 +110,40 @@
               </div>
             </div>
 
+            <div class="field field-full">
+              <label class="field-label">Funnel stage</label>
+              <p class="field-hint">Written to post frontmatter for landing-page analytics (GA4 funnel).</p>
+              <div class="reference-mode-group" id="funnel-stage-group">
+                <label class="reference-mode-pill">
+                  <input type="radio" name="funnel-stage" value="awareness" checked />
+                  <span>Awareness</span>
+                </label>
+                <label class="reference-mode-pill">
+                  <input type="radio" name="funnel-stage" value="interest" />
+                  <span>Interest</span>
+                </label>
+                <label class="reference-mode-pill">
+                  <input type="radio" name="funnel-stage" value="consideration" />
+                  <span>Consideration</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field field-full">
+              <label class="field-label">Text generation</label>
+              <p class="field-hint" id="text-provider-hint">MDX body uses the selected API. Image planning stays on Azure when configured.</p>
+              <div class="reference-mode-group" id="text-provider-group">
+                <label class="reference-mode-pill" id="text-provider-azure-label">
+                  <input type="radio" name="text-provider" value="azure" checked />
+                  <span>Azure OpenAI</span>
+                </label>
+                <label class="reference-mode-pill" id="text-provider-claude-label">
+                  <input type="radio" name="text-provider" value="claude" />
+                  <span>Claude</span>
+                </label>
+              </div>
+            </div>
+
             <div class="field">
               <label class="field-label">Images</label>
               <div class="toggle-group">
@@ -398,6 +432,14 @@
                 <div>
                   <div class="api-status-name">Azure OpenAI</div>
                   <div class="api-status-detail" id="status-azure-detail">Text generation</div>
+                </div>
+                <span class="status-badge">—</span>
+              </div>
+              <div class="api-status-item" id="status-claude">
+                <span class="status-dot"></span>
+                <div>
+                  <div class="api-status-name">Anthropic Claude</div>
+                  <div class="api-status-detail" id="status-claude-detail">Optional text generation</div>
                 </div>
                 <span class="status-badge">—</span>
               </div>
