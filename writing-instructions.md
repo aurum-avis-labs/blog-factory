@@ -97,6 +97,7 @@ description: "..."
 pubDate: YYYY-MM-DD
 author: "Aurum Avis Labs"
 tags: ["...", "...", "..."]
+funnelStage: choose "awareness", "consideration","decision", "conversion"
 relatedPosts: ["...", "..."]
 ---
 

@@ -3,17 +3,23 @@
 
 // ── State ──────────────────────────────────────────────────────────────────────
 let brands = [];
-let config = { azureOpenAI: false, azureDalle: false };
+let config = { azureOpenAI: false, azureDalle: false, unsplash: false };
 let selectedImageCount = 0;
 let currentStagingId = null;     // ID of the staged post open in detail view
 let activeBrand = null;          // global brand object — drives all tabs
 let activeBrandContext = '';     // brand selected in settings brand-context section
+let generateStyleRefs = [];
+let selectedImageSource = 'ai';
+let selectedReferenceMode = 'auto';
+let selectedReferenceName = '';
 
 // ── Init ───────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
   await Promise.all([fetchConfig(), fetchBrands()]);
   bindTabs();
   bindImageCountToggle();
+  bindImageSourceControls();
+  bindReferenceControls();
   bindGlobalBrandSelect();
   bindGenerateBtn();
   bindStagingActions();
@@ -46,15 +52,22 @@ function readFileAsBase64(file) {
   });
 }
 
+function guessImageMime(name) {
+  return /\.jpe?g$/i.test(name) ? 'image/jpeg'
+    : /\.webp$/i.test(name) ? 'image/webp'
+    : 'image/png';
+}
+
 // ── Config & API status ────────────────────────────────────────────────────────
 async function fetchConfig() {
   try {
     config = await api('/api/config');
   } catch {
-    config = { azureOpenAI: false, azureDalle: false };
+    config = { azureOpenAI: false, azureDalle: false, unsplash: false };
   }
   renderApiStatus('status-azure', config.azureOpenAI, 'Connected', 'Not configured');
   renderApiStatus('status-dalle', config.azureDalle,  'Connected', 'Not configured');
+  renderApiStatus('status-unsplash', config.unsplash, 'Connected', 'Not configured');
   updateSidebarPills();
   updateDalleHint();
 }
@@ -71,7 +84,7 @@ function updateSidebarPills() {
   const pillAzure = document.getElementById('pill-azure');
   const pillImage = document.getElementById('pill-image');
   if (pillAzure) pillAzure.classList.toggle('ok', config.azureOpenAI);
-  if (pillImage) pillImage.classList.toggle('ok', config.azureDalle);
+  if (pillImage) pillImage.classList.toggle('ok', !!(config.azureDalle || config.unsplash));
 }
 
 function bindSettingsNav() {
@@ -116,6 +129,7 @@ function bindGlobalBrandSelect() {
     const id = e.target.value;
     activeBrand = id ? brands.find(b => b.id === id) : null;
     updateBrandInfo(activeBrand);
+    loadGenerateStyleRefs(activeBrand?.id || '');
 
     // If we're on the existing tab, refresh
     const existingPanel = document.getElementById('tab-existing');
@@ -179,6 +193,7 @@ function bindImageCountToggle() {
       document.querySelectorAll('[data-count]').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       updateDalleHint();
+      updateReferenceControls();
     });
   });
 }
@@ -187,13 +202,151 @@ function updateDalleHint() {
   const hint = document.getElementById('dalle-hint');
   if (!hint) return;
   if (selectedImageCount === 0) { hint.textContent = ''; return; }
-  if (!config.azureDalle) {
-    hint.textContent = '⚠ Image generation not configured — images will be skipped';
+  if (selectedImageSource === 'ai') {
+    if (!config.azureDalle) {
+      hint.textContent = '⚠ AI image generation not configured — images will be skipped';
+      hint.style.color = 'var(--gold)';
+    } else {
+      hint.textContent = `${selectedImageCount} AI image${selectedImageCount > 1 ? 's' : ''} will be generated`;
+      hint.style.color = 'var(--text-muted)';
+    }
+    return;
+  }
+
+  if (!config.unsplash) {
+    hint.textContent = '⚠ Unsplash not configured — this mode will fail until UNSPLASH_ACCESS_KEY is set';
     hint.style.color = 'var(--gold)';
+  } else if (!config.azureDalle) {
+    hint.textContent = `${selectedImageCount} Unsplash photo${selectedImageCount > 1 ? 's' : ''} will be selected automatically`;
+    hint.style.color = 'var(--text-muted)';
   } else {
-    hint.textContent = `${selectedImageCount} image${selectedImageCount > 1 ? 's' : ''} will be generated`;
+    hint.textContent = `${selectedImageCount} Unsplash photo${selectedImageCount > 1 ? 's' : ''} will be selected automatically, with AI fallback if needed`;
     hint.style.color = 'var(--text-muted)';
   }
+}
+
+function bindImageSourceControls() {
+  document.querySelectorAll('input[name="image-source"]').forEach(input => {
+    input.addEventListener('change', e => {
+      selectedImageSource = e.target.value;
+      updateDalleHint();
+      updateReferenceControls();
+    });
+  });
+}
+
+function bindReferenceControls() {
+  document.querySelectorAll('input[name="reference-mode"]').forEach(input => {
+    input.addEventListener('change', e => {
+      selectedReferenceMode = e.target.value;
+      if (selectedReferenceMode !== 'force-single') selectedReferenceName = '';
+      updateReferenceControls();
+    });
+  });
+
+  document.getElementById('reference-select').addEventListener('change', e => {
+    selectedReferenceName = e.target.value;
+    renderGenerateReferenceCards();
+  });
+}
+
+function updateReferenceControls() {
+  const imageSourceWrap = document.getElementById('image-source-controls');
+  const wrap = document.getElementById('reference-controls');
+  const selectWrap = document.getElementById('reference-select-wrap');
+  const hint = document.getElementById('reference-mode-hint');
+  const show = !!activeBrand && selectedImageCount > 0;
+
+  imageSourceWrap.hidden = !show;
+  wrap.hidden = !show;
+  if (!show) return;
+
+  document.getElementById('image-source-hint').textContent = selectedImageSource === 'unsplash'
+    ? 'Use Unsplash photos chosen automatically per image slot from the English MDX image plans.'
+    : 'Use the AI image pipeline with optional reference-image guidance.';
+
+  if (selectedImageSource === 'unsplash') {
+    wrap.hidden = true;
+    return;
+  }
+
+  selectWrap.hidden = selectedReferenceMode !== 'force-single';
+  if (selectedReferenceMode === 'auto') {
+    hint.textContent = 'The backend will choose the best-matching reference for each image.';
+  } else if (selectedReferenceMode === 'none') {
+    hint.textContent = 'Images will be generated from English prompts only, with no reference image sent.';
+  } else {
+    hint.textContent = 'The selected reference image will be sent for every generated image.';
+  }
+
+  renderGenerateReferenceCards();
+}
+
+async function loadGenerateStyleRefs(brandId) {
+  const grid = document.getElementById('generate-style-refs-grid');
+  const select = document.getElementById('reference-select');
+
+  if (!brandId) {
+    generateStyleRefs = [];
+    select.innerHTML = '<option value="">Select a reference image…</option>';
+    grid.innerHTML = '<span class="muted">Select a brand and enable images to choose reference behavior</span>';
+    updateReferenceControls();
+    return;
+  }
+
+  try {
+    generateStyleRefs = await api(`/api/brand-context/${brandId}/style-refs`);
+    if (!generateStyleRefs.some(ref => ref.name === selectedReferenceName)) selectedReferenceName = '';
+    select.innerHTML = `<option value="">Select a reference image…</option>${generateStyleRefs.map(ref =>
+      `<option value="${ref.name}">${ref.name}</option>`
+    ).join('')}`;
+    select.value = selectedReferenceName;
+    renderGenerateReferenceCards();
+  } catch {
+    generateStyleRefs = [];
+    grid.innerHTML = '<span class="muted">Error loading reference images</span>';
+  }
+
+  updateReferenceControls();
+}
+
+function renderGenerateReferenceCards() {
+  const grid = document.getElementById('generate-style-refs-grid');
+  if (!grid) return;
+
+  if (!activeBrand || selectedImageCount === 0) {
+    grid.innerHTML = '<span class="muted">Select a brand and enable images to choose reference behavior</span>';
+    return;
+  }
+
+  if (!generateStyleRefs.length) {
+    grid.innerHTML = '<span class="muted">No reference images uploaded for this brand yet</span>';
+    return;
+  }
+
+  grid.innerHTML = '';
+  generateStyleRefs.forEach(ref => {
+    const card = document.createElement('div');
+    const isActive = selectedReferenceMode === 'force-single' && selectedReferenceName === ref.name;
+    card.className = `generate-style-ref-card${isActive ? ' active' : ''}`;
+    card.innerHTML = `
+      <img src="data:${guessImageMime(ref.name)};base64,${ref.base64}" alt="${ref.name}" loading="lazy" />
+      <div class="generate-style-ref-meta">
+        <div class="generate-style-ref-name">${ref.name}</div>
+        <div class="generate-style-ref-badge">${isActive ? 'Selected for all images' : 'Available reference'}</div>
+      </div>`;
+
+    if (selectedReferenceMode === 'force-single') {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        selectedReferenceName = ref.name;
+        document.getElementById('reference-select').value = ref.name;
+        renderGenerateReferenceCards();
+      });
+    }
+
+    grid.appendChild(card);
+  });
 }
 
 // ── Generate ───────────────────────────────────────────────────────────────────
@@ -209,6 +362,12 @@ async function handleGenerate() {
 
   if (!prompt)       return alert('Please enter a blog topic.');
   if (!langs.length) return alert('Please select at least one language.');
+  if (selectedImageCount > 0 && selectedImageSource === 'unsplash' && !config.unsplash) {
+    return alert('Unsplash mode is not configured yet. Add UNSPLASH_ACCESS_KEY in tool/.env.local and restart the server.');
+  }
+  if (selectedImageCount > 0 && selectedImageSource === 'ai' && selectedReferenceMode === 'force-single' && !selectedReferenceName) {
+    return alert('Please select a reference image for "Use one reference for all".');
+  }
 
   const btn = document.getElementById('generate-btn');
   btn.disabled = true;
@@ -224,6 +383,11 @@ async function handleGenerate() {
         prompt,
         context,
         imageCount: selectedImageCount,
+        imageSource: selectedImageCount > 0 ? selectedImageSource : 'ai',
+        referenceMode: selectedImageCount > 0 && selectedImageSource === 'ai' ? selectedReferenceMode : 'auto',
+        referenceName: selectedImageCount > 0 && selectedImageSource === 'ai' && selectedReferenceMode === 'force-single'
+          ? selectedReferenceName
+          : undefined,
       }),
     });
 
@@ -1143,22 +1307,31 @@ async function loadStyleRefs(brandId) {
   const grid = document.getElementById('style-refs-grid');
   try {
     const refs = await api(`/api/brand-context/${brandId}/style-refs`);
-    if (!refs.length) { grid.innerHTML = '<span class="muted">No reference images yet</span>'; return; }
+    if (!refs.length) {
+      grid.innerHTML = '<span class="muted">No reference images yet</span>';
+      if (activeBrand?.id === brandId) await loadGenerateStyleRefs(brandId);
+      return;
+    }
     grid.innerHTML = '';
     refs.forEach(ref => {
       const card = document.createElement('div');
       card.className = 'style-ref-card';
       card.innerHTML = `
-        <img src="data:image/png;base64,${ref.base64}" alt="${ref.name}" loading="lazy" />
+        <img src="data:${guessImageMime(ref.name)};base64,${ref.base64}" alt="${ref.name}" loading="lazy" />
         <div class="style-ref-card-label">${ref.name}</div>
         <button class="style-ref-delete" title="Delete">✕</button>`;
       card.querySelector('.style-ref-delete').addEventListener('click', async () => {
         await api(`/api/brand-context/${brandId}/style-refs/${encodeURIComponent(ref.name)}`, { method: 'DELETE' });
         await loadStyleRefs(brandId);
+        if (activeBrand?.id === brandId) await loadGenerateStyleRefs(brandId);
       });
       grid.appendChild(card);
     });
-  } catch { grid.innerHTML = '<span class="muted">Error loading images</span>'; }
+    if (activeBrand?.id === brandId) await loadGenerateStyleRefs(brandId);
+  } catch {
+    grid.innerHTML = '<span class="muted">Error loading images</span>';
+    if (activeBrand?.id === brandId) await loadGenerateStyleRefs(brandId);
+  }
 }
 
 function showStatus(el, msg, isError = false) {

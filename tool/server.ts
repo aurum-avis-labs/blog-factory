@@ -45,6 +45,72 @@ interface BrandConfig {
   defaultLanguage: string;
 }
 
+type ReferenceMode = 'auto' | 'none' | 'force-single';
+type ImageSource = 'ai' | 'unsplash';
+type ResolvedImageSource = 'ai' | 'unsplash';
+
+interface StyleReference {
+  name: string;
+  base64: string;
+}
+
+interface PlanningSection {
+  heading: string;
+  excerpt: string;
+}
+
+interface PlanningDoc {
+  title: string;
+  description: string;
+  intro: string;
+  sections: PlanningSection[];
+}
+
+interface ReferenceCatalogEntry extends StyleReference {
+  descriptionEn: string;
+  characterHints: string[];
+  topicTags: string[];
+  styleNotes: string;
+  filenameTags: string[];
+}
+
+interface ImagePlan {
+  index: number;
+  sectionHeading: string;
+  sectionExcerpt: string;
+  promptEn: string;
+  selectedReferenceName?: string;
+  selectionReason: string;
+  characterHint?: string;
+  referenceMode: ReferenceMode;
+}
+
+interface UnsplashImageMeta {
+  photoId?: string;
+  photographerName?: string;
+  photographerUsername?: string;
+  photographerProfileUrl?: string;
+  photoPageUrl?: string;
+  downloadLocation?: string;
+  sourceUrl?: string;
+}
+
+interface StoredImage {
+  filename: string;
+  base64?: string;
+  previewUrl: string;
+  alt: string;
+  resolvedSource?: ResolvedImageSource;
+  unsplash?: UnsplashImageMeta;
+}
+
+interface PublishedImageMetadata {
+  filename: string;
+  alt: string;
+  resolvedSource?: ResolvedImageSource;
+  unsplash?: UnsplashImageMeta;
+}
+
 // ── Brand config loader ────────────────────────────────────────────────────────
 function loadBrands(): BrandConfig[] {
   const configPath = resolve(REPO_ROOT, 'brands.config.ts');
@@ -143,7 +209,7 @@ function styleRefsDir(brandId: string): string {
   return resolve(contextRoot(brandId), 'style-references');
 }
 
-function listStyleRefs(brandId: string): Array<{ name: string; base64: string }> {
+function listStyleRefs(brandId: string): StyleReference[] {
   const dir = styleRefsDir(brandId);
   if (!existsSync(dir)) return [];
   return readdirSync(dir)
@@ -152,6 +218,288 @@ function listStyleRefs(brandId: string): Array<{ name: string; base64: string }>
       name: f,
       base64: readFileSync(resolve(dir, f)).toString('base64'),
     }));
+}
+
+function extractFrontmatterValue(mdx: string, key: string): string {
+  const match = mdx.match(new RegExp(`^${key}:\\s*["']?(.+?)["']?\\s*$`, 'm'));
+  return match ? match[1].trim().replace(/^["']|["']$/g, '') : '';
+}
+
+function splitMdx(mdx: string): { frontmatter: string; body: string } {
+  const match = mdx.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  if (!match) return { frontmatter: '', body: mdx };
+  return { frontmatter: match[1], body: match[2] };
+}
+
+function stripMdxForPlanning(body: string): string {
+  return body
+    .replace(/^import\s+.+$/gm, '')
+    .replace(/<Image\b[\s\S]*?\/>/g, '')
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
+    .replace(/`{1,3}[^`]*`{1,3}/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*_>#-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function cleanMarkdownText(text: string): string {
+  return text
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, ' ')
+    .replace(/<Image\b[\s\S]*?\/>/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*_`>#]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function buildPlanningDocFromMdx(mdx: string): PlanningDoc {
+  const { body } = splitMdx(mdx);
+  const title = extractFrontmatterValue(mdx, 'title');
+  const description = extractFrontmatterValue(mdx, 'description');
+  const lines = body
+    .replace(/^import\s+.+$/gm, '')
+    .split('\n');
+
+  const introLines: string[] = [];
+  const sections: PlanningSection[] = [];
+  let currentHeading = '';
+  let currentLines: string[] = [];
+  let seenSection = false;
+
+  const flushSection = () => {
+    if (!currentHeading) return;
+    const excerpt = cleanMarkdownText(currentLines.join(' ')).slice(0, 420);
+    sections.push({ heading: currentHeading, excerpt });
+    currentHeading = '';
+    currentLines = [];
+  };
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) continue;
+    const headingMatch = line.match(/^##\s+(.+)$/);
+    if (headingMatch) {
+      flushSection();
+      currentHeading = headingMatch[1].trim();
+      seenSection = true;
+      continue;
+    }
+    if (seenSection) currentLines.push(line);
+    else introLines.push(line);
+  }
+  flushSection();
+
+  return {
+    title,
+    description,
+    intro: cleanMarkdownText(introLines.join(' ')).slice(0, 500),
+    sections,
+  };
+}
+
+function normalizeIdentity(value: string): string {
+  const lower = value.toLowerCase();
+  if (/(chef\s*cook|chefcook|\bcook\b|\bchef\b)/.test(lower)) return 'chef-cook';
+  if (/\bivy\b/.test(lower)) return 'ivy';
+  if (/\bmiles\b/.test(lower)) return 'miles';
+  if (/\bsophie\b/.test(lower)) return 'sophie';
+  if (/\bdash\b/.test(lower)) return 'dash';
+  if (/\binventory\s*manager\b/.test(lower)) return 'inventory-manager';
+  return lower.replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function inferFilenameTags(name: string): string[] {
+  const lower = name.toLowerCase().replace(/\.[a-z0-9]+$/i, '');
+  const base = lower
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+  const tags = new Set(base);
+
+  if (tags.has('ivy')) ['inventory', 'ordering', 'supplier', 'procurement', 'stock'].forEach(t => tags.add(t));
+  if (tags.has('cook') || tags.has('chef') || tags.has('chefcook')) {
+    ['chef-cook', 'chef', 'cook', 'menu', 'recipe', 'dish', 'kitchen', 'cooking'].forEach(t => tags.add(t));
+  }
+  if (tags.has('inventory') || tags.has('manager')) ['inventory', 'stock', 'operations'].forEach(t => tags.add(t));
+  if (tags.has('miles')) ['management', 'coordination', 'operations'].forEach(t => tags.add(t));
+  if (tags.has('sophie')) ['communication', 'assistant', 'reporting'].forEach(t => tags.add(t));
+  if (tags.has('dash')) ['analytics', 'forecasting', 'data'].forEach(t => tags.add(t));
+  if (tags.has('ordering')) ['order', 'supplier', 'procurement'].forEach(t => tags.add(t));
+  if (tags.has('dish') || tags.has('peppering')) ['menu', 'recipe', 'dish'].forEach(t => tags.add(t));
+
+  return Array.from(tags);
+}
+
+function extractJsonPayload<T>(raw: string): T | null {
+  const trimmed = raw.trim().replace(/^```(?:json)?\n?/i, '').replace(/\n?```$/i, '');
+  const direct = trimmed.match(/^\s*[\[{][\s\S]*[\]}]\s*$/);
+  const candidate = direct ? direct[0] : trimmed.match(/[\[{][\s\S]*[\]}]/)?.[0];
+  if (!candidate) return null;
+  try {
+    return JSON.parse(candidate) as T;
+  } catch {
+    return null;
+  }
+}
+
+function buildReferenceCatalogSummary(catalog: ReferenceCatalogEntry[]): string {
+  if (!catalog.length) return 'No reference images available.';
+  return catalog.map(ref =>
+    `- ${ref.name}: character hints [${ref.characterHints.join(', ') || 'none'}], topic tags [${ref.topicTags.join(', ') || 'none'}], style notes: ${ref.styleNotes || ref.descriptionEn}`
+  ).join('\n');
+}
+
+function buildBrandStyleSummary(catalog: ReferenceCatalogEntry[]): string {
+  const summary = catalog.map(ref => ref.styleNotes || ref.descriptionEn).join(' ');
+  return summary.trim() || 'Use a clean, professional, editorial illustration style.';
+}
+
+function unsplashConfigured(): boolean {
+  const key = process.env.UNSPLASH_ACCESS_KEY ?? '';
+  return !!key && !key.includes('xxx') && !key.includes('your_');
+}
+
+function imageMetadataPath(brandId: string, slug: string): string {
+  return resolve(REPO_ROOT, 'brands', brandId, 'images', slug, 'sources.json');
+}
+
+function imageMetadataPayload(slug: string, images: PublishedImageMetadata[]) {
+  return {
+    slug,
+    generatedAt: new Date().toISOString(),
+    images,
+  };
+}
+
+const UNSPLASH_UTM_SOURCE = 'blog_factory_tool';
+
+function withUnsplashReferral(url: string): string {
+  const parsed = new URL(url);
+  parsed.searchParams.set('utm_source', UNSPLASH_UTM_SOURCE);
+  parsed.searchParams.set('utm_medium', 'referral');
+  return parsed.toString();
+}
+
+function selectBestReferenceForPlan(plan: ImagePlan, catalog: ReferenceCatalogEntry[]): { ref?: ReferenceCatalogEntry; reason: string } {
+  if (!catalog.length) return { reason: 'No reference images available for this brand.' };
+
+  const haystack = `${plan.sectionHeading} ${plan.sectionExcerpt} ${plan.promptEn} ${plan.characterHint ?? ''}`.toLowerCase();
+  const normalizedHint = plan.characterHint ? normalizeIdentity(plan.characterHint) : '';
+  let best: { ref: ReferenceCatalogEntry; score: number; reason: string } | null = null;
+
+  for (const ref of catalog) {
+    let score = 0;
+    const reasons: string[] = [];
+    const normalizedRefHints = ref.characterHints.map(normalizeIdentity).filter(Boolean);
+
+    if (normalizedHint && normalizedRefHints.includes(normalizedHint)) {
+      score += 10;
+      reasons.push(`matched character hint "${plan.characterHint}"`);
+    }
+
+    for (const hint of normalizedRefHints) {
+      if (hint && haystack.includes(hint.replace(/-/g, ' '))) {
+        score += 4;
+        reasons.push(`prompt mentions ${hint}`);
+      }
+    }
+
+    for (const tag of [...ref.topicTags, ...ref.filenameTags]) {
+      const normalizedTag = tag.toLowerCase().replace(/-/g, ' ');
+      if (normalizedTag && haystack.includes(normalizedTag)) {
+        score += 2;
+        reasons.push(`matched topic "${tag}"`);
+      }
+    }
+
+    if (score > 0 && (!best || score > best.score)) {
+      best = { ref, score, reason: reasons.slice(0, 3).join('; ') };
+    }
+  }
+
+  if (!best || best.score < 5) {
+    return { reason: 'No reference image was a strong enough semantic match, so this image will use text-only generation.' };
+  }
+
+  return { ref: best.ref, reason: best.reason || 'Best semantic reference match for this scene.' };
+}
+
+function ensureFirstInlineImagePlacement(mdx: string): string {
+  if (!mdx.includes('src={img1}')) return mdx;
+  const lines = mdx.split('\n');
+  const firstSectionIdx = lines.findIndex(line => /^##\s+/.test(line.trim()));
+  const imgIdx = lines.findIndex(line => /<Image\b[^>]*src=\{img1\}/.test(line));
+  if (firstSectionIdx === -1 || imgIdx === -1 || imgIdx > firstSectionIdx) return mdx;
+
+  const [imgLine] = lines.splice(imgIdx, 1);
+  let insertIdx = firstSectionIdx + (imgIdx < firstSectionIdx ? 0 : 1);
+
+  while (insertIdx < lines.length && !lines[insertIdx].trim()) insertIdx++;
+  while (insertIdx < lines.length && lines[insertIdx].trim()) insertIdx++;
+  while (insertIdx < lines.length && !lines[insertIdx].trim()) insertIdx++;
+
+  const chunk = ['', imgLine, ''];
+  lines.splice(insertIdx, 0, ...chunk);
+  return lines.join('\n').replace(/\n{3,}/g, '\n\n');
+}
+
+function setFrontmatterValue(mdx: string, key: string, value: string): string {
+  const quoted = JSON.stringify(value);
+  const { frontmatter, body } = splitMdx(mdx);
+  if (!frontmatter) return mdx;
+  const lines = frontmatter.split('\n');
+  const idx = lines.findIndex(line => line.startsWith(`${key}:`));
+  if (idx !== -1) lines[idx] = `${key}: ${quoted}`;
+  else lines.push(`${key}: ${quoted}`);
+  return `---\n${lines.join('\n')}\n---\n${body}`;
+}
+
+function buildUnsplashAttributionHtml(meta: UnsplashImageMeta | undefined): string {
+  if (!meta?.photographerName || !meta.photographerProfileUrl) return '';
+  const profileUrl = withUnsplashReferral(meta.photographerProfileUrl);
+  const unsplashUrl = withUnsplashReferral('https://unsplash.com/');
+  return `<p><em>Photo by <a href="${profileUrl}" target="_blank" rel="noopener noreferrer">${meta.photographerName}</a> on <a href="${unsplashUrl}" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>`;
+}
+
+function applyResolvedImagesToMdx(mdx: string, images: StoredImage[]): string {
+  let updated = mdx;
+  const imagesByFilename = new Map(images.map(img => [img.filename, img]));
+
+  for (const img of images) {
+    if (img.resolvedSource !== 'unsplash' || !img.unsplash?.sourceUrl) continue;
+    updated = updated.replace(
+      new RegExp(`^import\\s+(img${img.filename.match(/img(\\d+)/)?.[1] ?? ''})\\s+from\\s+['"][^'"]*\\/${img.filename}['"]\\s*;?\\r?\\n?`, 'gm'),
+      '',
+    );
+  }
+
+  updated = updated.replace(/<Image\b([^/]*?)\/>/gs, (full, attrs) => {
+    const srcM = attrs.match(/src=\{(\w+)\}/);
+    if (!srcM) return full;
+    const varName = srcM[1];
+    const numMatch = varName.match(/^img(\d+)$/);
+    const filename = numMatch ? `img${numMatch[1]}.png` : '';
+    const img = imagesByFilename.get(filename);
+    if (!img || img.resolvedSource !== 'unsplash' || !img.unsplash?.sourceUrl) return full;
+    const altM = attrs.match(/alt="([^"]*)"/);
+    const alt = altM?.[1] || img.alt || 'Unsplash photo';
+    const attribution = buildUnsplashAttributionHtml(img.unsplash);
+    return `\n\n![${alt}](${img.unsplash.sourceUrl})\n\n${attribution}\n\n`;
+  });
+
+  const remainingImageJsx = /<Image\b/.test(updated);
+  if (!remainingImageJsx) {
+    updated = updated.replace(/^import\s+\{\s*Image\s*\}\s+from\s+['"]astro:assets['"]\s*;?\r?\n?/gm, '');
+  }
+
+  const cover = imagesByFilename.get('img1.png');
+  if (cover?.resolvedSource === 'unsplash' && cover.unsplash?.sourceUrl) {
+    updated = setFrontmatterValue(updated, 'image', cover.unsplash.sourceUrl);
+  }
+
+  return updated.replace(/\n{3,}/g, '\n\n');
 }
 
 // ── Slug generator ─────────────────────────────────────────────────────────────
@@ -193,10 +541,15 @@ interface StagedPost {
   createdAt: string;
   languages: string[];
   posts: Record<string, string>;
-  images: Array<{ filename: string; base64: string; previewUrl: string; alt: string }>;
+  images: StoredImage[];
   chatHistory: Record<string, ChatMessage[]>;
   originalPrompt: string;
   originalContext?: string;
+  imageSource?: ImageSource;
+  imagePlans?: ImagePlan[];
+  referenceMode?: ReferenceMode;
+  referenceName?: string;
+  imagePromptSourceLanguage?: string;
   status: 'pending' | 'approved';
 }
 
@@ -218,6 +571,9 @@ interface JobBody {
   prompt: string;
   context?: string;
   imageCount: number;
+  imageSource?: ImageSource;
+  referenceMode?: ReferenceMode;
+  referenceName?: string;
 }
 
 interface Job {
@@ -266,7 +622,10 @@ function jobFail(job: Job, error: string): void {
 }
 
 async function runJob(job: Job): Promise<void> {
-  const { brandId, languages, prompt, context, imageCount } = job._body;
+  const {
+    brandId, languages, prompt, context, imageCount,
+    imageSource = 'ai', referenceMode = 'auto', referenceName,
+  } = job._body;
   try {
     jobLog(job, `Loading brand config for "${brandId}"…`);
     const brands = loadBrands();
@@ -288,7 +647,7 @@ async function runJob(job: Job): Promise<void> {
     for (const lang of languages) {
       jobLog(job, `Generating ${lang.toUpperCase()} post with Azure OpenAI…`);
       const imageInstructions = imageCount > 0
-        ? `Include ${imageCount} image${imageCount > 1 ? 's' : ''}. Add this import block immediately after the frontmatter ---:\n\nimport { Image } from 'astro:assets';\n${Array.from({ length: imageCount }, (_, i) => `import img${i + 1} from '@/assets/blog/POST_SLUG/img${i + 1}.png';`).join('\n')}\n\nPlace <Image src={imgN} alt="descriptive alt text" width={700} quality={80} class="w-full" /> at natural content breaks. img1 appears near the top as the hero.`
+        ? `Include ${imageCount} image${imageCount > 1 ? 's' : ''}. Add this import block immediately after the frontmatter ---:\n\nimport { Image } from 'astro:assets';\n${Array.from({ length: imageCount }, (_, i) => `import img${i + 1} from '@/assets/blog/POST_SLUG/img${i + 1}.png';`).join('\n')}\n\nPlace each <Image src={imgN} alt="descriptive alt text" width={700} quality={80} class="w-full" /> at natural section breaks inside the article body. The first inline image must appear only after the intro and after the first ## section heading. Do not place img1 directly below the title, description, or frontmatter.`
         : 'Do not include any images. Omit the image field from frontmatter.';
       const existingList = existingByLang[lang]?.length
         ? existingByLang[lang].map(s => `- ${s}`).join('\n') : 'None yet.';
@@ -324,7 +683,7 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
       let mdx = await generateWithAzure(system, `Topic: ${prompt}${context ? `\n\nAdditional context: ${context}` : ''}`);
       mdx = mdx.replace(/^```(?:mdx)?\n?/i, '').replace(/\n?```\s*$/i, '').trim();
       if (!slug) { slug = generateSlug(extractTitle(mdx)); jobLog(job, `Slug: "${slug}"`); }
-      posts[lang] = mdx.replace(/POST_SLUG/g, slug);
+      posts[lang] = ensureFirstInlineImagePlacement(mdx.replace(/POST_SLUG/g, slug));
       jobLog(job, `✓ ${lang.toUpperCase()} post ready (${mdx.length} chars)`);
     }
 
@@ -341,50 +700,117 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
       return match[1];
     }
 
-    const images: Array<{ filename: string; base64: string; previewUrl: string; alt: string }> = [];
+    const images: StoredImage[] = [];
+    let imagePlans: ImagePlan[] = [];
+    let imagePromptSourceLanguage: string | undefined;
 
     if (imageCount > 0) {
       const imageEndpoint = process.env.AZURE_IMAGE_ENDPOINT ?? process.env.AZURE_OPENAI_ENDPOINT ?? '';
       const imageKey      = process.env.AZURE_IMAGE_API_KEY  ?? process.env.AZURE_OPENAI_API_KEY  ?? '';
-      const imageReady    = !imageEndpoint.includes('your-resource') && !imageKey.includes('xxx') && !!process.env.AZURE_IMAGE_DEPLOYMENT;
-      if (imageReady) {
-        const hasRefs = styleRefs.length > 0;
-        const primaryRef = hasRefs ? styleRefs[0].base64 : undefined;
-        let styleDescription = '';
-        if (hasRefs) {
+      const aiImageReady  = !imageEndpoint.includes('your-resource') && !imageKey.includes('xxx') && !!process.env.AZURE_IMAGE_DEPLOYMENT;
+      const unsplashReady = unsplashConfigured();
+
+      if (imageSource === 'unsplash' && !unsplashReady) {
+        throw new Error('Unsplash image source selected but UNSPLASH_ACCESS_KEY is not configured');
+      }
+
+      if (imageSource === 'ai' && !aiImageReady) {
+        jobLog(job, '⚠ AI image generation not configured — skipping');
+      } else if (imageSource === 'unsplash' || aiImageReady) {
+        let referenceCatalog: ReferenceCatalogEntry[] = [];
+        if (styleRefs.length > 0 && (imageSource === 'ai' || aiImageReady)) {
           jobLog(job, `Analysing ${styleRefs.length} style reference image(s)…`);
-          styleDescription = await buildStyleDescription(styleRefs);
-          jobLog(job, '✓ Character & style description ready');
+          referenceCatalog = await analyzeReferenceCatalog(styleRefs);
+          jobLog(job, '✓ Reference catalog ready');
         }
-        jobLog(job, `Writing ${imageCount} tailored image prompt(s)…`);
-        const imagePrompts = await generateImagePrompts(
-          posts[Object.keys(posts)[0]] ?? '', imageCount, prompt,
-          styleDescription, brand.displayName, hasRefs,
+
+        jobLog(job, 'Building English image-planning source from MDX…');
+        const planningSource = await buildCanonicalEnglishPlanningDoc(posts, languages);
+        imagePromptSourceLanguage = planningSource.sourceLanguage;
+        jobLog(job, `✓ English planning source ready (${planningSource.sourceLanguage.toUpperCase()} source)`);
+
+        jobLog(job, `Writing ${imageCount} dedicated English image prompt(s)…`);
+        imagePlans = await generateImagePlans(
+          planningSource.doc,
+          imageCount,
+          prompt,
+          brand.displayName,
+          buildBrandStyleSummary(referenceCatalog),
+          buildReferenceCatalogSummary(referenceCatalog),
         );
-        jobLog(job, '✓ Image prompts ready');
-        // Use the English post (or first available) as the source of alt text
+        if (imageSource === 'ai') {
+          imagePlans = applyReferenceSelection(imagePlans, referenceCatalog, referenceMode, referenceName);
+        }
+        jobLog(job, '✓ Image plans ready');
+
         const altSourceMdx = posts['en'] ?? posts[Object.keys(posts)[0]] ?? '';
-        for (let i = 0; i < imageCount; i++) {
-          const mode = primaryRef ? 'with reference image' : 'text-only';
-          jobLog(job, `Generating image ${i + 1}/${imageCount} (${mode})…`);
-          const rawPrompt = imagePrompts[i] ?? `Illustration for: ${prompt}`;
-          // Prefer the LLM-written alt from the MDX; fall back to a trimmed version of the image prompt
-          const alt = extractAltFromMdx(altSourceMdx, `img${i + 1}`) ||
-            rawPrompt.replace(/\s{2,}/g, ' ').trim().slice(0, 120).replace(/[,.\s]+$/, '');
+        const usedUnsplashIds = new Set<string>();
+
+        for (let idx = 0; idx < imagePlans.length; idx++) {
+          const plan = imagePlans[idx];
+
+          if (imageSource === 'unsplash') {
+            try {
+              jobLog(job, `Searching Unsplash for image ${plan.index}/${imageCount}…`);
+              const unsplashImage = await resolveUnsplashImage(plan, usedUnsplashIds);
+              if (unsplashImage) {
+                images.push(unsplashImage);
+                jobLog(job, `✓ Image ${plan.index} ready from Unsplash`);
+                continue;
+              }
+              jobLog(job, `⚠ No strong Unsplash match for image ${plan.index}; falling back to AI`);
+            } catch (unsplashErr) {
+              jobLog(job, `⚠ Unsplash failed for image ${plan.index}; falling back to AI: ${String(unsplashErr)}`);
+            }
+
+            if (!aiImageReady) {
+              jobLog(job, `⚠ AI fallback not configured for image ${plan.index}; skipping`);
+              continue;
+            }
+
+            const fallbackPlan = applyReferenceSelection([plan], referenceCatalog, 'auto')[0];
+            imagePlans[idx] = fallbackPlan;
+            const selectedRef = fallbackPlan.selectedReferenceName
+              ? referenceCatalog.find(ref => ref.name === fallbackPlan.selectedReferenceName)
+              : undefined;
+            const mode = selectedRef ? `with ref ${selectedRef.name}` : 'text-only';
+            jobLog(job, `Generating AI fallback for image ${plan.index}/${imageCount} (${mode})…`);
+            try {
+              const image = await generateAiImageForPlan(fallbackPlan, altSourceMdx, selectedRef);
+              images.push(image);
+              jobLog(job, `✓ Image ${plan.index} ready from AI fallback`);
+            } catch (imgErr) {
+              jobLog(job, `⚠ AI fallback failed for image ${plan.index} (skipping): ${String(imgErr)}`);
+            }
+            continue;
+          }
+
+          const selectedRef = plan.selectedReferenceName
+            ? referenceCatalog.find(ref => ref.name === plan.selectedReferenceName)
+            : undefined;
+          const mode = selectedRef ? `with ref ${selectedRef.name}` : 'text-only';
+          jobLog(job, `Generating image ${plan.index}/${imageCount} (${mode})…`);
           try {
-            const base64 = await generateImage(rawPrompt, primaryRef);
-            images.push({ filename: `img${i + 1}.png`, base64, previewUrl: `data:image/png;base64,${base64}`, alt });
-            jobLog(job, `✓ Image ${i + 1} ready`);
+            const image = await generateAiImageForPlan(plan, altSourceMdx, selectedRef);
+            images.push(image);
+            jobLog(job, `✓ Image ${plan.index} ready`);
           } catch (imgErr) {
-            jobLog(job, `⚠ Image ${i + 1} failed (skipping): ${String(imgErr)}`);
+            jobLog(job, `⚠ Image ${plan.index} failed (skipping): ${String(imgErr)}`);
           }
         }
-      } else { jobLog(job, '⚠ Image generation not configured — skipping'); }
+      }
+    }
+
+    if (images.some(img => img.resolvedSource === 'unsplash')) {
+      for (const lang of Object.keys(posts)) {
+        posts[lang] = applyResolvedImagesToMdx(posts[lang], images);
+      }
     }
 
     const stagedId = newStagingId();
     saveStaged({ id: stagedId, brandId, brandName: brand.displayName, slug, createdAt: new Date().toISOString(),
-      languages: Object.keys(posts), posts, images, chatHistory: {}, originalPrompt: prompt, originalContext: context, status: 'pending' });
+      languages: Object.keys(posts), posts, images, chatHistory: {}, originalPrompt: prompt, originalContext: context,
+      imageSource, imagePlans, referenceMode, referenceName, imagePromptSourceLanguage, status: 'pending' });
     jobLog(job, '✅ Generation complete!');
     jobDone(job, stagedId);
   } catch (err) {
@@ -520,68 +946,345 @@ async function generateWithAzureVision(
   return data.choices[0].message.content;
 }
 
-// Analyse style reference images — extracts character + style description for prompt injection
-async function buildStyleDescription(styleRefs: Array<{ name: string; base64: string }>): Promise<string> {
-  if (styleRefs.length === 0) return '';
-  const system = `You are a visual art director. Analyse the provided brand style reference images and return a detailed description (max 150 words) for use in image generation prompts. Cover:
-1. Character/subject details — physical features, outfit, colors, distinctive traits (important for consistency)
-2. Art style — illustrative vs photographic, rendering technique, line work
-3. Color palette — dominant and accent colors with hex-like descriptions
-4. Lighting and mood
-5. Composition style
+async function analyzeReferenceCatalog(styleRefs: StyleReference[]): Promise<ReferenceCatalogEntry[]> {
+  const system = `You are a visual reference analyst. For each input reference image, return strict JSON with:
+- descriptionEn: short English description of the subject and scene
+- characterHints: array of likely character or role identifiers
+- topicTags: array of topical tags the image fits
+- styleNotes: short style guidance focused on rendering, palette, and mood
 
-Be highly specific so an image model can recreate the same character and aesthetic consistently.`;
-  const prompt = `These are ${styleRefs.length} brand style/character reference image(s). Describe everything needed to reproduce this style and character consistently across new images.`;
-  return generateWithAzureVision(system, prompt, styleRefs);
+Be specific but concise.`;
+
+  const results: ReferenceCatalogEntry[] = [];
+  for (const ref of styleRefs) {
+    const filenameTags = inferFilenameTags(ref.name);
+    const fallbackHints = filenameTags
+      .map(normalizeIdentity)
+      .filter(Boolean)
+      .filter(v => ['chef-cook', 'ivy', 'miles', 'sophie', 'dash', 'inventory-manager'].includes(v));
+
+    try {
+      const raw = await generateWithAzureVision(
+        system,
+        `Reference file name: ${ref.name}\nReturn JSON only.`,
+        [ref],
+      );
+      const parsed = extractJsonPayload<{
+        descriptionEn?: string;
+        characterHints?: string[];
+        topicTags?: string[];
+        styleNotes?: string;
+      }>(raw);
+      results.push({
+        ...ref,
+        descriptionEn: parsed?.descriptionEn?.trim() || `Reference image ${ref.name}`,
+        characterHints: Array.from(new Set([...(parsed?.characterHints ?? []), ...fallbackHints])).filter(Boolean),
+        topicTags: Array.from(new Set([...(parsed?.topicTags ?? []), ...filenameTags])).filter(Boolean),
+        styleNotes: parsed?.styleNotes?.trim() || '',
+        filenameTags,
+      });
+    } catch {
+      results.push({
+        ...ref,
+        descriptionEn: `Reference image ${ref.name}`,
+        characterHints: Array.from(new Set(fallbackHints)),
+        topicTags: filenameTags,
+        styleNotes: '',
+        filenameTags,
+      });
+    }
+  }
+
+  return results;
 }
 
-// Generate N tailored image prompts based on the actual blog content
-async function generateImagePrompts(
-  blogContent: string,
+async function buildCanonicalEnglishPlanningDoc(
+  posts: Record<string, string>,
+  languageOrder: string[],
+): Promise<{ doc: PlanningDoc; sourceLanguage: string }> {
+  if (posts['en']) return { doc: buildPlanningDocFromMdx(posts['en']), sourceLanguage: 'en' };
+
+  const sourceLanguage = languageOrder.find(lang => posts[lang]) ?? Object.keys(posts)[0];
+  const sourceMdx = posts[sourceLanguage];
+  if (!sourceMdx) throw new Error('Could not find MDX content to build image prompts');
+
+  const system = `You are an editorial planner. Read the provided MDX blog post and return strict JSON in English with:
+- title
+- description
+- intro
+- sections: array of { heading, excerpt }
+
+Rules:
+- Translate to English when needed
+- Preserve the article's actual section intent
+- Keep excerpts concise and scene-relevant
+- Return JSON only`;
+
+  const raw = await generateWithAzure(system, `Source language: ${sourceLanguage}\n\nMDX:\n${sourceMdx}`);
+  const parsed = extractJsonPayload<PlanningDoc>(raw);
+  if (!parsed) throw new Error('Could not build English planning doc from MDX');
+  return { doc: parsed, sourceLanguage };
+}
+
+async function generateImagePlans(
+  planningDoc: PlanningDoc,
   imageCount: number,
   topic: string,
-  styleDescription: string,
   brandDisplayName: string,
-  hasReferenceImages: boolean,
-): Promise<string[]> {
-  const styleBlock = styleDescription
-    ? `STYLE & CHARACTER (mandatory for all images — reference image is also passed directly):\n${styleDescription}`
-    : 'Use a clean, professional, editorial photography style.';
+  brandStyleSummary: string,
+  referenceCatalogSummary: string,
+): Promise<ImagePlan[]> {
+  const system = `You are a visual art director creating ${imageCount} English image plans for a blog post.
 
-  const referenceNote = hasReferenceImages
-    ? `REFERENCE IMAGE NOTE: A reference image is passed alongside each prompt via the edits API. Your prompt MUST explicitly say "preserve the character's exact appearance, outfit, colors, and art style from the reference image" — but the SCENE itself must be completely unique per image.`
-    : '';
+Return strict JSON array objects with these keys only:
+- index
+- sectionHeading
+- sectionExcerpt
+- promptEn
+- characterHint
 
-  const system = `You are a visual art director creating ${imageCount} image generation prompt(s) for a blog post. Each image must illustrate a DIFFERENT, SPECIFIC section of the article.
+Rules:
+- promptEn must always be English
+- Ground every plan in the provided planning document, not generic blog imagery
+- img1 should represent the article's main thesis / cover concept
+- img2+ should map to distinct named sections or clearly different concepts
+- Every prompt must specify subject, action, environment, framing, lighting, and mood
+- No text, logos, UI, dashboards, or captions inside the image
+- If a character is obviously relevant, set characterHint to the best English identifier; otherwise use an empty string
+- Keep promptEn under 130 words
+- Each image must be compositionally distinct from the others`;
 
-CRITICAL VARIETY RULES — strictly enforced:
-- Every image must depict a completely different scene, subject, action, and setting
-- Different camera angle for each: e.g. close-up, wide establishing shot, overhead, eye-level
-- Different primary subject per image: e.g. img1 = character in environment, img2 = object/tool detail, img3 = interaction/process
-- Explicitly forbidden: two images with the same composition, same background, same pose, or same primary focus
-- img1 is the hero — broad, atmospheric, sets the overall tone
-- img2+ each map to a NAMED section or concept from the article — quote the section topic in the prompt so the scene is unmistakably different
+  const userPrompt = `Brand: ${brandDisplayName}
+Topic: ${topic}
 
-PROMPT FORMAT — each prompt must include:
-1. Primary subject and action (what is happening)
-2. Environment/setting (where, what surrounds it)
-3. Camera framing (close-up / wide / overhead / etc.)
-4. Lighting and mood
-5. ${hasReferenceImages ? '"Preserve character appearance from reference image"' : 'Art style and rendering'}
+Brand style summary:
+${brandStyleSummary}
 
-No text, logos, or UI elements in any image. Max 130 words per prompt.
+Available reference catalog:
+${referenceCatalogSummary}
 
-${referenceNote}
+Planning document:
+${JSON.stringify(planningDoc, null, 2)}`;
 
-${styleBlock}
-
-Return ONLY a valid JSON array of exactly ${imageCount} string(s). No explanation outside the array.`;
-
-  const userPrompt = `Brand: ${brandDisplayName}\nTopic: ${topic}\n\nFull blog post (read all sections before writing prompts):\n${blogContent.slice(0, 7000)}`;
   const raw = await generateWithAzure(system, userPrompt);
-  const match = raw.match(/\[[\s\S]*\]/);
-  if (!match) throw new Error('Image prompt generation returned unexpected format');
-  return JSON.parse(match[0]) as string[];
+  const parsed = extractJsonPayload<Array<{
+    index: number;
+    sectionHeading: string;
+    sectionExcerpt: string;
+    promptEn: string;
+    characterHint?: string;
+  }>>(raw);
+  if (!parsed || !Array.isArray(parsed)) throw new Error('Image plan generation returned unexpected format');
+  const padded = Array.from({ length: imageCount }, (_, idx) => parsed[idx] ?? {
+    index: idx + 1,
+    sectionHeading: idx === 0 ? planningDoc.title || 'Cover concept' : planningDoc.sections[idx - 1]?.heading || `Section ${idx + 1}`,
+    sectionExcerpt: idx === 0 ? planningDoc.intro || planningDoc.description : planningDoc.sections[idx - 1]?.excerpt || '',
+    promptEn: `Editorial illustration for ${topic}`,
+    characterHint: '',
+  });
+
+  return padded.map((plan, idx) => ({
+    index: idx + 1,
+    sectionHeading: plan.sectionHeading?.trim() || (idx === 0 ? planningDoc.title || 'Cover concept' : `Section ${idx + 1}`),
+    sectionExcerpt: plan.sectionExcerpt?.trim() || '',
+    promptEn: plan.promptEn?.trim() || `Editorial illustration for ${topic}`,
+    selectionReason: '',
+    characterHint: plan.characterHint?.trim() || '',
+    referenceMode: 'auto',
+  }));
+}
+
+function applyReferenceSelection(
+  plans: ImagePlan[],
+  catalog: ReferenceCatalogEntry[],
+  referenceMode: ReferenceMode,
+  referenceName?: string,
+): ImagePlan[] {
+  if (referenceMode === 'none') {
+    return plans.map(plan => ({
+      ...plan,
+      selectedReferenceName: undefined,
+      selectionReason: 'Reference mode set to text-only generation.',
+      referenceMode,
+    }));
+  }
+
+  if (referenceMode === 'force-single') {
+    return plans.map(plan => ({
+      ...plan,
+      selectedReferenceName: referenceName,
+      selectionReason: referenceName
+        ? `Forced single reference "${referenceName}" chosen by the user.`
+        : 'Forced single reference mode selected without a reference name.',
+      referenceMode,
+    }));
+  }
+
+  return plans.map(plan => {
+    const selected = selectBestReferenceForPlan(plan, catalog);
+    return {
+      ...plan,
+      selectedReferenceName: selected.ref?.name,
+      selectionReason: selected.reason,
+      referenceMode,
+    };
+  });
+}
+
+function tokenizeForSearch(text: string): string[] {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .split(/\s+/)
+    .filter(token =>
+      token.length > 2 &&
+      !['with', 'from', 'that', 'this', 'into', 'about', 'their', 'there', 'would', 'should', 'could', 'image', 'photo', 'editorial'].includes(token)
+    );
+}
+
+function uniqueTokens(tokens: string[], limit: number): string[] {
+  return Array.from(new Set(tokens)).slice(0, limit);
+}
+
+function buildUnsplashSearchQuery(plan: ImagePlan): string {
+  const headingTokens = tokenizeForSearch(plan.sectionHeading);
+  const promptTokens = tokenizeForSearch(plan.promptEn);
+  const excerptTokens = tokenizeForSearch(plan.sectionExcerpt);
+  const hintTokens = tokenizeForSearch(plan.characterHint ?? '');
+  return uniqueTokens([
+    ...headingTokens,
+    ...hintTokens,
+    ...promptTokens,
+    ...excerptTokens,
+  ], 10).join(' ');
+}
+
+function scoreUnsplashPhoto(plan: ImagePlan, photo: {
+  alt_description?: string | null;
+  description?: string | null;
+}, resultIndex: number): number {
+  const planTokens = uniqueTokens(tokenizeForSearch(
+    `${plan.sectionHeading} ${plan.sectionExcerpt} ${plan.promptEn} ${plan.characterHint ?? ''}`
+  ), 16);
+  const photoText = `${photo.alt_description ?? ''} ${photo.description ?? ''}`.toLowerCase();
+  let score = Math.max(0, 12 - resultIndex);
+
+  for (const token of planTokens) {
+    if (photoText.includes(token)) score += 3;
+  }
+  if (plan.characterHint && photoText.includes(plan.characterHint.toLowerCase().replace(/-/g, ' '))) score += 6;
+  if ((photo.alt_description ?? '').length > 12) score += 1;
+  return score;
+}
+
+function buildUnsplashImageUrl(rawUrl: string): string {
+  const url = new URL(rawUrl);
+  url.searchParams.set('w', '1536');
+  url.searchParams.set('fit', 'max');
+  url.searchParams.set('fm', 'png');
+  url.searchParams.set('q', '80');
+  return url.toString();
+}
+
+async function resolveUnsplashImage(
+  plan: ImagePlan,
+  usedPhotoIds: Set<string>,
+): Promise<StoredImage | null> {
+  const accessKey = process.env.UNSPLASH_ACCESS_KEY;
+  if (!accessKey) throw new Error('UNSPLASH_ACCESS_KEY not configured');
+
+  const query = buildUnsplashSearchQuery(plan);
+  if (!query) return null;
+
+  const searchUrl = new URL('https://api.unsplash.com/search/photos');
+  searchUrl.searchParams.set('query', query);
+  searchUrl.searchParams.set('per_page', '12');
+  searchUrl.searchParams.set('page', '1');
+  searchUrl.searchParams.set('orientation', 'landscape');
+  searchUrl.searchParams.set('content_filter', 'high');
+
+  const auth = { Authorization: `Client-ID ${accessKey}`, 'Accept-Version': 'v1' };
+
+  const searchRes = await fetch(searchUrl, { headers: auth });
+  if (!searchRes.ok) {
+    throw new Error(`Unsplash search ${searchRes.status}: ${await searchRes.text()}`);
+  }
+
+  const data = await searchRes.json() as {
+    results: Array<{
+      id: string;
+      alt_description?: string | null;
+      description?: string | null;
+      urls: { raw: string; regular: string; small: string };
+      links: { html: string; download_location: string };
+      user: { name: string; username: string };
+    }>;
+  };
+
+  const ranked = data.results
+    .filter(photo => !usedPhotoIds.has(photo.id))
+    .map((photo, idx) => ({ photo, score: scoreUnsplashPhoto(plan, photo, idx) }))
+    .sort((a, b) => b.score - a.score);
+
+  const best = ranked[0];
+  if (!best || best.score < 10) return null;
+
+  usedPhotoIds.add(best.photo.id);
+
+  const trackingRes = await fetch(best.photo.links.download_location, { headers: auth });
+  if (!trackingRes.ok) {
+    throw new Error(`Unsplash download tracking ${trackingRes.status}: ${await trackingRes.text()}`);
+  }
+
+  const sourceUrl = buildUnsplashImageUrl(best.photo.urls.raw);
+  const previewUrl = best.photo.urls.small || best.photo.urls.regular || sourceUrl;
+  const photographerProfileUrl = `https://unsplash.com/@${best.photo.user.username}`;
+  const alt = best.photo.alt_description?.trim()
+    || best.photo.description?.trim()
+    || plan.sectionHeading
+    || `Unsplash photo for ${plan.promptEn}`;
+
+  return {
+    filename: `img${plan.index}.png`,
+    previewUrl,
+    alt,
+    resolvedSource: 'unsplash',
+    unsplash: {
+      photoId: best.photo.id,
+      photographerName: best.photo.user.name,
+      photographerUsername: best.photo.user.username,
+      photographerProfileUrl,
+      photoPageUrl: best.photo.links.html,
+      downloadLocation: best.photo.links.download_location,
+      sourceUrl,
+    },
+  };
+}
+
+function buildAiPrompt(plan: ImagePlan, selectedRef?: ReferenceCatalogEntry): string {
+  return selectedRef
+    ? `${plan.promptEn}\n\nPreserve only the matched character identity, outfit cues, colors, and render style from reference image "${selectedRef.name}". Keep the scene, composition, and action unique to this prompt.`
+    : (plan.promptEn || 'Editorial illustration');
+}
+
+async function generateAiImageForPlan(
+  plan: ImagePlan,
+  altSourceMdx: string,
+  selectedRef?: ReferenceCatalogEntry,
+): Promise<StoredImage> {
+  const promptText = buildAiPrompt(plan, selectedRef);
+  const altMatch = altSourceMdx.match(new RegExp(`<Image\\s[^>]*src=\\{img${plan.index}\\}[^>]*alt="([^"]+)"`))
+    || altSourceMdx.match(new RegExp(`<Image\\s[^>]*alt="([^"]+)"[^>]*src=\\{img${plan.index}\\}`));
+  const alt = altMatch?.[1]
+    || promptText.replace(/\s{2,}/g, ' ').trim().slice(0, 120).replace(/[,.\s]+$/, '');
+  const base64 = await generateImage(promptText, selectedRef?.base64);
+  return {
+    filename: `img${plan.index}.png`,
+    base64,
+    previewUrl: `data:image/png;base64,${base64}`,
+    alt,
+    resolvedSource: 'ai',
+  };
 }
 
 // Generate one image — uses /images/edits (multipart) when a reference image is supplied,
@@ -657,6 +1360,7 @@ app.get('/api/config', (_req: Request, res: Response) => {
       process.env.AZURE_IMAGE_DEPLOYMENT &&
       !process.env.AZURE_IMAGE_DEPLOYMENT.includes('xxx')
     ),
+    unsplash: unsplashConfigured(),
   });
 });
 
@@ -723,6 +1427,25 @@ app.post('/api/jobs', (req: Request, res: Response) => {
     const brands = loadBrands();
     const brand = brands.find(b => b.id === body.brandId);
     if (!brand) return res.status(404).json({ error: `Brand "${body.brandId}" not found` }) as unknown as void;
+
+    const imageSource: ImageSource = body.imageSource ?? 'ai';
+    if (!['ai', 'unsplash'].includes(imageSource))
+      return res.status(400).json({ error: 'Invalid imageSource' }) as unknown as void;
+
+    const referenceMode: ReferenceMode = body.referenceMode ?? 'auto';
+    if (!['auto', 'none', 'force-single'].includes(referenceMode))
+      return res.status(400).json({ error: 'Invalid referenceMode' }) as unknown as void;
+
+    if (body.imageCount > 0 && imageSource === 'unsplash' && !unsplashConfigured())
+      return res.status(400).json({ error: 'Unsplash is not configured' }) as unknown as void;
+
+    if (body.imageCount > 0 && imageSource === 'ai' && referenceMode === 'force-single') {
+      if (!body.referenceName)
+        return res.status(400).json({ error: 'referenceName is required when referenceMode is force-single' }) as unknown as void;
+      const refs = listStyleRefs(body.brandId);
+      if (!refs.some(ref => ref.name === body.referenceName))
+        return res.status(400).json({ error: `Reference image "${body.referenceName}" not found for this brand` }) as unknown as void;
+    }
 
     const id = newJobId();
     const job: Job = {
@@ -822,7 +1545,7 @@ app.post('/api/push', async (req: Request, res: Response) => {
       brandId: string;
       slug: string;
       posts: Record<string, string>;
-      images: Array<{ filename: string; base64: string }>;
+      images: StoredImage[];
     };
 
     // 1. Write MDX files to disk
@@ -836,11 +1559,23 @@ app.post('/api/push', async (req: Request, res: Response) => {
 
     // 2. Write images to disk
     for (const img of images) {
+      if (!img.base64) continue;
       const dir  = resolve(REPO_ROOT, 'brands', brandId, 'images', slug);
       const file = resolve(dir, img.filename);
       mkdirSync(dir, { recursive: true });
       writeFileSync(file, Buffer.from(img.base64, 'base64'));
       send('log', `✓ Written brands/${brandId}/images/${slug}/${img.filename}`);
+    }
+    if (images.length > 0) {
+      mkdirSync(resolve(REPO_ROOT, 'brands', brandId, 'images', slug), { recursive: true });
+      const metadataPath = imageMetadataPath(brandId, slug);
+      writeFileSync(metadataPath, JSON.stringify(imageMetadataPayload(slug, images.map(img => ({
+        filename: img.filename,
+        alt: img.alt,
+        resolvedSource: img.resolvedSource,
+        unsplash: img.unsplash,
+      }))), null, 2), 'utf-8');
+      send('log', `✓ Written brands/${brandId}/images/${slug}/sources.json`);
     }
 
     // 3. Git commit & push
@@ -918,10 +1653,25 @@ app.post('/api/staging/push-all', async (_req: Request, res: Response) => {
       }
 
       for (const img of post.images ?? []) {
+        if (!img.base64) continue;
         const dir = resolve(REPO_ROOT, 'brands', post.brandId, 'images', post.slug);
         mkdirSync(dir, { recursive: true });
         writeFileSync(resolve(dir, img.filename), Buffer.from(img.base64, 'base64'));
         send('log', `✓ Written brands/${post.brandId}/images/${post.slug}/${img.filename}`);
+      }
+      if ((post.images ?? []).length > 0) {
+        mkdirSync(resolve(REPO_ROOT, 'brands', post.brandId, 'images', post.slug), { recursive: true });
+        writeFileSync(
+          imageMetadataPath(post.brandId, post.slug),
+          JSON.stringify(imageMetadataPayload(post.slug, (post.images ?? []).map(img => ({
+            filename: img.filename,
+            alt: img.alt,
+            resolvedSource: img.resolvedSource,
+            unsplash: img.unsplash,
+          }))), null, 2),
+          'utf-8',
+        );
+        send('log', `✓ Written brands/${post.brandId}/images/${post.slug}/sources.json`);
       }
 
       pushed.push(post.id);
@@ -1088,7 +1838,7 @@ ORIGINAL GENERATION CONTEXT:
 ${globalInstructions ? `GLOBAL WRITING INSTRUCTIONS:\n${globalInstructions}\n` : ''}${brandContext ? `BRAND CONTEXT:\n${brandContext}\n` : ''}${extraContextFiles ? `ADDITIONAL BRAND DOCUMENTS:\n${extraContextFiles}\n` : ''}
 RULES:
 - Preserve MDX frontmatter structure exactly
-- Keep all image imports and <Image /> components in place unless explicitly asked to change them
+- Keep all image imports, <Image /> components, external hotlinked image URLs, and Unsplash attribution lines in place unless explicitly asked to change them
 - Description must stay under 160 characters
 - Respond in this exact format:
 CHANGES: [one sentence describing what changed]

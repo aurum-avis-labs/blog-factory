@@ -121,6 +121,48 @@
               <p class="field-hint" id="dalle-hint"></p>
             </div>
 
+            <div class="field field-full" id="image-source-controls" hidden>
+              <label class="field-label">Image Source</label>
+              <div class="reference-mode-group">
+                <label class="reference-mode-pill">
+                  <input type="radio" name="image-source" value="ai" checked />
+                  <span>AI images</span>
+                </label>
+                <label class="reference-mode-pill">
+                  <input type="radio" name="image-source" value="unsplash" />
+                  <span>Unsplash photos</span>
+                </label>
+              </div>
+              <p class="field-hint" id="image-source-hint">Use the existing AI image pipeline with optional reference images.</p>
+            </div>
+
+            <div class="field field-full" id="reference-controls" hidden>
+              <label class="field-label">Reference Images</label>
+              <div class="reference-mode-group">
+                <label class="reference-mode-pill">
+                  <input type="radio" name="reference-mode" value="auto" checked />
+                  <span>Auto-select per image</span>
+                </label>
+                <label class="reference-mode-pill">
+                  <input type="radio" name="reference-mode" value="none" />
+                  <span>No reference image</span>
+                </label>
+                <label class="reference-mode-pill">
+                  <input type="radio" name="reference-mode" value="force-single" />
+                  <span>Use one reference for all</span>
+                </label>
+              </div>
+              <p class="field-hint" id="reference-mode-hint">The backend will choose the best-matching reference for each image.</p>
+              <div class="reference-select-wrap" id="reference-select-wrap" hidden>
+                <select id="reference-select" class="input">
+                  <option value="">Select a reference image…</option>
+                </select>
+              </div>
+              <div class="generate-style-refs-grid" id="generate-style-refs-grid">
+                <span class="muted">Select a brand and enable images to choose reference behavior</span>
+              </div>
+            </div>
+
             <div class="field field-full">
               <label class="field-label">Blog Topic / Prompt</label>
               <textarea id="prompt-input" class="input textarea" rows="3"
@@ -364,6 +406,14 @@
                 <div>
                   <div class="api-status-name">Image Generation</div>
                   <div class="api-status-detail" id="status-dalle-detail">gpt-image-1.5</div>
+                </div>
+                <span class="status-badge">—</span>
+              </div>
+              <div class="api-status-item" id="status-unsplash">
+                <span class="status-dot"></span>
+                <div>
+                  <div class="api-status-name">Unsplash</div>
+                  <div class="api-status-detail" id="status-unsplash-detail">Photo search and download tracking</div>
                 </div>
                 <span class="status-badge">—</span>
               </div>

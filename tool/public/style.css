@@ -381,6 +381,82 @@ select.input {
 /* Toggle group */
 .toggle-group { display: flex; gap: 4px; flex-wrap: wrap; }
 
+.reference-mode-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reference-mode-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-dim);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.reference-mode-pill input {
+  margin: 0;
+  accent-color: var(--gold);
+}
+
+.reference-select-wrap {
+  margin-top: 10px;
+  max-width: 320px;
+}
+
+.generate-style-refs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.generate-style-ref-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.generate-style-ref-card.active {
+  border-color: var(--gold-border);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.18);
+}
+
+.generate-style-ref-card img {
+  width: 100%;
+  aspect-ratio: 1.15;
+  object-fit: cover;
+  display: block;
+}
+
+.generate-style-ref-meta {
+  padding: 8px 10px 10px;
+}
+
+.generate-style-ref-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.generate-style-ref-badge {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 .toggle-btn {
   padding: 7px 16px;
   background: var(--surface-2);
