@@ -48,7 +48,7 @@ export interface BrandConfig {
 }
 ```
 
-Current brands: `aurum`, `do-for-me`, `gold-crew`, `postology`, `holist-iq`, `kitchen-crew`, `beauty-corner`
+Current brands: `aurum`, `do-for-me`, `gold-crew`, `postology`, `holist-iq`, `kitchen-crew` (see `brands.config.ts` — keep this list in sync when adding or removing brands).
 
 ---
 
@@ -64,18 +64,21 @@ pubDate: 2026-03-25
 author: "Brand Display Name"
 image: "@/assets/blog/post-slug/img1.png"
 tags: ["tag1", "tag2", "tag3"]
+funnelStage: "awareness"
 draft: false
 relatedPosts: ["other-existing-post-slug"]
 ---
 ```
 
 **Rules:**
+- Wrap frontmatter in opening and closing `---` lines (Astro/MDX standard). A block of `title:` / `description:` lines without those delimiters is not valid frontmatter and breaks content collections.
 - `description` must be under 160 characters — hard requirement for SEO
 - `pubDate` is today's date in `YYYY-MM-DD` format
 - `image` field uses the path `@/assets/blog/{post-slug}/img1.png` — this resolves correctly when landing pages fetch content
+- `funnelStage` must be one of `awareness`, `interest`, or `consideration` — same value for every locale of the same article. Matches landing-page blog schema and GA4 funnel tracking (`@aurum-avis-labs/browser-tracking`). The tool UI selects this per job; the server also rewrites the key after generation so it cannot drift.
 - `relatedPosts` should reference 1–3 existing post slugs in the same language, or be an empty array `[]`
 - Omit `image` field if no images are being generated
-- Use `h2`, `h3`, `h4` headings only — never `h1` (title is already the h1)
+- Use `h2`, `h3`, and `h4` headings only — never `h1` (title is already the h1)
 - Slugs must be localized: German posts get German slugs, French posts get French slugs, etc.
 
 ### Image references in MDX body
@@ -154,10 +157,12 @@ Create `tool/.env.local` with these variables. Add `tool/.env.local` to the root
 # GitHub — for pushing generated content to this repo
 GITHUB_PAT=ghp_xxxxxxxxxxxx
 
-# Claude API — for MDX content generation (option 1)
+# Anthropic Claude — optional; used when the UI selects Claude for MDX generation
 ANTHROPIC_API_KEY=sk-ant-xxxxxxxxxxxx
+# Optional override (default: claude-sonnet-4-20250514)
+# ANTHROPIC_MODEL=claude-sonnet-4-20250514
 
-# Azure OpenAI — for MDX content generation (option 2) and image generation
+# Azure OpenAI — text (when UI selects Azure), image generation, planning/translation helpers
 AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
 AZURE_OPENAI_API_KEY=xxxxxxxxxxxx
 AZURE_OPENAI_DEPLOYMENT=gpt-4o          # text model deployment name
@@ -171,42 +176,20 @@ PORT=3000
 
 ## 7. AI Provider Support
 
-The tool must support two AI providers for **text generation** (MDX writing), selectable in the UI:
+### MDX body generation (user-selectable)
 
-### Option A — Anthropic Claude API
-- Endpoint: `https://api.anthropic.com/v1/messages`
-- Model: `claude-sonnet-4-20250514`
-- Auth header: `x-api-key: {ANTHROPIC_API_KEY}`
-- Header: `anthropic-version: 2023-06-01`
+The Generate form offers **Azure OpenAI** or **Anthropic Claude** for writing the MDX post body. The server enforces that the selected provider is configured before queuing a job.
 
-```json
-{
-  "model": "claude-sonnet-4-20250514",
-  "max_tokens": 2000,
-  "system": "...",
-  "messages": [{ "role": "user", "content": "..." }]
-}
-```
+- **Azure OpenAI:** `chat/completions` with `max_completion_tokens` (16k for generation, 8k for refine).
+- **Claude:** `POST https://api.anthropic.com/v1/messages` with `x-api-key`, `anthropic-version: 2023-06-01`, model from `ANTHROPIC_MODEL` or default `claude-sonnet-4-20250514`, `max_tokens` 16k for generation / 8k for refine.
 
-Response text is at `data.content[0].text`.
+`/api/config` exposes `azureOpenAI` and `claude` booleans so the UI can disable unavailable options. At least one must be true to generate.
 
-### Option B — Azure OpenAI (chat completions)
-- Endpoint: `{AZURE_OPENAI_ENDPOINT}openai/deployments/{AZURE_OPENAI_DEPLOYMENT}/chat/completions?api-version=2024-02-01`
-- Auth header: `api-key: {AZURE_OPENAI_API_KEY}`
+### Planning, refine compatibility, and images
 
-```json
-{
-  "messages": [
-    { "role": "system", "content": "..." },
-    { "role": "user", "content": "..." }
-  ],
-  "max_tokens": 2000
-}
-```
-
-Response text is at `data.choices[0].message.content`.
-
-The UI should show a provider toggle (Claude / Azure OpenAI). The server reads both keys from `.env.local` and routes accordingly. If a key is missing, that option is greyed out.
+- English image-planning and most auxiliary text calls still use **Azure OpenAI** when configured (unchanged pipeline).
+- **Refine** uses the same text provider as the original staged post (`textProvider` stored in staging JSON): Azure or Claude. Staged posts created before this field default to Azure.
+- **Image generation** remains Azure DALL-E and/or Unsplash as already implemented.
 
 ### Image generation — Azure DALL-E only
 - Endpoint: `{AZURE_OPENAI_ENDPOINT}openai/deployments/{AZURE_DALLE_DEPLOYMENT}/images/generations?api-version=2024-02-01`
@@ -229,7 +212,7 @@ Response image URL is at `data.data[0].url`. Images must be downloaded server-si
 
 The server handles the full pipeline. The frontend just makes fetch calls to local API routes.
 
-### `POST /api/generate`
+### `POST /api/jobs` (primary generation entrypoint)
 
 Request body:
 ```json
@@ -239,34 +222,27 @@ Request body:
   "prompt": "Why AI virtual teams are the future of work",
   "context": "Focus on SMBs, cost angle",
   "imageCount": 3,
-  "provider": "claude"
+  "imageSource": "ai",
+  "referenceMode": "auto",
+  "referenceName": "optional-style-ref.png",
+  "funnelStage": "interest",
+  "textProvider": "azure"
 }
 ```
 
-Steps the server performs:
+- `funnelStage`: `"awareness"` | `"interest"` | `"consideration"` (default `awareness` if omitted).
+- `textProvider`: `"azure"` | `"claude"` (default `azure`). Must match configured keys (see §7).
+
+Steps the worker performs:
 1. Load `brands.config.ts` to get brand metadata
-2. Fetch existing post slugs from the repo via GitHub API (public, no auth needed) to pass to the AI for deduplication
-3. For each language: call the AI API with a system prompt that enforces the MDX schema, frontmatter rules, image import syntax, and language/slug localization
-4. Extract the slug from the generated title
-5. Replace `POST_SLUG` placeholder in image paths with the actual slug
-6. For each image (1 to imageCount): generate via Azure DALL-E with a contextual prompt
-7. Download each image server-side, convert to base64
-8. Return everything to the frontend
+2. Read existing post slugs from the local `brands/{brandId}/{lang}/` tree for deduplication hints
+3. For each language: call the selected text provider with the MDX system prompt (frontmatter, `funnelStage`, headings, images)
+4. Extract the slug from the generated title; replace `POST_SLUG` in paths
+5. After all languages, **rewrite** `funnelStage` in frontmatter so it matches the job (model output cannot override the UI)
+6. For each image slot: planning (Azure) + DALL-E or Unsplash as configured
+7. Persist a staged post under `tool/staging/` (JSON) for review and push
 
-Response:
-```json
-{
-  "slug": "why-ai-virtual-teams-are-the-future",
-  "posts": {
-    "en": "---\ntitle: ...",
-    "de": "---\ntitle: ..."
-  },
-  "images": [
-    { "filename": "img1.png", "base64": "...", "previewUrl": "data:image/png;base64,..." },
-    { "filename": "img2.png", "base64": "...", "previewUrl": "data:image/png;base64,..." }
-  ]
-}
-```
+Response: `{ "jobId": "...", "position": 0 }` — the UI listens to `GET /api/jobs/:id/stream` (SSE) for logs and completion (`stagingId`).
 
 ### `POST /api/push`
 
@@ -315,10 +291,10 @@ No auth needed (public repo). Returns a flat list of slugs per language.
 Returns which providers are available based on which env vars are set:
 ```json
 {
-  "claude": true,
   "azureOpenAI": true,
+  "claude": true,
   "azureDalle": true,
-  "githubPat": true
+  "unsplash": false
 }
 ```
 
@@ -339,8 +315,9 @@ title: "Post Title"
 description: "Under 160 chars"
 pubDate: {today}
 author: "{brand.displayName}"
-image: "@/assets/blog/POST_SLUG/img1.png"
+{imageLineIfAny}
 tags: ["tag1", "tag2", "tag3"]
+funnelStage: "{funnelStage}"
 draft: false
 relatedPosts: []
 ---
@@ -348,7 +325,8 @@ relatedPosts: []
 RULES:
 - Slug must be localized to the post language (German title → German slug)
 - You will use POST_SLUG as a placeholder — it will be replaced with the actual slug
-- Use h2, h3 headings only — never h1
+- Use h2, h3, and h4 headings only — never h1
+- funnelStage must stay "{funnelStage}" (awareness = top-of-funnel; interest = mid; consideration = bottom — landing-page analytics)
 - Description under 160 characters — hard limit
 - 600–900 words of substantive, insightful content
 - Professional tone, not salesy
@@ -370,8 +348,7 @@ import { Image } from 'astro:assets';
 import img1 from '@/assets/blog/POST_SLUG/img1.png';
 [...repeat for each image]
 
-Place <Image src={imgN} alt="descriptive alt text" width={700} quality={80} class="w-full" /> 
-at natural content breaks. img1 appears near the top as the hero.
+Place each `<Image />` at natural section breaks; the first image should appear only after the intro and the first `##` heading (see implementation in `tool/server.ts`).
 ```
 
 ---
@@ -382,33 +359,30 @@ The UI should be **polished and production-grade** — this is an internal tool 
 
 ### Layout
 - Two-column: narrow sidebar (config/status) + main content area
-- Three tabs in main area: **Generate**, **Preview**, **Existing Posts**
+- Main tabs: **Generate**, **Posts** (staging queue), **Existing Posts**, **Settings**
 
 ### Generate tab
-- Brand selector dropdown (loaded from `/api/brands`)
-- Brand info bar showing domain, languages, repo once brand is selected
-- Language checkboxes (pre-checked, loaded from brand config)
-- AI provider toggle: Claude / Azure OpenAI (disabled if key not present)
-- Blog prompt textarea
-- Additional context textarea (optional)
-- Image count selector: 0, 2, 3, 4
-- Generate button
-- Real-time progress log (streaming updates as each step completes)
+- Brand selector (sidebar) and brand info bar (domain, repo, languages)
+- Language checkboxes (pre-checked from brand config)
+- **Funnel stage** radio group: awareness / interest / consideration
+- **Text generation** radio group: Azure OpenAI / Claude (options disabled if not in `/api/config`)
+- Blog prompt and optional context textareas
+- Image count selector: 0, 2, 3, 4; image source and reference controls when images > 0
+- Generate button → `POST /api/jobs`; progress via Posts tab and job stream
 
-### Preview tab
-- MDX files displayed per language with syntax highlighting (frontmatter keys highlighted in gold, headings in white)
-- Generated images displayed as thumbnails in a grid
-- Approve & Push button
-- Back to edit / Discard buttons
+### Posts tab
+- Staging cards show slug, languages, optional funnel badge, image count, approve/reject
+- Detail view: per-language MDX, refine chat, push to repo
 
 ### Existing Posts tab
-- Brand selector
-- List of existing posts with slug, languages available, date
+- Brand selector; list slugs from the local `brands/` tree
+
+### Settings tab
+- API status grid: Azure OpenAI, Anthropic Claude, image generation, Unsplash (`/api/config`)
 
 ### Sidebar
-- Status indicators: GitHub PAT ✓/✗, Claude ✓/✗, Azure OpenAI ✓/✗, DALL-E ✓/✗
-- These are read from `/api/config` — no user input needed, keys come from `.env.local`
-- Current brand display
+- Pills for text (any of Azure/Claude) and images (DALL-E or Unsplash)
+- Global brand selector
 
 ---
 
