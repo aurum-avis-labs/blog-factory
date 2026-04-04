@@ -38,10 +38,35 @@ updatedDate: 2026-03-26               # Optional — date
 author: "Author Name"                  # Optional — string
 image: "@/assets/blog/slug/img1.png"   # Optional — path to hero image
 tags: ["tag1", "tag2"]                 # Optional — array of strings
+funnelStage: "interest"                # Required — awareness | interest | consideration (exact lowercase strings)
 draft: false                           # Optional — boolean, default false
-relatedPosts: ["other-post-slug"]      # Optional — array of post slugs (same language)
+relatedPosts: ["other-post-slug"]      # Required when peers exist — see below (same language)
 ---
 ```
+
+### relatedPosts and funnel alignment
+
+Use **1–3** `relatedPosts` slugs per post (same language as the file). Every linked post’s `funnelStage` must be **the same or higher intent** than the current post, using this order (low → high): `awareness` < `interest` < `consideration`.
+
+| Current `funnelStage` | Allowed related `funnelStage` |
+|-----------------------|-------------------------------|
+| `awareness` | `awareness`, `interest`, or `consideration` |
+| `interest` | `interest` or `consideration` only (never `awareness`) |
+| `consideration` | `consideration` only, **unless** there is no other `consideration` post in that language—in that case you may link to **`interest`** posts (never `awareness`) so “next step” reading still exists |
+
+If a language folder has **only one** published post, `relatedPosts: []` is acceptable until translated siblings exist.
+
+### funnelStage (required)
+
+Used for GTM / GA4 funnel reporting. Always set explicitly to exactly one of:
+
+| Value | When to use |
+|-------|-------------|
+| `awareness` | Broad, educational, category-level content; readers discovering the problem space or trends (no deep product walkthrough). |
+| `interest` | Clear problem + solution angle; comparing approaches or how a type of tool helps (not a full feature-by-feature product deep dive). |
+| `consideration` | Strong product/solution focus: workflows, named features, implementation detail, "how it works for us", comparisons toward a decision. |
+
+Rules: use the **same** `funnelStage` for every locale file of the same article; if unsure between two stages, pick the **higher-intent** stage; no other values.
 
 ## Image Handling
 
@@ -61,9 +86,10 @@ relatedPosts: ["other-post-slug"]      # Optional — array of post slugs (same 
 - Descriptions MUST be under 160 characters for SEO
 - Use semantic heading hierarchy (h2, h3, h4 — never h1, that's the title)
 - Include 2-3 relevant tags for categorization
-- Set relatedPosts to link to 1-3 existing posts in the same language
+- Set `relatedPosts` to 1–3 existing posts in the same language; each target’s `funnelStage` must be same or higher intent than the current post (see **relatedPosts and funnel alignment**)
 - Slugs should be localized (German posts get German slugs, etc.)
 - Each post should exist in all languages configured for the brand (see brands.config.ts)
+- Every post must include `funnelStage` (`awareness`, `interest`, or `consideration`) and keep it aligned across all translations of the same article
 
 ## Workflows
 
@@ -95,4 +121,6 @@ When generating blog content for a brand:
 4. Use localized slugs (not English slugs with translated content)
 5. Place files in `brands/{brand}/{lang}/post-slug.mdx`
 6. If using images, place them in `brands/{brand}/images/post-slug/`
-7. Preview with `npm run preview` before pushing
+7. Set the same `funnelStage` on every locale variant of a post (required for analytics)
+8. Set `relatedPosts` per the funnel-alignment rules (same language; same-or-higher `funnelStage`, with the documented exceptions)
+9. Preview with `npm run preview` before pushing
