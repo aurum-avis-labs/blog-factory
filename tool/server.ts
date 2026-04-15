@@ -471,10 +471,10 @@ function selectBestReferenceForPlan(plan: ImagePlan, catalog: ReferenceCatalogEn
 }
 
 function ensureFirstInlineImagePlacement(mdx: string): string {
-  if (!mdx.includes('src={img1}')) return mdx;
+  if (!mdx.includes('<Image')) return mdx;
   const lines = mdx.split('\n');
   const firstSectionIdx = lines.findIndex(line => /^##\s+/.test(line.trim()));
-  const imgIdx = lines.findIndex(line => /<Image\b[^>]*src=\{img1\}/.test(line));
+  const imgIdx = lines.findIndex(line => /<Image\b/.test(line));
   if (firstSectionIdx === -1 || imgIdx === -1 || imgIdx > firstSectionIdx) return mdx;
 
   const [imgLine] = lines.splice(imgIdx, 1);
@@ -498,6 +498,56 @@ function setFrontmatterValue(mdx: string, key: string, value: string): string {
   if (idx !== -1) lines[idx] = `${key}: ${quoted}`;
   else lines.push(`${key}: ${quoted}`);
   return `---\n${lines.join('\n')}\n---\n${body}`;
+}
+
+function removeFrontmatterValue(mdx: string, key: string): string {
+  const { frontmatter, body } = splitMdx(mdx);
+  if (!frontmatter) return mdx;
+  const lines = frontmatter
+    .split('\n')
+    .filter(line => !line.startsWith(`${key}:`));
+  return `---\n${lines.join('\n')}\n---\n${body}`;
+}
+
+function compareImageFilenames(a: string, b: string): number {
+  const aNum = Number(a.match(/img(\d+)/)?.[1] ?? Number.MAX_SAFE_INTEGER);
+  const bNum = Number(b.match(/img(\d+)/)?.[1] ?? Number.MAX_SAFE_INTEGER);
+  if (aNum !== bNum) return aNum - bNum;
+  return a.localeCompare(b);
+}
+
+function normalizeMdxForAvailableImages(mdx: string, slug: string, images: StoredImage[]): string {
+  const availableImages = [...images].sort((a, b) => compareImageFilenames(a.filename, b.filename));
+  const availableByFilename = new Map(availableImages.map(img => [img.filename, img]));
+  let updated = mdx;
+
+  updated = updated.replace(
+    /^import\s+(img\d+)\s+from\s+['"][^'"]*\/(img\d+\.[a-z0-9]+)['"]\s*;?\r?\n?/gim,
+    (full, _varName, filename) => availableByFilename.has(filename) ? full : '',
+  );
+
+  updated = updated.replace(/<Image\b[\s\S]*?\/>/g, full => {
+    const match = full.match(/src=\{(img\d+)\}/);
+    if (!match) return full;
+    const filename = `${match[1]}.png`;
+    return availableByFilename.has(filename) ? full : '';
+  });
+
+  if (!/<Image\b/.test(updated)) {
+    updated = updated.replace(/^import\s+\{\s*Image\s*\}\s+from\s+['"]astro:assets['"]\s*;?\r?\n?/gm, '');
+  }
+
+  const cover = availableImages[0];
+  if (cover) {
+    const coverValue = cover.resolvedSource === 'unsplash' && cover.unsplash?.sourceUrl
+      ? cover.unsplash.sourceUrl
+      : `@/assets/blog/${slug}/${cover.filename}`;
+    updated = setFrontmatterValue(updated, 'image', coverValue);
+  } else {
+    updated = removeFrontmatterValue(updated, 'image');
+  }
+
+  return ensureFirstInlineImagePlacement(updated).replace(/\n{3,}/g, '\n\n').trim();
 }
 
 function buildUnsplashAttributionHtml(meta: UnsplashImageMeta | undefined): string {
@@ -555,7 +605,8 @@ function generateSlug(title: string): string {
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')
     .trim()
-    .slice(0, 80);
+    .slice(0, 80)
+    .replace(/^-+|-+$/g, '');
 }
 
 function extractTitle(mdx: string): string {
@@ -869,7 +920,11 @@ Return ONLY the raw MDX. No explanation, no code fences.`;
     }
 
     for (const lang of Object.keys(posts)) {
-      posts[lang] = setFrontmatterValue(posts[lang], 'funnelStage', funnelStage);
+      posts[lang] = normalizeMdxForAvailableImages(
+        setFrontmatterValue(ensureMdxFrontmatterFence(posts[lang]), 'funnelStage', funnelStage),
+        slug,
+        images,
+      );
     }
 
     const stagedId = newStagingId();
@@ -1670,7 +1725,7 @@ app.post('/api/push', async (req: Request, res: Response) => {
       const dir  = resolve(REPO_ROOT, 'brands', brandId, lang);
       const file = resolve(dir, `${slug}.mdx`);
       mkdirSync(dir, { recursive: true });
-      writeFileSync(file, ensureMdxFrontmatterFence(mdx), 'utf-8');
+      writeFileSync(file, normalizeMdxForAvailableImages(ensureMdxFrontmatterFence(mdx), slug, images), 'utf-8');
       send('log', `✓ Written brands/${brandId}/${lang}/${slug}.mdx`);
     }
 
@@ -1765,7 +1820,11 @@ app.post('/api/staging/push-all', async (_req: Request, res: Response) => {
       for (const [lang, mdx] of Object.entries(post.posts)) {
         const dir = resolve(REPO_ROOT, 'brands', post.brandId, lang);
         mkdirSync(dir, { recursive: true });
-        writeFileSync(resolve(dir, `${post.slug}.mdx`), ensureMdxFrontmatterFence(mdx), 'utf-8');
+        writeFileSync(
+          resolve(dir, `${post.slug}.mdx`),
+          normalizeMdxForAvailableImages(ensureMdxFrontmatterFence(mdx), post.slug, post.images ?? []),
+          'utf-8',
+        );
         send('log', `✓ Written brands/${post.brandId}/${lang}/${post.slug}.mdx`);
       }
 
