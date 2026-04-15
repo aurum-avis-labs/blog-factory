@@ -1,0 +1,89 @@
+---
+title: "Vibe Coding vs. Agentic Coding: What Founders Need to Know"
+description: "Prompt-to-app (vibe) vs AI in a repo with CI (agentic). Two modes, and why switching after validation is where teams lose quarters."
+pubDate: 2026-03-17
+author: "Aurum Avis Labs"
+funnelStage: awareness
+tags: ["vibe coding", "agentic coding", "mvp", "product development"]
+relatedPosts: ["is-your-vibe-coded-app-production-ready", "when-to-get-a-real-tech-partner", "mvp-cost-switzerland"]
+image: "@/assets/blog/vibe-coding-vs-agentic-coding/img1.jpg"
+draft: false
+---
+
+**Vibe coding:** prompt in, app out, fast and visually convincing. **Agentic coding:** AI works inside *your* repo with tests and pipelines. The first mode wins demos; the second holds up when you sell. The common break: teams stay in mode one too long. Limits and checklist: [vibe-coded app production readiness](/blog/is-your-vibe-coded-app-production-ready).
+
+## What Vibe Coding Actually Is
+
+Vibe coding is AI-first, engineer-optional development. The tools, Replit, Lovable, Bolt.new, v0, are designed to generate entire applications from natural language prompts. You don't need to understand the code. You describe what you want, the AI builds it, you react to the output, and you iterate.
+
+The speed advantage is real. What used to take a three-person team two weeks now takes one founder two days. The accessibility shift is also real, founders with deep domain expertise but no engineering background can now build functional prototypes without a technical co-founder.
+
+For the right use cases, vibe coding is genuinely the right tool. Investor demos. Hypothesis tests. Concierge MVPs. Landing page experiments. Anything where the goal is learning, not reliability.
+
+The problem is not that vibe coding exists. The problem is what happens when founders keep using it past the point where it stops being appropriate.
+
+## What Agentic Coding Is
+
+Agentic coding is different in a fundamental way. Tools like Cursor, Claude Code, and GitHub Copilot Workspace work alongside engineers, not instead of them. An AI agent can write code, run tests, read error messages, search the codebase, and iterate across multiple files autonomously. But it does all of this within a proper engineering environment: version control, CI/CD pipelines, code review, a real database schema, a production deployment setup.
+
+The human is still making architectural decisions. The AI handles a large portion of the mechanical execution. The result is that a small, experienced engineering team can produce what used to require a much larger one, but the output is production-grade from the start.
+
+This is the mode we work in: not vibe coding, not traditional waterfall development, but agentic coding on a production-ready stack.
+
+## The Three Modes of AI-Assisted Development
+
+It helps to think about this as a spectrum rather than a binary:
+
+**Mode 1: Vibe coding (AI generates, human reacts):** Tools like Replit, Lovable, Bolt.new. Fast, accessible, great for exploration and validation. Output is usually not production-ready. No engineering discipline required, which is both the strength and the limitation.
+
+**Mode 2: Agentic coding (AI executes, engineer directs):** Tools like Cursor, Claude Code. An experienced engineer sets the architecture, writes the critical logic, and reviews output. The AI agent handles implementation, refactoring, test generation, and iteration. Output is production-grade because the human is responsible for the decisions that matter.
+
+**Mode 3: Traditional engineering (human writes, AI assists):** GitHub Copilot in autocomplete mode, ChatGPT for reference. AI as a productivity tool, not an agent. Still valuable, but the slowest of the three.
+
+Most of the discourse treats this as Mode 1 vs. Mode 3, vibe coding vs. "real" development. That framing misses Mode 2 entirely, which is where the most interesting things are happening.
+
+## Why the Vibe Coding Ceiling Is Real
+
+Vibe-coded applications share a structural problem: the AI optimizes for "works in the demo" rather than "works in production." This isn't a bug, it's a feature for the use case these tools are designed for. But it creates predictable failure modes when founders try to scale.
+
+Authentication looks correct but authorization logic is shallow. Database schemas work for the happy path but break under concurrent load or edge cases. Error handling is absent or superficial. Infrastructure is whatever the platform provides, with no visibility into what happens when it fails.
+
+The pattern we see repeatedly: a founder builds something impressive with Replit or Lovable, gets early users excited, signs up paying customers, and then the app starts doing things it shouldn't. Data disappears. Features break for specific users. Performance degrades. The founder goes back to the AI tool to fix it, and the AI generates fixes that introduce new problems. At some point, an engineer looks at the codebase and delivers the uncomfortable verdict: it's faster to rebuild than to fix.
+
+This isn't a failure of the tool. The tool did exactly what it was designed to do. The problem is that the founder didn't recognize when they'd outgrown it.
+
+## Why Agentic Coding on a Production Stack Is Different
+
+The key insight is that the quality of AI-generated code is largely determined by the constraints and context the AI is working within.
+
+A vibe coding tool generates code in a vacuum, it has no existing codebase to respect, no tests to pass, no architecture to conform to, no deployment pipeline to satisfy. So it generates whatever works for the prompt.
+
+An agentic coding setup is different. When Cursor or Claude Code operates within a real codebase, with a defined architecture, existing tests, a CI/CD pipeline that must pass, a database schema that must be respected, the AI's output is constrained by all of those things. The code it generates has to fit into a production environment, which means it produces production-quality output.
+
+The engineer's job shifts: less time writing boilerplate, more time on architecture decisions, code review, and the judgment calls that AI can't make reliably. A small team using agentic coding can ship far more than without, **no fixed 5:1 ratio**; domain, codebase, and review culture matter more than the headline.
+
+## The Right Tool for the Right Phase
+
+The decision isn't "vibe coding or real engineering." It's about matching the mode to the phase:
+
+**Validation phase (testing whether the idea works):** Vibe coding is often the right choice. Speed matters more than reliability. The cost of something breaking is low. Use Replit, Lovable, or Bolt.new. Ship quickly. Learn. Don't over-invest in infrastructure before you have signal.
+
+**Build phase (building what you'll actually sell):** Agentic coding on a production stack. You have evidence of demand. Now you need something reliable enough to collect real behavioral data, handle paying customers, and iterate based on what you learn. This is where Mode 2 earns its cost.
+
+**Scale phase (growing what's working):** Agentic coding with more engineering rigor. Architecture decisions compound. The choices made in the build phase determine what's possible in the scale phase.
+
+The mistake most founders make is staying in Mode 1 past the validation phase, because it worked so well early on, it doesn't feel natural to change it.
+
+## How We Build
+
+We **do not** use vibe-coding tools (Lovable, Replit, Bolt.new, and similar prompt-to-app environments) to ship what we validate for founders. We work in **Cursor** and **Claude Code** on an established **framework and template repository**: consistent architecture patterns, reusable building blocks, and tests plus deployment pipelines from day one—not one-off generated code with no backbone codebase.
+
+We deliberately mix **deterministic** generation or highly structured code (where conventions and templates do most of the scaffolding) with **non-deterministic, agentic** feature development inside the real repo: agents iterate across files, tests, and failure signals, while engineers own architecture, security, data modeling, and deployment decisions.
+
+For the 12-week Product Validation Package, we operate in this setup from day one: Azure infrastructure, CI/CD, real authentication, a properly designed database schema, error monitoring, and alerting. The AI handles a large share of implementation **within that scaffold**; engineering judgment stays human.
+
+When the product is unreliable, usage and quality feedback get mixed: users quit after two sessions and you often cannot tell whether value or bugs drove it. Production quality from day one **reduces** that mixing; it does not replace every other validation method.
+
+## Vibe prototype, production still open?
+
+[Book a discovery call](https://outlook.office.com/book/AurumAvisLabsDiscovery@aurum-avis-labs.ch/?ismsaljsauthenabled). We review stack and risk, then outline migration or rebuild with agentic coding on Azure.

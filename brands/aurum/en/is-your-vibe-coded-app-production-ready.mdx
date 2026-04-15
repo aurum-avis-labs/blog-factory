@@ -1,0 +1,93 @@
+---
+title: "Is Your Vibe-Coded App Production Ready?"
+description: "Six questions on load, monitoring, data, auth, deploy, and analytics, before you promise reliability to paying users. Vibe build vs production."
+pubDate: 2026-03-25
+author: "Aurum Avis Labs"
+funnelStage: interest
+tags: ["vibe coding", "production", "mvp deployment", "agentic coding"]
+relatedPosts: ["vibe-coding-vs-agentic-coding", "when-to-get-a-real-tech-partner", "how-aurum-avis-validates-mvps"]
+image: "@/assets/blog/is-your-vibe-coded-app-production-ready/img1.jpg"
+draft: false
+---
+
+You have a URL, a login, and early numbers, **often enough for validation**. Once money or trust is on the line, different standards apply: load, recovery, authorization, repeatable deploys. These six questions are a **self-check**, not a rant against tools.
+
+But "deployed" and "production-ready" are not the same thing. The gap between them is where founders lose customers, lose data, and occasionally lose their companies.
+
+This isn't a critique of any particular tool. It's a framework for honestly assessing where you are, and for understanding what the next step looks like when you're ready to move beyond the validation phase.
+
+## What Vibe Coding Tools Are Actually Good At
+
+Before the checklist: these tools are genuinely excellent for specific things. Prototyping, hypothesis testing, investor demos, concierge MVPs, landing page experiments, anything where the goal is learning, not reliability. The bar for prototype quality is different from the bar for production quality, and vibe coding tools clear the prototype bar comfortably.
+
+The question is what happens next.
+
+## The 6 Questions That Reveal Production Readiness
+
+### Can it handle 10x your current traffic without crashing?
+
+Vibe coding platforms are optimized for development and light use. As your traffic grows, you may hit memory limits, CPU throttling, or cold-start issues that make your app slow or unavailable. More importantly, vibe-coded apps often lack the architectural patterns that enable scaling: database connection pooling, caching, efficient queries, background job processing.
+
+Test this honestly: if your current peak is 20 simultaneous users, what happens at 200? Have you tested it? Do you have any visibility into how the app behaves under load? If the answer to both is no, that's a gap worth understanding before you make reliability promises to paying customers.
+
+### What happens when the app crashes at 2am?
+
+Production systems fail, that's not a question of if, but when. The question is how quickly you know about it and how quickly you can fix it.
+
+Most vibe coding platforms don't provide robust monitoring, alerting, or automatic recovery out of the box. If your app crashes at 2am, you might not find out until a customer messages you the next morning. This is acceptable in a prototype. It's not acceptable when you've sold someone on a product they need to run their business.
+
+### Where does your users' data actually live, and is it backed up?
+
+This is the one that causes the most pain. Vibe-coded apps often use a mix of platform-managed storage and third-party databases, and the backup and recovery story for each is different, and often unclear.
+
+Ask yourself: if your hosting platform had an outage today and your database became unavailable, what would happen to your customers' data? Do you have a backup? Where is it? How old is it? How long would recovery take? If you can't answer these questions with specifics, you don't have a production-grade data story.
+
+For European founders, there's also the GDPR dimension: do you know which country your customer data is stored in? Do you have the required data processing agreements in place?
+
+### Is authentication and authorization actually secure?
+
+Many vibe-coded apps have authentication, users can log in, passwords are stored. Fewer have proper authorization, the logic that determines which user can access which data, what operations each role can perform, what happens when someone tries to access someone else's account.
+
+Vibe-coded auth handles the happy path correctly and the edge cases incorrectly. It may not properly validate session tokens. It may not check authorization on API endpoints (only on the UI). It may not handle token expiration correctly. For apps using Supabase, automatically generated Row Level Security policies often do not cover every case you need, **misconfigured RLS is a common source of data exposure in production**; policies need review and testing, not just generation.
+
+Have your auth and authorization logic reviewed by someone who knows what they're looking for before you onboard strangers with payment information.
+
+### Can you deploy a fix in under 30 minutes?
+
+In production, you'll need to fix bugs quickly, sometimes because a customer is blocked, sometimes because there's an active security issue. How confident are you in your deployment process? Do you have a way to roll back if a deployment introduces a new problem? Do you have a staging environment to test fixes before they go live?
+
+Vibe coding simplifies deployment to the point where it can feel like a strength. The risk is that "easy to deploy" can mean "easy to deploy broken code to production" without the safeguards that a real deployment pipeline provides.
+
+### Are you actually measuring what your users do?
+
+This question gets added because it's the one most founders skip, and it's the one that makes the other five worth asking in the first place. If you're validating an idea, you need behavioral data. Not just "how many users signed up" but what they actually did, where they dropped off, and what they ignored.
+
+Vibe coding tools don't install any of this for you. A basic Google Analytics 4 + Google Tag Manager setup gives you page views and session data. Microsoft Clarity or LogRocket gives you session recordings and heatmaps, you can literally watch how real users navigate your app, where they hesitate, what they can't find.
+
+The production-readiness dimension: if you're planning to make a go/no-go decision based on your validation data, that data needs to be trustworthy. Set up your analytics properly, including custom events for the key actions in your product, before you drive meaningful traffic to the app. An app you can't measure is an app you can't actually validate.
+
+## Reading the Results
+
+If your app fails three or more of these questions, that's normal for a prototype. That's exactly what a prototype should be: fast to build, good enough to test with, not yet hardened for production use.
+
+The implication isn't that the tool you used is wrong. It's that your app isn't ready to be the backbone of a paying customer's workflow. There's a meaningful difference between "we're piloting this" (where some rough edges are expected) and "we're paying for this because our business depends on it" (where rough edges have costs).
+
+## What Comes After Vibe Coding
+
+The question is what comes next. The answer isn't "hire a traditional dev agency to rebuild everything from scratch." The more interesting answer is **agentic coding on a production stack**, using AI agents like Cursor or Claude Code within a proper engineering environment, with real infrastructure, version control, CI/CD, and a database schema designed to last.
+
+This is meaningfully different from both vibe coding and traditional development. The speed advantage of AI-assisted development is preserved. The production quality is there from the start. A small team using agentic coding can build what used to require a much larger one, but the output is solid because the engineering decisions are made by humans, not generated by a prompt.
+
+## When to Migrate
+
+The migration trigger isn't a specific number of users or a revenue threshold. It's when the cost of failure exceeds the cost of proper engineering.
+
+Three situations consistently push that calculation past the tipping point: when customers are paying and expect reliability, when you're handling sensitive data subject to GDPR or similar regulation, and when uptime is load-bearing for your business model.
+
+At any of these points, the right move is to build a production infrastructure from the start rather than patching your current setup. A complete rebuild is expensive. It's typically much less expensive than the combination of customer churn, data incidents, and reputation damage that comes from running a production business on a prototype infrastructure.
+
+**Heuristic from projects** (not a fixed quote): migrating to a real stack after a long time on a vibe platform is often **multiples** of the cost of "building right first", highly dependent on data model and traffic. Validation value can still outweigh migration cost; model both explicitly.
+
+## Production instead of patching?
+
+[Book a discovery call](https://outlook.office.com/book/AurumAvisLabsDiscovery@aurum-avis-labs.ch/?ismsaljsauthenabled). We review auth, data, and deployment and propose agentic coding on a stack that matches your risk.

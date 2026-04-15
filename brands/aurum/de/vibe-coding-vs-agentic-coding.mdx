@@ -1,0 +1,89 @@
+---
+title: "Vibe Coding vs. Agentic Coding: Was Gründer wissen müssen"
+description: "Prompt-zu-App (Vibe) vs. KI im Repo mit CI (Agentic). Zwei Modi – und warum der Wechsel nach der Validierungsphase oft der teuerste Fehler ist."
+pubDate: 2026-03-17
+author: "Aurum Avis Labs"
+funnelStage: awareness
+tags: ["vibe coding", "agentic coding", "mvp", "produktentwicklung"]
+relatedPosts: ["ist-deine-vibe-coded-app-produktionsreif", "wann-brauchst-du-einen-tech-partner", "mvp-kosten-schweiz"]
+image: "@/assets/blog/vibe-coding-vs-agentic-coding/img1.jpg"
+draft: false
+---
+
+**Vibe Coding:** Prompt rein, App raus – schnell, visuell überzeugend. **Agentic Coding:** KI arbeitet im eigenen Repo mit Tests und Pipeline. Der erste Modus gewinnt Demos; der zweite hält, was man verkaufen will. Dazwischen liegt der häufigste Bruch: Teams bleiben zu lange in Modus eins. Grenzen und Checkliste: [Produktionsreife von Vibe-Coded Apps](/blog/de/ist-deine-vibe-coded-app-produktionsreif).
+
+## Was Vibe Coding wirklich ist
+
+Vibe Coding ist KI-first, Engineer-optional. Tools wie Replit, Lovable, Bolt.new und v0 sind darauf ausgelegt, vollständige Anwendungen aus natürlichsprachigen Prompts zu generieren. Den Code muss man nicht verstehen. Man beschreibt, was man will, die KI baut es, man reagiert auf den Output, man iteriert.
+
+Der Geschwindigkeitsvorteil ist real. Was früher zwei Wochen für ein kleines Team brauchte, schafft ein Gründer heute an zwei Tagen. Die Zugänglichkeit hat sich ebenfalls grundlegend verändert – Gründer mit tiefem Domänenwissen, aber ohne Engineering-Hintergrund, können heute funktionsfähige Prototypen bauen, ohne einen technischen Co-Founder zu brauchen.
+
+Für die richtigen Anwendungsfälle ist Vibe Coding wirklich das richtige Tool: Investor-Demos, Hypothesentests, Concierge-MVPs, Landing-Page-Experimente. Alles, wo das Ziel Lernen ist, nicht Zuverlässigkeit.
+
+Das Problem ist nicht, dass Vibe Coding existiert. Das Problem ist, was passiert, wenn Gründer es über den Punkt hinaus verwenden, an dem es aufgehört hat, das richtige Tool zu sein.
+
+## Was Agentic Coding ist
+
+Agentic Coding ist grundlegend anders. Tools wie Cursor, Claude Code und GitHub Copilot Workspace arbeiten mit Entwicklern zusammen – nicht anstelle von ihnen. Ein KI-Agent kann Code schreiben, Tests ausführen, Fehlermeldungen lesen, die Codebasis durchsuchen und über mehrere Dateien hinweg autonom iterieren. Aber er tut all das innerhalb einer echten Engineering-Umgebung: Versionskontrolle, CI/CD-Pipelines, Code Review, ein echtes Datenbankschema, ein produktionsreifes Deployment-Setup.
+
+Der Mensch trifft weiterhin Architekturentscheidungen. Die KI übernimmt einen grossen Teil der mechanischen Ausführung. Das Ergebnis: Ein kleines, erfahrenes Engineering-Team kann leisten, was früher ein viel grösseres erforderte – und der Output ist von Anfang an produktionsreif, weil die Engineering-Entscheidungen von Menschen getroffen werden, nicht von einem Prompt generiert.
+
+Das ist der Modus, in dem wir arbeiten: nicht Vibe Coding, nicht traditionelle Wasserfall-Entwicklung, sondern Agentic Coding auf einem produktionsreifen Stack.
+
+## Die drei Modi KI-gestützter Entwicklung
+
+Es hilft, das als Spektrum zu verstehen, nicht als Binärentscheidung:
+
+**Modus 1: Vibe Coding (KI generiert, Mensch reagiert):** Tools wie Replit, Lovable, Bolt.new. Schnell, zugänglich, gut für Exploration und Validierung. Output ist meist nicht produktionsreif. Kein Engineering-Wissen erforderlich – das ist gleichzeitig Stärke und Einschränkung.
+
+**Modus 2: Agentic Coding (KI führt aus, Engineer dirigiert):** Tools wie Cursor, Claude Code. Ein erfahrener Engineer setzt die Architektur, schreibt die kritische Logik und reviewt den Output. Der KI-Agent übernimmt Implementierung, Refactoring, Test-Generierung und Iteration. Output ist produktionsreif, weil der Mensch für die Entscheidungen verantwortlich ist, die Qualität bestimmen.
+
+**Modus 3: Traditionelles Engineering (Mensch schreibt, KI assistiert):** GitHub Copilot im Autocomplete-Modus, ChatGPT als Referenz. KI als Produktivitätstool, nicht als Agent. Noch immer wertvoll, aber der langsamste der drei Modi.
+
+Der grösste Teil des Diskurses behandelt das als Modus 1 vs. Modus 3 – Vibe Coding vs. «echte» Entwicklung. Diese Rahmung übersieht Modus 2 vollständig, und genau dort passieren die interessantesten Dinge.
+
+## Warum die Vibe-Coding-Decke real ist
+
+Vibe-Coded Anwendungen teilen ein strukturelles Problem: Die KI optimiert für «funktioniert in der Demo» statt für «funktioniert in der Produktion». Das ist kein Bug – es ist ein Feature für den Anwendungsfall, für den diese Tools gebaut wurden. Aber es erzeugt vorhersehbare Fehlerbilder, wenn Gründer versuchen zu skalieren.
+
+Authentifizierung sieht korrekt aus, aber die Autorisierungslogik ist flach. Datenbankschemas funktionieren für den Happy Path, brechen aber unter gleichzeitiger Last oder Edge Cases. Fehlerbehandlung fehlt oder ist oberflächlich. Die Infrastruktur ist das, was die Plattform bereitstellt – ohne Sichtbarkeit, was passiert, wenn sie ausfällt.
+
+Das Muster, das wir immer wieder sehen: Ein Gründer baut etwas Beeindruckendes mit Replit oder Lovable, erste Nutzer sind begeistert, zahlende Kunden kommen dazu – und dann beginnt die App, Dinge zu tun, die sie nicht sollte. Daten verschwinden. Features brechen für bestimmte Nutzer. Die Performance bricht ein. Der Gründer geht zurück zum KI-Tool, um es zu fixen, und die KI generiert Fixes, die neue Probleme einführen. Irgendwann schaut ein Engineer auf den Code und liefert das unbequeme Urteil: Neu bauen ist schneller als flicken.
+
+Das ist kein Versagen des Tools. Das Tool hat genau das getan, wofür es gebaut wurde. Das Problem ist, dass der Gründer nicht erkannt hat, wann er darüber hinausgewachsen war.
+
+## Warum Agentic Coding auf einem Produktions-Stack anders ist
+
+Die entscheidende Erkenntnis: Die Qualität von KI-generiertem Code wird massgeblich durch die Rahmenbedingungen und den Kontext bestimmt, innerhalb derer die KI arbeitet.
+
+Ein Vibe-Coding-Tool generiert Code im Vakuum – es gibt keine bestehende Codebasis, die es respektieren muss, keine Tests, die es bestehen muss, keine Architektur, der es entsprechen muss, keine Deployment-Pipeline, die es erfüllen muss. Also generiert es, was für den Prompt funktioniert.
+
+Ein Agentic-Coding-Setup ist anders. Wenn Cursor oder Claude Code innerhalb einer echten Codebasis operiert – mit definierter Architektur, bestehenden Tests, einer CI/CD-Pipeline, die bestehen muss, einem Datenbankschema, das respektiert werden muss – ist der Output der KI durch all das eingeschränkt. Der generierte Code muss in eine Produktionsumgebung passen, was bedeutet, dass er produktionsreife Ergebnisse liefert.
+
+Die Aufgabe des Engineers verschiebt sich: weniger Zeit für Boilerplate, mehr Zeit für Architekturentscheidungen, Code Review und die Urteilsentscheidungen, die KI nicht zuverlässig treffen kann. Ein kleines Team mit Agentic-Coding-Tools kann deutlich mehr liefern als ohne – **ohne fixes Verhältnis**; entscheidend sind Domäne, Codebasis und Review-Kultur.
+
+## Das richtige Tool für die richtige Phase
+
+Die Entscheidung ist nicht «Vibe Coding oder echtes Engineering». Es geht darum, den Modus zur Phase zu passen:
+
+**Validierungsphase (testen, ob die Idee funktioniert):** Vibe Coding ist oft die richtige Wahl. Geschwindigkeit ist wichtiger als Zuverlässigkeit. Die Kosten eines Ausfalls sind gering. Replit, Lovable oder Bolt.new nutzen. Schnell shippen. Lernen. Nicht in Infrastruktur überinvestieren, bevor Signal vorhanden ist.
+
+**Build-Phase (bauen, was tatsächlich verkauft wird):** Agentic Coding auf einem Produktions-Stack. Nachfrage-Evidenz ist da. Jetzt braucht man etwas Zuverlässiges genug, um echte Verhaltensdaten zu sammeln, zahlende Kunden zu bedienen und auf Basis dessen zu iterieren, was gelernt wird. Hier verdient Modus 2 seinen Preis.
+
+**Scale-Phase (wachsen, was funktioniert):** Agentic Coding mit mehr Engineering-Rigor. Architekturentscheidungen potenzieren sich. Die Entscheidungen der Build-Phase bestimmen, was in der Scale-Phase möglich ist.
+
+Der Fehler, den die meisten Gründer machen: in Modus 1 bleiben, nachdem die Validierungsphase vorbei ist – weil er früh so gut funktioniert hat, dass es sich nicht natürlich anfühlt, ihn zu wechseln.
+
+## Wie wir bauen
+
+Wir setzen **keine** Vibe-Coding-Tools (Lovable, Replit, Bolt.new und ähnliche Prompt-zu-App-Umgebungen) ein, um die Produkte zu bauen, die wir für Gründer validieren. Stattdessen arbeiten wir mit **Cursor** und **Claude Code** auf einem **etablierten Framework und einem Template-Repository**: klare Architekturmuster, wiederverwendbare Bausteine und von Anfang an Tests sowie Deploy-Pipelines – nicht isoliert generierter Code ohne tragende Codebasis.
+
+So kombinieren wir gezielt **deterministisch** erzeugbaren oder stark strukturierten Code (Konventionen, Boilerplate, wiederkehrende Strukturen) mit **nicht-deterministischer, agentischer** Feature-Entwicklung im echten Repo: Agenten iterieren über Dateien, Tests und Fehlerbilder, während Engineers Architektur, Security, Datenmodellierung und Deployment verbindlich festhalten.
+
+Für das 12-Wochen-Product-Validation-Package bauen wir von Tag eins in diesem Setup: Azure-Infrastruktur, CI/CD, echte Authentifizierung, ein sauber entworfenes Datenbankschema, Error Monitoring und Alerting. Die KI übernimmt einen grossen Teil der Implementierungsarbeit im Rahmen dieses Gerüsts; das Engineering-Urteil bleibt menschlich.
+
+Wenn das Produkt unzuverlässig ist, vermischen sich Nutzungs- und Qualitätsfeedback: Nutzer brechen nach zwei Sessions ab, und man weiss oft nicht, ob Wert oder Bugs schuld sind. Produktionsqualität von Tag eins **reduziert** diese Vermischung – sie ersetzt aber nicht jede andere Validierungsmethode.
+
+## Vibe-Prototyp, Produktion noch offen?
+
+[Discovery Call](https://outlook.office.com/book/AurumAvisLabsDiscovery@aurum-avis-labs.ch/?ismsaljsauthenabled) – wir schauen uns Stack und Risiko an und skizzieren Migration oder Neuaufbau mit Agentic Coding auf Azure.

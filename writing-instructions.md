@@ -61,6 +61,12 @@ CONTENT QUALITY RULES
 
 - Tone: calm, practical, credible, and human.
 - Do not sound overly promotional or artificial.
+- Write as a careful editor or practitioner would: clear, direct, and grounded. Avoid the cadence of generic AI explainers or breathless LinkedIn-style posts.
+- Avoid hype: no stacked superlatives, no empty intensifiers ("incredible," "absolutely," "revolutionary"), no forced urgency, no slogan-like claims without evidence.
+- Do not use exclamation marks in body copy unless quoting speech or a proper name that requires it.
+- Prefer plain statements and concrete detail over cheerleading; let usefulness carry the tone.
+- Do not use the em dash character (Unicode U+2014, "—"). Use a comma, a full stop and a new sentence, a colon, or parentheses instead. Hyphen for compound modifiers is fine; do not substitute a double hyphen for an em dash.
+- Avoid rhetorical "not X—but Y" pivots and other symmetrical flourishes unless they read naturally in context.
 - Use short paragraphs.
 - Use clear H2 and H3 subheadings.
 - Use bullet points only when they genuinely improve readability.
@@ -234,6 +240,8 @@ OUTPUT RULES
 FINAL VALIDATION CHECKLIST
 
 Before finalizing, ensure:
+- the body contains no em dash character (—),
+- tone stays calm and credible (no hype pile-on, no exclamation marks in body copy),
 - frontmatter exists and is at the top,
 - frontmatter fields are in the correct order,
 - pubDate format is correct,
