@@ -10,83 +10,83 @@ image: "@/assets/blog/is-your-vibe-coded-app-production-ready/img1.jpg"
 draft: false
 ---
 
-Du hast eine URL, einen Login und erste Zahlen – **für viele Validierungstests völlig ausreichend**. Sobald Geld oder Vertrauen auf dem Spiel stehen, gelten andere Massstäbe: Last, Wiederherstellung, Autorisierung, reproduzierbare Deployments. Die folgenden sechs Fragen sind ein **Selbstcheck** – kein Angriff auf bestimmte Tools.
+Du hast eine URL, einen Login und erste Zahlen – **für viele Validierungstests völlig ausreichend**. Sobald Geld oder Vertrauen auf dem Spiel stehen, gelten andere Massstäbe: Last, Wiederherstellung, Autorisierung, reproduzierbare Deployments. Die folgenden sechs Fragen sind ein **Selbstcheck** – keine Abrechnung mit bestimmten Tools.
 
-Denn „deployed" und „produktionsreif" sind nicht dasselbe. Die Lücke dazwischen ist der Ort, an dem Gründer Kunden verlieren, Daten verlieren – und gelegentlich ihr Unternehmen.
+Denn „deployed" und „produktionsreif" sind zwei verschiedene Dinge. In dieser Lücke verlieren Gründer Kunden, Daten – und gelegentlich ihr Unternehmen.
 
-Das ist keine Kritik an einem bestimmten Tool. Es ist ein Rahmen, um ehrlich einzuschätzen, wo man steht – und zu verstehen, was der nächste Schritt bedeutet, wenn man bereit ist, die Validierungsphase hinter sich zu lassen.
+Auch das ist keine Kritik an einem einzelnen Tool, sondern ein Raster, um nüchtern einzuordnen, wo man steht – und welcher Schritt als Nächstes ansteht, wenn die Validierungsphase zu Ende geht.
 
 ## Was Vibe-Coding-Tools wirklich gut können
 
-Vorab: Diese Tools sind für bestimmte Dinge wirklich exzellent. Prototyping, Hypothesentests, Investor-Demos, Concierge-MVPs, Landing-Page-Experimente – alles, wo das Ziel Lernen ist, nicht Zuverlässigkeit. Der Massstab für Prototyp-Qualität ist ein anderer als für Produktions-Qualität, und Vibe-Coding-Tools erfüllen den Prototyp-Massstab komfortabel.
+Eines vorweg: Für bestimmte Zwecke sind diese Tools wirklich stark. Prototyping, Hypothesentests, Investor-Demos, Concierge-MVPs, Landing-Page-Experimente – überall dort, wo es ums Lernen geht und nicht um Betriebsstabilität. Für einen Prototyp gelten andere Massstäbe als für ein Produktivsystem – und diese Anforderungen erfüllen Vibe-Coding-Tools problemlos.
 
-Die Frage ist, was danach kommt.
+Die eigentliche Frage ist, was danach kommt.
 
 ## Die 6 Fragen zur Produktionsreife
 
 ### Hält die App der zehnfachen Last stand?
 
-Vibe-Coding-Plattformen sind auf Entwicklung und leichte Nutzung ausgelegt. Bei wachsendem Traffic kann man auf Speicherlimits, CPU-Drosselung oder Cold-Start-Probleme stossen, die die App langsam oder nicht verfügbar machen. Wichtiger: Vibe-Coded Apps fehlen oft die Architekturmuster, die Skalierung erst ermöglichen – Datenbankverbindungs-Pooling, Caching, effiziente Queries, Background-Job-Processing.
+Vibe-Coding-Plattformen sind für Entwicklung und moderate Nutzung gedacht. Wächst der Traffic, läuft man schnell in Speicherlimits, CPU-Drosselung oder Cold-Start-Probleme – die App wird langsam oder fällt aus. Entscheidender ist: In Vibe-Coded-Apps fehlen häufig die Bausteine, die Skalierung überhaupt erst möglich machen – Connection-Pooling für die Datenbank, Caching, effiziente Queries, Hintergrund-Jobs.
 
-Ehrlicher Test: Wenn der aktuelle Peak bei 20 gleichzeitigen Nutzern liegt – was passiert bei 200? Wurde das getestet? Gibt es überhaupt Sichtbarkeit ins Verhalten der App unter Last? Wenn beide Antworten Nein sind, ist das eine Lücke, die man verstehen sollte, bevor man zahlenden Kunden Zuverlässigkeit verspricht.
+Ehrliche Gegenprobe: Wenn die Spitze heute bei 20 gleichzeitigen Nutzern liegt – was passiert bei 200? Wurde das je getestet? Weiss man überhaupt, wie sich die App unter Last verhält? Lautet die Antwort zweimal Nein, ist das eine Lücke, die geklärt gehört, bevor zahlende Kunden auf Zuverlässigkeit angewiesen sind.
 
 ### Was passiert, wenn die App um 2 Uhr nachts abstürzt?
 
-Produktionssysteme versagen – nicht ob, sondern wann. Die Frage ist, wie schnell man davon erfährt und wie schnell man es beheben kann.
+Produktivsysteme fallen aus – die Frage ist nicht ob, sondern wann. Entscheidend ist, wie schnell man davon erfährt und wie schnell sich das beheben lässt.
 
-Die meisten Vibe-Coding-Plattformen bieten kein robustes Monitoring, keine Alarmierung und keine automatische Wiederherstellung. Stürzt die App nachts ab, erfährt man es womöglich erst, wenn sich ein Kunde am nächsten Morgen meldet. Für einen Prototyp ist das akzeptabel. Für ein Produkt, für das jemand bezahlt und das er für sein Geschäft braucht, nicht.
+Die meisten Vibe-Coding-Plattformen liefern weder belastbares Monitoring noch Alerting oder automatische Wiederherstellung. Stürzt die App mitten in der Nacht ab, erfährt man es im Zweifel erst, wenn am nächsten Morgen die erste Kundenmail reinkommt. Für einen Prototyp mag das reichen. Für ein Produkt, auf das jemand zahlt und das im Tagesgeschäft gebraucht wird, nicht.
 
 ### Wo leben die Daten deiner Nutzer – und sind sie gesichert?
 
-Das ist die Frage, die am häufigsten Schmerz verursacht. Vibe-Coded Apps nutzen oft eine Mischung aus plattformverwalteten Speichern und Dritt-Datenbanken, und die Backup- und Recovery-Geschichte ist für jede Kombination anders – und oft unklar.
+Das ist der Punkt, der Gründern am häufigsten auf die Füsse fällt. Vibe-Coded-Apps setzen meist auf eine Mischung aus plattformeigenen Speichern und externen Datenbanken – und Backup und Recovery sehen für jede Kombination anders aus. Oft weiss schlicht niemand genau, wie das Ganze im Ernstfall funktioniert.
 
-Die wichtigen Fragen: Wenn die Hosting-Plattform heute ausfiele und die Datenbank nicht verfügbar wäre – was würde mit den Kundendaten passieren? Gibt es ein Backup? Wo liegt es? Wie aktuell ist es? Wie lang würde die Wiederherstellung dauern? Wer diese Fragen nicht mit konkreten Antworten beantworten kann, hat keine produktionsreife Datenstrategie.
+Die entscheidenden Fragen: Fällt die Hosting-Plattform heute aus und die Datenbank ist nicht erreichbar – was passiert mit den Kundendaten? Gibt es ein Backup? Wo liegt es? Wie aktuell ist es? Wie lange dauert eine Wiederherstellung? Wer darauf keine konkreten Antworten hat, hat schlicht keine tragfähige Datenstrategie für den Betrieb.
 
-Für europäische Gründer kommt die DSGVO-Dimension hinzu: In welchem Land werden die Kundendaten gespeichert? Sind die erforderlichen Datenverarbeitungsverträge abgeschlossen?
+Für Gründer in Europa kommt das Thema DSGVO dazu: In welchem Land werden die Kundendaten gespeichert? Sind die nötigen Auftragsverarbeitungsverträge unterschrieben?
 
 ### Ist die Authentifizierung wirklich sicher?
 
-Viele Vibe-Coded Apps haben Authentifizierung – Nutzer können sich einloggen, Passwörter werden gespeichert. Weniger haben ordentliche Autorisierung: die Logik, die bestimmt, welcher Nutzer auf welche Daten zugreifen kann, welche Operationen jede Rolle ausführen darf, was passiert, wenn jemand auf das Konto einer anderen Person zugreifen will.
+Authentifizierung haben die meisten Vibe-Coded-Apps – Nutzer loggen sich ein, Passwörter werden irgendwo gespeichert. An der Autorisierung hapert es dann häufiger: also an der Logik, die bestimmt, welcher Nutzer auf welche Daten zugreifen darf, welche Aktionen eine Rolle ausführen kann und was passiert, wenn jemand auf den Account einer anderen Person zugreifen will.
 
-Könnte es sein, dass die Vibe-Coded Auth den Happy Path korrekt behandelt und die Edge Cases nicht? Session-Tokens werden möglicherweise nicht richtig validiert. Autorisierungs-Checks fehlen bei API-Endpunkten und sind nur in der UI vorhanden. Token-Ablauf wird nicht korrekt behandelt. Bei Supabase-basierten Apps: Automatisch generierte Row-Level-Security-Policies decken oft nicht alle erforderlichen Fälle ab – **falsch konfiguriertes RLS ist in der Praxis eine häufige Ursache für Datenlecks**. Policies müssen geprüft und getestet werden, nicht nur generiert.
+Gut möglich, dass die Vibe-Coded-Auth den Normalfall sauber abdeckt, die Ausnahmen aber nicht: Session-Tokens werden nicht wirklich validiert, Autorisierungsprüfungen fehlen bei API-Endpunkten und existieren nur im UI, Ablaufzeiten von Tokens werden nicht korrekt gehandhabt. Bei Supabase-basierten Apps gilt ausserdem: Automatisch erzeugte Row-Level-Security-Policies decken selten alle nötigen Fälle ab – **falsch konfiguriertes RLS zählt in der Praxis zu den häufigsten Ursachen für Datenlecks**. Policies müssen geprüft und getestet werden, nicht bloss generiert.
 
-Die Auth- und Autorisierungslogik sollte von jemandem reviewt werden, der weiss, wonach er sucht – bevor Fremde mit Zahlungsinformationen ongeboardet werden.
+Die Auth- und Autorisierungslogik sollte von jemandem geprüft werden, der weiss, worauf zu achten ist – bevor fremde Nutzer mit Zahlungsdaten angelegt werden.
 
 ### Wie schnell kannst du einen Fix deployen?
 
-In der Produktion müssen Bugs schnell behoben werden – manchmal weil ein Kunde blockiert ist, manchmal wegen eines aktiven Sicherheitsproblems. Wie sicher ist der Deployment-Prozess? Gibt es einen Rollback-Mechanismus, wenn ein neues Deployment Probleme einführt? Eine Staging-Umgebung, um Fixes zu testen, bevor sie live gehen?
+Im Betrieb müssen Bugs schnell raus – weil ein Kunde feststeckt oder weil ein Sicherheitsproblem aktiv ausgenutzt wird. Wie stabil ist also der Deployment-Prozess? Gibt es einen Rollback, wenn ein neues Deployment Ärger macht? Existiert eine Staging-Umgebung, in der Fixes vor dem Go-Live getestet werden können?
 
-Vibe Coding vereinfacht das Deployment so weit, dass es sich wie eine Stärke anfühlt. Das Risiko: „Einfach zu deployen" kann bedeuten „einfach, kaputten Code in die Produktion zu bringen" – ohne die Absicherungen, die eine echte Deployment-Pipeline bietet.
+Vibe Coding hat das Deployment so stark vereinfacht, dass es sich nach einer Stärke anfühlt. Die Kehrseite: „Einfach zu deployen" heisst oft auch „einfach, kaputten Code direkt produktiv zu schalten" – ohne die Schutznetze, die eine ordentliche Deployment-Pipeline einzieht.
 
 ### Misst du überhaupt, was Nutzer in der App tun?
 
-Diese Frage kommt hinzu, weil sie die meisten Gründer überspringen – und weil sie die anderen fünf erst sinnvoll macht. Wer eine Idee validiert, braucht Verhaltensdaten. Nicht nur „wie viele Nutzer haben sich angemeldet", sondern was sie tatsächlich getan haben, wo sie abgebrochen sind, was sie ignoriert haben.
+Diese Frage gehört dazu, weil die meisten Gründer sie überspringen – und weil die anderen fünf erst dann sinnvoll werden. Wer eine Idee validiert, braucht Verhaltensdaten. Nicht nur „wie viele haben sich registriert", sondern was sie tatsächlich gemacht haben, wo sie ausgestiegen sind, was sie ignoriert haben.
 
-Vibe-Coding-Tools richten das nicht automatisch ein. Ein einfaches Google Analytics 4 + Google Tag Manager Setup liefert Seitenaufrufe und Session-Daten. Microsoft Clarity oder LogRocket liefern Session-Recordings und Heatmaps – man kann buchstäblich dabei zusehen, wie echte Nutzer die App bedienen, wo sie zögern, was sie anklicken und wo sie etwas erwarten, das nicht passiert.
+Vibe-Coding-Tools richten das nicht von selbst ein. Ein einfaches Setup mit Google Analytics 4 und dem Google Tag Manager liefert Seitenaufrufe und Session-Daten. Microsoft Clarity oder LogRocket ergänzen das um Session-Recordings und Heatmaps – man sieht echten Nutzern bei der Bedienung zu, erkennt, wo sie zögern, was sie klicken und wo sie etwas erwarten, das nicht passiert.
 
-Die Produktionsreife-Dimension: Wer eine Go/No-Go-Entscheidung auf Basis seiner Validierungsdaten treffen will, braucht verlässliche Daten. Analytics richtig einrichten – inklusive Custom Events für die wichtigsten Aktionen im Produkt – bevor ernsthafter Traffic auf die App geleitet wird. Eine App, die man nicht messen kann, ist eine App, die man nicht wirklich validieren kann.
+Der Produktivitäts-Aspekt dahinter: Wer auf Basis seiner Validierungsdaten eine Go/No-Go-Entscheidung treffen will, braucht Zahlen, denen er vertraut. Also Analytics sauber aufsetzen – inklusive Custom Events für die wichtigsten Aktionen im Produkt – bevor ernsthaft Traffic auf die App gelenkt wird. Eine App, die man nicht messen kann, lässt sich auch nicht wirklich validieren.
 
 ## Was die Ergebnisse bedeuten
 
-Wenn die App drei oder mehr dieser Fragen nicht besteht, ist das für einen Prototyp normal. Genau das sollte ein Prototyp sein: schnell gebaut, gut genug zum Testen, noch nicht für den Produktionseinsatz gehärtet.
+Wer drei oder mehr dieser Fragen nicht sauber beantworten kann, hat einen Prototyp – und genau das soll ein Prototyp auch sein: schnell gebaut, gut genug zum Testen, aber eben nicht für den Produktivbetrieb gehärtet.
 
-Das bedeutet nicht, dass das verwendete Tool falsch war. Es bedeutet, dass die App noch nicht das Fundament des Workflows eines zahlenden Kunden sein kann. Es gibt einen erheblichen Unterschied zwischen „wir testen das gerade" – wo raue Kanten erwartet werden – und „wir zahlen dafür, weil unser Geschäft davon abhängt" – wo raue Kanten reale Kosten haben.
+Das heisst nicht, dass das eingesetzte Tool falsch war. Es heisst, dass die App noch nicht tragfähig genug ist, um im Arbeitsalltag eines zahlenden Kunden eine zentrale Rolle zu spielen. Zwischen „wir probieren das gerade aus", wo ein paar Ecken und Kanten akzeptiert werden, und „wir zahlen dafür, weil unser Geschäft daran hängt", wo jede Ecke einen realen Preis hat, liegt ein deutlicher Unterschied.
 
 ## Was nach Vibe Coding kommt
 
-Die Antwort ist nicht „eine traditionelle Entwicklungsagentur beauftragen und alles von Grund auf neu bauen". Die interessantere Antwort ist **Agentic Coding auf einem Produktions-Stack** – KI-Agenten wie Cursor oder Claude Code in einer echten Engineering-Umgebung, mit echter Infrastruktur, Versionskontrolle, CI/CD und einem Datenbankschema, das auf Bestand ausgelegt ist.
+Die Antwort lautet nicht „klassische Agentur beauftragen und alles neu aufsetzen". Interessanter ist **Agentic Coding auf einem Produktiv-Stack** – KI-Agenten wie Cursor oder Claude Code in einer echten Engineering-Umgebung, mit ordentlicher Infrastruktur, Versionskontrolle, CI/CD und einem Datenbankschema, das für den Dauerbetrieb ausgelegt ist.
 
-Das ist grundlegend anders als sowohl Vibe Coding als auch traditionelle Entwicklung. Der Geschwindigkeitsvorteil KI-gestützter Entwicklung bleibt erhalten. Die Produktionsqualität ist von Anfang an da. Ein kleines Team, das Agentic Coding einsetzt, kann das leisten, was früher ein viel grösseres Team erforderte – und der Output ist solide, weil die Engineering-Entscheidungen von Menschen getroffen werden, nicht von einem Prompt generiert.
+Das ist ein grundlegend anderer Ansatz als Vibe Coding – und auch als klassische Entwicklung. Der Geschwindigkeitsvorteil KI-gestützter Arbeit bleibt, die Betriebsqualität ist von Anfang an gegeben. Ein kleines Team mit Agentic Coding schafft heute das, wofür früher ein deutlich grösseres Team nötig war – und das Ergebnis ist stabil, weil die Engineering-Entscheidungen von Menschen getroffen werden und nicht aus einem Prompt fallen.
 
 ## Wann migrieren?
 
-Der Migrations-Trigger ist keine bestimmte Nutzerzahl oder ein Umsatzschwellenwert. Es ist der Moment, wenn die Kosten des Scheiterns die Kosten ordentlicher Entwicklung übersteigen.
+Der Auslöser für eine Migration ist weder eine bestimmte Nutzerzahl noch ein Umsatzwert. Es ist der Moment, in dem die Kosten eines Ausfalls die Kosten ordentlicher Entwicklung übersteigen.
 
-Drei Situationen verschieben diese Rechnung regelmässig: wenn Kunden zahlen und Zuverlässigkeit erwarten, wenn sensible Daten verarbeitet werden, die der DSGVO oder ähnlichen Vorschriften unterliegen, und wenn Verfügbarkeit tragend für das Geschäftsmodell ist.
+Drei Situationen verschieben diese Rechnung regelmässig: wenn Kunden zahlen und entsprechend Zuverlässigkeit erwarten; wenn sensible Daten im Spiel sind, die unter DSGVO oder ähnliche Vorschriften fallen; und wenn Verfügbarkeit Teil des Geschäftsmodells ist.
 
-An jedem dieser Punkte ist der richtige Schritt, von Anfang an eine Produktionsinfrastruktur aufzubauen, statt das bestehende Setup zu flicken. Ein kompletter Neuaufbau ist teuer – typischerweise aber erheblich weniger teuer als die Kombination aus Kundenverlust, Datenvorfällen und Reputationsschäden, die entstehen, wenn man ein Produktionsgeschäft auf Prototyp-Infrastruktur betreibt.
+Jedes dieser drei Szenarien spricht dafür, eine echte Produktiv-Infrastruktur aufzuziehen, statt das bestehende Setup zu flicken. Ein Neuaufbau ist teuer – aber erfahrungsgemäss deutlich günstiger als die Summe aus Kundenverlust, Datenpannen und Reputationsschaden, wenn man ein echtes Geschäft auf einer Prototyp-Infrastruktur fährt.
 
-**Heuristik aus Projekten** (kein Festpreis): Eine Migration zu einem echten Stack nach langer Zeit auf einer Vibe-Plattform liegt oft beim **Mehrfachen** der Kosten von „von Anfang an richtig bauen", stark abhängig von Datenmodell und Traffic. Der Validierungswert kann die Migrationskosten durchaus überwiegen – aber beides sollte explizit gerechnet werden.
+**Erfahrungswert aus Projekten** (kein Festpreis): Eine Migration auf einen echten Stack nach längerer Zeit auf einer Vibe-Plattform liegt oft beim **Mehrfachen** dessen, was „von Anfang an richtig bauen" gekostet hätte – abhängig von Datenmodell und Traffic. Der Wert der Validierung kann diese Mehrkosten rechtfertigen, aber rechnen muss man beides.
 
 ## Produktion statt Flicken?
 
