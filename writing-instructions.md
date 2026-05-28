@@ -119,6 +119,8 @@ Do not omit any of these fields.
 Do not change the field names.
 Do not add extra frontmatter fields unless explicitly requested by the system using this prompt.
 
+For multilingual brands (e.g. aurum): every EN/DE pair must share the same `translationKey` in frontmatter (use the English slug as the key). Example: `translationKey: what-is-an-mvp` on both `en/what-is-an-mvp.mdx` and `de/was-ist-ein-mvp.mdx`.
+
 CRITICAL FRONTMATTER CONSTRAINTS
 
 - Frontmatter must be valid YAML.
