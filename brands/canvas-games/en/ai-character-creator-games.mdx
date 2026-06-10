@@ -1,0 +1,75 @@
+---
+title: "AI Character Creator Games: From Slider Menus to Text Prompts"
+description: "AI character creator games let you describe a character instead of assembling one. How prompt-based creation works, and how Inklets builds it into play."
+pubDate: 2026-06-04
+author: "Inklets Team"
+tags: ["ai character creator", "character customization", "mobile games"]
+funnelStage: interest
+relatedPosts: ["what-is-inklets", "doodle-jump-multiplayer"]
+image: "@/assets/blog/ai-character-creator-games/img1.png"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import img2 from '@/assets/blog/ai-character-creator-games/img2.png';
+import img3 from '@/assets/blog/ai-character-creator-games/img3.png';
+
+AI character creator games are starting to change one of the oldest rituals in gaming: making your character. For decades, "create your own character" meant assembling one from parts a designer made years earlier. Prompt-based creation flips that. You describe the character you imagine, in plain words, and the game draws it for you.
+
+This post looks at how character creation got here, what text prompts actually change, and how we built prompt-based creation into Inklets as a core game feature rather than an art tool on the side.
+
+## A short history of "create your own character"
+
+Character creation has gone through three broad eras.
+
+**Presets.** Early games offered a roster: pick the knight, the wizard, or the rogue. Identity meant choosing, not making.
+
+**Sliders and parts.** From MMOs to The Sims to modern RPGs, creation became assembly. Face shape sliders, hair catalogs, outfit pieces. At its best this is wonderfully expressive. It is also slow, front-loaded before you have played a minute, and bounded: you can only make what the parts allow. Every "unique" character is a remix of the same kit.
+
+**Catalog skins.** Mobile and live-service games mostly skipped deep creation and sold identity instead. Your character is whichever skin you bought. Expression became a transaction.
+
+Each era expanded who you could be, but all three share a ceiling: someone else drew the options first.
+
+## What text prompts change
+
+An AI character creator removes the parts bin. You write something like "a cardboard box kid with a blue shirt, red backpack, and curious eyes," and the system generates the character from the description.
+
+Three things genuinely change:
+
+- **The space of characters is open.** You are not limited to combinations a designer anticipated. Players reliably come up with ideas no parts catalog would include: object mascots, mood-based creatures, inside jokes.
+- **Creation takes seconds, not an evening.** A sentence is faster than forty sliders. That matters on mobile, where sessions are short and front-loaded menus kill momentum.
+- **The character carries intent.** A described character means something to the person who described it. That attachment is the entire point of customization, and prompts get there faster than sliders ever did.
+
+The honest caveat: you trade precision for openness. A slider gives you exact control over a jawline; a prompt gives you interpretation. Good prompt-based games lean into that by keeping a strong, consistent art style, so every generated character still looks like it belongs in the world.
+
+## How Inklets does it
+
+<Image src={img2} alt="The Brewer Inklet, a generated hand-drawn character" width={400} quality={80} class="w-full" />
+
+Inklets is a three-player climbing game, hand-drawn like a sketchbook, and the AI Inklet Generator is built directly into the game flow. Here is how it works in practice:
+
+1. **Describe your Inklet.** Prompts are short on purpose, around 80 characters. The in-game hint says it well: keep it short, give it a feeling.
+2. **The game draws it.** Your description becomes a small hand-drawn climber that matches the sketchbook style of the rest of the game.
+3. **Equip it and race.** The new Inklet goes straight into your loadout, and you take it into a three-player match. Other players see your creation climbing next to theirs.
+
+<Image src={img3} alt="The Bat Inklet, another generated climber" width={400} quality={80} class="w-full" />
+
+That last step is what we think matters most. A generated character you only look at is a picture. A generated character you survive a match with, lose with, and win with becomes yours. Created Inklets live in your Sketchbook alongside skins and other collected rewards, so the things you make accumulate into a collection over time.
+
+Because the game is multiplayer, creation also becomes social. Lobbies fill with characters nobody at the studio drew: voidlings, barrel couriers, sleepy paper bats, and whatever the other two players dreamed up. We wrote about why recognizable characters matter in competitive climbs in our post on [Doodle Jump multiplayer](/blog/doodle-jump-multiplayer).
+
+## What makes a good character prompt
+
+From our playtesting, the prompts that produce the best Inklets share a pattern:
+
+- **One subject.** "A box kid" beats "a box kid riding a dragon holding a sword."
+- **One or two visual anchors.** A blue shirt, a red backpack. Concrete details give the generator something to honor.
+- **A feeling.** "Curious eyes," "sleepy," "grumpy." Mood reads more strongly in a small hand-drawn character than any accessory.
+
+Short, concrete, emotional. The 80-character limit is not a technical constraint so much as a design nudge toward exactly that.
+
+## Where this is going
+
+AI character creator games are young, and most current uses of AI art sit outside the game: avatar generators, portrait tools, concept art assistants. The next step is generation that lives inside play, where what you create is something you immediately use, risk, and keep.
+
+That is the bet Inklets makes. If you want to see the game the generator lives in, [our first look at Inklets](/blog/what-is-inklets) covers the climbing, the rising ink, and the Sketchbook. The game is planned for iOS and Android in Summer 2026, and the waitlist is open at [inklets.app](https://www.inklets.app).

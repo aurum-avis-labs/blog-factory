@@ -60,6 +60,14 @@ export const brands: BrandConfig[] = [
     defaultLanguage: "en",
   },
   {
+    id: "canvas-games",
+    displayName: "Inklets",
+    repo: "aurum-avis-labs/canvas-games-landing-page",
+    domain: "https://www.inklets.app",
+    languages: ["en"],
+    defaultLanguage: "en",
+  },
+  {
     id: "kitchen-crew",
     displayName: "Kitchen Crew",
     repo: "aurum-avis-labs/kitchen-crew-landing-page",
