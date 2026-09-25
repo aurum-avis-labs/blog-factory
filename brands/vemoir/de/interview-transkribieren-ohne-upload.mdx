@@ -1,0 +1,136 @@
+---
+title: "Interview transkribieren ohne Upload deiner Audiodatei"
+description: "Interview transkribieren ohne Upload: nDSG, Ethik und GDPR im Blick, und wie Vemoirs Browser-Tool lokal arbeitet, ohne Server-Upload."
+pubDate: 2026-10-03
+author: "Vemoir Team"
+tags: ["interview", "transkription", "datenschutz"]
+funnelStage: "consideration"
+translationKey: "transcribe-interview-without-upload"
+relatedPosts: []
+tool: "transcribe-interview"
+image: "@/assets/blog/transcribe-interview-without-upload/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import voiceCapture from '@/assets/blog/transcribe-interview-without-upload/voice-capture.jpg';
+import privateRecords from '@/assets/blog/transcribe-interview-without-upload/private-records.jpg';
+
+Du musst ein **Interview transkribieren ohne Upload** der Aufnahme, weil Teilnehmende zugestimmt haben, dass die Datei auf deinem Rechner bleibt. Gleichzeitig brauchst du durchsuchbaren Text für Auswertung, Zitate oder Protokoll. Viele Cloud-Dienste verlangen als ersten Schritt den Upload zur deren Server. Das kann Datenschutzfreigaben, Ethikkommissionen oder Kundenrichtlinien auslösen.
+
+Dieser Leitfaden erklärt in verständlicher Sprache, warum der Upload unter **nDSG**, **GDPR** und Ethikvorgaben relevant ist, wie das kostenlose [Interview-Transkriptions-Tool](/de/tools/interview-transkribieren) auf vemoir.ch die Datei im Browser verarbeitet, ohne sie an Vemoir zu senden, und wann die [Vemoir Mac-App](https://apps.apple.com/app/id6794693630) für lange Aufnahmen und Sprechertrennung sinnvoller ist. Das ist keine Rechtsberatung.
+
+## Warum der Upload bei einwilligungsbasierter Forschung heikel ist
+
+In Forschung, Beratung, HR und Journalismus gilt meist eine informierte Einwilligung: Zweck, Aufbewahrung, Zugriff. Lädst du dieselbe Datei zu einem Transkriptionsanbieter hoch, kommt oft ein neuer Auftragsverarbeiter, ein neuer Speicherort und manchmal neue Unterauftragnehmer ins Spiel.
+
+In der **EU** regelt die **GDPR** personenbezogene Daten (Stimmen sind personenbezogen). In der **Schweiz** gilt das revidierte Datenschutzgesetz (**nDSG**). In **Deutschland und Österreich** gelten nationale Regeln neben der GDPR; in grenzüberschreitenden Projekten mit der Schweiz tauchen nDSG und GDPR oft gemeinsam in Checklisten auf. Ethikkommissionen können schärfere Vorgaben setzen: kein Cloud-Kopie, feste Löschfristen.
+
+Cloud-Tools sind nicht per se verboten. Viele Teams nutzen sie mit AV-Vertrag und dokumentiertem Zweck. Der Reibungspunkt entsteht, wenn Einwilligung oder Vertrag «nur lokal» verlangen oder Legal den Anbieter noch nicht freigegeben hat. **Interview transkribieren ohne Upload** heisst dann: Bytes verlassen dein Gerät nicht, statt nur Marketingversprechen zu vertrauen.
+
+Auch wenn ein Cloud-Anbieter europäische Rechenzentren nennt, bleibt ein neuer Datenfluss in deinem Verarbeitungsverzeichnis. Lokale Browser-Transkription ersetzt keine Datenschutz-Folgenabschätzung, vereinfacht aber Nachweise gegenüber Ethikkommissionen, die explizit «keine Übermittlung an Drittanbieter» verlangen.
+
+## Was «ohne Upload» auf vemoir.ch bedeutet
+
+Die kostenlosen Browser-Tools auf [vemoir.ch](/de) wandeln eine Datei um, die du bereits hast (MP3, M4A, WAV, MP4). Die Verarbeitung läuft im Tab mit einem öffentlichen Whisper-Modell. **Die Audiodatei wird nicht an Vemoir hochgeladen.** Beim ersten Mal lädt der Browser die Modellgewichte; danach gehen Läufe oft offline. Prüfen kannst du das im **Network**-Tab (Schritte unten).
+
+Grenzen: bis **15 Minuten** pro Datei, **drei erfolgreiche Läufe pro Woche**, **keine Sprecherlabels**, **keine Live-Aufnahme** im Browser. Schweizerdeutsch wird in öffentlichen Whisper-Modellen meist als **Standarddeutsch** geschrieben, nicht als Dialekt. Das ist kein zertifiziertes Protokoll.
+
+## Schritt für Schritt: Interview im Browser transkribieren
+
+1. **Datei vorbereiten.** Interview als MP3, M4A, WAV oder MP4 speichern. Länger als 15 Minuten: kürzen oder splitten, wenn du im Browser bleibst.
+2. **Tool öffnen.** [/de/tools/interview-transkribieren](/de/tools/interview-transkribieren) aufrufen.
+3. **Datei vom Datenträger wählen.** Die Aufnahme bleibt auf deinem Rechner.
+4. **Ersten Modell-Download abwarten.** Internet nötig; später oft offline im selben Browser-Profil.
+5. **Text übernehmen.** Für Codierung, freigegebene Zitate oder Notizen. Einwilligung, Korrektur und Aufbewahrung liegen bei dir.
+
+<Image src={voiceCapture} alt="Ruhige Arbeitsplattszene: eine Stimme wird lokal erfasst, ohne die Datei hochzuladen" width={700} quality={80} class="w-full" />
+
+## Network-Tab: prüfen, dass nichts hochgeladen wird
+
+1. Tool in Chrome, Edge oder Firefox öffnen.
+2. **Entwicklertools** → **Network** (optional Filter **Fetch/XHR**).
+3. Transkription mit Interviewdatei starten.
+4. Keine Multipart-Uploads deiner Aufnahme zu fremden Hosts erwarten, eher Modell-Downloads.
+5. Optional offline wiederholen, nachdem das Modell im Browser liegt, wenn dein Dossier «ohne Netz» verlangt.
+
+Ein Screenshot des Network-Tabs reicht oft als Beilage für Ethik- oder Datenschutzanfragen.
+
+## Ehrliche Grenzen des Browser-Tools
+
+| Thema | Browser | Vemoir Mac |
+| --- | --- | --- |
+| Datei verlässt Gerät | Kein Upload zu Vemoir | Bleibt auf dem Mac bis Export |
+| Länge (Gratis-Tool) | 15 Minuten | Lange Gespräche möglich |
+| Läufe pro Woche | 3 erfolgreiche | Kein Abo, Einmalkauf |
+| Sprecher | Nein | Profile auf dem Mac |
+| Live-Interview | Nein im Browser | Menüleiste, Mic + Systemaudio |
+| Schweizerdeutsch | Meist Standarddeutsch | Glossare für Namen/Begriffe |
+
+## Wann Cloud-Upload trotzdem passt
+
+Wenn Legal und Einkauf den Anbieter freigegeben haben, ihr kollaborativ in einer Cloud arbeitet oder eure IT eine zentrale Pipeline vorgibt, kann Upload der normale Weg sein. Vemoirs Browser-Workflow setzt auf lokale Verarbeitung. Wähle den Weg, der zu Einwilligung und Datenflussplan passt.
+
+Weitere Tools: [/de/tools](/de/tools). Aus Transkript strukturierte Notizen: [/de/tools/notizen-aus-transkript](/de/tools/notizen-aus-transkript).
+
+## Lange Interviews, Sprecher, Mac-App
+
+Über **15 Minuten**, zwei Stimmen getrennt, oder Protokoll statt Rohtext: **Vemoir für Mac**. Lokale Modelle standardmässig, Import vieler Formate, Sprecherprofile und Sitzungsprotokolle ([Aufnahme](/de#capture), [Protokoll](/de#record)). **Einmalkauf** (CHF 20 in der Schweiz; im App Store lokaler Preis in DE, AT, FR, IT). Cloud-Modelle optional mit eigenem API-Key.
+
+Live für das nächste Gespräch: [unterstützte Meeting-Apps](/de#platforms), kein Bot in der Teilnehmerliste.
+
+<Image src={privateRecords} alt="Notizkarten auf einem Schreibtisch, symbolisch für private Interview-Unterlagen auf dem eigenen Rechner" width={700} quality={80} class="w-full" />
+
+## Einwilligung und Aufbewahrung
+
+Vemoir speichert deine Browser-Datei in diesem Workflow nicht auf Servern. Das verringert einen Prozessor-Risikotyp, ersetzt aber nicht deine Pflichten: Rechtsgrundlage, Transparenz, sichere Ablage, Löschung, Widerruf. Kein **zertifiziertes Transkript**.
+
+Wenn du beim nächsten Projekt weniger Reibung willst, erwähne in der Einwilligung lokale Transkription (Browser oder Mac).
+
+Für eine kurze lokale Probe vor dem Ethikgespräch: [Interview im Browser transkribieren](/de/tools/interview-transkribieren).
+
+## Browser-Tool oder Mac-App starten
+
+**Eine Datei, bis 15 Minuten, Nachweis ohne Upload:** [/de/tools/interview-transkribieren](/de/tools/interview-transkribieren) und Network-Tab dokumentieren.
+
+**Länger, Sprecher, Live auf Apple Silicon:** [Vemoir im Mac App Store](https://apps.apple.com/app/id6794693630), [Preise](/de#pricing), [FAQ](/de/faq).
+
+## Häufige Fragen
+
+### Lädt das Gratis-Tool meine Aufnahme hoch?
+
+Nein. Verarbeitung im Tab, keine Übermittlung an Vemoir. Modell-Download beim ersten Mal.
+
+### Geht Transkription offline?
+
+Nach dem Cachen des Modells oft ja. Erster Download braucht Internet.
+
+### Ist das ein zertifiziertes Transkript?
+
+Nein. Maschinell erzeugter Text zur manuellen Prüfung, keine amtliche Zertifizierung.
+
+### Wie wird Schweizerdeutsch geschrieben?
+
+Meist als Standarddeutsch, nicht als Dialektrechtschreibung.
+
+### Welche Limits gelten?
+
+MP3, M4A, WAV, MP4, max. **15 Minuten**, **drei erfolgreiche Läufe pro Woche** im Browser.
+
+### Sprecherlabels im Browser?
+
+Nein. Sprechertrennung in der Mac-App.
+
+### Wann die Mac-App?
+
+Bei Länge, Sprechern, Live-Aufnahme, Glossaren. Siehe [/de#how](/de#how).
+
+### Ersetzt Vemoir Ethik- oder GDPR-Papier?
+
+Nein. Du bleibst verantwortlich für Einwilligung und Aufbewahrung.
+
+### Preis und Systemvoraussetzungen?
+
+[Preise](/de#pricing). Apple Silicon, macOS Sonoma 14.2+, mindestens 8 GB RAM; Intel-Macs nicht unterstützt.
+
+Nächster Schritt: [/de/tools/interview-transkribieren](/de/tools/interview-transkribieren) oder [Mac App Store](https://apps.apple.com/app/id6794693630) für lange Interviews mit Sprechertrennung.
