@@ -103,7 +103,7 @@ description: "..."
 pubDate: YYYY-MM-DD
 author: "Aurum Avis Labs"
 tags: ["...", "...", "..."]
-funnelStage: choose "awareness", "consideration","decision", "conversion"
+funnelStage: "awareness"
 relatedPosts: ["...", "..."]
 ---
 
@@ -113,7 +113,11 @@ Field requirements:
 - pubDate: use the provided date or current pipeline date in YYYY-MM-DD format
 - author: always "Aurum Avis Labs" unless explicitly overridden
 - tags: include the primary keyword topic and 2–4 relevant supporting topic tags
-- relatedPosts: must contain 1 to 3 real existing slugs
+- funnelStage: required; exactly one of `awareness`, `interest`, or `consideration` (lowercase strings). Used for GTM / GA4 funnel reporting. Same value for every locale of the same article. If unsure between two stages, pick the higher-intent stage. No other values (never `decision` or `conversion`).
+  - `awareness`: broad, educational, category-level content; readers discovering the problem space or trends (no deep product walkthrough). Typical match: informational search intent.
+  - `interest`: clear problem + solution angle; comparing approaches or how a type of tool helps (not a full feature-by-feature product deep dive). Typical match: commercial investigation intent.
+  - `consideration`: strong product/solution focus: workflows, named features, implementation detail, "how it works for us", comparisons toward a decision. Typical match: decision/comparison or conversion/product-led intent.
+- relatedPosts: must contain 1 to 3 real existing slugs; each linked post’s `funnelStage` must be the same or higher intent than the current post (`awareness` < `interest` < `consideration`). An `interest` post must not link to `awareness`; a `consideration` post should link to other `consideration` posts when they exist, otherwise `interest` (never `awareness`).
 
 Do not omit any of these fields.
 Do not change the field names.
@@ -250,6 +254,7 @@ Before finalizing, ensure:
 - author is correct,
 - tags is a valid array,
 - relatedPosts is a valid array,
+- funnelStage is exactly one of awareness, interest, or consideration,
 - relatedPosts contains 1 to 3 real existing slugs,
 - title contains the primary keyword,
 - first paragraph contains the primary keyword,
@@ -266,5 +271,6 @@ description: "Learn why starting with a Minimum Viable Product is the smartest w
 pubDate: 2026-03-15
 author: "Aurum Avis Labs"
 tags: ["startup", "MVP", "product strategy"]
+funnelStage: "interest"
 relatedPosts: ["the-tech-stack-behind-our-venture-studio"]
 ---
