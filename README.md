@@ -92,9 +92,13 @@ Go to **Actions → Manual Publish → Run workflow**, select a brand or `all`.
    - Add to `.gitignore`: `src/content/blog/`, `src/assets/blog/`, `.blog-factory-tmp/`
 4. Update `publish.yml` dropdown to include the new brand
 
-### Preview
+### Preview (local)
 
 ```bash
+# From repo root (sync + dev server on http://localhost:4321)
+npm run preview
+
+# Or from preview/
 cd preview && npm run dev
 ```
 
@@ -105,8 +109,39 @@ The preview site is a standalone Astro project that renders all brands' blogs wi
 1. A pre-build script (`preview/scripts/sync-content.ts`) scans the `brands/` directory
 2. For each brand folder found, it copies content into `preview/src/content/blog/{brand}/{lang}/`
 3. Images are copied to `preview/src/assets/blog/{brand}/` (namespaced to avoid collisions)
-4. Image paths in MDX are rewritten from `@/assets/blog/...` to `@/assets/blog/{brand}/...`
+4. Image paths in MDX are rewritten from `@/assets/blog/...` to `@/assets/blog/{brand}/...` (and common `../../../assets/blog/` paths)
 
 The `BrandSwitcher` nav bar reads `brands.config.ts` to list all brands. Brands with no content yet will show "No blog posts found."
 
 **Routes:** `/{brand}/blog/` (default language), `/{brand}/{lang}/blog/` (other languages)
+
+Example post URL (canvas-games, default language):
+
+`http://localhost:4321/canvas-games/blog/old-games-like-doodle-jump`
+
+### PR review screenshots (pre-merge)
+
+Growth review happens on the **content PR before merge**, not on live landing pages.
+
+**What runs automatically:** On pull requests that touch `brands/**`, the workflow [`.github/workflows/pr-blog-preview.yml`](.github/workflows/pr-blog-preview.yml):
+
+1. Builds the `preview/` Astro app for the PR branch
+2. Captures PNGs where **hero** and **inline** images are visibly rendered (`preview/scripts/capture-pr-screenshots.ts`)
+3. Uploads workflow artifacts (`blog-pr-preview-screenshots`)
+4. Pushes images to a bot branch `pr-preview-{number}` and posts/updates a PR comment with **inline markdown images** (hero + inline per changed post)
+
+**Local / Cloud Agent (same capture path as CI):**
+
+```bash
+cd preview
+npm ci
+npm run capture:pr:full
+# Optional: limit to one post
+PR_PREVIEW_POSTS=canvas-games/old-games-like-doodle-jump npm run capture:pr:full
+```
+
+Output: `preview/.pr-screenshots/` (`*-hero.png`, `*-inline.png`, `manifest.json`).
+
+When opening or updating a PR manually, attach those PNGs to the PR description (GitHub user-attachments) or paste the bot comment from CI. Cloud Agents can embed `/opt/cursor/artifacts/...` paths in the PR body via the agent PR tool.
+
+**Review bar:** Screenshots must show rendered hero and at least one inline body image (not broken icons, not text-only stubs).
