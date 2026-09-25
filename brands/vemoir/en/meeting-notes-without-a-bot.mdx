@@ -1,0 +1,140 @@
+---
+title: "Meeting Notes Without a Bot: Options for Client Calls"
+description: "Meeting notes without a bot are possible when you record on your Mac or transcribe audio locally. Compare bots, cloud notetakers, and local capture."
+pubDate: 2026-09-25
+author: "Vemoir Team"
+tags: ["meetings", "privacy", "transcription"]
+funnelStage: "awareness"
+translationKey: "meeting-notes-without-bot"
+relatedPosts: []
+tool: "transcribe-recording"
+image: "@/assets/blog/meeting-notes-without-bot/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import privateRecords from '@/assets/blog/meeting-notes-without-bot/private-records.jpg';
+import voiceCapture from '@/assets/blog/meeting-notes-without-bot/voice-capture.jpg';
+import actionItems from '@/assets/blog/meeting-notes-without-bot/action-items.jpg';
+
+You can keep **meeting notes without a bot** in the participant list when you capture audio on your Mac instead of inviting a cloud notetaker. Calendar-linked assistants such as Otter or Fireflies are convenient for internal standups, but many client calls, board meetings, and regulated environments treat an extra guest as a recording you did not fully disclose. The practical pattern is simple: you control start and stop, the call app stays unchanged, and text comes from audio you already hold locally or from a file you transcribe in the browser without uploading it.
+
+This guide explains how bot notetakers join calls, when they are still the better tool, and how local recording plus transcription fits teams that cannot add another participant.
+
+## Why teams push back on notetaker bots in client calls
+
+Bot notetakers appear in Zoom, Google Meet, Microsoft Teams, and similar apps as a named participant, often labeled as a notetaker or assistant. Everyone in the room can see that something is recording on their behalf. That visibility is useful for transparency, but it also triggers review questions: Who operates the bot? Where does the audio go? Can the vendor use the conversation to improve models?
+
+Internal IT policies, client security questionnaires, and professional duty rules (consulting, legal, HR, research) frequently ban third-party meeting bots even when native recording is allowed. The objection is usually about an external processor and an automated joiner, not about the human host taking notes. If your invite says “no AI notetakers,” you still need a record of decisions and action items without breaking the rule.
+
+## How calendar-linked notetaker bots join your calls
+
+Products such as [Otter](https://otter.ai/) and [Fireflies](https://fireflies.ai/) connect to your calendar and meeting accounts. When you enable auto-join, their assistant enters scheduled calls as a participant, captures audio (and sometimes video frames or slides, depending on product settings), and sends that content to the vendor’s cloud for transcription and summaries.
+
+Otter’s help center describes [OtterPilot](https://help.otter.ai/hc/en-us/articles/360019225632-Getting-started-with-OtterPilot) joining meetings you schedule and taking notes on your behalf. Fireflies documents its assistant joining as a participant to record and transcribe ([Getting started with Fireflies.ai](https://guide.fireflies.ai/hc/en-us/articles/4403764950156-Getting-started-with-Fireflies-ai)). In both cases the bot is visible in the roster, and processing happens on the vendor’s infrastructure unless you use a specific enterprise storage option described in their docs.
+
+## When a bot notetaker is the better fit
+
+Be honest about the tradeoff. A calendar bot is often the right choice when:
+
+- The whole company already standardizes on one notetaker and shares a workspace.
+- Nobody on the call objects to a visible assistant, and contracts allow the vendor as a processor.
+- You want automatic capture on every recurring meeting without someone pressing Record.
+- You need a shared, searchable library across dozens of hosts, not a file on one laptop.
+
+If those conditions hold, fighting the bot adds friction. The rest of this article is for the calls where a bot is not allowed or not appropriate, but you still need searchable text afterward.
+
+## Record on the Mac without adding a meeting participant
+
+Vemoir is a Mac menu bar app that records your microphone and the meeting app’s system audio. **No bot joins the call** and no extra tile appears in the participant list. You start and stop recording yourself. It works with [any meeting app that plays audio on the Mac](/#platforms) (Teams, Zoom, Meet, Slack huddles, and others).
+
+macOS requires **Screen Recording** permission for apps to capture other apps’ audio. Vemoir uses that permission for meeting sound only; it does not record your screen contents ([how capture works](/#capture)). Transcription and summaries run **on the Mac by default** with local models. Recordings, transcripts, and generated records stay on the device unless you export them or opt into a cloud model with your own API key.
+
+Tell participants you are recording and follow your local consent rules. Vemoir does not make a recording lawful or compliant; that remains your responsibility.
+
+<Image src={privateRecords} alt="Calm desk with folded paper cards suggesting meeting records kept privately on a Mac" width={700} quality={80} class="w-full" />
+
+## Already have an audio file? Use the browser transcription tool
+
+When the call is over and you hold an MP3, M4A, WAV, or MP4, you can turn it into text with the free [transcribe recording tool](/tools/transcribe-recording) on vemoir.ch. The file is **not uploaded**; the speech model runs in the browser tab after a one-time download. You can confirm that in the **Network** tab of developer tools.
+
+Limits as of September 2025: files up to **15 minutes**, **three successful runs per week**, no speaker labels, and no live meeting capture in the browser. Longer calls, speaker separation, and live recording from the menu bar require the [Vemoir Mac app](https://apps.apple.com/app/id6794693630).
+
+If you need a short clip transcribed without a bot ever joining, [open the free audio transcription tool](/tools/transcribe-recording) and run the file locally in the tab.
+
+## Bot notetakers vs local capture (factual comparison)
+
+Figures below come from each vendor’s public privacy and product pages as of **September 2025**. Policies change; verify before a client audit.
+
+| Approach | Joins as visible meeting participant? | Where audio is processed | Training on meeting content (vendor statements) |
+| --- | --- | --- | --- |
+| Otter (OtterPilot) | Yes, when invited or auto-joined via calendar | Otter cloud | Otter states it may use de-identified audio and transcripts to improve its proprietary models ([Privacy Policy](https://otter.ai/privacy-policy), [Privacy & Security](https://otter.ai/privacy-security)) |
+| Fireflies.ai | Yes, when enabled for the meeting | Fireflies cloud (default US infrastructure per [storage guide](https://guide.fireflies.ai/articles/9596505232-learn-about-data-storage-and-transfer)) | Fireflies states it does not use personal information or meeting content to train AI models and prohibits vendors from doing so ([Privacy Policy](https://fireflies.ai/privacy-policy)) |
+| Vemoir Mac app | No bot; you record locally | On your Mac by default | No cloud upload unless you export or opt into a third-party model with your key ([product facts](/#capture)) |
+| Vemoir browser tool | No; offline file only | In your browser tab; file not sent to Vemoir | Public Whisper models; no live join |
+
+<Image src={voiceCapture} alt="Abstract illustration of sound becoming structured notes without a third-party meeting guest" width={700} quality={80} class="w-full" />
+
+## Where local recording is not the whole answer
+
+Local capture shifts responsibility to the person at the keyboard. You must remember to start recording, store files safely, and align with retention policies yourself. Bot notetakers centralize storage and sharing for a team, which is valuable when everyone agrees to the vendor.
+
+Browser transcription does not replace a bot for always-on team libraries. It helps when you already have a file and need text quickly without upload. For structured minutes, decisions, and action items from a full recording on the Mac, see [minutes and record](/#record) in the app.
+
+## Practical steps for your next client call
+
+1. **Check the invite and client rules** before the call. If third-party notetakers are banned, disable auto-join in Otter, Fireflies, or similar tools for that event.
+2. **Announce recording** if you plan to capture audio locally, and note objections.
+3. **Open your meeting app as usual.** With Vemoir on the Mac, start recording from the menu bar when the conversation begins and stop when it ends.
+4. **Review the transcript on the Mac** or export only the sections you are allowed to share ([export and share](/#exports)).
+5. **For a short existing file**, run [/tools/transcribe-recording](/tools/transcribe-recording) and inspect the Network tab if you need to demonstrate that the audio stayed local.
+
+<Image src={actionItems} alt="Paper cards listing decisions and action items derived from a meeting conversation" width={700} quality={80} class="w-full" />
+
+## Try local transcription or the Mac app
+
+**Short file after the call (15 minutes or less):** Use the [free transcribe recording tool](/tools/transcribe-recording). Processing stays in the browser; nothing is uploaded to Vemoir.
+
+**Live client calls without a bot:** Install the [Vemoir Mac app](https://apps.apple.com/app/id6794693630) and record from the menu bar while you stay in Zoom, Teams, or Meet. See [supported meeting apps](/#platforms) and [how it works](/#how).
+
+## Frequently asked questions
+
+### What does “meeting notes without a bot” mean?
+
+It means nobody adds an automated notetaker account to the participant list. You capture audio yourself on the Mac or transcribe a file you already saved, instead of inviting Otter, Fireflies, or a similar cloud assistant.
+
+### Can Otter or Fireflies join without me clicking anything?
+
+Both products support calendar-driven auto-join when you connect accounts and enable the feature in their settings ([OtterPilot](https://help.otter.ai/hc/en-us/articles/360019225632-Getting-started-with-OtterPilot), [Fireflies getting started](https://guide.fireflies.ai/hc/en-us/articles/4403764950156-Getting-started-with-Fireflies-ai)). That is why IT teams often block them even when manual recording is fine.
+
+### Does Vemoir add a participant to Zoom or Teams?
+
+No. Vemoir records system audio and your microphone on the Mac. The meeting roster stays the same.
+
+### Is the browser tool the same as a notetaker bot?
+
+No. The browser tool only accepts a file you already have. It does not join live calls and does not connect to your calendar.
+
+### Does Otter train on my meetings?
+
+Otter’s privacy materials state that it may improve proprietary models using de-identified audio and transcripts ([Privacy Policy](https://otter.ai/privacy-policy)). Read the current policy before a sensitive call.
+
+### Does Fireflies train on my meetings?
+
+Fireflies’ privacy policy states it does not use personal information or meeting content to train AI models ([Privacy Policy](https://fireflies.ai/privacy-policy)). Confirm details for your plan and region.
+
+### Can I use local recording on Intel Macs or Windows?
+
+Vemoir requires a Mac with Apple silicon (M1 or newer) and macOS Sonoma 14.2 or later. Intel Macs and Windows are not supported.
+
+### What if the meeting is longer than 15 minutes?
+
+Use the Vemoir Mac app for long recordings, import, and local transcription. The browser tool is limited to shorter files.
+
+### Do I still need consent if there is no bot?
+
+Yes. Recording laws and workplace rules apply to you as the host, not to the tool brand. Announce recording, respect objections, and store transcripts according to your policies.
+
+## Next step
+
+Pick the path that matches the call: [transcribe a short recording in the browser](/tools/transcribe-recording) when you already have a file, or [learn how Vemoir captures meeting audio on the Mac](/#how) when a bot is not welcome on the invite.
