@@ -1,20 +1,20 @@
 ---
 title: "How to Transcribe a Local Zoom Recording (No Upload)"
 description: "Transcribe a Zoom recording from the local M4A file: where Zoom saves it on Mac and Windows, and how to get text without uploading audio."
-pubDate: 2026-09-29
+pubDate: 2026-10-17
 author: "Vemoir Team"
 tags: ["zoom", "transcription", "privacy"]
 funnelStage: "interest"
 translationKey: "zoom-local-recording-transcript"
-relatedPosts: []
+relatedPosts: ["meeting-notes-without-a-bot"]
 tool: "transcribe-zoom-recording"
 image: "@/assets/blog/zoom-local-recording-transcript/hero.jpg"
-draft: true
+draft: false
 ---
 
 import { Image } from 'astro:assets';
-import img1 from '@/assets/blog/zoom-local-recording-transcript/zoom-recording-folder.png';
-import img2 from '@/assets/blog/zoom-local-recording-transcript/local-audio-to-text.png';
+import privateRecords from '@/assets/blog/zoom-local-recording-transcript/private-records.jpg';
+import voiceCapture from '@/assets/blog/zoom-local-recording-transcript/voice-capture.jpg';
 
 If you need to **transcribe a Zoom recording** after the call, the file on your computer is often an audio track, not a ready-made transcript. Zoom only generates a separate transcript file when the meeting was **recorded to the cloud** on a **paid** plan with cloud recording and audio transcription turned on. When you choose **Record to this computer** (the usual path on free accounts and many paid users), Zoom saves video and audio locally. You get M4A or MP4 files you can turn into text yourself.
 
@@ -37,7 +37,7 @@ Your path can differ if someone changed **Local recording storage** in the Zoom 
 
 Inside the meeting folder, open the **audio-only** file for transcription. Zoom’s format doc names local audio `audio[random number].m4a` by default; many installs also expose a file named **`audio_only.m4a`**. Either file is the sound track you want. Keep the whole folder until you have a transcript you trust; local recordings exist only on that computer, and Zoom does not keep a backup copy on their servers.
 
-<Image src={img1} alt="Calm desk scene with dated meeting folders beside a closed laptop, suggesting where local Zoom recordings are stored" width={700} quality={80} class="w-full" />
+<Image src={privateRecords} alt="Calm desk with folded paper cards suggesting meeting records kept privately after a local Zoom recording" width={700} quality={80} class="w-full" />
 
 ## Cloud VTT vs local M4A or MP4
 
@@ -52,6 +52,8 @@ The VTT file is plain text with timestamps, useful for captions and search. Loca
 
 Local recording is available on free and paid Zoom accounts ([computer recordings](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0058006)). Cloud recording with an automatic transcript depends on a licensed plan and admin settings. During the meeting, choosing **Record to this computer** instead of **Record to the cloud** determines whether you will later find a VTT in the Zoom web portal or M4A/MP4 on disk. Teams that discuss data handling with clients often prefer local capture plus transcription in their own browser: the file stays on the laptop, and you can confirm behavior in the Network tab.
 
+Want this without the folder hunt after every call? [Vemoir records the next meeting on your Mac](/#how) from the menu bar while you stay in Zoom, with no bot in the participant list (see also [meeting notes without a bot](/blog/meeting-notes-without-a-bot)).
+
 ## Step by step: transcribe the local Zoom audio in your browser
 
 1. **Confirm the recording is local.** In the Zoom app, open **Settings** → **Recording** and note the storage path. You should see a recent folder under `Documents/Zoom` (or your custom path).
@@ -63,7 +65,7 @@ Local recording is available on free and paid Zoom accounts ([computer recording
 
 When your `audio_only.m4a` or `audio*.m4a` is ready, you can [transcribe the Zoom recording in your browser](/tools/transcribe-zoom-recording) without uploading the meeting audio.
 
-<Image src={img2} alt="Still life of paper notes and a subtle sound-wave motif on a desk, representing turning local Zoom audio into text" width={700} quality={80} class="w-full" />
+<Image src={voiceCapture} alt="Abstract illustration of sound becoming structured notes from a local Zoom audio file" width={700} quality={80} class="w-full" />
 
 For a generic file (not Zoom-specific UI), the hub at [/tools](/tools) lists related tools. If you already have text and need structured minutes, see [/tools/meeting-notes-from-transcript](/tools/meeting-notes-from-transcript).
 
