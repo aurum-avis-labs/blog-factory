@@ -1,0 +1,144 @@
+name: PR Blog Preview Screenshots
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "brands/**"
+      - "preview/**"
+      - "brands.config.ts"
+      - ".github/workflows/pr-blog-preview.yml"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  preview-screenshots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: preview/package-lock.json
+
+      - name: Install preview dependencies
+        working-directory: preview
+        run: npm ci
+
+      - name: Install Playwright (Chromium)
+        working-directory: preview
+        run: npx playwright install chromium --with-deps
+
+      - name: Build preview site and capture screenshots
+        working-directory: preview
+        env:
+          PR_PREVIEW_BASE_REF: origin/${{ github.event.pull_request.base.ref }}
+        run: npm run capture:pr:full
+
+      - name: Upload screenshot artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: blog-pr-preview-screenshots
+          path: preview/.pr-screenshots/
+          if-no-files-found: error
+
+      - name: Publish screenshots to PR preview branch
+        id: publish
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          BRANCH="pr-preview-${PR_NUMBER}"
+          WORK="/tmp/pr-preview-publish"
+          rm -rf "$WORK"
+          mkdir -p "$WORK"
+          cp preview/.pr-screenshots/* "$WORK/"
+          cd "$WORK"
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add .
+          git commit -m "Blog preview screenshots for PR #${PR_NUMBER}"
+          git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+      - name: Post PR comment with inline preview images
+        uses: actions/github-script@v7
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PREVIEW_BRANCH: ${{ steps.publish.outputs.branch }}
+        with:
+          script: |
+            const fs = require("fs");
+            const path = require("path");
+            const manifestPath = path.join("preview", ".pr-screenshots", "manifest.json");
+            if (!fs.existsSync(manifestPath)) {
+              core.setFailed("manifest.json missing from capture output");
+              return;
+            }
+            const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+            const repo = context.repo;
+            const branch = process.env.PREVIEW_BRANCH;
+            const prNumber = Number(process.env.PR_NUMBER);
+            const rawBase = `https://raw.githubusercontent.com/${repo.owner}/${repo.repo}/${branch}`;
+
+            let body = `## Blog preview (pre-merge)\n\n`;
+            body += `Rendered from the \`preview/\` Astro app on this PR branch — **not** live landing pages.\n\n`;
+            body += `Local repro: \`cd preview && npm run capture:pr:full\` (after checkout).\n\n`;
+
+            for (const post of manifest.posts) {
+              body += `### ${post.brandId} / \`${post.slug}\`\n\n`;
+              body += `Preview path: \`${post.urlPath}\`\n\n`;
+              body += `**Hero**\n\n`;
+              body += `![${post.slug} hero](${rawBase}/${post.hero})\n\n`;
+              if (post.inline) {
+                body += `**Inline image**\n\n`;
+                body += `![${post.slug} inline](${rawBase}/${post.inline})\n\n`;
+              } else {
+                body += `_No inline image in this post._\n\n`;
+              }
+            }
+
+            body += `---\n`;
+            body += `Workflow artifacts also include these PNGs (\`blog-pr-preview-screenshots\`). `;
+            body += `Preview branches \`pr-preview-*\` are bot-only screenshot hosts and are not merged to \`main\`.\n`;
+
+            const marker = "<!-- BLOG-PR-PREVIEW-BEGIN -->";
+            const markerEnd = "<!-- BLOG-PR-PREVIEW-END -->";
+            const wrapped = `${marker}\n${body}\n${markerEnd}`;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: repo.owner,
+              repo: repo.repo,
+              issue_number: prNumber,
+              per_page: 100,
+            });
+
+            const existing = comments.find(
+              (c) =>
+                c.user?.type === "Bot" &&
+                c.body?.includes(marker)
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: repo.owner,
+                repo: repo.repo,
+                comment_id: existing.id,
+                body: wrapped,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: repo.owner,
+                repo: repo.repo,
+                issue_number: prNumber,
+                body: wrapped,
+              });
+            }

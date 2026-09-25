@@ -1,0 +1,44 @@
+---
+/**
+ * Individual blog post for a brand's default language.
+ * URL: /{brand}/blog/{slug}
+ */
+import BlogPostLayout from "@/layouts/BlogPostLayout.astro";
+import { brands } from "@/lib/brands";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+
+  return brands.flatMap((brand) => {
+    const defaultLang = brand.defaultLanguage;
+    const posts = allPosts.filter((p) =>
+      p.id.startsWith(`${brand.id}/${defaultLang}/`)
+    );
+
+    return posts.map((post) => {
+      const slug = post.id
+        .split("/")
+        .slice(2)
+        .join("/")
+        .replace(/\.mdx?$/, "");
+      return {
+        params: { brand: brand.id, slug },
+        props: { post, brandId: brand.id, lang: defaultLang },
+      };
+    });
+  });
+}
+
+const { post, brandId, lang } = Astro.props as {
+  post: CollectionEntry<"blog">;
+  brandId: string;
+  lang: string;
+};
+const { Content } = await post.render();
+---
+
+<BlogPostLayout post={post} brand={brandId} lang={lang}>
+  <Content />
+</BlogPostLayout>
