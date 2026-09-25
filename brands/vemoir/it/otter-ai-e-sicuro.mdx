@@ -1,0 +1,185 @@
+---
+title: "Otter.ai è sicuro? Archiviazione, training e bot"
+description: "Otter.ai è sicuro per le riunioni? Cosa dicono le pagine privacy e sicurezza di Otter su cloud, training IA, bot e cancellazione."
+pubDate: 2026-10-13
+author: "Vemoir Team"
+tags: ["otter.ai", "privacy", "riunioni"]
+funnelStage: "interest"
+translationKey: "is-otter-ai-safe"
+relatedPosts: []
+image: "@/assets/blog/is-otter-ai-safe/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import voiceCapture from '@/assets/blog/is-otter-ai-safe/voice-capture.jpg';
+import privateRecords from '@/assets/blog/is-otter-ai-safe/private-records.jpg';
+import actionItems from '@/assets/blog/is-otter-ai-safe/action-items.jpg';
+
+**Otter.ai è sicuro** per le tue riunioni dipende da cosa intendi per sicuro: chi vede un bot nella call, dove finiscono audio e trascrizioni, se i contenuti servono ad addestrare modelli e come funziona la cancellazione. Otter pubblica pagine dettagliate su privacy, sicurezza e help. Questo articolo riassume cosa dicono quei documenti (settembre 2026). È una guida pratica, non consulenza legale, e non decide se Otter è adatto al tuo contratto, al tuo settore o alla policy interna.
+
+Se ti serve un notetaker cloud condiviso con sync del calendario e trascrizioni di team, Otter può andare bene quando i partecipanti acconsentono e la tua organizzazione accetta elaborazione cloud negli Stati Uniti. Se l'audio deve restare sul Mac salvo export esplicito, la registrazione locale è l'altro modello. Entrambi possono essere validi; la domanda è quali rischi vuoi ridurre.
+
+## Fatti in sintesi (da Otter)
+
+| Argomento | Cosa documenta Otter |
+| --- | --- |
+| Dove sono i dati | Compute e storage cloud su **Amazon Web Services negli Stati Uniti**, con SSE sui bucket S3 ([Privacy Policy](https://otter.ai/privacy-policy), [Privacy & Security](https://otter.ai/privacy-security)) |
+| Chi gestisce il servizio | **Otter.ai, Inc.** (Delaware, USA). I clienti enterprise possono essere titolari del trattamento ([Privacy Policy](https://otter.ai/privacy-policy)) |
+| Visibilità del bot | **Otter Notetaker entra come partecipante visibile**; Otter esclude l'ingresso anonimo ([Panoramica Notetaker](https://help.otter.ai/hc/en-us/articles/4425393298327-Otter-Notetaker-Overview)) |
+| Training modelli | La Privacy Policy cita **training della IA proprietaria su registrazioni audio e trascrizioni de-identificate**; Privacy & Security descrive **de-identificazione prima del training** senza revisione umana manuale su quel percorso ([Privacy Policy](https://otter.ai/privacy-policy), [Privacy & Security](https://otter.ai/privacy-security)) |
+| Fornitori IA terzi | Otter indica che **i dati clienti non addestrano i modelli degli AI Service Provider** via API ([Privacy & Security](https://otter.ai/privacy-security)) |
+| Cancellazione | Elimina sposta in **Cestino per 30 giorni**, poi rimozione permanente dai server; svuotare il Cestino elimina subito ([Help: delete a conversation](https://help.otter.ai/hc/en-us/articles/360047733414-Delete-a-conversation), [Privacy & Security](https://otter.ai/privacy-security)) |
+| Crittografia | **AES-256** lato server su storage AWS ([Privacy & Security](https://otter.ai/privacy-security)) |
+| Accesso umano | Accesso support a audio o trascrizione solo con **consenso esplicito del cliente** prima di revisione manuale ([Privacy & Security](https://otter.ai/privacy-security)) |
+
+Le policy cambiano. Controlla i link prima di decidere.
+
+## Cosa significa di solito «sicuro» per un notetaker
+
+Quattro domande quando cerchi se **Otter.ai è sicuro**:
+
+1. **Visibilità:** clienti o colleghi vedranno un partecipante IA?
+2. **Luogo:** la registrazione lascia il dispositivo e va in cloud del vendor?
+3. **Riutilizzo:** voce o testo possono addestrare modelli o passare a subprocessori?
+4. **Controllo:** puoi cancellare copie e limitare chi vede la trascrizione?
+
+Otter risponde in sostanza: servizio cloud visibile, training documentato su contenuti de-identificati, più condivisione e flussi di eliminazione. Può andare per stand-up interni. Può essere sbagliato per lavoro cliente riservato, policy air-gapped o team che vietano bot ospiti.
+
+<Image src={voiceCapture} alt="Professionista in call con schermo del portatile girato, metafora della visibilità di una registrazione in riunione" width={700} quality={80} class="w-full" />
+
+## Dove Otter archivia registrazioni e trascrizioni
+
+Otter è un servizio cloud. La [Privacy Policy](https://otter.ai/privacy-policy) (effettiva 16 giugno 2026) descrive **Meeting and Uploaded Information**, inclusi audio, trascrizioni e dati d'uso. In **With whom we share**, Otter nomina **fornitori cloud incluso Amazon Web Services negli Stati Uniti**.
+
+[Privacy & Security](https://otter.ai/privacy-security) aggiunge **AWS S3** con **crittografia lato server (SSE)** e **AES-256**. Sono misure tecniche lato Otter, non l'ok del datore o del cliente a hosting USA per contenuti di riunione.
+
+Con **Otter Business**, la Privacy Policy nota che il **cliente enterprise può essere titolare** e che possono applicarsi le sue policy.
+
+## Otter addestra i modelli con le tue registrazioni?
+
+**Privacy Policy (sezione 2):** uno scopo dichiarato è **migliorare i Services, incluso training della tecnologia IA proprietaria su registrazioni audio de-identificate e trascrizioni (che possono contenere dati personali)**. Otter menziona anche **fornitori di data labeling** per dati di training e valutazione.
+
+**FAQ Privacy & Security:** **de-identificazione prima del training**, percorso **automatico** (audio e trascrizioni **non revisionati manualmente da umani** su quel percorso di training), **dati di training crittografati**.
+
+**Terms of Service (sezione 18.4):** Otter può usare **dati aggregati e/o de-identificati** derivati dall'uso, incluso **machine learning e training**, in forma che **non ti identifica**.
+
+In parole semplici: Otter documenta **miglioramento prodotto usando contenuti de-identificati**, non la promessa che le registrazioni grezze non influenzino mai la IA di Otter. Otter indica separatamente che gli **AI Service Provider** **non** usano dati clienti per **i loro** modelli ([Privacy & Security](https://otter.ai/privacy-security)).
+
+Se ti serve **zero training lato vendor** sull'audio di riunione, leggi impostazioni e contratti enterprise attuali o scegli un flusso senza cloud Otter.
+
+## Chi vede il bot nella riunione?
+
+L'assistente riunioni è **Otter Notetaker**. Secondo la [panoramica Notetaker](https://help.otter.ai/hc/en-us/articles/4425393298327-Otter-Notetaker-Overview):
+
+- Notetaker **entra in Zoom, Google Meet e Microsoft Teams come partecipante**.
+- Il nome mostra il tuo nome profilo più **"Notetaker (Otter.ai)"**.
+- Otter indica che **non può entrare anonimamente**.
+- I **partecipanti ospiti** devono essere ammessi, altrimenti Notetaker può essere bloccato.
+
+[Privacy & Security](https://otter.ai/privacy-security) dice che la registrazione parte quando **tu o un partecipante premete Record o invitate Otter**. Sync calendario e auto-join sono opzioni prodotto nell'help Otter.
+
+Per call con clienti, la visibilità conta quanto lo storage. Un bot visibile aiuta la trasparenza, ma molte IT policy vietano comunque notetaker ospiti.
+
+## Cancellazione, conservazione e copie condivise
+
+**Eliminazione utente:** l'articolo [Delete a conversation](https://help.otter.ai/hc/en-us/articles/360047733414-Delete-a-conversation) indica che eliminare **revoca subito la condivisione**, sposta nel **Cestino per 30 giorni**, poi **elimina permanentemente** dai server Otter. Svuotare il Cestino accelera. Solo il **proprietario** può eliminare una conversazione condivisa.
+
+**Conservazione policy:** i dati personali restano **quanto necessario** agli scopi della policy o **obblighi di legge**; Otter descrive rendere i dati personali eliminati **irrecuperabili**.
+
+**Dati de-identificati:** la Privacy Policy tratta **dati de-identificati o aggregati** a parte. Cancellare una conversazione non garantisce che ogni dataset de-identificato derivato sparisca ovunque. Per audit compliance, chiedi a Otter o all'admin enterprise.
+
+<Image src={privateRecords} alt="Pila di schede carta crema su una scrivania, metafora di verbali sotto il tuo controllo" width={700} quality={80} class="w-full" />
+
+## Limiti onesti (cosa Otter non risolve per te)
+
+Otter mostra **SOC 2 Type 2**, pratiche **GDPR**, **CCPA** e linguaggio **HIPAA** su [Privacy & Security](https://otter.ai/privacy-security). Descrivono il programma Otter, **non** garantiscono che il tuo uso sia conforme, coperto da segreto professionale o approvato dal cliente. Vemoir non dichiara certificazioni di compliance per Otter o per le tue scelte di registrazione.
+
+Altri limiti:
+
+- **Giurisdizione cloud:** hosting AWS USA può confliggere con regole imposte dal cliente.
+- **Subprocessori:** la Privacy Policy cita **analytics, partner pubblicitari, data labeling, fornitori IA**. Controlla l'elenco subprocessori del tuo piano.
+- **Voci di terzi:** le registrazioni contengono altre persone. Consenso e conservazione restano **tua responsabilità** (Otter ricorda anche le leggi locali sulla registrazione).
+- **Condivisione:** le trascrizioni possono essere condivise in Otter. La tua cancellazione non rimuove ciò che un collega ha esportato via email o Slack.
+
+## Quando Otter è spesso la scelta migliore
+
+Otter funziona se **vuoi** un notetaker cloud condiviso:
+
+- Auto-join da **calendario Google o Microsoft** con trascrizioni visibili al team.
+- **Trascrizione in tempo reale** e riassunti, chat e slide capture Otter (pagine prodotto).
+- Collaborazione negli workspace Otter senza pipeline fatta in casa.
+- Organizzazioni che hanno già approvato il profilo di rischio vendor e l'elaborazione USA.
+
+Se il team vive già in Otter e il legale ha firmato, chiedersi se **Otter.ai è sicuro** può significare stringere impostazioni (auto-join, condivisione predefinita, Cestino) invece di cambiare tool.
+
+## Quando conviene un flusso Mac locale
+
+Scegli cattura locale quando **tenere l'audio fuori dai server vendor per default** conta più della comodità del bot calendario:
+
+- **Vemoir per Mac** registra **microfono e audio di sistema sul Mac**, **senza bot** nella lista partecipanti ([come funziona](/it#how), [app riunioni](/it#platforms)).
+- **Trascrizione e verbale sul Mac** con modelli locali; modelli cloud solo opt-in con **la tua API key** ([cattura e modelli](/it#capture)).
+- Per un file che hai già, gli [strumenti browser](/it/strumenti) elaborano l'audio **nella scheda** senza inviare il file a Vemoir.
+
+Otter ottimizza note cloud condivise. Vemoir ottimizza elaborazione locale ed export esplicito.
+
+<Image src={actionItems} alt="Schede carta con righe checklist su una scrivania, per action item da un verbale" width={700} quality={80} class="w-full" />
+
+Se la prossima riunione non ammette notetaker ospiti, puoi [registrare la riunione sul Mac](/it#how) con Vemoir invece di invitare Otter.
+
+## Bot cloud vs cattura locale
+
+| | Otter Notetaker (doc Otter) | Vemoir su Mac (fatti prodotto) |
+| --- | --- | --- |
+| Partecipante in riunione | Sì, ospite visibile | Nessun bot; avvii e fermi tu |
+| Elaborazione predefinita | Cloud Otter (AWS USA) | Modelli on-device; cloud opt-in con tua key |
+| Offline | Funzioni cloud richiedono servizio | Flusso offline possibile dopo install modelli |
+| Meglio quando | Il team vuole trascrizioni cloud condivise | L'audio deve restare sul Mac salvo export |
+
+## Usare Otter consapevolmente o tenere l'audio sul Mac
+
+**Restare su Otter:** rileggi [Privacy & Security](https://otter.ai/privacy-security), **auto-join** e **Cestino** prima delle call cliente. Informa i partecipanti e allineati alla policy interna.
+
+**Senza notetaker cloud:** usa l'[app Mac Vemoir](https://apps.apple.com/app/id6794693630) per la prossima riunione Teams, Zoom o Meet, oppure [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) per un file esistente senza upload a Vemoir.
+
+## Domande frequenti
+
+### Otter.ai è sicuro per call cliente riservate?
+
+Otter archivia in **cloud USA** e documenta **training IA su registrazioni e trascrizioni de-identificate**. Se è accettabile per un contratto cliente lo decide la tua organizzazione. Il **Notetaker visibile** aiuta la trasparenza ma non sostituisce consenso o revisione policy.
+
+### Otter vende i miei meeting per pubblicità?
+
+[Privacy & Security](https://otter.ai/privacy-security) indica **nessuna informazione personale identificabile condivisa per pubblicità** e **nessuna pubblicità di terzi** nel prodotto. La Privacy Policy descrive anche **partner pubblicitari** e **diritti di opt-out** per alcune definizioni USA. Leggi entrambe le sezioni per la tua giurisdizione.
+
+### Otter può entrare senza che nessuno se ne accorga?
+
+No. La [panoramica Notetaker](https://help.otter.ai/hc/en-us/articles/4425393298327-Otter-Notetaker-Overview) indica che Notetaker **non può entrare anonimamente** e compare nella lista partecipanti.
+
+### Dove sono archiviate le registrazioni Otter?
+
+Otter nomina **Amazon Web Services negli Stati Uniti** nella [Privacy Policy](https://otter.ai/privacy-policy) e **AWS S3 con SSE** su [Privacy & Security](https://otter.ai/privacy-security).
+
+### Otter usa le mie registrazioni per addestrare l'IA?
+
+La [Privacy Policy](https://otter.ai/privacy-policy) include **training della IA proprietaria su registrazioni audio e trascrizioni de-identificate**. [Privacy & Security](https://otter.ai/privacy-security) descrive **de-identificazione prima del training** senza revisione umana manuale su quel percorso automatico.
+
+### Come elimino conversazioni Otter?
+
+Elimina in Otter. L'help indica **30 giorni nel Cestino**, poi **rimozione permanente** dai server Otter, o eliminazione immediata svuotando il Cestino ([articolo help](https://help.otter.ai/hc/en-us/articles/360047733414-Delete-a-conversation)).
+
+### Otter è crittografato?
+
+Otter documenta **AES-256 lato server** su storage AWS ([Privacy & Security](https://otter.ai/privacy-security)) e **autenticazione a due fattori** sulla stessa pagina.
+
+### Qual è un'alternativa locale senza bot riunione?
+
+**Vemoir** cattura audio di sistema e microfono localmente, trascrivi sul Mac per default e non aggiunge un partecipante alla call. Vedi [/it](/it) e [/it/strumenti](/it/strumenti).
+
+### Questo articolo prova conformità GDPR o nLPD per Otter?
+
+No. Riassume la **documentazione pubblica di Otter** e compromessi prodotto. **Non è consulenza legale** e non valuta conformità legale per il tuo caso.
+
+## Prossimo passo
+
+Leggi la [privacy policy](https://otter.ai/privacy-policy) e la [pagina sicurezza](https://otter.ai/privacy-security) di Otter prima della prossima call registrata. Se i bot cloud sono fuori perimetro, apri l'[app Mac Vemoir](https://apps.apple.com/app/id6794693630) o gli [strumenti gratuiti](/it/strumenti) per tenere l'elaborazione sul Mac.
