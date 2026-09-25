@@ -75,4 +75,12 @@ export const brands: BrandConfig[] = [
     languages: ["en", "de", "fr"],
     defaultLanguage: "en",
   },
+  {
+    id: "vemoir",
+    displayName: "Vemoir",
+    repo: "aurum-avis-labs/vemoir-landingpage",
+    domain: "https://www.vemoir.ch",
+    languages: ["en", "de", "fr", "it"],
+    defaultLanguage: "en",
+  },
 ];
