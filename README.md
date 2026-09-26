@@ -123,14 +123,9 @@ Example post URL (canvas-games, default language):
 
 Growth review happens on the **content PR before merge**, not on live landing pages.
 
-**What runs automatically:** On pull requests that touch `brands/**`, the workflow [`.github/workflows/pr-blog-preview.yml`](.github/workflows/pr-blog-preview.yml):
+**Who provides screenshots:** The agent or author opening the content PR is responsible for preview screenshots in the PR description (GitHub user-attachments). CI does **not** build preview, upload screenshot artifacts, or post bot comments.
 
-1. Builds the `preview/` Astro app for the PR branch
-2. Captures PNGs where **hero** and **inline** images are visibly rendered (`preview/scripts/capture-pr-screenshots.ts`)
-3. Uploads workflow artifacts (`blog-pr-preview-screenshots`)
-4. Pushes images to a bot branch `pr-preview-{number}` and posts/updates a PR comment with **inline markdown images** (hero + inline per changed post)
-
-**Local / Cloud Agent (same capture path as CI):**
+**Local helper (optional, for agents and authors):**
 
 ```bash
 cd preview
@@ -140,8 +135,6 @@ npm run capture:pr:full
 PR_PREVIEW_POSTS=canvas-games/old-games-like-doodle-jump npm run capture:pr:full
 ```
 
-Output: `preview/.pr-screenshots/` (`*-hero.png`, `*-inline.png`, `manifest.json`).
-
-When opening or updating a PR manually, attach those PNGs to the PR description (GitHub user-attachments) or paste the bot comment from CI. Cloud Agents can embed `/opt/cursor/artifacts/...` paths in the PR body via the agent PR tool.
+Output: `preview/.pr-screenshots/` (`*-hero.png`, `*-inline.png`, `manifest.json`). Attach those PNGs to the PR body when opening or updating the PR. Cloud Agents can embed `/opt/cursor/artifacts/...` paths in the PR body via the agent PR tool.
 
 **Review bar:** Screenshots must show rendered hero and at least one inline body image (not broken icons, not text-only stubs).
