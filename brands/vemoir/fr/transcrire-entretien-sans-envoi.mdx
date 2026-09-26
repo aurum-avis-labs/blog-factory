@@ -1,0 +1,131 @@
+---
+title: "Transcrire un entretien sans l'envoyer sur un serveur"
+description: "Transcrire un entretien sans l'envoyer : nLPD, GDPR et éthique, plus l'outil navigateur Vemoir qui traite l'audio localement."
+pubDate: 2026-10-03
+author: "Vemoir Team"
+tags: ["entretien", "transcription", "confidentialité"]
+funnelStage: "consideration"
+translationKey: "transcribe-interview-without-upload"
+relatedPosts: []
+tool: "transcribe-interview"
+image: "@/assets/blog/transcribe-interview-without-upload/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import voiceCapture from '@/assets/blog/transcribe-interview-without-upload/voice-capture.jpg';
+import privateRecords from '@/assets/blog/transcribe-interview-without-upload/private-records.jpg';
+
+Vous devez **transcrire un entretien sans l'envoyer** à un service cloud parce que la personne interviewée a consenti à un usage précis, souvent avec l'obligation de garder l'audio sur votre poste. Il vous faut pourtant du texte exploitable pour l'analyse ou la citation. Les plateformes classiques commencent par un upload vers leurs serveurs, ce qui peut heurter GDPR, **nLPD** suisse ou un comité d'éthique.
+
+Ce guide explique en termes simples pourquoi cet envoi compte, comment l'outil gratuit [transcrire un entretien](/fr/outils/transcrire-entretien) sur vemoir.ch traite le fichier dans le navigateur sans transmission à Vemoir, et quand l'[application Mac Vemoir](https://apps.apple.com/app/id6794693630) convient mieux pour les longues prises et la séparation des voix. Ce texte n'est pas un conseil juridique.
+
+## Pourquoi l'envoi cloud pose question
+
+Entretiens de recherche, missions de conseil, RH ou journalisme&nbsp;: le consentement fixe finalité, durée de conservation et accès. Un nouvel hébergeur de transcription ajoute souvent un sous-traitant, une localisation de données et une liste de sous-traitants à déclarer.
+
+Le **GDPR** européen s'applique aux voix enregistrées. En **Suisse**, la loi fédérale révisée sur la protection des données (**nLPD**) encadre le traitement des enregistrements et transcriptions. Les comités d'éthique peuvent interdire toute copie cloud ou imposer une suppression rapide.
+
+Les services cloud restent légitimes lorsqu'un contrat de sous-traitance et une analyse d'impact existent. La friction apparaît quand le consentement dit «&nbsp;local uniquement&nbsp;» ou qu'aucun fournisseur n'est validé. **Transcrire un entretien sans l'envoyer** signifie ici que les octets ne quittent pas votre machine.
+
+Même avec des datacenters en Europe, un nouvel envoi crée un flux à documenter dans le registre des traitements. La transcription locale ne remplace pas une AIPD, mais facilite la preuve vis-à-vis d'un comité qui interdit explicitement la copie cloud.
+
+## «&nbsp;Sans envoi&nbsp;» sur vemoir.ch
+
+Les outils navigateur gratuits sur [vemoir.ch](/fr) transcrivent un fichier déjà présent (MP3, M4A, WAV, MP4). Le traitement s'exécute dans l'onglet avec un modèle Whisper public. **Le fichier audio n'est pas envoyé à Vemoir.** Le premier lancement télécharge le modèle&nbsp;; ensuite, des passages peuvent fonctionner hors ligne. Vérifiez l'onglet **Network** (étapes ci-dessous).
+
+Limites&nbsp;: **15 minutes** par fichier, **trois exécutions réussies par semaine**, **pas d'étiquettes de locuteur**, **pas d'enregistrement live** dans le navigateur. Le suisse allemand sort en général en **allemand standard**, pas en graphie dialectale. Ce n'est pas une transcription certifiée.
+
+## Étapes&nbsp;: transcrire l'entretien dans le navigateur
+
+1. **Préparer le fichier** (MP3, M4A, WAV ou MP4). Au-delà de 15 minutes, decouper si vous restez dans le navigateur.
+2. **Ouvrir** [/fr/outils/transcrire-entretien](/fr/outils/transcrire-entretien).
+3. **Choisir le fichier** sur le disque. L'enregistrement reste chez vous.
+4. **Laisser télécharger le modèle** la première fois (internet requis).
+5. **Copier le texte** pour votre analyse. Consentement, relecture et conservation restent votre responsabilité.
+
+<Image src={voiceCapture} alt="Scène de bureau calme évoquant la capture d'une voix pour transcription locale" width={700} quality={80} class="w-full" />
+
+## Vérifier qu'aucun envoi n'a lieu
+
+1. Ouvrir l'outil dans Chrome, Edge ou Firefox.
+2. **Outils de développement** → **Network**.
+3. Lancer la transcription.
+4. Pas d'upload multipart de votre enregistrement vers un hôte distant, plutôt des téléchargements de modèle.
+
+## Limites honnêtes
+
+| Sujet | Navigateur | Vemoir Mac |
+| --- | --- | --- |
+| Fichier quitte l'appareil | Pas d'envoi à Vemoir | Reste sur le Mac sauf export |
+| Durée (outil gratuit) | 15 minutes | Entretiens longs |
+| Exécutions / semaine | 3 réussies | Achat unique, pas d'abonnement |
+| Locuteurs | Non | Profils sur le Mac |
+| Capture live | Non dans le navigateur | Barre de menus, micro + audio système |
+| Suisse allemand | Allemand standard typique | Glossaires pour noms/termes |
+
+## Quand un service cloud reste pertinent
+
+Si le service est déjà homologué, que vous collaborez dans un espace partagé ou que l'IT impose un pipeline hébergé, l'upload peut être le bon choix. L'outil Vemoir suppose l'inverse. Alignez le flux sur le consentement signé.
+
+Hub&nbsp;: [/fr/outils](/fr/outils). Notes structurées depuis un texte existant&nbsp;: [/fr/outils/notes-depuis-transcription](/fr/outils/notes-depuis-transcription).
+
+## Entretiens longs et application Mac
+
+Au-delà de **15 minutes**, pour séparer deux voix ou obtenir un compte rendu structuré, utilisez **Vemoir pour Mac** (modèles locaux par défaut, import MP3/M4A/WAV/AIFF/CAF/FLAC, profils locuteurs&nbsp;; voir [capture](/fr#capture) et [compte rendu](/fr#record)). **Achat unique** (CHF 20 en Suisse&nbsp;; prix local dans l'App Store en DE, AT, FR, IT). Modèles cloud optionnels avec votre clé API.
+
+Prochain entretien en direct&nbsp;: [applications prises en charge](/fr#platforms), sans bot visible.
+
+<Image src={privateRecords} alt="Cartes et carnet sur un bureau, évoquant des dossiers d'entretien gardés en local" width={700} quality={80} class="w-full" />
+
+## Consentement et conservation
+
+Vemoir ne stocke pas votre fichier navigateur sur ses serveurs dans ce flux. Vous devez toujours documenter la base légale, informer les personnes, sécuriser le Mac et supprimer à l'échéance. Pas de promesse de conformité automatique.
+
+Pour tester avant un dossier éthique&nbsp;: [transcrire l'entretien dans le navigateur](/fr/outils/transcrire-entretien).
+
+## Démarrer avec le navigateur ou le Mac
+
+**Un fichier, 15 minutes max, preuve sans envoi&nbsp;:** [/fr/outils/transcrire-entretien](/fr/outils/transcrire-entretien) et capture Network.
+
+**Plus long, locuteurs, capture live sur Apple silicon&nbsp;:** [App Store](https://apps.apple.com/app/id6794693630), [tarifs](/fr#pricing), [FAQ](/fr/faq).
+
+## Questions fréquentes
+
+### L'outil envoie-t-il mon enregistrement&nbsp;?
+
+Non. Traitement dans l'onglet, pas de transmission du fichier à Vemoir.
+
+### Transcription hors ligne&nbsp;?
+
+Possible après mise en cache du modèle. Premier téléchargement via internet.
+
+### Transcription certifiée&nbsp;?
+
+Non. Texte machine à relire, sans certification officielle.
+
+### Graphie du suisse allemand&nbsp;?
+
+En général allemand standard, pas dialecte.
+
+### Limites techniques&nbsp;?
+
+MP3, M4A, WAV, MP4, **15 minutes**, **trois exécutions réussies par semaine** dans le navigateur.
+
+### Étiquettes de locuteur&nbsp;?
+
+Non dans le navigateur. Oui dans l'app Mac.
+
+### Quand choisir l'app Mac&nbsp;?
+
+Durée, locuteurs, live, glossaires. Voir [/fr#how](/fr#how).
+
+### Vemoir remplace-t-il le dossier éthique ou GDPR&nbsp;?
+
+Non. Vous restez responsable du consentement et de la conservation.
+
+### Prix et matériel&nbsp;?
+
+[Tarifs](/fr#pricing). Mac Apple silicon, macOS Sonoma 14.2+, 8 Go de RAM minimum&nbsp;; pas de Mac Intel ni mobile.
+
+Étape suivante&nbsp;: [/fr/outils/transcrire-entretien](/fr/outils/transcrire-entretien) ou [Mac App Store](https://apps.apple.com/app/id6794693630) pour les entretiens longs avec séparation des voix.

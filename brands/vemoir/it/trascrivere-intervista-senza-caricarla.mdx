@@ -1,0 +1,140 @@
+---
+title: "Trascrivere un'intervista senza caricarla online"
+description: "Trascrivere un'intervista senza caricarla: nLPD, GDPR ed etica, e lo strumento Vemoir nel browser che resta sul tuo Mac."
+pubDate: 2026-10-03
+author: "Vemoir Team"
+tags: ["intervista", "trascrizione", "privacy"]
+funnelStage: "consideration"
+translationKey: "transcribe-interview-without-upload"
+relatedPosts: []
+tool: "transcribe-interview"
+image: "@/assets/blog/transcribe-interview-without-upload/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import voiceCapture from '@/assets/blog/transcribe-interview-without-upload/voice-capture.jpg';
+import privateRecords from '@/assets/blog/transcribe-interview-without-upload/private-records.jpg';
+
+Devi **trascrivere un'intervista senza caricarla** su un servizio cloud perché l'intervistato ha accettato regole precise, spesso con divieto di copie esterne. Ti serve comunque testo ricercabile. I servizi hosted iniziano con l'upload verso i loro server e possono scontrarsi con GDPR, **nLPD** svizzera o un comitato etico.
+
+Questa guida spiega perché l'upload pesa, come lo strumento gratuito [trascrivere un'intervista](/it/strumenti/trascrivere-intervista) su vemoir.ch elabora il file nel browser senza inviarlo a Vemoir, e quando l'[app Mac Vemoir](https://apps.apple.com/app/id6794693630) conviene per registrazioni lunghe e speaker separati. Non è consulenza legale.
+
+## Perché l'upload complica il consenso
+
+Ricerca, consulenza, HR e giornalismo usano consenso informato su finalità, conservazione e accessi. Un nuovo fornitore di trascrizione introduce spesso un responsabile del trattamento aggiuntivo e nuove sedi dati.
+
+Il **GDPR** copre le voci registrate. In **Svizzera** vale la legge federale rivista (**nLPD**), rilevante per team in Ticino e per progetti transfrontalieri. I comitati etici possono vietare il cloud, chiedere hosting in UE/CH, o imporre cancellazione subito dopo l'analisi.
+
+Anche quando un fornitore cloud dichiara crittografia e data center in Europa, resta un nuovo flusso dati da descrivere nell'informativa e nel registro trattamenti. **Trascrivere un'intervista senza caricarla** riduce quella superficie: l'audio resta sul dispositivo finché non esporti tu il testo.
+
+I servizi cloud restano validi con contratto e valutazione. Il problema nasce quando il consenso dice «solo locale» o manca l'ok legale. In quel caso **trascrivere un'intervista senza caricarla** significa che i byte non lasciano il tuo Mac durante la trascrizione.
+
+## Cosa significa «senza caricarla» su vemoir.ch
+
+Gli strumenti browser gratuiti su [vemoir.ch](/it) trasformano un file che hai già (MP3, M4A, WAV, MP4). Elaborazione nel tab con Whisper pubblico. **Il file audio non viene caricato su Vemoir.** La prima esecuzione scarica il modello; poi puoi lavorare offline. Controlla la scheda **Network** (sotto).
+
+Limiti da pianificare: **15 minuti** per file, **tre esecuzioni riuscite a settimana**, **niente etichette speaker**, **niente registrazione live** nel browser. Lo svizzero tedesco esce di solito in **tedesco standard**, non in dialetto. L'output non è una trascrizione certificata: va riletto per nomi, cifre e citazioni sensibili.
+
+Il modello Whisper pubblico nel browser è lo stesso tipo usato in molti servizi gratuiti; la differenza pratica è dove gira (nel tab, non su un server Vemoir) e cosa puoi dimostrare con il Network tab al comitato etico.
+
+## Passo passo nel browser
+
+1. **Prepara il file** (MP3, M4A, WAV o MP4). Oltre 15 minuti, taglia o dividi se resti nel browser.
+2. **Apri** [/it/strumenti/trascrivere-intervista](/it/strumenti/trascrivere-intervista).
+3. **Scegli il file** dal disco. La registrazione resta sul tuo Mac.
+4. **Attendi il download del modello** (internet la prima volta).
+5. **Copia il testo** per analisi o note. Consenso, revisione e conservazione restano tuoi.
+
+<Image src={voiceCapture} alt="Scrivania tranquilla che suggerisce la cattura di una voce per la trascrizione locale" width={700} quality={80} class="w-full" />
+
+## Verificare che nulla venga caricato
+
+1. Apri lo strumento in Chrome, Edge o Firefox.
+2. **Strumenti per sviluppatori** → **Network** (filtra **Fetch/XHR** se serve).
+3. Avvia la trascrizione con un file di prova breve.
+4. Cerca richieste che inviano l'audio come upload. Dovresti vedere download del modello o asset statici, non il file MP3/M4A dell'intervista.
+5. Ripeti offline (dopo la prima esecuzione) se il tuo dossier richiede prova di lavoro senza rete.
+
+Conserva uno screenshot del Network tab nel fascicolo del progetto se devi documentare il flusso locale.
+
+## Limiti onesti
+
+| Argomento | Browser | Vemoir Mac |
+| --- | --- | --- |
+| File esce dal dispositivo | Nessun invio a Vemoir | Resta sul Mac fino all'export |
+| Durata (tool gratis) | 15 minuti | Interviste lunghe |
+| Esecuzioni / settimana | 3 riuscite | Acquisto una tantum |
+| Speaker | No | Profili sul Mac |
+| Live | No nel browser | Menu bar, micro + audio di sistema |
+| Svizzera tedesco | Tedesco standard tipico | Glossari per nomi/termini |
+
+## Quando il cloud ha ancora senso
+
+Se il vendor è già approvato, collaborate in uno spazio condiviso o l'IT impone una pipeline hosted, l'upload può essere corretto. Vemoir assume l'elaborazione locale. Allinea il flusso al consenso firmato.
+
+Alcuni servizi offrono revisione collaborativa, commenti con timestamp e integrazioni CRM: utili quando il legal ha già validato l'ambiente. In assenza di quel via libera, un file MP3 sul Mac e un tool browser senza upload evitano di riaprire la pratica privacy per ogni intervista.
+
+Hub: [/it/strumenti](/it/strumenti). Note da testo esistente: [/it/strumenti/note-da-trascrizione](/it/strumenti/note-da-trascrizione).
+
+## Interviste lunghe e app Mac
+
+Oltre **15 minuti**, per due voci distinte o un verbale strutturato, usa **Vemoir per Mac** (modelli locali, import MP3/M4A/WAV/AIFF/CAF/FLAC, profili speaker; vedi [capture](/it#capture) e [verbale](/it#record)). **Acquisto una tantum** (CHF 20 in Svizzera; prezzo locale nell'App Store in DE, AT, FR, IT). Modelli cloud opzionali con tua API key.
+
+Prossima call live: [app meeting supportate](/it#platforms), senza bot in elenco partecipanti.
+
+<Image src={privateRecords} alt="Cartoncini e taccuino su una scrivania, metafora di documenti d'intervista tenuti in privato" width={700} quality={80} class="w-full" />
+
+## Consenso e conservazione
+
+Vemoir non archivia il file browser sui suoi server in questo flusso. Restano obblighi su base giuridica, informativa, sicurezza del Mac, backup cifrati e cancellazione quando il progetto termina. Se l'intervistato revoca il consenso, devi coprire audio, trascrizioni ed eventuali export.
+
+Allinea il testo informativo con ciò che fai davvero: «trascrizione nel browser sul mio computer» o «app Mac locale». Non promettere conformità automatica o trascrizioni certificate.
+
+Prova rapida prima dell'etica: [trascrivere l'intervista nel browser](/it/strumenti/trascrivere-intervista).
+
+## Browser o Mac
+
+**Un file, max 15 minuti, prova senza upload:** [/it/strumenti/trascrivere-intervista](/it/strumenti/trascrivere-intervista) e screenshot Network.
+
+**Più lungo, speaker, live su Apple silicon:** [App Store](https://apps.apple.com/app/id6794693630), [prezzi](/it#pricing), [FAQ](/it/faq).
+
+## Domande frequenti
+
+### Lo strumento carica la registrazione?
+
+No. Elaborazione nel tab, file non inviato a Vemoir.
+
+### Trascrizione offline?
+
+Dopo la cache del modello, spesso sì. Primo download via internet.
+
+### Trascrizione certificata?
+
+No. Testo automatico da revisionare, senza certificazione ufficiale.
+
+### Come esce lo svizzero tedesco?
+
+Di solito tedesco standard, non dialetto.
+
+### Limiti?
+
+MP3, M4A, WAV, MP4, **15 minuti**, **tre esecuzioni riuscite a settimana** nel browser.
+
+### Etichette speaker?
+
+No nel browser. Sì nell'app Mac.
+
+### Quando l'app Mac?
+
+Durata, speaker, live, glossari. Vedi [/it#how](/it#how).
+
+### Vemoir sostituisce GDPR o etica?
+
+No. Resti responsabile di consenso e conservazione.
+
+### Prezzo e requisiti?
+
+[Prezzi](/it#pricing). Mac Apple silicon, macOS Sonoma 14.2+, minimo 8 GB RAM; niente Intel o mobile.
+
+Passo successivo: [/it/strumenti/trascrivere-intervista](/it/strumenti/trascrivere-intervista) o [Mac App Store](https://apps.apple.com/app/id6794693630) per interviste lunghe con speaker separati.
