@@ -1,0 +1,152 @@
+---
+title: "Teams Meeting auf dem Mac aufnehmen: drei Wege im Vergleich"
+description: "Teams Meeting aufnehmen am Mac: Cloud-Aufnahme, Bildschirmaufnahme oder lokales Systemaudio. Speicherorte, Grenzen und Einwilligung."
+pubDate: 2026-10-08
+author: "Vemoir Team"
+tags: ["microsoft teams", "meeting aufnahme", "mac"]
+funnelStage: "consideration"
+translationKey: "record-teams-meeting-mac"
+relatedPosts: []
+tool: "recording-to-notes"
+image: "@/assets/blog/record-teams-meeting-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import voiceCaptureImg from '@/assets/blog/record-teams-meeting-mac/inline-voice-capture.jpg';
+import privateRecordsImg from '@/assets/blog/record-teams-meeting-mac/inline-private-records.jpg';
+
+Du kannst ein **Teams Meeting auf dem Mac aufnehmen** auf drei übliche Arten: mit der Cloud-Aufnahme in Teams (wenn Lizenz und Rolle es erlauben), mit einer macOS-Bildschirmaufnahme als Videodatei oder mit einer Mac-App, die Systemaudio und Mikrofon lokal mitschneidet, ohne dass ein Bot der Sitzung beitritt. Was passt, hängt davon ab, wo die offizielle Datei liegen soll, ob du ein Transkript in Teams brauchst und ob das Audio auf deinem Mac bleiben soll.
+
+Diese Anleitung erklärt jeden Weg mit Schritten, Speicherorten laut Microsoft-Dokumentation und ehrlichen Grenzen. Das ist keine Rechtsberatung. Sage den Teilnehmenden, dass aufgenommen wird, und halte die Regeln deiner Organisation ein, bevor du startest.
+
+## Was die Teams-Cloud-Aufnahme liefert
+
+Teams kann geplante oder spontane Meetings in der Cloud aufnehmen, wenn dein Tenant Meeting-Aufnahmen erlaubt und dein Konto eine unterstützte Lizenz hat. Stand September 2026 führt Microsoft Cloud-Aufnahme und verwandte Funktionen unter Teams Premium sowie mehreren Microsoft-365- und Office-365-Plänen; Admins können einschränken, wer aufnehmen darf.
+
+Typischerweise dürfen Organisatorinnen und Organisatoren sowie, wenn die Richtlinie es erlaubt, präsentierende Personen die Aufnahme starten. Gäste und anonyme Zugänge starten meist keine Tenant-Aufnahme, ausser eine Organisatorin erteilt die Berechtigung. Fehlt die Schaltfläche **Aufzeichnen**, prüfe die Meeting-Richtlinie deines Tenants.
+
+Nach dem Meeting speichert Microsoft die Datei im OneDrive der Organisatorin bei privaten Meetings oder im SharePoint-Ordner des Kanals bei Kanal-Meetings. Der Link erscheint im Meeting-Chat oder Kanal. Wiedergabe läuft im Teams-Player; Download-Rechte steuert die Administration.
+
+Teams kann für Cloud-Aufnahmen ein Transkript erzeugen, wenn Transkription im Tenant aktiv ist und die Sprache unterstützt wird. Das Transkript gehört zur Cloud-Aufnahme in Teams und ist nicht dasselbe wie eine lokale Audiodatei auf dem Mac. Aktuelle Details zu Speicher und Wiedergabe findest du bei Microsoft unter [Meeting-Aufnahme abspielen und teilen](https://support.microsoft.com/de-de/office/meeting-aufnahmen-in-teams-abspielen-und-teilen-7d7e5dc5-9ae4-4b94-858a-0a1820c564a3) und [Cloud-Meeting-Aufnahme](https://learn.microsoft.com/de-de/microsoftteams/cloud-recording).
+
+### Wann die Teams-Aufnahme die bessere Wahl ist
+
+Nimm Teams in der Cloud auf, wenn alle eine offizielle Kopie in SharePoint oder OneDrive erwarten, wenn du das integrierte Teams-Transkript brauchst und IT Cloud-Speicher für Meeting-Inhalte freigegeben hat. Zusatzsoftware ist nicht nötig, und Teilnehmende sehen die übliche Aufnahme-Hinweismeldung in Teams.
+
+## Warum macOS-Bildschirmaufnahme selten ideal ist
+
+macOS kann den Bildschirm (und oft das Teams-Fenster) über die Screenshot-Symbolleiste oder QuickTime Player aufnehmen. Du wählst **Ausgewählten Teil aufzeichnen** oder **Ganzen Bildschirm aufzeichnen**, markierst Teams und speicherst eine `.mov`-Datei.
+
+Grenzen für Sitzungsprotokolle:
+
+- Du erhältst **Video**, kein durchsuchbares Transkript. macOS wandelt das Gespräch nicht in Text um.
+- Dateigrösse wächst schnell, besonders bei langen Calls und Retina-Auflösung.
+- Das Teams-Fenster muss sichtbar bleiben; Benachrichtigungen und Verschieben von Fenstern landen im Video.
+- Remote-Video und geteilte Folien liegen in einer Bildschirmaufnahme, was Zitate erschwert.
+- Systemaudio hängt von macOS-Version und Einstellungen ab; nur Mikrofon verpasst andere Stimmen in der Leitung.
+
+Für eine kurze Demo, die du einmal schneidest, kann das reichen. Für laufende Meeting-Protokolle ist es ein schwacher Standard.
+
+## Teams-Audio lokal auf dem Mac aufnehmen
+
+Eine Mac-App wie [Vemoir](https://apps.apple.com/app/id6794693630) nimmt **Systemaudio und Mikrofon** auf, während Teams (oder eine andere Meeting-App) Ton auf dem Mac abspielt. Kein Bot erscheint in der Teilnehmerliste. Start und Stopp laufen über die Menüleiste.
+
+<Image src={voiceCaptureImg} alt="Abstrakte Darstellung von Sprachaufnahme auf dem Mac ohne Logos von Meeting-Apps" width={600} quality={80} class="w-full" />
+
+Das passt, wenn:
+
+- IT oder Kundschaft Notetaker-Bots verbietet.
+- du Transkript und Zusammenfassung standardmässig lokal auf dem Mac willst.
+- du ein Protokoll brauchst, obwohl Teams-Cloud-Aufnahme aus ist oder du nicht Organisator bist.
+
+Vemoir fragt die Berechtigung **Bildschirmaufnahme** an, weil macOS Ton anderer Apps darüber freigibt. Vemoir nutzt das nur für Meeting-Audio, nicht für Bildschirminhalte. Mikrofonzugriff nimmt deine Stimme mit. Mehr dazu unter [Aufnahme und Modelle](/de#capture) und [Meeting-Apps](/de#platforms).
+
+Nach dem Call transkribiert Vemoir auf dem Mac und erstellt Protokoll, Entscheide, Aufgaben und einen Follow-up-Entwurf. Du exportierst oder teilst nur, was du freigibst. Preis: einmaliger Kauf im Mac App Store (CHF 20 in der Schweiz; im Store siehst du den lokalen Preis).
+
+### Schritte: lokale Teams-Aufnahme mit Vemoir
+
+1. Vor dem Meeting Vemoir aus dem Mac App Store installieren und einmal öffnen, damit du **Bildschirmaufnahme** und **Mikrofon** unter **Systemeinstellungen → Datenschutz & Sicherheit** erlauben kannst.
+2. In Teams der Sitzung beitreten. Bei Echo Kopfhörer nutzen. Lautsprecherausgang auf den Mac prüfen.
+3. Zu Beginn in der Vemoir-Menüleiste **Aufnahme** starten. Optional während des Calls kurze Notizen in Vemoir tippen; sie fliessen ins Protokoll ein.
+4. Am Ende stoppen. On-Device-Modelle beenden Transkription und Zusammenfassung (nach Modell-Download auch offline).
+5. Transkript und Protokoll prüfen, anpassen und gezielt exportieren oder teilen. Cloud-KI nur mit eigenem API-Schlüssel und opt-in.
+
+Liegt bereits eine Audiodatei vor, nutze für kurze Files das kostenlose Tool [Aufnahme zu Notizen](/de/tools/aufnahme-zu-notizen) im Browser, oder importiere längere Aufnahmen in die Mac-App (MP3, M4A, WAV und weitere Formate).
+
+Willst du Protokoll, ohne auf einen Cloud-Link zu warten? [Vemoir nimmt das nächste Teams Meeting über die Mac-Menüleiste auf](/de#how).
+
+<Image src={privateRecordsImg} alt="Abstrakte Darstellung privater Protokolle, die auf dem Gerät bleiben" width={600} quality={80} class="w-full" />
+
+## Teilnehmende informieren und einwilligen lassen
+
+Aufnahme betrifft alle in der Leitung, nicht nur die Person, die in Teams oder Vemoir auf **Aufzeichnen** tippt.
+
+Viele Teams machen Folgendes:
+
+- Zu Beginn sagen, dass aufgenommen wird und wozu (Protokoll, Kundenakte, Schulung).
+- Wenn möglich in Einladung oder Agenda erwähnen.
+- Bei Widerspruch Aufnahme stoppen oder die Sitzung verlassen, gemäss interner Regel.
+- Dateien nur so lange behalten wie die Aufbewahrungsregeln es verlangen, Zugriff begrenzen.
+
+Vemoir macht eine Aufnahme rechtlich nicht automatisch zulässig. Einwilligung und Aufbewahrung liegen bei dir.
+
+## Drei Wege im Vergleich
+
+| Weg | Wer sieht es | Typisches Ergebnis | Transkript |
+| --- | --- | --- | --- |
+| Teams Cloud | Nutzerinnen mit Zugriff auf OneDrive- oder SharePoint-Link | Stream, optional Download in Teams | Teams-Transkript bei Lizenz und Einstellung |
+| macOS-Bildschirm | Wer die `.mov` hat | Grosses Bildschirmvideo | Keins eingebaut |
+| Vemoir lokal | Du, ausser du teilst Exporte | Audio auf dem Mac, dann Protokoll in Vemoir | Auf dem Mac, lokale Modelle standardmässig |
+
+Teams ist stark, wenn die Organisation ein gemeinsames Cloud-Artefakt will. Lokale Aufnahme ist stark, wenn Audio auf dem Mac bleiben soll und du ein strukturiertes Protokoll ohne Bot brauchst.
+
+## Dein nächster Schritt
+
+Brauchst du ein Teams-Protokoll, das auf dem Mac bleibt, mit Transkript und Aufgaben unter deiner Kontrolle, installiere Vemoir und teste mit einer Kollegin einen kurzen Call, bevor ein wichtiges Kundengespräch ansteht. Einmalzahlung, keine Gebühr pro Meeting, alle Funktionen inklusive. [Vemoir im Mac App Store](https://apps.apple.com/app/id6794693630) oder [so entsteht das Protokoll](/de#record) aus einer Aufnahme.
+
+## Häufige Fragen
+
+### Darf jede Person ein Teams Meeting auf dem Mac aufnehmen?
+
+Nur wenn Richtlinie und Lizenz es erlauben. Organisatorinnen und berechtigte Präsentierende starten die Cloud-Aufnahme, wenn die Funktion aktiv ist. Andere sehen oft eine Meldung, dürfen die Tenant-Aufnahme aber meist nicht starten.
+
+### Wo landet eine Teams-Cloud-Aufnahme?
+
+Im OneDrive der Organisatorin bei privaten Meetings oder in der SharePoint-Bibliothek des Kanals bei Kanal-Meetings. Chat oder Kanal posten einen Link.
+
+### Erstellt Teams immer ein Transkript?
+
+Nein. Transkription braucht passende Lizenz, Admin-Einstellungen und unterstützte Sprachen. Das Transkript hängt an der Cloud-Aufnahme, nicht als lokale Textdatei auf dem Mac.
+
+### Reichen QuickTime oder Screenshot für Sitzungsprotokolle?
+
+Meist nein. Du erhältst Video ohne strukturiertes Protokoll, Sprecherbezug oder Entscheidungen, ausser du transkribierst separat. Für kurze Demos ok, für laufende Protokolle selten.
+
+### Warum braucht Vemoir Bildschirmaufnahme-Berechtigung?
+
+macOS koppelt Ton anderer Apps daran, inklusive Teams. Vemoir nimmt Meeting-Audio auf, nicht Bildschirmpixel.
+
+### Sehen Teilnehmende einen Bot mit Vemoir?
+
+Nein. Vemoir tritt nicht als Teilnehmer bei. Du solltest trotzdem sagen, dass aufgenommen wird.
+
+### Geht Aufnahme ohne Organisator-Rolle?
+
+Cloud-Aufnahme in Teams oft nicht ohne Berechtigung. Lokales Audio auf dem Mac kann möglich sein, wenn Richtlinie und Einwilligung der Teilnehmenden das erlauben.
+
+### Welche Formate kann ich nach einem Teams-Call importieren?
+
+Wenn du eine exportierte Audio- oder Videodatei nutzen darfst, importiert die Mac-App gängige Audioformate (MP3, M4A, WAV, AIFF, CAF, FLAC). Browser-Tools auf vemoir.ch nehmen kürzere Files und zeichnen keine Live-Meetings auf.
+
+### Funktioniert Vemoir offline?
+
+Nach dem Modell-Download laufen Aufnahme, Transkription und Zusammenfassung ohne Internet. Setup und Downloads brauchen Verbindung.
+
+### Welche Hardware braucht Vemoir?
+
+Apple-Silicon-Mac (M1 oder neuer), macOS Sonoma 14.2 oder neuer, mindestens 8 GB RAM (16 GB empfohlen für lange Meetings), rund 10 GB freier Speicher für Modelle. Intel-Macs werden nicht unterstützt.
+
+## Nächster Schritt
+
+Wähle den Weg passend zu IT: Teams-Cloud für die Tenant-Kopie, lokale Aufnahme, wenn Audio auf dem Mac bleiben soll. Für strukturierte Protokolle aus dem nächsten Teams-Call Vemoir einmal einrichten, zu Beginn ankündigen und [Protokoll und Exporte](/de#exports) prüfen, bevor du extern teilst.

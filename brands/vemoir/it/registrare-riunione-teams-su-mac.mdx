@@ -1,0 +1,152 @@
+---
+title: "Registrare una riunione Teams su Mac: guida pratica"
+description: "Registrare una riunione Teams su Mac con cloud, cattura schermo o audio locale. Dove finiscono i file, limiti e consenso dei partecipanti."
+pubDate: 2026-10-08
+author: "Vemoir Team"
+tags: ["microsoft teams", "registrazione", "mac"]
+funnelStage: "consideration"
+translationKey: "record-teams-meeting-mac"
+relatedPosts: []
+tool: "recording-to-notes"
+image: "@/assets/blog/record-teams-meeting-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import voiceCaptureImg from '@/assets/blog/record-teams-meeting-mac/inline-voice-capture.jpg';
+import privateRecordsImg from '@/assets/blog/record-teams-meeting-mac/inline-private-records.jpg';
+
+Puoi **registrare una riunione Teams su Mac** in tre modi comuni: registrazione cloud di Teams (se licenza e ruolo lo consentono), cattura schermo di macOS che salva un video, oppure un’app Mac che registra audio di sistema e microfono in locale, senza bot nella lista partecipanti. La scelta dipende da dove deve stare il file ufficiale, se ti serve la trascrizione dentro Teams e se l’audio deve restare sul Mac.
+
+Questa guida spiega ogni percorso con passi, percorsi di archiviazione secondo la documentazione Microsoft e limiti onesti. Non è consulenza legale. Comunica la registrazione ai partecipanti e rispetta le regole della tua organizzazione prima di iniziare.
+
+## Cosa offre la registrazione cloud di Teams
+
+Teams può registrare una riunione pianificata o immediata nel cloud quando il tenant abilita la registrazione e il tuo account ha una licenza supportata. A settembre 2026 Microsoft collega registrazione cloud e funzioni correlate a Teams Premium e a vari piani Microsoft 365 o Office 365; l’amministratore può limitare chi può avviare una registrazione.
+
+Di solito organizzatore e, se la policy lo consente, i presentatori possono avviare la registrazione. Ospiti e accessi anonimi in genere non avviano la registrazione del tenant senza permesso. Se manca **Registra**, controlla la policy riunioni del tenant.
+
+Al termine, Microsoft archivia il file nel OneDrive dell’organizzatore per riunioni private, o nella libreria SharePoint del canale per riunioni di canale. Compare un link nella chat o nel canale. La riproduzione usa il player Teams; il download dipende dalle impostazioni admin.
+
+Teams può generare una trascrizione per le registrazioni cloud quando la trascrizione è attiva e la lingua parlata è supportata. La trascrizione resta legata alla registrazione cloud in Teams, non è un file audio locale sul Mac. Per archiviazione e riproduzione vedi [Riprodurre e condividere una registrazione di riunione in Teams](https://support.microsoft.com/it-it/office/riprodurre-e-condividere-una-registrazione-di-riunione-in-teams-7d7e5dc5-9ae4-4b94-858a-0a1820c564a3) e [Registrazione cloud delle riunioni Teams](https://learn.microsoft.com/it-it/microsoftteams/cloud-recording).
+
+### Quando conviene la registrazione Teams
+
+Scegli il cloud Teams quando l’organizzazione si aspetta una copia ufficiale in SharePoint o OneDrive, quando serve la trascrizione integrata e l’IT ha già approvato lo storage cloud per i meeting. Non serve software aggiuntivo e i partecipanti vedono l’avviso standard di registrazione.
+
+## Perché la cattura schermo di macOS è una scelta debole
+
+macOS può registrare lo schermo (spesso la finestra Teams) con la barra strumenti Screenshot o QuickTime Player. Scegli **Registra porzione selezionata** o **Registra intero schermo**, punta a Teams e salvi un file `.mov`.
+
+Limiti per un verbale di riunione:
+
+- Ottieni **video**, non testo ricercabile. macOS non trasforma la call in trascrizione.
+- La dimensione del file cresce in fretta, soprattutto per call lunghe e display ad alta risoluzione.
+- La finestra Teams deve restare visibile; notifiche e spostamenti finiscono nel video.
+- Video remoti e slide condivise sono mescolati in un’unica registrazione schermo, scomoda da citare.
+- L’audio di sistema dipende da versione macOS e impostazioni; solo microfono può escludere altre voci.
+
+Va bene per una demo breve da montare una volta. Poco adatto come base per verbali ricorrenti.
+
+## Registrare l’audio Teams in locale sul Mac
+
+Un’app Mac come [Vemoir](https://apps.apple.com/app/id6794693630) registra **audio di sistema e microfono** mentre Teams (o un’altra app meeting) riproduce suono sul Mac. Nessun bot entra nella riunione. Avvii e fermi dalla barra menu.
+
+<Image src={voiceCaptureImg} alt="Illustrazione astratta di cattura vocale su Mac, senza loghi di app di riunione" width={600} quality={80} class="w-full" />
+
+Conviene quando:
+
+- IT o clienti vietano bot per appunti.
+- vuoi trascrizione e riassunti sul Mac, con modelli locali di default.
+- ti serve un verbale anche se la registrazione cloud Teams è disattivata o non sei organizzatore.
+
+Vemoir chiede il permesso **Registrazione schermo** perché macOS instrada l’audio delle altre app lì. Vemoir usa solo audio meeting, non i pixel dello schermo. Consenti anche il microfono per la tua voce. Vedi [Cattura e modelli](/it#capture) e [App per riunioni](/it#platforms).
+
+Dopo la call, Vemoir trascrive sul Mac e crea verbale, decisioni, azioni e bozza di follow-up. Esporti o condividi solo ciò che scegli. Prezzo: acquisto una tantum su Mac App Store (CHF 20 in Svizzera; lo store mostra il prezzo locale altrove).
+
+### Passi: registrazione Teams locale con Vemoir
+
+1. Prima della riunione installa Vemoir dal Mac App Store e aprilo una volta per concedere **Registrazione schermo** e **Microfono** in **Impostazioni di sistema → Privacy e sicurezza**.
+2. Entra nella riunione in Teams. Usa cuffie se c’è eco. Verifica che l’uscita audio sia il Mac.
+3. All’inizio clicca **Registra** nella barra menu Vemoir. Note opzionali durante la call; entrano nel verbale.
+4. Ferma a fine riunione. Lascia finire modelli on-device a trascrizione e riassunto (offline dopo download modelli).
+5. Rileggi trascrizione e verbale, modifica, esporta o condividi. L’IA cloud, se attiva, usa la tua chiave API, opt-in.
+
+Se hai già un file audio, usa lo strumento gratuito [Registrazione in note](/it/strumenti/registrazione-in-note) per file brevi, oppure importa registrazioni più lunghe nell’app Mac (MP3, M4A, WAV e altri formati supportati).
+
+Vuoi un verbale senza aspettare un link cloud? [Vemoir registra la prossima riunione Teams dalla barra menu del Mac](/it#how).
+
+<Image src={privateRecordsImg} alt="Illustrazione astratta di verbali privati che restano sul dispositivo" width={600} quality={80} class="w-full" />
+
+## Informare i partecipanti e ottenere consenso
+
+La registrazione riguarda tutti in linea, non solo chi preme **Registra** in Teams o Vemoir.
+
+Passi pratici usati da molti team:
+
+- Annunciare all’inizio che la riunione è registrata e perché (verbale, fascicolo cliente, formazione).
+- Menzionarlo in invito o agenda quando possibile.
+- In caso di obiezione, fermare la registrazione o uscire, secondo policy interna.
+- Conservare i file solo per il tempo previsto dalle regole di retention e limitare l’accesso.
+
+Vemoir da solo non rende lecita o conforme una registrazione. Consenso e conservazione restano tua responsabilità.
+
+## Confronto tra i tre approcci
+
+| Approccio | Chi lo vede | Risultato tipico | Trascrizione |
+| --- | --- | --- | --- |
+| Cloud Teams | Utenti con accesso a link OneDrive o SharePoint | Stream, download opzionale in Teams | Trascrizione Teams se licenza e impostazioni |
+| Cattura macOS | Chi ha il `.mov` | Video schermo grande | Nessuna integrata |
+| Cattura locale Vemoir | Tu, salvo export condivisi | Audio sul Mac, poi verbale in Vemoir | Sul Mac, modelli locali di default |
+
+Teams è forte quando l’organizzazione vuole un artefatto cloud condiviso. La cattura locale è forte quando l’audio deve restare sul Mac e vuoi un verbale strutturato senza bot.
+
+## Prossimo passo concreto
+
+Se ti serve un verbale Teams che resta sul Mac, con trascrizione e azioni sotto controllo, installa Vemoir e fai una call di prova breve con un collega prima di un meeting cliente importante. Pagamento una tantum, nessun costo per riunione, tutte le funzioni incluse. [Vemoir su Mac App Store](https://apps.apple.com/app/id6794693630) o [come nasce il verbale](/it#record) da una registrazione.
+
+## Domande frequenti
+
+### Chiunque può registrare una riunione Teams su Mac?
+
+Solo se policy e licenza lo permettono. Organizzatori e presentatori autorizzati avviano la registrazione cloud quando la funzione è attiva. Altri spesso vedono una notifica ma non avviano la registrazione del tenant.
+
+### Dove va una registrazione cloud Teams?
+
+Nel OneDrive dell’organizzatore per riunioni private, o nella libreria SharePoint del canale per riunioni di canale. Chat o canale pubblicano un link.
+
+### Teams crea sempre una trascrizione?
+
+No. Servono licenza, impostazioni admin e lingue supportate. La trascrizione resta legata alla registrazione cloud, non esportata automaticamente come testo locale sul Mac.
+
+### QuickTime o Screenshot bastano per un verbale?
+
+Di solito no. Ottieni video senza verbale strutturato, speaker o decisioni, salvo trascrivere altrove. Ok per demo brevi, raro per riunioni ricorrenti.
+
+### Perché Vemoir chiede la registrazione schermo?
+
+macOS associa lì l’audio delle altre app, incluso Teams. Vemoir registra audio meeting, non pixel dello schermo.
+
+### I partecipanti vedranno un bot con Vemoir?
+
+No. Vemoir non entra come partecipante. Devi comunque annunciare la registrazione.
+
+### Posso registrare senza ruolo organizzatore?
+
+Spesso no per la registrazione **cloud** Teams senza permesso. L’audio locale sul Mac può essere possibile se policy e consenso dei partecipanti lo consentono.
+
+### Quali formati importare dopo una call Teams?
+
+Se puoi usare un export audio o video, l’app Mac importa formati audio comuni (MP3, M4A, WAV, AIFF, CAF, FLAC). Gli strumenti browser su vemoir.ch accettano file brevi e non registrano riunioni live.
+
+### Vemoir funziona offline?
+
+Dopo il download dei modelli, registrazione, trascrizione e riassunto possono girare senza internet. Setup iniziale richiede connessione.
+
+### Quale hardware serve per Vemoir?
+
+Mac Apple silicon (M1 o più recente), macOS Sonoma 14.2 o successivo, 8 GB RAM minimo (16 GB consigliati per riunioni lunghe), circa 10 GB liberi per i modelli. Mac Intel non supportati.
+
+## Passo successivo
+
+Scegli il percorso secondo l’IT: cloud Teams per la copia tenant, cattura locale se l’audio deve restare sul Mac. Per la prossima call Teams configura Vemoir una volta, annuncia la registrazione all’inizio e controlla [verbale ed export](/it#exports) prima di condividere all’esterno.
