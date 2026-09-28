@@ -68,6 +68,14 @@ export const brands: BrandConfig[] = [
     defaultLanguage: "en",
   },
   {
+    id: "citysage",
+    displayName: "CitySage",
+    repo: "aurum-avis-labs/city-sage-next",
+    domain: "https://citysage.ch",
+    languages: ["en"],
+    defaultLanguage: "en",
+  },
+  {
     id: "kitchen-crew",
     displayName: "Kitchen Crew",
     repo: "aurum-avis-labs/kitchen-crew-landing-page",
