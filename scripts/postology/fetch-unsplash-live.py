@@ -34,7 +34,43 @@ KEY_IMAGE_PLANS: dict[str, list[tuple[str, bool, str]]] = {
         ("inline1.jpg", False, "marketing professional laptop analytics"),
         ("inline2.jpg", False, "digital calendar schedule planning desk"),
     ],
+    "solo-creator-one-flow-posting": [
+        ("hero.jpg", True, "content creator recording video ring light"),
+        ("inline1.jpg", False, "woman laptop couch freelance work"),
+        ("inline2.jpg", False, "paper planner calendar month schedule"),
+    ],
+    "multi-platform-posting-hidden-work": [
+        ("hero.jpg", True, "multiple smartphones social media apps"),
+        ("inline1.jpg", False, "person laptop managing social accounts"),
+        ("inline2.jpg", False, "content calendar sticky notes planning"),
+    ],
+    "multi-platform-social-without-enterprise-team": [
+        ("hero.jpg", True, "small startup team meeting laptop"),
+        ("inline1.jpg", False, "freelancer laptop remote work coffee shop"),
+        ("inline2.jpg", False, "social media icons laptop screen marketing"),
+    ],
+    "reduce-clicks-social-media-workflow-audit": [
+        ("hero.jpg", True, "checklist notebook productivity workflow"),
+        ("inline1.jpg", False, "person analyzing workflow laptop notes"),
+        ("inline2.jpg", False, "organised desk planner timer efficiency"),
+    ],
 }
+
+
+def load_used_photo_ids() -> set[str]:
+    used: set[str] = set()
+    for sources_path in IMAGES_ROOT.glob("*/sources.json"):
+        try:
+            data = json.loads(sources_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        for img in data.get("images") or []:
+            if isinstance(img, str):
+                continue
+            pid = img.get("photoId")
+            if pid:
+                used.add(pid)
+    return used
 
 
 def api_request(url: str, *, method: str = "GET") -> Any:
@@ -56,21 +92,25 @@ def api_request(url: str, *, method: str = "GET") -> Any:
 
 
 def search_photo(query: str, used_ids: set[str]) -> dict[str, Any]:
-    params = urllib.parse.urlencode(
-        {
-            "query": query,
-            "per_page": "15",
-            "page": "1",
-            "orientation": "landscape",
-            "content_filter": "high",
-        }
-    )
-    data = api_request(f"https://api.unsplash.com/search/photos?{params}")
-    results = data.get("results") or []
-    for photo in results:
-        pid = photo.get("id")
-        if pid and pid not in used_ids:
-            return photo
+    for page in range(1, 6):
+        params = urllib.parse.urlencode(
+            {
+                "query": query,
+                "per_page": "30",
+                "page": str(page),
+                "orientation": "landscape",
+                "content_filter": "high",
+            }
+        )
+        data = api_request(f"https://api.unsplash.com/search/photos?{params}")
+        results = data.get("results") or []
+        if not results:
+            break
+        for photo in results:
+            pid = photo.get("id")
+            if pid and pid not in used_ids:
+                return photo
+        time.sleep(0.5)
     raise RuntimeError(f"No unused Unsplash result for query: {query!r}")
 
 
@@ -201,7 +241,9 @@ def main() -> None:
         print("Usage: fetch-unsplash-live.py <translationKey> [...]", file=sys.stderr)
         raise SystemExit(2)
 
-    used_ids: set[str] = set()
+    used_ids = load_used_photo_ids()
+    if used_ids:
+        print(f"Seeded {len(used_ids)} existing photo IDs from sources.json", flush=True)
     summary: dict[str, list[dict[str, Any]]] = {}
     for key in keys:
         if key not in KEY_IMAGE_PLANS:
