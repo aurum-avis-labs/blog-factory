@@ -2,6 +2,8 @@
 /**
  * CitySage Unsplash images — ONE post per invocation.
  *
+ * HOLD (2026-09-28): Do not run until Robert lifts "STOP Unsplash API" notice.
+ *
  * Shared AAL limit: ~50 Unsplash API requests/hour across all agents.
  * - Minimal calls: 1 search (per_page=30) + 3 download_location = 4 API calls/post
  * - Sequential delays between API calls (default 90s)

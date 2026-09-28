@@ -2,7 +2,13 @@
 
 **Stand:** 2026-09-28 · **Owner:** Robert override
 
-## Shared rate limit
+## HOLD — no API calls until further notice
+
+**Do not** run `scripts/citysage-unsplash-images.mjs` or any Unsplash API requests from Cloud Agents until Robert lifts this hold. Shared key budget is **50 req/h across all AAL agents**; key may be absent on the VM.
+
+**Allowed now:** MDX copy/frontmatter/locale fixes only. Existing JPGs on open PRs stay as-is until a future compliant refetch window.
+
+## Shared rate limit (when hold is lifted)
 
 - `UNSPLASH_ACCESS_KEY` is **shared across all AAL Cloud Agents** (~**50 API requests/hour** total).
 - **Do not** batch-fetch images for Postology, Inklets, Holist-IQ, or other brands in parallel with CitySage.
