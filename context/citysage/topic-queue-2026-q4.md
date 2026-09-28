@@ -7,11 +7,26 @@
 
 Strategy: `context/citysage/content-strategy-autopilot.md`
 
+### Wave 1 draft / publish order (SEO & growth)
+
+**GATE: BRAND** — register CitySage in `brands.config.ts` and create `brands/citysage/en/` before **any** MDX merges to `main`. Queue order below is for drafting and PR sequencing only.
+
+| Step | Item | Priority | Notes |
+|------|------|----------|--------|
+| 1 | **#1** `what-is-an-ai-travel-itinerary` | **Top-3 GO** | Foundation awareness; ship first |
+| 2 | **#2** `how-to-plan-a-trip-itinerary-with-ai` | **Top-3 GO** · **P0 cluster** | Core AI workflow intent |
+| 3 | **#3** `shareable-travel-itinerary-for-friends` | **Top-3 GO** · **P0 cluster** | Shareable-plans cluster with #2 |
+| 4 | **#4** `ai-itinerary-planner-vs-spreadsheet` | **Compare P0** | **Next after Top-3** — commercial-compare before product-led posts |
+| 5 | **#5** `plan-and-share-a-trip-itinerary-with-citysage` | WAVE 1 · **GATE: PRODUCT** | After Compare P0 (#4) |
+| 6 | **#6** `travel-itinerary-for-instagram-and-tiktok` | WAVE 1 | After #5 (creator angle closes Wave 1) |
+
+**Rule:** Do not publish **#5** or **#6** before **#4** (Compare P0). Top-3 (**#1 → #2 → #3**) always precedes **#4**.
+
 ---
 
 ## Wave 1 (weeks 1–2) — publish first
 
-- [ ] **1. `what-is-an-ai-travel-itinerary`** · **`awareness`** · **WAVE 1**
+- [ ] **1. `what-is-an-ai-travel-itinerary`** · **`awareness`** · **WAVE 1** · **Top-3 GO** (publish **1st**)
   - Primary keyword: `what is an AI travel itinerary`
   - Secondary: AI trip plan, automated itinerary, travel planning AI
   - Reader: heard “AI trip planner” on social, wants a plain definition before trying a tool.
@@ -19,35 +34,35 @@ Strategy: `context/citysage/content-strategy-autopilot.md`
   - Do not: promise bookings, real-time prices, or “perfect” plans.
   - `relatedPosts`: `[]` (first catalog post)
 
-- [ ] **2. `how-to-plan-a-trip-itinerary-with-ai`** · **`interest`** · **WAVE 1**
+- [ ] **2. `how-to-plan-a-trip-itinerary-with-ai`** · **`interest`** · **WAVE 1** · **Top-3 GO** · **P0 cluster** (publish **2nd**)
   - Primary keyword: `how to plan a trip itinerary with AI`
   - Reader: ready to try AI planning for an upcoming leisure trip.
   - Must include: step workflow (constraints → draft → sanity check → share); checklist for pacing; sample 3-day city outline; where human research still wins (reservations, events).
   - Do not: single-tool tutorial unless product confirms UI; keep tool-agnostic with optional CitySage callout box.
   - `relatedPosts`: `["what-is-an-ai-travel-itinerary"]`
 
-- [ ] **3. `shareable-travel-itinerary-for-friends`** · **`awareness`** · **WAVE 1**
+- [ ] **3. `shareable-travel-itinerary-for-friends`** · **`awareness`** · **WAVE 1** · **Top-3 GO** · **P0 cluster** (publish **3rd**)
   - Primary keyword: `shareable travel itinerary`
   - Reader: group trip organizer tired of PDFs and chaotic group chats.
   - Must include: formats (link, doc, screenshot carousel); what to share vs keep private; group decision tips; accessibility (time zones, mobility).
   - Do not: corporate travel approval workflows.
   - `relatedPosts`: `["what-is-an-ai-travel-itinerary"]`
 
-- [ ] **4. `ai-itinerary-planner-vs-spreadsheet`** · **`interest`** · **WAVE 1**
+- [ ] **4. `ai-itinerary-planner-vs-spreadsheet`** · **`interest`** · **WAVE 1** · **Compare P0** (publish **4th** — after Top-3, before #5 and #6)
   - Primary keyword: `AI itinerary planner`
   - Reader: comparing Notion/Sheets vs AI for trip planning.
   - Must include: fair comparison table (speed, flexibility, collaboration, revision); when spreadsheet wins; when AI draft + spreadsheet polish wins.
   - Do not: fake feature matrix for named competitors; verify any named tool on its site.
   - `relatedPosts`: `["how-to-plan-a-trip-itinerary-with-ai"]`
 
-- [ ] **5. `plan-and-share-a-trip-itinerary-with-citysage`** · **`consideration`** · **WAVE 1** · **GATE: PRODUCT**
+- [ ] **5. `plan-and-share-a-trip-itinerary-with-citysage`** · **`consideration`** · **WAVE 1** · **GATE: PRODUCT** (publish **5th** — not before Compare P0 #4)
   - Primary keyword: `share trip itinerary online`
   - Reader: wants one flow from AI draft to something presentable for friends or followers.
   - Must include: only confirmed CitySage flows (AI plan → review → share); screenshots only if provided by product; clear “early product” framing if features are beta; who it is for (social travelers, creators exploring shareable plans).
   - Do not: invent integrations (calendar sync, booking partners) or user counts.
   - `relatedPosts`: `["how-to-plan-a-trip-itinerary-with-ai", "shareable-travel-itinerary-for-friends"]`
 
-- [ ] **6. `travel-itinerary-for-instagram-and-tiktok`** · **`interest`** · **WAVE 1**
+- [ ] **6. `travel-itinerary-for-instagram-and-tiktok`** · **`interest`** · **WAVE 1** (publish **6th** — after #5)
   - Primary keyword: `travel itinerary for Instagram`
   - Reader: creator planning a trip that doubles as content.
   - Must include: story arc (hook days, b-roll locations, rest days); ethical disclosure; saving a master plan vs public teaser; linking a shareable plan in bio.
@@ -171,7 +186,8 @@ Backlog comparison posts add more `consideration` later; keep mix roughly 35% / 
 | Gap | Notes |
 |-----|--------|
 | No published MDX | Entire catalog greenfield; Wave 1 builds foundation cluster |
-| No `brands.config.ts` | Blocks auto-publish to landing until registered |
+| Wave 1 publish order | **#1→#2→#3** Top-3 GO (#2+#3 **P0 cluster**), then **#4 Compare P0**, then **#5** (PRODUCT) → **#6** |
+| No `brands.config.ts` | **GATE: BRAND** — blocks any MDX merge and auto-publish until registered |
 | No DE/FR/IT siblings | EN-first; expand when brand languages defined |
 | No hero image library | Establish style per post slug under `brands/citysage/images/` when writing starts |
 | Internal links | After ~6 posts, revisit `relatedPosts` on items 1–3 to point forward into interest/consideration |

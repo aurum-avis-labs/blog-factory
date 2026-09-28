@@ -44,7 +44,7 @@ CitySage helps **travel enthusiasts** plan trip itineraries with AI and **share*
 |-----------|--------|
 | Cadence | **2–3 quality posts per week** (not daily thin posts) |
 | Horizon | **~8 weeks** → **16–24** queued topics (see queue file) |
-| Release | **Wave 1:** first **6** topics marked in queue; remainder drips in order unless search data reprioritizes |
+| Release | **Wave 1:** six topics; **publish order** `#1→#2→#3` (Top-3 GO; #2+#3 P0 cluster), then **#4 Compare P0**, then #5 (PRODUCT) → #6 — see queue table; remainder drips unless search data reprioritizes |
 | Output | One PR per article when writing starts (four locales only if brand config lists them; **start with EN only** until languages are confirmed) |
 | Review | Human review before merge to `main`; autopilot does not merge |
 | Quality gate | **Yaps bar:** no listicles without structure, no 800-word fluff, every post must teach a concrete workflow or decision |
