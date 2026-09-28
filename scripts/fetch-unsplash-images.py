@@ -95,17 +95,28 @@ def parse_rate_headers(headers: Any, key: str) -> None:
 
 
 def wait_for_quota(need: int = 1) -> None:
-    key = current_key()
-    remaining = REMAINING.get(key)
-    if remaining is None or remaining >= need:
-        return
-    reset = RESET_AT.get(key, int(time.time()) + 3600)
-    sleep_for = max(1, reset - int(time.time()) + 2)
-    print(
-        f"  rate limit: {remaining} remaining on this key, sleeping {sleep_for}s",
-        flush=True,
-    )
-    time.sleep(sleep_for)
+    global KEY_INDEX
+    while True:
+        for i, key in enumerate(KEYS):
+            remaining = REMAINING.get(key)
+            if remaining is None or remaining >= need:
+                if i != KEY_INDEX:
+                    print(
+                        f"  switching to Unsplash key {i + 1} (remaining={remaining})",
+                        flush=True,
+                    )
+                    KEY_INDEX = i
+                return
+        soonest = min(RESET_AT.get(k, int(time.time()) + 3600) for k in KEYS)
+        sleep_for = max(1, soonest - int(time.time()) + 2)
+        print(
+            f"  all Unsplash keys exhausted, sleeping {sleep_for}s then retrying",
+            flush=True,
+        )
+        time.sleep(sleep_for)
+        for key in KEYS:
+            REMAINING.pop(key, None)
+            RESET_AT.pop(key, None)
 
 
 def api_request(url: str) -> Any:
@@ -136,6 +147,13 @@ def api_request(url: str) -> Any:
             parse_rate_headers(err.headers, key)
             payload = err.read().decode(errors="replace")
             if err.code == 403:
+                parse_rate_headers(err.headers, key)
+                reset = RESET_AT.get(key, int(time.time()) + 3600)
+                wait = max(5, reset - int(time.time()) + 3)
+                if wait <= 7200 and ("rate" in payload.lower() or REMAINING.get(key, 0) == 0):
+                    print(f"  HTTP 403 rate limit, sleeping {wait}s then retrying same key", flush=True)
+                    time.sleep(wait)
+                    continue
                 rotate_key(f"HTTP 403: {payload[:180]}")
                 continue
             if err.code == 429:
@@ -294,6 +312,8 @@ def process_job(job: dict[str, Any], used: set[str]) -> dict[str, Any]:
             flush=True,
         )
         time.sleep(0.6)
+
+    wait_for_quota(4)
 
     payload = {
         "slug": slug,
