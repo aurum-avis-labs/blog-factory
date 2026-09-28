@@ -84,7 +84,7 @@ When unsure between two stages, pick the **higher-intent** stage only if the dra
 - **Voice:** Upbeat but grounded; peer-to-peer (travel friend, not corporate travel desk). Short paragraphs, concrete examples (city names, day splits), no hype (“revolutionary”, “game-changer”, “seamless”).
 - **Structure:** Problem in the first screen; scannable H2/H3; one primary keyword; FAQ only when it adds real answers (not padding).
 - **CTA:** Soft — try planning a sample trip, share with a friend, follow for the next guide. No fake urgency.
-- **Images:** When brand folder exists, hero at `brands/citysage/images/{slug}/` per AGENTS.md; travel photography or clean itinerary mockups, no stock cliché overload.
+- **Images:** Unsplash **only** via API (`UNSPLASH_ACCESS_KEY`, shared ~50 req/h across AAL agents). See `context/citysage/unsplash-image-policy.md`. Write MDX first; one post per image fetch; no generated fallbacks.
 - **Compliance:** No guaranteed prices, opening hours, or visa rules without citing official sources and “check before you go”.
 
 ## 9. Internal linking (future)
@@ -115,6 +115,7 @@ Document cross-links in each writing PR until a formal link map is added here.
 ## 12. Related files
 
 - Topic backlog: `context/citysage/topic-queue-2026-q4.md`  
+- Unsplash throttle & credits: `context/citysage/unsplash-image-policy.md`  
 - ICP: attached `citysage-icp` (Robert, 2026-09-26)  
 - Post schema & funnel rules: `AGENTS.md`, `writing-instructions.md` (brand-specific brief overrides when added)
 
