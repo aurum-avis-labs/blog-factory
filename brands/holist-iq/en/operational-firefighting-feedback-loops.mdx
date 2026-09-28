@@ -1,0 +1,36 @@
+---
+title: "Operational Firefighting Loops: Why Ops Teams Stay Busy"
+description: "Operational firefighting loops keep teams busy without fixing structure. Learn the feedback patterns behind chronic firefighting in ops."
+pubDate: 2026-10-28
+author: "Holist-IQ Team"
+tags: ["operational feedback loops", "firefighting", "ops"]
+funnelStage: "awareness"
+draft: false
+relatedPosts: ["why-the-same-business-problems-keep-coming-back", "systems-thinking-in-business", "causal-loop-diagram-software"]
+image: ../../../assets/blog/operational-firefighting-feedback-loops/img1.png
+translationKey: "operational-firefighting-feedback-loops"
+---
+
+import { Image } from 'astro:assets';
+import img2 from '@/assets/blog/operational-firefighting-feedback-loops/img2.png';
+import img3 from '@/assets/blog/operational-firefighting-feedback-loops/img3.png';
+
+Ops leaders often joke that their job is putting out fires. Operational firefighting loops explain why heroic effort can *increase* future fire load.
+
+## What operational firefighting looks like
+
+On-call pages cluster around the same services, runbooks grow but incident frequency does not fall, and capacity planning assumes permanent reactive slack. The team is busy; the system is unchanged.
+
+## The core reinforcing loop
+
+Incidents consume engineering time → preventive work slips → fragility rises → incident rate increases → visible firefighting is rewarded → short fixes dominate → back to incidents.
+
+<Image src={img2} alt="Reinforcing loop linking incidents deferred prevention and rising fragility" width={500} quality={80} class="w-full" />
+
+Track **repeat incident rate** and **preventive vs reactive time**, not MTTR alone.
+
+## Breaking the loop
+
+Blameless postmortems with loop sketches, protected prevention capacity, incentives for eliminated recurrence, architecture reviews after repeat pages.
+
+See [why the same business problems keep coming back](/blog/why-the-same-business-problems-keep-coming-back) and [systems thinking in business](/blog/systems-thinking-in-business).
