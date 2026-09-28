@@ -102,7 +102,7 @@ DE mirrors exist for all of the above. **New queue items must use new slugs and 
 4. **Preview:** `npm run preview` before merge to main.  
 5. **Publish:** merge to main triggers brand publish workflow.
 
-**Waves:** Wave 1 (~6 topics) validates pillar mix and funnel balance; Waves 2–4 fill the 8-week runway. Unpublished queue rows are **backlog**, not commitments to ship verbatim—refine titles/slugs at draft time if SERP or news context shifts.
+**Waves:** Wave 1 (~6 topics) validates pillar mix and funnel balance; **publish order** is by queue **Slot** (01 → 02 → 03 → **05 Compare** → 04 → 06). Waves 2–4 fill the 8-week runway. Unpublished queue rows are **backlog**, not commitments to ship verbatim—refine titles/slugs at draft time if SERP or news context shifts.
 
 ---
 
@@ -120,7 +120,7 @@ DE mirrors exist for all of the above. **New queue items must use new slugs and 
 
 - **Politics / misinformation:** Analytical, structural—“what the argument omits”—not partisan fact-check branding.  
 - **AI hype:** If mentioning AI, tie to **mapping quality and decision traceability**, not magic automation.  
-- **Cannibalization:** One primary keyword per post; internal links via `relatedPosts`, not duplicate H1 topics.
+- **Cannibalization:** One primary keyword per post; internal links via `relatedPosts`, not duplicate H1 topics. **W1-01 Primer** = CLD definition/notation only—link to live `/blog/causal-loop-diagram-software` for template/maker/buyer intent; do not rewrite the Software Guide.
 
 ---
 

@@ -4,7 +4,7 @@
 **Locales:** Each row is one **article concept**; ship **both** `en` and `de` unless noted.  
 **Legend — Intent:** `informational` | `commercial-investigation` | `implementation`
 
-**Wave 1** = first ~6 rows (validate autopilot). Remaining rows = Waves 2–4 backlog.
+**Wave 1** = six topics (validate autopilot). **Publish order** follows the **Slot** column below (not numeric ID order). Remaining rows = Waves 2–4 backlog.
 
 ---
 
@@ -16,14 +16,22 @@ Queue avoids overlapping **existing** slugs: recurring-problems, systems-thinkin
 
 ## Wave 1 (~6)
 
-| ID | Title | Slug (en) | Slug (de) | Primary keyword | funnelStage | Locale | Intent |
-|----|-------|-----------|-----------|-----------------|-------------|--------|--------|
-| W1-01 | What Is a Causal Loop Diagram? A Decision-Maker's Primer | `what-is-a-causal-loop-diagram` | `was-ist-ein-kausalschleifen-diagramm` | causal loop diagram | awareness | en + de | informational |
-| W1-02 | Reinforcing vs Balancing Loops: Tell Them Apart in One Sitting | `reinforcing-vs-balancing-loops` | `verstaerkende-vs-ausgleichende-schleifen` | reinforcing and balancing feedback loops | awareness | en + de | informational |
-| W1-03 | Second-Order Effects: Why Good Decisions Still Backfire | `second-order-effects-in-decisions` | `zweitrangige-effekte-bei-entscheidungen` | second order effects | awareness | en + de | informational |
-| W1-04 | Leverage Points in Systems: Where Small Shifts Change Outcomes | `leverage-points-systems-thinking` | `hebelpunkte-systemdenken` | leverage points systems thinking | interest | en + de | informational |
-| W1-05 | Causal Loop Diagram vs Mind Map vs Flowchart: Pick the Right View | `causal-loop-diagram-vs-mind-map` | `kausalschleife-vs-mindmap-vs-flussdiagramm` | causal loop diagram vs mind map | interest | en + de | commercial-investigation |
-| W1-06 | Systems Thinking for Executives: Five Questions Before You Act | `systems-thinking-for-executives` | `systemdenken-fuer-fuehrungskraefte` | systems thinking for executives | awareness | en + de | informational |
+**Draft/publish sequence:** W1-01 Primer → W1-02 Reinforcing/balancing → W1-03 Second-order → **W1-05 Compare** → W1-04 Leverage points → W1-06 Executives.
+
+| Slot | ID | Title | Slug (en) | Slug (de) | Primary keyword | funnelStage | Locale | Intent |
+|------|-----|-------|-----------|-----------|-----------------|-------------|--------|--------|
+| 1 | W1-01 | What Is a Causal Loop Diagram? A Decision-Maker's Primer | `what-is-a-causal-loop-diagram` | `was-ist-ein-kausalschleifen-diagramm` | causal loop diagram | awareness | en + de | informational |
+| 2 | W1-02 | Reinforcing vs Balancing Loops: Tell Them Apart in One Sitting | `reinforcing-vs-balancing-loops` | `verstaerkende-vs-ausgleichende-schleifen` | reinforcing and balancing feedback loops | awareness | en + de | informational |
+| 3 | W1-03 | Second-Order Effects: Why Good Decisions Still Backfire | `second-order-effects-in-decisions` | `zweitrangige-effekte-bei-entscheidungen` | second order effects | awareness | en + de | informational |
+| 4 | W1-05 | Causal Loop Diagram vs Mind Map vs Flowchart: Pick the Right View | `causal-loop-diagram-vs-mind-map` | `kausalschleife-vs-mindmap-vs-flussdiagramm` | causal loop diagram vs mind map | interest | en + de | commercial-investigation |
+| 5 | W1-04 | Leverage Points in Systems: Where Small Shifts Change Outcomes | `leverage-points-systems-thinking` | `hebelpunkte-systemdenken` | leverage points systems thinking | interest | en + de | informational |
+| 6 | W1-06 | Systems Thinking for Executives: Five Questions Before You Act | `systems-thinking-for-executives` | `systemdenken-fuer-fuehrungskraefte` | systems thinking for executives | awareness | en + de | informational |
+
+### SEO / growth — Wave 1 priority & CLD cluster
+
+- **Top 3** (slots 1–3) build shared vocabulary before comparison or tool intent.  
+- **Slot 4 = W1-05 (Compare)** pulls commercial-investigation intent early while foundations are fresh.  
+- **W1-01 (Primer)** is **definition and notation only** (polarity, loops, reading order)—not templates, makers, or buyer criteria. Do **not** cannibalize the live Software Guide (`/blog/causal-loop-diagram-software`, slug `causal-loop-diagram-software` / DE `causal-loop-diagramm-software`). In the Primer, link explicitly to that post for **template / maker / buyer** intent and keep `relatedPosts` pointed at awareness peers plus that guide where funnel rules allow.
 
 ---
 
@@ -76,8 +84,9 @@ Queue avoids overlapping **existing** slugs: recurring-problems, systems-thinkin
 
 When publishing Wave 1, link forward/back to **existing** peers in the same language:
 
-- **awareness** rows → existing `why-the-same-business-problems-keep-coming-back`, `systems-thinking-in-business`, or `systems-thinking-for-public-policy-*`  
-- **interest** rows → existing `causal-loop-diagram-software`, `systems-thinking-tool-checklist`, `economic-systems-modeling-*`  
+- **W1-01 Primer** → awareness peers below; **must** link out to `causal-loop-diagram-software` for tool/template/buyer queries (do not duplicate that page’s scope).  
+- **other awareness** rows → `why-the-same-business-problems-keep-coming-back`, `systems-thinking-in-business`, or `systems-thinking-for-public-policy-*`  
+- **interest** rows (incl. W1-05 slot 4) → `causal-loop-diagram-software`, `systems-thinking-tool-checklist`, `economic-systems-modeling-*`  
 - **consideration** rows → existing `holist-iq-tutorial`, `holist-iq` (avoid circular-only links)
 
 Update cross-links as new posts go live so funnel intent always rises or stays level per AGENTS.md.
