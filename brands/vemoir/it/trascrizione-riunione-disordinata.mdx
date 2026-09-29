@@ -12,12 +12,20 @@ image: "@/assets/blog/messy-meeting-transcript/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/messy-meeting-transcript/inline1.jpg';
-import inline2 from '@/assets/blog/messy-meeting-transcript/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@lukesouthern?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Luke Southern</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Una trascrizione di riunione disordinata non la condividi finché numeri di cue e tempi tagliano le frasi. Le parole possono essere giuste e il file restare illeggibile. Il disordine è spesso solo l'impalcatura: `WEBVTT`, numeri, timestamp. I nomi già nel file restano. I nomi che non ci sono, nessuno li inventa dopo.
+
+<ol class="blog-flow">
+  <li><strong>Stabilizzare</strong><p>Prima etichette relatore ed errori evidenti.</p></li>
+  <li><strong>Segnare decisioni</strong><p>Evidenziare ciò che vincola il team.</p></li>
+  <li><strong>Tagliare rumore</strong><p>Togliere chiacchiere prima di condividere fuori.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Nota</span>
+  <p>La trascrizione è grezza. Il verbale è il record editato su cui si agisce.</p>
+</aside>
 
 ## Contenuti
 
@@ -30,18 +38,10 @@ Una trascrizione di riunione disordinata non la condividi finché numeri di cue 
 - [Domande frequenti](#domande-frequenti)
 
 
-<Image src={inline1} alt="Scrivania disordinata che viene riordinata in un taccuino" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@regeci?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Adrian Regeci</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 ## Com'è fatta una trascrizione di riunione disordinata
 
 Apri il file in un editor di testo prima di incollarlo in un documento. Vedi quasi sempre una di queste forme:
 
-
-<Image src={inline2} alt="Pagine sparse raccolte in una cartella" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - Un file WebVTT. La prima riga è `WEBVTT`. Poi righe vuote, tempi di cue, poi il testo parlato. Le trascrizioni cloud di Teams e Zoom hanno spesso questo aspetto. Un parlante compare come `<v Giulia Neri>dovremmo consegnare venerdì</v>` oppure come `Giulia Neri: dovremmo consegnare venerdì`.
 - Un file SRT. Cue numerate, poi tempi con una virgola prima dei millisecondi (`00:01:02,000`), poi il testo.

@@ -10,13 +10,8 @@ relatedPosts: ["enregistrer-reunion-teams-sur-mac", "retirer-bot-ia-reunion", "e
 tool: "recording-to-notes"
 image: "@/assets/blog/teams-transcript-not-showing/hero.jpg"
 draft: false
+
 ---
-
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/teams-transcript-not-showing/inline1.jpg';
-import inline2 from '@/assets/blog/teams-transcript-not-showing/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@nordwood?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">NordWood Themes</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Une **transcription Teams absente** après l'appel veut en général dire l'une de trois choses&nbsp;: la transcription n'a jamais démarré, votre compte n'a pas le droit d'ouvrir le fichier, ou le récap se trouve à un endroit que vous n'ouvrez pas. Microsoft range une transcription enregistrée chez l'organisateur, pas comme un fichier libre sur chaque portable. Cette page suit ce chemin. Elle n'invente pas un bouton qui ramène une transcription que Teams n'a jamais créée.
 
 Les étapes suivent l'aide de Microsoft, vérifiée en septembre 2026. Les menus bougent. Si un libellé diffère, prenez l'info-bulle du cadenas sur le contrôle de transcription, plutôt qu'une liste tierce.
@@ -35,10 +30,6 @@ Les étapes suivent l'aide de Microsoft, vérifiée en septembre 2026. Les menus
 L'article de Microsoft sur le démarrage, l'arrêt et le téléchargement des transcriptions en direct dit qu'après la réunion, l'organisateur ou un coorganisateur peut télécharger un .docx ou un .vtt depuis le chat de la réunion&nbsp;: ouvrez la réunion passée, puis Récapitulatif, puis Transcription ([télécharger les transcriptions](https://support.microsoft.com/en-au/teams/meetings/start-stop-and-download-live-transcripts-in-microsoft-teams-meetings), septembre 2026). Le même article indique que la transcription est stockée dans le OneDrive Entreprise de l'organisateur lorsque la réunion a eu un enregistrement ou une transcription, et qu'on l'ouvre depuis le chat et le récap jusqu'à ce que l'organisateur la supprime.
 
 
-<Image src={inline1} alt="Carnet ouvert et vide sur un bureau calme" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@derstudi?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Timon Studler</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Un enregistrement hors canal se trouve dans le dossier Recordings du OneDrive de l'organisateur. Une réunion de canal se trouve dans les fichiers SharePoint de ce canal, dossier Recordings. Si vous cherchez sur votre bureau un .vtt que Teams ne vous a jamais copié, vous cherchez dans la mauvaise pièce.
 
 La phrase «&nbsp;Aucune transcription disponible&nbsp;», «&nbsp;jamais créée, expirée ou supprimée&nbsp;» ou «&nbsp;No meeting transcript&nbsp;» ne veut pas dire que le texte se cache dans un cache que vous pouvez forcer. Microsoft emploie cette formule quand personne n'a démarré, que le traitement a échoué, que quelqu'un a supprimé, ou qu'une longue réunion n'a pas attaché le fichier. Ne promettez pas à un collègue que cela réapparaîtra.
@@ -47,10 +38,6 @@ La phrase «&nbsp;Aucune transcription disponible&nbsp;», «&nbsp;jamais créé
 
 Avancez dans cet ordre. Arrêtez-vous quand le fichier est là, ou quand la règle est claire.
 
-
-<Image src={inline2} alt="Un stylo suspendu au-dessus du papier pendant une pause" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@liliantruong2603?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Trương Tuyết Ly</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Ouvrez le chat de la réunion, pas un nouveau chat avec les mêmes personnes. Trouvez la réunion déjà terminée. Ouvrez Récapitulatif, puis Transcription. Si vous pouvez télécharger un .docx ou un .vtt, c'est fini.
 2. Si vous n'étiez pas l'organisateur, demandez-lui d'ouvrir le récap. Les participants externes et anonymes ne peuvent souvent ni voir ni télécharger la transcription après la réunion, même s'ils ont vu les sous-titres pendant l'appel.
@@ -81,6 +68,17 @@ Si Teams n'a jamais créé de transcription et que vous avez un MP3, M4A, WAV ou
 Pour un fichier plus long, ou pour le prochain appel pendant qu'il se déroule, l'application Mac enregistre le micro et le son système depuis la barre de menus. Elle ne rejoint pas l'appel comme un bot et n'utilise pas le stockage de transcription de Teams. Vous démarrez et vous arrêtez. System Audio Recording et Microphone sont les autorisations que macOS demande. La capture est le son, pas l'écran. La transcription et la séparation des locuteurs tournent sur le Mac. Vous dites quand même aux autres que vous enregistrez. L'application ne s'annonce pas dans Teams.
 
 Aucun des deux chemins ne reconstruit une transcription que Teams a supprimée. Ils ne couvrent que l'audio que vous détenez déjà, ou l'audio que vous capturerez la prochaine fois.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Onglet transcription</span><strong>Licence</strong><p>Teams peut masquer le texte sans le bon plan.</p></li>
+  <li><span class="blog-kicker">Délai</span><strong>Heures</strong><p>Le traitement cloud n'est pas toujours immédiat.</p></li>
+  <li><span class="blog-kicker">Repli</span><strong>Capture locale</strong><p>Enregistrez l'audio sur le Mac si l'onglet reste vide.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Les enregistrements intégrés dépendent de la licence de l'hôte. Une app barre de menus ne remplace pas les bannières Teams ou Zoom.</p>
+</aside>
 
 ## Questions fréquentes
 

@@ -184,6 +184,7 @@ const SKILL_FILES = [
   'frontmatter.md',
   'query-map.md',
   'batch.md',
+  'blocks.md',
   'images.md',
   'seo-2026.md',
 ];

@@ -11,11 +11,7 @@ image: "@/assets/blog/delete-a-meeting-recording/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/delete-a-meeting-recording/inline1.jpg';
-import inline2 from '@/assets/blog/delete-a-meeting-recording/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 To **delete a meeting recording** on a Mac, you choose which layer to remove. The audio file, the finished meeting record, and the project that holds several meetings are not the same object. Vemoir keeps those steps separate, on the machine, so dropping the tape does not have to drop the minutes.
 
 This page is the practical version: when the audio goes, what still sits in the library, and what a project deletion actually clears. Consent and how long you are allowed to keep a record stay with you.
@@ -35,9 +31,12 @@ This page is the practical version: when the audio goes, what still sits in the 
 A finished meeting in Vemoir is a small stack of local files and database rows:
 
 
-<Image src={inline1} alt="A paper recycle bin next to a clean notebook" width={700} quality={80} class="w-full" />
+<ol class="blog-flow">
+  <li><strong>Audio</strong><p>Microphone and system tracks, if you kept them.</p></li>
+  <li><strong>Transcript</strong><p>Built locally after you stop.</p></li>
+  <li><strong>Project</strong><p>The folder that groups several meetings.</p></li>
+</ol>
 
-<p><em>Photo by <a href="https://unsplash.com/@rawkkim?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">rawkkim</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - The microphone track and the system-audio track, if you kept them.
 - The transcript built from that audio after you stopped.
@@ -53,9 +52,12 @@ The capture itself never records the screen. macOS permission for the call audio
 Many people want the notes on Monday and the audio gone by Friday. That is a storage choice, not a full delete.
 
 
-<Image src={inline2} alt="Hands removing a folder from a drawer" width={700} quality={80} class="w-full" />
+<ul class="blog-checklist">
+  <li>Decide whether you need the minutes after the audio goes</li>
+  <li>Purge audio in Storage without deleting the meeting</li>
+  <li>Delete the meeting or project only when the whole record should vanish</li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 During setup, or later in **Settings → Storage**, you decide whether future meetings keep their audio. Each meeting keeps the choice that was active when it was created. A meeting recorded while retention was off does not grow an audio file because you change the setting afterwards.
 

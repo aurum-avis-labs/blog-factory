@@ -11,9 +11,6 @@ image: "@/assets/blog/fix-wrong-speaker-names/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/fix-wrong-speaker-names/inline1.jpg';
-import inline2 from '@/assets/blog/fix-wrong-speaker-names/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@stacysuxx?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">stacysuxx</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 You can **fix wrong speaker names** on a finished Vemoir meeting by renaming the label. That rename does not create a voice profile. `Remember this speaker` is a different control, and it waits for an explicit yes. If the only problem is a name on this transcript, change the label and stop there.
@@ -25,11 +22,13 @@ The raw separation and the timestamped lines stay as evidence. You are correctin
 Speaker labels appear after you stop, when on-Mac separation has grouped the audio. Until then, a live preview is only a preview. Do not spend time naming people in the preview and expect that draft to be the record.
 
 
-<Image src={inline1} alt="A blank line being marked on paper, no readable names" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@dlxmedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dlxmedia</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Open the meeting, switch to the transcript or the speaker list, and read a few turns before you rename. A wrong name is often one of three things: the cluster is right and the label is a placeholder, two people were grouped together, or your own voice and the room leaked into the same mic. The rename fixes the first case. The other two need a correction of the cluster, not a confident name on a mixture.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Rename in the transcript</h3><p>Fix the label on the line you trust.</p></li>
+  <li data-step="2"><h3>Add a speaker profile</h3><p>Link a voice cluster to the correct name.</p></li>
+  <li data-step="3"><h3>Regenerate minutes</h3><p>Re-run the record after profiles change.</p></li>
+</ol>
 
 ## Rename without saving a voice
 
@@ -39,10 +38,6 @@ Open the meeting, switch to the transcript or the speaker list, and read a few t
 4. Check a timestamped line to see the new name on the right turns.
 5. If you already remembered someone by mistake, reject or undo that match, then delete or anonymize the profile in Privacy settings. The rename itself was not the problem.
 
-
-<Image src={inline2} alt="Someone rewriting a label on a cream card" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Unknown speakers stay anonymous until you name them. A blank or generic label is honest when you are not sure. Inventing a name to tidy the minutes is worse than leaving "Speaker 2" if you would not defend that name later.
 
@@ -55,6 +50,12 @@ A rename without a profile is the better choice for a one-off call, a guest, or 
 Leaving the label anonymous is better when you cannot tell the voices apart. A shared cloud notetaker can be better when the whole team needs the same directory and your policy allows their cloud. Vemoir does not sync a speaker roster to other Macs. Names you type stay in the local record.
 
 Browser tools do not help here. [/tools/transcribe-recording](/tools/transcribe-recording) turns a file you already have into text, up to 15 minutes, and it does not invent speaker names. If the file has no labels, the page says so. Live separation is the Mac app.
+
+<ul class="blog-checklist">
+  <li>Fix names before you email the client</li>
+  <li>Use the same spelling as the project glossary</li>
+  <li>Do not assume the model learned from one edit</li>
+</ul>
 
 ## Names in the minutes and in what you share
 

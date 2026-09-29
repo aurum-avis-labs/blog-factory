@@ -1,34 +1,105 @@
 ---
-translationKey: make-n8n-power-automate
-title: "Make, n8n, Power Automate: pick the tool after the process"
-description: "Make is fast in the cloud, n8n can self-host, Power Automate if you already live in M365. Data location and a DPA matter. Process first."
+title: "Make vs n8n vs Power Automate: pick the tool after the process"
+description: "Make vs n8n vs Power Automate for a Swiss SME: who each tool fits, who should skip it, and why the workflow comes before the licence."
 pubDate: 2027-01-11
 author: "Aurum Avis Labs"
-funnelStage: interest
 tags: ["n8n", "make", "power automate"]
+funnelStage: interest
+translationKey: make-n8n-power-automate
 relatedPosts: ["which-process-to-automate-first", "copilot-or-build-a-workflow"]
-image: "@/assets/blog/make-n8n-power-automate/img1.jpg"
+image: "@/assets/blog/make-n8n-power-automate/hero.jpg"
 draft: false
 ---
 
-Three tools show up in every other conversation. The order is still: the workflow first, then the tool. The filter is in [which process to automate first](/blog/which-process-to-automate-first). When you should not build at all, and take a Copilot licence instead: [Copilot or build a workflow](/blog/copilot-or-build-a-workflow).
+## Make, n8n, and Power Automate after the process is clear
 
-We do not certify a vendor. The landscape you already have decides more than a ranking.
+Pick the tool after you can say what the workflow does. Make fits a firm that needs cloud glue between systems it already pays for, and that can live with a vendor processing the run under a contract. n8n fits when you want the option to run it on infrastructure you control, and you accept that someone operates updates, backups and access. Power Automate fits when Microsoft 365 is already the desk, so the path runs through licences and environments you have, plus the connectors those licences include.
 
-## Three sentences per tool
+There is no single winner for a Swiss SME. We do not certify a vendor, and this is not an affiliate ranking. The stack you already have decides more than a feature list.
 
-**Make.** Fast, many connectors, cloud. Good when you need glue in days and a cloud contract plus DPA is acceptable.
+Before any of the three, the workflow has to pass the filter in [which process to automate first](/blog/which-process-to-automate-first): it repeats, it hurts, it has an edge, the file already exists. If what you need is a draft inside Word, Outlook or Teams, a licence often beats a build. That fork is in [Copilot or build a workflow](/blog/copilot-or-build-a-workflow).
 
-**n8n.** Self-hosting is possible, more control over where data sits. More operations on your side: updates, backups, who may touch the workflow.
+## Same jobs, three answers
 
-**Power Automate.** If Microsoft 365 is already the operating system, often the shortest path. A licence and environment topic, not "the newest model".
+Compare the tools on the job you actually have. A scheduled file from two exports. A reminder when a quote has sat for seven days. A PDF dropped in a folder that should land as a draft in the accounting tool, still waiting for a person to confirm. Those are office jobs. They are not a reason to collect platforms.
 
-## Switzerland: data location, not an affiliate list
+| Job | Make | n8n | Power Automate |
+| --- | --- | --- | --- |
+| Who it is for | A small team that wants a cloud flow in days and can sign a DPA | A firm that wants the run on a host it controls | A firm that already lives in Microsoft 365 |
+| Where the run lives | On Make's cloud. You confirm the region and the contract before live data goes in | On n8n Cloud, or on a server you run if you self-host | In your Microsoft tenant. Region follows how that tenant is set up |
+| Who looks after it next year | The vendor runs the platform. You still own the scenario, the logins and the errors | You, if you self-host: updates, backups, who may edit the flow. n8n Cloud shifts the platform back to them | A Microsoft admin: licences, environments, connector access |
+| A human still approves | Put the approval in the scenario. The tool will not invent it | Same. An approval step is yours to design | Approvals in Teams are a natural fit when the firm already works there |
+| Skip it when | You cannot accept a cloud processor, or the same glue already exists in Microsoft and you would be paying twice | Nobody will patch the server, and cloud hosting of the workflow is also unacceptable | You are not on Microsoft 365, or the systems you must reach sit outside the connectors your licence includes |
 
-Personal data: a processing agreement, know where the run lives, no customer files in a private Free chat beside the workflow. Same DPA as the rest of this cluster, not a special statute for n8n.
+Prices move, and plan names move. Make is billed as cloud usage. n8n self-hosted moves the platform cost onto the server you run, and n8n also sells a cloud. Power Automate is mostly a licence question inside Microsoft 365, with extra cost when a flow needs premium connectors. Check the vendor's current price page before you commit. For a small firm the connector subscription is usually the smaller number. Defining the workflow, and building it once, is the spend that changes the year. Guide figures for that build, not for these three tools, are in [what automation costs in Switzerland](/blog/what-automation-costs-switzerland).
 
-A tutorial of every connector does not belong here. The Check clarifies the workflow. The tool follows.
+<ul class="blog-scenarios">
+  <li><h3>If Microsoft 365 is already the desk</h3><p>Start with Power Automate for mail, Teams, SharePoint and the approvals you already live in. Leave Make and n8n until a system Microsoft does not reach is the actual gap.</p></li>
+  <li><h3>If the file has to stay on a host you control</h3><p>Look at self-hosted n8n, and name who patches it. If that name does not exist, do not pick it because a blog said self-hosting is cleaner.</p></li>
+  <li><h3>If you need cloud glue this month and a DPA is acceptable</h3><p>Make is the short path between SaaS tools, once you have read where the run is processed and signed the processing terms. Do not put the live customer file in until that reading is done.</p></li>
+</ul>
 
-## Process first, tool second
+## Make: cloud glue, if the contract fits
 
-The [Process Check](/prozess-check): 60 minutes, a case, which package size. Only then Make, n8n or Power Automate, if a build is needed at all.
+Make (the product that used to be called Integromat) is a cloud service. You draw a scenario, you connect accounts, and a run happens on their side. That is why a first glue between two SaaS tools can exist in days, without a server in a cupboard in the office.
+
+Personal data in the run means you are the controller and Make is a processor. You need a processing agreement, and you need the region on the plan you would actually buy. Those pages change. Read the current one. If that region is somewhere your file is not allowed to go, choose another tool. The region is whatever the contract you sign actually says.
+
+Make is a poor fit when nobody will open the error log. A scenario that fails quietly for three weeks is worse than the Monday paste, because people trust a file that stopped updating. Name who gets the failure mail before you turn it on.
+
+Skip Make when the firm already runs the same flow in Microsoft 365. You would pay for a second platform. Skip it when your own rule says this file stays off a SaaS workflow tool. Self-hosting is the next heading.
+
+## n8n: control over the host, and the work that comes with it
+
+n8n can run as their cloud, or on a server you operate. Self-hosting is the reason Swiss offices ask about it: the workflow execution stays on infrastructure you chose, which matters when the file holds customer or employee data and a cloud workflow tool is a hard no.
+
+Control is an operations job. Someone installs updates, takes backups, restricts who can edit a workflow, and notices when a credential expires. In a firm of 15 people that someone is often the same office lead who already builds the Monday sheet. If they will not do server work, and you will not pay a host to do it, self-hosted n8n becomes a project that stalls after the demo.
+
+n8n Cloud is a different choice. Then you are back to a processor, a contract and a region, and you should read those the same way you would for Make. The self-host benefit does not transfer to the cloud plan by brand name.
+
+Skip n8n when nobody will maintain it, and when Microsoft already contains the flow so you would be adding a server to avoid one licence line. If the process itself is still vague, run the filter before you install anything. A self-hosted tool leaves the failure with you to patch.
+
+This page is not a connector tutorial. Screenshots of logins go stale. For a PDF that lands in a folder, with fields suggested and a person confirming in bexio, the confirm step matters more than which node you drag.
+
+## Power Automate: the short path when Microsoft is the office
+
+Power Automate is Microsoft's flow tool. If mail, files and approvals already sit in Exchange, SharePoint and Teams, it is often the shortest path, because the people and the permissions are already there. A request can land in Teams, a file can move in SharePoint, and the approver is a person you can name in the admin centre.
+
+The topic is licences and environments. Some flows work with what the Microsoft 365 subscription already includes. Premium connectors and desktop automation cost more, on Microsoft's price list. Check the connector you actually need against the licence you already have before you design around it.
+
+Data sits in the Microsoft cloud your tenant uses. For many Swiss SMEs that is already true of their mail, so the new question is smaller than it is for a brand-new SaaS tool. A processing agreement still applies. A flow that copies a mandate file into a personal OneDrive is the same mistake as a paste into a private chat. Personal data stays on paths the firm has allowed.
+
+Skip Power Automate when the firm is not on Microsoft 365 and you would be buying the stack only to gain the flow tool. That is a large commitment for a single reminder or a single report. Skip it when the systems that matter (a niche industry tool, a portal with no connector) are outside Microsoft and the plan is a chain of fragile workarounds. Skip it when you wanted a model to draft text in the apps people already open. That is a Copilot question, and the Copilot article is the place to stop if a licence covers the gap.
+
+## Switzerland: data location, then the workflow
+
+Personal data in a run needs a processing agreement when a vendor touches it, a known place where the run happens, and no customer files in a private Free chat "beside" the official flow. The same Swiss Data Protection Act covers this as the rest of the office. There is no special statute that appears because the tool is called n8n, Make or Power Automate.
+
+Practical order:
+
+1. List the fields that move. Names, addresses, invoice PDFs and mandate notes are personal data. A total with no names may not be.
+2. Decide whether a cloud processor is acceptable for those fields. If it is not, self-hosting is the remaining serious option, and you still need an operator.
+3. Read the current DPA and region on the plan you would buy. Do not inherit a region from a blog.
+4. Only then compare which of the three can see the systems you listed.
+
+An allow-list of one tool beats three half-finished scenarios. The person who may edit the flow should be as clear as the person who may send a customer mail.
+
+## Who should walk away from all three
+
+Walk away when the last ten runs do not look alike. The stop signs, shifting columns, no owner, output that leaves unread, are in [when AI makes the process worse](/blog/when-ai-makes-the-process-worse). Walk away when a company Copilot licence already covers the gap, because the gap is wording inside files the person may open. Walk away when the project is to replace bexio or Abacus. These tools glue a gap beside the system of record.
+
+## Three offices, three different picks
+
+A 20-person project office in Zug already works in Microsoft 365. Quotes go out from Outlook, files sit in SharePoint, the partner approves in Teams. The missing piece is a reminder when a quote has had no reply for seven days, and a draft the owner still sends. Power Automate matches the desk. Make would duplicate it. Self-hosted n8n would add a server nobody wants.
+
+A 40-person manufacturer in Thurgau has a niche production tool and a separate CRM. Neither is Microsoft. The weekly file contains customer names, and the firm's advisor has said those names stay off a new US SaaS workflow tool until a contract and a region are explicit. If they can name an operator, self-hosted n8n is the candidate to evaluate. If they cannot name an operator, they wait. A signup does not create that person.
+
+An 8-person agency in Bern, no private customer files in the flow, only a public-form notification into Slack or Teams and a row in a sheet, can use Make and be done in days, provided someone watches failures. The Data Protection Act still applies if the form collects names. The DPA with the vendor gets read before that form is the live one. They do not need a server.
+
+None of these is a result we measured, and none is a recommendation to buy this week. They are the shape of the decision: stack, data, and whether a person will still be there in six months when a password expires.
+
+## Process first, then the tool
+
+The [Process Check](/prozess-check) is 60 minutes on one workflow you already run. You leave with a case and, if a build makes sense, a package size. The tool comes after that, and sometimes the answer is that a licence you already have is enough, or that this workflow should stay manual.
+
+Bring the systems, a sample file, and who would operate the flow. Leave the shortlist of logos until the case is specific enough that one row of the table above is obviously yours.

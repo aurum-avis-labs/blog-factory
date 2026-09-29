@@ -1,6 +1,6 @@
 ---
 title: "Warum Belege in Sitzungsnotizen mehr wiegen als Politur"
-description: "Belege in Sitzungsnotizen führen eine Aussage auf eine Transkriptzeile zurück. Ohne diesen Verweis ist die saubere Zusammenfassung später schwer prüfbar."
+description: "Belege in Sitzungsnotizen führen eine Aussage auf eine Transkriptzeile zurück. Ohne den Verweis ist die saubere Zusammenfassung später schwer prüfbar."
 pubDate: 2026-11-12
 author: "Vemoir Team"
 tags: ["Sitzungsnotizen", "Transkript", "Belege"]
@@ -11,19 +11,15 @@ image: "@/assets/blog/evidence-in-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/evidence-in-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/evidence-in-meeting-notes/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@lereverdo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">lereverdo</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Belege in Sitzungsnotizen** sind ein Verweis von einer Aussage zurück auf die Zeile, die sie stützt. Die Zusammenfassung darf kurz sein. Der Verweis lässt jemanden, der nicht im Raum war, oder der anders erinnert, den Wortlaut prüfen, ohne den ganzen Call noch einmal abzuspielen.
+**Belege in Sitzungsnotizen** sind ein Verweis von einer Aussage zurück auf die Zeile, die sie stützt. Die Zusammenfassung darf kurz sein. Der Verweis lässt jemanden, der nicht im Raum war oder sich anders erinnert, den Wortlaut prüfen, ohne den ganzen Call noch einmal abzuspielen.
 
-Ein polierter Absatz ohne Spur ist leicht weiterzuleiten und schwer zu verteidigen. Hier geht es um diese Lücke: was als Beleg zählt, was nur so aussieht, und warum das Originaltranskript unangetastet bleibt, wenn die Notizen sauberer werden.
+Ein polierter Absatz ohne Spur lässt sich leicht weiterleiten und schwer verteidigen. Hier geht es um diese Lücke: was als Beleg zählt, was nur so aussieht, und warum das Originaltranskript unangetastet bleibt, wenn die Notizen sauberer werden.
 
 ## Inhalt
 
 - [Was Belege in Sitzungsnotizen wirklich sind](#was-belege-in-sitzungsnotizen-wirklich-sind)
-- [Eine Zusammenfassung ist eine Behauptung](#eine-zusammenfassung-ist-eine-behauptung)
+- [Was die Zusammenfassung behauptet](#was-die-zusammenfassung-behauptet)
 - [Was kein Beleg ist](#was-kein-beleg-ist)
 - [Wie eine Prüfung am selben Tag aussieht](#wie-eine-prüfung-am-selben-tag-aussieht)
 - [Wenn Zeile und Notiz sich widersprechen](#wenn-zeile-und-notiz-sich-widersprechen)
@@ -31,59 +27,60 @@ Ein polierter Absatz ohne Spur ist leicht weiterzuleiten und schwer zu verteidig
 
 ## Was Belege in Sitzungsnotizen wirklich sind
 
-Ein Beleg ist hier die zeitgestempelte Stelle im Transkript, auf der ein späterer Satz beruht. Er ist nicht der Satz selbst. Er ist nicht dein Eindruck vom Ton. Es sind die Wörter, die aus dem fertigen Audio erfasst wurden, in Reihenfolge.
+Ein Beleg ist hier die zeitgestempelte Stelle im Transkript, auf der ein späterer Satz beruht. Er ist nicht der Satz selbst. Er ist nicht dein Eindruck vom Ton. Es sind die Wörter, die aus dem fertigen Audio erfasst wurden, in der Reihenfolge, in der sie kamen.
 
-
-<Image src={inline1} alt="Offenes Notizbuch mit Lesezeichenband" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@katemacate?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">katemacate</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Zusammenfassung</span><strong>Kurz</strong><p>Gut zum Überfliegen. Ohne Quellenzeile leicht falsch gelesen.</p></li>
+  <li><span class="blog-kicker">Transkript</span><strong>Wortlaut</strong><p>Die Zeile, zu der Ask springen kann.</p></li>
+  <li><span class="blog-kicker">Export</span><strong>Deine Wahl</strong><p>Protokoll teilen ohne Roh-Audio.</p></li>
+</ul>
 
 Diese Trennung zählt, weil Notizen und Transkript verschiedene Aufgaben haben. Das Transkript ist lang und uneben. Die Notizen sind das, was du schickst. Dazwischen liegt ein Urteil: welche Zeilen ein Entscheid wurden, welche eine Aufgabe, welche Smalltalk blieben. Der Beleg ist der Weg zurück von diesem Urteil zu den Zeilen.
 
 Ohne den Rückweg muss man der Notiz auf den Stil vertrauen. Mit ihm kann jemand die Stelle öffnen, lesen und entscheiden, ob die Notiz zu weit gegangen ist.
 
-Vemoir hält das rohe, zeitgestempelte Transkript getrennt von erzeugter oder bearbeiteter Prosa. Zusammenfassungs-, Aufgaben- und Entscheidzeilen können die Stellen zeigen, auf denen sie stehen. Die Steuerung öffnet die Quellsitzung, wechselt ins Transkript, setzt die Stelle in die Mitte und markiert sie. Ein Verweis, der sich nicht auflöst, wird nicht als Link gezeigt. Ein kaputter Zeiger soll wie eine Lücke aussehen, nicht wie ein Beweis.
+Vemoir hält das rohe, zeitgestempelte Transkript getrennt von erzeugter oder bearbeiteter Prosa. Zeilen in Zusammenfassung, Aufgaben und Entscheiden können die Stellen zeigen, auf denen sie stehen. Die Steuerung öffnet die Quellsitzung, wechselt ins Transkript, setzt die Stelle in die Mitte und markiert sie. Ein Verweis, der sich nicht auflöst, wird nicht als Link gezeigt. Ein kaputter Zeiger soll wie eine Lücke aussehen, nicht wie ein Beweis.
 
-Die Schritte, eine Frage im Chat zu stellen und einer Quellenangabe zu folgen, stehen in «Ask questions about a meeting transcript». Diese Seite bleibt bei der Idee. Jene ist die Anleitung.
+Die Schritte, eine Frage im Chat zu stellen und einer Quellenangabe zu folgen, stehen in «Fragen zum Meeting-Transkript». Diese Seite bleibt bei der Idee. Jene ist die Anleitung.
 
-## Eine Zusammenfassung ist eine Behauptung
+## Was die Zusammenfassung behauptet
 
-Lies eine Zusammenfassung als eine Menge von Behauptungen, auch wenn die Prosa glatt ist.
+Lies eine Zusammenfassung als eine Reihe von Behauptungen, auch wenn die Prosa glatt ist.
 
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Beleglinks sind keine Rechtszertifizierung. Aufbewahrung und Einwilligung liegen bei dir.</p>
+</aside>
 
-<Image src={inline2} alt="Transkriptseiten unter einer kurzen Summarikkarte" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@ryuldavidson?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ryuldavidson</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-- «Wir haben vereinbart, Einstellungen zu pausieren» behauptet Zustimmung, nicht nur einen Vorschlag.
+- «Wir haben vereinbart, Einstellungen zu pausieren» behauptet Zustimmung, nicht bloss einen Vorschlag.
 - «Lea schickt den Entwurf bis Freitag» behauptet eine Person und ein Datum.
 - «Der Kunde hat die zweite Option abgelehnt» behauptet eine Ablehnung, nicht ein Zögern.
 
-Jedes davon kann wahr sein und trotzdem in einem vierzigminütigen Transkript schwer zu finden. Der Beleg sind die wenigen Zeilen, die die Behauptung prüfbar machen. Es ist nicht eine Sammlung jedes Moments, in dem das Thema vorkam.
+Jedes davon kann stimmen und trotzdem in einem Transkript von vierzig Minuten schwer zu finden sein. Der Beleg sind die wenigen Zeilen, die die Behauptung prüfbar machen. Es ist nicht die Sammlung jedes Moments, in dem das Thema vorkam.
 
 Ein guter Verweis ist kurz. Er landet auf dem Moment, in dem die Wahl fiel, oder auf dem Moment, in dem sie klar nicht fiel. Zehn Markierungen zum selben Thema lehren weniger als eine Markierung auf dem Satz, der es entschieden hat.
 
-Fragen über eine Sitzung funktionieren gleich. Eine Antwort kann auf stützende Zeilen zeigen. In Vemoir sind diese Links optional, gedeckelt, und als die stärksten Stellen gewählt, nicht als jeder Absatz, den die Suche berührt hat. Eine lange Antwort, die alles zitiert, ist ein zweites Transkript. Sie hilft nicht, eine Behauptung zu prüfen.
+Fragen über eine Sitzung funktionieren gleich. Eine Antwort kann auf stützende Zeilen zeigen. In Vemoir sind diese Links freiwillig, in der Zahl begrenzt, und als die stärksten Stellen gewählt, nicht als jeder Absatz, den die Suche berührt hat. Eine lange Antwort, die alles zitiert, ist ein zweites Transkript. Sie hilft nicht, eine Behauptung zu prüfen.
 
 ## Was kein Beleg ist
 
 Mehreres wird als Beweis behandelt und ist keiner.
 
-**Deine eigenen Notizen.** Notizen, die du während des Calls tippst, sind wertvoll. Eine Zahl, eine Schreibweise, eine Bedingung, die nie klar gesagt wurde. Sie sollen ins Protokoll einfliessen. Es bleiben deine Wörter. Sie müssen sichtbar getrennt bleiben von einer wörtlichen Zeile. Widersprechen sich Notiz und Transkript, können beide auf verschiedene Weise stimmen: du hast eine Zahl gehört, die das Modell verpasst hat, oder du hast eine Hoffnung notiert. Keines ersetzt das andere still.
+**Deine eigenen Notizen.** Notizen, die du während des Calls tippst, sind wertvoll: eine Zahl, eine Schreibweise, eine Bedingung, die nie klar gesagt wurde. Sie sollen ins Protokoll einfliessen. Es bleiben deine Wörter. Sie müssen sichtbar getrennt bleiben von einer wörtlichen Zeile. Widersprechen sich Notiz und Transkript, können beide auf verschiedene Weise stimmen. Du hast eine Zahl gehört, die das Modell verpasst hat, oder du hast eine Hoffnung notiert. Keines ersetzt das andere still.
 
-**Ein Glossar.** Bevorzugte Begriffe und Aliase helfen späteren Entwürfen, den Namen zu nutzen, den der Kunde heute verwendet. Sie schreiben das Originaltranskript nicht um. Der Beleg bleiben die gesprochenen Wörter, auch wenn die Zusammenfassung den bevorzugten Namen nutzt.
+**Ein Glossar.** Bevorzugte Begriffe und Aliasse helfen späteren Entwürfen, den Namen zu nutzen, den der Kunde heute verwendet. Sie schreiben das Originaltranskript nicht um. Der Beleg bleiben die gesprochenen Wörter, auch wenn die Zusammenfassung den bevorzugten Namen nutzt.
 
-**Ein neu erzeugter Absatz.** Die Notizen noch einmal laufen zu lassen kann den Wortlaut glätten und Änderungen aufnehmen. Der neue Absatz ist weiter erzeugter Text. Er ist nur dann ein Beleg, wenn er noch auf eine auflösbare Stelle zeigt. Bricht die Spur, bleibt die Politur ein Entwurf.
+**Ein neu erzeugter Absatz.** Die Notizen noch einmal laufen zu lassen kann den Wortlaut glätten und Änderungen aufnehmen. Der neue Absatz bleibt erzeugter Text. Er ist nur dann ein Beleg, wenn er noch auf eine auflösbare Stelle zeigt. Bricht die Spur, bleibt die Politur ein Entwurf.
 
-**Eine Follow-up-Mail.** Die Mail ist, was du der anderen Seite gesagt hast. Das zählt. Sie ersetzt die Zeile im Transkript nicht, wenn der Streit darum geht, was gesagt wurde, und nicht darum, was du später geschrieben hast.
+**Eine Nachfass-Mail.** Die Mail ist, was du der anderen Seite gesagt hast. Das zählt. Sie ersetzt die Zeile im Transkript nicht, wenn der Streit darum geht, was gesagt wurde, und nicht darum, was du später geschrieben hast.
 
-**Sprechersicherheit, die du nicht geprüft hast.** Unbekannte Sprecher bleiben anonym, bis du eine Beschriftung umbenennst oder ein gemerktes Profil freigibst. Eine anonyme Beschriftung neben einem scharfen Zitat ist weiter ein brauchbarer Beleg für die Wörter. Sie ist ein schwacher Beleg dafür, wer sie gesagt hat. Hebe sie nicht durch Raten in der Notiz an und behandle die Notiz dann als Quelle.
+**Sprechersicherheit, die du nicht geprüft hast.** Unbekannte Sprecher bleiben anonym, bis du eine Beschriftung umbenennst oder ein gemerktes Profil freigibst. Eine anonyme Beschriftung neben einem scharfen Zitat ist weiter ein brauchbarer Beleg für die Wörter. Für die Frage, wer sie gesagt hat, ist sie schwach. Heb sie nicht durch Raten in der Notiz an und behandle die Notiz dann als Quelle.
 
 **Eine Live-Vorschau.** Während der Call läuft, kann eine Vorschau unvollständig sein. Das Transkript, das zählt, entsteht aus dem fertigen lokalen Audio, nachdem du stoppst. Belege sollen dorthin zeigen.
 
 ## Wie eine Prüfung am selben Tag aussieht
 
-Du brauchst keine eigene Reviewsitzung, um Belege zu nutzen. Du brauchst eine Gewohnheit.
+Du brauchst keine eigene Reviewsitzung, um Belege zu nutzen. Eine Gewohnheit reicht.
 
 1. Lies den Entscheid oder die Aufgabe, nicht die ganze Zusammenfassung.
 2. Öffne die zitierte Stelle. Gibt es keine Quellenangabe, ist die Zeile ein Entwurf, bis du die Stelle findest oder sie als eigene Notiz markierst.
@@ -91,7 +88,7 @@ Du brauchst keine eigene Reviewsitzung, um Belege zu nutzen. Du brauchst eine Ge
 4. Ist die Stelle weicher als die Zeile, bearbeite die Zeile. Bearbeite nicht das Transkript, damit es zur Zeile passt.
 5. Findest du keine Stelle, stufe die Zeile zur offenen Frage herab oder schreib sie als deine Notiz, mit deinem Namen.
 
-Diese Gewohnheit ist am nützlichsten, wenn zwei Personen den Call verschieden erinnern. Ihr streitet nicht mehr über das Gedächtnis und schaut auf die Zeile. Ist die Zeile mehrdeutig, ist der ehrliche Eintrag «nicht entschieden» oder «deine Lesart», nicht ein glatterer Satz.
+Diese Gewohnheit hilft am meisten, wenn zwei Personen den Call verschieden erinnern. Ihr streitet nicht mehr über das Gedächtnis und schaut auf die Zeile. Ist die Zeile mehrdeutig, ist der ehrliche Eintrag «nicht entschieden» oder «deine Lesart», nicht ein glatterer Satz.
 
 Auf einem Mac bleiben diese Stellen bei der Sitzungsbibliothek. Die Suche findet die Wörter. Eine Frage in einem begrenzten Bereich kann eine Antwort mit Links liefern. Archivierte und gelöschte Sitzungen fallen aus diesem Bild. Ein Grund mehr, die Verweise zu klären, bevor du einen heiklen Call archivierst. Wie diese Fragefläche aufgesetzt ist, steht im [Chat](/de#chat). Wie der Eintrag aufgebaut ist, unter [Protokoll](/de#record).
 
@@ -101,7 +98,7 @@ Das weitere leere Blatt für Entscheide und Aufgaben, wenn du von Hand schreibst
 
 Der Widerspruch ist der Grund, beide zu behalten.
 
-Manchmal ist das Transkript die schwächere Quelle. Ineinanderreden, ein Name, der einmal fällt, eine Zahl, die schnell gesagt wird. Deine eigene Notiz kann diese Einzelheit besser festhalten. Behalte sie als eigene Notiz. Füg sie nicht ins Transkript ein und nenne sie Audio.
+Manchmal ist das Transkript die schwächere Quelle. Ineinanderreden, ein Name, der einmal fällt, eine Zahl, die schnell gesagt wird. Deine eigene Notiz kann diese Einzelheit besser festhalten. Behalte sie als eigene Notiz. Füg sie nicht ins Transkript ein und nenn sie Audio.
 
 Manchmal ist die Notiz die schwächere Quelle. Die Zusammenfassung sagt, das Budget sei genehmigt. Die Stelle sagt «wir können es nächste Woche anschauen, wenn Finance im Raum ist». Korrigiere die Zusammenfassung. Lass die Stelle.
 
@@ -135,10 +132,10 @@ Nein. Eine Zeile kann zeigen, dass eine Idee gesagt wurde. Zustimmung ist eine E
 
 ### Muss ich den Beleg mit jeder Mail schicken?
 
-Nein. Viele Follow-ups brauchen nur Entscheid und Aufgabe. Halt den Verweis in deinem Eintrag, damit du ihn öffnen kannst, wenn die Mail infrage steht.
+Nein. Viele Nachfass-Mails brauchen nur Entscheid und Aufgabe. Halt den Verweis in deinem Eintrag, damit du ihn öffnen kannst, wenn die Mail infrage steht.
 
-### Wo steht die Klick-für-Klick-Fassung?
+### Wo steht die Schritt-für-Schritt-Fassung?
 
-In «Ask questions about a meeting transcript». Dort geht es ums Fragen und ums Öffnen der zitierten Zeile. Hier geht es darum, warum der Verweis existiert.
+In «Fragen zum Meeting-Transkript». Dort geht es ums Fragen und ums Öffnen der zitierten Zeile. Hier geht es darum, warum der Verweis existiert.
 
 Behalte das Transkript als den Ort, an dem eine Behauptung geprüft werden kann. Die Fläche, eine Frage gegen diese Bibliothek zu stellen, ist [Ask Vemoir](/de#chat).

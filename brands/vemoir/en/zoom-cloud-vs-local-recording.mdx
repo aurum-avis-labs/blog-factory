@@ -12,10 +12,6 @@ image: "@/assets/blog/zoom-cloud-vs-local-recording/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/zoom-cloud-vs-local-recording/inline1.jpg';
-import inline2 from '@/assets/blog/zoom-cloud-vs-local-recording/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@seffen99?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">seffen99</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Zoom cloud vs local recording** is a storage choice with a transcript attached. Cloud recording lives on Zoom and, on accounts Zoom treats as eligible, can include a VTT transcript after processing. Local recording lives on the computer that clicked Record and gives you audio, typically an M4A, without that VTT. If you recorded locally and expected a transcript email, the file formats article is the explanation, not a glitch.
 
@@ -33,10 +29,12 @@ Zoom’s own note on [recording file formats](https://support.zoom.com/hc/en/art
 
 **Cloud.** The host records to Zoom’s cloud. Processing happens after the meeting. The host, and people the host or the admin allow, open the recording from the Zoom web portal. On eligible plans, Zoom can produce a transcript as a **VTT** file alongside the video. That eligibility is an account and settings question. A free host who never enabled cloud recording will not get a VTT by wishing for one. Admins can turn cloud recording off for the whole account. If Record to the Cloud is missing, assume policy before you assume a bug.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Cloud</span><strong>Paid plan</strong><p>Transcript tied to Zoom cloud storage.</p></li>
+  <li><span class="blog-kicker">Local</span><strong>audio_only.m4a</strong><p>Default path on many free accounts.</p></li>
+  <li><span class="blog-kicker">Browser</span><strong>15 min</strong><p>Local file can be transcribed without upload to Vemoir.</p></li>
+</ul>
 
-<Image src={inline1} alt="A local hard drive on a wood table, clouds outside" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@leowieling?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">leowieling</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Cloud is also where Zoom’s retention and sharing settings apply. A link can leave the company faster than a file on one laptop, and it can be revoked in the portal, which a copied M4A in someone else’s Downloads folder cannot. If your security review already approved Zoom as the place recordings live, staying in that system is simpler than inventing a second archive.
 
@@ -50,10 +48,11 @@ You can also ignore Zoom’s recorder and capture the meeting from the Mac while
 
 After a local recording, Zoom writes a folder. The location is whatever the Zoom desktop app has under Settings, Recording, Local recording. People often leave the default, which puts the meeting folder under Documents, in a Zoom directory, named with the meeting date and topic.
 
+<aside class="blog-callout">
+  <span class="blog-kicker">Correction</span>
+  <p>Downloading a Zoom VTT is not local transcription. Speech-to-text already ran in Zoom's cloud.</p>
+</aside>
 
-<Image src={inline2} alt="A drawer of files and an open window in the same room" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@ejmerrell?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ejmerrell</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Inside that folder, look for the audio-only file. Zoom’s documentation refers to a local audio file named along the lines of `audio` plus a number, with an `.m4a` extension. Many installs also show `audio_only.m4a`. Use that file for transcription. It is smaller than the MP4 and it is the speech without a video decode. Keep the whole folder until you trust the text. The chat file, if present, is a side channel and not a substitute for what was said aloud.
 

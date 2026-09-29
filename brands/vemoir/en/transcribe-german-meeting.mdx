@@ -12,10 +12,6 @@ image: "@/assets/blog/transcribe-german-meeting/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/transcribe-german-meeting/inline1.jpg';
-import inline2 from '@/assets/blog/transcribe-german-meeting/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@bchild311?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">bchild311</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 To **transcribe a German meeting** is to get Standard German on the page: readable Hochdeutsch, not a dialect script and not a certified verbatim. You either already hold a file (export, local Zoom audio, recorder) or you will capture the next Sitzung on this Mac. Public speech models write Standard German. Vemoir does not claim dialect output. If the room speaks strongly in dialect, expect Standard German spelling, gaps, or both, not a dialect transcript.
 
@@ -25,10 +21,12 @@ The practical path is local: import the file or record from the menu bar, and ru
 
 Standard German is the written form you expect in DE, AT, and in formal Swiss minutes: standard spelling, ordinary technical terms, names you will still fix. It is not:
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">File ready</span><strong>M4A or MP3</strong><p>Import or use the browser tool under 15 minutes.</p></li>
+  <li><span class="blog-kicker">Live next time</span><strong>Menu bar</strong><p>Capture mic and system audio on the Mac.</p></li>
+  <li><span class="blog-kicker">Dialect</span><strong>Not claimed</strong><p>Swiss German becomes Standard German in public models.</p></li>
+</ul>
 
-<Image src={inline1} alt="Two people talking over coffee at a cafe table with a notebook" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@productschool?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">productschool</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - a certified transcript
 - a forensic word-for-word record
@@ -44,11 +42,6 @@ Proper names, product codes, and internal jargon are the usual cleanup. A projec
 2. Play ten seconds. If the file is silent, you have a capture problem, not a German problem.
 3. Under 15 minutes: choose the file in the [transcribe recording tool](/tools/transcribe-recording). The model downloads once; later runs can work with the network off. The Network tab should show that the audio was not posted to Vemoir.
 4. Longer meetings: import into the Mac app (picker or drag and drop), optionally into a project. Transcription and speaker separation run on the device.
-
-
-<Image src={inline2} alt="A European office meeting table with notebooks in daylight" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@wesleyphotography?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">wesleyphotography</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Local Zoom recordings are often `audio_only.m4a`, not a ready transcript. See [how to transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording). Interviews that must not go to a cloud vendor are covered in [transcribe an interview without uploading](/blog/transcribe-interview-without-upload).
 
@@ -68,6 +61,13 @@ Want to test a short German clip without an upload? [Open the transcribe recordi
 ## Where the text breaks even when everyone spoke Standard German
 
 Overlapping talk, weak speakers, hold music, acronyms the model has never seen: that is audio quality, not "German failed." Whispered remarks in a large room will come out patchy.
+
+<ul class="blog-checklist">
+  <li>Pick the language that matches most of the call before you transcribe.</li>
+  <li>Rename speakers after import; profiles are optional.</li>
+  <li>Export only the sections you may share.</li>
+</ul>
+
 
 Mixed-language turns (a German sentence, then English) are a different job. This article assumes the meeting is Standard German.
 

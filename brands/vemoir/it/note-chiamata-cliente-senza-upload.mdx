@@ -12,9 +12,6 @@ image: "@/assets/blog/client-call-notes-without-upload/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/client-call-notes-without-upload/inline1.jpg';
-import inline2 from '@/assets/blog/client-call-notes-without-upload/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">charlesdeluvio</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Note della chiamata cliente senza upload** significa che il file audio non deve essere inviato a un server per diventare una nota. Sul sito apri un file che hai già e il modello gira nella scheda. Nell'app Mac la chiamata viene registrata e trascritta sulla macchina. Entrambi ti lasciano un testo che devi ancora rivedere prima che un cliente lo veda. Nessuno dei due rende lecita la registrazione. Lo dici comunque al cliente.
@@ -29,14 +26,16 @@ Il percorso browser è [registrazione in note](/it/strumenti/registrazione-in-no
 - [Quando un cloud condiviso vince ancora](#quando-un-cloud-condiviso-vince-ancora)
 - [Domande frequenti](#domande-frequenti)
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Browser</span><strong>Nessun upload</strong><p>Il file resta nel tab; controlla Network.</p></li>
+  <li><span class="blog-kicker">Limite</span><strong>15 minuti</strong><p>Tre esecuzioni riuscite a settimana.</p></li>
+  <li><span class="blog-kicker">App Mac</span><strong>Locale</strong><p>Registrazione e trascrizione restano locali senza export.</p></li>
+</ul>
+
 ## Note della chiamata cliente senza upload, nel browser
 
 Usalo quando la chiamata è finita e tieni un file breve.
 
-
-<Image src={inline1} alt="Cartella riservata e cuffie su una scrivania quieta" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Esporta MP3, M4A, WAV o MP4. Se l'unica copia è una registrazione più lunga, taglia sulla parte di cui la nota ha bisogno prima di spendere un'esecuzione settimanale.
 2. Apri [registrazione in note](/it/strumenti/registrazione-in-note). Il modello vocale si scarica nella scheda. Le esecuzioni successive possono girare senza rete. Il file non viene caricato su Vemoir. Il pannello Network del browser è il controllo.
@@ -53,10 +52,6 @@ Non c'è un'estensione browser, nessuna cattura di scheda e nessuna registrazion
 Smetti di svuotare un workshop cliente per soddisfare un tetto. Registra o importa sul Mac.
 
 
-<Image src={inline2} alt="Chiamata cliente privata: porta chiusa e taccuino" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@galen_crout?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">galen_crout</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Vemoir cattura microfono e audio di sistema come tracce locali separate dalla barra dei menu. Funziona con l'app di riunione che sta suonando, inclusi Zoom, Teams, Meet, Slack e altre elencate sotto [piattaforme](/it#platforms). Nessun bot entra. Tu avvii e fermi. Il permesso macOS per il lato remoto dell'audio è **System Audio Recording**. Quel tap è solo audio. Lo schermo non viene registrato. Permetti anche il microfono.
 
 Trascrizione e separazione speaker girano sul Mac. Verbale, decisioni, azioni e una bozza di follow-up vengono da quel trascritto locale. Fai una domanda dopo e la risposta può puntare alla riga. I modelli di testo in cloud restano spenti finché non ne attivi uno con la tua chiave, e non ricevono l'audio. Non c'è un passaggio silenzioso a un modello cloud se quello locale fallisce.
@@ -68,6 +63,11 @@ L'import di un file esistente sul Mac accetta MP3, M4A, WAV, AIFF, CAF e FLAC. C
 Il prezzo, di nuovo, perché questo è il passo di considerazione: CHF 20 in Svizzera, una tantum nel Mac App Store, ogni funzione inclusa, niente posto, niente tariffa per riunione. Lo Store mostra il prezzo locale. Le stesse indicazioni sono sotto [prezzi](/it#pricing). Installazione dall'[App Store](https://apps.apple.com/app/id6794693630).
 
 Dillo al cliente prima di registrare. Un bot assente non è una dichiarazione assente.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Nota</span>
+  <p>Consenso e conservazione restano tuoi. Vemoir non rende legale da solo una call cliente.</p>
+</aside>
 
 ## Cosa mandi al cliente
 

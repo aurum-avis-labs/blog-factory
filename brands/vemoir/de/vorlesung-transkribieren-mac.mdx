@@ -12,12 +12,9 @@ image: "@/assets/blog/lecture-transcription-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/lecture-transcription-mac/inline1.jpg';
-import inline2 from '@/assets/blog/lecture-transcription-mac/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@saungdigital?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">saungdigital</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Vorlesung transkribieren** auf dem Mac beginnt mit Audio, das du behalten darfst: eine Aufnahme, die die Dozentin schon geteilt hat, oder das Mikrofon im Raum, während du dort sitzt. Es ist kein Live-Untertitel für den Beamer, und es ist kein Versprechen, wie viele Wörter stimmen werden. Verbietet die Hochschule persönliche Aufnahmen, hebt eine lokale App das nicht auf. Eine geteilte Moodle-Datei ist nicht automatisch die Erlaubnis, sie in ein privates Projekt zu legen, das später jemand anderes auf demselben Mac öffnet. Klär, wer die Notizen sehen darf, bevor du das Projekt anlegst.
+
+**Vorlesung transkribieren** auf dem Mac beginnt mit Audio, das du behalten darfst: eine Aufnahme, die die Dozentin schon geteilt hat, oder das Mikrofon im Raum, während du dort sitzt. Live-Untertitel für den Beamer sind das nicht, und eine Zusicherung, wie viele Wörter stimmen, ist es auch nicht. Verbietet die Hochschule persönliche Aufnahmen, hebt eine lokale App das nicht auf. Eine geteilte Datei auf Moodle ist nicht automatisch die Erlaubnis, sie in ein privates Projekt zu legen, das später jemand anderes auf demselben Mac öffnet. Klär, wer die Notizen sehen darf, bevor du das Projekt anlegst.
 
 Sag es, wenn du das Mikrofon hältst. Ein Laptop auf dem Tisch ist für die hintere Reihe leicht zu übersehen.
 
@@ -25,59 +22,60 @@ Sag es, wenn du das Mikrofon hältst. Ein Laptop auf dem Tisch ist für die hint
 
 Wenn die Abteilung das Audio veröffentlicht, lade es und transkribiere die Datei. Nimm die Wiedergabe nicht über Lautsprecher noch einmal auf. Diese zweite Kopie fügt Raumgeräusch hinzu und verliert die sauberere Spur, die du bekommen hast.
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Den Mac so stellen, dass er hört</h3><p>Mikrofon im Laptop oder ein externes, nicht der Beamer.</p></li>
+  <li data-step="2"><h3>Aufnehmen oder importieren</h3><p>Lange Stunden in die Mac-App, nicht ins Browser-Tool mit 15 Minuten.</p></li>
+  <li data-step="3"><h3>Modell für die Transkription wählen</h3><p>Parakeet v3 oder Whisper läuft auf dem Mac, nachdem du gestoppt hast.</p></li>
+</ol>
 
-<Image src={inline1} alt="Uninotizen und zugeklappter Laptop im Auditorium" width={700} quality={80} class="w-full" />
+Kurze Dateien gehen durch [Audio transkribieren](/de/tools/audio-transkribieren). MP3, M4A, WAV und MP4. Fünfzehn Minuten. Drei erfolgreiche Läufe die Woche. Das Modell lädt einmal in den Browser. Die Datei wird nicht hochgeladen. Sprechernamen gibt es nicht. Ein öffentliches Modell gibt Schweizerdeutsch meist als Standarddeutsch aus. Die Mac-App hat dieselbe Grenze: Standardsprachen, kein Dialektmodus.
 
-<p><em>Photo by <a href="https://unsplash.com/@saungdigital?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">saungdigital</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Eine Vorlesung von 90 Minuten passt nicht in die Grenze des Browsers. Schneide sie nicht in inoffizielle Extrarunden und verlier dann die Mitte, wenn du wiederholst. Wandle Video in Audio, wenn du den Import auf dem Mac brauchst, und nimm die ganze Stunde mit.
 
-Kurze Dateien gehen durch [Audio transkribieren](/de/tools/audio-transkribieren). MP3, M4A, WAV und MP4. Fünfzehn Minuten. Drei erfolgreiche Läufe die Woche. Das Modell lädt einmal in den Browser. Die Datei wird nicht hochgeladen. Es gibt keine Sprechernamen. Ein öffentliches Modell gibt Schweizerdeutsch meist als Standarddeutsch aus. Die Mac-App hat dieselbe Grenze: Standardsprachen, kein Dialektmodus.
-
-Eine Vorlesung von 90 Minuten passt nicht in die Browser-Grenze. Schneide sie nicht in inoffizielle Extrarunden und verlier dann die Mitte beim Wiederholen. Wandle Video in Audio, wenn du den Mac-Import brauchst, und nimm die ganze Stunde mit.
-
-Importformate auf dem Mac sind MP3, M4A, WAV, AIFF, CAF und FLAC. Ein MP4 aus einer Vorlesungsaufzeichnung ist Video. Zieh zuerst den Ton heraus. Dann kann dieselbe Pipeline auf dem Gerät wie bei einer Sitzung ein Transkript bauen. Sprechernamen auf einer gemischten Raumspur, oder auf einer Datei mit Ansteckmikrofon und Saal in derselben Mischung, bleiben grob. Die vortragende Person kann dominieren. Fragen aus dem Raum können in eine Stimme fallen oder in keine. Benenne eine Bezeichnung um, wenn du sie kennst. Unbekanntes bleibt ohne Namen. «Sprecher merken» ist optional, verschlüsselt und löschbar. Für eine einmalige Gastdozentin lass es aus.
+Importformate auf dem Mac sind MP3, M4A, WAV, AIFF, CAF und FLAC. Ein MP4 aus einer Vorlesungsaufzeichnung ist Video. Zieh zuerst den Ton heraus. Dann kann dieselbe Verarbeitung auf dem Gerät wie bei einer Sitzung ein Transkript bauen. Sprechernamen auf einer gemischten Raumspur, oder auf einer Datei mit Ansteckmikrofon und Saal in derselben Mischung, bleiben grob. Die vortragende Person kann dominieren. Fragen aus dem Raum können in eine Stimme fallen oder in keine. Benenne eine Bezeichnung um, wenn du sie kennst. Unbekanntes bleibt ohne Namen. «Sprecher merken» ist optional, verschlüsselt und löschbar. Für eine einmalige Gastdozentin lass es aus.
 
 ## Das Mikrofon im Raum
 
-Es gibt keinen eigenen Vorlesungsmodus und keinen eigenen Präsenz-Modus. Du wählst das Mikrofon und drückst Aufnahme in der Menüleiste. Systemton bleibt still, ausser der Mac spielt Ton, etwa einen Clip, den die Dozentin auf genau dieser Maschine startet. Die Wörter im Saal sind am Mikrofon.
+Einen eigenen Vorlesungsmodus gibt es nicht, auch keinen eigenen Modus für Präsenz. Du wählst das Mikrofon und drückst Aufnahme in der Menüleiste. Der Systemton bleibt still, ausser der Mac spielt Ton, etwa einen Clip, den die Dozentin auf genau dieser Maschine startet. Die Wörter im Saal kommen über das Mikrofon.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Browser-Tool</span><strong>15 Min</strong><p>Die Datei bleibt im Tab. Eine Live-Vorlesung nimmt es nicht auf.</p></li>
+  <li><span class="blog-kicker">Mac-App</span><strong>Import</strong><p>MP3, M4A, WAV, AIFF, CAF, FLAC.</p></li>
+</ul>
 
-<Image src={inline2} alt="Seminarraum mit Stuehlen, Notizbuch und Tageslicht" width={700} quality={80} class="w-full" />
+Stell den Mac hin, wo Sprache laut genug ist. Das eingebaute Mikrofon kann ein kleines Seminar abdecken, wenn die Leute nah sind. Ein Hörsaal mit einem Laptop in Reihe zwölf verpasst die Front und verwischt hinten. Die Rauschunterdrückung an diesem Mikrofon steht auf Aus, Ausgewogen oder Stark, auf dem Mac, für gleichmässiges Rauschen wie Brummen oder einen Beamer. Eine leise Frage aus dem Saal holt sie nicht herein, und ein zweites Mikrofon erfindet sie nicht.
 
-<p><em>Photo by <a href="https://unsplash.com/@saungdigital?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">saungdigital</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Du startest und stoppst. Kommst du zu spät, fehlt die Definition am Anfang. Vergisst du zu stoppen, enthält das Band die Pause. Die App merkt von selbst keine Stunde und beginnt nicht allein. Die Live-Ansicht ist eine Vorschau. Das Transkript, das du behältst, entsteht nach dem Stopp, auf dem Mac. Apple Silicon, macOS Sonoma 14.2 oder neuer, 8 GB Speicher, 10 GB frei. 16 GB sind die Empfehlung, wenn die Aufnahme lang ist. Intel-Macs und Windows werden nicht unterstützt. Die App liegt im [Mac App Store](https://apps.apple.com/app/id6794693630).
 
-Stell den Mac hin, wo Sprache laut genug ist. Das eingebaute Mikrofon kann ein kleines Seminar abdecken, wenn die Leute nah sind. Ein Hörsaal mit einem Laptop in Reihe zwölf verpasst die Front und verwischt hinten. Rauschunterdrückung an diesem Mikrofon ist Aus, Ausgewogen oder Stark, auf dem Mac, für gleichmässiges Rauschen wie Brummen oder einen Beamer. Sie holt keine leise Frage aus einem Saal, und sie erfindet kein zweites Mikrofon.
-
-Du startest und stoppst. Kommst du zu spät, fehlt die Definition am Anfang. Vergisst du zu stoppen, enthält das Band die Pause. Die App bemerkt keine Stunde und beginnt nicht von selbst. Die Live-Ansicht ist eine Vorschau. Das Transkript, das du behältst, entsteht nach dem Stopp, auf dem Mac. Apple Silicon, macOS Sonoma 14.2 oder neuer, 8 GB Speicher, 10 GB frei. 16 GB sind die Empfehlung, wenn die Aufnahme lang ist. Intel-Macs und Windows werden nicht unterstützt. Die App liegt im [Mac App Store](https://apps.apple.com/app/id6794693630).
-
-Die Transkription bleibt auf dem Gerät. Notizen können auf dem Gerät bleiben. Ein optionaler Text-API-Schlüssel, deiner, schickt nur Text, wenn du ihn einschaltest. Audio geht nicht mit. Kein stiller Rückfall, wenn du ihn aus lässt. Nach dem Download der Sprachmodelle braucht der Hörsaal kein Netz für die Verarbeitung. Parakeet v3 deckt 25 europäische Sprachen als Standardsprache ab. Die Oberfläche ist Englisch, Deutsch, Französisch, Italienisch und Niederländisch.
+Die Transkription bleibt auf dem Gerät. Notizen können auf dem Gerät bleiben. Ein optionaler Schlüssel für eine Text-API, deiner, schickt nur Text, wenn du ihn einschaltest. Das Audio geht nicht mit. Lässt du ihn aus, gibt es keinen stillen Rückfall. Nach dem Download der Sprachmodelle braucht der Hörsaal kein Netz für die Verarbeitung. Parakeet v3 deckt 25 europäische Sprachen als Standardsprache ab. Die Oberfläche ist Englisch, Deutsch, Französisch, Italienisch und Niederländisch.
 
 ## Was du mit dem Text machst
 
-Ein Vorlesungstranskript ist eine Lernhilfe, kein Verwaltungsratsprotokoll.
+Ein Transkript der Vorlesung ist eine Lernhilfe, kein Protokoll des Verwaltungsrats.
 
-Markier Definitionen, Beispiele und die Aufgabe in eigenen Notizen, als deine gekennzeichnet. Diese Notizen fliessen in den Eintrag mit einer Markierung, dass sie kein wörtlicher Beleg sind. Ein Satz, den das Modell gehört hat, ist der, den du prüfen kannst: öffne das Transkript und lies die Stelle, bevor du sie in einer Arbeit zitierst. Ist die Zeile falsch, korrigiere sie vom Audio. Glätte eine Vermutung nicht zu einem Zitat.
+Markier Definitionen, Beispiele und die Aufgabe in eigenen Notizen, als deine gekennzeichnet. Diese Notizen fliessen in den Eintrag mit einer Markierung, dass sie kein wörtlicher Beleg sind. Ein Satz, den das Modell gehört hat, ist der, den du prüfen kannst: öffne das Transkript und lies die Stelle, bevor du sie in einer Arbeit zitierst. Ist die Zeile falsch, korrigiere sie vom Audio. Eine Vermutung glättest du nicht zu einem Zitat.
 
-Die Suche kann einen Begriff über Vorlesungen finden, die du in einem Projekt abgelegt hast. Ask kann auf eine Stelle in dieser Sitzung, diesem Projekt oder der aktiven Bibliothek zeigen. Archiviertes und Gelöschtes bleibt draussen. Ein Verweis, der sich nicht auflösen lässt, wird nicht als Link gezeigt. Das Glossar kann Kursbegriffe halten, die dir wichtig sind. Es schreibt das Originaltranskript nicht um.
+Die Suche kann einen Begriff über Vorlesungen finden, die du in einem Projekt abgelegt hast. Ask kann auf eine Stelle in dieser Sitzung, diesem Projekt oder der aktiven Bibliothek zeigen. Archiviertes und Gelöschtes bleibt draussen. Ein Verweis, der sich nicht auflösen lässt, wird nicht als Link gezeigt. Das Glossar kann Kursbegriffe halten, die dir wichtig sind. Das Originaltranskript schreibt es nicht um.
 
-Behalt das Audio, wenn du vor einer Prüfung noch einmal hören willst, über die Aufbewahrung, die beim Anlegen der Aufnahme gespeichert wurde. Leer Audio später, wenn die Regel nur Text erlaubt, dann geht die Wiedergabe mit. Lösch die Aufnahme, wenn du sie nicht behalten solltest. Löschen entfernt Transkript, erzeugte Notizen, angehängte Aufgaben oder Entscheide und den Aufnahmeordner. Eine Datei, die noch in Downloads liegt, ist getrennt. Die räumst du selbst weg.
+Behalt das Audio, wenn du vor einer Prüfung noch einmal hören willst, über die Aufbewahrung, die beim Anlegen der Aufnahme gespeichert wurde. Leer das Audio später, wenn die Regel nur Text erlaubt, dann geht die Wiedergabe mit. Lösch die Aufnahme, wenn du sie nicht behalten solltest. Löschen entfernt Transkript, erzeugte Notizen, angehängte Aufgaben oder Entscheide und den Aufnahmeordner. Eine Datei, die noch in Downloads liegt, ist getrennt. Die räumst du selbst weg.
 
-Kopier Text heraus. Es gibt kein PDF oder DOCX aus der App. Füg ein, was die Notiz-App des Kurses schon nutzt.
+Kopier den Text heraus. Aus der App kommt kein PDF und kein DOCX. Füg ein, was die Notiz-App des Kurses schon nutzt.
 
 ## Was das nicht tut
 
-Es untertitelt die Vorlesung nicht in Echtzeit für jemand anderen im Raum. Es liest keine Folien. Musik, eine stumme Bildschirmaufnahme oder ein Video mit eingebranntem Text und ohne Sprache hat für ein Sprachmodell nichts zu transkribieren.
+Es untertitelt die Vorlesung nicht in Echtzeit für jemand anderen im Raum. Folien liest es nicht. Musik, eine stumme Bildschirmaufnahme oder ein Video mit eingebranntem Text und ohne Sprache gibt einem Sprachmodell nichts zu transkribieren.
 
-Es nennt dir keinen Genauigkeitsprozentwert. Lange Pausen, ein starker Akzent ausserhalb der Standardsprachen des Modells, zwei Leute gleichzeitig und ein lauter Saal zeigen sich als Fehler, die du lesen musst. Plan Zeit, um die Stellen zu prüfen, die du zitierst.
+Einen Prozentwert zur Genauigkeit nennt es dir nicht. Lange Pausen, ein starker Akzent ausserhalb der Standardsprachen des Modells, zwei Leute gleichzeitig und ein lauter Saal zeigen sich als Fehler, die du lesen musst. Plan Zeit, um die Stellen zu prüfen, die du zitierst.
 
-Es ersetzt nicht die Untertitel der Dozentin oder den Dienst für Barrierefreiheit, den die Hochschule anbietet. Veröffentlicht der Kurs schon ein Transkript, nutze das zuerst und behandle deine Datei als Sicherung, die du machen durftest.
+Die Untertitel der Dozentin oder den Dienst für Barrierefreiheit der Hochschule ersetzt es nicht. Veröffentlicht der Kurs schon ein Transkript, nutze das zuerst und behandle deine Datei als Sicherung, die du machen durftest.
 
-Musst du nur tippen, während du zuhörst, und Aufnahme ist nicht erlaubt, nutze das [Sitzungsprotokoll](/de/tools/sitzungsprotokoll). Kein Modell, kein Upload, eine leere Seite, Markdown wenn du kopierst.
+Musst du nur tippen, während du zuhörst, und ist Aufnahme nicht erlaubt, nutze das [Sitzungsprotokoll](/de/tools/sitzungsprotokoll). Kein Modell, kein Upload, eine leere Seite, Markdown wenn du kopierst.
 
 ## Häufige Fragen
 
 ### Kann ich eine ganze Vorlesung im Browser transkribieren?
 
-Nicht, wenn sie länger als 15 Minuten ist. Das Browser-Werkzeug ist eine kurze Datei, drei Läufe die Woche, keine Sprechernamen, nichts hochgeladen. Eine ganze Stunde gehört auf den Mac, nachdem du eine Audiodatei hast, oder als Mikrofonaufnahme, die du selbst gestartet hast.
+Nicht, wenn sie länger als 15 Minuten ist. Das Werkzeug im Browser ist eine kurze Datei, drei Läufe die Woche, keine Sprechernamen, nichts hochgeladen. Eine ganze Stunde gehört auf den Mac, nachdem du eine Audiodatei hast, oder als Aufnahme über das Mikrofon, die du selbst gestartet hast.
 
 ### Nimmt die App die Folien auf?
 
@@ -85,15 +83,15 @@ Nein. Erfasst werden das gewählte Mikrofon und der Systemton. Der Bildschirm wi
 
 ### Sind Namen von Studierenden im Transkript zuverlässig?
 
-Nicht von einem Raum-Mikrofon. Fragen von den Plätzen teilen oft eine Bezeichnung oder bekommen keine. Bau keine Stimmprofile für Kommilitonen. Unbekannte Stimmen bleiben anonym.
+Nicht von einem Mikrofon im Raum. Fragen von den Plätzen teilen oft eine Bezeichnung oder bekommen keine. Leg keine Stimmprofile für Kommilitonen an. Unbekannte Stimmen bleiben anonym.
 
 ### Geht das auf einem Windows-Laptop in der Vorlesung?
 
-Nicht mit dieser App. Ein kurzer Clip kann weiter durch das Browser-Werkzeug. Der Bibliotheksweg ist Apple Silicon.
+Nicht mit dieser App. Ein kurzer Clip kann weiter durch das Werkzeug im Browser. Der Weg über die Bibliothek braucht Apple Silicon.
 
 ### Ist Schweizerdeutsch ein eigenes Ergebnis?
 
-Nein. Erwarte Standarddeutsch vom öffentlichen Browser-Modell und Text in Standardsprache auf dem Mac. Lies die Stelle, bevor du einen Dialektsatz als fest annimmst.
+Nein. Vom öffentlichen Modell im Browser darfst du Standarddeutsch erwarten, auf dem Mac Text in Standardsprache. Lies die Stelle, bevor du einen Dialektsatz als fest annimmst.
 
 ### Wer darf aufnehmen?
 

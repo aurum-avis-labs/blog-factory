@@ -11,10 +11,6 @@ image: "@/assets/blog/record-slack-huddle-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/record-slack-huddle-mac/inline1.jpg';
-import inline2 from '@/assets/blog/record-slack-huddle-mac/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Enregistrer un huddle Slack sur Mac**, c'est capturer le son du huddle pendant qu'il joue sur l'ordinateur, sans inviter un bot dans le huddle. Les notes IA de Slack sont le meilleur chemin quand votre forfait les inclut et que personne d'externe n'est dans la salle. Quand ces notes ne sont pas disponibles, un enregistrement local est le repli utile. Vemoir fait cet enregistrement depuis la barre de menus.
 
@@ -32,11 +28,6 @@ L'app Mac est un achat unique. En Suisse elle coûte **CHF 20**. L'App Store aff
 
 Slack documente les **notes IA de huddle** sur les forfaits payants ([aide Slack](https://slack.com/help/articles/31377193680019-Use-AI-to-take-huddle-notes-in-Slack), septembre 2026). Quelqu'un dans le huddle active les notes, sauf si un membre a réglé le canal pour qu'elles démarrent toutes seules. Tout le monde dans le huddle est prévenu quand les notes démarrent, s'arrêtent ou sont annulées. Ensuite Slack partage un canvas dans le fil du huddle, avec les personnes, les sujets et les actions. Les transcriptions sont dans ce canvas et, selon Slack, n'apparaissent pas dans la recherche. Quiconque est dans le canal ou la conversation directe du huddle peut voir les notes.
 
-
-<Image src={inline1} alt="Petite reunion debout a une mange-debout avec des carnets" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@potokvarte?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">potokvarte</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Slack dit aussi qu'il est **impossible** d'utiliser les notes IA dans les huddles avec des personnes externes ou des invités. Les invités ne peuvent pas utiliser la fonction. Si votre huddle est un client, un candidat ou quelqu'un hors de l'espace, le chemin du canvas est fermé même sur un forfait payant.
 
 Voilà l'embranchement honnête. Huddle interne, Slack payant, pas d'invités&nbsp;: commencez par les notes de Slack. Personne externe, forfait gratuit, ou vous avez besoin du fichier audio&nbsp;: enregistrez sur le Mac.
@@ -47,10 +38,12 @@ L'audio d'un huddle n'est pas un clip Slack. Les clips sont des messages que vou
 
 Vemoir enregistre le micro et l'audio système de macOS sur deux pistes locales. Slack compte parmi les apps qui jouent du son sur le Mac. Aucun participant supplémentaire n'apparaît dans le huddle. Vous démarrez et vous arrêtez.
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Rejoindre le huddle sur ce Mac</h3><p>L'audio doit passer par le Mac enregistré.</p></li>
+  <li data-step="2"><h3>Autoriser l'audio système</h3><p>Audio seulement pour Vemoir, puis relancer.</p></li>
+  <li data-step="3"><h3>Démarrer depuis la barre</h3><p>Enregistrer avant la fin du passage important.</p></li>
+</ol>
 
-<Image src={inline2} alt="Huddle informel dans un couloir de bureau, carnets en main" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Utilisez un Mac à puce Apple (M1 ou plus récente) et macOS Sonoma 14.2 ou ultérieur. Prévoyez 8&nbsp;Go de mémoire et 10&nbsp;Go libres pour les modèles. 16&nbsp;Go sont plus confortables pour les longs huddles. Les Mac Intel ne sont pas pris en charge.
 2. Installez Vemoir depuis le [Mac App Store](https://apps.apple.com/app/id6794693630). En Suisse, CHF 20. Le store affiche le prix local.
@@ -65,6 +58,12 @@ Les [apps de réunion prises en charge](/fr#platforms) citent les huddles Slack 
 ## Ce que vous avez après l'arrêt
 
 Sur le Mac vous avez une transcription, un compte rendu, des décisions, des actions et un brouillon de suivi. La séparation des voix tourne en local. Vous pouvez renommer une étiquette sans créer un profil vocal. «&nbsp;Se souvenir de cette voix&nbsp;» est un choix séparé et explicite. Le profil est chiffré et supprimable. Les voix inconnues restent anonymes.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Slack peut déjà rédiger des notes canvas. Exportez-les si l'équipe vit dans Slack. Vemoir sert pour un compte rendu local que vous contrôlez.</p>
+</aside>
+
 
 Une question sur le huddle ensuite peut pointer une ligne de la transcription. Les notes que vous avez tapées pendant le huddle entrent dans le compte rendu et gardent leur origine, pour qu'une phrase de vous ne soit pas déguisée en preuve tirée de l'audio Slack.
 

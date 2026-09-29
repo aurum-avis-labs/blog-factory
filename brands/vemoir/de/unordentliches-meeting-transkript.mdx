@@ -1,6 +1,6 @@
 ---
 title: "Unordentliches Meeting-Transkript vor dem Teilen säubern"
-description: "Ein unordentliches Meeting-Transkript steckt voller Zeitstempel. So streichst du sie, behältst echte Namen und bekommst eine Seite zum Lesen."
+description: "Ein unordentliches Meeting-Transkript steckt voller Zeitstempel. So streichst du sie, behältst echte Namen und bekommst eine lesbare Seite."
 pubDate: 2026-10-15
 author: "Vemoir Team"
 tags: ["transkript", "bereinigung", "notizen"]
@@ -12,12 +12,20 @@ image: "@/assets/blog/messy-meeting-transcript/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/messy-meeting-transcript/inline1.jpg';
-import inline2 from '@/assets/blog/messy-meeting-transcript/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@lukesouthern?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Luke Southern</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Ein unordentliches Meeting-Transkript teilst du nicht, solange Cue-Nummern und Zeiten die Sätze zerschneiden. Die Wörter können stimmen und die Datei trotzdem unlesbar sein. Der Dreck ist oft nur Gerüst: `WEBVTT`, fortlaufende Nummern, Zeitstempel. Namen, die schon in der Datei stehen, bleiben. Namen, die nicht da sind, erfindet niemand nach.
+
+Ein unordentliches Meeting-Transkript teilst du nicht, solange Cue-Nummern und Zeiten die Sätze zerschneiden. Die Wörter können stimmen, und die Datei bleibt trotzdem unlesbar. Oft ist das nur Gerüst: `WEBVTT`, fortlaufende Nummern, Zeitstempel. Namen, die schon in der Datei stehen, bleiben. Namen, die nicht da sind, erfindet niemand nachträglich.
+
+<ol class="blog-flow">
+  <li><strong>Stabilisieren</strong><p>Sprecherbezeichnungen und klare Hörfehler zuerst.</p></li>
+  <li><strong>Entscheide markieren</strong><p>Zeilen hervorheben, die das Team binden.</p></li>
+  <li><strong>Rauschen kürzen</strong><p>Smalltalk streichen, bevor die Datei nach aussen geht.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Ein Transkript ist Rohmaterial. Ein Protokoll ist die bearbeitete Fassung, nach der gehandelt wird.</p>
+</aside>
 
 ## Inhalt
 
@@ -33,32 +41,22 @@ Ein unordentliches Meeting-Transkript teilst du nicht, solange Cue-Nummern und Z
 
 Öffne die Datei in einem Texteditor, bevor du sie in ein Dokument klebst. Du siehst fast immer eine dieser Formen:
 
-
-<Image src={inline1} alt="Unordentlicher Schreibtisch, der in ein Notizbuch sortiert wird" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@regeci?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Adrian Regeci</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-- Eine WebVTT-Datei. Die erste Zeile ist `WEBVTT`. Danach Leerzeilen, Cue-Zeiten, dann der gesprochene Text. Teams- und Zoom-Cloud-Transkripte sehen oft so aus. Ein Sprecher steht als `<v Kim Adler>wir sollten Freitag liefern</v>` oder als `Kim Adler: wir sollten Freitag liefern`.
+- Eine WebVTT-Datei. Die erste Zeile ist `WEBVTT`. Danach Leerzeilen, Cue-Zeiten, dann der gesprochene Text. Cloud-Transkripte von Teams und Zoom sehen oft so aus. Ein Sprecher steht als `<v Kim Adler>wir sollten Freitag liefern</v>` oder als `Kim Adler: wir sollten Freitag liefern`.
 - Eine SRT-Datei. Nummerierte Cues, dann Zeiten mit einem Komma vor den Millisekunden (`00:01:02,000`), dann Text.
 - Ein Rohauszug, in dem jede Zeile mit einer Zeit in Klammern beginnt und keine Namen hat.
 - Eine Datei, die schon Namen hat, aber doppelte Zeilen, weil der Untertitler einen Satz über zwei Cues zerteilt hat.
 
-Die Wörter können in Ordnung sein und die Datei trotzdem unlesbar. Das Chaos ist die Metadaten-Schicht. Sind die Wörter selbst falsch (ein Produktname, eine Person, eine Zahl), repariert das Streichen der Zeitstempel das nicht. Erkennungsfehler korrigierst du durch Lesen, nicht dadurch, dass du die Zeiten versteckst.
+Die Wörter können in Ordnung sein, und die Datei bleibt unlesbar. Das Durcheinander sitzt in den Metadaten. Sind die Wörter selbst falsch (ein Produktname, eine Person, eine Zahl), repariert das Streichen der Zeitstempel das nicht. Erkennungsfehler korrigierst du durch Lesen, nicht dadurch, dass du die Zeiten versteckst.
 
 ## Das Gerüst streichen, die Namen behalten
 
 Der kostenlose [Transkript-Bereiniger](/de/tools/transkript-bereinigen) nimmt ein Zoom-VTT, einen Teams-Export oder ein SRT. Du lässt die Datei fallen oder fügst den Text ein. Kopfzeile, Cue-Nummern und Zeitstempel fallen weg. Steht ein Name schon in der Datei, bleibt er in der Form `Name: Text`. Gehören zwei Cues hintereinander derselben Person, werden sie zusammengezogen.
 
+Hat die Datei keine Sprechernamen, sagt die Seite das. Die Zeitstempel fallen trotzdem weg. Namen werden nicht erfunden. Mehr tut der Bereiniger nicht: er rät nicht, wer gesprochen hat.
 
-<Image src={inline2} alt="Verstreute Seiten, die in einen Ordner kommen" width={700} quality={80} class="w-full" />
+Die Bereinigung verbraucht keinen der drei erfolgreichen Wochenläufe. Die Läufe sind für Sprache zu Text und für Notizen, die ein Modell aufrufen. Ein VTT, das du schon hast, ist Text. Du kannst in derselben Woche mehrere Dateien säubern, ohne den Zähler anzufassen.
 
-<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Hat die Datei keine Sprechernamen, sagt die Seite das. Die Zeitstempel fallen trotzdem weg. Namen werden nicht erfunden. Das ist das ganze Verhalten des Bereinigers: er rät nicht, wer gesprochen hat.
-
-Die Bereinigung verbraucht keinen der drei erfolgreichen Wochenläufe. Die Läufe sind für Sprache-zu-Text und für Notizen, die ein Modell aufrufen. Ein VTT, das du schon hast, ist Text. Du kannst in derselben Woche mehrere Dateien säubern, ohne den Zähler anzufassen.
-
-Ein Link auf der Seite kann den bereinigten Text an [Notizen aus einem Transkript](/de/tools/notizen-aus-transkript) geben, wenn du einen Recap, Entscheide und Massnahmen willst. Das machst du, nachdem du die bereinigte Seite gelesen hast, nicht vorher. Ein Modell glättet eine Datei, in der noch ein Witz oder eine verworfene Idee steckt.
+Ein Link auf der Seite kann den bereinigten Text an [Notizen aus einem Transkript](/de/tools/notizen-aus-transkript) geben, wenn du eine Zusammenfassung, Entscheide und Massnahmen willst. Das machst du, nachdem du die bereinigte Seite gelesen hast, nicht vorher. Ein Modell glättet eine Datei, in der noch ein Witz oder eine verworfene Idee steckt.
 
 ## Ein kurzes Beispiel
 
@@ -82,52 +80,52 @@ Nach einem sauberen Durchgang willst du etwas, das du lesen kannst:
 Lee: Kannst du die Überarbeitung bis Donnerstag schicken? Ich sehe mir zuerst Klausel vier an.
 ```
 
-Was du von einem Bereiniger nicht willst:
+Was ein Bereiniger dir nicht liefern soll:
 
 - `Speaker 1`, wenn die Datei nie einen Namen hatte.
 - Einen halben Satz gelöscht, weil er nach Füllwort klang.
 - Einen neuen Entscheid, den niemand gesagt hat.
 
-Fehlt der Stimm-Tag, ist die ehrliche Ausgabe der Satz ohne Namen. Namen kannst du später aus dem Gedächtnis ergänzen, und du markierst sie als deine Ergänzung, nicht als etwas, das in der Datei stand.
+Fehlt die Sprecherbezeichnung, ist die ehrliche Ausgabe der Satz ohne Namen. Namen kannst du später aus dem Gedächtnis ergänzen, und du markierst sie als deine Ergänzung, nicht als etwas, das in der Datei stand.
 
 ## Was nach den Zeitstempeln noch unordentlich ist
 
-Die Zeitstempel waren nur die offensichtliche Schicht. Vier andere Sorten Dreck überleben die Bereinigung.
+Die Zeitstempel waren nur die sichtbare Schicht. Vier andere Sorten bleiben nach der Bereinigung.
 
 **Füllwörter und Fehlstarts.** «Ich, ich denke, ähm, das Datum» ist immer noch das Transkript. Für ein Protokoll darfst du die Zeile straffen. Für Belege lässt du sie stehen. Führ nicht eine «bereinigte» Datei als beides.
 
-**Wiederholte Untertitel.** Manche Exporte wiederholen einen rollenden Untertitel. Nach dem Zusammenziehen gleichnamiger Zeilen liest du die Seite einmal. Steht dieselbe Klausel zweimal, löschst du das Duplikat von Hand. Ein Werkzeug, das benachbarte Cues derselben Person zusammenführt, erkennt nicht immer einen Untertitel, der dieselben Wörter zehn Sekunden später noch einmal gesagt hat.
+**Wiederholte Untertitel.** Manche Exporte wiederholen einen laufenden Untertitel. Nach dem Zusammenziehen gleichnamiger Zeilen liest du die Seite einmal. Steht dieselbe Klausel zweimal, löschst du das Duplikat von Hand. Ein Werkzeug, das benachbarte Cues derselben Person zusammenführt, erkennt nicht immer einen Untertitel, der dieselben Wörter zehn Sekunden später noch einmal gesagt hat.
 
-**Chat, in die Sprache gemischt.** Zooms `chat.txt` ist eine andere Datei als das Audio-Transkript. Klebe beides nicht in einen Brei und hoffe, der Bereiniger sortiert den Raum. Chat bleibt Chat.
+**Chat, in die Sprache gemischt.** Zooms `chat.txt` ist eine andere Datei als das Audio-Transkript. Klebe beides nicht in einen Brei und hoffe, der Bereiniger sortiere den Raum. Chat bleibt Chat.
 
 **Falsche Namen, die wirklich in der Datei stehen.** Hat Teams den Gast als «Conference Room» oder «Phone» beschriftet, behält der Bereiniger dieses Etikett, weil es da war. Benenne es selbst um, wenn du weisst, wer es war. Der Browser schlägt nicht in deinem Organigramm nach.
 
-**Sprachmix und Erkennungsfehler.** Die Bereinigung übersetzt nicht und startet die Spracherkennung nicht neu. Ein Name, der dreimal anders geschrieben ist, bleibt dreimal anders, bis du ihn änderst. Auf dem Mac kann ein Projektglossar spätere Transkripte zu den Begriffen schieben, die du willst. Das ursprüngliche Transkript bleibt der Beleg. Der Browser-Bereiniger wendet kein Glossar an.
+**Sprachmix und Erkennungsfehler.** Die Bereinigung übersetzt nicht und startet die Spracherkennung nicht neu. Ein Name, der dreimal anders geschrieben ist, bleibt dreimal anders, bis du ihn änderst. Auf dem Mac kann ein Projektglossar spätere Transkripte zu den Begriffen schieben, die du willst. Das ursprüngliche Transkript bleibt der Beleg. Der Bereiniger im Browser wendet kein Glossar an.
 
 ## Eine praktikable Reihenfolge
 
 1. Speichere das Original-`.vtt` oder `.srt`. Säubere nicht die einzige Kopie.
 2. Leg sie auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Lies den Hinweis, wenn dort steht, es habe keine Sprechernamen gegeben.
 3. Überflieg Duplikate, Raum-Mikrofone und Zahlen (Daten, Geld, Versionen).
-4. Brauchst du einen Recap, schick den bereinigten Text an die Notizen. Prüf jeden Verantwortlichen an den Zeilen, die du gerade gelesen hast.
+4. Brauchst du eine Zusammenfassung, schick den bereinigten Text an die Notizen. Prüf jede zuständige Person an den Zeilen, die du gerade gelesen hast.
 5. Brauchst du ein Protokoll, kopiere nur Entscheide und Massnahmen aufs [Sitzungsprotokoll](/de/tools/sitzungsprotokoll). Das Transkript ist nicht dieses Blatt.
 6. Lege das Original neben den bereinigten Text. Bestreitet jemand eine Zeile, hast du die Cues noch.
 
-Eine Datei, die nur Audio ist und kein Text, gehört nicht auf den Bereiniger. Eine lokale Zoom-Aufnahme ist oft `audio_only.m4a` ohne jedes Transkript. Der Weg dazu ist [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren). Dateien länger als 15 Minuten liegen ausserhalb der Browser-Transkription. Ein VTT zu säubern, das du schon exportiert hast, ist nicht diese Probe.
+Eine Datei, die nur Audio ist und kein Text, gehört nicht auf den Bereiniger. Eine lokale Zoom-Aufnahme ist oft `audio_only.m4a` ohne jedes Transkript. Der Weg dazu ist [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren). Dateien länger als 15 Minuten liegen ausserhalb der Transkription im Browser. Ein VTT zu säubern, das du schon exportiert hast, ist nicht dieser Versuch.
 
 ## Wo ein Modell das Chaos grösser macht
 
-Leute kleben ein VTT in einen Chatbot und bitten um «saubere Notizen». Das Modell streicht Zeitstempel, was du wolltest, und es streicht auch Bedingungen, vermischt zwei Sprecher und schreibt eine verantwortliche Person, die sich nie gemeldet hat. Dann hast du eine aufgeräumte Seite, die du nicht verteidigen kannst.
+Viele kleben ein VTT in einen Chatbot und bitten um «saubere Notizen». Das Modell streicht die Zeitstempel, was du wolltest, und es streicht auch Bedingungen, vermischt zwei Sprecher und schreibt eine verantwortliche Person, die sich nie gemeldet hat. Dann hast du eine aufgeräumte Seite, die du nicht halten kannst.
 
-Nimm einen Bereiniger, der nur das Format ändert, wenn die Datei ein Untertitel-Export ist. Nimm den Notizen-Durchgang, wenn du einen Recap-Entwurf willst, und lies ihn gegen den bereinigten Text. Nimm das Sitzungsprotokoll, wenn du bereit bist, Namen und Daten festzuhalten. Frag nicht einen Schritt, alle drei zu erledigen.
+Nimm einen Bereiniger, der nur das Format ändert, wenn die Datei ein Untertitel-Export ist. Nimm den Notizen-Durchgang, wenn du einen Entwurf der Zusammenfassung willst, und lies ihn gegen den bereinigten Text. Nimm das Sitzungsprotokoll, wenn du bereit bist, Namen und Daten festzuhalten. Ein einziger Schritt erledigt diese drei Aufgaben nicht.
 
-Auf dem Mac bleiben Transkript und erzeugte Aufzeichnung getrennt. Du kannst eine Zeile korrigieren, ohne die Zeitstempel der Aufnahme zu verlieren. Du kannst die Notizen teilen, ohne das Audio anzuhängen. Der Browser-Bereiniger ist die kleine Version der ersten Hälfte dieser Arbeit: lesbarer Text, Originaldatei bleibt deine, nichts wird als Untertiteldatei an Vemoir geschickt.
+Auf dem Mac bleiben Transkript und erzeugtes Protokoll getrennt. Du kannst eine Zeile korrigieren, ohne die Zeitstempel der Aufnahme zu verlieren. Du kannst die Notizen teilen, ohne das Audio anzuhängen. Der Bereiniger im Browser ist die kleine Version der ersten Hälfte dieser Arbeit: lesbarer Text, die Originaldatei bleibt deine, und als Untertiteldatei geht nichts an Vemoir.
 
 ## Häufige Fragen
 
 ### Verbraucht das Säubern einen Wochenlauf?
 
-Nein. Die drei erfolgreichen Läufe pro Woche sind für Werkzeuge, die ein Modell auf Audio oder auf Notizen laufen lassen. Ein VTT, ein SRT oder ein ähnlicher Export zu entkleiden verbraucht keinen Lauf.
+Nein. Die drei erfolgreichen Läufe pro Woche sind für Werkzeuge, die ein Modell auf Audio oder auf Notizen laufen lassen. Ein VTT, ein SRT oder ein ähnlicher Export, den du vom Gerüst befreist, verbraucht keinen Lauf.
 
 ### Setzt der Bereiniger Sprechernamen dazu?
 
@@ -139,22 +137,22 @@ Füg den Text ein, oder speichere ihn in einer Form, die die Seite lesen kann. E
 
 ### Soll ich «ähm» und «ja» löschen?
 
-Für ein Protokoll lässt du sie aus den Notizen weg. Für das Transkript, das du als Beleg behältst, lässt du sie stehen. Der Bereiniger trifft diesen redaktionellen Schnitt nicht für dich.
+Für ein Protokoll lässt du sie aus den Notizen weg. Für das Transkript, das du als Beleg behältst, lässt du sie stehen. Diesen redaktionellen Schnitt trifft der Bereiniger nicht für dich.
 
 ### Was ist mit einem VTT von zwei Stunden?
 
-Die Länge ist nicht die Audio-Grenze von 15 Minuten. Der Bereiniger arbeitet mit Text, den du schon hast. Eine sehr lange Einfügung kann im Browser-Tab trotzdem unbequem sein. War das Meeting lang und willst du Protokoll, Entscheide und Sprecherlabels aus dem Audio selbst, ist das die Mac-App, keine Untertitel-Aufräumung.
+Die Länge ist nicht die Audio-Grenze von 15 Minuten. Der Bereiniger arbeitet mit Text, den du schon hast. Eine sehr lange Einfügung kann im Browser-Tab trotzdem unbequem sein. War die Sitzung lang und willst du Protokoll, Entscheide und Sprecherlabels aus dem Audio selbst, ist das die Mac-App, keine Aufräumarbeit an Untertiteln.
 
 ### Wird die Originaldatei hochgeladen?
 
-Der Bereiniger läuft auf dem Text im Tab. Er ist kein Sprachmodell-Download in dem Sinn wie eine Transkription, und er schickt deine Aufnahme nirgendwohin, weil du ihm keine Aufnahme gegeben hast. Behalte das Original trotzdem auf deinem Rechner.
+Der Bereiniger läuft auf dem Text im Tab. Er lädt kein Sprachmodell herunter wie eine Transkription, und er schickt deine Aufnahme nirgendwohin, weil du ihm keine Aufnahme gegeben hast. Behalte das Original trotzdem auf deinem Rechner.
 
 ### Komme ich in einem Klick von der unordentlichen Datei zu Massnahmen?
 
-Du kannst den bereinigten Text an das Notizen-Werkzeug geben, das einen Recap mit Entscheiden und Massnahmen entwirft. Lies die Verantwortlichen, bevor du sie verschickst. Das [Sitzungsprotokoll](/de/tools/sitzungsprotokoll) ist die Stelle, an der du die Zeilen festschreibst. Keiner der Schritte erfindet einen Sprecher, den die Datei nicht hatte.
+Du kannst den bereinigten Text an das Notizen-Werkzeug geben. Es entwirft eine Zusammenfassung mit Entscheiden und Massnahmen. Lies die Verantwortlichen, bevor du sie verschickst. Das [Sitzungsprotokoll](/de/tools/sitzungsprotokoll) ist die Stelle, an der du die Zeilen festschreibst. Keiner der Schritte erfindet einen Sprecher, den die Datei nicht hatte.
 
 ### Ist ein bereinigtes Transkript dasselbe wie ein Protokoll?
 
-Nein. Es ist immer noch, was Leute gesagt haben, nur ohne Cue-Zeiten. Ein Protokoll ist kürzer und gegliedert. Benutze beides, und beschrifte das eine nicht als das andere.
+Nein. Es ist immer noch, was Leute gesagt haben, nur ohne Cue-Zeiten. Ein Protokoll ist kürzer und gegliedert. Nutze beides, und beschrifte das eine nicht als das andere.
 
 Nächster Schritt: leg den Export auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Hast du immer noch nur Audio, starte bei [Audio transkribieren](/de/tools/audio-transkribieren), wenn die Datei 15 Minuten oder kürzer ist.

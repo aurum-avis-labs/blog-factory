@@ -12,14 +12,11 @@ image: "@/assets/blog/client-call-notes-without-upload/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/client-call-notes-without-upload/inline1.jpg';
-import inline2 from '@/assets/blog/client-call-notes-without-upload/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">charlesdeluvio</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Kundengespräch-Notizen ohne Upload** heisst: die Audiodatei muss nicht auf einen Server, um zur Notiz zu werden. Auf der Website öffnest du eine Datei, die du schon hast, und das Modell läuft im Browser-Tab. In der Mac-App wird der Call auf dem Gerät aufgenommen und transkribiert. Beides lässt dich mit Text zurück, den du trotzdem redigierst, bevor ein Mandant ihn sieht. Keines macht die Aufnahme erlaubt. Du sagst es dem Mandanten weiter.
+**Kundengespräch-Notizen ohne Upload** heisst: die Audiodatei muss nicht auf einen Server, um zur Notiz zu werden. Auf der Website öffnest du eine Datei, die du schon hast, und das Modell läuft im Browser-Tab. In der Mac-App wird der Call auf dem Gerät aufgenommen und transkribiert. In beiden Fällen bleibt Text, den du redigierst, bevor ein Mandant ihn sieht. Keines von beiden macht die Aufnahme erlaubt. Du sagst es dem Mandanten weiter.
 
-Der Browserweg ist [Aufnahme zu Notizen](/de/tools/aufnahme-zu-notizen). Grenze: **15 Minuten**, **3 erfolgreiche Läufe pro Woche**, MP3, M4A, WAV oder MP4, keine Sprecherlabels. Die Mac-App ist der Weg für einen Live-Call oder eine längere Datei, einmalig: **CHF 20** in der Schweiz. Der App Store zeigt den lokalen Preis. Kein Abo.
+Der Weg im Browser ist [Aufnahme zu Notizen](/de/tools/aufnahme-zu-notizen). Grenze: **15 Minuten**, **3 erfolgreiche Läufe pro Woche**, MP3, M4A, WAV oder MP4, keine Sprecherlabels. Die Mac-App ist der Weg für einen Live-Call oder eine längere Datei, einmalig: **CHF 20** in der Schweiz. Der App Store zeigt den lokalen Preis. Kein Abo.
 
 ## Inhalt
 
@@ -29,95 +26,96 @@ Der Browserweg ist [Aufnahme zu Notizen](/de/tools/aufnahme-zu-notizen). Grenze:
 - [Wo geteilte Cloud weiter gewinnt](#wo-geteilte-cloud-weiter-gewinnt)
 - [Häufige Fragen](#häufige-fragen)
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Browser</span><strong>Kein Upload</strong><p>Die Datei bleibt im Tab; das Netzwerk-Panel prüfen.</p></li>
+  <li><span class="blog-kicker">Limit</span><strong>15 Minuten</strong><p>Drei erfolgreiche Läufe pro Woche.</p></li>
+  <li><span class="blog-kicker">Mac-App</span><strong>Lokal</strong><p>Aufnahme und Transkript bleiben lokal, bis du exportierst.</p></li>
+</ul>
+
 ## Kundengespräch-Notizen ohne Upload, im Browser
 
-Nutze das, wenn der Call vorbei ist und du eine kurze Datei hältst.
+Nimm diesen Weg, wenn der Call vorbei ist und du eine kurze Datei hast.
 
 
-<Image src={inline1} alt="Vertraulicher Ordner und Kopfhoerer auf einem ruhigen Tisch" width={700} quality={80} class="w-full" />
+1. MP3, M4A, WAV oder MP4 exportieren. Ist die einzige Kopie eine längere Aufnahme, schneide auf den Teil, den die Notiz braucht, bevor du einen der drei Läufe in der Woche verbrauchst.
+2. [Aufnahme zu Notizen](/de/tools/aufnahme-zu-notizen) öffnen. Das Sprachmodell lädt in den Tab. Spätere Läufe können ohne Netz gehen. Die Datei wird nicht zu Vemoir hochgeladen. Das Netzwerk-Panel des Browsers ist die Prüfung.
+3. Du bekommst Text, danach einen Entwurf in Notizform. Sprechernamen gibt es nicht. Bei einem Gespräch zu zweit kannst du die Stimmen meist von Hand zuordnen. Schreib die Namen rein. Lass «der Mandant sagte» nicht auf einem Satz stehen, bei dem du unsicher bist.
+4. Entscheide und Zahlen redigieren. Öffentliche Whisper-Modelle schreiben Schweizerdeutsch als Standarddeutsch. Zahlen brauchst du selbst.
+5. Drei erfolgreiche Läufe pro Woche gelten für die Gratis-Tools zusammen, nicht pro Mandant. Ein Tag mit mehreren Calls hintereinander passt nicht alles auf die Seite.
 
-<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Die Fassung für Interviews mit derselben Grenze ist [Interview transkribieren ohne Upload](/de/blog/interview-transkribieren-ohne-upload). Die Seite Aufnahme zu Notizen nimmst du, wenn die Notiz das Ergebnis sein soll, nicht nur die wörtliche Zeile.
 
-1. MP3, M4A, WAV oder MP4 exportieren. Ist die einzige Kopie eine längere Aufnahme, schneide auf den Teil, den die Notiz braucht, bevor du einen wöchentlichen Lauf ausgibst.
-2. [Aufnahme zu Notizen](/de/tools/aufnahme-zu-notizen) öffnen. Das Sprachmodell lädt in den Tab. Spätere Läufe können ohne Netz gehen. Die Datei wird nicht zu Vemoir hochgeladen. Das Network-Panel des Browsers ist die Prüfung.
-3. Du bekommst Text, dann einen notizenförmigen Entwurf. Du bekommst keine Sprechernamen. Bei einem Zweier-Kundengespräch kannst du die Stimmen meist von Hand unterscheiden. Schreib die Namen rein. Lass «der Mandant sagte» nicht auf einem Satz stehen, bei dem du unsicher bist.
-4. Entscheide und Daten redigieren. Öffentliche Whisper-Modelle zielen Schweizerdeutsch auf Standarddeutsch. Zahlen brauchen deine Augen.
-5. Drei erfolgreiche Läufe pro Woche sind die Decke für die Gratis-Tools zusammen, kein Kontingent pro Mandant. Ein Tag mit Calls hintereinander passt nicht alles.
-
-Die interviewförmige Fassung derselben Grenze ist [Interview transkribieren ohne Upload](/de/blog/interview-transkribieren-ohne-upload). Nutze die Seite Aufnahme zu Notizen, wenn der Output die Notiz sein soll, nicht nur die wörtliche Zeile.
-
-Es gibt keine Browser-Erweiterung, keinen Tab-Mitschnitt und keine Live-Meeting-Aufnahme auf der Website. Läuft der Call noch, hört der Browser ihn nicht.
+Es gibt keine Browser-Erweiterung, keinen Mitschnitt des Tabs und keine Live-Aufnahme einer Sitzung auf der Website. Läuft der Call noch, hört der Browser ihn nicht.
 
 ## Wenn der Call länger als fünfzehn Minuten ist
 
-Hör auf, einem Mandanten-Workshop das Leben wegzuschneiden, um eine Grenze zu erfüllen. Nimm auf oder importiere auf dem Mac.
+Schneide einen Mandanten-Workshop nicht künstlich klein, nur damit er in die Grenze passt. Nimm auf oder importiere auf dem Mac.
 
 
-<Image src={inline2} alt="Privates Kundengespraech: geschlossene Tuer und Notizbuch" width={700} quality={80} class="w-full" />
+Vemoir erfasst Mikrofon und Systemaudio als getrennte lokale Spuren aus der Menüleiste. Es arbeitet mit der Meeting-App, die den Ton abspielt, inklusive Zoom, Teams, Meet, Slack und weiteren, die unter [Plattformen](/de#platforms) stehen. Kein Bot kommt dazu. Du startest und stoppst. Für den Ton der anderen Seite verlangt macOS die Berechtigung **System Audio Recording**. Damit wird nur Audio erfasst. Der Bildschirm wird nicht aufgenommen. Zusätzlich erlaubst du das Mikrofon.
 
-<p><em>Photo by <a href="https://unsplash.com/@galen_crout?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">galen_crout</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Transkription und Sprechertrennung laufen auf dem Mac. Protokoll, Entscheide, Aufgaben und ein Entwurf für die Nachfass-Mail kommen aus diesem lokalen Transkript. Stellst du später eine Frage, kann die Antwort auf die Zeile im Transkript zeigen. Cloud-Textmodelle bleiben aus, bis du eines mit eigenem Key einschaltest, und sie bekommen das Audio nicht. Scheitert das lokale Modell, wechselt die App nicht still auf ein Cloud-Modell.
 
-Vemoir erfasst Mikrofon und Systemaudio als getrennte lokale Spuren aus der Menüleiste. Es arbeitet mit der Meeting-App, die spielt, inklusive Zoom, Teams, Meet, Slack und anderen, die unter [Plattformen](/de#platforms) stehen. Kein Bot kommt dazu. Du startest und stoppst. Die macOS-Berechtigung für die ferne Seite des Audios ist **System Audio Recording**. Dieser Tap ist nur Audio. Der Bildschirm wird nicht aufgenommen. Du erlaubst ausserdem das Mikrofon.
+Voraussetzungen: Apple Silicon, M1 oder neuer, macOS Sonoma 14.2 oder später, 8 GB Arbeitsspeicher, 10 GB frei für Modelle. Für lange Sitzungen sind 16 GB empfohlen. Intel-Macs werden nicht unterstützt. Sobald die Modelle da sind, kann der Ablauf ohne Netz laufen. Internet brauchst du für die Einrichtung und für Downloads.
 
-Transkription und Sprechertrennung laufen auf dem Mac. Protokoll, Entscheide, Aufgaben und ein Follow-up-Entwurf kommen aus diesem lokalen Transkript. Stell später eine Frage, kann die Antwort auf die Zeile zeigen. Cloud-Textmodelle bleiben aus, bis du eines mit eigenem Key einschaltest, und sie bekommen das Audio nicht. Es gibt keinen stillen Wechsel auf ein Cloud-Modell, wenn das lokale scheitert.
+Der Import einer vorhandenen Datei auf dem Mac nimmt MP3, M4A, WAV, AIFF, CAF und FLAC. So wird eine lange Mandantenaufnahme, die du schon hast, zur lokalen Notiz, ohne die 15-Minuten-Grenze des Browsers.
 
-Voraussetzungen: Apple Silicon, M1 oder neuer, macOS Sonoma 14.2 oder später, 8 GB Speicher, 10 GB frei für Modelle. 16 GB sind für lange Sitzungen empfohlen. Intel-Macs sind nicht unterstützt. Sobald die Modelle da sind, kann der Ablauf offline laufen. Internet ist für Setup und Downloads.
+Der Preis der Mac-App: CHF 20 in der Schweiz, einmalig im Mac App Store, jede Funktion dabei, keine Abrechnung pro Sitz und keine Gebühr pro Meeting. Der Store zeigt den lokalen Preis. Dieselben Angaben stehen unter [Preise](/de#pricing). Installation über den [App Store](https://apps.apple.com/app/id6794693630).
 
-Import einer vorhandenen Datei auf dem Mac nimmt MP3, M4A, WAV, AIFF, CAF und FLAC. So wird eine lange Mandantenaufnahme, die du schon hast, zur lokalen Notiz ohne 15-Minuten-Decke.
+Sag es dem Mandanten, bevor du aufnimmst. Dass kein Bot in der Liste steht, ersetzt die Ansage nicht.
 
-Der Preis, noch einmal, weil das der Consideration-Schritt ist: CHF 20 in der Schweiz, einmalig im Mac App Store, jede Funktion dabei, kein Sitz, keine Gebühr pro Meeting. Der Store zeigt den lokalen Preis. Dieselben Angaben stehen unter [Preise](/de#pricing). Installation über den [App Store](https://apps.apple.com/app/id6794693630).
-
-Sag es dem Mandanten, bevor du aufnimmst. Ein fehlender Bot ist keine fehlende Deklaration.
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Einwilligung und Aufbewahrung liegen bei dir. Vemoir macht ein Kundengespräch nicht automatisch rechtmässig.</p>
+</aside>
 
 ## Was du dem Mandanten schickst
 
-Schick die Notiz. Behalte das Audio, es sei denn, der Vertrag sagt, sie erhalten Aufnahmen. [Exporte](/de#exports) sind, wie du ein gewähltes Stück über macOS teilst, nicht wie die ganze Bibliothek sich selbst veröffentlicht.
+Schick die Notiz. Behalte das Audio, es sei denn, der Vertrag sagt, der Mandant erhält die Aufnahmen. Über [Exporte](/de#exports) teilst du ein Stück, das du ausgewählt hast, über die Freigabe von macOS. Die ganze Bibliothek veröffentlicht sich nicht von selbst.
 
-Bevor es rausgeht:
+Bevor die Notiz rausgeht:
 
-- Ein Projektname, ein Datum, Teilnehmende.
+- Ein Projektname, ein Datum, die Teilnehmenden.
 - Entscheide in Sätzen.
 - Aufgaben mit Person und Datum.
 - Deine Streichungen. Andere Mandanten, interne Honorare und Seitengespräche bleiben draussen.
-- Eine menschliche Prüfung jeder Zahl.
+- Eine Prüfung jeder Zahl durch dich.
 
-Das [Sitzungsprotokoll](/de/tools/sitzungsprotokoll) ist da, wenn du ein leeres Gerüst statt eines erzeugten Entwurfs willst. Die [Sitzungsprotokoll-Vorlage](/de/blog/sitzungsprotokoll-vorlage) ist die allgemeine Darstellung, was rein soll. Eine Mandantennotiz kann kürzer sein als ein formelles Protokoll. Beim Entscheid soll sie nicht vager sein.
+Das [Sitzungsprotokoll](/de/tools/sitzungsprotokoll) nimmst du, wenn du ein leeres Gerüst willst statt eines erzeugten Entwurfs. Die [Sitzungsprotokoll-Vorlage](/de/blog/sitzungsprotokoll-vorlage) zeigt, was in ein Protokoll gehört. Eine Mandantennotiz kann kürzer sein als ein formelles Protokoll. Beim Entscheid soll sie nicht vager sein.
 
-Haben du und eine Kollegin beide Notizen gemacht, schickt eine Fassung. Zwei Dokumente erzeugen zwei Scopes.
+Haben du und eine Kollegin beide Notizen gemacht, geht eine Fassung raus. Zwei Dokumente erzeugen zwei Lesarten des Auftrags.
 
-Zwei Dateien desselben Calls, eine von deinem Rekorder und eine, die der Mandant später aus seiner Zoom-Cloud schickt, passen nicht Wort für Wort. Nimm eine als Quelle der Notiz und sag welche. Beide in derselben Mail zu zitieren, sieht nach zwei Meetings aus. Weicht eine Zahl ab, hör zu, bevor du den flüssigen Satz nimmst.
+Zwei Dateien desselben Calls, eine von deinem Rekorder und eine, die der Mandant später aus seiner Zoom-Cloud schickt, stimmen selten Wort für Wort. Nimm eine als Quelle der Notiz und sag welche. Zitierst du beide in derselben Mail, wirkt das wie zwei Meetings. Weicht eine Zahl ab, hör zuerst hin, bevor du den glatteren Satz nimmst.
 
-Eine Reisewoche ist, wann der Offline-Mac-Weg den Kauf trägt. Lade Modelle, bevor du gehst. Der erste Modellabruf des Browser-Tools will auch ein Netz. Ein Hotel-Captive-Portal ist ein schlechter Moment, das zu merken. Die 15-Minuten-Grenze gilt unterwegs weiter. Die Mac-App fügt diese Grenze nicht hinzu. Sie verlangt, dass die Modelle da sind.
+In einer Reisewoche trägt der Mac ohne Netz den Kauf oft mit. Lade die Modelle, bevor du fährst. Auch der erste Modellabruf des Browser-Tools braucht ein Netz. Ein Captive-Portal im Hotel ist ein schlechter Moment, das zu merken. Die Grenze von 15 Minuten gilt unterwegs weiter. Die Mac-App hat diese Grenze nicht. Sie verlangt, dass die Modelle schon da sind.
 
 ## Wo geteilte Cloud weiter gewinnt
 
-Ein Team, das jeden Mandantencall in einem Login durchsuchen muss, bekommt das nicht von einem einzelnen Mac. Ein vertraglicher Workspace, mit Erlaubnis des Mandanten und einem Anbieter, den ihr im Auftrag nennen könnt, ist für diese Kanzlei das bessere System. Eine einmalige lokale App ist das bessere System, wenn du die Person im Call bist, der Mandant keinen Bot will, und das Audio nicht die Kopie des Anbieters sein soll.
+Ein Team, das jeden Mandantencall in einem gemeinsamen Login durchsuchen muss, bekommt das nicht von einem einzelnen Mac. Ein vertraglicher Arbeitsbereich, mit Erlaubnis des Mandanten und einem Anbieter, den ihr in der Auftragsverarbeitung nennen könnt, ist für diese Kanzlei das bessere System. Eine einmalige lokale App passt besser, wenn du die Person im Call bist, der Mandant keinen Bot will und das Audio nicht die Kopie des Anbieters sein soll.
 
-Handnotizen gewinnen, wenn der Mandant keine Aufnahme will. Transkribiere nicht «aus dem Gedächtnis» und tu so, als hätte ein Band existiert.
+Handnotizen passen, wenn der Mandant keine Aufnahme will. Transkribiere nicht aus dem Gedächtnis und tu so, als hätte ein Band existiert.
 
-Ein 15-Minuten-Browserlauf gewinnt, wenn du eine Bestätigung vom Ende des Calls brauchst und nichts installieren willst. Er verliert, sobald die Datei länger ist oder du Sprecher getrennt brauchst.
+Ein Lauf von 15 Minuten im Browser passt, wenn du eine Bestätigung vom Ende des Calls brauchst und nichts installieren willst. Sobald die Datei länger ist oder du die Sprecher getrennt brauchst, reicht er nicht.
 
-Keine dieser Optionen ist ein GDPR-Zertifikat oder eine HIPAA-Behauptung. Einwilligung und Aufbewahrung bleiben bei dir. In der Schweiz meinen die Leute das nDSG, wenn sie von Datenschutzpflichten sprechen. Das Produkt entbindet davon nicht.
+Keine dieser Möglichkeiten ist ein DSGVO-Zertifikat oder eine HIPAA-Behauptung. Einwilligung und Aufbewahrung bleiben bei dir. In der Schweiz meinen die Leute das nDSG, wenn sie von Datenschutzpflichten sprechen. Das Produkt nimmt dir diese Pflichten nicht ab.
 
-Hast du eine lange Aufnahme auf fünfzehn Minuten geschnitten, sag in der Notiz, dass der Text diesen Ausschnitt deckt, nicht den ganzen Call. Ein Mandant, der sich an die erste Hälfte erinnert, denkt sonst, du hättest sie ignoriert.
+Hast du eine lange Aufnahme auf fünfzehn Minuten geschnitten, schreib in die Notiz, dass der Text diesen Ausschnitt deckt, nicht den ganzen Call. Sonst denkt ein Mandant, der sich an die erste Hälfte erinnert, du hättest sie ausgelassen.
 
-Nenne in deinen eigenen Notizen die Datei, die du transkribiert hast, damit du das Audio wiederfindest, wenn eine Zahl bestritten wird.
-
-Dieser Dateiname rettet dich, wenn der Mandant zwei Wochen später antwortet.
+Nenne in deinen eigenen Notizen die Datei, die du transkribiert hast, damit du das Audio wiederfindest, wenn eine Zahl bestritten wird. Der Dateiname hilft, wenn der Mandant zwei Wochen später antwortet.
 
 ## Häufige Fragen
 
 ### Brauchen Kundengespräch-Notizen ohne Upload trotzdem eine Datei?
 
-Ja. Das Browser-Tool transkribiert eine Datei, die du schon hast. Es holt den Call nicht aus Zooms Cloud für dich.
+Ja. Das Browser-Tool transkribiert eine Datei, die du schon hast. Es holt den Call nicht aus der Cloud von Zoom.
 
 ### Was ist zu lang für das Gratis-Tool?
 
-Über 15 Minuten, oder ein vierter erfolgreicher Lauf in derselben Woche. Nutze die Mac-App für die längere Aufnahme.
+Über 15 Minuten, oder ein vierter erfolgreicher Lauf in derselben Woche. Für die längere Aufnahme nimm die Mac-App.
 
 ### Werden Sprecher benannt?
 
-Nicht im Browser. Die Mac-App trennt Sprecher lokal in Labels, die du korrigieren kannst. Unsichere Sprecher bleiben anonym.
+Nicht im Browser. Die Mac-App trennt Sprecher lokal in Labels, die du korrigieren kannst. Unsichere Sprecher bleiben ohne Namen.
 
 ### Was kostet die Mac-App?
 
@@ -127,18 +125,18 @@ CHF 20 in der Schweiz, einmalig. Der App Store zeigt den lokalen Preis. Kein Abo
 
 Nein. System Audio Recording hört andere Apps. Der Bildschirm ist nicht Teil der Aufnahme.
 
-### Kann ich das offline laufen lassen?
+### Kann ich das ohne Netz laufen lassen?
 
-Das Browser-Tool kann, nachdem das Modell geladen hat, innerhalb der üblichen Grenzen. Die Mac-App kann, nachdem du die gewählten Modelle installiert hast.
+Das Browser-Tool kann es, nachdem das Modell geladen hat, innerhalb der üblichen Grenzen. Die Mac-App kann es, nachdem du die gewählten Modelle installiert hast.
 
 ### Was, wenn der Mandant die Aufnahme verbietet?
 
-Nimm nicht auf. Schreib Notizen. Das Tool ist kein Workaround.
+Nimm nicht auf. Schreib Notizen. Das Tool ist kein Umweg um das Verbot.
 
 ### Schickt die Notiz sich selbst an den Mandanten?
 
-Nein. Du teilst, was du wählst. Prüfe zuerst. Antwortet der Mandant mit einer Korrektur, editiere die Notiz und schick die Korrektur im selben Thread. Starte kein zweites Dokument, das die falsche Zahl noch enthält.
+Nein. Du teilst, was du auswählst. Prüfe zuerst. Antwortet der Mandant mit einer Korrektur, ändere die Notiz und schick die Korrektur im selben Thread. Leg kein zweites Dokument an, in dem die falsche Zahl noch steht.
 
 ## Nächster Schritt
 
-Für eine kurze Datei [Aufnahme zu Notizen](/de/tools/aufnahme-zu-notizen) öffnen und bei 15 Minuten und drei Läufen pro Woche bleiben. Für den nächsten Live-Mandantencall auf einem unterstützten Mac: Installation über den [App Store](https://apps.apple.com/app/id6794693630) und [Preise](/de#pricing), wenn du die Store-Zahlen neben der Funktionsübersicht willst. Das Sprachmodell vor dem Call laden, nicht während der Vorstellungsrunde.
+Für eine kurze Datei [Aufnahme zu Notizen](/de/tools/aufnahme-zu-notizen) öffnen und bei 15 Minuten und drei Läufen pro Woche bleiben. Für den nächsten Live-Call mit einem Mandanten auf einem unterstützten Mac: Installation über den [App Store](https://apps.apple.com/app/id6794693630) und [Preise](/de#pricing), wenn du die Zahlen im Store neben der Funktionsübersicht sehen willst. Das Sprachmodell vor dem Call laden, nicht während der Vorstellungsrunde.

@@ -11,9 +11,6 @@ image: "@/assets/blog/fix-wrong-speaker-names/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/fix-wrong-speaker-names/inline1.jpg';
-import inline2 from '@/assets/blog/fix-wrong-speaker-names/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@stacysuxx?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">stacysuxx</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Vous pouvez **corriger les noms de locuteurs** d'une réunion Vemoir terminée en renommant l'étiquette. Ce renommage ne crée pas de profil vocal. `Remember this speaker` est un autre contrôle, et il attend un oui explicite. Si le seul problème est un nom sur cette transcription, changez l'étiquette et arrêtez-vous là.
@@ -25,11 +22,13 @@ La séparation brute et les lignes horodatées restent la preuve. Vous corrigez 
 Les étiquettes apparaissent après l'arrêt, quand la séparation sur le Mac a groupé l'audio. Jusque-là, un aperçu live n'est qu'un aperçu. Ne passez pas ce temps à nommer des gens dans l'aperçu en attendant que ce brouillon soit le compte rendu.
 
 
-<Image src={inline1} alt="Ligne vide marquee sur papier, aucun nom lisible" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@dlxmedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dlxmedia</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Ouvrez la réunion, passez à la transcription ou à la liste des locuteurs, et lisez quelques tours avant de renommer. Un mauvais nom est souvent l'une de ces trois choses&nbsp;: le groupe est juste et l'étiquette est un placeholder, deux personnes ont été groupées, ou votre voix et la pièce ont fui dans le même micro. Le renommage règle le premier cas. Les deux autres demandent une correction du groupe, pas un nom assuré sur un mélange.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Renommer dans la transcription</h3><p>Corriger l'étiquette sur la ligne fiable.</p></li>
+  <li data-step="2"><h3>Créer un profil locuteur</h3><p>Lier un cluster vocal au bon nom.</p></li>
+  <li data-step="3"><h3>Regénérer le compte rendu</h3><p>Relancer après changement de profil.</p></li>
+</ol>
 
 ## Renommer sans enregistrer une voix
 
@@ -39,10 +38,6 @@ Ouvrez la réunion, passez à la transcription ou à la liste des locuteurs, et 
 4. Vérifiez une ligne horodatée pour voir le nouveau nom sur les bons tours.
 5. Si vous avez mémorisé quelqu'un par erreur, refusez ou annulez cette correspondance, puis supprimez ou anonymisez le profil dans les réglages de confidentialité. Le renommage lui-même n'était pas le problème.
 
-
-<Image src={inline2} alt="Quelqu'un reecrit une etiquette sur une carte creme" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Les locuteurs inconnus restent anonymes jusqu'à ce que vous les nommiez. Une étiquette vide ou générique est honnête quand vous n'êtes pas sûr. Inventer un nom pour ranger le compte rendu est pire que «&nbsp;Locuteur 2&nbsp;» si vous ne défendriez pas ce nom plus tard.
 
@@ -55,6 +50,12 @@ Un renommage sans profil est le meilleur choix pour un appel unique, un invité,
 Laisser l'étiquette anonyme est meilleur quand vous ne distinguez pas les voix. Un preneur de notes cloud partagé peut être meilleur quand toute l'équipe a besoin du même annuaire et que votre politique accepte leur cloud. Vemoir ne synchronise pas un roster de locuteurs vers d'autres Mac. Les noms que vous tapez restent dans le dossier local.
 
 Les outils du navigateur n'aident pas ici. [/fr/outils/transcrire-audio](/fr/outils/transcrire-audio) transforme un fichier que vous avez déjà en texte, jusqu'à 15 minutes, et il n'invente pas de noms. Si le fichier n'a pas d'étiquettes, la page le dit. La séparation live est l'app Mac.
+
+<ul class="blog-checklist">
+  <li>Corriger les noms avant l'e-mail client</li>
+  <li>Même orthographe que le glossaire projet</li>
+  <li>Ne pas supposer que le modèle apprend d'un edit</li>
+</ul>
 
 ## Les noms dans le compte rendu et dans ce que vous partagez
 

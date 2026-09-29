@@ -12,10 +12,6 @@ image: "@/assets/blog/hr-interview-transcription/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/hr-interview-transcription/inline1.jpg';
-import inline2 from '@/assets/blog/hr-interview-transcription/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@linpaul?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">linpaul</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **HR interview transcription** is a text copy of a conversation you were allowed to record or that the candidate already knows you hold. It is not a score, not a ranking, and not a reason to skip the consent sentence at the start of the call. The hiring system where the candidate record lives is still your ATS. The transcript is a draft you read before anyone treats a sentence as fact.
 
@@ -33,10 +29,12 @@ For a file you have, use [transcribe an interview](/tools/transcribe-interview).
 
 Tell the candidate the interview will be recorded or transcribed, why, who can see the text, and how long you keep it. Do this before the substantive questions, not in a follow-up email after you already have the audio. If they refuse, continue without a recording and take notes. A tool does not override a refusal.
 
+<ul class="blog-checklist">
+  <li>State that you record at the start of the interview.</li>
+  <li>Store the file where HR policy allows.</li>
+  <li>Redact third-party names before you share excerpts.</li>
+</ul>
 
-<Image src={inline1} alt="An interview table with notebooks and no screens" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@willfrancis?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">willfrancis</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 In Switzerland the nLPD is the data-protection law people are pointing at when they say “we need a basis and a purpose.” This article is not that basis and it is not legal advice. Works councils, US state consent rules, and a group policy can all be stricter than a product page. Follow the stricter one.
 
@@ -52,10 +50,11 @@ Do not transcribe a conversation the candidate thought was a private aside. If y
 4. Read the text. There are no speaker labels. You will see one stream. Mark the interviewer and the candidate yourself if the quote matters. Guessing wrong in a hiring note is worse than leaving a quote out.
 5. Correct names, product names, and any figure. Public Whisper models write Swiss German toward Standard German. A candidate who spoke dialect did not suddenly speak textbook Hochdeutsch. Do not treat the wording as a style sample unless you have checked the audio.
 
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>An ATS with built-in notes may be the system of record. Use local transcription when the recording must not become a vendor file.</p>
+</aside>
 
-<Image src={inline2} alt="Empty chairs and a closed folder after an HR meeting" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@farber?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">farber</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 A panel interview with four people is a bad fit for an unlabeled transcript. Either take structured notes live, or use a local tool that separates speakers and then still have a human assign the names. Unknown speakers should stay unknown. Do not “helpfully” attach a name the audio did not establish.
 

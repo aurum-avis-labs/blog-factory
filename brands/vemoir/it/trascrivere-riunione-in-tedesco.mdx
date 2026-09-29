@@ -12,10 +12,6 @@ image: "@/assets/blog/transcribe-german-meeting/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/transcribe-german-meeting/inline1.jpg';
-import inline2 from '@/assets/blog/transcribe-german-meeting/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@bchild311?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">bchild311</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Trascrivere una riunione in tedesco** significa ottenere tedesco standard leggibile, non uno spartito dialettale e non una trascrizione certificata parola per parola. Hai già un file (export, audio Zoom locale, registratore) oppure registrerai la prossima seduta su questo Mac. I modelli pubblici di speech-to-text scrivono tedesco standard. Vemoir non rivendica output in dialetto. Se in sala si parla forte in dialetto, aspettati grafia standard, buchi, o entrambi, non un transcript dialettale.
 
@@ -25,10 +21,12 @@ Il percorso pratico è locale: importare il file o registrare dalla barra dei me
 
 Il tedesco standard è la forma scritta che ti aspetti in DE, AT e nei verbali formali in Svizzera: ortografia standard, termini tecnici ordinari, nomi che correggerai ancora. Non è:
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">File pronto</span><strong>M4A o MP3</strong><p>Import o tool browser sotto 15 minuti.</p></li>
+  <li><span class="blog-kicker">Live la prossima volta</span><strong>Barra menu</strong><p>Cattura micro e audio di sistema sul Mac.</p></li>
+  <li><span class="blog-kicker">Dialetto</span><strong>Non promesso</strong><p>Lo svizzero tedesco diventa tedesco standard nei modelli pubblici.</p></li>
+</ul>
 
-<Image src={inline1} alt="Due persone parlano al caffe con un taccuino sul tavolo" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@productschool?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">productschool</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - una trascrizione certificata
 - un verbale forense parola per parola
@@ -44,11 +42,6 @@ Nomi propri, codici prodotto e gergo interno sono la pulizia abituale. Un glossa
 2. Ascolta dieci secondi. Se il file è muto, hai un problema di cattura, non di tedesco.
 3. Sotto i 15 minuti: scegli il file nello [strumento trascrivere audio](/it/strumenti/trascrivere-audio). Il modello si scarica una volta; le esecuzioni successive possono andare senza rete. La scheda Rete deve mostrare che l’audio non è stato inviato a Vemoir.
 4. Riunioni più lunghe: importa nell’app Mac (selettore o drag and drop), eventualmente in un progetto. Trascrizione e separazione speaker girano sul dispositivo.
-
-
-<Image src={inline2} alt="Tavolo di riunione europeo con taccuini in luce diurna" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@wesleyphotography?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">wesleyphotography</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Le registrazioni Zoom locali sono spesso `audio_only.m4a`, non una trascrizione pronta. Vedi [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom). Interviste che non devono andare a un fornitore cloud: [trascrivere un’intervista senza caricarla](/it/blog/trascrivere-intervista-senza-caricarla).
 
@@ -68,6 +61,13 @@ Vuoi provare un clip tedesco breve senza upload? [Apri lo strumento trascrivere 
 ## Dove il testo si rompe anche se tutti parlavano tedesco standard
 
 Parole sovrapposte, altoparlanti deboli, musica d’attesa, acronimi mai visti dal modello: è qualità audio, non «il tedesco è fallito». Gli a parte sussurrati in una sala grande escono lacunosi.
+
+<ul class="blog-checklist">
+  <li>Scegli la lingua che corrisponde alla maggior parte della call prima di trascrivere.</li>
+  <li>Rinomina i parlanti dopo l'import; i profili sono opzionali.</li>
+  <li>Esporta solo le parti che puoi condividere.</li>
+</ul>
+
 
 I turni misti (una frase in tedesco, poi in inglese) sono un altro lavoro. Questo articolo assume una riunione in tedesco standard.
 

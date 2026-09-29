@@ -12,9 +12,6 @@ image: "@/assets/blog/is-plaud-private/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/is-plaud-private/inline1.jpg';
-import inline2 from '@/assets/blog/is-plaud-private/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@ruben18rodriguez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ruben18rodriguez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Is Plaud private** depends on which copy you mean. The hardware can hold audio until it moves to the phone. The transcript, on Plaud's own trust page, is a cloud job. Checked September 2026: [Plaud trust center](https://global.plaud.ai/pages/trust). A pocket recorder is not the same product as a Mac app that never leaves the desk, and the privacy question is not settled by a badge.
@@ -33,9 +30,12 @@ import inline2 from '@/assets/blog/is-plaud-private/inline2.jpg';
 Plaud sells hardware. Note, Note Pro, NotePin, and NotePin S are recorders you carry, paired with a phone app, plus web and desktop apps they list for Plaud Intelligence. The capture happens away from a laptop. That is the point of a wearable: a conversation in a hallway, a site visit, a meeting where the Mac stays in the bag.
 
 
-<Image src={inline1} alt="A small recorder put away in a closed drawer" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Device</span><strong>Hardware</strong><p>Plaud records on a pocket recorder, not your Mac menu bar.</p></li>
+  <li><span class="blog-kicker">Upload</span><strong>Check policy</strong><p>Read Plaud's app and cloud docs for what syncs.</p></li>
+  <li><span class="blog-kicker">Mac calls</span><strong>Different job</strong><p>Teams or Zoom on the laptop need system audio capture.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@oculareuphoria?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">oculareuphoria</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Their shop chrome, on the same trust page, describes a free Starter plan at 300 transcription minutes a month, a Pro plan at 1,200 minutes, and an Unlimited plan. Dollar amounts move. Read the shop before you buy minutes. This article is about where the audio goes, not about which plan is the bargain.
 
@@ -46,9 +46,11 @@ Vemoir does not pair with that hardware. If you already recorded on a Plaud and 
 Plaud's trust answers are direct.
 
 
-<Image src={inline2} alt="An unbranded recorder on a side table" width={700} quality={80} class="w-full" />
+<div class="blog-pair">
+  <div><h3>Plaud fits when</h3><ul><li>You want a pocket recorder for in-person rooms</li></ul></div>
+  <div><h3>Skip Plaud when</h3><ul><li>The meeting only exists on a Mac with no separate device</li></ul></div>
+</div>
 
-<p><em>Photo by <a href="https://unsplash.com/@annastampfli?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">annastampfli</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 They list data centers in US AWS-West, EU AWS in Frankfurt, Japan AWS, and Singapore AWS. Users outside those regions are processed in the nearest region they have. For the models they name (GPT, Claude, and Gemini), users in Europe get EU-hosted enterprise subprocessors, and the rest of the world gets US-hosted models.
 

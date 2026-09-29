@@ -11,11 +11,7 @@ image: "@/assets/blog/apple-intelligence-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/apple-intelligence-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/apple-intelligence-meeting-notes/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@andrewilliam?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">andrewilliam</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Apple Intelligence pour les notes de réunion** dans Vemoir est facultatif, et seulement là où le Mac a réellement Apple Intelligence. Il peut participer au nettoyage et aux artefacts générés. Il ne transcrit pas la réunion. Les mots viennent du modèle de parole local que vous avez choisi&nbsp;: Parakeet v3, ou Whisper Turbo, Medium ou Large-v3.
 
 Si ce Mac n’offre pas Apple Intelligence, la réunion tourne quand même. Le nettoyage et les artefacts utilisent alors un modèle de langue local téléchargé&nbsp;: Qwen3 4B sur la plupart des Mac, ou gpt-oss-20b sur les Mac à mémoire élevée. Ces modèles écrivent. Ils ne remplacent pas non plus le modèle de parole.
@@ -25,22 +21,41 @@ Si ce Mac n’offre pas Apple Intelligence, la réunion tourne quand même. Le n
 Après l’arrêt, l’app reconstruit la transcription à partir de l’audio finalisé sur le Mac. Cette étape est la parole vers texte. Apple Intelligence n’y figure pas.
 
 
-<Image src={inline1} alt="Carnets fermes et verres d'eau vides apres un appel" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@allysphotos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">allysphotos</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Là où il peut aider, sur un Mac qui l’a, c’est l’écriture ensuite&nbsp;: nettoyer la prose générée et produire des artefacts tels que le résumé et les documents liés. Vous voyez toujours une transcription que vous pouvez ouvrir. Les notes manuelles que vous avez tapées gardent leur provenance et ne sont pas traitées comme des répliques parlées. Les liens de preuve, quand un résumé en a, pointent vers des passages de transcription, pas vers une phrase polie sans source.
 
 Le choix est visible avec les autres choix de modèles. Vemoir ne télécharge pas en silence un autre modèle de parole parce qu’Apple Intelligence manque, et n’envoie pas en silence l’audio vers un modèle cloud parce qu’Apple Intelligence a échoué. Le texte cloud, si vous le voulez, est une activation séparée avec votre propre clé. L’audio et la séparation des locuteurs restent sur le Mac.
+
+  </div>
+  <div>
+    <h3>A Mac recorder fits</h3>
+    <ul>
+      <li>Teams or Zoom audio on the Mac</li>
+      <li>Speaker separation and project folders</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-pair">
+  <div>
+    <h3>Apple Intelligence</h3>
+    <ul>
+      <li>Résumés rapides dans apps Apple</li>
+      <li>Appels perso sur appareils pris en charge</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Enregistreur Mac</h3>
+    <ul>
+      <li>Audio Teams/Zoom sur le Mac</li>
+      <li>Locuteurs et projets</li>
+    </ul>
+  </div>
+</div>
 
 ## Quand c’est disponible, et quand ça ne l’est pas
 
 Apple Intelligence dépend du Mac et de macOS, pas d’un interrupteur dans une réunion. Si le système ne l’offre pas, le modèle de langue local de Vemoir est le chemin pour le nettoyage et les artefacts. Lisez l’écran des modèles pour l’adéquation, le stockage et le modèle sélectionné. Ne supposez pas qu’un Mac mini tout neuf et un portable d’entrée se comportent pareil. L’app indique l’adéquation. Cette page ne classe pas la qualité d’écriture entre Apple Intelligence, Qwen3 4B et gpt-oss-20b.
 
-
-<Image src={inline2} alt="Pile de papiers nette et portable ferme a la fin de l'appel" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@sql?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sql</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 La langue de l’interface est séparée. L’app peut tourner en anglais, allemand, français, italien ou néerlandais. Cela ne choisit pas le modèle de parole et n’allume pas Apple Intelligence.
 
@@ -53,6 +68,11 @@ La langue de l’interface est séparée. L’app peut tourner en anglais, allem
 5. Lisez le résumé. Si le nettoyage a lissé un chiffre que vous aviez tapé dans les notes manuelles, faites confiance à la provenance de la note et éditez la ligne générée.
 
 Sur un Mac sans Apple Intelligence, l’étape 2 est uniquement le modèle de langue local. L’étape de transcription ne change pas.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Portée</span><strong>Apps Apple</strong><p>Ne remplace pas chaque lien de réunion.</p></li>
+  <li><span class="blog-kicker">Vemoir</span><strong>Toute app de réunion</strong><p>Audio système et micro depuis la barre.</p></li>
+</ul>
 
 ## Quand un autre chemin est meilleur
 

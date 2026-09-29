@@ -11,9 +11,6 @@ image: "@/assets/blog/export-to-apple-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/export-to-apple-notes/inline1.jpg';
-import inline2 from '@/assets/blog/export-to-apple-notes/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Exporter vers Notes** envoie un dossier de réunion dans un compte et un dossier Notes que vous choisissez. Vemoir stocke l’identifiant de la note, pour qu’un export plus tard mette à jour cette même note au lieu de poser une seconde copie à côté. Vous voyez un aperçu de la note combinée avant la remise.
@@ -25,11 +22,13 @@ L’audio ne part pas chez Apple avec la note. Vous exportez le dossier&nbsp;: l
 La note contient le résumé canonique, les points clés, les risques, les questions ouvertes, les décisions, les actions, les participants, les documents personnalisés et la provenance Vemoir. Elle ne répète pas les artefacts dérivés qui ne font que restater le même résumé. Les notes manuelles que vous avez tapées restent votre texte. Elles ne sont pas collées comme si elles étaient des citations de transcription.
 
 
-<Image src={inline1} alt="Quelqu'un copie une page dans un carnet personnel" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@shpetimujkani?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">shpetimujkani</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Vous choisissez un vrai compte Notes et un dossier imbriqué comme destination d’un projet. Le dossier est le vôtre. Vemoir n’invente pas un carnet caché.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Choisir les sections</h3><p>Compte rendu, actions ou dossier complet.</p></li>
+  <li data-step="2"><h3>Feuille de partage</h3><p>Notes ou autre destination.</p></li>
+  <li data-step="3"><h3>Relire avant sync</h3><p>iCloud copie ce que vous exportez.</p></li>
+</ol>
 
 ## Exporter une fois, puis mettre à jour
 
@@ -40,10 +39,6 @@ Vous choisissez un vrai compte Notes et un dossier imbriqué comme destination d
 5. Si le traitement est régénéré plus tard, exportez à nouveau. Vemoir met à jour la même note. Si une tentative échoue, l’erreur est conservée pour que vous la voyiez, plutôt que de créer un doublon en silence.
 
 
-<Image src={inline2} alt="Pile de cartes rangee dans un carnet creme" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kseegars?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kseegars</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Vous pouvez aussi activer un export automatique facultatif après le succès du traitement d’une réunion. Laissez-le éteint si vous voulez lire l’aperçu à chaque fois. Automatique ne veut pas dire que l’audio est partagé. Cela veut dire que le dossier texte part vers ce dossier après le succès, sans clic de plus.
 
 ## Ce qui reste sur le Mac
@@ -53,6 +48,11 @@ La transcription, la séparation des locuteurs et l’enregistrement restent sur
 Si vous supprimez la réunion ou purgez l’audio dans Vemoir, la note déjà dans Notes est une copie que vous avez envoyée. La supprimer là est un acte séparé dans Notes. À l’inverse, une mise à jour depuis Vemoir écrase le contenu géré par Vemoir dans cette note selon l’export, donc lisez l’aperçu quand le procès-verbal a beaucoup changé.
 
 Les réglages d’identité peuvent faire correspondre `ME` à votre vrai nom et l’afficher comme `Name (Me)` dans le contenu copié ou partagé. Réglez cela avant un export destiné à un client si «&nbsp;ME&nbsp;» paraîtrait inachevé.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>L'export est votre choix. L'enregistrement original reste dans Vemoir jusqu'à suppression.</p>
+</aside>
 
 ## Quand Notes est la mauvaise destination
 

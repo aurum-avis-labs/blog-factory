@@ -11,9 +11,6 @@ image: "@/assets/blog/in-person-meeting-notes-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/in-person-meeting-notes-mac/inline1.jpg';
-import inline2 from '@/assets/blog/in-person-meeting-notes-mac/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@carmelalustrephotography?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">carmelalustrephotography</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **In-person meeting notes** on a Mac are a recording from the microphone you select, sitting in the room with the people. There is no separate in-person product mode. The same menu-bar recorder you use for a video call takes that mic. System audio, the second track, stays quiet if nobody is on a call. Speaker names are weaker than on a call where your voice and the remote mix were captured apart.
@@ -34,9 +31,12 @@ Tell the room before you start. A laptop on the table is easy to miss. Consent i
 Vemoir records the selected microphone and macOS system audio as two local tracks. On a Zoom call those tracks split you from the other people. In a room they do not. Everyone who speaks near the laptop lands on the microphone track. System audio only adds sound the Mac is already playing: a video, hold music, a remote person if someone joins a call on speaker.
 
 
-<Image src={inline1} alt="An in-person meeting with notebooks and water glasses in daylight" width={700} quality={80} class="w-full" />
+<ul class="blog-scenarios">
+  <li><h3>If the room is quiet</h3><p>The mic hears everyone near it. System audio may be silent.</p></li>
+  <li><h3>If someone joins by phone on speaker</h3><p>That remote voice can land on the system track.</p></li>
+  <li><h3>If you need named seats</h3><p>Speaker labels come after stop, on the Mac, not live in the room.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@prolabprints?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">prolabprints</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 You start and stop. If you pause for lunch and forget to stop, the tape includes lunch. If you start late, the opening decision is missing. The app does not detect a meeting in the room and start by itself.
 
@@ -51,9 +51,11 @@ Requirements match any other recording in the app: Apple silicon, macOS Sonoma 1
 Optional noise suppression runs on the Mac, on the microphone path, not in a cloud. The modes are Off, Balanced, and Strong. They are meant for steady noise: keyboard, room hum, other non-speech interference. The chosen mode stays visible. If suppression cannot keep the speech, the app falls back to the ordinary microphone path.
 
 
-<Image src={inline2} alt="Six chairs around a wooden table with papers" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot</span><strong>None</strong><p>No participant joins a physical table.</p></li>
+  <li><span class="blog-kicker">Screen</span><strong>Not recorded</strong><p>System Audio Recording is audio-only.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@marissacristina?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">marissacristina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Strong is not a way to record a person at the far end of a long table. If they are quiet in the raw mic, they are quiet in the transcript. Move the laptop, or ask them to speak up, or take a written note of their sentence and mark it as yours.
 

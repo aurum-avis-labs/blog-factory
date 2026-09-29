@@ -1,6 +1,6 @@
 ---
 title: "Audiodatei importieren am Mac und lokal transkribieren"
-description: "Audiodatei importieren am Mac, um ein fertiges Meeting zu transkribieren. Formate, der 15-Minuten-Browserweg, und wann die Mac-App die bessere Wahl ist."
+description: "Audiodatei importieren am Mac, wenn das Meeting schon vorbei ist. Formate, der Browserweg bis 15 Minuten, und wann die Mac-App besser passt."
 pubDate: 2026-10-21
 author: "Vemoir Team"
 tags: ["mac", "import", "transkription"]
@@ -12,96 +12,88 @@ image: "@/assets/blog/import-audio-file-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/import-audio-file-mac/inline1.jpg';
-import inline2 from '@/assets/blog/import-audio-file-mac/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@rebylulu?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">rebylulu</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Eine **Audiodatei importieren am Mac** und daraus ein Transkript machen heisst: die Aufnahme existiert schon. Du willst Speech-to-Text auf dieser Datei, ohne den Import in einen Upload zu verwandeln. In Vemoir ziehst du die Datei in die Mac-App (Auswahl oder Drag-and-Drop), legst sie optional in ein Projekt und schickst sie durch dieselbe lokale Pipeline wie eine Aufnahme aus der Menüleiste. Im Browser geht das für einen kurzen Clip, ohne die Datei an Vemoir zu senden.
+Eine **Audiodatei importieren am Mac** und daraus ein Transkript machen heisst: die Aufnahme existiert schon. Du willst aus dieser Datei Text, ohne den Import in einen Upload zu verwandeln. In Vemoir ziehst du die Datei in die Mac-App (Auswahl oder Drag-and-Drop), legst sie optional in ein Projekt und schickst sie durch denselben lokalen Ablauf wie eine Aufnahme aus der Menüleiste. Im Browser geht das für einen kurzen Clip, ohne die Datei an Vemoir zu senden.
 
-Das ist der Weg nach dem Call. Er nimmt kein Live-Meeting auf und setzt keinen Bot in Zoom oder Teams. Den nächsten Call auf diesem Mac fängst du über die [Menüleiste](/de#capture) ein, nicht über Import.
+Das ist der Weg nach dem Call. Er nimmt kein laufendes Meeting auf und setzt keinen Bot in Zoom oder Teams. Den nächsten Call auf diesem Mac fängst du über die [Menüleiste](/de#capture) ein, nicht über den Import.
 
 ## Was du auf dem Mac importieren kannst
 
-Vemoir importiert gängige lokale Audiodateien: **MP3, M4A, WAV, AIFF, CAF und FLAC**. Das sind die Formate, die du aus einem Recorder, einem lokalen Meeting-Ordner oder einem Interview-Kit exportierst, bevor du sie reinziehst.
+Vemoir importiert gängige lokale Audiodateien: **MP3, M4A, WAV, AIFF, CAF und FLAC**. Das sind die Formate, die du aus einem Recorder, einem lokalen Meeting-Ordner oder einem Interview-Set exportierst, bevor du sie reinziehst.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Mac-App</span><strong>MP3, M4A, WAV</strong><p>Zusätzlich AIFF, CAF und FLAC beim Import.</p></li>
+  <li><span class="blog-kicker">Browser-Tool</span><strong>15-Minuten-Limit</strong><p>MP3, M4A, WAV oder MP4. Drei Läufe pro Woche.</p></li>
+  <li><span class="blog-kicker">Kein Audio</span><strong>VTT oder TXT</strong><p>Schon Text. Bereinigen, nicht erneut importieren.</p></li>
+</ul>
 
-<Image src={inline1} alt="Speicherkarte neben einem Papierordner" width={700} quality={80} class="w-full" />
+Was oft versucht wird und hier nicht vorgesehen ist:
 
-<p><em>Photo by <a href="https://unsplash.com/@jakubzerdzicki?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jakubzerdzicki</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Was Leute versuchen und was hier nicht draufsteht:
-
-- **MP4-Video.** Die Importliste der Mac-App ist Audio. Liegt von Zoom ein Film da, suche im selben Datumsordner `audio_only.m4a`. Das Browser-Tool akzeptiert MP4 (und MP3, M4A, WAV) für eine kurze Datei.
-- **VTT oder TXT.** Das ist schon Text. Import macht aus Untertiteln keine bessere Aufnahme.
-- **Ein Link auf eine Cloud-Aufnahme.** Import braucht Bytes auf der Disk. Audio zuerst laden, dann importieren. Ein Cloud-Transkript herunterladen ist keine lokale Transkription; der Anbieter hat Speech-to-Text schon ausgeführt.
+- **MP4-Video.** Die Importliste der Mac-App ist Audio. Liegt von Zoom ein Film da, such im selben Datumsordner `audio_only.m4a`. Das Browser-Werkzeug akzeptiert MP4 (und MP3, M4A, WAV) für eine kurze Datei.
+- **VTT oder TXT.** Das ist schon Text. Aus Untertiteln macht ein Import keine bessere Aufnahme.
+- **Ein Link auf eine Cloud-Aufnahme.** Import braucht die Datei auf der Platte. Audio zuerst laden, dann importieren. Ein Cloud-Transkript herunterzuladen ist keine lokale Transkription. Der Anbieter hat die Spracherkennung schon ausgeführt.
 
 Sprachnotizen vom iPhone landen nach AirDrop oft als M4A. Sobald die Datei lokal ist, ist das ein normaler Import.
 
-Voraussetzungen Mac-App: Apple Silicon (M1 oder neuer), macOS Sonoma 14.2 oder neuer, Platz für die Modelle. Intel-Macs sind nicht unterstützt. Netz für Setup und Downloads. Danach kann die Verarbeitung offline laufen.
+Voraussetzungen der Mac-App: Apple Silicon (M1 oder neuer), macOS Sonoma 14.2 oder neuer, Platz für die Modelle. Intel-Macs sind nicht unterstützt. Netz brauchst du für die Einrichtung und die Downloads. Danach kann die Verarbeitung offline laufen.
 
 ## Audiodatei importieren am Mac in Vemoir
 
-1. Datei auf den Mac legen. So benennen, dass du sie nächsten Monat findest. Datum und Kundenkürzel schlagen `aufnahme(3).m4a`.
-2. Vemoir öffnen. Ein **Projekt** anlegen oder wählen, wenn der Call zu einem Mandanten gehört. Du kannst den Import vor der Verarbeitung ablegen, analog zur Live-Aufnahme vor Record.
-3. Dateiauswahl oder Datei auf die App ziehen. Eine Datei wird ein Meeting-Datensatz in der Bibliothek.
-4. Lokale Transkription abwarten. Das massgebliche Transkript entsteht aus dem importierten Audio. Sprechertrennung läuft auf dem Mac. Danach umbenennen. "Diesen Sprecher merken" ist opt-in und verschlüsselt; unbekannte Stimmen bleiben anonym.
-5. Protokoll, Beschlüsse und Aufgaben auf dem Mac bearbeiten. Getippte Notizen fliessen in denselben Datensatz. Teilen über die normalen macOS-Teilen-Wege, nur die Teile, die du wählst.
+1. Leg die Datei auf den Mac. Benenn sie so, dass du sie nächsten Monat findest. Datum und Kundenkürzel sind klarer als `aufnahme(3).m4a`.
+2. Öffne Vemoir. Leg ein **Projekt** an oder wähl eines, wenn der Call zu einem Mandanten gehört. Den Import kannst du vor der Verarbeitung ablegen, analog zur Live-Aufnahme vor dem Start.
+3. Wähl die Datei oder zieh sie auf die App. Eine Datei wird ein Sitzungsdatensatz in der Bibliothek.
+4. Wart auf die lokale Transkription. Das Transkript, das zählt, entsteht aus dem importierten Audio. Die Sprechertrennung läuft auf dem Mac. Danach benennst du um. «Diesen Sprecher merken» ist freiwillig und verschlüsselt. Unbekannte Stimmen bleiben anonym.
+5. Bearbeite Protokoll, Beschlüsse und Aufgaben auf dem Mac. Getippte Notizen fliessen in denselben Datensatz. Teilen geht über die normalen Teilen-Wege von macOS, und nur die Teile, die du wählst.
 
+Nichts davon lädt das Audio zu Vemoir hoch. Cloud-Textmodelle (OpenAI oder Anthropic mit eigenem Schlüssel) sind freiwillig und gelten für erzeugten Text. Sie transkribieren die Datei nicht, und die App fällt nicht still auf sie zurück.
 
-<Image src={inline2} alt="Speicherkarte neben einem Notizbuch abgelegt" width={700} quality={80} class="w-full" />
+Brauchst du Text ohne Installation und ist der Clip kurz, nimm den Browser-Abschnitt. Ist die Datei eine lokale Zoom-Aufnahme, steht die Ordnersuche in [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
 
-<p><em>Photo by <a href="https://unsplash.com/@michaelxi?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">michaelxi</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Nichts davon lädt das Audio zu Vemoir hoch. Cloud-Textmodelle (OpenAI oder Anthropic mit eigenem Key) sind opt-in für generierten Text. Sie transkribieren die Datei nicht, und die App fällt nicht still auf sie zurück.
-
-Willst du Text ohne App-Installation und der Clip ist kurz, nimm den Browser-Abschnitt. Ist die Datei eine lokale Zoom-Aufnahme, steht die Ordnersuche in [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
-
-## Import gegen selbst aufnehmen
+## Import und selbst aufnehmen
 
 Import ist für Audio, das schon existiert: die lokale Zoom-Datei einer Kollegin, ein Handrecorder, ein Interview-Export.
 
-Live-Aufnahme ist das nächste Meeting auf **diesem** Mac: Mikrofon plus Systemton, kein Bot. Import zaubert keinen Systemton in eine Datei, die ihn nie hatte. Ist die M4A schon nur Mikrofon, holst du die Gegenseite nicht durch einen "besseren" Import zurück.
+Live-Aufnahme ist das nächste Meeting auf **diesem** Mac: Mikrofon plus Systemton, kein Bot. Import holt keinen Systemton in eine Datei, die ihn nie hatte. Ist die M4A schon nur Mikrofon, bringst du die Gegenseite mit einem «besseren» Import nicht zurück.
 
-Importiere keine stumme Datei und erwarte ein Transkript. Ist die Wiedergabe leer, ist das nächste Mal Capture das Thema, nicht Import.
+Importiere keine stumme Datei und erwarte ein Transkript. Ist die Wiedergabe leer, geht es beim nächsten Mal um die Aufnahme, nicht um den Import.
 
 ## Browser: kurze Dateien, keine Installation
 
-Das kostenlose [Audio-Transkribieren-Tool](/de/tools/audio-transkribieren) läuft im Tab. MP3, M4A, WAV oder MP4. **Die Datei geht nicht an Vemoir.** Öffentliches Whisper lädt einmal; spätere Läufe können ohne Netz gehen. Netzwerk-Tab zeigen, wenn jemand den Nachweis will.
+Das kostenlose [Audio-Transkribieren-Tool](/de/tools/audio-transkribieren) läuft im Tab. MP3, M4A, WAV oder MP4. **Die Datei geht nicht an Vemoir.** Öffentliches Whisper lädt einmal. Spätere Läufe können ohne Netz gehen. Zeig den Netzwerk-Tab, wenn jemand den Nachweis will.
 
-Grenzen Stand September 2026:
+Grenzen, Stand September 2026:
 
 - **15 Minuten** pro Datei
-- **3 erfolgreiche Läufe pro Woche**
-- **Keine Sprecherlabels**
-- **Keine Live-Aufnahme** im Browser
+- **drei erfolgreiche Läufe pro Woche**
+- **keine Sprecherlabels**
+- **keine Live-Aufnahme** im Browser
 
-Lange Datei splitten, wenn du im Tab bleibst, oder die Mac-App für die ganze Aufnahme. Interviews und Einwilligung: [Interview transkribieren ohne Upload](/de/blog/interview-transkribieren-ohne-upload).
+Eine lange Datei teilst du, wenn du im Tab bleibst, oder du nimmst die Mac-App für die ganze Aufnahme. Zu Interviews und Einwilligung: [Interview transkribieren ohne Upload](/de/blog/interview-transkribieren-ohne-upload).
 
 Willst du eine vorhandene Datei ohne Anbieter-Upload? [Audio transkribieren öffnen](/de/tools/audio-transkribieren).
 
 ## Nach dem Import: was du teilen kannst
 
-Meist sind Protokoll, Beschlüsse und Aufgaben der sinnvolle Export, nicht das Audio. Aufnahme behalten oder löschen nach deiner Speicherwahl. Vemoir kann den Audio-Ordner nach erfolgreichem Lauf entfernen, wenn du Storage so konfiguriert hast. Der Text kann auf dem Mac weiter auf Transkriptzeilen zeigen.
+Meist sind Protokoll, Beschlüsse und Aufgaben der sinnvolle Export, nicht das Audio. Die Aufnahme behältst oder löschst du nach deiner Speicherwahl. Vemoir kann den Audio-Ordner nach einem erfolgreichen Lauf entfernen, wenn du den Speicher so eingestellt hast. Der Text kann auf dem Mac weiter auf Transkriptzeilen zeigen.
 
-Nenn den Output nicht beglaubigt, nicht DSGVO-zertifiziert, nicht privileged. Einwilligung und Löschung bleiben bei dir. War die Datei die Aufnahme von jemand anderem, heilt Import fehlende Einwilligung nicht.
+Nenn das Ergebnis nicht beglaubigt, nicht DSGVO-zertifiziert und nicht als privilegiert. Einwilligung und Löschung bleiben bei dir. War die Datei die Aufnahme von jemand anderem, heilt der Import eine fehlende Einwilligung nicht.
 
 ## Wann ein anderer Weg besser ist
 
-- **Das offizielle File muss in Teams oder Zoom leben.** Ein privater Download ersetzt die Tenant-Aufnahme nicht.
-- **Ihr braucht heute ein Firmenarchiv.** Eine Datei auf einem Mac ist kein Workspace. Notizen exportieren.
-- **Die Datei ist 12 Minuten und du brauchst einmal Rohtext.** Weniger Setup im Browser.
-- **Kein Apple Silicon.** Die Mac-App läuft nicht. Anderes OS-Tool, oder Browser für den kurzen Clip.
+- **Die offizielle Datei muss in Teams oder Zoom leben.** Ein privater Download ersetzt die Aufnahme des Tenants nicht.
+- **Ihr braucht heute ein Firmenarchiv.** Eine Datei auf einem Mac ist kein gemeinsamer Arbeitsraum. Exportier die Notizen.
+- **Die Datei ist 12 Minuten lang und du brauchst einmal Rohtext.** Im Browser ist weniger einzurichten.
+- **Kein Apple Silicon.** Die Mac-App läuft nicht. Nimm ein anderes Werkzeug auf dem System, oder den Browser für den kurzen Clip.
 
-## Drei Dateien, die Leute tatsächlich importieren
+## Drei Dateien, die wirklich importiert werden
 
-**Lokaler Zoom-Ordner.** Nach "Record to this computer" liegt oft `audio_only.m4a` neben dem Video. Die M4A ist der Import, nicht der MP4-Film. Den Ordnerpfad beschreibt [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren). Ist die M4A länger als 15 Minuten, bleibt sie in der Mac-App. Ist sie 8 Minuten und du brauchst nur Rohtext, reicht der Browser.
+**Lokaler Zoom-Ordner.** Nach «Auf diesem Computer aufzeichnen» liegt oft `audio_only.m4a` neben dem Video. Die M4A ist der Import, nicht der MP4-Film. Den Ordnerpfad beschreibt [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren). Ist die M4A länger als 15 Minuten, bleibt sie in der Mac-App. Ist sie acht Minuten lang und du brauchst nur Rohtext, reicht der Browser.
 
-**AirDrop einer Sprachnotiz.** Das iPhone schickt M4A. Sobald die Datei im Finder ist, ist es ein normaler Import. Der Inhalt ist nur, was das Telefonmikrofon gehört hat: ein Gespräch im Sitzungszimmer ja, ein Zoom-Call der auf einem anderen Laptop lief nein.
+**AirDrop einer Sprachnotiz.** Das iPhone schickt M4A. Sobald die Datei im Finder ist, ist es ein normaler Import. Der Inhalt ist nur, was das Telefonmikrofon gehört hat: ein Gespräch im Sitzungszimmer ja, ein Zoom-Call, der auf einem anderen Laptop lief, nein.
 
-**Export aus einem Diktiergerät.** WAV oder FLAC sind in der Mac-App vorgesehen. Vor dem Import zehn Sekunden Probe hören. Manche Geräte schreiben eine stumme erste Datei, wenn du Record vor dem Gespräch gedrückt hast. Die importierst du nicht zweimal.
+**Export aus einem Diktiergerät.** WAV und FLAC sind in der Mac-App vorgesehen. Hör vor dem Import zehn Sekunden Probe. Manche Geräte schreiben eine stumme erste Datei, wenn du die Aufnahme vor dem Gespräch gestartet hast. Die importierst du nicht zweimal.
 
-Lege die Datei in ein Projekt, bevor die Verarbeitung durch ist, wenn der Mandant schon klar ist. Sonst sortierst du hinterher um. Beides ist lokal.
+Leg die Datei in ein Projekt, bevor die Verarbeitung durch ist, wenn der Mandant schon klar ist. Sonst sortierst du hinterher um. Beides bleibt lokal.
 
 Nach der Transkription reicht oft ein Durchgang über Namen, Beträge und das Datum des nächsten Schritts. Das Glossar im Projekt fängt wiederkehrende Schreibweisen. Es ersetzt das Gegenlesen nicht, vor allem wenn du Sätze zitieren willst.
 
@@ -109,26 +101,26 @@ Nach der Transkription reicht oft ein Durchgang über Namen, Beträge und das Da
 
 ### Kann ich am Mac eine Audiodatei importieren, die ich am Telefon aufgenommen habe?
 
-Ja, sobald die Datei wirklich auf dem Mac ist (AirDrop, Dateien, USB) und in einem unterstützten Audioformat. Die Telefonaufnahme ist nur, was das Telefonmikrofon gehört hat. Ein Zoom-Call auf einem anderen Gerät steckt nicht darin.
+Ja, sobald die Datei wirklich auf dem Mac ist (AirDrop, Dateien, USB) und in einem unterstützten Audioformat. Die Telefonaufnahme enthält nur, was das Telefonmikrofon gehört hat. Ein Zoom-Call auf einem anderen Gerät steckt nicht darin.
 
 ### Lädt der Import das Meeting zu Vemoir hoch?
 
-Nein. Die Mac-App verarbeitet lokal. Das Browser-Tool schickt die Datei auch nicht an Vemoir. Export oder ein Cloud-**Textmodell** mit eigenem Key ist ein späterer, ausdrücklicher Schritt. Die Audio-Transkription bleibt auf dem Gerät oder im Tab.
+Nein. Die Mac-App verarbeitet lokal. Das Browser-Werkzeug schickt die Datei auch nicht an Vemoir. Ein Export oder ein Cloud-**Textmodell** mit eigenem Schlüssel ist ein späterer, ausdrücklicher Schritt. Die Transkription des Audios bleibt auf dem Gerät oder im Tab.
 
 ### Welche Formate importiert Vemoir?
 
-In der Mac-App MP3, M4A, WAV, AIFF, CAF und FLAC. Im Browser MP3, M4A, WAV oder MP4, mit 15-Minuten-Deckel.
+In der Mac-App MP3, M4A, WAV, AIFF, CAF und FLAC. Im Browser MP3, M4A, WAV oder MP4, mit einer Obergrenze von 15 Minuten.
 
 ### Kann ich importieren, während ein Live-Meeting noch läuft?
 
-Eine alte Datei jederzeit. Import fängt den Live-Call nicht. Dafür Menüleiste, Mikrofon und Systemton.
+Eine alte Datei jederzeit. Den laufenden Call fängt der Import nicht. Dafür gibt es die Menüleiste, das Mikrofon und den Systemton.
 
 ### Bekommen importierte Dateien Sprecherlabels?
 
-In der Mac-App läuft Sprechertrennung lokal. Du benennst um; Profile sind opt-in. Der Browser trennt niemanden.
+In der Mac-App läuft die Sprechertrennung lokal. Du benennst um. Profile sind freiwillig. Der Browser trennt niemanden.
 
 ### Was, wenn das importierte Transkript die falsche Sprache hat?
 
-Die App-Sprache (Deutsch, Englisch, Französisch, Italienisch, Niederländisch) ist unabhängig vom Sprachmodell. Ein Modell wählen, das die gesprochene Sprache abdeckt. Parakeet v3: 25 europäische Sprachen. Whisper-Varianten: eigene Abdeckung. Keine Genauigkeitsliste auf dieser Seite.
+Die Sprache der App (Deutsch, Englisch, Französisch, Italienisch, Niederländisch) ist unabhängig vom Sprachmodell. Wähl ein Modell, das die gesprochene Sprache abdeckt. Parakeet v3: 25 europäische Sprachen. Die Whisper-Varianten haben ihre eigene Abdeckung. Eine Genauigkeitsliste gibt es auf dieser Seite nicht.
 
-Nächster Schritt: kurze Datei im [Audio-Transkribieren-Tool](/de/tools/audio-transkribieren), oder die ganze Aufnahme in der Mac-App unter einem [Projekt](/de#record) ablegen.
+Nächster Schritt: eine kurze Datei im [Audio-Transkribieren-Tool](/de/tools/audio-transkribieren), oder die ganze Aufnahme in der Mac-App unter einem [Projekt](/de#record) ablegen.

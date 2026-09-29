@@ -11,23 +11,27 @@ image: "@/assets/blog/meeting-longer-than-15-minutes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/meeting-longer-than-15-minutes/inline1.jpg';
-import inline2 from '@/assets/blog/meeting-longer-than-15-minutes/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Une réunion plus longue que 15 minutes ne passe pas dans les outils gratuits du navigateur. L'essai accepte un fichier audio ou vidéo jusqu'à 15 minutes : MP3, M4A, WAV ou MP4. Au-delà, la page refuse le fichier avant que le modèle ne tourne. Cette limite est celle de l'essai, pas une affirmation sur la durée dont une personne peut parler. Un appel client d'une heure, un atelier ou un conseil appartiennent à l'app Mac, faite pour une réunion entière sur la machine.
 
 Découper l'heure en quatre morceaux n'en fait pas un tuyau gratuit illimité. Chaque transcription réussie dépense l'un des trois passages de la semaine, partagés entre les outils de transcription. Quatre morceaux peuvent épuiser la semaine et vous laisser quatre textes à recoller à la main.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Outil navigateur</span><strong>15 min</strong><p>Plafond par fichier sur vemoir.ch.</p></li>
+  <li><span class="blog-kicker">App Mac</span><strong>Pas de ticket/réunion</strong><p>Longs appels après installation des modèles.</p></li>
+  <li><span class="blog-kicker">Mémoire</span><strong>16 Go+</strong><p>Recommandé pour des réunions d'une heure sur Apple silicon.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Découper un long fichier dans le navigateur consomme le quota et casse la chronologie.</p>
+</aside>
+
 ## Une réunion plus longue que 15 minutes, dans le navigateur
 
 La limite arrête la reconnaissance vocale sur un fichier, et le passage enchaîné « enregistrement vers notes », qui transcrit puis rédige des notes en un seul usage. Vous déposez le fichier, la page vérifie le type, la taille et la durée, et un fichier au-delà de 15 minutes est refusé. Il y a aussi un plafond de taille dans l'essai (80 Mo). Un fichier court peut quand même être trop lourd s'il s'agit d'une vidéo peu compressée. Préférez la piste audio quand vous en avez une, par exemple `audio_only.m4a` de Zoom, et seulement si cet audio lui-même fait moins de 15 minutes.
 
-
-<Image src={inline1} alt="Lumiere de l'apres-midi sur une longue table et des tasses vides" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@leshatuman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">leshatuman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Le compteur hebdomadaire, ce sont trois passages de modèle réussis dans ce navigateur, pas un compte. Les exemples ne comptent pas. Prévoyez trois vrais fichiers par semaine comme budget. Le compteur vit dans le navigateur. Un autre navigateur, ou un stockage effacé, n'est pas un second abonnement que vous pouvez présenter à une équipe comme contournement.
 
@@ -37,10 +41,6 @@ Ces pages n'enregistrent pas l'appel en direct. Elles ne rejoignent pas Zoom ni 
 
 La limite porte sur l'audio dans le navigateur. Elle ne porte pas sur chaque page.
 
-
-<Image src={inline2} alt="Longue table en bois, beaucoup de chaises, fin de journee" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - Nettoyer un VTT, un SRT ou un export semblable ne dépense pas un passage et ne se soucie pas que la réunion ait duré deux heures. Les horodatages partent. Les noms restent s'ils étaient dans le fichier. Le [nettoyage de transcription](/fr/outils/nettoyer-transcription) n'invente pas de locuteurs.
 - [Notes depuis une transcription](/fr/outils/notes-depuis-transcription) rédige à partir du texte que vous collez. Ce brouillon dépense un passage, parce qu'il appelle un modèle. Un très long collage peut être tronqué. Si la page dit que le texte a été coupé, le brouillon n'a pas vu la fin de l'appel.

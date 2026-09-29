@@ -11,11 +11,7 @@ image: "@/assets/blog/search-past-meetings/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/search-past-meetings/inline1.jpg';
-import inline2 from '@/assets/blog/search-past-meetings/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@declansun?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">declansun</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Vous pouvez **rechercher des réunions passées** sur le Mac qui les a enregistrées : titres, transcriptions, artefacts, actions et décisions, sans envoyer la bibliothèque vers un index hébergé. La recherche de la bibliothèque et Ask Vemoir restent sur la machine, sauf si vous avez explicitement routé la génération de texte vers votre propre clé d’API.
 
 La recherche répond à « où avons-nous dit cela ». Ask répond à une question et peut pointer une ligne. Ce sont deux commandes. Cette page explique comment trouver la séance, puis poser une question dans un périmètre que vous choisissez.
@@ -34,9 +30,12 @@ La recherche répond à « où avons-nous dit cela ». Ask répond à une questi
 La recherche de projet couvre les séances, les transcriptions, les artefacts, les actions et les décisions. Le tableau de bord du projet ajoute un récapitulatif, le travail ouvert, les décisions récentes, les documents épinglés et les séances récentes, avec un lien vers la fiche source.
 
 
-<Image src={inline1} alt="Quelqu'un fouille une boite de notes papier" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Recherche</span><strong>Sur le Mac</strong><p>Titres, transcriptions, actions et decisions restent locaux.</p></li>
+  <li><span class="blog-kicker">Ask Vemoir</span><strong>Perimetre</strong><p>Une reunion, un projet ou la bibliotheque active.</p></li>
+  <li><span class="blog-kicker">Archive</span><strong>Masque</strong><p>Les reunions archivees sortent de la recherche courante.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Cela suffit quand vous vous souvenez d’un client, d’une formule ou d’un nom. Ce n’est pas le bon outil si vous voulez une réponse composée (« qu’avons-nous promis à Acme sur la date de déploiement »). Pour cela, ouvrez Ask Vemoir et choisissez un périmètre.
 
@@ -55,9 +54,12 @@ Les séances et projets archivés sont exclus. Les suppressions retirent les enr
 Les destinations de la bibliothèque utilisent Commande-1 à Commande-6. **Commande-F** place le focus sur la recherche de séances. Les flèches parcourent la barre latérale des projets et la liste des séances. Le glisser-déposer entre Enregistrements locaux et un projet fonctionne toujours. La recherche ne remplace pas le classement.
 
 
-<Image src={inline2} alt="Tiroir de catalogue en bois legerement ouvert" width={700} quality={80} class="w-full" />
+<ol class="blog-steps">
+  <li data-step="1"><h3>Classer l'appel</h3><p>Choisir un projet avant d'enregistrer si possible.</p></li>
+  <li data-step="2"><h3>Command-F</h3><p>Chercher noms, produits ou formulations de decision.</p></li>
+  <li data-step="3"><h3>Ouvrir Ask</h3><p>Quand il faut une reponse composee, pas seulement une occurrence.</p></li>
+</ol>
 
-<p><em>Photo by <a href="https://unsplash.com/@hayko_badalyan?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">hayko_badalyan</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Un ordre utile quand vous ne savez plus quel mardi c’était :
 

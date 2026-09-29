@@ -11,9 +11,6 @@ image: "@/assets/blog/local-model-download/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/local-model-download/inline1.jpg';
-import inline2 from '@/assets/blog/local-model-download/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sasun1990?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sasun1990</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Télécharger un modèle local**, c’est l’installation que vous lancez exprès&nbsp;: le modèle de parole qui transcrira, ou le modèle de langue qui écrira notes, documents et réponses. L’app affiche la taille du téléchargement, le stockage, à quoi sert le modèle, et s’il convient à ce Mac. La progression peut reprendre après un échec ou une fermeture. Vemoir ne télécharge, ne sélectionne et ne substitue pas un modèle en silence pendant que vous enregistrez ou qu’une réunion se traite.
@@ -25,22 +22,20 @@ Ce n’est pas un guide pour travailler hors réseau. C’est une autre question
 L’installation présente le traitement local, puis ne demande que les autorisations dont la capture a besoin. Elle vous demande ensuite de choisir la transcription et un modèle de langue local. Ce sont des fichiers différents. Parakeet v3 transcrit 25 langues européennes. Whisper Turbo, Medium et Large-v3 sont les autres choix de parole, chacun avec sa couverture. Aucun de ceux-là n’écrit le compte rendu. Qwen3 4B est le modèle de langue destiné à la plupart des Mac. gpt-oss-20b est le plus grand, pour les Mac à mémoire élevée. Ils écrivent notes, documents et Ask. Ils ne transcrivent pas l’audio.
 
 
-<Image src={inline1} alt="Pile de disques durs sans marque sur une table" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@readysetfreddy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">readysetfreddy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Vous pouvez ignorer une clé cloud à l’installation. Une clé n’est pas requise pour le téléchargement. Le réseau l’est pour récupérer les fichiers. Une fois les modèles choisis installés, une réunion plus tard peut tourner sans réseau. Cette étape ultérieure est la raison pour laquelle le téléchargement compte. L’écran de téléchargement est l’endroit où vous le voyez se faire.
 
 La bibliothèque de modèles est l’endroit où vous revenez&nbsp;: télécharger, inspecter, sélectionner, retirer. L’état de prêt, le stockage, la compatibilité matérielle et le cycle de vie restent visibles. Un passage de réunion utilise exactement le modèle de parole et le modèle de langue sélectionnés pour ce passage. Il ne choisit pas un modèle plus petit en cours de réunion parce que le disque était juste.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Vérifier l'espace</h3><p>Environ 10 Go ou plus selon les modèles.</p></li>
+  <li data-step="2"><h3>Télécharger une fois en Wi‑Fi</h3><p>Modèles disponibles hors ligne.</p></li>
+  <li data-step="3"><h3>Parakeet ou Whisper</h3><p>Choisir les langues avant un long déplacement.</p></li>
+</ol>
 
 ## Reprise, échec et fermeture
 
 Si le téléchargement s’arrête, vous avez un échec et un moyen de récupérer. La progression survit à la fermeture et à la relance de l’app. Autorisations refusées, coupure réseau et téléchargement en échec sont des états que vous pouvez quitter et retrouver. Vous pouvez rouvrir l’installation depuis Réglages, et la réinitialiser.
 
-
-<Image src={inline2} alt="Petit carton pose a cote d'un portable ferme" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@c1st?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">c1st</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Ce que vous ne devriez pas voir, c’est une réunion terminée qui a utilisé un modèle que vous n’avez jamais choisi. Si un fichier manque, le traitement ne va pas en chercher un autre en silence et continuer comme si de rien n’était. Réparez le téléchargement, puis relancez la réunion.
 
@@ -55,6 +50,11 @@ Les contrôles d’intégrité et les mentions de licence accompagnent les fichi
 | Rien encore | L’installation attend | Inventer un modèle et enregistrer dessus |
 
 Apple Intelligence, là où le Mac l’a, peut aider au nettoyage et aux artefacts sans être le modèle de parole. Ce n’est pas un téléchargement de substitution pour Parakeet ou Whisper. Si vous ajoutez aussi une clé OpenAI ou Anthropic, cette clé est texte seulement, stockée dans le Trousseau, et éteinte jusqu’à activation. Enregistrer une clé ne télécharge pas un modèle de parole, et ne devient pas une sauvegarde silencieuse quand un fichier local échoue.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Mac Intel non pris en charge. Réunions longues : 16 Go de RAM ou plus.</p>
+</aside>
 
 ## Quand sauter un téléchargement est mieux
 

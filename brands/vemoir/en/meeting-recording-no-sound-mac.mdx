@@ -11,11 +11,6 @@ image: "@/assets/blog/meeting-recording-no-sound-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/meeting-recording-no-sound-mac/inline1.jpg';
-import inline2 from '@/assets/blog/meeting-recording-no-sound-mac/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Meeting recording no sound on a Mac** almost never means the meeting app "failed to record." It usually means you captured one track and not the other. Your microphone is your voice in the room. System audio is what Zoom, Teams, Meet, Slack, or Discord is playing through the Mac. If system audio is off, the recording is you talking into silence. If the microphone is off, the recording is the call without you. If both are off, you get a file that looks complete and contains nothing useful.
 
 Fix the permission and the output device before you recapture. Vemoir records those two sources separately from the menu bar. It does not join the call as a bot. The permission it needs for the remote side is **System Audio Recording** (audio only). It does not record the screen. Older guides that send you to a Screen Recording checkbox for this app are out of date. Start from [how capture works](/#capture).
@@ -24,10 +19,11 @@ Fix the permission and the output device before you recapture. Vemoir records th
 
 Treat a silent recording as a two-question checklist, not as a broken meeting app.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Mic track</span><strong>Your voice</strong><p>Mute, permission, or wrong input if this side is empty.</p></li>
+  <li><span class="blog-kicker">System audio</span><strong>Remote side</strong><p>Permission or output device if you heard them live but not in the file.</p></li>
+</ul>
 
-<Image src={inline1} alt="Unplugged headphones next to a closed laptop" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@niko_nguyen_10?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">niko_nguyen_10</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. **Do I hear myself in the playback?** If yes, the microphone path worked. If no, the mic was muted, denied, or pointed at the wrong input.
 2. **Do I hear the other people?** If no, system audio was not captured. The usual causes are a denied **System Audio Recording** permission, a muted meeting app, or audio routed somewhere the Mac is not playing (a Bluetooth headset with a confused output, or a phone at your ear).
@@ -40,10 +36,11 @@ The meeting app can be any app that plays sound on the Mac. See [platforms](/#pl
 
 Play the recording back and name the failure in one sentence. The fix is different for each.
 
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Screen Recording permission does not replace System Audio Recording for Vemoir. Allow audio only, then relaunch the app.</p>
+</aside>
 
-<Image src={inline2} alt="A silent table of cups and notebooks, no headset in use" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@greaterbythehour2020?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">greaterbythehour2020</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 **Only your voice.** System audio never entered the file. Open System Settings, then Privacy & Security. Apple groups the relevant list under **Screen & System Audio Recording**. For Vemoir, allow **audio only**, not a screen capture. Quit Vemoir and reopen it after you change the toggle. macOS often applies this permission only after a relaunch. Apple documents the settings page in [Control access to screen and system audio recording on Mac](https://support.apple.com/guide/mac-help/control-access-screen-system-audio-recording-mchld6aa7d23/mac).
 

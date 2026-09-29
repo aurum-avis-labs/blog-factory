@@ -12,11 +12,6 @@ image: "@/assets/blog/what-a-meeting-costs/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/what-a-meeting-costs/inline1.jpg';
-import inline2 from '@/assets/blog/what-a-meeting-costs/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **What a meeting costs** is the pay of the people in it, for as long as they stay. A 45-minute call with six salaries is six people times 0.75 hours times their rates. Software, the room, and the taxi are extra lines if you care about them. They are not the same number as the wages.
 
 You do not need a transcript to get the wage figure. You need a duration and an hourly rate you are willing to write down. The [meeting cost calculator](/tools/meeting-cost) does the multiplication in the browser and returns one sentence in Swiss francs. Nothing is uploaded.
@@ -34,10 +29,12 @@ You do not need a transcript to get the wage figure. You need a duration and an 
 
 One hourly rate is enough when everyone in the room is priced the same way, which is rare outside a classroom. A client call often mixes a partner, two consultants, and someone from the client whose rate you may only know as a loaded cost. Put each rate on its own row. The duration is shared. The total is the sum of people on that row times rate times hours.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Rate</span><strong>Per hour</strong><p>Use loaded cost or billable rate, not list salary.</p></li>
+  <li><span class="blog-kicker">Duration</span><strong>Minutes</strong><p>Include late starts and overrun.</p></li>
+  <li><span class="blog-kicker">Attendees</span><strong>Count heads</strong><p>Multiply rate by people in the room.</p></li>
+</ul>
 
-<Image src={inline1} alt="A large meeting table with unused water bottles" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 The calculator’s default currency is CHF. That is a formatting choice, not a claim about Swiss salaries. If your rate is in euros or dollars, the arithmetic is identical and the sentence the page prints is still in francs. Rewrite the currency symbol if you file the line outside Switzerland.
 
@@ -49,10 +46,11 @@ Loaded cost, if you use one, is salary plus what the employer adds for insurance
 
 Suppose 50 minutes, with three rows you enter yourself:
 
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Software subscriptions belong in a separate line unless finance asked you to allocate them per meeting.</p>
+</aside>
 
-<Image src={inline2} alt="A wide boardroom in daylight with empty seats" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - 1 person at CHF 280 an hour
 - 2 people at CHF 160 an hour

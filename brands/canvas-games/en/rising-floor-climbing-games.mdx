@@ -5,18 +5,13 @@ pubDate: 2026-10-27
 author: "Inklets Team"
 tags: ["rising floor game mobile", "vertical jumpers", "mobile games"]
 funnelStage: interest
+translationKey: "rising-floor-climbing-games"
 relatedPosts: ["doodle-jump-multiplayer", "what-is-inklets", "ai-character-creator-games"]
-image: "@/assets/blog/rising-floor-climbing-games/img1.webp"
+image: "@/assets/blog/rising-floor-climbing-games/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import img2 from '@/assets/blog/rising-floor-climbing-games/img2.webp';
-import img3 from '@/assets/blog/rising-floor-climbing-games/img3.webp';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@impatrickt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Patrick Tomasso</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Rising floor mechanics in mobile climbers turn a relaxed bounce ladder into a timed escape. Something climbs after you—lava, ink, a monster line, a shrinking safe zone—and standing still becomes a loss condition even when your platforms are fine. If you searched **rising floor game mobile**, you are really asking how that pressure changes strategy compared with classic solo high-score jumpers.
+Rising floor mechanics in mobile climbers turn a relaxed bounce ladder into a timed escape. Something climbs after you, lava, ink, a monster line, a shrinking safe zone, and standing still becomes a loss condition even when your platforms are fine. If you searched **rising floor game mobile**, you are really asking how that pressure changes strategy compared with classic solo high-score jumpers.
 
 This post explains the shared design pattern, names genre examples, and connects the idea to three-player survival climbs where the floor is visible to everyone at once.
 
@@ -33,6 +28,11 @@ Common implementations:
 The skill shift is from “can I land the next hop” to “can I land the next hop **before the margin disappears**.” Coin detours, spring gambles, and sideways reads all get priced in seconds, not only in fall risk.
 
 ## How rising floors change route choice
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Timer</span><strong>Implicit</strong><p>Standing still becomes a loss even on safe platforms.</p></li>
+  <li><span class="blog-kicker">Route</span><strong>Vertical</strong><p>Side detours must pay before the floor catches you.</p></li>
+</ul>
+
 
 Without a rising threat, the optimal line is often the safest line upward. With a rising floor, **throughput beats perfection**:
 
@@ -64,10 +64,6 @@ That matters for multiplayer:
 
 We are building Inklets for iOS and Android (Summer 2026). If survival climbing with friends is the hook, [what is Inklets](/blog/what-is-inklets) walks the match loop, and [Doodle Jump multiplayer](/blog/doodle-jump-multiplayer) contrasts official racing modes with last-one-standing rules.
 
-<Image src={img2} alt="Phone screen glow in a dim room suggesting a tense short game session" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Kelly Sikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 ## Rising floor vs finish-line racing
 
 Multiplayer climbers split into two families:
@@ -84,10 +80,6 @@ Racing can feel like parallel single-player sprints. Rising-floor survival keeps
 - **Want pure solo high score without a clock:** classic Doodle Jump 2 or cousins in [games like Doodle Jump](/blog/games-like-doodle-jump). Rising-floor stress is optional, not mandatory.
 - **Want racing friends:** Doodle Jump Race is the fair Lima Sky pick; rising ink is the wrong expectation.
 - **Want horizontal runners:** rising-floor language sometimes appears in endless runners, but vertical jumpers keep the one-thumb climb fantasy. Do not force a genre mismatch.
-
-<Image src={img3} alt="Close view of a hand gripping a phone during a one-thumb game" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@jakubzerdzicki?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Jakub Żerdzicki</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 ## Frequently asked questions
 

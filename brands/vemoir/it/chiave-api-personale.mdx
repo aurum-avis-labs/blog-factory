@@ -11,9 +11,6 @@ image: "@/assets/blog/bring-your-own-api-key/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/bring-your-own-api-key/inline1.jpg';
-import inline2 from '@/assets/blog/bring-your-own-api-key/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@zoshuacolah?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zoshuacolah</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Chiave API personale** quando vuoi che OpenAI o Anthropic scrivano testo per te, e vuoi quella scelta scritta chiaro. Vemoir conserva la credenziale nel Portachiavi di protezione dati di macOS. Salvare o verificare una chiave non la accende. Confermi un’attivazione che indirizza Ask Vemoir, documenti, artefatti di riunione e artefatti personalizzati verso quel solo fornitore. Audio e separazione speaker restano sul Mac. Se la chiave manca, l’endpoint è cambiato, il fornitore è giù o la chiamata fallisce, l’operazione si ferma. Niente sceglie in silenzio un altro backend.
@@ -25,13 +22,15 @@ L’app Mac in sé è un acquisto unico sull’App Store: CHF 20 in Svizzera. Lo
 La generazione esterna è solo testo. Audio grezzo, file, immagini e URL remoti non fanno parte della richiesta. Il testo della trascrizione e le note già sul Mac possono essere ciò che scegli di trattare come testo, perché così si scrive un riassunto. La registrazione in sé non parte per il parlato-in-testo. Parakeet o Whisper l’hanno già fatto in locale, o lo faranno. La separazione speaker non si sposta dal fornitore.
 
 
-<Image src={inline1} alt="Chiavi di casa accanto a un taccuino, nessuno schermo" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@jaye_haych?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jaye_haych</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Una fonte attiva alla volta. Attivare la chiave manda Ask, documenti, artefatti di riunione e artefatti personalizzati verso di lei. Selezionare un modello di lingua locale, Qwen3 4B o gpt-oss-20b, riporta tutti e quattro sul Mac. Non ottieni un misto in cui Ask usa Anthropic e il verbale usa Qwen, a meno che tu non cambi la fonte attiva in mezzo.
 
 L’impostazione può saltare del tutto il fornitore. I modelli locali restano il percorso predefinito.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Opt-in</span><strong>Off di default</strong><p>Modelli cloud richiedono chiave e toggle.</p></li>
+  <li><span class="blog-kicker">Audio</span><strong>Resta locale</strong><p>Solo il testo esce se attivi.</p></li>
+  <li><span class="blog-kicker">Vendor</span><strong>Il tuo account</strong><p>Fatturazione segue il provider.</p></li>
+</ul>
 
 ## Accenderla senza sorprenderti
 
@@ -41,10 +40,6 @@ L’impostazione può saltare del tutto il fornitore. I modelli locali restano i
 4. Leggi l’avviso di attivazione e confermalo. Quella conferma è il momento in cui il testo di riunione selezionato può andare al fornitore.
 5. Dopo una riunione, cerca il segno visibile di elaborazione esterna sull’output che ha usato la chiave. Un riassunto locale non porta quel segno.
 
-
-<Image src={inline2} alt="Piccola chiave di metallo accanto a carte di carta crema" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@silas_crioco?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silas_crioco</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Togliere la chiave ferma le nuove richieste e annulla il lavoro registrato per quel fornitore. Non cancella il testo già generato. Le ricevute si esportano o si cancellano in Privacy e dati. Sono senza contenuto di proposito.
 
@@ -66,6 +61,11 @@ Gli strumenti gratuiti nel browser non sono nemmeno uno slot per la chiave. [/it
 Requisiti dell’app: Apple silicon, macOS Sonoma 14.2 o successivo, 8 GB di memoria, 10 GB liberi, 16 GB consigliati per le riunioni lunghe.
 
 L’impostazione sta con le altre scelte di modello in [cattura](/it#capture).
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Una chiave invia testo di riunione a terzi. Disattiva se il cliente vieta quel vendor.</p>
+</aside>
 
 ## Un cliente che vieta il testo nel cloud
 

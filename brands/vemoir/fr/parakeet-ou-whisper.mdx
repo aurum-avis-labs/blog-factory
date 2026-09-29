@@ -11,9 +11,6 @@ image: "@/assets/blog/parakeet-vs-whisper/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/parakeet-vs-whisper/inline1.jpg';
-import inline2 from '@/assets/blog/parakeet-vs-whisper/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@towfiqu999999?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">towfiqu999999</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Parakeet ou Whisper** dans Vemoir est un choix de modèles de parole locaux, pas un tableau de scores. Parakeet v3 transcrit 25 langues européennes. Whisper est l'autre famille que vous pouvez télécharger&nbsp;: Turbo, Medium ou Large-v3, chacune avec sa propre couverture. Vous en choisissez un, vous voyez la taille du téléchargement et s'il tient sur ce Mac, et la réunion utilise cette sélection. Cet article ne les classe pas pour la précision. Personne ne devrait citer un pourcentage d'un billet de blog quand l'app n'en publie pas.
@@ -31,22 +28,26 @@ Aucun des deux modèles n'écrit le compte rendu. Notes, documents et Ask utilis
 | Téléchargement | Explicite, reprenable, pas d'échange silencieux | Identique |
 
 
-<Image src={inline1} alt="Livres de langues europeennes empiles a cote d'un casque" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@altumcode?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">altumcode</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 La bibliothèque de modèles montre l'état, le stockage et l'adéquation au matériel. Vous pouvez retirer un modèle que vous ne voulez plus. Une réunion ultérieure ne substitue pas l'autre famille parce que vous étiez hors ligne ou que le fichier manquait. Réparez le téléchargement, puis traitez.
 
 La langue de l'interface (anglais, allemand, français, italien, néerlandais) n'est pas la langue de transcription. Réglez-les séparément.
+
+|  | Parakeet v3 | Whisper |
+| --- | --- | --- |
+| Languages | 25 European (Vemoir docs) | Depends on model size |
+| Runs on | Apple silicon Mac | Mac or browser download |
+| Swiss German | Standard German text | Standard German text |
+
+|  | Parakeet v3 | Whisper |
+| --- | --- | --- |
+| Langues | 25 européennes (Vemoir) | Selon taille du modèle |
+| Tourne sur | Mac Apple silicon | Mac ou téléchargement navigateur |
+| Suisse allemand | Allemand standard | Allemand standard |
 
 ## Quand Parakeet est le meilleur choix
 
 Parakeet v3 est le meilleur choix quand les réunions qui comptent tiennent dans ces 25 langues européennes et que vous voulez ce modèle comme unique téléchargement de parole. C'est le choix direct si vous n'avez pas besoin des indices de glossaire propres à Whisper, car ces indices sont documentés pour la transcription Whisper compatible. Le glossaire ne réécrit pas la transcription pour autant. Il peut orienter le texte généré. Les lignes d'origine restent la preuve.
 
-
-<Image src={inline2} alt="Deux enregistreurs similaires cote a cote sur une table" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@zachccamp?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zachccamp</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 C'est le moins bon choix si vous avez déjà standardisé vos autres outils sur une variante Whisper et que vous voulez la même famille ici, ou si un indice de glossaire au passage de parole est la fonction que vous veniez chercher. Alors prenez Whisper et acceptez sa couverture, pas un récit sur celui qui «&nbsp;gagne&nbsp;» sur les accents.
 
@@ -59,6 +60,33 @@ Whisper Turbo, Medium ou Large-v3 est le meilleur choix quand vous voulez explic
 Whisper est le moins bon choix quand vous vouliez seulement le modèle à 25 langues européennes et pas une seconde pile de parole. Téléchargez Parakeet et laissez les variantes Whisper non installées. Les modèles inutilisés sont du poids optionnel sur le disque.
 
 Les outils navigateur utilisent Whisper public dans l'onglet pour un fichier que vous avez déjà. Ce n'est pas l'installation Parakeet de l'app Mac, et ce n'est pas Large-v3 sous un autre nom. Plafond&nbsp;: 15 minutes, trois passages réussis par semaine, pas d'étiquettes d'intervenants. La page est [/fr/outils/transcrire-audio](/fr/outils/transcrire-audio).
+
+  </div>
+  <div>
+    <h3>Pick Whisper</h3>
+    <ul>
+      <li>You already use the browser tool</li>
+      <li>One language, smaller download</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-pair">
+  <div>
+    <h3>Parakeet</h3>
+    <ul>
+      <li>Réunions UE multilingues</li>
+      <li>Noms avec glossaire</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Whisper</h3>
+    <ul>
+      <li>Outil navigateur déjà utilisé</li>
+      <li>Une langue, téléchargement plus petit</li>
+    </ul>
+  </div>
+</div>
 
 ## Une fois le modèle de parole terminé
 

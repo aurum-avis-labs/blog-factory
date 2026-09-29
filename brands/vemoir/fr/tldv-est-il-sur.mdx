@@ -12,9 +12,6 @@ image: "@/assets/blog/is-tldv-safe/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/is-tldv-safe/inline1.jpg';
-import inline2 from '@/assets/blog/is-tldv-safe/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@hrsahatchiev?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">hrsahatchiev</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **tl;dv est-il sûr** est une question de stockage, pas un verdict juridique. tl;dv, de Tldx Solutions GmbH à Aix-la-Chapelle, enregistre et transcrit des réunions et conserve ce matériel pour qu'une équipe le partage. Leur politique de confidentialité, version publiée le 9 septembre 2026, dit où va ce matériel et ce qu'ils déclarent ne pas en faire. Un badge sur la page marketing est leur formulation. Il ne décide pas si votre réunion peut être enregistrée.
@@ -35,9 +32,12 @@ Si l'enregistrement ne doit jamais quitter le Mac, tl;dv a la mauvaise forme. Ce
 On demande « tl;dv est-il sûr » quand on veut quatre réponses pratiques.
 
 
-<Image src={inline1} alt="Portable ferme dans un bureau a domicile calme" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot</span><strong>Visible</strong><p>tl;dv rejoint comme participant sur la voie bot.</p></li>
+  <li><span class="blog-kicker">Stockage</span><strong>Cloud</strong><p>Lire les pages confidentialite tl;dv pour region et retention.</p></li>
+  <li><span class="blog-kicker">Mac local</span><strong>Alternative</strong><p>Pas de bot si vous enregistrez l'audio systeme sur l'appareil.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@hasanalmasi?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">hasanalmasi</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 L'audio servira-t-il à entraîner un modèle général ? Qui d'autre peut ouvrir la réunion ? Combien de temps un compte gratuit garde-t-il le fichier ? Une phrase sur leur site (« GDPR-compliant », « SOC2 compliant », hébergé dans l'UE) remplace-t-elle votre décision d'enregistrer ?
 
@@ -50,9 +50,11 @@ Leur page d'accueil et leurs pages de sécurité décrivent l'enregistrement et 
 La section 9 de la politique, « AI Model Training », dit que Tldx Solutions GmbH n'utilise pas le Customer Content, y compris enregistrements, transcripts, notes, fichiers ou autres données traitées par les services, pour entraîner, affiner ou améliorer des modèles de fondation ou d'autres modèles génératifs pour elle-même ou un tiers. Là où ils utilisent des fournisseurs d'IA tiers, ils disent que le Customer Content est traité seulement pour fournir la fonction demandée et n'est pas utilisé par eux ni par ces fournisseurs pour entraîner des modèles généralistes.
 
 
-<Image src={inline2} alt="Boite d'archives privee sur le bureau, rideaux tires" width={700} quality={80} class="w-full" />
+<div class="blog-pair">
+  <div><h3>tl;dv convient si</h3><ul><li>Clips partages et bibliotheque d'equipe priment</li></ul></div>
+  <div><h3>Eviter tl;dv si</h3><ul><li>Les contrats clients interdisent une archive cloud</li></ul></div>
+</div>
 
-<p><em>Photo by <a href="https://unsplash.com/@switchinglanes?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">switchinglanes</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 La liste des sous-traitants nomme Anthropic et Google Vertex comme fournisseurs d'intelligence artificielle, et AssemblyAI et ElevenLabs comme fournisseurs de transcription, parmi d'autres (hébergement, support, analyse, CRM). La transcription dans ce produit n'est pas décrite comme quelque chose qui reste sur votre ordinateur.
 

@@ -12,9 +12,6 @@ image: "@/assets/blog/transcribe-loom-recording/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/transcribe-loom-recording/inline1.jpg';
-import inline2 from '@/assets/blog/transcribe-loom-recording/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@collab_media?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">collab_media</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Transcrire un enregistrement Loom**, c'est partir d'un fichier que vous avez déjà, pas placer un bot dans un Loom que vous êtes encore en train de regarder. Téléchargez ou exportez la vidéo que vous avez le droit de garder, puis lancez la reconnaissance vocale sur ce fichier. Un extrait de 15 minutes ou moins peut passer par le navigateur. Une démo plus longue appartient au Mac.
@@ -26,9 +23,12 @@ Les menus de téléchargement de Loom changent, et cette page n'invente pas un c
 Un fichier Loom typique est une vidéo, souvent un MP4, avec une piste audio mixée. La personne qui présente et le partage d'écran sont dans l'image. Les mots sont dans la piste son. La transcription n'a besoin que de la piste son.
 
 
-<Image src={inline1} alt="Petite camera a cote d'un carnet apres un enregistrement" width={700} quality={80} class="w-full" />
+<ol class="blog-steps">
+  <li data-step="1"><h3>Exporter depuis Loom</h3><p>Enregistrer le clip en fichier sur le Mac.</p></li>
+  <li data-step="2"><h3>Importer ou outil navigateur</h3><p>Les courts clips restent dans l'onglet sans envoi.</p></li>
+  <li data-step="3"><h3>App Mac pour la longueur</h3><p>Import et modeles locaux pour le travail long.</p></li>
+</ol>
 
-<p><em>Photo by <a href="https://unsplash.com/@tombyrom?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">tombyrom</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 L'outil du navigateur accepte MP3, M4A, WAV et MP4. Il n'enregistre pas l'onglet pendant que vous regardez. Il ne nomme pas les locuteurs. Le modèle se télécharge une fois dans votre navigateur. Le fichier n'est pas envoyé à Vemoir. Trois passages réussis par semaine. Quinze minutes par fichier. Le suisse allemand, dans ce modèle public, sort en général en allemand standard. La même limite vaut pour l'application Mac : il n'y a pas de mode dialecte.
 
@@ -46,9 +46,11 @@ L'aide de Notion, vérifiée en septembre 2026, dit que les fichiers Loom ne son
 6. Lisez le transcript. Copiez le texte que vous utiliserez. Il n'y a pas de noms de locuteurs et pas de bibliothèque de réunions.
 
 
-<Image src={inline2} alt="Carte SD a cote d'un portable ferme" width={700} quality={80} class="w-full" />
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>L'outil navigateur gratuit s'arrete a 15 minutes sans locuteurs. Il n'enregistre pas Loom en direct.</p>
+</aside>
 
-<p><em>Photo by <a href="https://unsplash.com/@sinasalehian?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sinasalehian</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Si le fichier dépasse 15 minutes, l'outil ne prendra pas l'ensemble. Coupez la section, ou passez au Mac.
 

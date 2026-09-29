@@ -11,10 +11,6 @@ image: "@/assets/blog/record-discord-call-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/record-discord-call-mac/inline1.jpg';
-import inline2 from '@/assets/blog/record-discord-call-mac/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 You **record a Discord call on Mac** by capturing the audio Discord is already playing, plus your microphone, on the computer in front of you. Discord does not hand you a Zoom-style folder of local recording files when a voice channel ends. If you need a transcript, you either leave with a file you captured yourself or you accept that the call existed only as live sound. Vemoir is the menu-bar capture for that file. It does not join the channel as a bot.
 
@@ -32,11 +28,6 @@ The app is **CHF 20** in Switzerland, **€24.99** in Germany, Austria, France, 
 
 A Discord voice or video call is live. When it ends, the messages in the channel remain. The speech does not become a downloadable transcript unless someone recorded it or a separate bot the server installed did that job. Server bots that record or transcribe are visible to the people who run the server, and they are a different product from an app on your Mac. If the server rules ban bots, do not add one to get a transcript.
 
-
-<Image src={inline1} alt="Night home office, headset, and a closed laptop" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Stage channels, screen shares, and Go Live streams are still audio (and sometimes video) coming out of the Discord app on your Mac. A system-audio capture hears what the Mac hears. It does not download Discord’s servers, and it does not reach a participant whose client never played on your machine. If someone was speaking and you had them muted, they will be missing. That is the recording matching your ears.
 
 You are responsible for telling the channel. A local app does not post a “recording started” message into Discord. In many places, consent is not optional. A transcript does not create consent after the fact.
@@ -51,10 +42,12 @@ You are responsible for telling the channel. A local app does not post a “reco
 6. Start the menu-bar recording. If the call belongs to a client or a project, select that project before you record so the file is not a loose meeting. Tell the channel you are recording.
 7. Stop when the call ends. The transcript is rebuilt from the finished audio on the Mac. The on-screen preview during the call is a hint, not the record.
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Use this Mac for the call</h3><p>A phone or console path will not hit system audio.</p></li>
+  <li data-step="2"><h3>Set output device</h3><p>Headphones you hear are the output Vemoir taps.</p></li>
+  <li data-step="3"><h3>Record mic and system audio</h3><p>Announce recording to everyone on the call.</p></li>
+</ol>
 
-<Image src={inline2} alt="A cozy evening desk with headphones and a mug" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Discord is listed with the other meeting apps on [platforms](/#platforms). The same local pattern, without a bot, is the subject of [meeting notes without a bot](/blog/meeting-notes-without-a-bot).
 
@@ -65,6 +58,12 @@ Import is there if you already have a file: MP3, M4A, WAV, AIFF, CAF, or FLAC. A
 ## Headphones, stream audio, and quiet tracks
 
 System audio is “what the Mac played.” A few setups make that quieter than your ears suggested.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Discord does not ship an official call recording for every workspace. Vemoir captures what the Mac plays; it does not change Discord's terms.</p>
+</aside>
+
 
 **USB or Bluetooth headset as the output.** As long as macOS is sending Discord to that device and system-audio capture is allowed, the call should be on the system track. If you plug headphones in after the call has started, pause and check a few seconds of recording before the real conversation. A dead track is obvious in playback and painful to discover an hour later.
 

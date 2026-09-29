@@ -185,7 +185,7 @@ Verwandte Posts: nur **dieser Cluster**, 1–3 `relatedPosts`, gleiche Sprache, 
 - Ton: konkret, ohne Buzzword-Opener («Game-Changer», «revolutioniert», «AI-first»). Priestley-nah: Frustration und Klarheit, nicht US-Hype.
 - Rechtliches (nDSG, AI Act): praktisch, mit Link auf EDÖB / etablierte Erklärer. **Kein Anwaltston, keine Rechtsberatung.**
 - Preise: nur Onepager-Zahlen. Launch vs. Standard nicht durcheinanderwerfen.
-- Qualität vor Länge. Lieber ein Ablauf mit Filter als zehn Tool-Logos.
+- Qualität vor Länge: den Query fertig beantworten, nicht mit Tool-Logos auffüllen. Unter der Floor-Länge in `.cursor/skills/seo-blog/query-map.md` ist der Post nicht fertig. Das gilt für EN und DE.
 
 ---
 

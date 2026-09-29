@@ -12,10 +12,6 @@ image: "@/assets/blog/import-audio-file-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/import-audio-file-mac/inline1.jpg';
-import inline2 from '@/assets/blog/import-audio-file-mac/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@rebylulu?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">rebylulu</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 To **import an audio file on a Mac** and get a transcript, you already have the recording. The job is to run speech-to-text on that file without turning the import into an accidental upload. On Vemoir you drop the file into the Mac app (picker or drag and drop), assign it to a project if you want, and process it through the same local pipeline as a meeting you recorded from the menu bar. In the browser, you can do the same for a short clip without sending the file to Vemoir.
 
@@ -25,10 +21,12 @@ This is the after-the-call path. It does not record a live meeting and it does n
 
 Vemoir imports common local audio files: **MP3, M4A, WAV, AIFF, CAF, and FLAC**. Those are the formats to export from a recorder, a meeting app's local folder, or an interview kit before you drag them in.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Mac app</span><strong>MP3, M4A, WAV</strong><p>Also AIFF, CAF, and FLAC on import.</p></li>
+  <li><span class="blog-kicker">Browser tool</span><strong>15 min cap</strong><p>MP3, M4A, WAV, or MP4. Three runs per week.</p></li>
+  <li><span class="blog-kicker">Not audio</span><strong>VTT or TXT</strong><p>Already text. Clean or summarize, do not re-import.</p></li>
+</ul>
 
-<Image src={inline1} alt="A memory card next to a paper folder" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@jakubzerdzicki?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jakubzerdzicki</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 A few files people try that are not this list:
 
@@ -47,11 +45,6 @@ Requirements for the Mac app: Apple silicon (M1 or newer), macOS Sonoma 14.2 or 
 3. Use the file picker, or drag the file onto the app. One file becomes one meeting record in the library.
 4. Let local transcription finish. The authoritative transcript is built from the imported audio. Speaker separation runs on the Mac. You can rename speakers afterward. Remember-this-speaker profiles are opt-in and encrypted; unknown speakers stay anonymous.
 5. Edit minutes, decisions, and actions on the Mac. Notes you type are folded into that record. Share through native macOS sharing, and share only the parts you choose.
-
-
-<Image src={inline2} alt="A memory card set down beside a notebook" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@michaelxi?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">michaelxi</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Nothing in that list uploads the audio to Vemoir. Cloud text models (OpenAI or Anthropic with your own key) are opt-in for generated prose only. They do not transcribe the file, and the app does not silently fall back to them.
 

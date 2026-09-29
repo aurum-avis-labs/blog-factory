@@ -12,9 +12,6 @@ image: "@/assets/blog/decision-log-from-meetings/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/decision-log-from-meetings/inline1.jpg';
-import inline2 from '@/assets/blog/decision-log-from-meetings/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@photo_blob?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">photo_blob</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 A **decision log from meetings** is a short list of choices: the wording, the person responsible, and the date. It is not the transcript, and it is not the task list. Someone reading only the log should see what changed, not who talked the longest.
@@ -35,9 +32,12 @@ If you already keep minutes, the decisions block is the part people look up thre
 Write a row only when the room chose something. "We discussed pricing" is not a decision. "Standard support stays at the current rate through 31 March. Lea owns the client note. 11 Nov 2026." is a decision.
 
 
-<Image src={inline1} alt="A ledger notebook open on a meeting table" width={700} quality={80} class="w-full" />
+<ul class="blog-checklist">
+  <li>Write the decision in plain words, not meeting chatter</li>
+  <li>Name who owns the call and the date it was made</li>
+  <li>Link evidence back to the transcript line when you can</li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@mediamodifier?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">mediamodifier</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Each row needs three fields:
 
@@ -64,9 +64,12 @@ The blank layout for a whole sitting, including decisions next to actions, is th
 A log fails in a few repeatable ways.
 
 
-<Image src={inline2} alt="Someone writing a short line on paper, text not readable" width={700} quality={80} class="w-full" />
+<ol class="blog-flow">
+  <li><strong>Capture</strong><p>Record or import audio on the Mac.</p></li>
+  <li><strong>Extract</strong><p>Minutes pull decisions with owner and date.</p></li>
+  <li><strong>Search</strong><p>Project search and Ask read the same library.</p></li>
+</ol>
 
-<p><em>Photo by <a href="https://unsplash.com/@ranurte?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ranurte</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 **The row quotes the debate.** "Noah preferred monthly, Priya preferred annual, we talked for twenty minutes." That is a transcript note. The decision is the choice at the end, or an explicit "no decision, revisit on 18 Nov."
 

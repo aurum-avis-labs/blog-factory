@@ -5,77 +5,121 @@ pubDate: 2026-10-30
 author: "Holist-IQ Team"
 tags: ["stock-and-flow", "causal-loop-diagram", "systems-thinking"]
 funnelStage: "interest"
-draft: false
-relatedPosts: ["causal-loop-diagram-software", "systems-thinking-tool-checklist", "economic-systems-modeling-mapping-policies-interest-rates-and-market-feedback-lo"]
-image: ../../../assets/blog/stock-and-flow-vs-causal-loops/img1.png
 translationKey: "stock-and-flow-vs-causal-loops"
+relatedPosts: ["causal-loop-diagram-software", "systems-thinking-tool-checklist", "economic-systems-modeling-mapping-policies-interest-rates-and-market-feedback-lo"]
+image: "@/assets/blog/stock-and-flow-vs-causal-loops/hero.jpg"
+draft: false
 ---
 
-import { Image } from 'astro:assets';
-import img2 from '@/assets/blog/stock-and-flow-vs-causal-loops/img2.png';
-import img3 from '@/assets/blog/stock-and-flow-vs-causal-loops/img3.png';
+Teams modeling dynamic problems choose between **stock-and-flow diagrams** and **causal loop diagrams (CLDs)**. Both can show feedback. They answer different questions. **Stock and flow vs causal loops** is a fit decision about accumulation, units, and audience. Picking the prettier picture wastes the meeting.
 
-<p><em>Hero photo by <a href="https://unsplash.com/@officestock?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Sebastian Herrmann</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Use a stock-and-flow when you must say how much of something is on hand, in which unit, and which rates change it. Use a causal loop diagram when the decision is about signed influence, including factors you cannot yet put in a conserved unit, and when stakeholders need one story before anyone writes an equation.
 
-Teams modeling dynamic problems choose between **stock-and-flow diagrams** and **causal loop diagrams (CLDs)**. Both show feedback; they emphasize different questions. **Stock and flow vs causal loops** is not a beauty contest. It is a fit decision for accumulation, units, and audience.
+<div class="blog-pair">
+  <div>
+    <h3>Prefer stock-and-flow when</h3>
+    <ul>
+      <li>Accumulation and depletion need numeric rates</li>
+      <li>You will simulate levels over time</li>
+      <li>Conservation or unit consistency is the point of the argument</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Prefer causal loops when</h3>
+    <ul>
+      <li>Qualitative feedback structure is the decision object</li>
+      <li>Stakeholders need a shared map before equations</li>
+      <li>Important variables are beliefs, rules, or perceived risk</li>
+    </ul>
+  </div>
+</div>
 
 ## What stock-and-flow emphasizes
 
-Stocks accumulate inflows and outflows. Flows have units per time. The question is "how much is on hand, and what rates change it?"
+A stock is a quantity that accumulates. A flow is a rate that fills or drains it. The stock is the integral of the net flow. Water in a bathtub, cash in an account, people in a cohort, tonnes of material in a process: the level only changes when a flow runs.
 
-Good for inventory, cash, population cohorts, and energy balances when conservation matters.
+Flows carry units per time. Stocks carry the unit itself. If you cannot name the unit, you do not have a stock yet. You have a topic.
+
+The question the diagram is for: how much is on hand, and what rates change it? That question matters for inventory, treasury, population cohorts, carbon and energy balances, and any policy where "more" has to survive contact with conservation. A subsidy cannot create skilled installers in the same month if the stock of trained people only grows through a slow flow.
+
+Stock-and-flow diagrams also make delays physical. A pipeline delay is stuff in transit, which is itself a stock, not a wavy arrow.
 
 ## What causal loops emphasize
 
-CLDs show signed influence among factors, including non-physical variables like trust or perceived risk. The question is "what influences what, including loops?"
+A CLD shows signed influence among factors. An arrow means "if this rises, that rises or falls," not "this many units per week move from A to B." Positive and negative marks, loop labels (reinforcing or balancing), and delay marks are the notation that matters.
 
-Good for alignment workshops and policy narratives before full quantification.
+CLDs can include variables that are not physical stocks: trust in a forecast, perceived enforcement risk, political patience, willingness to report. Those factors steer behavior, and they do not conserve like cash or carbon.
 
-<Image src={img2} alt="Abstract tank and loop motifs contrasting accumulation and feedback views" width={500} quality={80} class="w-full" />
+The question the diagram is for: what influences what, including the closed loops, on which clocks? That question matters in alignment workshops and in policy narratives before anyone is ready to quantify. A room can agree the structure of a backlash loop without agreeing the coefficient.
 
-<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Vitaly Gariev</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+CLDs do not, by themselves, tell you the level of a stock next quarter. Adding numbers onto arrows does not turn them into flows. It hides the missing units.
+
+## What each view cannot do
+
+A stock-and-flow model that omits belief and incentive variables will simulate a clean plant and miss the loop that actually moves the decision. A CLD that treats "inventory" as just another phrase, with no inflow and outflow, cannot tell you whether a target is feasible. It can tell you that pressure, expediting, fatigue, and defects close on each other.
+
+If your argument depends on a level crossing a threshold, you will eventually need stocks. If your argument depends on whose story of influence is accepted, a simulation with hidden structure will not settle the room.
 
 ## Honest tool alternatives
 
 | Need | Often fits | Trade-off |
 |------|------------|-----------|
-| Quantified accumulation | Stella, Vensim, AnyLogic | Learning curve, data demand |
-| Executive alignment CLD | Holist-IQ, kumu, dedicated CLD tools | May start qualitative |
-| Quick numbers | Spreadsheets | Feedback structure easy to hide |
-| Whiteboard speed | Miro, Lucid, pen-and-paper | Loop semantics inconsistent |
+| Quantified accumulation | Stella, Vensim, AnyLogic | Learning curve, data demand, someone must own the units |
+| Executive alignment CLD | Holist-IQ, kumu, dedicated CLD tools | Often starts qualitative; not a substitute for conservation math |
+| Quick numbers | Spreadsheets | Feedback structure is easy to hide in tabs |
+| Whiteboard speed | Miro, Lucid, pen and paper | Loop semantics drift unless you enforce them |
 
-Holist-IQ focuses on decision-ready CLDs from plain language. Stella-class tools excel when equations and units are non-negotiable. Spreadsheets win one-off budgets but obscure loops unless you design them explicitly.
+Holist-IQ focuses on decision-ready causal loop diagrams from plain language. Stella-class tools are the right class when equations, units, and time integration are non-negotiable. This page does not rank prices or licenses. Check the vendor when you buy. Spreadsheets win one-off budgets and cohort tables. They obscure loops unless someone designs the circularity on purpose and labels it.
 
-## Hybrid workflow many teams use
+## Hybrid workflow
 
-Sketch CLDs for stories and disagreement, then quantify one stock-flow slice where data supports it. Keep variable names aligned so both views stay linked.
+Many teams should use both, in that order. Sketch the CLD while people still disagree about signs and delays. Name the loops. Then promote one slice into stock-and-flow where the variables are physical or financial and the data can support rates.
 
-<Image src={img3} alt="Abstract linked structures suggesting hybrid CLD and stock-flow views" width={500} quality={80} class="w-full" />
+Keep the names aligned. If the CLD says "perceived stockout risk" and the simulation says "inventory units," you have two models that cannot correct each other. Write a short glossary: which CLD variables are stocks, which are information that only influences a flow, and which you will leave qualitative.
 
-<p><em>Photo by <a href="https://unsplash.com/@minakko?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Andreea Avramescu</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Do not quantify every arrow. Quantify the slice that would change the decision if the level were wrong. Leave the rest as a loop story so the simulation does not pretend to know trust.
+
+## A teaching sketch: goods on hand, and the story around them
+
+This is a structure sketch, not a client result.
+
+**Stock-and-flow slice.** Finished goods are a stock. Production is an inflow (units per week). Shipments are an outflow. A quality hold can be a second stock, fed by a defect flow, drained by a rework flow. You can ask whether a production increase raises the stock or only fills the hold. Units have to balance.
+
+**Causal loop slice on the same situation.** Perceived stockout risk rises, expediting rises, overtime rises, fatigue rises, defect rate rises, shipments of good units fall, perceived stockout risk rises further. That is a reinforcing loop. A balancing loop may sit on hiring or on a tighter release rule, both with delays. None of those perception links is a flow of units. They change the rates in the stock-and-flow slice.
+
+Use the CLD to decide which behavioral link you believe. Use the stock-and-flow to see whether the warehouse level is even capable of the promise on the slide. If you only build one, say which question you are refusing to answer.
 
 ## When not to force stock-and-flow
 
-Skip full stock-flow when data is sparse, the audience needs fast alignment, or the problem is dominated by belief and incentive loops without reliable flows.
+Skip a full stock-and-flow model when the data for rates is sparse, the audience needs a shared story this month, or the dominating loops are beliefs and incentives with no reliable measured flow. Building a simulation to look rigorous will invent coefficients. Document the CLD, name the missing rates, and quantify later if a decision actually depends on a level.
 
-## Mid-step: label your last model
+Also skip a CLD-only process when a regulator, a finance partner, or a physical balance will reject anything that does not conserve. In that room the stock-and-flow is the decision object. The loop story can be an appendix.
 
-Was last week's deck a CLD, a stock-flow, or a disguised spreadsheet table? Write the intended question in the title slide footer.
+## Who should pass on each
 
-## Strong next step: evaluate tools
+Pass on stock-and-flow software if nobody on the team will maintain units after the consultant leaves. Pass on a CLD practice if the group wants a mural of topics and will not mark polarity, loop names, and delays. In that case a mind map is the honest artifact. For the notation comparison, stay with the decision you are making here: accumulation versus influence, not a tour of diagram fashion.
 
-Use [causal loop diagram software](/blog/causal-loop-diagram-software) and the [systems thinking tool checklist](/blog/systems-thinking-tool-checklist) before buying simulation capacity you will not staff.
+## Label the model you already have
+
+Look at last week's deck. Was it a CLD, a stock-and-flow, or a spreadsheet table with boxes drawn around it? Write the intended question in the footer: "how much on hand" or "what influences what." If the footer and the picture disagree, the audience will answer the wrong question and feel aligned.
 
 ## Frequently asked questions
 
-### Can CLDs become stock-and-flow?
+<div class="blog-faq">
+  <p class="blog-faq-q">Can a causal loop diagram become a stock-and-flow model?</p>
+  <p>Yes, in part. Promote variables that accumulate into stocks, define the flows between them, and assign units. Leave belief and rule variables as influences on those flows unless you have a real measurement for them.</p>
+</div>
 
-Yes. Promote heavily quantified variables into stocks and define flows between them.
+<div class="blog-faq">
+  <p class="blog-faq-q">Which is better for climate and transition work?</p>
+  <p>Often both. Causal loops carry lock-in stories that include politics and expectations. Stock-and-flow carries carbon, energy, and capital stocks where conservation is the claim. A single view will drop one of those questions.</p>
+</div>
 
-### Which is better for climate transitions?
-
-Often both: CLDs for lock-in narratives, stock-flow for carbon and energy balances.
+<div class="blog-faq">
+  <p class="blog-faq-q">Are causal loop diagrams less rigorous?</p>
+  <p>They are rigorous about structure and weak about levels. A stock-and-flow model can be numerically precise and still omit the loop that changes the decision. Rigor is matching the artifact to the question.</p>
+</div>
 
 ## Closing next step
 
-See [economic systems modeling](/blog/economic-systems-modeling-mapping-policies-interest-rates-and-market-feedback-lo) or [leverage points](/blog/leverage-points-systems-thinking).
+Read [causal loop diagram software](/blog/causal-loop-diagram-software) and the [systems thinking tool checklist](/blog/systems-thinking-tool-checklist) before you buy simulation capacity nobody will staff. For policy and rate stories that mix both views, see [economic systems modeling](/blog/economic-systems-modeling-mapping-policies-interest-rates-and-market-feedback-lo).

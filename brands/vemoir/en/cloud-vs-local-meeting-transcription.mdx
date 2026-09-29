@@ -12,11 +12,6 @@ image: "@/assets/blog/cloud-vs-local-meeting-transcription/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline1.jpg';
-import inline2 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Cloud vs local meeting transcription** is a choice about where the audio is processed, not a choice between "AI notes" and handwritten minutes. In the cloud path, a vendor receives the meeting (a bot in the call, a file you upload, or a recording the meeting app already stored on its servers) and returns text from that infrastructure. In the local path, speech-to-text runs on the computer that already has the audio. The written record can look similar in both cases. The processor, the participant list, and the copy you cannot recall from a vendor's disk differ.
 
 This article maps the two approaches, including the narrower in-browser path for a file you already hold. It is not legal advice, and it does not rank vendors on accuracy. If you only need a short clip turned into text without sending it anywhere, the free [transcribe recording tool](/tools/transcribe-recording) runs in your tab after a model download.
@@ -33,10 +28,12 @@ This article maps the two approaches, including the narrower in-browser path for
 
 Cloud notetakers and meeting-app transcripts share a pattern: audio leaves the room (or the laptop) and is processed on someone else's computers.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot</span><strong>Visible guest</strong><p>Calendar notetakers join the roster when enabled.</p></li>
+  <li><span class="blog-kicker">Upload</span><strong>New copy</strong><p>A file still goes to someone else's processor.</p></li>
+  <li><span class="blog-kicker">Local Mac</span><strong>No bot</strong><p>Speech-to-text runs on the machine that holds the audio.</p></li>
+</ul>
 
-<Image src={inline1} alt="Local papers on a wood table with sky in the window" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Calendar-linked assistants join Zoom, Microsoft Teams, Google Meet, and similar apps as a named participant. Everyone can see the extra guest. That visibility is useful for disclosure, and it is also why many client-facing teams ban bots. For how that join looks in practice, see [meeting notes without a bot](/blog/meeting-notes-without-a-bot). For one vendor's own privacy wording, see [is Otter.ai safe](/blog/is-otter-ai-safe). Policies change; read the vendor page dated on the day you decide.
 
@@ -50,10 +47,11 @@ Cloud is not automatically careless. Plenty of organizations pick one vendor, si
 
 Local transcription means the speech model runs on the machine that already holds the audio. Nothing in that sentence requires a particular brand. A researcher can run Whisper in a terminal. A Mac app can record the microphone and system audio, then transcribe on the same computer.
 
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Local processing does not replace consent. Tell participants you record, and keep a retention rule.</p>
+</aside>
 
-<Image src={inline2} alt="Closed laptop indoors and storm clouds outdoors" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 What local does **not** mean:
 

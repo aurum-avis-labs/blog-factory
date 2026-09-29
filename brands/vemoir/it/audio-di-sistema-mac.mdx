@@ -11,11 +11,6 @@ image: "@/assets/blog/system-audio-recording-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/system-audio-recording-mac/inline1.jpg';
-import inline2 from '@/assets/blog/system-audio-recording-mac/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@greaterbythehour2020?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">greaterbythehour2020</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 L'audio di sistema sul Mac è il modo in cui Vemoir sente l'app della riunione. macOS chiede **System Audio Recording**, la registrazione dell'audio di sistema. Quel permesso prende l'audio che le altre app riproducono, con una cattura solo audio. Vemoir non chiede la registrazione dello schermo e non registra lo schermo, una finestra o l'immagine della fotocamera. Se una guida o un articolo vecchio ti dice di attivare Registrazione schermo per Vemoir, quel consiglio è superato.
 
 Il microfono ti serve ancora se vuoi la tua voce su una traccia a parte. Le due catture sono distinte: il microfono sei tu, l'audio di sistema è la chiamata.
@@ -23,11 +18,6 @@ Il microfono ti serve ancora se vuoi la tua voce su una traccia a parte. Le due 
 ## Perché il nome vecchio continua a comparire
 
 Per un periodo l'unico modo pratico con cui un'app Mac sentiva un'altra app era il permesso di registrazione dello schermo, anche quando l'app non salvava video. Le guide sono state scritte attorno a quella casella. macOS ora ha un permesso il cui lavoro è l'audio di sistema. Vemoir usa quello. Cercare «screen recording» ti porta su testi scritti per il percorso vecchio. Segui la richiesta che Vemoir mostra davvero, e l'interruttore Registrazione audio di sistema.
-
-
-<Image src={inline1} alt="Cavi audio verso un registratore sul tavolo" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@pawell?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">pawell</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 La cattura è un tap Core Audio. Prende l'audio della riunione. Lascia stare i pixel. Esclude anche l'uscita di Vemoir, così l'app non registra se stessa.
 
@@ -39,16 +29,24 @@ La cattura è un tap Core Audio. Prende l'audio della riunione. Lascia stare i p
 4. Non cercare una riga Vemoir sotto Registrazione schermo per «finire» la configurazione. Quella riga non è il permesso che questa versione usa. Attivare la registrazione dello schermo per un altro strumento è un'altra decisione. È così che ti ritrovi un video della scrivania quando volevi una trascrizione.
 5. Avvia la registrazione dalla barra dei menu quando la chiamata inizia, e fermala quando finisce. Nessuno entra nella riunione come bot. L'app può essere Teams, Zoom, Meet, Slack, Discord, o qualsiasi altra app che riproduce audio sul Mac. Vedi [piattaforme](/it#platforms) e [cattura](/it#capture).
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Apri Privacy</h3><p>Impostazioni di sistema, Privacy e sicurezza, Registrazione schermo e audio di sistema.</p></li>
+  <li data-step="2"><h3>Solo audio</h3><p>Abilita Vemoir per l'audio di sistema, non la cattura schermo.</p></li>
+  <li data-step="3"><h3>Riapri Vemoir</h3><p>macOS applica spesso l'interruttore solo dopo uscire e riaprire.</p></li>
+</ol>
 
-<Image src={inline2} alt="Microfono da tavolo con spugna in una stanza quieta" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@productschool?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">productschool</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Se l'audio di sistema è consentito e le persone remote restano in silenzio, i controlli successivi sono il mute nell'app della riunione, il dispositivo di uscita sbagliato, e una registrazione che ha armato solo il microfono. Sono i casi senza suono. La registrazione dello schermo non li risolve.
 
 ## Che cosa viene tenuto
 
 Vemoir tiene microfono e audio di sistema come tracce locali separate. Dopo lo stop, la trascrizione si costruisce dall'audio finito, sul Mac. Una riga che scorre mentre registri è un'anteprima. Non è il verbale che conservi.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Correzione</span>
+  <p>Guide datate citano la registrazione schermo per l'audio delle riunioni. Vemoir usa System Audio Recording e non salva video dello schermo.</p>
+</aside>
+
 
 Trascrizione e separazione dei parlanti restano sulla macchina. Le note girano sulla macchina per impostazione. Se attivi una tua chiave API per il testo, l'audio non esce per quel passo, e l'app non passa in silenzio a un modello cloud se quello locale fallisce. Una volta installati i modelli, la riunione si può elaborare offline. Internet serve al primo scaricamento.
 

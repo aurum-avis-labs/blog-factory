@@ -12,12 +12,20 @@ image: "@/assets/blog/messy-meeting-transcript/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/messy-meeting-transcript/inline1.jpg';
-import inline2 from '@/assets/blog/messy-meeting-transcript/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@lukesouthern?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Luke Southern</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Une transcription de réunion désordonnée ne se partage pas tant que les numéros de cue et les temps coupent les phrases. Les mots peuvent être justes et le fichier rester illisible. Le désordre est souvent seulement l'échafaudage : `WEBVTT`, numéros, horodatages. Les noms déjà dans le fichier restent. Les noms qui n'y sont pas, personne ne les invente ensuite.
+
+<ol class="blog-flow">
+  <li><strong>Stabiliser</strong><p>Corriger d'abord locuteurs et erreurs évidentes.</p></li>
+  <li><strong>Marquer les décisions</strong><p>Surligner ce qui engage l'équipe.</p></li>
+  <li><strong>Couper le bruit</strong><p>Retirer le bavardage avant partage externe.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>La transcription est brute. Le procès-verbal est le compte rendu édité pour agir.</p>
+</aside>
 
 ## Sommaire
 
@@ -34,10 +42,6 @@ Une transcription de réunion désordonnée ne se partage pas tant que les numé
 Ouvrez le fichier dans un éditeur de texte avant de le coller dans un document. Vous voyez presque toujours l'une de ces formes :
 
 
-<Image src={inline1} alt="Bureau en desordre range dans un carnet net" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@regeci?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Adrian Regeci</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 - Un fichier WebVTT. La première ligne est `WEBVTT`. Puis des lignes vides, des temps de cue, puis le texte parlé. Les transcriptions cloud de Teams et de Zoom ont souvent cet aspect. Un locuteur apparaît comme `<v Camille Duval>on devrait livrer vendredi</v>` ou comme `Camille Duval : on devrait livrer vendredi`.
 - Un fichier SRT. Cues numérotées, puis des temps avec une virgule avant les millisecondes (`00:01:02,000`), puis le texte.
 - Un export brut où chaque ligne commence par une heure entre crochets, sans noms.
@@ -49,10 +53,6 @@ Les mots peuvent être corrects et le fichier rester illisible. Le désordre, c'
 
 Le [nettoyage de transcription](/fr/outils/nettoyer-transcription) gratuit prend un VTT Zoom, un export Teams ou un SRT. Vous déposez le fichier ou vous collez le texte. L'en-tête, les numéros de cue et les horodatages partent. Si un nom est déjà dans le fichier, il reste, sous la forme `Nom : texte`. Si deux cues de suite appartiennent au même locuteur, ils sont joints.
 
-
-<Image src={inline2} alt="Pages eparses rassemblees dans un dossier" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Si le fichier n'a pas de noms, la page le dit. Les horodatages partent quand même. Les noms ne sont pas inventés. C'est tout le comportement du nettoyeur : il ne devine pas qui a parlé.
 

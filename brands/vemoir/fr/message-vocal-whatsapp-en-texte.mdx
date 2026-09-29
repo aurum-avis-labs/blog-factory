@@ -12,10 +12,6 @@ image: "@/assets/blog/whatsapp-voice-to-text/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/whatsapp-voice-to-text/inline1.jpg';
-import inline2 from '@/assets/blog/whatsapp-voice-to-text/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Un **message vocal WhatsApp en texte**, c'est prendre un message que vous avez déjà et en faire des mots. Ce n'est pas une extension de navigateur qui écoute dans WhatsApp. Le message doit exister comme un fichier que la page de transcription peut ouvrir, dans un format accepté, et assez court pour tourner. Sur vemoir.ch ce chemin est l'outil [transcrire une note vocale](/fr/outils/transcrire-note-vocale).
 
@@ -33,10 +29,12 @@ Les limites sont les mêmes que pour les autres outils du navigateur&nbsp;: **15
 
 WhatsApp garde les messages vocaux dans la conversation. L'outil de transcription ne voit jamais la conversation. Vous exportez ou enregistrez l'audio d'abord, sur un appareil que vous avez le droit d'utiliser.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Export</span><strong>M4A ou OPUS</strong><p>Enregistrez d'abord dans Fichiers sur le Mac.</p></li>
+  <li><span class="blog-kicker">Navigateur</span><strong>15 minutes</strong><p>MP3, M4A, WAV ou MP4 dans l'outil.</p></li>
+  <li><span class="blog-kicker">Appel live</span><strong>Pas ici</strong><p>Les outils navigateur ne capturent pas les appels WhatsApp.</p></li>
+</ul>
 
-<Image src={inline1} alt="Telephone et ecouteurs sur une table de cafe" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Sur un téléphone, ouvrez la conversation, utilisez le partage ou l'enregistrement que WhatsApp montre pour ce message, et déplacez l'audio là où l'ordinateur peut l'atteindre. Un export de conversation avec médias produit un dossier de fichiers plus un journal texte. Prenez le fichier audio, pas le `.txt`. Le journal n'est pas la parole.
 
@@ -55,10 +53,11 @@ Les conversations de groupe multiplient le problème. Une note vocale peut conte
 5. Lancez le fichier. Vous obtenez du texte. Vous n'obtenez pas de noms de voix. Un message vocal est en général une personne, donc les noms manquants pèsent moins que dans une réunion. Un message où deux personnes se sont passé le téléphone se lira comme un seul flux.
 6. Copiez le texte dans vos notes. La page ne le classe pas dans WhatsApp.
 
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Les messages vocaux en suisse allemand sortent souvent en allemand standard avec Whisper public.</p>
+</aside>
 
-<Image src={inline2} alt="Telephone portable a cote de notes manuscrites a la lumiere du jour" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 La page utilise des modèles Whisper publics. Le suisse allemand revient en général en allemand standard. Si la note est en dialecte et que vous avez besoin de l'orthographe dialectale, cet outil vous décevra. Lisez l'allemand standard comme un brouillon et corrigez les mots qui comptent. Il n'y a pas de pourcentage de précision à citer.
 

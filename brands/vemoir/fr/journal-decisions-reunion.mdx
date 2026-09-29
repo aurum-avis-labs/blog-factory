@@ -12,9 +12,6 @@ image: "@/assets/blog/decision-log-from-meetings/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/decision-log-from-meetings/inline1.jpg';
-import inline2 from '@/assets/blog/decision-log-from-meetings/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@photo_blob?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">photo_blob</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Un **journal des décisions de réunion** est une liste courte de choix : la formulation, la personne responsable et la date. Ce n’est pas la transcription, et ce n’est pas la liste des tâches. Quelqu’un qui ne lit que le journal doit voir ce qui a changé, pas qui a parlé le plus longtemps.
@@ -35,9 +32,12 @@ Si vous tenez déjà un procès-verbal, le bloc des décisions est la partie qu�
 N’écrivez une ligne que lorsque la salle a choisi quelque chose. « Nous avons parlé des prix » n’est pas une décision. « Le support standard reste au tarif actuel jusqu’au 31 mars. Léa envoie la note au client. 11 nov. 2026. » en est une.
 
 
-<Image src={inline1} alt="Grand carnet-registre ouvert sur une table de reunion" width={700} quality={80} class="w-full" />
+<ul class="blog-checklist">
+  <li>Ecrire la decision en mots simples, pas le bavardage</li>
+  <li>Nommer le responsable et la date</li>
+  <li>Lier la preuve a la ligne de transcription si possible</li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@mediamodifier?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">mediamodifier</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Chaque ligne a trois champs :
 
@@ -64,9 +64,12 @@ Le canevas vide d’une séance entière, décisions à côté des actions, est 
 Un journal rate de quelques façons répétées.
 
 
-<Image src={inline2} alt="Quelqu'un ecrit une courte ligne, texte illisible" width={700} quality={80} class="w-full" />
+<ol class="blog-flow">
+  <li><strong>Capture</strong><p>Enregistrer ou importer l'audio sur le Mac.</p></li>
+  <li><strong>Extraction</strong><p>Le compte rendu sort decisions, responsable et date.</p></li>
+  <li><strong>Recherche</strong><p>Recherche projet et Ask lisent la meme bibliotheque.</p></li>
+</ol>
 
-<p><em>Photo by <a href="https://unsplash.com/@ranurte?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ranurte</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 **La ligne cite le débat.** « Noah préférait le mensuel, Priya l’annuel, nous avons parlé vingt minutes. » C’est une note de transcription. La décision est le choix final, ou un « pas de décision, on revoit le 18 nov. » explicite.
 

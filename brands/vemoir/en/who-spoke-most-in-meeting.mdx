@@ -12,23 +12,27 @@ image: "@/assets/blog/who-spoke-most-in-meeting/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/who-spoke-most-in-meeting/inline1.jpg';
-import inline2 from '@/assets/blog/who-spoke-most-in-meeting/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@creatopy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Creatopy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Who spoke most in a meeting is a count you can defend only when the text already says who said the words. The free page for that count is [who held the floor](/tools/who-held-the-floor). You paste a transcript with names. It lists each name and that name's share of the words. If the paste has no names, it stops. The browser cannot separate voices, and it will not invent "Speaker A" so the chart looks finished.
 
 Word share is not minutes of airtime. A fast talker can outscore someone who held the room longer with fewer words. Use the number as a reading of the text you pasted, not as a stopwatch.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Browser tool</span><strong>No labels</strong><p>Cannot rank speakers on a file in the tab.</p></li>
+  <li><span class="blog-kicker">Mac app</span><strong>Local diarization</strong><p>Speaker separation runs on the Mac.</p></li>
+  <li><span class="blog-kicker">Use</span><strong>Facilitation</strong><p>Time share is a hint, not a performance score.</p></li>
+</ul>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Rename speakers after the call before you share minutes externally.</p>
+</aside>
+
 ## What you need before you count
 
 You need a transcript where speakers are already marked in a form the page can read:
 
-
-<Image src={inline1} alt="A meeting from above, one person gesturing while speaking" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@clynt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">clynt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - `Name: what they said` on its own line
 - `Speaker 1:` or `SPEAKER_01:` if some earlier tool diarized and left those labels
@@ -42,10 +46,6 @@ Cleaning timestamps is allowed and does not spend a weekly run. The [transcript 
 
 You get a name and a share of words. Read it with the meeting you actually had.
 
-
-<Image src={inline2} alt="Two people at a table, one clearly doing more of the talking" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - One person at 60 percent in a status update may simply have been the one with the slides. That is not automatically a problem.
 - A workshop that set out to hear from everyone, and shows one name at most of the words, is a facilitation fact. The chart does not say why. It says the text is uneven.

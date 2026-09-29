@@ -11,11 +11,7 @@ image: "@/assets/blog/granola-vs-otter/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/granola-vs-otter/inline1.jpg';
-import inline2 from '@/assets/blog/granola-vs-otter/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Granola contro Otter** è una scelta tra un blocco note cloud senza bot e un notetaker cloud che entra nella riunione. Entrambi elaborano il contenuto fuori dal tuo portatile. Non sostituiscono una registrazione che resta sul Mac. Le pagine dei fornitori sotto sono state controllate a settembre 2026.
 
 L'app Mac in questo confronto, Vemoir, è un acquisto una tantum sull'App Store: CHF 20 in Svizzera. Il prezzo locale lo mostra lo store. Registra microfono e audio di sistema in locale, senza bot. Citarla non significa che vinca Granola contro Otter sul telefono o sugli spazi condivisi. Vince il caso più stretto in cui il file non deve lasciare la macchina.
@@ -33,19 +29,22 @@ L'app Mac in questo confronto, Vemoir, è un acquisto una tantum sull'App Store:
 - [Dopo la scelta, scrivi la regola](#dopo-la-scelta-scrivi-la-regola)
 - [Domande frequenti](#domande-frequenti)
 
+|  | Granola | Otter |
+| --- | --- | --- |
+| Joins as bot | No | Yes, visible |
+| Audio storage | Not kept long term (vendor docs) | US cloud library |
+| Best for | Mac notes during the call | Team transcript workspace |
 
-<Image src={inline1} alt="Blocchi note affiancati su un tavolo di legno in luce diurna" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@dtravisphd?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dtravisphd</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+|  | Granola | Otter |
+| --- | --- | --- |
+| Bot | No | Sì, visibile |
+| Audio | Non conservato a lungo (vendor) | Libreria cloud US |
+| Per | Note Mac durante la call | Workspace transcript team |
 
 ## Granola con parole sue
 
 La [pagina di sicurezza](https://www.granola.ai/security) di Granola dice che avvii Granola tu. Non entra e non registra in automatico. Sul desktop usa microfono e audio della riunione dal computer, e non aggiunge un bot. Funziona con qualsiasi piattaforma di riunione desktop. Il mobile è descritto per le conversazioni nella stanza. La trascrizione usa fornitori come Deepgram e Assembly. I riassunti usano fornitori come OpenAI e Anthropic. I terzi non possono fare training sui tuoi dati. Granola fa training su dati anonimizzati per migliorare Granola, con opt-out in Settings, e con training spento di default per gli utenti Enterprise. Granola dice di non conservare a lungo l'audio della riunione. Conserva la trascrizione e le note che fornisci, in un ambiente AWS ospitato negli USA, cifrato a riposo e in transito, con backup giornalieri. Le note sono private finché non le condividi. Puoi cancellare note o chiedere la cancellazione dei tuoi dati.
 
-
-<Image src={inline2} alt="Riunione del mattino con due blocchi di carta e caffe" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@hcphotos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">hcphotos</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 È un prodotto senza bot il cui testo vive nel cloud di Granola. «Non teniamo l'audio» non è «non abbiamo mai visto l'audio», e non è «la trascrizione è solo sul mio Mac».
 
@@ -54,6 +53,33 @@ La [pagina di sicurezza](https://www.granola.ai/security) di Granola dice che av
 Il notetaker di Otter entra come partecipante visibile e non entra in anonimo. L'archivio descritto nei materiali privacy include Amazon Web Services negli Stati Uniti, con cifratura lato server. Il linguaggio di training copre audio e trascrizioni de-identificati usati per i modelli di Otter. Le citazioni dettagliate, cancellazione compresa (cestino, poi cancellazione definitiva), sono raccolte in [Otter.ai è sicuro](/it/blog/otter-ai-e-sicuro). Otter è un prodotto di trascrizione condivisa con automazione di calendario, app mobili e spazi di gruppo sui piani a pagamento ([Otter](https://otter.ai/), controllato a settembre 2026).
 
 Se una lista di partecipanti non deve guadagnare un ospite, il notetaker di default di Otter è la forma sbagliata. Se il gruppo vuole quell'ospite così tutti vedono le note, è lo scopo del prodotto.
+
+  </div>
+  <div>
+    <h3>Choose Otter</h3>
+    <ul>
+      <li>Mobile capture and shared team history</li>
+      <li>Bot is acceptable to every attendee</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-pair">
+  <div>
+    <h3>Granola</h3>
+    <ul>
+      <li>Note senza bot ospite</li>
+      <li>Lavori già tutto il giorno su Mac</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Otter</h3>
+    <ul>
+      <li>Capture mobile e storico team</li>
+      <li>Bot ok per tutti</li>
+    </ul>
+  </div>
+</div>
 
 ## Granola contro Otter sul bot
 

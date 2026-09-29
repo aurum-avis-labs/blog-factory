@@ -12,14 +12,21 @@ image: "@/assets/blog/zoom-ai-companion-privacy/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/zoom-ai-companion-privacy/inline1.jpg';
-import inline2 from '@/assets/blog/zoom-ai-companion-privacy/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@pranjallk1995?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Pranjall Kumar</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Zoom AI Companion privacy** is a question about Zoom's built-in assistant, not about a third-party bot in the participant list. Zoom publishes how the feature handles meeting content, which models can see it, and which switches an admin can lock. This page summarizes those documents as of September 2026. It is not legal advice, and it does not decide whether AI Companion fits your contract.
 
 If your bar is "the audio never leaves this Mac unless I export it," Zoom's documented model is different. AI Companion runs inside Zoom's cloud (and, on some accounts, through third-party models). A local Zoom recording on disk is a separate path. Both can be valid. They are not the same copy.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Training</span><strong>Zoom docs</strong><p>Zoom states it does not use customer content to train its models (September 2026 pages).</p></li>
+  <li><span class="blog-kicker">Third parties</span><strong>Opt-in</strong><p>Some features can call external models when the account allows it.</p></li>
+  <li><span class="blog-kicker">Local file</span><strong>Separate</strong><p>A local Zoom M4A on disk is not the same copy AI Companion processes.</p></li>
+</ul>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Admin locks can disable AI Companion for hosts. Your IT policy may still forbid cloud summaries entirely.</p>
+</aside>
 
 ## Contents
 
@@ -37,10 +44,6 @@ If your bar is "the audio never leaves this Mac unless I export it," Zoom's docu
 AI Companion is Zoom's own meeting assistant: summaries, next steps, and questions about the call. It is not Otter or Fireflies joining as a named guest. Participants may still see that an AI feature is on. Zoom's [administrative controls](https://library.zoom.com/ai/ai-whitepaper/administrative-controls) describe account, group, and user toggles, and locks that stop a host from changing them.
 
 
-<Image src={inline1} alt="Laptop on a wooden desk with the camera taped over" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@azwedo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Azwedo L.LC</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 To provide those features, Zoom must process meeting content. The privacy question is not "does anything happen." It is what Zoom says it does with that content after the feature runs: training, third-party retention, storage region, and whether a transcript stays on the account.
 
 The primary support article is [How Zoom AI features handle your data](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057861). The [Data Governance and Privacy](https://library.zoom.com/ai/ai-whitepaper/data-governance-and-privacy) chapter of Zoom's AI whitepaper repeats the same training sentence and adds encryption, employee access, and retention. Policies move. Read the dated page before a client review.
@@ -49,10 +52,6 @@ The primary support article is [How Zoom AI features handle your data](https://s
 
 Zoom's sentence, repeated on the support article and in the whitepaper (checked September 2026), is:
 
-
-<Image src={inline2} alt="Someone closing a laptop lid after a call" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@samsungmemory?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Samsung Memory</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Zoom does not use any of your audio, video, chat, screen sharing, attachments, or other communications-like customer content (such as poll results, whiteboard, and reactions) to train Zoom's or its third-party artificial intelligence models.
 

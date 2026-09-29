@@ -12,23 +12,27 @@ image: "@/assets/blog/offline-transcription-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/offline-transcription-mac/inline1.jpg';
-import inline2 from '@/assets/blog/offline-transcription-mac/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@enchponnt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Thomas Chizzali</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 La **trascrizione offline su Mac** significa che il modello vocale è già sulla macchina e il file audio non deve lasciarla per il passaggio testo. Non significa «non sei mai andato online». Setup, primo download del modello, login e la maggior parte dei notetaker cloud hanno bisogno di rete. Quando i pesi stanno nella cache del browser o nella libreria modelli di un'app Mac, puoi trascrivere con il Wi-Fi spento.
 
 Questa guida separa tre casi onesti: gli strumenti browser gratuiti su vemoir.ch, un'app riunioni Mac dopo l'installazione dei modelli, e i servizi cloud che trascrivono sui loro server anche se la call è partita su un Mac. Dice anche quando un'app solo-file nel Finder è il percorso offline più corto.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">File browser</span><strong>15 min</strong><p>Per file negli strumenti vemoir.ch.</p></li>
+  <li><span class="blog-kicker">Quota browser</span><strong>3/settimana</strong><p>Esecuzioni riuscite, non i tentativi.</p></li>
+  <li><span class="blog-kicker">Cattura live</span><strong>App Mac</strong><p>Nessuna registrazione riunione nella scheda.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Svuotare la cache del browser rimuove il modello Whisper. Serve di nuovo la rete per il primo download.</p>
+</aside>
+
 ## Cosa significa davvero trascrizione offline su Mac
 
 Dietro la ricerca ci sono due lavori:
 
-
-<Image src={inline1} alt="Portatile chiuso su una scrivania di campagna in luce diurna" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@stev_tensai89?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Stefanus Stefanus</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. **Un file già sul disco** (M4A di Memo Vocali, `audio_only.m4a` Zoom, WAV di intervista). Vuoi testo senza upload.
 2. **La prossima riunione live.** Vuoi cattura e trascrizione senza bot e senza mandare l'audio in un cloud vendor.
@@ -41,10 +45,6 @@ Il locale chiede comunque spazio e RAM. L'app Mac Vemoir vuole Apple silicon, ma
 
 Gli strumenti gratuiti su vemoir.ch trascrivono un file che hai già **nella scheda**. L'audio **non viene caricato su Vemoir**. Un Whisper pubblico si scarica una volta. I giri successivi possono funzionare a rete spenta se la cache c'è ancora. Lo vedi nella scheda **Rete** (niente upload multipart del file).
 
-
-<Image src={inline2} alt="Tavolo rurale con note su carta vicino a una finestra" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@istin?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Irvin Aloise</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) per un MP3, M4A, WAV o MP4 generico. Zoom locale: [/it/strumenti/trascrivere-registrazione-zoom](/it/strumenti/trascrivere-registrazione-zoom). Note vocali: [/it/strumenti/trascrivere-nota-vocale](/it/strumenti/trascrivere-nota-vocale).
 

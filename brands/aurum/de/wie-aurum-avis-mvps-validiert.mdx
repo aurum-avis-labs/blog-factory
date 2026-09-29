@@ -1,7 +1,7 @@
 ---
 translationKey: how-aurum-avis-validates-mvps
 title: "Wie wir MVPs in 12 Wochen validieren"
-description: "12 Wochen, vier Phasen: Build, bezahlte Distribution, datengetriebene Iteration, dokumentierte Handlungsempfehlung auf Datenbasis. So läuft unser Product Validation Package ab."
+description: "Zwölf Wochen, vier Phasen: bauen, bezahlte Akquise, Iteration an den Daten, schriftliche Empfehlung. So läuft unser Product Validation Package."
 pubDate: 2026-04-02
 author: "Aurum Avis Labs"
 funnelStage: consideration
@@ -11,74 +11,74 @@ image: "@/assets/blog/how-aurum-avis-validates-mvps/img1.jpg"
 draft: false
 ---
 
-«Sprich mit 50 Kunden» und eine Landing Page sind ein Anfang – aber oft bleibt unklar, ob schwache Zahlen am Markt oder an der Ausführung liegen. Weiterführend: [warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps) und [die versteckten Kosten ohne Validierung](/de/blog/die-versteckten-kosten-ohne-validierung). Für den generischen Ablauf von MVP-Entwicklung in der CH (Phasen, Lieferobjekte, Timelines) siehe [MVP-Entwicklung Schweiz](/de/blog/mvp-entwicklung-schweiz). Unser Gegenentwurf ist ein fester 12-Wochen-Rhythmus: echtes Produkt, bezahlte Akquise, ausgewertete Nutzungsdaten, dokumentierte Handlungsempfehlung auf Datenbasis.
+«Sprich mit 50 Kunden» und eine Landingpage sind ein Anfang. Oft bleibt unklar, ob schwache Zahlen am Markt oder an der Ausführung liegen. Weiter: [warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps) und [die versteckten Kosten ohne Validierung](/de/blog/die-versteckten-kosten-ohne-validierung). Den generischen Ablauf von MVP-Entwicklung in der Schweiz, mit Phasen, Lieferobjekten und Zeitplan, findest du unter [MVP-Entwicklung Schweiz](/de/blog/mvp-entwicklung-schweiz). Unser Ablauf ist ein fester 12-Wochen-Rhythmus: ein echtes Produkt, bezahlte Akquise, ausgewertete Nutzungsdaten, eine dokumentierte Handlungsempfehlung auf diesen Daten.
 
-Was in diesen zwölf Wochen konkret passiert.
+Was in den zwölf Wochen konkret passiert.
 
-## Warum 12 Wochen?
+## Warum 12 Wochen
 
-Das Zeitfenster ist bewusst gewählt. Sechs Wochen reichen nicht aus, um gleichzeitig ein produktionsreifes Produkt zu bauen, bezahlte Akquise zu betreiben, aussagekräftige Verhaltensdaten zu sammeln und auf deren Basis zu iterieren. Vierundzwanzig Wochen dagegen sind lang genug, um erhebliches Geld auszugeben – für ein Produkt, das der Markt am Ende möglicherweise nicht will.
+Das Fenster ist bewusst gewählt. Sechs Wochen reichen nicht, um gleichzeitig ein produktionsreifes Produkt zu bauen, bezahlte Akquise zu betreiben, aussagekräftige Verhaltensdaten zu sammeln und darauf zu iterieren. Vierundzwanzig Wochen sind lang genug, um erhebliches Geld auszugeben, für ein Produkt, das der Markt am Ende möglicherweise nicht will.
 
-Zwölf Wochen ist das Minimum, in dem sich alle vier Phasen sauber durchführen lassen: Bauen, Distribuieren, Lernen, Entscheiden. Die Struktur ist dabei genauso wichtig wie die Länge. Jede Phase baut auf der vorherigen auf: Ohne echtes Produkt keine sinnvolle Akquise, ohne Akquisitionsdaten keine belastbare Entscheidungsgrundlage.
+Zwölf Wochen sind das Minimum, in dem alle vier Phasen sauber Platz haben: bauen, distribuieren, lernen, entscheiden. Die Struktur wiegt gleich viel wie die Länge. Jede Phase braucht die vorherige. Ohne echtes Produkt keine sinnvolle Akquise, ohne Akquisitionsdaten keine belastbare Entscheidungsgrundlage.
 
-## Phase 1 (Wochen 1–4): Bauen
+## Phase 1, Wochen 1 bis 4: Bauen
 
-Phase 1 ist reine Produktentwicklung. In vier Wochen entsteht eine produktionsreif deployte Applikation, auf die echte Nutzer zugreifen können. Kein Mockup, kein Replit-Prototyp, kein Webflow-Formular mit Typeform dahinter. Ein echtes, laufendes Produkt auf skalierbarer Infrastruktur.
+Phase 1 ist Produktentwicklung. In vier Wochen entsteht eine produktionsreif deployte Applikation, auf die echte Nutzer zugreifen können. Kein Mockup, kein Replit-Prototyp, kein Webflow-Formular mit Typeform dahinter. Ein laufendes Produkt auf skalierbarer Infrastruktur.
 
-Was «Produktionsqualität» konkret bedeutet: Die Applikation läuft auf Azure mit CI/CD-Pipelines, echter Authentifizierung, einem sauber entworfenen Datenbankschema, Error Monitoring und Alerting. Der erste Nutzer, der sich registriert, sieht dasselbe Produkt, das man einem Enterprise-Kunden zeigen würde. Die Daten, die dieser Nutzer erzeugt, sind deutlich weniger durch Infrastrukturprobleme verfälscht als bei einem schnellen Demo-Build.
+Produktionsqualität heisst hier: Azure mit CI/CD, echte Authentifizierung, ein sauber entworfenes Datenbankschema, Error Monitoring und Alerting. Die erste Person, die sich registriert, sieht dasselbe Produkt, das du einem Enterprise-Kunden zeigen würdest. Die Daten, die sie erzeugt, sind deutlich weniger durch Infrastrukturprobleme verfälscht als bei einem schnellen Demo-Build.
 
-Das ist aus einem Grund entscheidend, den viele übersehen: Validierungssignal lässt sich nicht von Produktqualitätssignal trennen, wenn das Produkt unzuverlässig ist. Wenn Nutzer nach zwei Sessions abspringen, muss klar sein, ob das am Value Proposition liegt oder daran, dass die App abgestürzt ist. Produktionsqualität von Tag eins beseitigt diese Mehrdeutigkeit.
+Validierung und Produktqualität lassen sich nicht auseinanderhalten, wenn das Produkt unzuverlässig ist. Springen Nutzer nach zwei Sessions ab, muss klar sein, ob das am Nutzen liegt oder daran, dass die App abgestürzt ist. Produktionsqualität ab Tag eins nimmt diese Unschärfe raus.
 
-Was in vier Wochen gebaut wird, ist vorab klar definiert. Gemeinsam mit dem Founder erarbeiten wir den minimalen Feature-Set, der die zentrale Hypothese tatsächlich testet – keine Roadmap voller Nice-to-Haves, sondern genau die Funktionalität, die beweist oder widerlegt, ob das Produkt echten Wert erzeugt.
+Was in vier Wochen gebaut wird, ist vorher festgelegt. Mit dem Gründer legen wir den kleinsten Funktionsumfang fest, der die zentrale Hypothese wirklich testet. Wünsche, die die Hypothese nicht prüfen, bleiben draussen. Gebaut wird die Funktion, an der sich zeigt, ob das Produkt echten Wert erzeugt.
 
-## Phase 2 (Wochen 5–6): Distribution
+## Phase 2, Wochen 5 bis 6: Distribution
 
-In Woche fünf ist das Produkt live. Phase 2 konzentriert sich vollständig darauf, echte Nutzer über bezahlte Akquise auf Google und LinkedIn zu gewinnen.
+In Woche fünf ist das Produkt live. Phase 2 holt echte Nutzer über bezahlte Akquise auf Google und LinkedIn.
 
-Hier weicht unser Ansatz fundamental vom klassischen «Sprich mit 50 Menschen»-Modell ab. Umfragen und Interviews messen stated preferences – was Menschen sagen, was sie tun würden. Bezahlte Akquise misst Verhalten: Wer klickt, wer sich registriert, wer aktiv wird, wer abspringt – und zu welchen Kosten. Ein Cost-per-Lead von CHF 8 bedeutet etwas grundlegend anderes als CHF 180. Die Conversion-Rate von der Landing Page zum Signup zeigt, ob die Positionierung trägt. Drop-off-Analyse zeigt, wo das Produkt das Versprechen des Akquise-Kanals bricht.
+Hier weicht der Ansatz vom Modell «sprich mit 50 Menschen» ab. Umfragen und Interviews messen, was Menschen sagen, sie würden tun. Bezahlte Akquise misst Verhalten: wer klickt, wer sich registriert, wer aktiv wird, wer abspringt, und zu welchen Kosten. Kosten pro Lead von CHF 8 bedeuten etwas anderes als CHF 180. Die Conversion von der Landingpage zur Anmeldung zeigt, ob die Positionierung trägt. Die Absprungstellen zeigen, wo das Produkt das Versprechen des Kanals bricht.
 
-Phase 2 umfasst auch gezieltes Positioning: eine Landing Page, die konvertiert, Copy, die den spezifischen Value Claim testet, und Ad Creatives, die auf das Zielsegment ausgerichtet sind. Das ist kein generisches Briefing, sondern direkt informiert durch das, was in Phase 1 gebaut wurde.
+Phase 2 umfasst auch das Positioning: eine Landingpage, die konvertiert, Texte, die den konkreten Nutzenanspruch testen, und Anzeigen, die auf das Zielsegment zielen. Das Briefing kommt aus dem, was in Phase 1 gebaut wurde.
 
-Das Ziel von Phase 2 ist nicht Umsatz. Das Ziel sind interpretierbare Daten.
+Das Ziel von Phase 2 ist kein Umsatz. Das Ziel sind Zahlen, die sich lesen lassen.
 
-## Phase 3 (Wochen 7–10): Auf Basis von Daten iterieren
+## Phase 3, Wochen 7 bis 10: an den Daten iterieren
 
-Phase 3 ist der Kern der Validierung. Das Team analysiert die Daten aus Phase 2 – Cost-per-Lead, Conversion-Rates, Drop-off-Punkte, Nutzungsmuster, Retention – und trifft Produktentscheidungen auf Basis dieser Daten, nicht auf Basis der Erwartungen des Founders.
+Phase 3 ist der Kern. Das Team liest die Daten aus Phase 2: Kosten pro Lead, Conversion, Absprungstellen, Nutzung, Wiederkehr. Produktentscheidungen folgen diesen Daten, nicht der Erwartung des Gründers.
 
-Der Prozess umfasst bis zu drei Pivot-Iterationen. Das ist eine substanzielle Verpflichtung und verdient eine genaue Erklärung. Eine Pivot-Iteration ist kein Redesign. Es ist eine gezielte Anpassung am Produkt oder am Positioning als Reaktion auf einen spezifischen Datenbefund, gefolgt von einer zweiten Akquisitionsrunde, die testet, ob die Anpassung die relevante Metrik bewegt. Beispiel: Ist der Cost-per-Lead vertretbar, bleibt die Trial-to-Activation-Rate aber niedrig, identifiziert das Team den Drop-off-Punkt im Onboarding, liefert eine Verbesserung und wiederholt die Akquise. Bewegt sich die Metrik? Dann gibt es Signal. Bewegt sie sich nicht? Dann ist mehr darüber bekannt, warum.
+Es gibt bis zu drei Pivot-Iterationen. Das ist eine echte Zusage und verdient eine genaue Beschreibung. Eine Pivot-Iteration ist kein Redesign. Es ist eine gezielte Anpassung am Produkt oder am Positioning, als Reaktion auf einen bestimmten Befund, und danach eine zweite Akquiserunde, die prüft, ob die relevante Zahl sich bewegt. Beispiel: die Kosten pro Lead sind vertretbar, die Rate von Trial zu Aktivierung bleibt tief. Das Team findet die Absprungstelle im Onboarding, liefert eine Verbesserung, wiederholt die Akquise. Bewegt sich die Zahl, gibt es ein Signal. Bewegt sie sich nicht, weisst du mehr darüber, warum.
 
-Drei Iterationen reichen aus, um «die Hypothese war falsch» von «die Umsetzung war falsch» zu unterscheiden. Sie sind ausserdem eine Forcing Function: Bei einer definierten Anzahl von Iterationen und einem fixen Zeitplan kann das Team nicht monatelang in einer Optimierungsschleife verweilen. Die Daten treiben die Entscheidung, der Zeitplan erzwingt Ehrlichkeit.
+Drei Iterationen reichen, um «die Hypothese war falsch» von «die Umsetzung war falsch» zu trennen. Sie begrenzen auch die Schleife. Bei einer festen Anzahl und einem festen Zeitplan bleibt das Team nicht monatelang im Optimieren. Die Daten treiben die Entscheidung. Der Zeitplan zwingt zur Ehrlichkeit.
 
-## Phase 4 (Wochen 11–12): Datengetragene Handlungsempfehlung
+## Phase 4, Wochen 11 bis 12: Handlungsempfehlung
 
-Die letzte Phase liefert das Deliverable, das den gesamten Sprint rechtfertigt: eine **dokumentierte Handlungsempfehlung**, die sich auf Akquisitions-, Nutzungs- und Iterationsdaten stützt – keine absolute «Wahrheit» über den Markt, sondern die belastbarste Lesart der Signale, die wir tatsächlich erhoben haben.
+Die letzte Phase liefert, wofür der Sprint da ist: eine **dokumentierte Handlungsempfehlung** auf Akquisitions-, Nutzungs- und Iterationsdaten. Keine absolute Aussage über den Markt. Die belastbarste Lesart der Signale, die wir erhoben haben.
 
-Der Validierungsbericht umfasst, was gebaut wurde, wie es distribuiert wurde, was die Akquisitions- und Verhaltensdaten gezeigt haben, welche Iterationen durchgeführt wurden und welche Effekte messbar waren – und vor allem, **welche nächsten Schritte** sich aus diesen Daten nahelegen. Üblicherweise fassen wir das in eine **Go-, Pivot- oder Stop-Empfehlung** mit vollständiger Daten- und Argumentationskette zusammen; Grenzen der Datenlage werden ausgewiesen. Die finale Geschäftsentscheidung trifft weiterhin das Team.
+Der Validierungsbericht umfasst, was gebaut wurde, wie es verteilt wurde, was Akquise und Verhalten gezeigt haben, welche Iterationen liefen und welche Effekte messbar waren, und vor allem, **welche nächsten Schritte** die Daten nahelegen. Üblicherweise fassen wir das in eine **Go-, Pivot- oder Stop-Empfehlung** mit der Daten- und Argumentationskette. Grenzen der Datenlage stehen drin. Die Geschäftsentscheidung trifft weiter das Team.
 
-Dazu gibt es das fertige, produktionsbereite Produkt, ein Branding-Paket und ein Pitch Deck, das auf den Validierungsergebnissen aufbaut. **Neigt die Auswertung zu Go**, liegt Material vor, das eine Seed-Runde oder den ersten kommerziellen Push unterstützt. **Neigt sie zu Stop**, liegen belastbare Hinweise vor, weiter Kapital in dieselbe Hypothese zu binden – oder nicht.
+Dazu das fertige, produktionsbereite Produkt, ein Branding-Paket und ein Pitch Deck auf den Validierungsergebnissen. **Neigt die Auswertung zu Go**, liegt Material vor, das eine Seed-Runde oder den ersten kommerziellen Push stützt. **Neigt sie zu Stop**, liegen belastbare Hinweise vor, ob weiteres Kapital in dieselbe Hypothese gehört.
 
-Das ist der Erfolgsfall: kein geliefertes Produkt als Selbstzweck, sondern eine **datengetragene Grundlage** für die nächste Entscheidung. Das Produkt ist das Instrument, um diese Evidenz zu erzeugen, nicht das Ziel.
+Am Ende zählt die Grundlage aus Daten für die nächste Entscheidung. Das Produkt ist das Instrument, mit dem diese Belege entstehen.
 
-## Inhalte und Deal-Struktur
+## Was im Package steckt
 
-Beim Product Validation Package über den gesamten 12-Wochen-Sprint ist das vollständige Team inbegriffen – Produktstrategie, Engineering und Growth – kein Freelancer- oder Junior-Dev-Shop. Die Deal-Struktur kombiniert Cash-Fees und Equity, flexibel gestaltet je nach Kontext und Phase der Zusammenarbeit; konkrete Konditionen besprechen wir im Discovery Call.
+Beim Product Validation Package über die ganzen 12 Wochen ist das vollständige Team dabei: Produktstrategie, Engineering und Growth. Kein Freelancer-Shop und kein Shop aus Junior-Entwicklern. Die Struktur kombiniert Cash-Fees und Equity, je nach Kontext und Phase. Konkrete Konditionen besprechen wir im Gespräch.
 
-Für Founder, die vor dem vollen Sprint eine schnellere Ersteinschätzung brauchen, gibt es einen Validation Sprint über zwei Wochen: technische Machbarkeitseinschätzung und Go/No-Go-Empfehlung zur Idee selbst, bevor ein Produkt gebaut wird. Für Teams, die eine Landing Page ohne den gesamten Validierungskontext benötigen, gibt es ein kompaktes Landing-Page-Package über zwei Wochen.
+Brauchst du vor dem vollen Sprint eine schnellere Ersteinschätzung, gibt es einen Validation Sprint über zwei Wochen: technische Machbarkeit und eine Go/No-Go-Empfehlung zur Idee, bevor ein Produkt gebaut wird. Braucht ein Team eine Landingpage ohne den ganzen Validierungskontext, gibt es ein kompaktes Landingpage-Package über zwei Wochen.
 
-## Für wen dieser Prozess passt
+## Für wen der Prozess passt
 
-Der 12-Wochen-Sprint passt zu Foundern mit einer konkreten Produkthypothese, Zugang zu einem Zielmarkt, der über bezahlte Kanäle erreichbar ist, und genug Kapital für eine echte Validierung statt einer Wunschübung. Er ist für Menschen, die eine **entscheidungsreife, datengetragene Einschätzung** brauchen: weil sie kurz vor einer Finanzierungsrunde stehen, weil sie erhebliche eigene Ressourcen einsetzen wollen, oder weil sie genug Projekte haben scheitern sehen.
+Der 12-Wochen-Sprint passt zu Gründerinnen und Gründern mit einer konkreten Produkthypothese, Zugang zu einem Zielmarkt, der über bezahlte Kanäle erreichbar ist, und genug Kapital für eine echte Prüfung. Er ist für Leute, die eine entscheidungsreife Einschätzung aus Daten brauchen: weil eine Finanzierungsrunde ansteht, weil sie erhebliche eigene Mittel einsetzen wollen, oder weil sie genug Projekte haben scheitern sehen.
 
-Nicht jeder Kontext passt. Wer in einer stark regulierten Kategorie baut – Finanz- oder Gesundheitsprodukte, die Lizenzen, Compliance-Infrastruktur oder institutionelle Partnerschaften erfordern, bevor ein einziger Nutzer zugreifen kann –, für den lässt sich das 12-Wochen-Format möglicherweise nicht mit der Go-to-Market-Realität vereinbaren. Ähnliches gilt, wenn tiefe Enterprise-Integrationen monatelange Beschaffungsprozesse erfordern, bevor sich überhaupt jemand einloggen kann.
+Nicht jeder Kontext passt. Baust du in einer stark regulierten Kategorie, Finanz- oder Gesundheitsprodukte, die Lizenzen, Compliance-Infrastruktur oder institutionelle Partnerschaften brauchen, bevor ein Nutzer zugreifen kann, lässt sich das 12-Wochen-Format mit dem Go-to-Market oft nicht vereinbaren. Ähnlich, wenn tiefe Enterprise-Integrationen monatelange Beschaffung brauchen, bevor sich jemand einloggen kann.
 
-Die ehrliche Einschätzung: Dieser Prozess funktioniert, wenn ein echtes Produkt vor echten Nutzern über kommerzielle Kanäle platziert und das Verhalten dieser Nutzer beobachtet werden kann. Wenn diese Bedingung erfüllt ist, reichen zwölf Wochen, um zu wissen, ob man weitermachen soll.
+Die ehrliche Grenze: der Prozess funktioniert, wenn ein echtes Produkt vor echten Nutzern über kommerzielle Kanäle steht und du das Verhalten beobachten kannst. Ist diese Bedingung erfüllt, reichen zwölf Wochen, um zu wissen, ob du weitermachst.
 
 ## Portfolio und Erfahrung
 
-Ventures aus unserem Umfeld – GoldCrew, Holist-IQ, Postology und do4me.work – haben wir durch diesen Ablauf oder enge Varianten davon begleitet: Hypothese, strukturierte Validierung, dokumentierter nächster Schritt aus der Datenlage. Das ist keine Theorie, sondern unser wiederholter Arbeitsmodus, wenn wir Engineering- und Go-to-Market-Risiko mittragen.
+Ventures aus unserem Umfeld, GoldCrew, Holist-IQ, Postology und do4me.work, haben wir durch diesen Ablauf oder enge Varianten davon begleitet: Hypothese, strukturierte Validierung, dokumentierter nächster Schritt aus der Datenlage. Das ist unser wiederholter Arbeitsmodus, wenn wir Engineering- und Go-to-Market-Risiko mittragen.
 
-## Passt der 12-Wochen-Sprint zu dir?
+## Passt der 12-Wochen-Sprint zu dir
 
-Wer eine Produkthypothese hat, sollte zunächst klären: Lassen sich echte Nutzer über bezahlte Kanäle erreichen – und soll am Ende eine **dokumentierte Go/Pivot/Stop-Handlungsempfehlung auf Datenbasis** stehen statt nur ein fertiges Repo?
+Du hast eine Produkthypothese. Zuerst klären: lassen sich echte Nutzer über bezahlte Kanäle erreichen, und soll am Ende eine **dokumentierte Go/Pivot/Stop-Empfehlung auf Daten** stehen, statt nur ein fertiges Repo?
 
-[Discovery Call buchen](https://outlook.office.com/book/AurumAvisLabsDiscovery@aurum-avis-labs.ch/?ismsaljsauthenabled). Wir sagen offen, ob der Sprint passt oder ob der kürzere Validation Sprint der sinnvollere Einstieg ist.
+[Gespräch buchen](https://outlook.office.com/book/AurumAvisLabsDiscovery@aurum-avis-labs.ch/?ismsaljsauthenabled). Wir sagen offen, ob der Sprint passt oder ob der kürzere Validation Sprint der sinnvollere Einstieg ist.

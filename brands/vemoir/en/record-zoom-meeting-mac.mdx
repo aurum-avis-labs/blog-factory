@@ -10,13 +10,8 @@ relatedPosts: ["record-teams-meeting-mac", "record-google-meet-mac", "otter-ai-a
 tool: "transcribe-zoom-recording"
 image: "@/assets/blog/record-zoom-meeting-mac/hero.jpg"
 draft: false
+
 ---
-
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/record-zoom-meeting-mac/inline1.jpg';
-import inline2 from '@/assets/blog/record-zoom-meeting-mac/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@hcdigital?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Hc Digital</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 You **record a Zoom meeting on Mac** during the call in two different ways, and they should not be collapsed into one. Zoom's Record button writes Zoom's own file, on this computer or in the cloud, and Zoom's banner tells the room. A menu-bar app records the microphone and the sound coming out of the speakers while the call runs, and Zoom does not treat that as its recorder. This page is the during-the-call path. If you already finished the meeting and you are looking for `Documents/Zoom` and an `audio_only.m4a` Zoom saved itself, use [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording) instead. That article starts after the file exists. This one starts while people are still talking.
 
 ## Contents
@@ -32,10 +27,6 @@ You **record a Zoom meeting on Mac** during the call in two different ways, and 
 If you are the host or a co-host, Zoom shows Record. "Record on this computer" writes a local file. "Record to the cloud" writes to Zoom's cloud, and a cloud transcript is part of that cloud feature set, not of the free local file. Local recording is audio and video that Zoom saved. It is not a text transcript by itself. You still have to transcribe the file if you want minutes. The folder Zoom uses, and how to transcribe the local audio afterward, is the other article linked above. Do not hunt for that folder while the call is still open. Let Zoom finish writing first, or record with a second tool that you stop yourself.
 
 
-<Image src={inline1} alt="Home office desk with headphones and a laptop lid angled away" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@darranshen?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Darran Shen</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Zoom's recording indicator follows Zoom's recorder. It does not follow every app on the Mac that can hear the speakers. If you only start a third-party capture, the banner stays off. That is a reason to say out loud that you are recording, not a reason to skip consent.
 
 If your Zoom account does not show Record, the host has not given you the right, or the account type does not include recording. You cannot grant that to yourself as a guest. You can still capture system audio on the Mac, and you still have to tell the room.
@@ -44,10 +35,6 @@ If your Zoom account does not show Record, the host has not given you the right,
 
 The Mac app is from Aurum Avis Labs GmbH in Oberägeri. It sits in the menu bar. Before the first call, macOS asks for the microphone and for System Audio Recording. Those two permissions are the capture: your voice on one local track, Zoom's playback on another. There is no screen recording in this path, and no bot joins the Zoom participant list.
 
-
-<Image src={inline2} alt="Someone on a headset looking toward a window, not a screen" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Start the capture when the conversation should be kept, not when you remember ten minutes later. You stop it from the same menu. The app does not detect the meeting for you and it does not announce itself in the Zoom chat. Say that you are recording. If someone objects, stop.
 
@@ -74,6 +61,17 @@ It does not make the recording lawful. You tell participants. The app does not c
 It does not label speakers in the 15-minute browser tool. Speaker separation is on the Mac, after you stop the capture.
 
 It does not run on a Windows laptop in the guest's meeting. If you are on Windows, Zoom's own recorder is the control you have, subject to the host.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Announce recording</h3><p>Tell participants before you press Record in the menu bar.</p></li>
+  <li data-step="2"><h3>Grant audio permission</h3><p>macOS needs Screen Recording permission for system audio capture.</p></li>
+  <li data-step="3"><h3>Stop at the end</h3><p>Export minutes from the Mac when the call ends.</p></li>
+</ol>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Built-in meeting recorders follow the host's licence. A menu-bar app does not replace Teams or Zoom policy banners.</p>
+</aside>
 
 ## Frequently asked questions
 

@@ -12,14 +12,21 @@ image: "@/assets/blog/zoom-ai-companion-privacy/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/zoom-ai-companion-privacy/inline1.jpg';
-import inline2 from '@/assets/blog/zoom-ai-companion-privacy/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@pranjallk1995?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Pranjall Kumar</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 La **confidentialité de Zoom AI Companion** concerne l’assistant intégré de Zoom, pas un bot tiers dans la liste des participants. Zoom décrit comment la fonction traite le contenu de réunion, quels modèles le voient et quels interrupteurs un admin peut verrouiller. Cette page résume ces documents au mois de septembre 2026. Ce n’est pas un conseil juridique, et elle ne décide pas si AI Companion convient à votre contrat.
 
 Si votre exigence est «&nbsp;l’audio reste sur ce Mac tant que je ne l’exporte pas&nbsp;», le modèle documenté de Zoom est autre. AI Companion s’exécute dans le cloud Zoom (et, sur certains comptes, via des modèles tiers). Un enregistrement Zoom local sur le disque est un autre chemin. Les deux peuvent convenir. Ce n’est pas la même copie.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Entraînement</span><strong>Docs Zoom</strong><p>Zoom indique ne pas entraîner ses modèles sur le contenu client (pages septembre 2026).</p></li>
+  <li><span class="blog-kicker">Tiers</span><strong>Opt-in</strong><p>Certaines fonctions appellent des modèles externes si le compte l'autorise.</p></li>
+  <li><span class="blog-kicker">Fichier local</span><strong>Séparé</strong><p>Un M4A Zoom local sur disque n'est pas la copie traitée par AI Companion.</p></li>
+</ul>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Les verrous admin peuvent désactiver AI Companion pour les hôtes. Votre politique IT peut interdire toute synthèse cloud.</p>
+</aside>
 
 ## Sommaire
 
@@ -37,10 +44,6 @@ Si votre exigence est «&nbsp;l’audio reste sur ce Mac tant que je ne l’expo
 AI Companion est l’assistant de réunion de Zoom&nbsp;: résumés, prochaines étapes, questions sur l’appel. Ce n’est pas Otter ou Fireflies en tant qu’invité nommé. Les participants peuvent tout de même voir qu’une fonction d’IA est active. Les [contrôles administratifs](https://library.zoom.com/ai/ai-whitepaper/administrative-controls) de Zoom décrivent des bascules compte, groupe et utilisateur, et des verrous que l’hôte ne peut plus inverser.
 
 
-<Image src={inline1} alt="Portable sur un bureau en bois, camera masquee" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@azwedo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Azwedo L.LC</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Pour fournir ces fonctions, Zoom doit traiter du contenu de réunion. La question de confidentialité n’est pas «&nbsp;se passe-t-il quelque chose&nbsp;». C’est ce que Zoom dit faire de ce contenu ensuite&nbsp;: entraînement, conservation chez des tiers, région de stockage, et présence d’une transcription sur le compte.
 
 L’article d’assistance principal est [How Zoom AI features handle your data](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057861). Le chapitre [Data Governance and Privacy](https://library.zoom.com/ai/ai-whitepaper/data-governance-and-privacy) du livre blanc IA répète la phrase sur l’entraînement et ajoute chiffrement, accès des employés et conservation. Les politiques bougent. Lisez la page datée avant une revue client.
@@ -49,10 +52,6 @@ L’article d’assistance principal est [How Zoom AI features handle your data]
 
 La phrase de Zoom, reprise dans l’article d’assistance et le livre blanc (vérifiée en septembre 2026)&nbsp;:
 
-
-<Image src={inline2} alt="Quelqu'un referme un portable apres un appel" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@samsungmemory?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Samsung Memory</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Zoom n’utilise pas votre audio, vidéo, chat, partage d’écran, pièces jointes ni d’autres contenus de communication (sondages, tableau blanc, réactions) pour entraîner les modèles d’IA de Zoom ou de tiers.
 

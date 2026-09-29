@@ -5,64 +5,90 @@ pubDate: 2026-11-13
 author: "Holist-IQ Team"
 tags: ["operations", "feedback-loops", "systems-thinking"]
 funnelStage: "awareness"
-draft: false
-relatedPosts: ["why-the-same-business-problems-keep-coming-back", "delays-in-feedback-loops", "executive-brief-from-causal-loop-map"]
-image: ../../../assets/blog/operational-firefighting-feedback-loops/img1.png
 translationKey: "operational-firefighting-feedback-loops"
+relatedPosts: ["why-the-same-business-problems-keep-coming-back", "delays-in-feedback-loops", "executive-brief-from-causal-loop-map"]
+image: "@/assets/blog/operational-firefighting-feedback-loops/hero.jpg"
+draft: false
 ---
 
-import { Image } from 'astro:assets';
-import img2 from '@/assets/blog/operational-firefighting-feedback-loops/img2.png';
-import img3 from '@/assets/blog/operational-firefighting-feedback-loops/img3.png';
+Ops teams clear the queue, get thanked, and find a similar queue the next morning. **Operational firefighting feedback loops** are the structure under that pattern. Urgent work is visible, so it gets recognition and staff time. Prevention is quiet, so it loses the same hour. The result is a team that stays busy and a recurrence that stays funded by accident.
 
-<p><em>Hero photo by <a href="https://unsplash.com/@andrewmeasham?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Andrew Measham</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+This page is for operations leads who already run incidents, tickets, or production escapes, and who have tried "better prioritization" without a change in what repeats. The same-problem pattern in other functions is in [why the same business problems keep coming back](/blog/why-the-same-business-problems-keep-coming-back).
 
-Ops teams often celebrate heroic clears while backlog reforms overnight. **Operational firefighting feedback loops** describe how urgency rewards visible saves and starves prevention.
+## The reinforcing loop that rewards the save
 
-## The reinforcing firefighting loop
+Read it as a story, not as a slogan. An incident is visible. The person who clears it is rewarded, formally or by reputation. Time for prevention is what gets cut, because the next page, ticket, or customer is already waiting. With less prevention, similar incidents become more likely. Those incidents are visible again, and the reward shifts further toward the save.
 
-Incident visibility → heroics rewarded → prevention time cut → more incidents → more visibility.
+Nothing in that loop requires a careless team. It requires a clock and a reputation system that can see the rescue and cannot see the incident that did not happen. Blame aimed at "hero culture" usually lands on the people the loop is already paying to be heroes. The loop is the incentive path: visibility, reward, less prevention time, more recurrence, more visibility.
 
-## The balancing loop that never catches up
+Name it on a sketch if you have one. R1: firefighting spiral. The variables that belong on it are specific enough to argue about: urgent hours, recognition for urgent clears, hours left for prevention, and the rate of repeat incident classes. "Busyness" is not a variable. It is the feeling the loop produces.
 
-Backlog → temporary surge hiring or overtime → throughput rises → backlog falls → surge ends → backlog returns if root loops unchanged.
+## The balancing loop that looks like progress
 
-<Image src={img2} alt="Abstract urgent pulse arcs suggesting firefighting reinforcement" width={500} quality={80} class="w-full" />
+Backlog rises. Leadership adds overtime, a surge hire, or a weekend war room. Throughput rises. The backlog falls. The surge ends, because the visible pain ended. If the reinforcing loop is untouched, the inflow of repeat work returns and the backlog rebuilds.
 
-<p><em>Photo by <a href="https://unsplash.com/@campaign_creators?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Campaign Creators</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+That balancing loop is real, and it is why firefighting feels effective. The team did change the number everyone watches. The change expires when the surge expires. Calling the surge a success and the return a new failure misses that they are one structure on two clocks.
 
-## Delays hide prevention payoff
+A map helps here only if both loops are on it. A picture of the backlog alone will recommend another surge. A picture of recognition and prevention time will ask which link the surge never touched.
 
-Prevention metrics move slowly. Firefighting metrics move daily. Leadership attention follows the fast clock unless you instrument leading indicators.
+## Delays hide the prevention payoff
 
-See [delays in feedback loops](/blog/delays-in-feedback-loops).
+Prevention metrics move slowly: repeat rate inside a class, change failure on a known cause, time-to-detect on a class you instrumented. Firefighting metrics move daily. Attention follows the fast clock unless you put a leading indicator on the slow one.
 
-## Break the loop without blame
+The mismatch is the same mechanism as other [delays in feedback loops](/blog/delays-in-feedback-loops). A prevention block can be working while this week's incident count is still ugly, because the incidents already in flight were created earlier. If you judge the block on this week's count alone, you will reassign the people and erase the test. Write the delay next to the prevention link before the first review.
 
-Shift recognition to prevented incidents, fund small prevention slices protected from redeployment, map one structural link per quarter.
+## What to change in the loop
 
-<Image src={img3} alt="Abstract balance between urgent and preventive work" width={500} quality={80} class="w-full" />
+Shift a piece of recognition toward prevented recurrence, in a form the team can see. That might be credit in the review for a class of incident that stayed down, not a speech about ownership. Fund a small prevention slice and protect it from redeployment when the next urgent day arrives. If the slice is borrowable, it is not a slice. It is spare capacity for the reinforcing loop.
 
-<p><em>Photo by <a href="https://unsplash.com/@haroldjonker?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Harold Jonker</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Map one structural link per quarter and give it an owner. One link is enough: the handoff that recreates the ticket, the missing check that lets the same defect escape, the alert that pages people who cannot fix the class. A quarterly program of ten improvements recreates the firefight inside the improvement list.
 
-## When firefighting is appropriate
+<div class="blog-pair">
+  <div>
+    <h3>Moves that touch the loop</h3>
+    <ul>
+      <li>Protect a fixed prevention block on the calendar</li>
+      <li>Review repeat classes, not only time-to-clear</li>
+      <li>Give one owner a single structural link for the quarter</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Moves that feed it</h3>
+    <ul>
+      <li>Public praise only for after-hours clears</li>
+      <li>Priority rules that any urgent item can break</li>
+      <li>A surge with no end condition except an empty queue</li>
+    </ul>
+  </div>
+</div>
 
-True emergencies and safety incidents require surge mode. The issue is chronic recurrence, not occasional spikes.
+## When firefighting is the right mode
 
-## Mid-step: time-box last week
+A genuine emergency, a safety incident, or a novel failure with people at risk needs surge mode. Take the surge. The structural problem is chronic recurrence of a known class, not the occasional spike. If you cannot separate those two in the weekly review, you will either under-react to danger or over-react to the familiar queue. Split the board: novel and safety items in one lane, repeat classes in another, with the prevention time attached only to the second.
 
-Estimate hours on recurrence vs novel incidents. Share ratio in ops review.
+Also leave firefighting in place when the volume is truly one-off, such as a migration weekend that will not recur. Mapping a loop for a single event adds ceremony. Map it when the same class has already returned.
 
-## Strong next step: maintained ops maps
+## Count last week before you redesign the team
 
-Use [systems thinking in business](/blog/systems-thinking-in-business) and the [systems thinking tool checklist](/blog/systems-thinking-tool-checklist). Holist-IQ helps ops leaders document loops that survive shift handoffs.
+Estimate hours on repeat classes versus hours on novel work. You do not need a precise study. A rough ratio, said out loud in the ops review, changes the conversation from who stayed late to which loop got the time. If almost all hours sat on repeats, another hiring surge without a protected prevention block extends the balancing loop and leaves R1 in place. If the hours sat on novel safety work, the firefighting story is the wrong diagnosis this month.
 
-## Frequently asked questions
+The same habit outside the on-call rotation is in [systems thinking in business](/blog/systems-thinking-in-business). Use the [systems thinking tool checklist](/blog/systems-thinking-tool-checklist) when the sketch must survive a shift handoff. Holist-IQ fits ops leaders who need the loops kept current so the next rotation inherits the structure with the queue. The one-page framing is in [systems thinking for executives](/blog/systems-thinking-for-executives).
 
-### Is firefighting a culture problem?
+<div class="blog-faq">
+  <p class="blog-faq-q">Is operational firefighting a culture problem?</p>
+  <p>Culture follows what the loops reward. If only visible saves are recognized, people will keep producing visible saves. Change the metric you review and protect the prevention time, and the norms have something to attach to.</p>
+</div>
 
-Culture follows incentives embedded in loops. Change metrics and protection for prevention work.
+<div class="blog-faq">
+  <p class="blog-faq-q">Will more headcount break the loop?</p>
+  <p>Only if some of the new time stays on prevention after the backlog drops. If new people are pulled into the same urgent queue, you have lengthened the surge. The reinforcing loop is unchanged.</p>
+</div>
 
-## Closing next step
+<div class="blog-faq">
+  <p class="blog-faq-q">How do we tell a real emergency from the spiral?</p>
+  <p>Novel harm and safety incidents get surge mode. A class you have already cleared before is the spiral. Separate them in the review so one does not borrow the other's rules.</p>
+</div>
 
-Link to [why the same business problems keep coming back](/blog/why-the-same-business-problems-keep-coming-back) or executive framing in [systems thinking for executives](/blog/systems-thinking-for-executives).
+## What to do next
+
+Sketch R1 and the surge loop for one repeat class, and put a delay on the prevention link before the next ops review. Then connect it to the broader recurrence story in [why the same business problems keep coming back](/blog/why-the-same-business-problems-keep-coming-back). If leadership needs the pattern on a single page, the framing in [systems thinking for executives](/blog/systems-thinking-for-executives) is the next read.

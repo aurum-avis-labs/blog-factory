@@ -12,14 +12,22 @@ image: "@/assets/blog/messy-meeting-transcript/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/messy-meeting-transcript/inline1.jpg';
-import inline2 from '@/assets/blog/messy-meeting-transcript/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@lukesouthern?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Luke Southern</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 A messy meeting transcript is usually not a bad meeting. It is a caption file that was never meant to be read as a page. Zoom and Teams hand you a `.vtt` with a `WEBVTT` header, cue numbers, and lines like `00:12:04.000 --> 00:12:09.120`. A Whisper dump adds timestamps of its own, plus every "uh" and every false start. You can share that file, and nobody will find the decision.
 
 Cleaning is a formatting job. It removes the scaffolding and keeps the words. It does not invent speaker names, and it does not turn the talk into minutes. Those are later steps.
+
+<ol class="blog-flow">
+  <li><strong>Stabilize</strong><p>Fix speaker labels and obvious mis-hears first.</p></li>
+  <li><strong>Mark decisions</strong><p>Highlight lines that commit the team.</p></li>
+  <li><strong>Cut noise</strong><p>Drop small talk before you share outward.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>A transcript is raw material. Minutes are the edited record people act on.</p>
+</aside>
 
 ## Contents
 
@@ -36,10 +44,6 @@ Cleaning is a formatting job. It removes the scaffolding and keeps the words. It
 Open the file in a plain-text editor before you paste it into a document. You are looking at one of these:
 
 
-<Image src={inline1} alt="A messy desk being tidied into a neat notebook" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@regeci?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Adrian Regeci</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 - A WebVTT file. The first line is `WEBVTT`. Then blank lines, cue times, then the spoken text. Teams and Zoom cloud transcripts often look like this. A speaker may appear as `<v Jane Doe>we should ship Friday</v>` or as `Jane Doe: we should ship Friday`.
 - An SRT file. Numbered cues, then times with a comma before the milliseconds (`00:01:02,000`), then text.
 - A plain dump where every line starts with a bracketed time and no names.
@@ -51,10 +55,6 @@ The words can be fine and the file can still be unreadable. The mess is the meta
 
 The free [transcript cleaner](/tools/transcript-cleaner) takes a Zoom VTT, a Teams export, or an SRT. You drop the file or paste the text. It removes the header, the cue numbers, and the timestamps. If a speaker name is already in the file, it stays, in the form `Name: text`. If two cues in a row belong to the same speaker, they are joined.
 
-
-<Image src={inline2} alt="Scattered pages gathered into a folder" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 If the file has no speaker names, the page says so. The timestamps still come off. Names are not invented. That is the whole behavior of the cleaner: it will not guess who talked.
 

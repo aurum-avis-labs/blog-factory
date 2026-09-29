@@ -11,9 +11,6 @@ image: "@/assets/blog/notes-while-recording/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/notes-while-recording/inline1.jpg';
-import inline2 from '@/assets/blog/notes-while-recording/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@matcfelipe?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matcfelipe</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Notes while recording** are the lines you type during the call. In Vemoir they are Manual Notes. They fold into the minutes, the key points, the actions, the decisions, the follow-up draft, and custom documents. They keep a separate, user-authored provenance. They are never shown as if they were a verbatim line from the transcript.
@@ -25,11 +22,13 @@ That split matters when someone asks what was said and what you added. The trans
 The meeting summary carries editable rich-text Manual Notes, with the formatting controls on the Mac, and they persist locally as you type. You do not have to wait until stop to jot a reminder. Empty notes are not treated as a saved statement. If the field is blank, it is blank.
 
 
-<Image src={inline1} alt="A pen moving on paper while a headset is on" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@lorencutler?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">lorencutler</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 After the call, those notes participate when Vemoir builds or rebuilds the record. A decision you wrote down because you heard it, and a decision the model proposed from the audio, can both appear. The note keeps its own mark so you can tell which is which. Evidence links from a generated summary jump to a transcript passage. A manual note is not presented as that kind of evidence.
+
+<ul class="blog-checklist">
+  <li>Mark decisions with a keyword you will search later</li>
+  <li>Capture owner names when they are spoken</li>
+  <li>Note open questions before people drop</li>
+</ul>
 
 ## A practical habit during the call
 
@@ -40,10 +39,6 @@ After the call, those notes participate when Vemoir builds or rebuilds the recor
 5. Read the generated minutes next to your notes. If a line you typed was the real decision, keep it. If the model repeated it in generated prose, you can edit the generated text. Regeneration tries not to wipe what you already edited or entered by hand.
 
 
-<Image src={inline2} alt="A notebook in the foreground, a recorder blurred behind" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@geongeorge?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">geongeorge</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Your notes stay on the Mac with the meeting unless you export. They are not a cloud scratchpad.
 
 ## What they do not replace
@@ -53,6 +48,11 @@ Manual notes do not label speakers. They do not fix the microphone. They do not 
 They also do not travel as a voice profile, and they do not opt anyone into `Remember this speaker`.
 
 A glossary still handles preferred spellings for generated text. If you type the product name correctly in a note, that sentence is yours. The glossary does not need to "approve" it. If you want future summaries to prefer that spelling even when you do not type it, put the term in the project glossary. The transcript remains the evidence either way.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Typed notes merge into minutes and actions. They do not replace consent or retention rules.</p>
+</aside>
 
 ## Where typed notes are the worse path
 

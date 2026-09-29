@@ -12,11 +12,6 @@ image: "@/assets/blog/cloud-vs-local-meeting-transcription/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline1.jpg';
-import inline2 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 La **transcription réunion cloud vs local** est un choix de lieu de traitement, pas un choix entre «&nbsp;notes IA&nbsp;» et procès-verbal manuscrit. Dans le chemin cloud, un prestataire reçoit la réunion (bot dans l’appel, fichier envoyé, ou enregistrement déjà stocké par l’app de visio) et renvoie du texte depuis son infrastructure. Dans le chemin local, la reconnaissance vocale tourne sur l’ordinateur qui détient déjà l’audio. Le texte peut se ressembler. Le sous-traitant, la liste des participants et la copie que vous ne rappelez plus d’un disque tiers diffèrent.
 
 Cet article situe les deux schémas, y compris le chemin navigateur, plus étroit, pour un fichier que vous avez déjà. Ce n’est pas un conseil juridique et ce n’est pas un classement de précision. Pour un court extrait sans envoi, l’[outil de transcription audio](/fr/outils/transcrire-audio) s’exécute dans l’onglet après le téléchargement du modèle.
@@ -33,10 +28,12 @@ Cet article situe les deux schémas, y compris le chemin navigateur, plus étroi
 
 Les preneurs de notes cloud et les transcriptions des apps de réunion suivent le même schéma&nbsp;: l’audio quitte la salle (ou le portable) et est traité sur d’autres machines.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot</span><strong>Invité visible</strong><p>Les assistants liés au calendrier rejoignent la liste.</p></li>
+  <li><span class="blog-kicker">Upload</span><strong>Nouvelle copie</strong><p>Le fichier part quand même chez un prestataire.</p></li>
+  <li><span class="blog-kicker">Local Mac</span><strong>Pas de bot</strong><p>La transcription tourne sur le Mac qui détient l'audio.</p></li>
+</ul>
 
-<Image src={inline1} alt="Papiers locaux sur une table en bois, ciel a la fenetre" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Les assistants liés au calendrier rejoignent Zoom, Teams, Meet et des apps similaires comme participant nommé. Tout le monde voit l’invité de trop. C’est utile pour la transparence, et c’est aussi pourquoi beaucoup d’équipes clientes interdisent les bots. Pour l’aspect «&nbsp;join&nbsp;»&nbsp;: [notes de réunion sans bot](/fr/blog/notes-reunion-sans-bot). Pour le libellé d’un prestataire&nbsp;: [Otter.ai est-il sûr](/fr/blog/otter-ai-est-il-sur). Les politiques bougent&nbsp;; lisez la page le jour où vous décidez.
 
@@ -50,10 +47,11 @@ Le cloud n’est pas forcément négligent. Beaucoup d’organisations choisisse
 
 Local signifie que le modèle tourne sur la machine qui a déjà l’audio. Aucune marque n’est obligatoire. On peut lancer Whisper dans un terminal. Une app Mac peut enregistrer le micro et l’audio système, puis transcrire sur le même ordinateur.
 
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Le traitement local ne remplace pas le consentement. Annoncez l'enregistrement et fixez une règle de conservation.</p>
+</aside>
 
-<Image src={inline2} alt="Portable ferme a l'interieur, nuages d'orage dehors" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Ce que le local **ne** signifie pas&nbsp;:
 

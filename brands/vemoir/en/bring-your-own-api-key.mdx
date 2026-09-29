@@ -11,9 +11,6 @@ image: "@/assets/blog/bring-your-own-api-key/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/bring-your-own-api-key/inline1.jpg';
-import inline2 from '@/assets/blog/bring-your-own-api-key/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@zoshuacolah?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zoshuacolah</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Bring your own API key** when you want OpenAI or Anthropic to write text for you, and you want that choice spelled out. Vemoir stores the credential in the macOS Data Protection Keychain. Saving or verifying a key does not turn it on. You confirm an activation that routes Ask Vemoir, documents, meeting artifacts, and custom artifacts to that one provider. Audio and speaker separation stay on the Mac. If the key is missing, the endpoint changed, the provider is down, or the call fails, the operation stops. Nothing silently picks another backend.
@@ -25,13 +22,15 @@ The Mac app itself is a one-time App Store purchase: CHF 20 in Switzerland, €2
 External generation is text only. Raw audio, files, images, and remote URLs are not part of the request. The transcript text and the notes you already have on the Mac can be what you chose to process as text, because that is how a summary gets written. The recording itself does not leave for speech-to-text. Parakeet or Whisper already did that locally, or they will. Speaker separation does not move to the provider.
 
 
-<Image src={inline1} alt="House keys beside a notebook, no screens showing" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@jaye_haych?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jaye_haych</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 One active source at a time. Activating the key sends Ask, documents, meeting artifacts, and custom artifacts to it. Selecting a local language model, Qwen3 4B or gpt-oss-20b, switches all four back on the Mac. You do not get a blend where Ask uses Anthropic and the minutes use Qwen unless you change the active source between them.
 
 Onboarding can skip the provider entirely. Local models remain the default path.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Opt-in</span><strong>Off by default</strong><p>Cloud writing models need your key and a toggle.</p></li>
+  <li><span class="blog-kicker">Audio</span><strong>Stays local</strong><p>Only text prompts leave the Mac when enabled.</p></li>
+  <li><span class="blog-kicker">Vendor</span><strong>Your account</strong><p>Billing and retention follow that provider.</p></li>
+</ul>
 
 ## Turn it on without surprising yourself
 
@@ -41,10 +40,6 @@ Onboarding can skip the provider entirely. Local models remain the default path.
 4. Read the activation disclosure and confirm it. That confirmation is the moment selected meeting text can go to the provider.
 5. After a meeting, look for the visible external-processing mark on output that used the key. A local summary will not wear that mark.
 
-
-<Image src={inline2} alt="A small metal key next to cream paper cards" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@silas_crioco?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silas_crioco</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Removing the key stops new requests and cancels registered work for that provider. It does not delete text you already generated. Receipts can be exported or deleted in Privacy and Data settings. They are content-free on purpose.
 
@@ -66,6 +61,11 @@ The free browser tools are not a key slot either. [/tools/transcribe-recording](
 Requirements for the app: Apple silicon, macOS Sonoma 14.2 or later, 8 GB of memory, 10 GB free, 16 GB recommended for long meetings.
 
 The setup lives with the other model choices in [capture](/#capture).
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>A key sends meeting text to a third party. Turn it off when the client forbids that vendor.</p>
+</aside>
 
 ## A client who forbids cloud text
 

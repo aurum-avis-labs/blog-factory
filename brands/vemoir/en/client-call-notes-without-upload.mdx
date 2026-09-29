@@ -12,9 +12,6 @@ image: "@/assets/blog/client-call-notes-without-upload/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/client-call-notes-without-upload/inline1.jpg';
-import inline2 from '@/assets/blog/client-call-notes-without-upload/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">charlesdeluvio</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Client call notes without upload** means the audio file never has to be posted to a server to become a note. On the website, you open a file you already have and the model runs in the browser tab. On the Mac app, the call is recorded and transcribed on the machine. Both leave you with text you still have to edit before a client sees it. Neither makes the recording permitted. You still tell the client.
@@ -29,14 +26,16 @@ The browser path is [recording to notes](/tools/recording-to-notes). Cap: **15 m
 - [Where a shared cloud still wins](#where-a-shared-cloud-still-wins)
 - [Frequently asked questions](#frequently-asked-questions)
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Browser</span><strong>No upload</strong><p>File stays in the tab; check the Network panel.</p></li>
+  <li><span class="blog-kicker">Cap</span><strong>15 minutes</strong><p>Three successful runs per week on the free tool.</p></li>
+  <li><span class="blog-kicker">Mac app</span><strong>No cloud default</strong><p>Recording and transcript stay local unless you export.</p></li>
+</ul>
+
 ## Client call notes without upload, in the browser
 
 Use this when the call is over and you hold a short file.
 
-
-<Image src={inline1} alt="A confidential folder and headphones on a quiet desk" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Export MP3, M4A, WAV, or MP4. If the only copy is a longer recording, trim to the part the note needs before you spend a weekly run.
 2. Open [recording to notes](/tools/recording-to-notes). The speech model downloads into the tab. Later runs can work with the network off. The file is not uploaded to Vemoir. The browser’s Network panel is the check.
@@ -53,10 +52,6 @@ There is no browser extension, no tab capture, and no live meeting recording on 
 Stop trimming the life out of a client workshop to satisfy a cap. Record or import on the Mac.
 
 
-<Image src={inline2} alt="A private client call: closed door and a notebook" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@galen_crout?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">galen_crout</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Vemoir captures microphone and system audio as separate local tracks from the menu bar. It works with the meeting app that is playing, including Zoom, Teams, Meet, Slack, and others listed on [platforms](/#platforms). No bot joins. You start and stop. macOS permission for the remote side of the audio is **System Audio Recording**. That tap is audio only. The screen is not recorded. You also allow the microphone.
 
 Transcription and speaker separation run on the Mac. Minutes, decisions, action items, and a follow-up draft come from that local transcript. Ask a question later and the answer can point at the line. Cloud text models stay off unless you enable one with your own key, and they do not receive the audio. There is no silent switch to a cloud model if the local one fails.
@@ -68,6 +63,11 @@ Import of an existing file on the Mac accepts MP3, M4A, WAV, AIFF, CAF, and FLAC
 Price, again, because this is the consideration step: CHF 20 / €24.99 / $22.99 on the Mac App Store, one time, every feature included, no seat, no per-meeting charge. The same figures are on [pricing](/#pricing). Install from the [App Store](https://apps.apple.com/app/id6794693630).
 
 Tell the client before you record. A missing bot is not a missing disclosure.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Consent and retention stay with you. Vemoir does not make a client call lawful by itself.</p>
+</aside>
 
 ## What you send the client
 

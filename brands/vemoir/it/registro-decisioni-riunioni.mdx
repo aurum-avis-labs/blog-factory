@@ -12,9 +12,6 @@ image: "@/assets/blog/decision-log-from-meetings/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/decision-log-from-meetings/inline1.jpg';
-import inline2 from '@/assets/blog/decision-log-from-meetings/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@photo_blob?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">photo_blob</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Un **registro delle decisioni di riunione** è un elenco breve di scelte: la formulazione, la persona responsabile e la data. Non è la trascrizione e non è la lista dei compiti. Chi legge solo il registro deve vedere cosa è cambiato, non chi ha parlato più a lungo.
@@ -35,9 +32,12 @@ Se tieni già un verbale, il blocco delle decisioni è la parte che qualcuno cer
 Scrivi una riga solo quando la stanza ha scelto qualcosa. «Abbiamo parlato dei prezzi» non è una decisione. «Il supporto standard resta alla tariffa attuale fino al 31 marzo. Lea manda la nota al cliente. 11 nov 2026.» lo è.
 
 
-<Image src={inline1} alt="Registro aperto su un tavolo di riunione" width={700} quality={80} class="w-full" />
+<ul class="blog-checklist">
+  <li>Scrivere la decisione in parole chiare, non chiacchierata</li>
+  <li>Nominare responsabile e data</li>
+  <li>Collegare la prova alla riga di trascrizione se possibile</li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@mediamodifier?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">mediamodifier</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Ogni riga ha tre campi:
 
@@ -64,9 +64,12 @@ La struttura vuota di un'intera seduta, decisioni accanto alle azioni, è il [mo
 Un registro fallisce in modi che si ripetono.
 
 
-<Image src={inline2} alt="Qualcuno scrive una riga breve, testo non leggibile" width={700} quality={80} class="w-full" />
+<ol class="blog-flow">
+  <li><strong>Registrazione</strong><p>Registra o importa audio sul Mac.</p></li>
+  <li><strong>Estrazione</strong><p>Il verbale estrae decisioni con responsabile e data.</p></li>
+  <li><strong>Ricerca</strong><p>Ricerca progetto e Ask leggono la stessa libreria.</p></li>
+</ol>
 
-<p><em>Photo by <a href="https://unsplash.com/@ranurte?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ranurte</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 **La riga cita il dibattito.** «Noah preferiva il mensile, Priya l'annuale, abbiamo parlato venti minuti.» È una nota di trascrizione. La decisione è la scelta finale, oppure un «nessuna decisione, si rivede il 18 nov.» esplicito.
 

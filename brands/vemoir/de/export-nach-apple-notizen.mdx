@@ -1,6 +1,6 @@
 ---
 title: "Export nach Apple Notizen aktualisiert dieselbe Notiz"
-description: "Der Export nach Apple Notizen geht in einen Ordner, den du wählst. Ein späterer Export aktualisiert dieselbe Notiz statt eine Kopie anzulegen."
+description: "Der Export nach Apple Notizen geht in einen Ordner, den du wählst. Ein späterer Export schreibt in dieselbe Notiz, ohne daneben eine Kopie anzulegen."
 pubDate: 2026-11-08
 author: "Vemoir Team"
 tags: ["apple notizen", "export", "meetings"]
@@ -11,55 +11,53 @@ image: "@/assets/blog/export-to-apple-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/export-to-apple-notes/inline1.jpg';
-import inline2 from '@/assets/blog/export-to-apple-notes/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Der **Export nach Apple Notizen** schickt ein Sitzungsprotokoll in ein Notizen-Konto und einen Ordner, die du wählst. Vemoir speichert die Kennung der Notiz, damit ein späterer Export dieselbe Notiz aktualisiert und nicht eine zweite Kopie daneben legt. Vor der Übergabe siehst du eine Vorschau der kombinierten Notiz.
+Der **Export nach Apple Notizen** schickt ein Sitzungsprotokoll in ein Notizen-Konto und einen Ordner, die du wählst. Vemoir merkt sich die Kennung der Notiz. Ein späterer Export aktualisiert dieselbe Notiz, statt daneben eine zweite Kopie anzulegen. Vor der Übergabe siehst du eine Vorschau der zusammengefügten Notiz.
 
 Das Audio geht nicht mit der Notiz zu Apple. Du exportierst das Protokoll: den Text, den du senden willst.
 
 ## Was der Export nach Apple Notizen in die Notiz schreibt
 
-Die Notiz enthält die kanonische Zusammenfassung, Kernpunkte, Risiken, offene Fragen, Entscheide, Aufgaben, Teilnehmende, eigene Dokumente und die Herkunft aus Vemoir. Sie wiederholt keine abgeleiteten Artefakte, die nur dieselbe Zusammenfassung noch einmal sagen. Manuelle Notizen, die du getippt hast, bleiben dein Text. Sie werden nicht eingefügt, als wären sie Transkriptzitate.
+Die Notiz enthält die Zusammenfassung, die als Fassung gilt, Kernpunkte, Risiken, offene Fragen, Entscheide, Aufgaben, Teilnehmende, eigene Dokumente und die Herkunft aus Vemoir. Abgeleitete Stücke, die nur dieselbe Zusammenfassung noch einmal sagen, kommen nicht ein zweites Mal hinein. Manuelle Notizen, die du getippt hast, bleiben dein Text. Sie werden nicht eingefügt, als wären sie Transkriptzitate.
 
+Für ein Projekt wählst du ein echtes Konto in Apple Notizen und einen verschachtelten Ordner. Der Ordner ist deiner. Vemoir erfindet kein verstecktes Notizbuch.
 
-<Image src={inline1} alt="Jemand kopiert eine Seite in ein persoenliches Notizbuch" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@shpetimujkani?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">shpetimujkani</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Für ein Projekt wählst du ein echtes Apple-Notizen-Konto und einen verschachtelten Ordner. Der Ordner ist deiner. Vemoir erfindet kein verstecktes Notizbuch.
+<ol class="blog-steps">
+  <li data-step="1"><h3>Abschnitte wählen</h3><p>Protokoll, Aufgaben oder den ganzen Eintrag.</p></li>
+  <li data-step="2"><h3>Teilen-Dialog</h3><p>Notizen oder ein anderes Ziel.</p></li>
+  <li data-step="3"><h3>Vor dem Sync prüfen</h3><p>iCloud kopiert, was du exportierst.</p></li>
+</ol>
 
 ## Einmal exportieren, dann aktualisieren
 
-1. Im Projekt das Apple-Notizen-Konto und den Ordner wählen.
+1. Im Projekt das Konto von Apple Notizen und den Ordner wählen.
 2. Aus den Sitzungsaktionen oder aus den Projekt-Exporten starten, wenn die Verarbeitung fertig ist.
-3. Die kombinierte Vorschau lesen. Ist ein Sprechername oder ein Entscheid falsch, korrigiere ihn zuerst in Vemoir. Die Notiz zeigt, was du sendest.
-4. Die Übergabe bestätigen. Der erste erfolgreiche Export speichert die Notizkennung, das Ziel, einen Inhaltsfingerabdruck, Zeitstempel und den Status.
-5. Wird später neu erzeugt, exportiere wieder. Vemoir aktualisiert dieselbe Notiz. Scheitert ein Wiederholversuch, bleibt der Fehler sichtbar, statt still ein Duplikat anzulegen.
+3. Die zusammengefügte Vorschau lesen. Ist ein Sprechername oder ein Entscheid falsch, korrigiere ihn zuerst in Vemoir. Die Notiz zeigt, was du sendest.
+4. Die Übergabe bestätigen. Der erste erfolgreiche Export speichert die Notizkennung, das Ziel, einen Fingerabdruck des Inhalts, Zeitstempel und den Status.
+5. Wird später neu erzeugt, exportiere wieder. Vemoir aktualisiert dieselbe Notiz. Scheitert ein erneuter Versuch, bleibt der Fehler sichtbar. Es entsteht kein Duplikat im Stillen.
 
-
-<Image src={inline2} alt="Kartenstapel in einem cremefarbenen Notizbuch" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kseegars?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kseegars</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Du kannst auch einen optionalen automatischen Export einschalten, nachdem eine Sitzung erfolgreich verarbeitet wurde. Lass ihn aus, wenn du jedes Mal die Vorschau lesen willst. Automatisch heisst nicht, dass das Audio geteilt wird. Es heisst, das Textprotokoll geht nach dem Erfolg in diesen Ordner, ohne extra Klick.
+Du kannst auch einen optionalen automatischen Export einschalten, nachdem eine Sitzung erfolgreich verarbeitet wurde. Lass ihn aus, wenn du jedes Mal die Vorschau lesen willst. Automatisch heisst: das Textprotokoll geht nach dem Erfolg in diesen Ordner, ohne extra Klick. Das Audio wird dabei nicht geteilt.
 
 ## Was auf dem Mac bleibt
 
-Transkription, Sprechertrennung und die Aufnahme bleiben auf dem Mac. Apple Notizen bekommen den exportierten Text über das Ziel, das du gewählt hast. Ein eigener API-Schlüssel, falls du einen für Text nutzt, ist eine andere Wahl: nur Text, im Schlüsselbund, ausdrücklich aktiviert. Er ersetzt Apple Notizen nicht und sendet kein Audio. Ein fehlgeschlagener Notizen-Export fällt nicht still in ein anderes Cloud-Notizbuch.
+Transkription, Sprechertrennung und die Aufnahme bleiben auf dem Mac. Apple Notizen bekommt den exportierten Text über das Ziel, das du gewählt hast. Ein eigener API-Schlüssel, falls du einen für Text nutzt, ist eine andere Wahl: nur Text, im Schlüsselbund, ausdrücklich aktiviert. Er ersetzt Apple Notizen nicht und sendet kein Audio. Ein fehlgeschlagener Notizen-Export fällt nicht still in ein anderes Cloud-Notizbuch.
 
-Löschst du die Sitzung oder räumst Audio in Vemoir, ist die Notiz in Apple Notizen eine Kopie, die du gesendet hast. Sie dort zu löschen ist ein eigener Schritt in Notizen. Umgekehrt überschreibt ein Update aus Vemoir den von Vemoir gepflegten Inhalt dieser Notiz. Lies die Vorschau, wenn sich das Protokoll stark geändert hat.
+Löschst du die Sitzung oder räumst Audio in Vemoir, ist die Notiz in Apple Notizen eine Kopie, die du gesendet hast. Sie dort zu löschen ist ein eigener Schritt in Notizen. Umgekehrt überschreibt ein Update aus Vemoir den Inhalt, den Vemoir in dieser Notiz pflegt. Lies die Vorschau, wenn sich das Protokoll stark geändert hat.
 
-Eine Identitätseinstellung kann `ME` auf deinen echten Namen legen und in kopiertem oder geteiltem Text `Name (Me)` zeigen. Setze das vor einem kundenfähigen Export, wenn «ME» unfertig wirken würde.
+Eine Einstellung zur eigenen Identität kann `ME` auf deinen echten Namen legen und in kopiertem oder geteiltem Text `Name (Me)` zeigen. Setze das vor einem Export, der zum Kunden geht, wenn «ME» unfertig wirken würde.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Export ist deine Wahl. Die Originalaufnahme bleibt in Vemoir, bis du sie löschst.</p>
+</aside>
 
 ## Wann Apple Notizen das falsche Ziel sind
 
-Der Export nach Apple Notizen ist die bessere Wahl, wenn du schon in Notizen arbeitest, eine Notiz pro Sitzung aktuell halten willst und den Ordner selbst wählst. Es ist die schlechtere Wahl, wenn:
+Der Export nach Apple Notizen passt, wenn du schon in Notizen arbeitest, eine Notiz pro Sitzung aktuell halten willst und den Ordner selbst wählst. Er passt schlechter, wenn:
 
-- Der Kunde ein PDF im Datenraum verlangt oder ein geteiltes Laufwerk mit eigenen Dateinamen. Exportiere oder kopiere den Text und leg ihn hin, wo er ihn wollte. Dieser Weg erzeugt kein PDF und kein Word-Dokument.
-- Mehrere Kolleginnen ein lebendes Dokument mit Kommentaren bearbeiten müssen. Notizen lassen sich danach auf Apples Seite teilen, nach Apples Regeln. Vemoir legt darüber keinen Team-Arbeitsbereich.
+- Der Kunde ein PDF im Datenraum verlangt oder ein geteiltes Laufwerk mit eigenen Dateinamen. Kopiere den Text und leg ihn hin, wo er ihn wollte. Dieser Weg erzeugt kein PDF und kein Word-Dokument.
+- Mehrere Kolleginnen ein lebendes Dokument mit Kommentaren bearbeiten müssen. Notizen lassen sich danach auf der Seite von Apple teilen, nach den Regeln von Apple. Vemoir legt darüber keinen Team-Arbeitsbereich.
 - Du die Aufnahme in der Notiz wolltest. Der Export ist das Protokoll, nicht die Audiodateien.
 - Sprechernamen oder Glossar-Schreibweisen noch falsch sind. Korrigiere sie, erzeuge bei Bedarf neu, dann exportiere. Ein Update ohne Duplikat hilft nur, wenn die zweite Fassung die richtige ist.
 
@@ -69,25 +67,29 @@ Ordnerwahl und Exportstatus liegen bei den übrigen Übergaben unter [Exporte](/
 
 ## Nach der Neuerzeugung noch einmal exportieren
 
-Du korrigierst ein Sprecherlabel und eine Glossar-Schreibweise, dann erzeugst du das Protokoll neu. Die Apple-Notiz von gestern hat die alten Namen, bis du wieder exportierst. Das Update nutzt die gespeicherte Notizkennung, damit Notizen keine zweite Seite mit fast demselben Titel anlegen. Die Vorschau ist der Moment, einen Entscheid zu sehen, den du in diesem Ordner nicht mehr willst. Sieht die Vorschau falsch aus, brich ab und bearbeite in Vemoir. Die Notiz in Apple Notizen bleibt die vorige Fassung, bis eine neue Übergabe gelingt.
+Du korrigierst ein Sprecherlabel und eine Glossar-Schreibweise, dann erzeugst du das Protokoll neu. Die Apple-Notiz von gestern hat die alten Namen, bis du wieder exportierst. Das Update nutzt die gespeicherte Notizkennung, damit Notizen keine zweite Seite mit fast demselben Titel anlegt. Die Vorschau ist der Moment, einen Entscheid zu sehen, den du in diesem Ordner nicht mehr willst. Sieht die Vorschau falsch aus, brich ab und bearbeite in Vemoir. Die Notiz in Apple Notizen bleibt die vorige Fassung, bis eine neue Übergabe gelingt.
 
 Ist der automatische Export an, versucht der erfolgreiche Verarbeitungslauf dieses Update ohne extra Klick. Schalt ihn aus bei einem heiklen Kunden, wenn du jedes Mal die Vorschau willst. Ein fehlgeschlagener Versuch bleibt sichtbar. Er fällt nicht auf Mail, ein anderes Notizenkonto oder einen Cloud-Transkriptionsdienst durch.
 
-Teilnehmende in der Notiz sind die Namen im Protokoll zum Exportzeitpunkt. Anonyme Cluster bleiben unbenannt. Du kannst sie umbenennen, ohne ein Stimmprofil anzulegen, und dann exportieren, damit die Notiz passt. Das verschlüsselte Profil, falls du zusätzlich Remember this speaker gewählt hast, steht nicht im Notiztext. Wenn macOS fragt, ob Vemoir Notizen schreiben darf, geht es um die Notiz, nicht um eine Bildschirmaufnahme. Der Systemton der Sitzung ist eine andere Berechtigung, die du beim Aufnehmen gibst. Liegt die Notiz im falschen Konto, weil du ein Arbeits- und ein Privatkonto in Notizen hast, stoppe den automatischen Export, wähle das Konto neu und exportiere einmal von Hand. Die gespeicherte Kennung gilt für die Notiz, die der letzte erfolgreiche Lauf angelegt oder aktualisiert hat. Ein Kontowechsel ohne neuen Export schreibt nicht von selbst in den anderen Ordner. Prüf nach dem ersten Export, ob die Notiz im Ordner liegt, den du in der Vorschau gesehen hast. Der zweite Export ist der Test, dass dieselbe Notiz aktualisiert wird und keine Kopie entsteht. Wenn doch eine zweite Notiz erscheint, ist die gespeicherte Kennung nicht mehr die, die du siehst. Exportiere nicht ein drittes Mal auf gut Glück. Prüfe den Ordner, lösche die Kopie von Hand in Notizen, wenn du sie nicht willst, und starte den Export aus Vemoir erneut, sobald die Vorschau stimmt.
+Teilnehmende in der Notiz sind die Namen im Protokoll zum Exportzeitpunkt. Anonyme Cluster bleiben unbenannt. Du kannst sie umbenennen, ohne ein Stimmprofil anzulegen, und dann exportieren, damit die Notiz passt. Das verschlüsselte Profil, falls du zusätzlich «Remember this speaker» gewählt hast, steht nicht im Notiztext.
+
+Wenn macOS fragt, ob Vemoir Notizen schreiben darf, geht es um die Notiz. Der Systemton der Sitzung ist eine andere Berechtigung: die Bildschirmaufnahme, über die macOS den Ton anderer Apps freigibt. Vemoir nimmt damit den Sitzungston auf, nicht den Bildschirminhalt. Die gibst du beim Aufnehmen.
+
+Liegt die Notiz im falschen Konto, weil du in Notizen ein Arbeitskonto und ein Privatkonto hast, stoppe den automatischen Export, wähle das Konto neu und exportiere einmal von Hand. Die gespeicherte Kennung gilt für die Notiz, die der letzte erfolgreiche Lauf angelegt oder aktualisiert hat. Ein Kontowechsel ohne neuen Export schreibt nicht von selbst in den anderen Ordner. Prüf nach dem ersten Export, ob die Notiz im Ordner liegt, den du in der Vorschau gesehen hast. Der zweite Export zeigt, ob dieselbe Notiz aktualisiert wird. Erscheint doch eine zweite Notiz, ist die gespeicherte Kennung nicht mehr die, die du siehst. Exportiere nicht ein drittes Mal auf gut Glück. Prüfe den Ordner, lösche die Kopie von Hand in Notizen, wenn du sie nicht willst, und starte den Export aus Vemoir erneut, sobald die Vorschau stimmt.
 
 ## Häufige Fragen
 
 ### Legt ein zweiter Export eine zweite Apple-Notiz an?
 
-Nein. Vemoir speichert die Kennung der exportierten Notiz und aktualisiert diese Notiz. Die Vorschau zeigt die kombinierte Notiz vor der Übergabe.
+Nein. Vemoir speichert die Kennung der exportierten Notiz und aktualisiert diese Notiz. Die Vorschau zeigt die zusammengefügte Notiz vor der Übergabe.
 
 ### Kann ich den Ordner wählen?
 
-Ja. Ein Projekt kann ein echtes Apple-Notizen-Konto und einen verschachtelten Ordner wählen.
+Ja. Ein Projekt kann ein echtes Konto in Apple Notizen und einen verschachtelten Ordner wählen.
 
 ### Kann der Export von selbst laufen?
 
-Du kannst manuell aus den Sitzungsaktionen oder den Projekt-Exporten exportieren. Ein Projekt kann auch automatisch exportieren, nachdem die Verarbeitung gelingt. Die Option schaltest du ein.
+Du kannst von Hand aus den Sitzungsaktionen oder den Projekt-Exporten exportieren. Ein Projekt kann auch automatisch exportieren, nachdem die Verarbeitung gelingt. Die Option schaltest du ein.
 
 ### Enthält die Notiz das Audio?
 
@@ -95,18 +97,18 @@ Nein. Sie enthält das schriftliche Protokoll: Zusammenfassung, Kernpunkte, Risi
 
 ### Was, wenn das Update scheitert?
 
-Status und Fehler bleiben gespeichert, damit du den Fehlschlag siehst. Prüf das Notizenkonto und versuche den Export erneut, wenn die Sitzung in einem guten Zustand ist.
+Status und Fehler bleiben gespeichert, damit du den Fehlschlag siehst. Prüf das Notizenkonto und versuche den Export erneut, wenn die Sitzung in einem brauchbaren Zustand ist.
 
 ### Werden unbekannte Sprecher in der Notiz benannt?
 
 Nur wenn du sie benannt hast. Unbekannte bleiben anonym, bis du ein Label setzt oder eine Stimme ausdrücklich merkst.
 
-### Ist das dasselbe wie die kostenlosen Browser-Tools?
+### Ist das dasselbe wie die kostenlosen Browser-Werkzeuge?
 
 Nein. Die transkribieren eine Datei im Browser, bis 15 Minuten, ohne Übergabe an Apple Notizen und ohne Sprechernamen. Der Notizen-Export ist in der Mac-App.
 
 ### Brauche ich einen Bot in der Sitzung?
 
-Nein. Du nimmst auf dem Mac auf und exportierst dann den Text. Niemand kam in den Call.
+Nein. Du nimmst auf dem Mac auf und exportierst dann den Text. Niemand ist dem Call beigetreten.
 
 Wähle den Ordner einmal, exportiere, wenn das Protokoll stimmt, und lass den nächsten Export diese Notiz aktualisieren. Die Steuerungen liegen unter [Exporte](/de#exports).

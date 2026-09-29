@@ -11,9 +11,6 @@ image: "@/assets/blog/evidence-in-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/evidence-in-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/evidence-in-meeting-notes/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@lereverdo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">lereverdo</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Evidence in meeting notes** is a pointer from a claim back to the line that supports it. The summary can be short. The pointer is what lets someone who was not in the room, or who was and remembers it differently, check the wording without replaying the whole call.
@@ -34,9 +31,12 @@ A polished paragraph with no trail is easy to forward and hard to defend. This p
 Evidence, here, is the timestamped passage in the transcript that a later sentence depends on. It is not the sentence itself. It is not your impression of the tone. It is the words that were captured, in order, from the finished audio.
 
 
-<Image src={inline1} alt="An open notebook with a bookmark ribbon" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Summary</span><strong>Short</strong><p>Good for scanning. Easy to misread without a source line.</p></li>
+  <li><span class="blog-kicker">Transcript</span><strong>Verbatim</strong><p>The line Ask can jump back to.</p></li>
+  <li><span class="blog-kicker">Export</span><strong>Your choice</strong><p>Share minutes without sharing raw audio.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@katemacate?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">katemacate</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 That split matters because notes and transcripts do different jobs. The transcript is long and uneven. The notes are what you send. Between them sits a judgment: which lines became a decision, which became a task, which stayed small talk. Evidence is the way back from that judgment to the lines.
 
@@ -51,9 +51,11 @@ The steps for asking a question in chat and following a citation are written up 
 Read a summary as a set of claims, even when the prose is smooth.
 
 
-<Image src={inline2} alt="Transcript pages under a short summary card" width={700} quality={80} class="w-full" />
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Evidence links are not a legal certification. Retention and consent stay with you.</p>
+</aside>
 
-<p><em>Photo by <a href="https://unsplash.com/@ryuldavidson?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ryuldavidson</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - "We agreed to pause hiring" claims agreement, not just a suggestion.
 - "Lea will send the draft by Friday" claims an owner and a date.

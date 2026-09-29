@@ -11,9 +11,6 @@ image: "@/assets/blog/ask-questions-about-meeting-transcript/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/ask-questions-about-meeting-transcript/inline1.jpg';
-import inline2 from '@/assets/blog/ask-questions-about-meeting-transcript/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@marissacristina?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">marissacristina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 You can **ask questions about a meeting transcript** after Vemoir has one on the Mac. Ask Vemoir answers from a meeting, a project, or the active library, and an answer can point back to the transcript. The recording and the speech model stayed on the machine. A cloud model is not involved unless you have activated your own text key, and even then the request is text, not audio.
@@ -25,13 +22,15 @@ The app is a one-time purchase: CHF 20 in Switzerland, €24.99 in Germany, Aust
 The transcript exists because Parakeet v3 or a Whisper model ran locally after you stopped. Ask does not listen to the call again. It works from the text, your manual notes, and the other records in scope. Manual notes keep their own provenance. They are not quoted back as if the microphone said them.
 
 
-<Image src={inline1} alt="Open pages with a finger pointing, text not readable" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@lgnwvr?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">lgnwvr</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Open Ask from a meeting and you start a new conversation for that meeting. Earlier chats stay in history. Open it from a project and the scope is the project. A library-wide ask covers the active library. Archived meetings and projects are excluded. Deleting a meeting removes it from what later questions can use.
 
 Answers can include evidence links to the source meeting and a timestamp. Vemoir limits how many passages one answer will cite, so you get the strongest links rather than every line that was searched. A citation you can open is the point. A smooth paragraph with no line to check is a draft, not the recording.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Finish the transcript</h3><p>Local model or import; browser tool only for short files.</p></li>
+  <li data-step="2"><h3>Ask one concrete question</h3><p>Who owned the deadline, not 'summarize everything'.</p></li>
+  <li data-step="3"><h3>Jump to the citation</h3><p>Open the linked moment and edit the answer before you forward it.</p></li>
+</ol>
 
 ## Ask in a way that matches the scope
 
@@ -41,10 +40,6 @@ Answers can include evidence links to the source meeting and a timestamp. Vemoir
 4. Read the evidence links. If a link is missing, do not treat the sentence as a quote.
 5. Save the answer as a document in the meeting or project if you want it filed. Saving does not upload the audio.
 
-
-<Image src={inline2} alt="Two people reviewing a document together" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@shamalaa?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">shamalaa</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 If the answer is wrong, the transcript is still there. Edit the document. Retry a failed or cancelled turn. A turn interrupted because the app quit comes back as cancelled, not as a finished fact.
 
@@ -62,6 +57,11 @@ Asking the transcript is the better choice when the text is already local and yo
 Searching the project for a keyword is sometimes enough, without a generated answer. Use search when you know the word. Use Ask when you need the scattered pieces pulled into a sentence you will still verify.
 
 The entry is [Ask](/#chat).
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Answers come from this meeting only. They are not legal advice or a certified record.</p>
+</aside>
 
 ## A question that should have been a search
 

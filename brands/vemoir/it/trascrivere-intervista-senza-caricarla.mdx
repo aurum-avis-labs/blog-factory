@@ -10,12 +10,8 @@ relatedPosts: ["alternativa-a-fireflies", "alternativa-a-granola", "alternativa-
 tool: "transcribe-interview"
 image: "@/assets/blog/transcribe-interview-without-upload/hero.jpg"
 draft: false
+
 ---
-
-import { Image } from 'astro:assets';
-import voiceCapture from '@/assets/blog/transcribe-interview-without-upload/voice-capture.jpg';
-import privateRecords from '@/assets/blog/transcribe-interview-without-upload/private-records.jpg';
-
 Devi **trascrivere un'intervista senza caricarla** su un servizio cloud perché l'intervistato ha accettato regole precise, spesso con divieto di copie esterne. Ti serve comunque testo ricercabile. I servizi hosted iniziano con l'upload verso i loro server e possono scontrarsi con GDPR, **nLPD** svizzera o un comitato etico.
 
 Questa guida spiega perché l'upload pesa, come lo strumento gratuito [trascrivere un'intervista](/it/strumenti/trascrivere-intervista) su vemoir.ch elabora il file nel browser senza inviarlo a Vemoir, e quando l'[app Mac Vemoir](https://apps.apple.com/app/id6794693630) conviene per registrazioni lunghe e speaker separati. Non è consulenza legale.
@@ -45,8 +41,6 @@ Il modello Whisper pubblico nel browser è lo stesso tipo usato in molti servizi
 3. **Scegli il file** dal disco. La registrazione resta sul tuo Mac.
 4. **Attendi il download del modello** (internet la prima volta).
 5. **Copia il testo** per analisi o note. Consenso, revisione e conservazione restano tuoi.
-
-<Image src={voiceCapture} alt="Scrivania tranquilla che suggerisce la cattura di una voce per la trascrizione locale" width={700} quality={80} class="w-full" />
 
 ## Verificare che nulla venga caricato
 
@@ -83,8 +77,6 @@ Oltre **15 minuti**, per due voci distinte o un verbale strutturato, usa **Vemoi
 
 Prossima call live: [app meeting supportate](/it#platforms), senza bot in elenco partecipanti. Stesso approccio per le riunioni: [note di riunione senza bot](/it/blog/note-riunione-senza-bot).
 
-<Image src={privateRecords} alt="Cartoncini e taccuino su una scrivania, metafora di documenti d'intervista tenuti in privato" width={700} quality={80} class="w-full" />
-
 ## Consenso e conservazione
 
 Vemoir non archivia il file browser sui suoi server in questo flusso. Restano obblighi su base giuridica, informativa, sicurezza del Mac, backup cifrati e cancellazione quando il progetto termina. Se l'intervistato revoca il consenso, devi coprire audio, trascrizioni ed eventuali export.
@@ -98,6 +90,17 @@ Prova rapida prima dell'etica: [trascrivere l'intervista nel browser](/it/strume
 **Un file, max 15 minuti, prova senza upload:** [/it/strumenti/trascrivere-intervista](/it/strumenti/trascrivere-intervista) e screenshot Network.
 
 **Più lungo, speaker, live su Apple silicon:** [App Store](https://apps.apple.com/app/id6794693630), [prezzi](/it#pricing), [FAQ](/it/faq).
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Tool browser</span><strong>Nessun upload</strong><p>L'audio resta nel tab; controlla il pannello Rete.</p></li>
+  <li><span class="blog-kicker">Limite</span><strong>15 min</strong><p>Interviste lunghe e speaker richiedono l'app Mac.</p></li>
+  <li><span class="blog-kicker">Tedesco svizzero</span><strong>Tedesco standard</strong><p>I modelli Whisper pubblici non scrivono il dialetto.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Non è consulenza legale. Comitati etici e nLPD regolano ancora conservazione e accesso.</p>
+</aside>
 
 ## Domande frequenti
 

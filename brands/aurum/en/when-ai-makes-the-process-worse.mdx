@@ -1,32 +1,84 @@
 ---
-translationKey: when-ai-makes-the-process-worse
 title: "When AI makes the process worse"
-description: "Bad data, too many exceptions, no owner, an unchecked customer mail. The Check may say no. Better that than six weeks of the wrong tool."
+description: "When AI makes a process worse: bad data, too many exceptions, no owner, or customer mail that goes out unchecked. A checklist for Swiss SMEs."
 pubDate: 2027-01-05
 author: "Aurum Avis Labs"
-funnelStage: interest
 tags: ["ai sme", "process automation", "process check"]
+funnelStage: interest
+translationKey: when-ai-makes-the-process-worse
 relatedPosts: ["which-process-to-automate-first", "what-the-process-check-is"]
-image: "@/assets/blog/when-ai-makes-the-process-worse/img1.jpg"
+image: "@/assets/blog/when-ai-makes-the-process-worse/hero.jpg"
 draft: false
 ---
 
-Not every workflow gets better with a model in the middle. Some get slower, more expensive or embarrassing, because the work was already unclear.
+## When AI makes the process worse
 
-## Four stop signs
+A model in the middle of a workflow makes that workflow worse when the data shifts, exceptions pile up, nobody owns the run, or customer mail and reported figures leave without a human read. The output looks finished. The hours go up, a wrong number travels further than a manual draft ever did, and the person who used to notice the error is no longer in the path.
 
-**Bad data.** If the sheet has different columns every week and nobody owns the source, the model invents figures someone then forwards internally. The [adesso GenAI Impact Report 2026](https://www.adesso.ch/adesso-ch/whitepaper/genai-impact-report-2026-ch.pdf) names data quality and missing processes as the most common hurdles, not "the model is too dumb". That is orientation, not our survey.
+This is for owners, ops, finance and office leads in a Swiss SME, often 5 to 80 people, with little or no in-house IT. You already have ChatGPT open, or a Copilot licence, and someone wants the next step to be "AI". Run the checklist on the one workflow they named before you buy a tool or a build.
 
-**Too many exceptions.** Every second instance needs a special rule: you are not building automation. You are building a second, more expensive manual process with extra risk.
+The filter for a workflow that is still worth trying sits in [which process to automate first](/blog/which-process-to-automate-first). Four yes answers there (it repeats, it hurts, it has an edge, the file already exists) are the start. The checklist below is the stop.
 
-**No owner.** Nobody may say when a run is "done" and when it is "wrong". Then responsibility lives in a chat log.
+<ul class="blog-checklist">
+  <li>The source columns or file names change, and nobody owns the version that counts</li>
+  <li>A large share of runs needs a special rule that only one person knows</li>
+  <li>No one person may say the run is done, or that it is wrong</li>
+  <li>Customer mail, or figures that enter a report, go out without a human read</li>
+</ul>
 
-**Model into the customer mail with no check.** An internal draft is one thing. Sending to a client without a human reading it is another. Personal data and reporting figures: human-in-the-loop as the default.
+One yes is a reason to pause. Two yes answers mean you would be automating the mess.
 
-The filter for when you try *anyway*: [which process to automate first](/blog/which-process-to-automate-first).
+## Bad data
 
-## Better a no in the Check
+Bad data means the input is not the same thing from week to week. The column was "Hours" last Friday and "Std" this Friday. One export includes credit notes, the next does not, and nobody wrote down which version the report uses. The workbook on SharePoint and the workbook on a laptop disagree, and the meeting still happens.
 
-The [Process Check](/prozess-check) may end with "not this one". That is the product, not a failure. Six weeks of a tool that cements a chaotic process costs more than 60 minutes of clarity.
+A model faced with a gap fills it. It produces a total that looks like the last total. Someone forwards that paragraph internally because it reads clean. The error is now in a second inbox, with your company's tone on it.
 
-What the hour is and what it costs: [what the Process Check is](/blog/what-the-process-check-is).
+The [adesso GenAI Impact Report 2026](https://www.adesso.ch/adesso-ch/whitepaper/genai-impact-report-2026-ch.pdf) names data quality and missing processes as the most common hurdles in Switzerland, each cited at 32 percent, ahead of the model itself. Those are adesso's figures, not our survey. They match the office: the blocker is the file and the missing owner, and a different model will meet the same file.
+
+Fix before any build: one source, stable column names, and a person who may reject a file that arrives in a new shape. If that person does not exist, the checklist has already failed.
+
+## Too many exceptions
+
+Every second run needs a special rule. "This customer is always net 60." "Skip this supplier in August." "The German entity uses the other VAT code." When those rules live in someone's head, a workflow that encodes last month's exceptions becomes a second manual process. Someone still watches every run, and now they also debug the workflow.
+
+Count the exceptions on the last ten real runs, from the actual files, not from memory. If you cannot list them, you do not have a process stable enough to hand to a tool. If you can list more exceptions than standard runs, write the rules down and decide which ones stay manual. Automation is for the path you can describe before the run starts.
+
+A handful of known exceptions, with a queue a person clears, can still be a build. An open list that grows every week is not a first case.
+
+## No owner
+
+Somebody has to be allowed to say the run finished, and allowed to stop it when the output is wrong. If that sentence has no name attached, the responsibility sits in a chat log. Three people are "sort of on it". When the output is wrong, each one can point at the tool.
+
+Name one owner before you name a tool. The owner does not have to click every step. They do have to know the start, the end, and who gets the output. If the only person who understands the logic is on holiday and the office waits, you have frequency plus a single point of failure. The first task is to write the steps so a second person could follow them. A script pointed at logic that lives in one head will fail on the week that person is away.
+
+## Unchecked customer mail and reported figures
+
+An internal draft is a fair use of a model. A mail to a client, or a figure that enters the Monday report, needs a person who has compared it to the source.
+
+This is the default wherever personal data is in the text, and wherever a number will be reused. A wrong courtesy mail is awkward. A wrong total in a customer status, or in a report the bank or the board will see, is the kind of mistake that used to die on one person's screen and now leaves the building in a clean font.
+
+The practical rule is short. The model may prepare. A named person sends, or a named person releases the file. If you cannot say who that person is this month, the workflow is not ready.
+
+<div class="blog-faq">
+  <p class="blog-faq-q">Should we still let people use Copilot if the workflow fails this checklist?</p>
+  <p>Yes for drafts inside the company, on files the person is already allowed to see, with a human check before anything goes to a customer or into a report. The checklist stops a build that would send or post on its own. It does not require you to close the chat window.</p>
+</div>
+
+## A monthly owner mail that went out wrong
+
+Picture a 16-person property management office in Winterthur. No IT department. Each month an admin sends building owners a short status: open tickets, costs, and what happens next. The numbers come from a sheet the caretaker updates. Someone suggests a model should write the mail, so the admin gets the afternoon back.
+
+One month the cost column is labelled CHF in one building file and left blank in another. A ticket was closed on site and is still open on the sheet. The model writes a confident total. The admin forwards the mail because it sounds like the office. An owner replies about a charge that was never in the caretaker's file.
+
+That is the checklist in one cycle: shifting columns, a gap nobody listed, and mail that left without a read against the sheet. The next step is a person who owns the column names, and a rule that the mail waits until someone has compared the total. A build for the sheet itself waits until those columns stay still for a month. If the sheet, the columns and the import are already that stable, the question moves to [Excel as a shadow system](/blog/excel-as-shadow-system). This monthly mail was not there yet.
+
+## When you stop, and when you try anyway
+
+Stop when you want the model to invent the judgement: which customer is angry for a fair reason, which exception you grant on purpose, which number "feels right" for the board. Those conversations change every time. A template can help the person who holds them. A workflow that sends the result will make the process worse.
+
+Try anyway when the last ten runs look alike, the columns have an owner, the exceptions are a short written list, and a named person checks customer-facing text and any figure that will be reused. Then you are past this checklist and back on the filter: does it repeat, does it hurt, is there an edge, does the file already exist.
+
+If you are unsure, bring the candidate to the [Process Check](/prozess-check). The hour is allowed to end with "not this one". That is a finished result. Six weeks of a tool that cements a chaotic process costs more than 60 minutes of clarity on the live file.
+
+What the hour includes, and what you leave with: [what the Process Check is](/blog/what-the-process-check-is).

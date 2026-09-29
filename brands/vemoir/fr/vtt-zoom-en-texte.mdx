@@ -12,23 +12,27 @@ image: "@/assets/blog/zoom-vtt-to-plain-text/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/zoom-vtt-to-plain-text/inline1.jpg';
-import inline2 from '@/assets/blog/zoom-vtt-to-plain-text/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@diana_pole?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Diana Polekhina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Un VTT Zoom en texte est une étape de mise en forme. La transcription audio d'un enregistrement cloud est un fichier `.vtt` : un en-tête `WEBVTT`, des temps de cue, et les mots. Le texte brut, ce sont ces mots, avec un nom seulement quand Zoom en a déjà stocké un. Si vous avez `audio_only.m4a` d'un enregistrement local, vous n'avez pas de VTT. Ce fichier est de l'audio. En faire du texte est une transcription, et c'est un autre article : [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom).
 
 Zoom sépare les formats sur sa page des formats de fichier (septembre 2026) : [recording file formats](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394). Le VTT est la transcription audio d'un enregistrement cloud. Les sous-titres peuvent être un `cc.vtt` à part. Les enregistrements locaux sont des MP4 et des M4A, pas une transcription.
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Ouvrir le VTT</h3><p>À côté de l'enregistrement cloud ou via export Zoom.</p></li>
+  <li data-step="2"><h3>Retirer les horodatages</h3><p>Supprimer en-têtes WEBVTT et timestamps pour du texte simple.</p></li>
+  <li data-step="3"><h3>Fusionner les doublons</h3><p>Zoom répète souvent des captions partielles.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Les enregistrements Zoom locaux sont surtout audio. Le VTT vient des offres cloud.</p>
+</aside>
+
 ## Quel fichier Zoom vous avez vraiment
 
 Sur un Mac, un enregistrement local arrive dans un dossier daté, souvent sous `Documents/Zoom`. Le fichier audio utile est `audio_only.m4a`. Il y a aussi un MP4 vidéo si vous avez enregistré la vidéo. Zoom n'écrit pas de transcription dans ce dossier local simplement parce que vous avez cliqué sur Enregistrer. La transcription audio cloud est une fonction de compte pour les enregistrements cloud, pas pour les fichiers que Zoom a sauvés sur l'ordinateur.
 
-
-<Image src={inline1} alt="Pages simples empilees a cote d'un portable ferme" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kate_gliz?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Kateryna Hliznitsova</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Dans le portail cloud, une transcription traitée apparaît comme VTT à côté de l'enregistrement quand « créer une transcription audio » (ou la transcription plus récente du résumé de réunion, selon le compte) est activée. Les hôtes la téléchargent depuis la page d'enregistrement : survolez **Audio transcript** et utilisez le téléchargement, comme Zoom le décrit pour les enregistrements cloud. Les admins et les hôtes voient aussi des transcriptions sous Recordings and Transcripts quand la conservation du résumé est activée. Les libellés changent selon le produit. Si vous ne voyez pas de VTT, ne renommez pas le M4A en espérant.
 
@@ -38,10 +42,6 @@ La couverture des langues n'est pas « tout ce qui a été dit ». Une documenta
 
 Une transcription audio typique ressemble à ceci :
 
-
-<Image src={inline2} alt="Papier ligne a cote d'une impression simple" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@karepesinde?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Cht Gsml</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 ```text
 WEBVTT

@@ -1,6 +1,6 @@
 ---
-title: "Meeting Notizen ohne Bot: Optionen für Kundensitzungen"
-description: "Meeting Notizen ohne Bot sind möglich, wenn du auf dem Mac aufnimmst oder Audio lokal transkribierst. Bots, Cloud-Notetaker und lokale Aufnahme im Vergleich."
+title: "Meeting-Notizen ohne Bot: lokal für Kundensitzungen"
+description: "Meeting-Notizen ohne Bot entstehen auf dem Mac oder aus einer Datei im Browser. Bots, Cloud-Notetaker und lokale Aufnahme im Vergleich."
 pubDate: 2026-09-30
 author: "Vemoir Team"
 tags: ["meetings", "datenschutz", "transkription"]
@@ -11,101 +11,100 @@ tool: "transcribe-recording"
 image: "@/assets/blog/meeting-notes-without-bot/hero.jpg"
 draft: false
 ---
+**Meeting-Notizen ohne Bot** in der Teilnehmerliste bekommst du, wenn du den Ton auf dem Mac aufnimmst, statt einen Cloud-Notetaker einzuladen. Kalender-Assistenten wie Otter oder Fireflies passen zu internen Standups. Bei Kundensitzungen, im Verwaltungsrat oder in regulierten Umgebungen reicht ein sichtbarer Gast oft nicht. Du startest und stoppst selbst, die Meeting-App bleibt, wie sie ist, und der Text entsteht aus Audio auf dem Gerät oder aus einer Datei, die du im Browser transkribierst, ohne sie hochzuladen.
 
-import { Image } from 'astro:assets';
-import privateRecords from '@/assets/blog/meeting-notes-without-bot/private-records.jpg';
-import voiceCapture from '@/assets/blog/meeting-notes-without-bot/voice-capture.jpg';
-import actionItems from '@/assets/blog/meeting-notes-without-bot/action-items.jpg';
-
-**Meeting Notizen ohne Bot** in der Teilnehmerliste erreichst du, wenn du den Ton auf dem Mac erfasst statt einen Cloud-Notetaker einzuladen. Kalendergebundene Assistenten wie Otter oder Fireflies passen zu internen Standups, bei Kundensitzungen, Verwaltungsrat oder regulierten Umgebungen reicht ein sichtbarer Gast oft nicht. Du startest und stoppst selbst, die Meeting-App bleibt unverändert, und Text entsteht aus Audio auf dem Gerät oder aus einer Datei, die du im Browser transkribierst, ohne sie hochzuladen.
-
-So tritt ein Bot-Notetaker einem Call bei, wann er trotzdem sinnvoll ist, und wie lokale Aufnahme plus Transkription für Teams funktioniert, die keinen weiteren Teilnehmer zulassen.
+Unten steht, wie ein Bot-Notetaker in einen Call kommt, wann er trotzdem die bessere Wahl ist, und wie lokale Aufnahme plus Transkription funktioniert, wenn kein weiterer Teilnehmer dazukommen darf.
 
 ## Warum Kundenteams und IT Notetaker-Bots ablehnen
 
-Bot-Notetaker erscheinen in Zoom, Google Meet, Microsoft Teams und ähnlichen Apps als benannter Teilnehmer. Alle sehen, dass etwas mithört. Das kann transparent sein, löst aber Fragen aus: Wer betreibt den Bot? Wohin geht das Audio? Darf der Anbieter Gespräche für Modelle nutzen?
+Bot-Notetaker erscheinen in Zoom, Google Meet, Microsoft Teams und ähnlichen Apps als benannter Teilnehmer. Alle sehen, dass etwas mithört. Das kann transparent sein, wirft aber Fragen auf: Wer betreibt den Bot? Wohin geht das Audio? Darf der Anbieter Gespräche für seine Modelle nutzen?
 
-Interne IT-Richtlinien, Kundenfragebögen und Berufspflichten (Beratung, Recht, HR, Forschung) verbieten oft Drittanbieter-Bots, auch wenn natives Recording erlaubt ist. Einwände betreffen meist externe Verarbeitung und automatisches Beitreten, nicht dass du selbst mitschreibst. Steht auf dem Invite «keine KI-Notetaker», brauchst du trotzdem Entscheide und Action Items ohne Regelbruch.
+Interne IT-Richtlinien, Kundenfragebögen und Berufspflichten in Beratung, Recht, HR und Forschung verbieten oft Bots von Drittanbietern, auch wenn die eigene Aufnahme erlaubt bleibt. Der Einwand gilt meist der externen Verarbeitung und dem automatischen Beitritt, nicht dem Mitschreiben selbst. Steht in der Einladung «keine KI-Notetaker», brauchst du Entscheide und Massnahmen trotzdem, ohne die Regel zu brechen.
 
 ## Wie Kalender-Bots deinen Sitzungen beitreten
 
-Produkte wie [Otter](https://otter.ai/) und [Fireflies](https://fireflies.ai/) verbinden Kalender und Meeting-Konten. Mit Auto-Join tritt der Assistent als Teilnehmer bei, nimmt Audio auf (je nach Produkt auch Bildschirminhalte) und sendet alles in die Cloud des Anbieters.
+Produkte wie [Otter](https://otter.ai/) und [Fireflies](https://fireflies.ai/) verbinden Kalender und Meeting-Konten. Mit Auto-Join tritt der Assistent als Teilnehmer bei, nimmt Audio auf (je nach Produkt auch Bildschirminhalte) und schickt alles in die Cloud des Anbieters.
 
-Otter beschreibt [OtterPilot](https://help.otter.ai/hc/en-us/articles/360019225632-Getting-started-with-OtterPilot) für geplante Meetings. Fireflies dokumentiert den Assistenten als Teilnehmer ([Getting started](https://guide.fireflies.ai/hc/en-us/articles/4403764950156-Getting-started-with-Fireflies-ai)). Der Bot ist in der Liste sichtbar; Verarbeitung läuft auf Infrastruktur des Anbieters, ausser du nutzt laut deren Docs eine Enterprise-Speicheroption.
+Otter beschreibt [OtterPilot](https://help.otter.ai/hc/en-us/articles/360019225632-Getting-started-with-OtterPilot) für geplante Sitzungen. Fireflies dokumentiert den Assistenten als Teilnehmer ([Getting started](https://guide.fireflies.ai/hc/en-us/articles/4403764950156-Getting-started-with-Fireflies-ai)). Der Bot ist in der Liste sichtbar. Die Verarbeitung läuft auf der Infrastruktur des Anbieters, ausser die Dokumentation nennt für deinen Plan eine Enterprise-Speicheroption.
 
 ## Wann ein Bot-Notetaker die bessere Wahl ist
 
-Sei ehrlich beim Trade-off. Ein Kalender-Bot passt oft, wenn:
+Die Abwägung lohnt sich. Ein Kalender-Bot passt oft, wenn:
 
 - das ganze Unternehmen einen Notetaker teilt und eine gemeinsame Ablage nutzt,
-- niemand gegen einen sichtbaren Assistenten ist und Verträge den Anbieter erlauben,
-- du jede Serie automatisch erfassen willst, ohne auf Record zu drücken,
-- du eine teamweite Bibliothek brauchst, nicht nur eine Datei auf einem Laptop.
+- niemand gegen einen sichtbaren Assistenten ist und die Verträge den Anbieter erlauben,
+- du jede Serie automatisch erfassen willst, ohne selbst auf Aufnahme zu drücken,
+- du eine Bibliothek fürs ganze Team brauchst, nicht bloss eine Datei auf einem Laptop.
 
-Gilt das, kämpft lokale Aufnahme gegen Reibung. Der Rest des Artikels richtet sich an Calls, in denen ein Bot nicht erlaubt ist, du aber durchsuchbaren Text brauchst.
+Stimmt das, ist die lokale Aufnahme der umständlichere Weg. Der Rest des Artikels gilt für Calls, in denen ein Bot nicht erlaubt ist, du aber Text zum Nachschlagen brauchst.
 
 ## Auf dem Mac aufnehmen ohne weiteren Teilnehmer
 
-Vemoir ist eine Mac-Menüleisten-App für Mikrofon und Systemton der Meeting-App. **Kein Bot tritt bei**, kein extra Kacheln in der Liste. Du steuerst Start und Stopp. Unterstützt werden [Meeting-Apps mit Audio auf dem Mac](/de#platforms) (Teams, Zoom, Meet, Slack Huddles und andere).
+Vemoir ist eine Mac-App in der Menüleiste für das Mikrofon und den Systemton der Meeting-App. **Kein Bot tritt bei**, in der Liste erscheint keine zusätzliche Kachel. Du startest und stoppst. Unterstützt werden [Meeting-Apps, die auf dem Mac Ton abspielen](/de#platforms) (Teams, Zoom, Meet, Slack-Huddles und andere).
 
-macOS verlangt **Bildschirmaufnahme**-Berechtigung für Ton anderer Apps. Vemoir nutzt sie nur für Meeting-Audio, nicht für Bildschirminhalte ([Aufnahme und Modelle](/de#capture)). Transkription und Zusammenfassungen laufen standardmässig **lokal auf dem Mac**. Aufnahmen bleiben auf dem Gerät, bis du exportierst oder optional ein Cloud-Modell mit eigenem API-Key wählst.
+macOS verlangt die Berechtigung **Bildschirmaufnahme**, damit eine App den Ton anderer Apps erfassen kann. Vemoir nutzt sie nur für das Audio der Sitzung, nicht für den Bildschirminhalt ([Aufnahme und Modelle](/de#capture)). Transkription und Zusammenfassungen laufen standardmässig **lokal auf dem Mac**. Aufnahmen bleiben auf dem Gerät, bis du sie exportierst oder freiwillig ein Cloud-Modell mit eigenem API-Schlüssel wählst.
 
-Sag an, dass du aufnimmst, und halte lokale Einwilligungsregeln ein. Vemoir macht eine Aufnahme nicht rechtmässig oder compliant; das bleibt deine Verantwortung.
-
-<Image src={privateRecords} alt="Ruhiger Schreibtisch mit Papierkarten als Symbol für Protokolle, die lokal auf dem Mac bleiben" width={700} quality={80} class="w-full" />
+Sag, dass du aufnimmst, und halt die Regeln zur Einwilligung ein, die bei euch gelten. Vemoir macht eine Aufnahme nicht rechtmässig. Einwilligung und Aufbewahrung bleiben bei dir.
 
 ## Schon eine Audiodatei? Browser-Tool ohne Upload
 
-Nach dem Call mit MP3, M4A, WAV oder MP4 erzeugst du Text mit dem gratis [Audio transkribieren](/de/tools/audio-transkribieren) Tool auf vemoir.ch. Die Datei wird **nicht hochgeladen**; das Modell läuft im Tab nach einmaligem Download. Prüfen kannst du das im **Network**-Tab der Entwicklertools.
+Liegt nach dem Call eine MP3, M4A, WAV oder MP4 vor, erzeugst du den Text mit dem kostenlosen Tool [Audio transkribieren](/de/tools/audio-transkribieren) auf vemoir.ch. Die Datei wird **nicht hochgeladen**. Das Modell läuft im Tab, nachdem es einmal heruntergeladen wurde. Das kannst du im Reiter **Network** der Entwicklertools prüfen.
 
-Stand September 2025: bis **15 Minuten** pro Datei, **drei erfolgreiche Läufe pro Woche**, keine Sprecherlabels, kein Live-Recording im Browser. Längere Calls, Sprechertrennung und Live-Aufnahme gehören in die [Vemoir Mac App](https://apps.apple.com/app/id6794693630) (CHF 20 in der Schweiz, lokaler App-Store-Preis in DE/AT/FR/IT).
+Stand September 2025: bis **15 Minuten** pro Datei, **drei erfolgreiche Läufe pro Woche**, keine Sprechernamen, keine Live-Aufnahme im Browser. Längere Calls, Sprechertrennung und Live-Aufnahme gehören in die [Vemoir Mac-App](https://apps.apple.com/app/id6794693630).
 
-Für einen kurzen Clip ohne jemals einen Bot einzuladen, [starte das gratis Audio-Transkriptions-Tool](/de/tools/audio-transkribieren) direkt im Tab.
+Für einen kurzen Ausschnitt, ohne je einen Bot einzuladen: [Audio transkribieren](/de/tools/audio-transkribieren) direkt im Tab.
 
 ## Bot-Notetaker vs lokale Aufnahme (Sachvergleich)
 
-Angaben stammen aus öffentlichen Privacy- und Produktseiten, Stand **September 2025**. Richtlinien ändern sich; vor einem Kundenaudit nachlesen.
+Die Angaben stammen aus öffentlichen Datenschutz- und Produktseiten, Stand **September 2025**. Richtlinien ändern sich. Vor einem Kunden-Audit noch einmal nachlesen.
 
 | Ansatz | Sichtbarer Bot in der Teilnehmerliste? | Wo Audio verarbeitet wird | Training auf Meeting-Inhalt (Anbieterangaben) |
 | --- | --- | --- | --- |
-| Otter (OtterPilot) | Ja, bei Einladung oder Auto-Join | Otter Cloud | Otter nennt de-identifizierte Audio und Transkripte für eigene Modelle ([Privacy Policy](https://otter.ai/privacy-policy), [Privacy & Security](https://otter.ai/privacy-security)) |
+| Otter (OtterPilot) | Ja, bei Einladung oder Auto-Join | Otter Cloud | Otter nennt de-identifizierte Audioaufnahmen und Transkripte für eigene Modelle ([Privacy Policy](https://otter.ai/privacy-policy), [Privacy & Security](https://otter.ai/privacy-security)) |
 | Fireflies.ai | Ja, wenn aktiviert | Fireflies Cloud (Standard USA laut [Storage Guide](https://guide.fireflies.ai/articles/9596505232-learn-about-data-storage-and-transfer)) | Fireflies schreibt, Meeting-Inhalt werde nicht für KI-Training genutzt ([Privacy Policy](https://fireflies.ai/privacy-policy)) |
-| Vemoir Mac App | Kein Bot; lokale Aufnahme | Auf deinem Mac | Kein Cloud-Upload ausser Export oder opt-in Modell ([Capture](/de#capture)) |
-| Vemoir Browser-Tool | Nein; nur Datei | Im Browser-Tab; Datei nicht an Vemoir | Öffentliche Whisper-Modelle; kein Live-Join |
-
-<Image src={voiceCapture} alt="Illustration: Ton wird zu Notizen, ohne dritten Meeting-Gast" width={700} quality={80} class="w-full" />
+| Vemoir Mac-App | Kein Bot; lokale Aufnahme | Auf deinem Mac | Kein Cloud-Upload, ausser du exportierst oder schaltest ein Modell freiwillig ein ([Aufnahme](/de#capture)) |
+| Vemoir Browser-Tool | Nein; nur eine Datei | Im Browser-Tab; die Datei geht nicht an Vemoir | Öffentliche Whisper-Modelle; kein Live-Beitritt |
 
 ## Wo lokale Aufnahme nicht alles löst
 
-Lokale Erfassung verschiebt Verantwortung auf dich: Start nicht vergessen, Dateien sicher lagern, Aufbewahrung selbst regeln. Bot-Notetaker bündeln Speicher und Teilen fürs Team, wenn alle dem Anbieter zustimmen.
+Lokal aufzunehmen heisst: du musst starten, die Dateien sicher ablegen und die Aufbewahrung selbst regeln. Bot-Notetaker bündeln Speicher und Weitergabe fürs Team, wenn alle dem Anbieter zustimmen.
 
-Browser-Transkription ersetzt keine teamweite Bot-Bibliothek. Sie hilft, wenn du schon eine Datei hast und Text ohne Upload brauchst. Für strukturierte Protokolle aus einer vollen Aufnahme auf dem Mac siehe [Protokoll und Record](/de#record).
+Die Browser-Transkription ersetzt keine teamweite Bot-Bibliothek. Sie hilft, wenn du schon eine Datei hast und Text ohne Upload brauchst. Wie aus einer vollen Aufnahme auf dem Mac ein strukturiertes Protokoll wird, steht unter [Protokoll](/de#record).
 
 ## Praktische Schritte für die nächste Kundensitzung
 
-1. **Invite und Kundenregeln prüfen.** Sind Drittanbieter-Bots verboten, Auto-Join bei Otter, Fireflies und ähnlich für dieses Event abschalten.
-2. **Aufnahme ankündigen** und Einwände respektieren.
-3. **Meeting-App wie gewohnt öffnen.** Mit Vemoir auf dem Mac Aufnahme in der Menüleiste starten und stoppen.
-4. **Transkript auf dem Mac prüfen** oder nur erlaubte Abschnitte teilen ([Export](/de#exports)).
-5. **Kurze Datei:** [/de/tools/audio-transkribieren](/de/tools/audio-transkribieren) nutzen und bei Bedarf den Network-Tab zeigen.
+1. **Einladung und Kundenregeln prüfen.** Sind Bots von Drittanbietern verboten, schaltest du Auto-Join bei Otter, Fireflies und Ähnlichem für diesen Termin aus.
+2. **Die Aufnahme ankündigen** und Einwände ernst nehmen.
+3. **Die Meeting-App wie gewohnt öffnen.** Mit Vemoir auf dem Mac startest und stoppst du die Aufnahme in der Menüleiste.
+4. **Das Transkript auf dem Mac prüfen** und nur die Abschnitte teilen, die du teilen darfst ([Export](/de#exports)).
+5. **Kurze Datei:** [/de/tools/audio-transkribieren](/de/tools/audio-transkribieren) nutzen und bei Bedarf den Reiter Network zeigen.
 
-<Image src={actionItems} alt="Papierkarten mit Entscheiden und Action Items aus einem Gespräch" width={700} quality={80} class="w-full" />
+## Kostenloses Tool oder Mac-App
 
-## Gratis Tool oder Mac App testen
+**Kurze Datei nach dem Call (höchstens 15 Minuten):** [Audio transkribieren](/de/tools/audio-transkribieren). Die Verarbeitung läuft im Browser, ohne Upload zu Vemoir.
 
-**Kurze Datei nach dem Call (max. 15 Minuten):** [Audio transkribieren](/de/tools/audio-transkribieren). Verarbeitung im Browser, kein Upload zu Vemoir.
+**Live-Calls ohne Bot:** die [Vemoir Mac-App](https://apps.apple.com/app/id6794693630) installieren und aus der Menüleiste aufnehmen. Siehe [Meeting-Apps](/de#platforms) und [So funktioniert es](/de#how).
 
-**Live-Calls ohne Bot:** [Vemoir Mac App](https://apps.apple.com/app/id6794693630) installieren und aus der Menüleiste aufnehmen. Siehe [Meeting-Apps](/de#platforms) und [So funktioniert es](/de#how).
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Sichtbarer Gast</span><strong>Ja</strong><p>Kalender-Bots erscheinen in der Teilnehmerliste.</p></li>
+  <li><span class="blog-kicker">Lokale Aufnahme</span><strong>Kein Extra-Gast</strong><p>Die Menüleiste nimmt nur den Ton des Mac auf.</p></li>
+  <li><span class="blog-kicker">Nach dem Call</span><strong>Browser-Tool</strong><p>Kurze Dateien lassen sich im Tab transkribieren, ohne Upload.</p></li>
+</ul>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Ankündigen und Einwilligung bleiben bei dir. Eine lokale App ersetzt keine Kundenrichtlinie und keine Zustimmung, die in der Schweiz nötig ist.</p>
+</aside>
 
 ## Häufige Fragen
 
-### Was bedeutet «Meeting Notizen ohne Bot»?
+### Was bedeutet «Meeting-Notizen ohne Bot»?
 
-Kein automatisches Notetaker-Konto in der Teilnehmerliste. Du nimmst auf dem Mac auf oder transkribierst eine gespeicherte Datei, statt Otter, Fireflies oder ähnlich einzuladen.
+Kein automatisches Notetaker-Konto in der Teilnehmerliste. Du nimmst auf dem Mac auf oder transkribierst eine gespeicherte Datei, statt Otter, Fireflies oder ein ähnliches Konto einzuladen.
 
 ### Können Otter oder Fireflies ohne Klick beitreten?
 
-Beide unterstützen Kalender-Auto-Join bei verbundenen Konten ([OtterPilot](https://help.otter.ai/hc/en-us/articles/360019225632-Getting-started-with-OtterPilot), [Fireflies](https://guide.fireflies.ai/hc/en-us/articles/4403764950156-Getting-started-with-Fireflies-ai)). Deshalb blockiert IT sie oft, obwohl manuelles Recording erlaubt ist.
+Beide unterstützen den automatischen Kalender-Beitritt bei verbundenen Konten ([OtterPilot](https://help.otter.ai/hc/en-us/articles/360019225632-Getting-started-with-OtterPilot), [Fireflies](https://guide.fireflies.ai/hc/en-us/articles/4403764950156-Getting-started-with-Fireflies-ai)). Deshalb sperrt die IT sie oft, obwohl die manuelle Aufnahme erlaubt bleibt.
 
 ### Setzt Vemoir einen Teilnehmer in Zoom oder Teams?
 
@@ -113,28 +112,28 @@ Nein. Vemoir nimmt Systemton und Mikrofon auf dem Mac auf. Die Teilnehmerliste b
 
 ### Ist das Browser-Tool ein Notetaker-Bot?
 
-Nein. Es akzeptiert nur eine vorhandene Datei, tritt nicht live bei und liest keinen Kalender.
+Nein. Es nimmt nur eine Datei entgegen, die schon vorliegt. Es tritt nicht live bei und liest keinen Kalender.
 
 ### Trainiert Otter auf meinen Meetings?
 
-Otter nennt in Privacy-Materialien de-identifizierte Audio und Transkripte für eigene Modelle ([Privacy Policy](https://otter.ai/privacy-policy)). Vor sensiblen Calls aktuelle Fassung lesen.
+Otter nennt in seinen Datenschutztexten de-identifizierte Audioaufnahmen und Transkripte für eigene Modelle ([Privacy Policy](https://otter.ai/privacy-policy)). Vor heiklen Calls die aktuelle Fassung lesen.
 
 ### Trainiert Fireflies auf meinen Meetings?
 
-Fireflies schreibt in der Privacy Policy, Meeting-Inhalt werde nicht für KI-Training genutzt ([Privacy Policy](https://fireflies.ai/privacy-policy)). Details für Plan und Region prüfen.
+Fireflies schreibt in der Privacy Policy, Meeting-Inhalt werde nicht für KI-Training genutzt ([Privacy Policy](https://fireflies.ai/privacy-policy)). Die Details zu Plan und Region dort prüfen.
 
 ### Geht Vemoir auf Intel-Mac oder Windows?
 
-Nein. Apple Silicon (M1 oder neuer), macOS Sonoma 14.2+, mindestens 8 GB RAM. Intel und Windows werden nicht unterstützt.
+Nein. Apple Silicon (M1 oder neuer), macOS Sonoma 14.2 oder neuer, mindestens 8 GB Arbeitsspeicher. Intel und Windows werden nicht unterstützt.
 
 ### Was bei Meetings über 15 Minuten?
 
-Vemoir Mac App für lange Aufnahmen, Import und lokale Transkription. Das Browser-Tool ist auf kurze Dateien begrenzt.
+Die Vemoir Mac-App für lange Aufnahmen, den Import und die lokale Transkription. Das Browser-Tool bleibt bei kurzen Dateien.
 
 ### Brauche ich ohne Bot keine Einwilligung?
 
-Doch. Aufnahmerecht und Arbeitsregeln gelten für dich als Host. Ankündigen, Einwände respektieren, Transkripte nach eurer Policy aufbewahren.
+Doch. Das Recht zur Aufnahme und die Regeln am Arbeitsplatz gelten für dich als gastgebende Person. Kündige die Aufnahme an, nimm Einwände ernst und bewahre Transkripte nach eurer internen Regel auf.
 
 ## Nächster Schritt
 
-Passend zum Call: [kurze Aufnahme im Browser transkribieren](/de/tools/audio-transkribieren), wenn die Datei schon da ist, oder [Meeting-Audio auf dem Mac erfassen](/de#how), wenn der Invite keinen Bot erlaubt.
+Je nach Call: eine [kurze Aufnahme im Browser transkribieren](/de/tools/audio-transkribieren), wenn die Datei schon da ist, oder [das Meeting-Audio auf dem Mac aufnehmen](/de#how), wenn die Einladung keinen Bot erlaubt.

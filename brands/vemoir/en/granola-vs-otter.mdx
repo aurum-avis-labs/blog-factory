@@ -11,11 +11,7 @@ image: "@/assets/blog/granola-vs-otter/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/granola-vs-otter/inline1.jpg';
-import inline2 from '@/assets/blog/granola-vs-otter/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Granola vs Otter** is a choice between a bot-free cloud notepad and a cloud notetaker that joins the meeting. Both process content off your laptop. They are not substitutes for a recording that stays on the Mac. Vendor pages below were checked in September 2026.
 
 The Mac app in this comparison, Vemoir, is a one-time App Store purchase: CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the US. It records microphone and system audio locally, with no bot. Mentioning it is not a claim that it wins Granola vs Otter on mobile or on shared workspaces. It wins the narrower case where the file should not leave the machine.
@@ -33,14 +29,16 @@ The Mac app in this comparison, Vemoir, is a one-time App Store purchase: CHF 20
 - [After you pick one, write the rule down](#after-you-pick-one-write-the-rule-down)
 - [Frequently asked questions](#frequently-asked-questions)
 
+|  | Granola | Otter |
+| --- | --- | --- |
+| Joins as bot | No | Yes, visible |
+| Audio storage | Not kept long term (vendor docs) | US cloud library |
+| Best for | Mac notes during the call | Team transcript workspace |
+
 ## Granola in its own words
 
 Granola's [security page](https://www.granola.ai/security) says you start Granola yourself. It does not auto-join or auto-record. On the desktop it uses microphone audio and meeting audio from the computer, and it does not add a bot. It works with any desktop meeting platform. Mobile is described for in-person meetings. Transcription uses providers such as Deepgram and Assembly. Summaries use providers such as OpenAI and Anthropic. Third parties are not allowed to train on your data. Granola does train on anonymized data to improve Granola, with an opt-out in Settings, and with training off by default for enterprise users. Granola says it does not store meeting audio long term. It stores the transcript and the notes you provide, in a US-hosted AWS environment, encrypted at rest and in transit, with daily backups. Notes are private until you share them. You can delete notes or request deletion of your data.
 
-
-<Image src={inline1} alt="Side-by-side notepads on a wooden table in daylight" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@dtravisphd?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dtravisphd</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 That is a bot-free product whose text lives in Granola's cloud. "We do not keep the audio" is not "we never saw the audio," and it is not "the transcript is only on my Mac."
 
@@ -49,11 +47,24 @@ That is a bot-free product whose text lives in Granola's cloud. "We do not keep 
 Otter's notetaker joins as a visible participant and does not join anonymously. Storage described in its privacy materials includes Amazon Web Services in the United States, with server-side encryption. Training language covers de-identified audio and transcripts used for Otter's own models. The detailed citations, including deletion (trash, then permanent deletion), are collected in [is Otter.ai safe](/blog/is-otter-ai-safe). Otter is a shared transcript product with calendar automation, mobile apps, and team workspaces on paid plans ([Otter](https://otter.ai/), checked September 2026).
 
 
-<Image src={inline2} alt="A morning meeting with two pads of paper and coffee" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@hcphotos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">hcphotos</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 If a participant list must not gain a guest, Otter's default notetaker is the wrong shape. If the team wants that guest so everyone sees the notes, it is the point of the product.
+
+<div class="blog-pair">
+  <div>
+    <h3>Choose Granola</h3>
+    <ul>
+      <li>You want notes without a guest bot</li>
+      <li>You already work on a Mac all day</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Choose Otter</h3>
+    <ul>
+      <li>Mobile capture and shared team history</li>
+      <li>Bot is acceptable to every attendee</li>
+    </ul>
+  </div>
+</div>
 
 ## Granola vs Otter on the bot
 

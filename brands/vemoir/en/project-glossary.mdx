@@ -11,9 +11,6 @@ image: "@/assets/blog/project-glossary/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/project-glossary/inline1.jpg';
-import inline2 from '@/assets/blog/project-glossary/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@dlxmedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dlxmedia</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 A **project glossary** is a list you keep for one client or one piece of work: the names and words that transcripts usually get wrong, and the spelling you want in the minutes. Vemoir stores it on the Mac, in that project. You can search it, and you can add, edit, or delete terms locally. Each entry can hold a preferred term, aliases, and a short definition.
@@ -25,13 +22,15 @@ The original transcript stays the evidence. Alias normalization changes temporar
 People search this when the minutes say "Canton" and the client says "Kanton," or when a product name comes out as a common word. The glossary is the place for that preference. It is not a speaker profile and it is not a search of every past meeting.
 
 
-<Image src={inline1} alt="Blank index cards for terms on a table" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@c1st?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">c1st</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Compatible Whisper transcription receives the terms as prompt hints. Parakeet v3 is a separate speech model with its own coverage of 25 European languages. Do not assume a glossary hint changes Parakeet the same way. The app shows which speech model you selected. Artifact generation and regeneration also receive the terminology, as context that is not evidence.
 
 If you only need one meeting's wording fixed after the fact, edit the minutes. Use the glossary when the same words will come up again on this project.
+
+<ul class="blog-checklist">
+  <li>Add product codenames and client legal names</li>
+  <li>Include acronyms the transcript gets wrong</li>
+  <li>Keep one glossary per client project</li>
+</ul>
 
 ## How to add terms that earn their place
 
@@ -42,10 +41,6 @@ If you only need one meeting's wording fixed after the fact, edit the minutes. U
 5. Leave out words you would not want copied into a summary. A glossary term is context for generation. Do not stuff it with secrets you do not want echoed.
 
 
-<Image src={inline2} alt="An open reference book beside meeting notes" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@terracotta215?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">terracotta215</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Search the list before you add a near-duplicate. Two aliases pointing at different preferred terms will fight.
 
 ## What changes, and what stays the transcript
@@ -55,6 +50,11 @@ When a model prepares input, aliases can be normalized toward the preferred term
 Open the transcript if you need to see what was said. If the recording captured "kay bee" and the glossary prefers "KB," the transcript line remains the capture. The summary may say KB. That split is the point. You can cite the line. You should not tell a client the transcript itself was rewritten to the brand spelling.
 
 Manual notes you type are also separate. They keep user-authored provenance. A glossary does not turn your typed sentence into a transcript quote.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Scope</span><strong>Project</strong><p>Terms apply to meetings filed under that project.</p></li>
+  <li><span class="blog-kicker">Benefit</span><strong>Fewer fixes</strong><p>Less manual cleanup before you send notes.</p></li>
+</ul>
 
 ## Where a glossary is the wrong tool
 

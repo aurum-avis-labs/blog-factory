@@ -11,14 +11,11 @@ image: "@/assets/blog/parakeet-vs-whisper/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/parakeet-vs-whisper/inline1.jpg';
-import inline2 from '@/assets/blog/parakeet-vs-whisper/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@towfiqu999999?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">towfiqu999999</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Parakeet oder Whisper** ist in Vemoir eine Wahl lokaler Sprachmodelle, keine Rangliste. Parakeet v3 transkribiert 25 europäische Sprachen. Whisper ist die andere Familie, die du laden kannst: Turbo, Medium oder Large-v3, jede mit eigener Abdeckung. Du wählst eines, siehst die Downloadgrösse und ob es auf diesen Mac passt, und die Sitzung nutzt diese Wahl. Dieser Text vergibt keine Genauigkeit. Zitiere keine Prozentzahl aus einem Blog, wenn die App keine veröffentlicht.
 
-Keines der beiden Modelle schreibt das Protokoll. Notizen, Dokumente und Ask nutzen ein Sprachmodell zum Schreiben: Qwen3 4B auf den meisten Macs, gpt-oss-20b auf Macs mit viel Speicher, Apple Intelligence, wo der Mac sie hat, oder einen reinen Text-Schlüssel, den du selbst aktivierst. Das Sprachmodell für die Aufnahme macht nur Text aus Audio.
+Keines der beiden Modelle schreibt das Protokoll. Notizen, Dokumente und Ask nutzen ein Modell zum Schreiben: Qwen3 4B auf den meisten Macs, gpt-oss-20b auf Macs mit viel Speicher, Apple Intelligence, wo der Mac sie hat, oder einen Schlüssel nur für Text, den du selbst einschaltest. Das Modell für die Aufnahme macht nur Text aus Audio.
 
 ## Was Parakeet oder Whisper ändert
 
@@ -30,61 +27,74 @@ Keines der beiden Modelle schreibt das Protokoll. Notizen, Dokumente und Ask nut
 | Schreibt das Protokoll | Nein | Nein |
 | Download | Ausdrücklich, fortsetzbar, kein stiller Tausch | Gleich |
 
-
-<Image src={inline1} alt="Europaeische Sprachbuecher neben Kopfhoerern" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@altumcode?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">altumcode</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Die Modellbibliothek zeigt Bereitschaft, Speicher und Hardware-Passung. Ein Modell, das du nicht mehr willst, kannst du entfernen. Eine spätere Sitzung tauscht nicht die andere Familie ein, weil du offline warst oder die Datei fehlte. Repariere den Download, dann verarbeite.
+Die Modellbibliothek zeigt, ob das Modell bereit ist, wie viel Speicher es braucht und ob es zur Hardware passt. Ein Modell, das du nicht mehr willst, kannst du entfernen. Eine spätere Sitzung wechselt nicht in die andere Familie, weil du offline warst oder die Datei fehlte. Beheb den Download, dann verarbeite.
 
 Die Sprache der Oberfläche (Englisch, Deutsch, Französisch, Italienisch, Niederländisch) ist nicht die Transkriptionssprache. Stell sie getrennt ein.
 
+|  | Parakeet v3 | Whisper |
+| --- | --- | --- |
+| Sprachen | 25 europäische (Vemoir) | Je nach Modellgrösse |
+| Läuft auf | Apple-Silicon-Mac | Mac oder Browser-Download |
+| Schweizerdeutsch | Standarddeutsch | Standarddeutsch |
+
 ## Wann Parakeet die bessere Wahl ist
 
-Parakeet v3 ist die bessere Wahl, wenn deine Sitzungen in diesen 25 europäischen Sprachen liegen und du dieses Modell als den einen Sprachdownload willst. Es ist die gerade Wahl, wenn du die Glossar-Hinweise von Whisper nicht brauchst, denn die sind für kompatible Whisper-Transkription beschrieben. Das Glossar schreibt das Transkript trotzdem nicht um. Es kann erzeugten Text lenken. Die Originalzeilen bleiben der Nachweis.
+Parakeet v3 passt, wenn deine Sitzungen in diesen 25 europäischen Sprachen liegen und du dieses Modell als den einen Download für Sprache willst. Es passt auch, wenn du die Glossar-Hinweise von Whisper nicht brauchst. Die sind für kompatible Whisper-Transkription beschrieben. Das Glossar schreibt das Transkript trotzdem nicht um. Es kann erzeugten Text lenken. Die Originalzeilen bleiben der Beleg.
 
+Es passt schlecht, wenn du deine anderen Werkzeuge schon auf eine Whisper-Variante gelegt hast und hier dieselbe Familie willst, oder wenn du den Glossar-Hinweis im Sprachdurchgang brauchst. Dann nimm Whisper und akzeptiere dessen Abdeckung. Eine Geschichte, welches Modell bei Akzenten gewinnt, liefert dieser Text nicht.
 
-<Image src={inline2} alt="Zwei aehnliche Recorder nebeneinander auf dem Tisch" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@zachccamp?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zachccamp</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Es ist die schlechtere Wahl, wenn du deine anderen Werkzeuge schon auf eine Whisper-Variante gelegt hast und hier dieselbe Familie willst, oder wenn ein Glossar-Hinweis im Sprachdurchgang genau die Funktion ist, wegen der du da bist. Dann nimm Whisper und akzeptiere dessen Abdeckung, nicht eine Geschichte, welches Modell bei Akzenten «gewinnt».
-
-Dialektschreibung ist für keines der beiden Modelle in dieser App eine Zusage. Erwarte sie nicht. Ein Dialektmodell ist hier nicht angekündigt, und dieser Text setzt kein Datum dafür.
+Eine Ausgabe im Dialekt ist für keines der beiden Modelle in dieser App zugesagt. Erwarte sie nicht. Ein Dialektmodell ist hier nicht angekündigt, und dieser Text setzt kein Datum dafür.
 
 ## Wann Whisper die bessere Wahl ist
 
-Whisper Turbo, Medium oder Large-v3 ist die bessere Wahl, wenn du ausdrücklich ein Whisper-Sprachmodell willst, inklusive der Glossar-Hinweise, die kompatible Whisper-Transkription bekommt. Turbo, Medium und Large-v3 sind verschiedene Downloads. Grösse und Passung stehen auf dem Modellbildschirm. Diese Seite sagt nicht, Large-v3 sei genauer als Turbo. Wähle nach Speicher, nach dem Gerät vor dir und nach der Abdeckung, die du brauchst, und hör eine behaltene Aufnahme, wenn du das Audio behalten hast.
+Whisper Turbo, Medium oder Large-v3 passt, wenn du ausdrücklich ein Whisper-Sprachmodell willst, inklusive der Glossar-Hinweise, die kompatible Whisper-Transkription bekommt. Turbo, Medium und Large-v3 sind verschiedene Downloads. Grösse und Passung stehen auf dem Modellbildschirm. Diese Seite sagt nicht, Large-v3 sei genauer als Turbo. Wähle nach Speicher, nach dem Gerät vor dir und nach der Abdeckung, die du brauchst. Hör eine behaltene Aufnahme, wenn du das Audio behalten hast.
 
-Whisper ist die schlechtere Wahl, wenn du nur das Modell mit 25 europäischen Sprachen wolltest und keinen zweiten Sprachstapel. Lade Parakeet und lass die Whisper-Varianten uninstalliert. Ungenutzte Modelle sind optionales Gewicht auf der Platte.
+Whisper passt schlecht, wenn du nur das Modell mit 25 europäischen Sprachen wolltest und keinen zweiten Stapel Sprachmodelle. Lade Parakeet und lass die Whisper-Varianten weg. Ungenutzte Modelle belegen optional Platz auf der Platte.
 
 Die Browser-Tools nutzen öffentliches Whisper im Tab für eine Datei, die du schon hast. Das ist nicht die Parakeet-Installation der Mac-App, und es ist nicht Large-v3 unter anderem Namen. Grenze: 15 Minuten, drei erfolgreiche Läufe pro Woche, keine Sprechernamen. Die Seite ist [/de/tools/audio-transkribieren](/de/tools/audio-transkribieren).
 
+<div class="blog-pair">
+  <div>
+    <h3>Parakeet</h3>
+    <ul>
+      <li>Mehrsprachige Meetings in Europa</li>
+      <li>Namen über das Glossar</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Whisper</h3>
+    <ul>
+      <li>Browser-Tool schon im Einsatz</li>
+      <li>Eine Sprache, kleinerer Download</li>
+    </ul>
+  </div>
+</div>
+
 ## Wenn das Sprachmodell fertig ist
 
-Das Transkript wird aus dem abgeschlossenen lokalen Audio nach dem Stopp neu aufgebaut. Eine Live-Vorschau ist nicht das Protokoll. Die Sprechertrennung läuft auf dem Mac und beginnt anonym. Ein Label kannst du umbenennen, ohne ein Stimmprofil anzulegen. `Remember this speaker` ist ein eigener Opt-in, verschlüsselt und löschbar.
+Das Transkript wird aus dem abgeschlossenen lokalen Audio nach dem Stopp neu aufgebaut. Eine Live-Vorschau ist nicht das Protokoll. Die Sprechertrennung läuft auf dem Mac und beginnt anonym. Ein Label kannst du umbenennen, ohne ein Stimmprofil anzulegen. `Remember this speaker` ist eine eigene Einstellung, verschlüsselt und löschbar.
 
-Danach entwirft ein Schreibmodell das Protokoll. Ist ein Name falsch, kann das Sprachmodell die Ursache sein (falsches Modell für die Sprache, lautes Mikrofon) oder das Schreibmodell (ein glatter Satz, der nicht im Audio war). Änder das, was versagt hat. Tausche Parakeet und Whisper nicht als Tipp und erwarte keinen veröffentlichten Genauigkeitssprung.
+Danach entwirft ein Schreibmodell das Protokoll. Ist ein Name falsch, kann das Sprachmodell die Ursache sein (falsches Modell für die Sprache, lautes Mikrofon) oder das Schreibmodell (ein glatter Satz, der nicht im Audio war). Änder das, was danebenliegt. Tausche Parakeet und Whisper nicht probeweise und erwarte keinen veröffentlichten Sprung bei der Genauigkeit.
 
-Die Rauschunterdrückung, Off, Balanced oder Strong, sitzt am Mikrofon vor dieser Wahl. Sie wählt das Sprachmodell nicht.
+Die Rauschunterdrückung, Aus, Ausgewogen oder Stark, sitzt am Mikrofon vor dieser Wahl. Sie wählt das Sprachmodell nicht.
 
 Beide Familien liegen unter [Aufnahme](/de#capture).
 
 ## Wählen ohne Vergleichstest auf Punkte
 
 1. List die Sprachen, die du wirklich aufnimmst. Liegen sie in den 25 europäischen Sprachen von Parakeet v3 und hast du keine Whisper-Gewohnheit, starte dort.
-2. Ist das Projekt-Glossar auf dem Sprachdurchgang unverzichtbar, starte mit einer Whisper-Variante und lies die Grösse, bevor du die grösste Datei lädst.
-3. Lade ein Sprachmodell, nicht alle, bis du ein weiteres brauchst. Der Fortschritt lässt sich fortsetzen. Die App zu beenden erlaubt nicht, dass ein anderes Modell den Job fertig macht.
-4. Nimm einen Call auf, den du prüfen kannst. Hast du das Audio behalten, hör eine unscharfe Minute und lies die Zeile. Ist sie brauchbar, behalte das Modell. Lag die Sprache ausserhalb der Abdeckung, wechsle ausdrücklich und verarbeite neu. Das ist eine Abdeckungsentscheidung, keine Rangliste.
+2. Ist das Projekt-Glossar im Sprachdurchgang unverzichtbar, starte mit einer Whisper-Variante und lies die Grösse, bevor du die grösste Datei lädst.
+3. Lade ein Sprachmodell, nicht alle, bis du ein weiteres brauchst. Der Fortschritt lässt sich fortsetzen. Wenn du die App beendest, darf kein anderes Modell den Auftrag zu Ende führen.
+4. Nimm einen Call auf, den du prüfen kannst. Hast du das Audio behalten, hör eine unscharfe Minute und lies die Zeile. Ist sie brauchbar, behalte das Modell. Lag die Sprache ausserhalb der Abdeckung, wechsle ausdrücklich und verarbeite neu. Das ist eine Entscheidung über die Abdeckung, keine Rangliste.
 5. Lass das Schreibmodell auf Qwen3 4B, ausser dieser Mac hat viel Speicher und du hast gpt-oss-20b gewählt. Diese Wahl öffnet Parakeet oder Whisper nicht neu.
 
 ## Speicher, bevor du beide installierst
 
-Ein Sprachmodell ist eine grosse Datei. Parakeet und jede Whisper-Variante auf derselben Platte ist erlaubt und oft unnötig. Prüfe freien Platz gegen die Grösse, die der Modellbildschirm zeigt, bevor du drei Downloads anstellst. Die Basis der App sind 10 GB frei. Das verspricht nicht, dass drei Sprachmodelle plus ein Schreibmodell in diese Reserve passen. Scheitert ein Download am Platz, mach Platz und setze fort. Das Browser-Tool ist kein stiller Ersatz für eine Sitzung, die in der App bleiben sollte. Es ist ein anderer Weg mit 15-Minuten-Grenze.
+Ein Sprachmodell ist eine grosse Datei. Parakeet und jede Whisper-Variante auf derselben Platte ist erlaubt und oft unnötig. Prüfe den freien Platz gegen die Grösse, die der Modellbildschirm zeigt, bevor du drei Downloads startest. Die Basis der App sind 10 GB frei. Das verspricht nicht, dass drei Sprachmodelle plus ein Schreibmodell in diese Reserve passen. Scheitert ein Download am Platz, mach Platz und setze fort. Das Browser-Tool ist kein stiller Ersatz für eine Sitzung, die in der App bleiben sollte. Es ist ein anderer Weg mit einer Grenze von 15 Minuten.
 
-Sind eine Parakeet-Datei und eine Whisper-Datei bereit, wähle eines für die nächste Sitzung und lass es. Ein Tausch mitten in der Sitzung gibt es nicht. Mischt ein zweisprachiger Call zwei Sprachen, rechne mit den Grenzen des gewählten Modells. Ist das Ergebnis unbrauchbar, ist das ein Grund, die andere Familie ausdrücklich zu versuchen und mit den Ohren zu vergleichen, immer ohne Zahl. Behalte die Aufnahme, wenn der Speicher sie noch hat, damit der zweite Durchgang dasselbe Audio ist und nicht ein neuer Call mit neuem Rauschen. Eine Datei, zwei Modelle, deine Ohren. Das ist die Methode, hinter der diese Seite steht. Notiere Modell und Datum in den Projektnotizen, wenn du sie hast, damit ein späterer Streit das Audio meint und nicht eine vergessene Einstellung. Die Modellbibliothek ist die Liste dessen, was installiert ist. Deine Notiz ist die Liste dessen, was du für diese Sitzung gewählt hast. Fragt jemand, welches Modell «gewonnen» hat, ist die Antwort das Modell, das du am behaltenen Audio prüfen konntest. Eine Benchmark-Zahl würde den Call nicht wiederholen.
+Sind eine Parakeet-Datei und eine Whisper-Datei bereit, wähle eines für die nächste Sitzung und lass es. Ein Tausch mitten in der Sitzung gibt es nicht. Mischt ein zweisprachiger Call zwei Sprachen, rechne mit den Grenzen des gewählten Modells. Ist das Ergebnis unbrauchbar, ist das ein Grund, die andere Familie ausdrücklich zu versuchen und mit den Ohren zu vergleichen, ohne Zahl. Behalte die Aufnahme, wenn der Speicher sie noch hat, damit der zweite Durchgang dasselbe Audio ist und nicht ein neuer Call mit neuem Rauschen. Notiere Modell und Datum in den Projektnotizen, wenn du sie hast, damit ein späterer Streit das Audio meint und nicht eine vergessene Einstellung. Die Modellbibliothek ist die Liste dessen, was installiert ist. Deine Notiz ist die Liste dessen, was du für diese Sitzung gewählt hast. Fragt jemand, welches Modell gewonnen hat, ist die Antwort das Modell, das du am behaltenen Audio prüfen konntest. Eine Benchmark-Zahl würde den Call nicht wiederholen.
 
-Bevor du das zweite Modell überhaupt anfasst, hör eine Minute, die du behalten hast, gegen die Zeile. Wenn die Zeile den Satz trägt, ist der Download erledigt. Wenn sie ihn nicht trägt, weil die Sprache ausserhalb der Abdeckung lag, wechsle ausdrücklich und verarbeite dieselbe Datei neu. Eine zweite Installation «zur Sicherheit» füllt die Platte, ohne diese Minute zu ersetzen.
+Bevor du das zweite Modell überhaupt anfasst, hör eine Minute, die du behalten hast, gegen die Zeile. Wenn die Zeile den Satz trägt, ist der Download erledigt. Wenn sie ihn nicht trägt, weil die Sprache ausserhalb der Abdeckung lag, wechsle ausdrücklich und verarbeite dieselbe Datei neu. Eine zweite Installation auf Vorrat füllt die Platte, ohne diese Minute zu ersetzen.
 
 ## Häufige Fragen
 
@@ -94,11 +104,11 @@ Diese Seite reiht sie nicht. Wähle nach Sprachabdeckung, Glossar-Hinweisen, Dow
 
 ### Deckt Parakeet v3 jede Sprache, die ich spreche?
 
-Es deckt 25 europäische Sprachen. Andere Sprachmodelle haben ihre eigene Abdeckung. Der Modellbildschirm ist die Liste, die zum installierten Stand passt, keine Erinnerung.
+Es deckt 25 europäische Sprachen. Andere Sprachmodelle haben ihre eigene Abdeckung. Der Modellbildschirm ist die Liste, die zum installierten Stand passt.
 
 ### Bekommen Whisper Turbo, Medium und Large-v3 alle Glossar-Hinweise?
 
-Kompatible Whisper-Transkription bekommt Glossar-Hinweise des Projekts. Hinweise betreffen den Kontext der Erzeugung und auf diesem Weg den Sprach-Prompt. Sie ersetzen das Originaltranskript nicht als Nachweis.
+Kompatible Whisper-Transkription bekommt Glossar-Hinweise des Projekts. Hinweise betreffen den Kontext der Erzeugung und auf diesem Weg den Sprach-Prompt. Sie ersetzen das Originaltranskript nicht als Beleg.
 
 ### Kann ich beide installieren?
 
@@ -106,18 +116,18 @@ Ja. Du wählst, welches eine Sitzung nutzt. Der Lauf speichert diese Wahl. Es gi
 
 ### Schreiben diese Modelle die Zusammenfassung?
 
-Nein. Qwen3 4B, gpt-oss-20b, Apple Intelligence wo vorhanden, oder ein aktivierter reiner Text-Schlüssel schreibt. Sprachmodelle transkribieren.
+Nein. Qwen3 4B, gpt-oss-20b, Apple Intelligence wo vorhanden, oder ein eingeschalteter Schlüssel nur für Text schreibt. Sprachmodelle transkribieren.
 
 ### Nutzt das kostenlose Browser-Tool Parakeet?
 
-Nein. Es nutzt öffentliches Whisper im Tab, mit 15 Minuten Grenze und ohne Sprechernamen.
+Nein. Es nutzt öffentliches Whisper im Tab, mit einer Grenze von 15 Minuten und ohne Sprechernamen.
 
 ### Lässt sich ein lokaler Download fortsetzen, wenn ich den Deckel schliesse?
 
-Einrichtung und Modellbibliothek behalten Fortschritt, Fehler und Wiederherstellung. Öffne neu und setze fort. Erwarte nicht, dass ein anderes Modell den Platz eingenommen hat.
+Einrichtung und Modellbibliothek behalten Fortschritt, Fehler und Wiederaufnahme. Öffne neu und setze fort. Erwarte nicht, dass ein anderes Modell den Platz eingenommen hat.
 
 ### Welchen Mac brauche ich?
 
 Apple Silicon, macOS Sonoma 14.2 oder neuer, mindestens 8 GB Speicher und 10 GB frei. 16 GB sind für lange Sitzungen empfohlen.
 
-Wähle ein Sprachmodell für die Sprachen, die du aufnimmst, lade es ausdrücklich, und halt das Schreibmodell als zweite Wahl unter [Aufnahme](/de#capture). Wenn die erste Minute, die du gegen die Aufnahme hörst, den Satz nicht trägt, wechsle die Abdeckung bewusst und verarbeite dieselbe Datei neu, statt ein zweites Modell «auf Vorrat» zu installieren. Notiere in der Projektnotiz, welches Modell diese Datei benutzt hat, damit der nächste Vergleich dieselbe Aufnahme meint und nicht ein Gefühl aus dem Gedächtnis. Datum und Modellname reichen dafür völlig.
+Wähle ein Sprachmodell für die Sprachen, die du aufnimmst, lade es ausdrücklich, und halt das Schreibmodell als zweite Wahl unter [Aufnahme](/de#capture). Wenn die erste Minute, die du gegen die Aufnahme hörst, den Satz nicht trägt, wechsle die Abdeckung bewusst und verarbeite dieselbe Datei neu, statt ein zweites Modell auf Vorrat zu installieren. Notiere in der Projektnotiz, welches Modell diese Datei benutzt hat, damit der nächste Vergleich dieselbe Aufnahme meint. Datum und Modellname reichen.

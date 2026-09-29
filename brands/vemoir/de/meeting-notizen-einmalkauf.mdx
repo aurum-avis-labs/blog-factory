@@ -1,6 +1,6 @@
 ---
 title: "Meeting-Notizen im Einmalkauf direkt über den App Store"
-description: "Meeting-Notizen im Einmalkauf kosten CHF 20 in der Schweiz. Der App Store zeigt den lokalen Preis. Einmalig, kein Abo mehr."
+description: "Meeting-Notizen im Einmalkauf kosten CHF 20 in der Schweiz. Der App Store zeigt den lokalen Preis. Einmal zahlen, ohne Abo."
 pubDate: 2026-10-24
 author: "Vemoir Team"
 tags: ["mac", "preis", "sitzungen"]
@@ -11,14 +11,10 @@ image: "@/assets/blog/one-time-meeting-notes-app/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/one-time-meeting-notes-app/inline1.jpg';
-import inline2 from '@/assets/blog/one-time-meeting-notes-app/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@ryunosuke_kikuno?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ryunosuke_kikuno</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Meeting-Notizen im Einmalkauf** heisst: du zahlst einmal und nutzt die App auf diesem Mac ohne Sitzzahl und ohne monatliche Verlängerung. Vemoir ist diese App im Mac App Store. In der Schweiz kostet sie **CHF 20**. Der App Store zeigt den lokalen Preis in deinem Land. Es gibt kein Abo, keine Gebühr pro Sitzung und keinen Aufpreis für eine Funktion, die in der App mitgeliefert wird.
 
-Dieser Preis gilt für die Mac-App. Die gratis Tools auf der Website sind etwas anderes: sie transkribieren eine kurze Datei im Browser und sind nicht der Einmalkauf.
+Dieser Preis gilt für die Mac-App. Die kostenlosen Tools auf der Website sind etwas anderes: sie transkribieren eine kurze Datei im Browser und sind nicht der Einmalkauf.
 
 ## Inhalt
 
@@ -33,16 +29,29 @@ Dieser Preis gilt für die Mac-App. Die gratis Tools auf der Website sind etwas 
 
 Vemoir nimmt aus der Menüleiste auf. Mikrofon und Systemaudio des Mac liegen auf getrennten lokalen Spuren. Ein Gespräch in Teams, Zoom, Meet, Slack, Discord oder einer anderen App, die Ton auf dem Mac abspielt, lässt sich aufnehmen, ohne dass ein Bot in die Teilnehmerliste kommt. Du startest und stoppst selbst. Niemand im Call sieht einen zusätzlichen Gast.
 
+<div class="blog-pair">
+  <div>
+    <h3>Wer passt</h3>
+    <ul>
+      <li>Ein Mac-Kauf, ohne Abo pro Sitz</li>
+      <li>Audio bleibt standardmässig auf dem Gerät</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Wer weglassen sollte</h3>
+    <ul>
+      <li>Zehn Personen brauchen morgen dasselbe durchsuchbare Archiv</li>
+      <li>Du brauchst Windows oder eine Aufnahme auf dem Handy</li>
+    </ul>
+  </div>
+</div>
 
-<Image src={inline1} alt="Eine Muenze und eine Papiertuete auf einem Eichentisch" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@eugenechystiakov?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">eugenechystiakov</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 macOS fragt nach **System Audio Recording** für diesen Zugriff. Es ist nur Audio. Die App nimmt den Bildschirm nicht auf. Das Mikrofon erlaubst du, wenn deine eigene Stimme auf einer eigenen Spur liegen soll. Die Einzelheiten stehen bei [Aufnahme](/de#capture). Welche Apps das abdeckt, steht unter [Plattformen](/de#platforms).
 
 Nach dem Stopp laufen Transkription und Sprechertrennung auf dem Mac. Die App schreibt Protokoll, Entscheide, Aufgaben und einen Entwurf für die Nachfassmail. Du kannst Fragen zur Sitzung stellen, und die Antworten zeigen auf die Stelle im Transkript. Notizen, die du während des Gesprächs tippst, fliessen ins Protokoll. Teilen tust du nur das, was du über die macOS-Freigabe auswählst.
 
-Lokale Modelle sind die Vorgabe. Ein Cloud-Textmodell (OpenAI oder Anthropic) ist optional, nutzt deinen eigenen API-Schlüssel im Schlüsselbund und gilt nur für Text. Audio und Sprechertrennung bleiben auf dem Mac. Wenn das lokale Modell scheitert, gibt es keinen stillen Wechsel in die Cloud.
+Lokale Modelle sind die Vorgabe. Ein Cloud-Textmodell (OpenAI oder Anthropic) ist freiwillig, nutzt deinen eigenen API-Schlüssel im Schlüsselbund und gilt nur für Text. Audio und Sprechertrennung bleiben auf dem Mac. Wenn das lokale Modell scheitert, gibt es keinen stillen Wechsel in die Cloud.
 
 Sobald die gewählten Modelle geladen sind, kann der Ablauf offline laufen. Internet brauchst du für Einrichtung und Downloads, nicht für jedes Gespräch.
 
@@ -50,14 +59,16 @@ Sobald die gewählten Modelle geladen sind, kann der Ablauf offline laufen. Inte
 
 In der Schweiz sind es **CHF 20** im Mac App Store. In anderen Ländern zeigt der Store den dort gültigen Preis. Jede Funktion der App steckt in diesem Kauf. Du zahlst nicht noch einmal, weil das Gespräch länger war, weil eine zweite Person Sprechernamen braucht oder weil du eine Notiz exportierst.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Store</span><strong>Einmal zahlen</strong><p>Keine Gebühr pro Sitzung von Vemoir.</p></li>
+  <li><span class="blog-kicker">Modelle</span><strong>Auf dem Mac</strong><p>Die Transkription läuft standardmässig lokal.</p></li>
+  <li><span class="blog-kicker">Cloud-Text</span><strong>Eigener Schlüssel</strong><p>Dein API-Schlüssel für Zusammenfassungen, kein stiller Upload.</p></li>
+</ul>
 
-<Image src={inline2} alt="Ein einzelnes verpacktes Notizbuch auf einem ruhigen Schreibtisch" width={700} quality={80} class="w-full" />
 
-<p><em>Photo by <a href="https://unsplash.com/@aaronburden?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">aaronburden</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Was du nicht kaufst: einen Team-Arbeitsbereich, einen Sitz für den Laptop einer Kollegin, eine CRM-Anbindung. Das sind andere Produkte.
 
-Was du nicht kaufst: einen Team-Workspace, einen Sitz für den Laptop einer Kollegin, eine CRM-Anbindung. Das sind andere Produkte.
-
-Die Website-Tools bleiben gratis und hart begrenzt: Dateien bis **15 Minuten**, **3 erfolgreiche Läufe pro Woche**, Formate MP3, M4A, WAV oder MP4. Sie trennen keine Sprecher und nehmen kein Live-Gespräch auf. Für einen kurzen Ausschnitt bleib auf der Seite. Für das Gespräch selbst ist die App Store-App das Produkt, auf das sich der Preis bezieht.
+Die Website-Tools bleiben kostenlos und hart begrenzt: Dateien bis **15 Minuten**, **3 erfolgreiche Läufe pro Woche**, Formate MP3, M4A, WAV oder MP4. Sie trennen keine Sprecher und nehmen kein Live-Gespräch auf. Für einen kurzen Ausschnitt bleib auf der Seite. Für das Gespräch selbst ist die App aus dem App Store das Produkt, auf das sich der Preis bezieht.
 
 Dieselben Angaben stehen unter [Preise](/de#pricing). Installieren kannst du im [Mac App Store](https://apps.apple.com/app/id6794693630).
 
@@ -65,21 +76,21 @@ Dieselben Angaben stehen unter [Preise](/de#pricing). Installieren kannst du im 
 
 Apple Silicon, M1 oder neuer. macOS Sonoma 14.2 oder neuer. Mindestens 8 GB Arbeitsspeicher und 10 GB frei für Modelle. 16 GB oder mehr sind für lange Sitzungen empfohlen. Intel-Macs werden nicht unterstützt. Es gibt keine Windows-, iPhone-, iPad- oder Android-App.
 
-Die Oberfläche gibt es auf Englisch, Deutsch, Französisch, Italienisch und Niederländisch. Die Transkriptionssprache folgt dem Sprachmodell, das du lädst. Parakeet v3 deckt 25 europäische Sprachen ab. Whisper Turbo, Medium und Large-v3 sind die anderen lokalen Sprachmodelle. Qwen3 4B schreibt Notizen auf den meisten Macs. gpt-oss-20b ist das lokale Textmodell für Macs mit viel Speicher. Diese Modelle transkribieren das Audio nicht. Sie schreiben aus dem Transkript. Dieser Text reiht sie nicht nach Genauigkeit. Es gibt keinen Prozentsatz zum Zitieren.
+Die Oberfläche gibt es auf Englisch, Deutsch, Französisch, Italienisch und Niederländisch. Die Transkriptionssprache folgt dem Sprachmodell, das du lädst. Parakeet v3 deckt 25 europäische Sprachen ab. Whisper Turbo, Medium und Large-v3 sind die anderen lokalen Sprachmodelle. Qwen3 4B schreibt Notizen auf den meisten Macs. gpt-oss-20b ist das lokale Textmodell für Macs mit viel Speicher. Diese Modelle transkribieren das Audio nicht. Sie schreiben aus dem Transkript. Eine Reihenfolge nach Genauigkeit gibt dieser Text nicht her. Einen Prozentsatz zum Zitieren gibt es nicht.
 
-Schweizerdeutsch als Dialekttext ist keine Aussage. Standarddeutsch ist es. Einen Dialektpfad datierst du hier nicht.
+Schweizerdeutsch als Dialekttext ist hier keine Aussage. Heraus kommt Standarddeutsch. Ein Termin für einen Dialektpfad steht hier nicht.
 
-Die Modelle brauchen Platz. Die 10 GB sind eine Untergrenze, kein Versprechen, dass jedes Modell in einen Restspeicher passt. Die App zeigt die Downloadgrösse, bevor du ein Modell holst. Downloads sind ausdrücklich. Mitten in der Aufnahme tauscht sie das Modell nicht still aus.
+Die Modelle brauchen Platz. Die 10 GB sind eine Untergrenze, kein Versprechen, dass jedes Modell in den restlichen Speicher passt. Die App zeigt die Downloadgrösse, bevor du ein Modell holst. Downloads sind ausdrücklich. Mitten in der Aufnahme tauscht sie das Modell nicht still aus.
 
 ## Wie aus dem Gespräch ein Protokoll wird
 
 1. Installiere Vemoir aus dem [Mac App Store](https://apps.apple.com/app/id6794693630) und öffne es einmal.
 2. Erlaube Mikrofon und **System Audio Recording**, wenn macOS fragt. Beides findest du später unter Systemeinstellungen, Datenschutz und Sicherheit.
-3. Lade das Sprachmodell und das lokale Textmodell, das du nutzen willst. Wart, bis der Download fertig ist. Die Einrichtung geht weiter, wenn du mittendrin abbrichst.
+3. Lade das Sprachmodell und das lokale Textmodell, das du nutzen willst. Warte, bis der Download fertig ist. Die Einrichtung geht weiter, wenn du mittendrin abbrichst.
 4. Optional: leg die nächste Aufnahme vor dem Start unter ein Projekt, wenn das Gespräch zu einem Kunden gehört.
 5. Tritt dem Meeting in der App bei, die du schon nutzt. Starte die Aufnahme in der Menüleiste, wenn du soweit bist, und sag den anderen, dass du aufnimmst. Die Einwilligung liegt bei dir.
 6. Tippe Entscheide, die du schon kennst, in die manuellen Notizen, wenn du nicht allein auf das Transkript zählen willst.
-7. Stopp die Aufnahme. Die App baut das Transkript aus dem fertigen Audio auf dem Mac neu. Die Live-Vorschau während des Gesprächs ist nicht das Protokoll.
+7. Stoppe die Aufnahme. Die App baut das Transkript aus dem fertigen Audio auf dem Mac neu. Die Live-Vorschau während des Gesprächs ist nicht das Protokoll.
 8. Lies Zusammenfassung, Aufgaben und Entscheide. Benenn einen Sprecher um, wenn das Etikett falsch ist. Exportiere oder teile nur die Notiz, die jemand anderes sehen soll.
 
 Hast du schon eine Datei, kannst du MP3, M4A, WAV, AIFF, CAF oder FLAC über dieselbe lokale Verarbeitung importieren. Eine kurze Datei kannst du auch ohne Installation über [Audio transkribieren](/de/tools/audio-transkribieren) laufen lassen, innerhalb der 15 Minuten und der wöchentlichen Läufe.
@@ -88,15 +99,15 @@ Der weitere Vergleich steht in [beste Meeting-Protokoll-App auf dem Mac](/de/blo
 
 ## Wann ein Abo trotzdem besser passt
 
-Zahl für Otter, Fireflies, Granola oder ein ähnliches Sitzprodukt, wenn die Firma eine durchsuchbare Bibliothek braucht, eine Admin-Konsole und einen Bot oder einen Kalenderbeitritt, den ein Laptop auf einem Schreibtisch nicht liefert. Eine Einmal-App auf deinem Mac legt dasselbe Transkript nicht ins Konto einer Kollegin. Wenn dieses gemeinsame Archiv die Aufgabe ist, ist das Abo der ehrliche Kauf. Die aktuellen Sitzpreise stehen auf den Seiten der Anbieter, nicht hier.
+Zahl für Otter, Fireflies, Granola oder ein ähnliches Produkt mit Sitzen, wenn die Firma eine durchsuchbare Bibliothek braucht, eine Admin-Konsole und einen Bot oder einen Kalenderbeitritt, den ein Laptop auf einem Schreibtisch nicht liefert. Eine Einmal-App auf deinem Mac legt dasselbe Transkript nicht ins Konto einer Kollegin. Wenn dieses gemeinsame Archiv die Aufgabe ist, ist das Abo der ehrliche Kauf. Die aktuellen Sitzpreise stehen auf den Seiten der Anbieter, nicht hier.
 
 Die Einmal-App passt besser, wenn du deine eigenen Gespräche aufnimmst, das Audio auf dem Rechner bleiben soll und du im März keine Verlängerung willst. Sie passt auch, wenn ein Kunde keinen zusätzlichen Teilnehmer akzeptiert. Aufnahme ohne Bot ist der Sinn der Menüleiste, beschrieben in [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot).
 
 Keine der beiden Varianten macht eine Aufnahme erlaubt. Du sagst es den Leuten trotzdem, und du entscheidest, wie lange die Datei bleibt. Vemoir sagt nicht, dass eine Aufnahme erlaubt war. Das Datenschutzgesetz setzt du nicht mit einem Produktnamen um. Ein Ablauf auf dem Mac ist kein Stempel dafür.
 
-Bevor du kaufst, prüf drei Dinge am Mac, nicht im Store-Text. Erstens, ob der Rechner Apple Silicon hat und Sonoma 14.2 oder neuer läuft. Ein Intel-Mac installiert die App nicht, auch wenn der Preis im Store sichtbar ist. Zweitens, ob 10 GB frei sind, bevor das Sprachmodell lädt. Der erste Download braucht Netz. Danach kann der Ablauf offline laufen. Drittens, ob die Leute im nächsten Gespräch eine Aufnahme überhaupt wollen. Die App schreibt kein Banner in Zoom, Teams oder Slack. Du sagst es. Ein Einmalkauf ändert diese Ansage nicht, und er ändert auch nicht, wie lange du die Datei behältst. Das entscheidest du nach deiner eigenen Regel, nicht nach einer Zahl in der App.
+Bevor du kaufst, prüf drei Dinge am Mac, nicht im Store-Text. Ob der Rechner Apple Silicon hat und Sonoma 14.2 oder neuer läuft. Ein Intel-Mac installiert die App nicht, auch wenn der Preis im Store sichtbar ist. Ob 10 GB frei sind, bevor das Sprachmodell lädt. Der erste Download braucht Netz. Danach kann der Ablauf offline laufen. Ob die Leute im nächsten Gespräch eine Aufnahme überhaupt wollen. Die App schreibt kein Banner in Zoom, Teams oder Slack. Du sagst es. Ein Einmalkauf ändert diese Ansage nicht, und er ändert auch nicht, wie lange du die Datei behältst. Das entscheidest du nach deiner eigenen Regel, nicht nach einer Zahl in der App.
 
-Leg den ersten Test auf ein Gespräch, das du schon führen würdest, und das kurz genug ist, um es noch am selben Tag zu lesen. Eine Stunde mit drei Personen reicht. Hör eine Minute Audio gegen den Text, bevor du das Protokoll weitergibst. Namen und Zahlen sind die Stellen, an denen der Entwurf einen Nachbarn einsetzt. Korrigier sie von Hand. Ein Glossar merkt sich die Schreibweise für das nächste Mal, es ersetzt diese Prüfung nicht. Wenn der Test zeigt, dass du nur eine Datei von zehn Minuten hast und keine Live-Aufnahme brauchst, bleibt das Browser-Werkzeug der kleinere Schritt. Kauf die App, wenn die nächste Sitzung live auf dem Mac stattfindet und länger als eine Viertelstunde dauert.
+Leg den ersten Test auf ein Gespräch, das du ohnehin führen würdest und das kurz genug ist, um es noch am selben Tag zu lesen. Eine Stunde mit drei Personen reicht. Hör eine Minute Audio gegen den Text, bevor du das Protokoll weitergibst. Namen und Zahlen sind die Stellen, an denen der Entwurf ein Nachbarwort einsetzt. Korrigier sie von Hand. Ein Glossar merkt sich die Schreibweise für das nächste Mal. Diese Prüfung ersetzt es nicht. Wenn der Test zeigt, dass du nur eine Datei von zehn Minuten hast und keine Live-Aufnahme brauchst, bleibt das Browser-Werkzeug der kleinere Schritt. Kauf die App, wenn die nächste Sitzung live auf dem Mac stattfindet und länger als eine Viertelstunde dauert.
 
 ## Häufige Fragen
 
@@ -108,9 +119,9 @@ In der Schweiz CHF 20 im Mac App Store. Der Store zeigt den lokalen Preis in dei
 
 Nein. Ein Kauf deckt die App auf deinem Mac. In Vemoir gibt es keine Sitzzahl.
 
-### Sind die gratis Website-Tools in den CHF 20 enthalten?
+### Sind die kostenlosen Website-Tools in den CHF 20 enthalten?
 
-Die Website-Tools sind gratis und begrenzt. Der App-Store-Preis ist die Mac-App: Live-Aufnahme, Sprechertrennung und der lokale Notizablauf.
+Die Website-Tools sind kostenlos und begrenzt. Der Preis im App Store ist die Mac-App: Live-Aufnahme, Sprechertrennung und der lokale Notizablauf.
 
 ### Ist Cloud-Transkription im Preis?
 
@@ -130,7 +141,7 @@ Die Lizenz folgt den Regeln von Apple für die Apple-ID der kaufenden Person. Ve
 
 ### Was, wenn ich nur einen Clip von 12 Minuten habe?
 
-Nimm das gratis Tool [Audio transkribieren](/de/tools/audio-transkribieren). Behalt die Grenzen von 15 Minuten und drei Läufen pro Woche im Kopf. Kauf die App nicht für eine einzelne kurze Datei, ausser du willst nächste Woche live aufnehmen.
+Nimm das kostenlose Tool [Audio transkribieren](/de/tools/audio-transkribieren). Behalt die Grenzen von 15 Minuten und drei Läufen pro Woche im Kopf. Kauf die App nicht für eine einzelne kurze Datei, ausser du willst nächste Woche live aufnehmen.
 
 ## Nächster Schritt
 

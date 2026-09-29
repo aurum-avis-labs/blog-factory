@@ -12,11 +12,6 @@ image: "@/assets/blog/cloud-vs-local-meeting-transcription/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline1.jpg';
-import inline2 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 La **trascrizione riunione cloud vs locale** è una scelta su dove si elabora l’audio, non tra «note IA» e verbale scritto a mano. Nel percorso cloud un fornitore riceve la riunione (bot in call, file caricato, o registrazione già sui suoi server) e restituisce testo da quella infrastruttura. Nel percorso locale il riconoscimento vocale gira sul computer che ha già l’audio. Il testo può somigliarsi. Cambiano il responsabile del trattamento, la lista partecipanti e la copia che non richiami più da un disco di terzi.
 
 Questo articolo colloca i due schemi, compreso il percorso più stretto nel browser per un file che hai già. Non è consulenza legale e non è una classifica di accuratezza. Per un clip breve senza invio, lo [strumento trascrivere audio](/it/strumenti/trascrivere-audio) gira nella scheda dopo il download del modello.
@@ -33,10 +28,12 @@ Questo articolo colloca i due schemi, compreso il percorso più stretto nel brow
 
 Notetaker cloud e trascrizioni delle app di riunione seguono lo stesso schema: l’audio lascia la stanza (o il portatile) e viene elaborato su altri computer.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot</span><strong>Ospite visibile</strong><p>I notetaker collegati al calendario entrano in elenco.</p></li>
+  <li><span class="blog-kicker">Upload</span><strong>Nuova copia</strong><p>Il file finisce comunque sul server di qualcuno.</p></li>
+  <li><span class="blog-kicker">Locale Mac</span><strong>Niente bot</strong><p>Il riconoscimento vocale gira sul Mac che ha l'audio.</p></li>
+</ul>
 
-<Image src={inline1} alt="Fogli locali su un tavolo di legno, cielo alla finestra" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Gli assistenti legati al calendario entrano in Zoom, Teams, Meet e app simili come partecipante nominato. Tutti vedono l’ospite in più. Serve alla trasparenza, ed è anche il motivo per cui molti team clienti vietano i bot. Per come avviene l’ingresso: [note riunione senza bot](/it/blog/note-riunione-senza-bot). Per il testo di un fornitore: [Otter.ai è sicuro](/it/blog/otter-ai-e-sicuro). Le policy cambiano; leggi la pagina il giorno in cui decidi.
 
@@ -50,10 +47,11 @@ Il cloud non è automaticamente sciatto. Molte organizzazioni scelgono un fornit
 
 Locale significa che il modello gira sulla macchina che ha già l’audio. Non obbliga a un marchio. Puoi lanciare Whisper da terminale. Un’app Mac può registrare microfono e audio di sistema, poi trascrivere sullo stesso computer.
 
+<aside class="blog-callout">
+  <span class="blog-kicker">Nota</span>
+  <p>L'elaborazione locale non sostituisce il consenso. Dì che registri e definisci una regola di conservazione.</p>
+</aside>
 
-<Image src={inline2} alt="Portatile chiuso dentro, nubi da temporale fuori" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Cosa il locale **non** significa:
 

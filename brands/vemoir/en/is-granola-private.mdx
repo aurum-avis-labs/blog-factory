@@ -12,14 +12,32 @@ image: "@/assets/blog/is-granola-private/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/is-granola-private/inline1.jpg';
-import inline2 from '@/assets/blog/is-granola-private/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@chelaxydp?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Chelaxy Designs</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Is Granola private** depends on which layer you mean: no bot in the call, no long-term audio file, or no vendor cloud for the transcript. Granola's own pages, checked in September 2026, say the desktop app captures microphone and system audio without joining as a participant, deletes audio after transcription, and stores **notes and transcripts on AWS in the United States**. Granola also documents **its own training on anonymized / de-identified data** on Free and Business plans unless you opt out. Third parties such as OpenAI and Anthropic are, Granola says, contractually blocked from training on your personal data.
 
 This article summarizes those vendor documents. It is not legal advice. It does not decide whether Granola fits a client contract, the Swiss nLPD, or an internal security review. Vemoir does not claim that Granola (or any other tool) is certified, compliant, or approved for a given sector.
+
+<div class="blog-pair">
+  <div>
+    <h3>Who Granola fits</h3>
+    <ul>
+      <li>Teams that accept US-hosted notes and cloud transcription</li>
+      <li>People who want phone and desktop in one product</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip it</h3>
+    <ul>
+      <li>Calls where the audio file must stay on one Mac</li>
+      <li>Workflows that require fully offline speech-to-text</li>
+    </ul>
+  </div>
+</div>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Granola documents local note caching for editing offline. Speech still runs through cloud providers.</p>
+</aside>
 
 ## Contents
 
@@ -49,20 +67,12 @@ This article summarizes those vendor documents. It is not legal advice. It does 
 | Consent | You are responsible for participant consent ([getting consent](https://docs.granola.ai/help-center/consent-security-privacy/getting-consent)) |
 
 
-<Image src={inline1} alt="Quiet office with blinds down and a notebook on the desk" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@sirole?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Kirsten Miles</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Policies change. Open the links before you rely on them.
 
 ## Is Granola private
 
 Four questions sit behind **is Granola private**:
 
-
-<Image src={inline2} alt="Someone writing on paper in a room with no screens showing" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@mok4?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Mohamed Kerroudj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. **Visibility.** Will clients see an AI guest?
 2. **Audio file.** Does a recording sit on a vendor disk after the call?

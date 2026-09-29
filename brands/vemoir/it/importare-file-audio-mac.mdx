@@ -12,10 +12,6 @@ image: "@/assets/blog/import-audio-file-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/import-audio-file-mac/inline1.jpg';
-import inline2 from '@/assets/blog/import-audio-file-mac/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@rebylulu?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">rebylulu</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Importare un file audio su Mac** per ottenerne una trascrizione significa che la registrazione esiste già. Vuoi il riconoscimento vocale su quel file, senza trasformare l’import in un upload per sbaglio. In Vemoir trascini il file nell’app Mac (selettore o drag and drop), lo assegni eventualmente a un progetto e lo fai passare dalla stessa pipeline locale di una riunione registrata dalla barra dei menu. Nel browser puoi fare lo stesso per un clip breve senza inviare il file a Vemoir.
 
@@ -25,10 +21,12 @@ import inline2 from '@/assets/blog/import-audio-file-mac/inline2.jpg';
 
 Vemoir importa file audio locali comuni: **MP3, M4A, WAV, AIFF, CAF e FLAC**. Sono i formati da esportare da un registratore, da una cartella locale dell’app di riunione o da un kit per interviste prima di trascinarli.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">App Mac</span><strong>MP3, M4A, WAV</strong><p>Anche AIFF, CAF e FLAC in importazione.</p></li>
+  <li><span class="blog-kicker">Tool browser</span><strong>Limite 15 min</strong><p>MP3, M4A, WAV o MP4. Tre esecuzioni a settimana.</p></li>
+  <li><span class="blog-kicker">Non audio</span><strong>VTT o TXT</strong><p>Già testo. Pulisci, non reimportare.</p></li>
+</ul>
 
-<Image src={inline1} alt="Scheda di memoria accanto a una cartella di carta" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@jakubzerdzicki?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jakubzerdzicki</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Qualche file che la gente prova e che non è in questa lista:
 
@@ -47,11 +45,6 @@ Requisiti dell’app Mac: Apple silicon (M1 o più recente), macOS Sonoma 14.2 o
 3. Usa il selettore, o trascina il file sull’app. Un file diventa un record nella libreria.
 4. Lascia finire la trascrizione locale. La trascrizione di riferimento si costruisce dall’audio importato. La separazione speaker gira sul Mac. Poi rinomini. I profili «ricorda questo speaker» sono opt-in e cifrati; le voci sconosciute restano anonime.
 5. Modifica verbale, decisioni e azioni sul Mac. Le note digitate confluiscono in quel record. Condividi con le condivisioni native di macOS, solo le parti che scegli.
-
-
-<Image src={inline2} alt="Scheda di memoria posata accanto a un taccuino" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@michaelxi?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">michaelxi</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Nulla di questo elenco carica l’audio su Vemoir. I modelli testo cloud (OpenAI o Anthropic con la tua chiave) sono opt-in per la prosa generata. Non trascrivono il file e l’app non ci cade in silenzio.
 

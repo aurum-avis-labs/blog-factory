@@ -12,14 +12,32 @@ image: "@/assets/blog/where-swiss-companies-meeting-data-goes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/where-swiss-companies-meeting-data-goes/inline1.jpg';
-import inline2 from '@/assets/blog/where-swiss-companies-meeting-data-goes/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@markokovic?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Marko Kovic</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Where Swiss companies meeting data goes** is a map of copies, not a verdict under Swiss law. After a call, the same conversation can sit in Zoom's cloud, in a Teams OneDrive folder, in a US notetaker account, on one laptop, or in a browser tab that never uploaded the file. This page names those usual places, using vendor documentation as of September 2026. It is not legal advice. It does not say what the revised Swiss data protection act requires, and it does not call any product compliant, certified, or safe for your contract.
 
 If you need the legal reading (information duty, processors, retention), that is a different article, for counsel. Here the job is narrower: know which copy you created, and which vendor page describes it.
+
+<div class="blog-pair">
+  <div>
+    <h3>Stays closer to you</h3>
+    <ul>
+      <li>Local Mac capture you export manually</li>
+      <li>Browser tools where the file never uploads</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Goes to a vendor cloud</h3>
+    <ul>
+      <li>Calendar bots and team notetaker workspaces</li>
+      <li>Native Teams or Zoom AI features on the account</li>
+    </ul>
+  </div>
+</div>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Swiss hosting of a vendor does not automatically mean speech never leaves their servers.</p>
+</aside>
 
 ## Contents
 
@@ -36,10 +54,6 @@ If you need the legal reading (information duty, processors, retention), that is
 
 A Swiss GmbH, a Treuhand, a consultancy in Zurich, or a team with clients in Germany still uses the same four pipes everyone else uses. The company seat does not move the bits. The product you clicked does.
 
-
-<Image src={inline1} alt="Papers on a desk beside a city-district window" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@sandspykid?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Sandip Chauhan</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Ask one question after every meeting that was recorded or summarized: **which system has a copy, and what does that vendor say about the copy?** Write the answer in the minutes if the sitting was sensitive. "We used Teams cloud recording; file is in the organizer's OneDrive" is a complete sentence. "It should be fine, we are in Switzerland" is not.
 
@@ -59,10 +73,6 @@ Vendor pages change. Recheck them the month you fill a security form. The Septem
 
 **Zoom.** Cloud recording lives in Zoom's web portal. On eligible plans it can include a VTT transcript. Zoom AI Companion is a Zoom feature, not a guest bot. Zoom states that it does not use customer audio, video, chat, or similar communications content to train Zoom's or third-party AI models, and that it still must process content to provide the feature. Hosted region and optional EEA residency controls are account settings. EEA is not Switzerland. Details and links: [Zoom AI Companion privacy](/blog/zoom-ai-companion-privacy).
 
-
-<Image src={inline2} alt="A quiet boardroom in daylight with no screens showing" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@florianwehde?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Florian Wehde</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 **Microsoft Teams.** A cloud recording lands in the organizer's OneDrive for a private meeting, or in the channel SharePoint library for a channel meeting, according to Microsoft's recording documentation. Copilot prompts and answers are stored as interaction history. Microsoft lists Switzerland among countries that can have local-region residency for core Microsoft 365 workloads, if the tenant is actually provisioned that way. Microsoft also says customers outside the EU may have Copilot queries processed in the US, the EU, or other regions. Switzerland is not in the EU Data Boundary. Details: [Teams Copilot data location in Switzerland](/blog/teams-copilot-data-location-switzerland).
 

@@ -11,11 +11,7 @@ image: "@/assets/blog/delete-a-meeting-recording/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/delete-a-meeting-recording/inline1.jpg';
-import inline2 from '@/assets/blog/delete-a-meeting-recording/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Supprimer un enregistrement de réunion** sur un Mac, c’est choisir la couche. Le fichier audio, la fiche de séance terminée et le projet qui en regroupe plusieurs ne sont pas le même objet. Vemoir sépare ces étapes sur la machine. Retirer la bande ne retire pas le procès-verbal.
 
 Cette page dit quand l’audio part, ce qui reste dans la bibliothèque, et ce qu’une suppression de projet vide vraiment. Le consentement et les délais de conservation restent de votre côté.
@@ -35,9 +31,12 @@ Cette page dit quand l’audio part, ce qui reste dans la bibliothèque, et ce q
 Une séance terminée dans Vemoir est une petite pile de fichiers locaux et de lignes de base :
 
 
-<Image src={inline1} alt="Corbeille a papier a cote d'un carnet propre" width={700} quality={80} class="w-full" />
+<ol class="blog-flow">
+  <li><strong>Audio</strong><p>Pistes micro et systeme, si vous les avez gardees.</p></li>
+  <li><strong>Transcription</strong><p>Construite localement apres l'arret.</p></li>
+  <li><strong>Projet</strong><p>Le dossier qui regroupe plusieurs reunions.</p></li>
+</ol>
 
-<p><em>Photo by <a href="https://unsplash.com/@rawkkim?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">rawkkim</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - la piste micro et la piste audio système, si vous les avez gardées ;
 - la transcription construite à partir de cet audio après l’arrêt ;
@@ -53,9 +52,12 @@ La capture elle-même ne filme pas l’écran. L’autorisation macOS pour le so
 Beaucoup veulent le procès-verbal le lundi et l’audio parti le vendredi. C’est un choix de stockage, pas une suppression complète.
 
 
-<Image src={inline2} alt="Mains qui retirent un dossier d'un tiroir" width={700} quality={80} class="w-full" />
+<ul class="blog-checklist">
+  <li>Decider si vous gardez le compte rendu sans l'audio</li>
+  <li>Purger l'audio dans Stockage sans supprimer la reunion</li>
+  <li>Supprimer reunion ou projet seulement si tout doit disparaitre</li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Pendant la configuration, ou plus tard dans **Réglages → Stockage**, vous décidez si les prochaines séances gardent leur audio. Chaque séance conserve le choix actif au moment de sa création. Une séance enregistrée sans conservation ne gagne pas un fichier audio parce que vous changez le réglage ensuite.
 

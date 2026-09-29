@@ -1,6 +1,6 @@
 ---
 title: "Zoom Cloud oder lokale Aufnahme: wo die Audiodatei bleibt"
-description: "Zoom Cloud oder lokale Aufnahme entscheidet, wer die Datei lagert. Die Cloud kann ein VTT liefern. Lokal bleibt die M4A auf dem Mac."
+description: "Zoom Cloud oder lokale Aufnahme: die Cloud kann ein VTT liefern, lokal bleibt die M4A auf dem Mac. So entscheidest du den Ablageort."
 pubDate: 2026-10-27
 author: "Vemoir Team"
 tags: ["zoom", "aufnahme", "transkription"]
@@ -12,14 +12,10 @@ image: "@/assets/blog/zoom-cloud-vs-local-recording/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/zoom-cloud-vs-local-recording/inline1.jpg';
-import inline2 from '@/assets/blog/zoom-cloud-vs-local-recording/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@seffen99?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">seffen99</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Zoom Cloud oder lokale Aufnahme** ist eine Speicherwahl mit einem Transkript daran. Die Cloud-Aufnahme liegt bei Zoom und kann, auf Konten die Zoom als berechtigt behandelt, nach der Verarbeitung ein VTT-Transkript enthalten. Die lokale Aufnahme liegt auf dem Computer, der auf Aufnehmen geklickt hat, und gibt dir Audio, typischerweise eine M4A, ohne dieses VTT. Hast du lokal aufgenommen und auf eine Transkript-Mail gewartet, erklärt das der Artikel zu den Dateiformaten, nicht ein Fehler.
+**Zoom Cloud oder lokale Aufnahme** ist eine Entscheidung über den Speicher, und daran hängt, ob ein Transkript mitkommt. Die Cloud-Aufnahme liegt bei Zoom und kann, auf Konten, die Zoom als berechtigt behandelt, nach der Verarbeitung ein VTT-Transkript enthalten. Die lokale Aufnahme liegt auf dem Computer, auf dem jemand auf Aufnehmen geklickt hat, und gibt dir Audio, typischerweise eine M4A, ohne dieses VTT. Hast du lokal aufgenommen und auf eine Mail mit dem Transkript gewartet, steht das in Zooms Artikel zu den Dateiformaten. Es ist kein Fehler deinerseits.
 
-Die eigene Notiz von Zoom zu [Aufnahme-Dateiformaten](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394) ist die Quelle dafür, welche Dateien erscheinen. Lies sie, wenn dein Build eine Datei etwas anders benennt als ein Screenshot in einem Blog.
+Die eigene Seite von Zoom zu den [Aufnahme-Dateiformaten](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394) ist die Quelle dafür, welche Dateien erscheinen. Lies sie, wenn deine Version eine Datei anders benennt als ein Screenshot in einem Blog.
 
 ## Inhalt
 
@@ -31,85 +27,88 @@ Die eigene Notiz von Zoom zu [Aufnahme-Dateiformaten](https://support.zoom.com/h
 
 ## Zoom Cloud oder lokale Aufnahme in einer Sitzung
 
-**Cloud.** Der Host nimmt in die Zoom-Cloud auf. Die Verarbeitung passiert nach dem Meeting. Der Host und Personen, die Host oder Admin zulassen, öffnen die Aufnahme im Zoom-Webportal. Auf berechtigten Plänen kann Zoom neben dem Video ein Transkript als **VTT** erzeugen. Diese Berechtigung ist eine Frage von Konto und Einstellungen. Ein Gratis-Host, der die Cloud-Aufnahme nie aktiviert hat, bekommt kein VTT durch Wünschen. Admins können die Cloud-Aufnahme für das ganze Konto ausschalten. Fehlt «In die Cloud aufnehmen», nimm zuerst die Richtlinie an, bevor du einen Fehler annimmst.
+**Cloud.** Der Gastgeber nimmt in die Zoom-Cloud auf. Die Verarbeitung passiert nach der Sitzung. Der Gastgeber und Personen, die der Gastgeber oder ein Admin zulässt, öffnen die Aufnahme im Zoom-Webportal. Auf berechtigten Plänen kann Zoom neben dem Video ein Transkript als **VTT** erzeugen. Ob das geht, hängt vom Konto und von den Einstellungen ab. Ein Gratis-Konto, auf dem die Cloud-Aufnahme nie eingeschaltet wurde, bekommt kein VTT, nur weil man es sich wünscht. Admins können die Cloud-Aufnahme für das ganze Konto ausschalten. Fehlt «In die Cloud aufnehmen», prüfe zuerst die Richtlinie, bevor du einen Fehler suchst.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Cloud</span><strong>Bezahlplan</strong><p>Transkript an den Cloud-Speicher von Zoom gebunden.</p></li>
+  <li><span class="blog-kicker">Lokal</span><strong>audio_only.m4a</strong><p>Üblicher Weg auf vielen Gratis-Konten.</p></li>
+  <li><span class="blog-kicker">Browser</span><strong>15 Min</strong><p>Lokale Datei im Tab transkribieren, ohne Upload zu Vemoir.</p></li>
+</ul>
 
 
-<Image src={inline1} alt="Lokale Festplatte auf dem Holztisch, Wolken draussen" width={700} quality={80} class="w-full" />
+In der Cloud gelten auch die Einstellungen von Zoom zu Aufbewahrung und Freigabe. Ein Link kann die Firma schneller verlassen als eine Datei auf einem Laptop, und im Portal lässt er sich widerrufen. Eine kopierte M4A im Downloads-Ordner von jemand anderem kannst du so nicht zurückholen. Hat eure Sicherheitsprüfung Zoom schon als Ort der Aufnahmen freigegeben, ist es einfacher, in diesem System zu bleiben, als ein zweites Archiv anzulegen.
 
-<p><em>Photo by <a href="https://unsplash.com/@leowieling?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">leowieling</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Lokal.** Der Gastgeber oder eine Person, der der Gastgeber es erlaubt hat, nimmt auf die Festplatte auf. Die Formatdokumentation von Zoom beschreibt lokales Video als MP4 und reines lokales Audio als M4A. Aus einer lokalen Datei bekommst du nicht die Cloud-Transkription von Zoom. Das Audio liegt auf diesem Mac oder Windows-PC. Zoom hält davon keine Sicherung auf den eigenen Servern. Löschst du den Ordner, ist die Aufnahme weg.
 
-In der Cloud gelten auch die Aufbewahrungs- und Freigabeeinstellungen von Zoom. Ein Link kann die Firma schneller verlassen als eine Datei auf einem Laptop, und er lässt sich im Portal widerrufen, was eine kopierte M4A im Downloads-Ordner von jemand anderem nicht kann. Hat eure Sicherheitsprüfung Zoom schon als Ort der Aufnahmen freigegeben, ist es einfacher, in diesem System zu bleiben, als ein zweites Archiv zu erfinden.
+Lokal ist die bessere Vorgabe, wenn du mit der Aufnahme eine weitere Kopie in einem Cloud-Portal vermeiden wolltest. Sie ist die schlechtere Vorgabe, wenn der Laptop des Gastgebers in den Ruhezustand geht, die Platte voll ist oder nur die Person, die auf Aufnehmen gedrückt hat, den Ordner je findet.
 
-**Lokal.** Der Host oder eine Person, der der Host es erlaubt hat, nimmt auf die Festplatte auf. Die Formatdokumentation von Zoom beschreibt lokales Video als MP4 und reines lokales Audio als M4A. Du bekommst aus einer lokalen Datei nicht die Cloud-Transkript-Pipeline von Zoom. Das Audio liegt auf diesem Mac oder Windows-PC. Zoom hält davon keine Sicherung auf den eigenen Servern. Löschst du den Ordner, ist die Aufnahme weg.
-
-Lokal ist die bessere Vorgabe, wenn der Sinn der Aufnahme war, eine weitere Kopie in einem Cloud-Portal zu vermeiden. Sie ist die schlechtere Vorgabe, wenn der Laptop des Hosts schläft, die Platte voll ist oder die Person, die auf Aufnehmen gedrückt hat, die einzige ist, die den Ordner je findet.
-
-Du kannst den Rekorder von Zoom auch ignorieren und das Meeting vom Mac aufnehmen, während Zoom spielt. Dieser Weg hängt nicht davon ab, ob der Host eine Zoom-Aufnahme starten darf. Er hängt von der Einwilligung ab. Sag, dass du aufnimmst. Eine Menüleisten-App erscheint nicht in der Teilnehmerliste von Zoom, so wie ein Cloud-Notetaker das tut. [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot) beschreibt diesen Unterschied. Dieser Artikel bleibt beim Schalter Cloud gegen lokal in Zoom selbst.
+Du kannst den Rekorder von Zoom auch weglassen und die Sitzung vom Mac aufnehmen, während Zoom läuft. Dieser Weg hängt nicht davon ab, ob der Gastgeber eine Zoom-Aufnahme starten darf. Er hängt von der Einwilligung ab. Sag, dass du aufnimmst. Eine App in der Menüleiste erscheint nicht in der Teilnehmerliste von Zoom, so wie ein Cloud-Notetaker das tut. [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot) beschreibt diesen Unterschied. Dieser Artikel bleibt beim Schalter Cloud gegen lokal in Zoom selbst.
 
 ## Wo die lokalen Dateien wirklich liegen
 
-Nach einer lokalen Aufnahme schreibt Zoom einen Ordner. Der Ort ist, was die Zoom-Desktop-App unter Einstellungen, Aufnahme, Lokale Aufnahme hat. Viele lassen die Vorgabe, und der Meeting-Ordner landet unter Dokumente, in einem Zoom-Verzeichnis, benannt mit Datum und Thema.
+Nach einer lokalen Aufnahme schreibt Zoom einen Ordner. Der Ort ist das, was die Zoom-Desktop-App unter Einstellungen, Aufnahme, Lokale Aufnahme stehen hat. Viele lassen die Vorgabe, und der Sitzungsordner landet unter Dokumente, in einem Zoom-Verzeichnis, benannt mit Datum und Thema.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Korrektur</span>
+  <p>Ein heruntergeladenes Zoom-VTT ist keine lokale Transkription. Die Spracherkennung lief schon in der Zoom-Cloud.</p>
+</aside>
 
 
-<Image src={inline2} alt="Aktenschublade und offenes Fenster im selben Raum" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@ejmerrell?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ejmerrell</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-In diesem Ordner suchst du die reine Audiodatei. Die Dokumentation von Zoom spricht von einer lokalen Audiodatei ungefähr `audio` plus einer Zahl, mit Endung `.m4a`. Viele Installationen zeigen auch `audio_only.m4a`. Nimm diese Datei für die Transkription. Sie ist kleiner als die MP4 und sie ist die Sprache ohne Video-Dekodierung. Behalt den ganzen Ordner, bis du dem Text traust. Die Chatdatei, falls vorhanden, ist ein Seitenkanal und kein Ersatz für das, was laut gesagt wurde.
+In diesem Ordner suchst du die reine Audiodatei. Die Dokumentation von Zoom spricht von einer lokalen Audiodatei ungefähr `audio` plus einer Zahl, mit Endung `.m4a`. Viele Installationen zeigen auch `audio_only.m4a`. Nimm diese Datei für die Transkription. Sie ist kleiner als die MP4, und du musst das Video nicht mitverarbeiten. Behalte den ganzen Ordner, bis du dem Text traust. Die Chatdatei, falls vorhanden, ist ein Nebenkanal und kein Ersatz für das, was laut gesagt wurde.
 
 Haben zwei Personen lokal aufgenommen, hast du zwei Ordner auf zwei Computern. Sie fügen sich nicht von selbst zusammen. Einigt euch vorher, wer aufnimmt, sonst transkribierst du das schlechtere der beiden Mikrofone.
 
-Eine Cloud-Aufnahme erscheint nicht in diesem Ordner. Sie erscheint in der Zoom-Webliste der Aufnahmen des Hosts. Das Herunterladen ist ein eigener Klick, und der Admin kann den Download abgeschaltet haben. Brauchst du den Text und der Download ist aus, arbeitest du mit dem Viewer von Zoom, nicht mit einer Datei, die das Browser-Werkzeug öffnen kann.
+Eine Cloud-Aufnahme erscheint nicht in diesem Ordner. Sie erscheint in der Zoom-Liste der Aufnahmen des Gastgebers. Das Herunterladen ist ein eigener Klick, und der Admin kann den Download abgeschaltet haben. Brauchst du den Text und der Download ist aus, arbeitest du im Viewer von Zoom, nicht mit einer Datei, die das Browser-Tool öffnen kann.
 
 ## Eine lokale Zoom-Datei in Text bringen
 
 Für eine Datei, die du schon hast:
 
-1. Such `audio_only.m4a` oder die andere lokale M4A im Meeting-Ordner.
-2. Ist sie **15 Minuten oder kürzer**, öffne [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren). Die Datei bleibt im Browser. Das Modell lädt einmal. Du bekommst Text, keine Sprechernamen. Drei erfolgreiche Läufe pro Woche sind die Grenze über die Gratis-Werkzeuge.
-3. Ist sie länger, schneid sie nicht in drei Wochenläufe, ausser dir liegt nur an einem Ausschnitt. Importier das Audio auf dem Mac in einen lokalen Ablauf, oder schneid auf den Entscheid, den du wirklich brauchst, und transkribier diesen Ausschnitt.
-4. Lies den Text gegen das Audio bei Namen und Zahlen. Der erste Entwurf ist ein Entwurf. Schweizerdeutsch im Meeting erscheint meist als Standarddeutsch. Das ist das Modell, nicht Zoom.
+1. Such `audio_only.m4a` oder die andere lokale M4A im Sitzungsordner.
+2. Ist sie **15 Minuten oder kürzer**, öffne [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren). Die Datei bleibt im Browser. Das Modell lädt einmal. Du bekommst Text, keine Sprechernamen. Drei erfolgreiche Läufe pro Woche sind die Grenze über die Gratis-Tools.
+3. Ist sie länger, schneide sie nicht in Stücke, die mehrere der wöchentlichen Läufe verbrauchen, ausser dir liegt nur an einem Ausschnitt. Importiere das Audio auf dem Mac in einen lokalen Ablauf, oder schneide auf den Entscheid, den du wirklich brauchst, und transkribiere diesen Ausschnitt.
+4. Vergleiche den Text mit dem Audio, bei Namen und Zahlen. Der erste Text bleibt ein Entwurf. Schweizerdeutsch in der Sitzung erscheint meist als Standarddeutsch. Das kommt vom Modell, nicht von Zoom.
 
-Der Schritt für den Ordner selbst steht in [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren). Nimm diesen Artikel, wenn du den Pfad suchst. Nimm diesen hier, wenn du vor dem Druck auf Aufnehmen noch zwischen Cloud und lokal wählst.
+Der Schritt für den Ordner selbst steht in [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren). Nimm jenen Artikel, wenn du den Pfad suchst. Nimm diesen hier, wenn du vor dem Klick auf Aufnehmen noch zwischen Cloud und lokal wählst.
 
-Eine Live-Aufnahme während des Anrufs, vom Mac, ist eine dritte Option, wenn der Host die Zoom-Aufnahme gar nicht einschalten will. Systemaudio plus Mikrofon, nur Audio, keine Bildschirmaufnahme. Diese Aufnahme gehört dir auf dem Mac. Sie ist kein Zoom-Cloud-Objekt und taucht nicht in der Aufnahmeliste des Hosts auf. Sag das, damit niemand auf einen Link wartet, der nie kommt.
+Eine Live-Aufnahme während des Anrufs, vom Mac, ist eine dritte Möglichkeit, wenn der Gastgeber die Zoom-Aufnahme gar nicht einschalten will. Systemton plus Mikrofon, nur Audio, keine Bildschirmaufnahme. Diese Aufnahme liegt bei dir auf dem Mac. Sie ist kein Objekt in der Zoom-Cloud und taucht nicht in der Aufnahmeliste des Gastgebers auf. Sag das, damit niemand auf einen Link wartet, der nie kommt.
 
-Mac mit Apple Silicon, macOS Sonoma 14.2 oder neuer, 8 GB Arbeitsspeicher, 10 GB frei, 16 GB für lange Meetings angenehmer. Intel wird nicht unterstützt. Die macOS-Freigabe für den Ton anderer Apps heisst System Audio Recording. Sie nimmt den Bildschirm nicht auf. Modelle zuerst laden, danach kann der Ablauf offline laufen. Die App tauscht das Sprachmodell nicht still. Ein Cloud-Textmodell ist opt-in, mit deinem Schlüssel, nur Text, und ohne stillen Ersatz, wenn es scheitert. Dieser Artikel nennt den App-Preis nicht.
+Du brauchst einen Mac mit Apple Silicon, macOS Sonoma 14.2 oder neuer, 8 GB Arbeitsspeicher und 10 GB frei. Für lange Sitzungen sind 16 GB angenehmer. Intel wird nicht unterstützt. Die macOS-Freigabe für den Ton anderer Apps heisst System Audio Recording. Sie nimmt den Bildschirm nicht auf. Lade die Modelle zuerst. Danach kann der Ablauf offline laufen. Die App wechselt das Sprachmodell nicht von sich aus. Ein Cloud-Textmodell ist freiwillig, mit deinem Schlüssel, nur für Text, und es springt nicht still ein, wenn es scheitert.
 
 ## Wann die Cloud-Aufnahme die bessere Wahl ist
 
-Die Cloud gewinnt, wenn:
+Die Cloud ist die bessere Wahl, wenn:
 
 - Die Organisation schon einen Zoom-Plan bezahlt, der sie enthält, und der Admin sie eingeschaltet hat.
-- Mehrere Personen denselben Wiedergabelink brauchen, und lokale Dateien die Aufnahme auf einem Laptop stranden lassen würden.
-- Du das VTT von Zoom ohne zweiten Transkriptionsschritt willst, und das Konto dafür berechtigt ist.
-- Die Aufbewahrung in den Zoom-Einstellungen definiert ist und Recht oder IT ein System der Akte bevorzugt.
+- Mehrere Personen denselben Wiedergabelink brauchen. Lokale Dateien würden die Aufnahme auf einem Laptop zurücklassen.
+- Du das VTT von Zoom ohne zweiten Transkriptionsschritt willst und das Konto dafür berechtigt ist.
+- Die Aufbewahrung in den Zoom-Einstellungen definiert ist und Recht oder IT eine feste Ablage will.
 
-Lokal gewinnt, wenn:
+Lokal ist die bessere Wahl, wenn:
 
-- Die Cloud-Aufnahme aus ist oder der Plan des Hosts sie nicht anbietet.
-- Das Gespräch nicht in einem teilbaren Portal liegen soll, auch wenn Zoom für Meetings freigegeben ist.
-- Du schon die Gewohnheit hast, die M4A selbst zu transkribieren, und den Player von Zoom nicht brauchst.
+- Die Cloud-Aufnahme aus ist oder der Plan des Gastgebers sie nicht anbietet.
+- Das Gespräch nicht in einem teilbaren Portal liegen soll, auch wenn Zoom für Sitzungen freigegeben ist.
+- Du die M4A schon selbst transkribierst und den Player von Zoom nicht brauchst.
 
-Ein sichtbarer Notetaker-Bot ist ein dritter Ort, an den das Audio gehen kann, und oft das Schlechteste von beiden für einen Kunden, der zusätzliche Teilnehmer verboten hat. «Lös» eine ausgeschaltete Cloud-Aufnahme nicht, indem du einen Bot einlädst, den der Kunde sieht. Nimm eine lokale Zoom-Aufnahme, die der Host steuert, oder schreib Notizen.
+Ein sichtbarer Notetaker-Bot ist ein dritter Ort, an den das Audio gehen kann. Für einen Kunden, der zusätzliche Teilnehmer verboten hat, ist das oft die schlechteste Wahl. Ist die Cloud-Aufnahme aus, nimm eine lokale Zoom-Aufnahme, die der Gastgeber steuert, oder schreib Notizen. Einen Bot, den der Kunde sieht, lädst du dafür nicht ein.
 
-Weder Zoom noch ein Transkriptionswerkzeug entscheidet die Einwilligung. Verlangt das Recht oder der Kunde eine Ansage, mach die Ansage. Ein VTT repariert eine Aufnahme nicht, die nicht hätte stattfinden sollen.
+Weder Zoom noch ein Transkriptionstool entscheidet die Einwilligung. Verlangt das Recht oder der Kunde eine Ansage, mach die Ansage. Ein VTT repariert eine Aufnahme nicht, die nicht hätte stattfinden sollen.
 
-Prüf vor dem Meeting, wer den Ordner nachher öffnet. Sitzt die Aufnahme nur auf dem Laptop von jemandem, der morgen Ferien hat, ist die Cloud ehrlicher, auch wenn du die lokale Datei persönlich lieber hättest. Umgekehrt: hat der Kunde gesagt, dass nichts ins Portal darf, ist die lokale M4A die Datei, die zu diesem Satz passt. Die Wahl ist die Lagerung, nicht ein Qualitätsabzeichen.
+Prüfe vor der Sitzung, wer den Ordner danach öffnet. Liegt die Aufnahme nur auf dem Laptop von jemandem, der morgen Ferien hat, ist die Cloud die ehrlichere Ablage, auch wenn du die lokale Datei persönlich lieber hättest. Umgekehrt: hat der Kunde gesagt, dass nichts ins Portal darf, ist die lokale M4A die Datei, die zu diesem Satz passt. Die Wahl ist der Ablageort, kein Qualitätszeichen.
 
 ## Häufige Fragen
 
 ### Warum hat die lokale Aufnahme mir kein Transkript gemailt?
 
-Die Cloud-Pipeline von Zoom erzeugt das VTT auf berechtigten Konten. Eine lokale M4A ist Audio auf dem Computer. Der Textschritt liegt bei dir. Die Formate stehen im [Artikel von Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394).
+Die Cloud-Verarbeitung von Zoom erzeugt das VTT auf berechtigten Konten. Eine lokale M4A ist Audio auf dem Computer. Den Text musst du selbst erzeugen. Die Formate stehen im [Artikel von Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394).
 
 ### Welche Datei soll ich transkribieren?
 
-Die reine Audio-M4A, oft `audio_only.m4a`, im lokalen Meeting-Ordner. Nimm die MP4 nur, wenn die M4A fehlt.
+Die reine Audio-M4A, oft `audio_only.m4a`, im lokalen Sitzungsordner. Nimm die MP4 nur, wenn die M4A fehlt.
 
-### Nimmt das Browser-Werkzeug eine lokale Datei von zwei Stunden?
+### Nimmt das Browser-Tool eine lokale Datei von zwei Stunden?
 
-Nein. Die Zoom-Transkriptionsseite nimmt bis zu 15 Minuten, mit 3 erfolgreichen Läufen pro Woche, und sie benennt keine Sprecher.
+Nein. Die Seite für die Zoom-Transkription nimmt bis zu 15 Minuten, mit 3 erfolgreichen Läufen pro Woche, und sie benennt keine Sprecher.
 
 ### Enthält die Cloud-Aufnahme immer ein Transkript?
 
@@ -117,11 +116,11 @@ Nein. Es hängt vom Konto und von den Einstellungen ab. Schau in die aktuelle Hi
 
 ### Wo liegt eine lokale Aufnahme?
 
-Auf dem Computer, der aufgenommen hat, im Ordner, den die App-Einstellungen von Zoom für lokale Aufnahmen nennen. Zoom hält keine Serverkopie dieser lokalen Datei.
+Auf dem Computer, der aufgenommen hat, im Ordner, den die App-Einstellungen von Zoom für lokale Aufnahmen nennen. Zoom hält keine Kopie dieser lokalen Datei auf den Servern.
 
-### Kann ich aufnehmen, ohne Zoom-Host zu sein?
+### Kann ich aufnehmen, ohne Zoom-Gastgeber zu sein?
 
-Nur wenn der Host die lokale Aufnahme für Teilnehmende erlaubt, oder wenn du den Mac aufnimmst, während Zoom spielt, und das laut sagst. Ein Menüleisten-Rekorder steht nicht in der Teilnehmerliste.
+Nur wenn der Gastgeber die lokale Aufnahme für Teilnehmende erlaubt, oder wenn du den Mac aufnimmst, während Zoom läuft, und das laut sagst. Ein Rekorder in der Menüleiste steht nicht in der Teilnehmerliste.
 
 ### Kann eine lokale Datei versehentlich über iCloud mitlaufen?
 
@@ -129,8 +128,8 @@ Ja, wenn der Aufnahmeordner in einem synchronisierten Ordner liegt. Leg den Pfad
 
 ### Ist eine Option von selbst privater?
 
-Nein. Cloud heisst Portal, Link und Widerruf. Lokal heisst eine Festplatte und die Person, die den Ordner findet. Beides braucht eine Ansage und eine Aufbewahrungsregel, die du selbst hältst.
+Nein. In der Cloud hast du Portal, Link und Widerruf. Lokal hast du eine Festplatte und die Person, die den Ordner findet. Beides braucht eine Ansage und eine Aufbewahrungsregel, die du selbst einhältst.
 
 ## Nächster Schritt
 
-Wähl den Speicher, bevor jemand auf Aufnehmen drückt. Liegt die M4A schon da und ist sie kurz genug, öffne [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren). Den Ordner selbst findest du über [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
+Wähle den Speicher, bevor jemand auf Aufnehmen drückt. Liegt die M4A schon da und ist sie kurz genug, öffne [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren). Den Ordner selbst findest du über [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).

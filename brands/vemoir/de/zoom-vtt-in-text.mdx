@@ -1,6 +1,6 @@
 ---
-title: "Zoom-VTT in Text verwandeln, damit du ihn lesen kannst"
-description: "Zoom-VTT in Text heisst die Cue-Zeiten streichen und Namen behalten, die schon in der Datei stehen. Eine lokale Zoom-Aufnahme ist kein VTT."
+title: "Zoom-VTT in Text: die Cue-Zeiten weg, Namen behalten"
+description: "Zoom-VTT in Text: Cue-Zeiten streichen, Namen behalten, die schon in der Datei stehen. Eine lokale Zoom-Aufnahme ist kein VTT."
 pubDate: 2026-10-17
 author: "Vemoir Team"
 tags: ["zoom", "vtt", "transkript"]
@@ -12,25 +12,29 @@ image: "@/assets/blog/zoom-vtt-to-plain-text/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/zoom-vtt-to-plain-text/inline1.jpg';
-import inline2 from '@/assets/blog/zoom-vtt-to-plain-text/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@diana_pole?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Diana Polekhina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Zoom-VTT in Text ist ein Formatierungsschritt. Das Audiotranskript einer Cloud-Aufnahme ist eine `.vtt`-Datei: ein `WEBVTT`-Kopf, Cue-Zeiten und die Wörter. Klartext sind diese Wörter, mit einem Namen nur, wenn Zoom ihn schon gespeichert hat. Wenn du `audio_only.m4a` aus einer lokalen Aufnahme hast, hast du kein VTT. Diese Datei ist Audio. Daraus Text zu machen ist Transkription, und das ist ein anderer Artikel: [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
+Zoom-VTT in Text ist ein Schritt bei der Formatierung. Das Audiotranskript einer Cloud-Aufnahme ist eine `.vtt`-Datei: ein `WEBVTT`-Kopf, Cue-Zeiten und die Wörter. Klartext sind diese Wörter, mit einem Namen nur, wenn Zoom ihn schon gespeichert hat. Wenn du `audio_only.m4a` aus einer lokalen Aufnahme hast, hast du kein VTT. Diese Datei ist Audio. Daraus Text zu machen ist Transkription, und das ist ein anderer Artikel: [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
 
 Zoom trennt die Formate auf der Seite zu den Dateiformaten (Stand September 2026): [recording file formats](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394). VTT ist die Audiotranskription einer Cloud-Aufnahme. Untertitel können eine eigene `cc.vtt` sein. Lokale Aufnahmen sind MP4 und M4A, kein Transkript.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>VTT öffnen</h3><p>Neben der Cloud-Aufnahme oder über den Export von Zoom.</p></li>
+  <li data-step="2"><h3>Zeitmarken entfernen</h3><p>WEBVTT-Kopf und Cue-Zeitstempel für den Klartext streichen.</p></li>
+  <li data-step="3"><h3>Doppelzeilen zusammenziehen</h3><p>Zoom wiederholt Teilzeilen oft Zeile für Zeile.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Lokale Zoom-Aufnahmen sind standardmässig nur Audio. VTT kommt von Cloud-Plänen.</p>
+</aside>
 
 ## Welche Zoom-Datei du wirklich hast
 
 Auf einem Mac landet eine lokale Aufnahme in einem datierten Ordner, oft unter `Documents/Zoom`. Die nützliche Audiodatei ist `audio_only.m4a`. Es gibt auch ein Video-MP4, wenn du Video aufgenommen hast. Zoom schreibt in diesen lokalen Ordner kein Transkript, nur weil du auf Aufnehmen geklickt hast. Die Cloud-Audiotranskription ist eine Kontofunktion für Cloud-Aufnahmen, nicht für die Dateien, die Zoom auf dem Computer gespeichert hat.
 
 
-<Image src={inline1} alt="Schlichte Seiten neben einem zugeklappten Laptop" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kate_gliz?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Kateryna Hliznitsova</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Im Cloud-Portal erscheint ein verarbeitetes Transkript als VTT neben der Aufnahme, wenn «Audiotranskript erstellen» (oder das neuere Transkript der Meeting-Zusammenfassung, je nach Konto) eingeschaltet ist. Gastgeber laden es von der Aufnahmeseite: über **Audio transcript** fahren und den Download nutzen, wie Zoom es für Cloud-Aufnahmen beschreibt. Admins und Gastgeber sehen Transkripte je nach Produkt auch unter Recordings and Transcripts, wenn die Aufbewahrung der Meeting Summary an ist. Die Bezeichnungen unterscheiden sich. Wenn du kein VTT siehst, benenne die M4A nicht um und hoffe.
+Im Cloud-Portal erscheint ein verarbeitetes Transkript als VTT neben der Aufnahme, wenn «Audiotranskript erstellen» eingeschaltet ist, oder das neuere Transkript der Meeting Summary, je nach Konto. Gastgeber laden es von der Aufnahmeseite: über **Audio transcript** fahren und den Download nutzen, wie Zoom es für Cloud-Aufnahmen beschreibt. Admins und Gastgeber sehen Transkripte je nach Produkt auch unter Recordings and Transcripts, wenn die Aufbewahrung der Meeting Summary an ist. Die Bezeichnungen unterscheiden sich. Wenn du kein VTT siehst, benenne die M4A nicht um und hoffe, dass daraus Text wird.
 
 Die Sprachabdeckung ist nicht «was auch immer gesprochen wurde». Ältere Zoom-Dokumentation zur Cloud-Audiotranskription nannte Englisch. Neuere Produkte für Zusammenfassung und Transkript listen ihre eigenen Sprachen in den aktuellen Artikeln von Zoom. Prüfe die Seite der Funktion, die du wirklich eingeschaltet hast, bevor du ein deutsches VTT aus einer Einstellung versprichst, die nur Englisch abdeckte.
 
@@ -38,10 +42,6 @@ Die Sprachabdeckung ist nicht «was auch immer gesprochen wurde». Ältere Zoom-
 
 Ein typisches Audiotranskript-VTT sieht so aus:
 
-
-<Image src={inline2} alt="Liniertes Papier neben einem einfachen Ausdruck" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@karepesinde?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Cht Gsml</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 ```text
 WEBVTT
@@ -57,13 +57,13 @@ Jane Doe: Ich schicke sie heute.
 
 Manchmal steht der Name als Stimm-Tag, `<v Jane Doe>Text</v>`, dieselbe Idee wie ein Teams-Export. Manchmal erscheint ein Maschinenlabel als `Speaker 1`. Manchmal gibt es keinen Namen, nur den Satz unter der Zeitzeile.
 
-Kopf, Cue-Nummer und die Zeile mit `-->` sind keine Sprache. Sie sagen einem Player, wann die Zeile erscheinen soll. Ein Mensch, der die Sitzung liest, will sie nicht. Eine Suche nach einem Entscheid auch nicht.
+Kopf, Cue-Nummer und die Zeile mit `-->` sind keine Sprache. Sie sagen einem Player, wann die Zeile erscheinen soll. Wer die Sitzung liest, will sie nicht. Eine Suche nach einem Entscheid auch nicht.
 
 `cc.vtt` ist Untertiteltext. Er kann kürzer sein oder anders getaktet als das Audiotranskript-VTT. Bereinige die Datei, die du meinst. Häng beide nicht aneinander und nenne das ein Gespräch.
 
 ## Zoom-VTT in Text
 
-Nimm den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Leg die `.vtt` ab oder füg sie ein.
+Nimm den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Leg die `.vtt` ab oder füge sie ein.
 
 Was sich ändert:
 
@@ -79,7 +79,7 @@ Was sich nicht ändert:
 - Fehlende Namen bleiben fehlend. Die Seite sagt dir, wenn sie keine gefunden hat. Sie erfindet kein `Speaker 1`, damit die Datei strukturiert aussieht.
 - Die Sprache. Nichts wird übersetzt.
 
-Diese Bereinigung verbraucht keinen Wochenlauf. Die drei Läufe sind für Sprache-zu-Text und für Notizen, die ein Modell aufrufen. Du kannst ein VTT aufräumen, auch wenn du die Transkriptionsläufe der Woche schon verbraucht hast.
+Diese Bereinigung verbraucht keinen der drei Läufe pro Woche. Die drei Läufe gelten für Sprache-zu-Text und für Notizen, die ein Modell aufrufen. Du kannst ein VTT aufräumen, auch wenn du die Transkriptionsläufe der Woche schon verbraucht hast.
 
 Behalte das Original-VTT. Der Klartext ist zum Lesen und für Notizen. Das VTT ist der Vergleich, wenn eine Zeit oder ein Cue zählt, und es ist das, was Zoom dir gegeben hat, wenn jemand nach dem Export fragt.
 
@@ -87,25 +87,25 @@ Behalte das Original-VTT. Der Klartext ist zum Lesen und für Notizen. Das VTT i
 
 Lies ihn einmal, bevor du ihn weitergibst.
 
-**Namen, denen du traust.** `Jane Doe:` von einer angemeldeten Person ist brauchbar. `Speaker 1:` heisst nur «dasselbe Label wie die anderen Speaker-1-Zeilen», und nur wenn Zoom wirklich getrennt hat. Ordne es zu, bevor du dieses Label in einer Mail als Person ausgibst.
+**Namen, denen du traust.** `Jane Doe:` von einer angemeldeten Person ist brauchbar. `Speaker 1:` heisst nur, dass dieses Label mit den anderen Speaker-1-Zeilen übereinstimmt, und nur wenn Zoom wirklich getrennt hat. Ordne es zu, bevor du dieses Label in einer Mail als Person ausgibst.
 
-**Korrekturen.** Hat jemand ein Datum gesagt und es danach korrigiert, sollen beide Zeilen im Text bleiben. Lösch das erste Datum nicht, nur weil dir das zweite lieber ist. Das Protokoll darf nur das korrigierte Datum behalten. Das Transkript soll die Korrektur sichtbar lassen.
+**Korrekturen.** Hat jemand ein Datum gesagt und es danach korrigiert, sollen beide Zeilen im Text bleiben. Lösche das erste Datum nicht, nur weil dir das zweite lieber ist. Das Protokoll darf nur das korrigierte Datum behalten. Das Transkript soll die Korrektur sichtbar lassen.
 
 **Chat.** `chat.txt` in einem lokalen Zoom-Ordner ist der Meeting-Chat, nicht das Audiotranskript. Misch ihn nicht in die VTT-Ausgabe. Leute tippen Dinge, die sie nicht laut gesagt haben.
 
-**Eine lokale M4A, von der du dir ein VTT gewünscht hast.** Hör auf. Klartext gibt es noch nicht. Eine Datei von 15 Minuten oder weniger kann durch [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren) im Browser. Die Datei wird nicht hochgeladen. Es gibt keine Sprechernamen. Längere Sitzungen sind die Mac-App: importiere die M4A, oder nimm das nächste Gespräch aus der Menüleiste auf. Systemaudio nutzt die Berechtigung Systemaudioaufnahme, nur Ton.
+**Eine lokale M4A, von der du dir ein VTT gewünscht hast.** Dann hör auf. Klartext gibt es noch nicht. Eine Datei von 15 Minuten oder weniger kann durch [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren) im Browser. Die Datei wird nicht hochgeladen. Es gibt keine Sprechernamen. Längere Sitzungen sind die Mac-App: importiere die M4A, oder nimm das nächste Gespräch aus der Menüleiste auf. Systemton nutzt die Berechtigung Systemaudioaufnahme, nur Ton.
 
 ## Vom Klartext zu Notizen
 
-Klartext ist immer noch ein Transkript. Er ist nur lesbar. Meeting-Notizen sind kürzer.
+Klartext ist immer noch ein Transkript. Er ist nur lesbar. Notizen zur Sitzung sind kürzer.
 
 1. Überflieg den Klartext nach Entscheiden und nach «ich» plus einem Namen.
-2. Wenn du einen Entwurf willst, öffne [Notizen aus einem Transkript](/de/tools/notizen-aus-transkript) und füg den Klartext ein. Dieser Schritt verbraucht einen Wochenlauf. Streich jede Person, die der Entwurf ohne Beleg dazugesetzt hat.
+2. Wenn du einen Entwurf willst, öffne [Notizen aus einem Transkript](/de/tools/notizen-aus-transkript) und füge den Klartext ein. Dieser Schritt verbraucht einen der wöchentlichen Läufe. Streiche jede Person, die der Entwurf ohne Beleg dazugesetzt hat.
 3. Leg die Zeilen, die bleiben, aufs [Sitzungsprotokoll](/de/tools/sitzungsprotokoll): Entscheide, Massnahmen mit einer Person und einem Datum, offene Fragen.
 
-Schick nicht das VTT, den Klartext und einen Modell-Recap als drei Anhänge, die sich widersprechen. Schick die Notizen. Behalte das VTT für die Leute, die einen Satz prüfen dürfen.
+Schick nicht das VTT, den Klartext und einen Modell-Rückblick als drei Anhänge, die sich widersprechen. Schick die Notizen. Behalte das VTT für die Leute, die einen Satz prüfen dürfen.
 
-Zooms Kopie des Transkripts bleibt in der Zoom-Cloud, nach den Aufbewahrungseinstellungen des Kontos. Ein VTT herunterzuladen löscht Zooms Kopie nicht. Wenn die Aufnahme dort nicht leben soll, ist das eine Zoom-Admin-Einstellung, keine Funktion des Bereinigers.
+Zooms Kopie des Transkripts bleibt in der Zoom-Cloud, nach den Aufbewahrungseinstellungen des Kontos. Ein VTT herunterzuladen löscht Zooms Kopie nicht. Wenn die Aufnahme dort nicht liegen soll, ist das eine Einstellung im Zoom-Admin, keine Funktion des Bereinigers.
 
 ## Häufige Fragen
 
@@ -135,10 +135,10 @@ Ja. Derselbe Bereiniger nimmt einen Teams-Export oder ein SRT. Die Download-Schr
 
 ### Soll ich das VTT löschen, sobald ich Klartext habe?
 
-Behalte es, bis du sicher bist, dass du die Cue-Zeiten oder einen frischen Download von Zoom nicht mehr brauchst. Klartext liest sich leichter und ist als Beleg dessen, was der Export enthielt, schlechter.
+Behalte es, bis du sicher bist, dass du die Cue-Zeiten oder einen frischen Download von Zoom nicht mehr brauchst. Klartext liest sich leichter. Als Beleg dafür, was der Export enthielt, ist er schwächer.
 
 ### Das VTT ist in der falschen Sprache. Kann der Bereiniger übersetzen?
 
-Nein. Er entfernt nur das Gerüst der Untertitel. Übersetzung ist eine eigene Entscheidung, und ein Sprachmodell, das auf die falsche Sprache gestellt war, wird nicht repariert, indem du Zeitstempel löschst.
+Nein. Er entfernt nur das Gerüst der Untertitel. Übersetzung ist eine eigene Entscheidung. Ein Sprachmodell, das auf die falsche Sprache gestellt war, wird nicht repariert, indem du Zeitstempel löschst.
 
 Nächster Schritt: beginnt die Datei mit `WEBVTT`, öffne den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Ist die Datei `audio_only.m4a`, nimm [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren) nur, wenn sie 15 Minuten oder kürzer ist.

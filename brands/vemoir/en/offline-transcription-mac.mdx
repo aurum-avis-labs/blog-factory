@@ -12,23 +12,27 @@ image: "@/assets/blog/offline-transcription-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/offline-transcription-mac/inline1.jpg';
-import inline2 from '@/assets/blog/offline-transcription-mac/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@enchponnt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Thomas Chizzali</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Offline transcription on Mac** means the speech model is already on the machine, and the audio file never has to leave that machine for the text step. It does not mean "never used the internet." Setup, first model downloads, account sign-in, and most cloud notetakers still need a network. Once the weights sit in a browser cache or in a Mac app's model library, you can transcribe with Wi-Fi off.
 
 This guide separates three honest cases: the free browser tools on vemoir.ch, a local Mac meeting app after models are installed, and cloud services that transcribe on someone else's servers even when you started the call on a Mac. It also says when a Finder-only file app is the simpler offline choice.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Browser file</span><strong>15 min</strong><p>Per file on vemoir.ch tools.</p></li>
+  <li><span class="blog-kicker">Browser quota</span><strong>3/week</strong><p>Successful runs, not retries.</p></li>
+  <li><span class="blog-kicker">Live capture</span><strong>Mac app</strong><p>No meeting recording in the browser tab.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Clearing the browser cache removes the Whisper model. You need the network again for the first download.</p>
+</aside>
+
 ## What offline transcription on Mac actually means
 
 People search **offline transcription mac** for two different jobs:
 
-
-<Image src={inline1} alt="Closed laptop on a countryside desk in daylight" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@stev_tensai89?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Stefanus Stefanus</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. **A file already on disk** (Voice Memo M4A, Zoom `audio_only.m4a`, interview WAV). They want text without uploading the file.
 2. **The next live meeting.** They want capture and transcription without a bot and without sending audio to a vendor cloud.
@@ -41,10 +45,6 @@ Local processing still needs storage and memory. Vemoir's Mac app asks for Apple
 
 The free tools on vemoir.ch transcribe a file you already have **in the browser tab**. The audio is **not uploaded** to Vemoir. A public Whisper model downloads once. Later runs can work with the network off if the browser still has the model cached. You can confirm that in the **Network** tab (no multipart upload of your file).
 
-
-<Image src={inline2} alt="Rural office table with paper notes by a window" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@istin?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Irvin Aloise</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Use [/tools/transcribe-recording](/tools/transcribe-recording) for a generic MP3, M4A, WAV, or MP4. Zoom locals have a dedicated page at [/tools/transcribe-zoom-recording](/tools/transcribe-zoom-recording). Voice memos sit at [/tools/transcribe-voice-memo](/tools/transcribe-voice-memo).
 

@@ -20,6 +20,7 @@ Read that skill before drafting or queuing posts. Brand strategy stays in `conte
 - `relatedPosts`: 1–3 slugs in the same language. Same or higher intent (`awareness` < `interest` < `consideration`). `interest` does not link to `awareness`. `consideration` links to `consideration`, or to `interest` only if no other `consideration` post exists in that language.
 - `description`: under 160 characters.
 - Body starts at H2. No `---` in the body.
+- Body length must meet the query-map **floor** for that article type in every language. Short locale stubs fail. Do not pad past the ceiling.
 - New waves stay `draft: true` until they are approved to schedule. `draft: false` with a due `pubDate` is eligible for `scripts/dispatch-due-deploys.ts`.
 
 Full field order, query types, images, and wave rules are in the skill.

@@ -10,12 +10,8 @@ relatedPosts: ["alternativa-a-fireflies", "alternativa-a-granola", "alternativa-
 tool: "transcribe-zoom-recording"
 image: "@/assets/blog/zoom-local-recording-transcript/hero.jpg"
 draft: false
+
 ---
-
-import { Image } from 'astro:assets';
-import privateRecords from '@/assets/blog/zoom-local-recording-transcript/private-records.jpg';
-import voiceCapture from '@/assets/blog/zoom-local-recording-transcript/voice-capture.jpg';
-
 Se devi **trascrivere una registrazione Zoom** dopo la call, nella cartella sul Mac trovi spesso audio o video, non un verbale pronto. Zoom crea un file di trascrizione separato solo quando la riunione è stata **registrata nel cloud** con un **piano a pagamento**, cloud recording e trascrizione audio attivi. Se scegli **Registra su questo computer** (comune su account gratuiti e su molti piani pagati), ottieni file MP4 e M4A in locale. Il testo lo produci tu dalla traccia audio.
 
 Questa guida spiega dove Zoom salva quei file su Mac e Windows, cosa distingue un VTT cloud da un M4A locale, e come ottenere il testo nel browser **senza caricare** l'audio su un server.
@@ -36,8 +32,6 @@ Di default tutto sta sotto **Documenti/Zoom**, con una sottocartella per riunion
 Il percorso può cambiare se hai modificato **Posizione archiviazione registrazione locale** nell'app Zoom: foto profilo → **Impostazioni** → **Registrazione** → **Apri** o **Modifica** (stesso articolo). Se manca una registrazione, la [guida risoluzione problemi Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0083769) consiglia di aprire la cartella dalle impostazioni e verificare se il meeting è finito nel cloud.
 
 In quella cartella usa il file **solo audio** per la trascrizione. La documentazione formati chiama l'audio locale `audio[numero casuale].m4a`; molte installazioni mostrano anche **`audio_only.m4a`**. Conserva l'intera cartella finché il testo non ti convince: una registrazione locale esiste solo su quel computer, Zoom non tiene una copia sui suoi server.
-
-<Image src={privateRecords} alt="Postazione laptop ordinata su una scrivania" width={700} quality={80} class="w-full" />
 
 ## VTT cloud vs M4A o MP4 locale
 
@@ -64,8 +58,6 @@ Vuoi evitare di cercare cartelle dopo ogni call? [Vemoir registra la prossima ri
 6. **Copia il testo** per note, email o archivio progetto.
 
 Quando `audio_only.m4a` o `audio*.m4a` è pronto, puoi [trascrivere la registrazione Zoom nel browser](/it/strumenti/trascrivere-registrazione-zoom) senza inviare l'audio della riunione.
-
-<Image src={voiceCapture} alt="Appunti e documenti su una scrivania" width={700} quality={80} class="w-full" />
 
 Per altri file, l'hub [/it/strumenti](/it/strumenti) elenca strumenti correlati. Se hai già testo grezzo e vuoi note strutturate, vedi [/it/strumenti/note-da-trascrizione](/it/strumenti/note-da-trascrizione).
 
@@ -95,6 +87,17 @@ Passa all'app Mac quando:
 **Breve estratto locale (15 minuti o meno):** apri lo [strumento gratuito per registrazioni Zoom](/it/strumenti/trascrivere-registrazione-zoom) e trascina la M4A. L'elaborazione resta nella scheda del browser; usa la scheda Rete sopra se devi dimostrare che non c'è upload.
 
 **Riunioni più lunghe, speaker o prossima call live:** importa il file locale completo nell'[app Mac Vemoir](https://apps.apple.com/app/id6794693630), oppure [registra la prossima riunione sul Mac](/it#how) dalla barra menu mentre resti in Zoom. Nessun bot nella lista partecipanti.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Trascrizione cloud</span><strong>Piani a pagamento</strong><p>Testo solo con registrazione cloud attiva.</p></li>
+  <li><span class="blog-kicker">File locale</span><strong>audio_only.m4a</strong><p>La registrazione locale gratuita è audio, non testo.</p></li>
+  <li><span class="blog-kicker">Tool browser</span><strong>15 min</strong><p>Trascrivere nel tab senza caricare il file.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>I registratori integrati seguono la licenza dell'host. Un'app menu bar non sostituisce gli avvisi di Teams o Zoom.</p>
+</aside>
 
 ## Domande frequenti
 

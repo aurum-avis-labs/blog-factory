@@ -11,9 +11,6 @@ image: "@/assets/blog/microphone-noise-suppression/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/microphone-noise-suppression/inline1.jpg';
-import inline2 from '@/assets/blog/microphone-noise-suppression/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sunx?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sunx</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 La **suppression du bruit micro** dans Vemoir est un réglage de la piste microphone. Vous choisissez Off, Balanced ou Strong. Le traitement reste sur le Mac. Le son de l'autre personne, dans Teams, Zoom, Meet ou une autre app, est une piste séparée et ne passe pas par ce contrôle.
@@ -35,9 +32,12 @@ Si la pièce est déjà calme, Off est souvent le meilleur choix. Balanced et St
 Le contrôle porte sur le microphone que vous sélectionnez pour l'enregistrement. C'est votre côté de la conversation. L'audio système, les personnes à l'autre bout, est capté comme une piste locale distincte via l'autorisation macOS System Audio Recording. Un tap Core Audio audio seulement prend ce son. L'écran n'est pas enregistré.
 
 
-<Image src={inline1} alt="Gros plan d'un micro sans marque sur une table en bois" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Desactive</span><strong>Brut</strong><p>Aucun traitement supplementaire sur le micro.</p></li>
+  <li><span class="blog-kicker">Equilibre</span><strong>Defaut</strong><p>Nettoyage leger pour la plupart des salles.</p></li>
+  <li><span class="blog-kicker">Fort</span><strong>Bruit</strong><p>Plus de suppression. L'audio systeme ne change pas.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 La suppression ne mélange pas les deux pistes en une «&nbsp;réunion propre&nbsp;». Elle cherche à réduire les interférences stables sur le chemin du micro avant que cette piste soit finalisée. La séparation des locuteurs tourne ensuite sur le Mac, sur l'audio local, et c'est une autre étape.
 
@@ -52,9 +52,11 @@ Le mode choisi reste visible. Vous voyez si la dernière réunion a utilisé Off
 | Strong | Bruit stable plus fort&nbsp;: clavier, ventilation, bourdonnement continu |
 
 
-<Image src={inline2} alt="Piece calme, micro et carnet ferme" width={700} quality={80} class="w-full" />
+<div class="blog-pair">
+  <div><h3>Pour qui</h3><ul><li>Appels au micro du portable en open space</li></ul></div>
+  <div><h3>Qui peut passer</h3><ul><li>Studios qui filtrent deja le micro en materiel</li></ul></div>
+</div>
 
-<p><em>Photo by <a href="https://unsplash.com/@mitchel3uo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">mitchel3uo</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Ces noms décrivent l'intensité, pas un classement des modèles de transcription. Off n'est pas un état d'échec. C'est le réglage honnête quand le micro suffit déjà et que vous ne voulez pas changer la couleur de la voix.
 

@@ -11,9 +11,6 @@ image: "@/assets/blog/project-glossary/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/project-glossary/inline1.jpg';
-import inline2 from '@/assets/blog/project-glossary/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@dlxmedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dlxmedia</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Un **glossaire de projet** est la liste d’un client ou d’un dossier&nbsp;: les noms et les mots que les transcriptions écrivent souvent mal, et l’orthographe que vous voulez dans le compte rendu. Vemoir la stocke sur le Mac, dans ce projet. Vous pouvez la chercher, et vous pouvez créer, modifier ou supprimer des termes en local. Une entrée porte le terme préféré, des alias et une courte définition.
@@ -25,13 +22,15 @@ La transcription originale reste la preuve. La normalisation des alias change l�
 Vous cherchez cela quand le compte rendu dit «&nbsp;Canton&nbsp;» et que le client dit «&nbsp;canton de Vaud&nbsp;», ou quand un nom de produit sort comme un mot courant. Le glossaire est l’endroit de cette préférence. Ce n’est pas un profil de locuteur et ce n’est pas une recherche sur toutes les réunions passées.
 
 
-<Image src={inline1} alt="Fiches vierges pour des termes sur une table" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@c1st?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">c1st</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 La transcription Whisper compatible reçoit les termes comme indices de prompt. Parakeet v3 est un autre modèle de parole, avec sa propre couverture de 25 langues européennes. Ne supposez pas qu’un indice de glossaire change Parakeet de la même façon. L’app montre le modèle de parole que vous avez choisi. La génération et la régénération d’artefacts reçoivent aussi la terminologie, comme contexte qui n’est pas une preuve.
 
 S’il faut seulement reformuler une réunion après coup, éditez le compte rendu. Prenez le glossaire quand les mêmes mots reviendront dans ce projet.
+
+<ul class="blog-checklist">
+  <li>Noms de code produit et raisons sociales client</li>
+  <li>Acronymes mal transcrits</li>
+  <li>Un glossaire par projet client</li>
+</ul>
 
 ## Des termes qui méritent leur place
 
@@ -42,10 +41,6 @@ S’il faut seulement reformuler une réunion après coup, éditez le compte ren
 5. Laissez de côté les mots que vous ne voudriez pas voir dans un résumé. Un terme de glossaire est un contexte pour la génération. Ne le chargez pas de secrets que vous ne voulez pas répéter.
 
 
-<Image src={inline2} alt="Ouvrage de reference ouvert a cote de notes de reunion" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@terracotta215?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">terracotta215</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Cherchez dans la liste avant d’ajouter un quasi-doublon. Deux alias pointant vers des termes préférés différents se battent.
 
 ## Ce qui change, et ce qui reste transcription
@@ -55,6 +50,11 @@ Quand un modèle prépare l’entrée, les alias peuvent être normalisés vers 
 Ouvrez la transcription si vous voulez voir ce qui a été dit. Si l’enregistrement a capté «&nbsp;kay bé&nbsp;» et que le glossaire préfère «&nbsp;KB&nbsp;», la ligne de transcription reste la capture. Le résumé peut dire KB. Cette coupure est le point. Vous pouvez citer la ligne. Vous ne devriez pas dire au client que la transcription elle-même a été réécrite à l’orthographe de marque.
 
 Les notes manuelles que vous tapez sont aussi séparées. Elles gardent votre provenance. Un glossaire ne transforme pas votre phrase en citation de transcription.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Portée</span><strong>Projet</strong><p>Termes pour les réunions de ce projet.</p></li>
+  <li><span class="blog-kicker">Gain</span><strong>Moins de corrections</strong><p>Moins de retouches avant envoi.</p></li>
+</ul>
 
 ## Quand un glossaire est le mauvais outil
 

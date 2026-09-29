@@ -11,11 +11,7 @@ image: "@/assets/blog/qwen-vs-gpt-oss/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/qwen-vs-gpt-oss/inline1.jpg';
-import inline2 from '@/assets/blog/qwen-vs-gpt-oss/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@solomin_d?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">solomin_d</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Qwen vs gpt-oss** in Vemoir is a choice between two local language models that write. Qwen3 4B is the one for most Macs. gpt-oss-20b is the one for high-memory Macs. Both can produce notes, documents, and Ask Vemoir answers. Neither transcribes the recording. Speech stays with Parakeet v3 or a Whisper model you downloaded. There is no accuracy ranking here, because these models are not the transcribers, and this page does not score which one writes "better."
 
 The app shows storage, hardware fit, and which model is selected. A meeting uses the selection captured for that run. It does not swap Qwen for gpt-oss, or the reverse, halfway through because one of them struggled.
@@ -31,22 +27,20 @@ The app shows storage, hardware fit, and which model is selected. A meeting uses
 | If it is missing | Download it on purpose, or processing cannot pretend it is there | Same. No silent substitute |
 
 
-<Image src={inline1} alt="Two workstations side by side with closed laptops" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@jorienloman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jorienloman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Both run on the Mac. Internet is for the download, not for each sentence of a finished meeting once the model is installed. You can remove either from the model library. You can inspect readiness and storage there.
 
 Ask, documents, meeting artifacts, and custom artifacts share one active text source. Selecting the local model, Qwen or gpt-oss, keeps that source on the device. If you had activated a bring-your-own key, switching back to the local model routes those four back on-device. A failure does not quietly pick the other local model or the cloud key.
+
+|  | Qwen (local) | GPT-OSS (local) |
+| --- | --- | --- |
+| Job | On-device writing | On-device writing |
+| Internet | Setup download | Setup download |
+| When off | Local templates only | Local templates only |
 
 ## Where Qwen is the better choice
 
 Qwen3 4B is the better choice on a Mac that is not high-memory, when you want the writing model that the setup presents for most machines, and when you would rather spend disk and memory on the speech model and the recording than on the largest writing file. It is also the better choice if you are unsure, because forcing gpt-oss-20b onto a Mac that does not fit it is not a quality upgrade the app will paper over. The device-fit guidance is there so you do not guess.
 
-
-<Image src={inline2} alt="Two people at neighboring desks writing notes" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@wasil_ahammed?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">wasil_ahammed</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 You still pick the speech model separately. A fluent Qwen summary of a bad transcript is still a summary of a bad transcript. Fix the speech model, the mic, or the glossary if the words are wrong. Changing from Qwen to gpt-oss does not relabel speakers and does not apply glossary hints to the audio.
 
@@ -57,6 +51,23 @@ gpt-oss-20b is the better choice when the Mac has the memory for it and you want
 It is the worse choice when the Mac is tight. Do not start the larger download hoping for an automatic reduction to Qwen. Downloads are explicit. A failed download stays failed until you resume or remove it.
 
 Switching between the installed models for the next Ask turn replans that turn. It does not rewrite the messages already in the conversation. Completed answers keep showing which model produced them.
+
+<div class="blog-pair">
+  <div>
+    <h3>Use a cloud key instead</h3>
+    <ul>
+      <li>You need a model the local build does not ship</li>
+      <li>Legal approved one external vendor only</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Stay fully local</h3>
+    <ul>
+      <li>Client NDAs forbid any external LLM</li>
+      <li>Air-gapped Mac after model download</li>
+    </ul>
+  </div>
+</div>
 
 ## What neither model will do
 

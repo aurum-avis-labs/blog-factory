@@ -12,14 +12,22 @@ image: "@/assets/blog/does-fireflies-train-on-recordings/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/does-fireflies-train-on-recordings/inline1.jpg';
-import inline2 from '@/assets/blog/does-fireflies-train-on-recordings/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@tanyabarrow?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">T</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Fireflies addestra sulle registrazioni** è più stretto di «Fireflies è sicuro». A settembre 2026 la **privacy policy** pubblica (aggiornata il 6 marzo 2026), i **termini di servizio**, l'articolo di help su come tengono al sicuro le informazioni e la [pagina security](https://fireflies.ai/security) affermano che Fireflies **non usa** contenuti di meeting né dati personali per addestrare modelli IA interni o esterni, e che i vendor sono contrattualmente esclusi. Gli stessi testi descrivono però un **notetaker cloud** che cattura le riunioni, conserva registrazioni e transcript nel servizio Fireflies e (in molti setup) entra come partecipante visibile.
 
 Questo articolo cita quelle pagine vendor. Non è consulenza legale. Non decide se Fireflies sta in un contratto, nella **nLPD** o in un divieto IT sui bot. Vemoir non afferma che Fireflies sia certificato, conforme o approvato per un settore.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Training</span><strong>No (fornitore)</strong><p>Privacy Policy, marzo 2026: niente training sui dati personali.</p></li>
+  <li><span class="blog-kicker">Retention vendor</span><strong>Zero giorni</strong><p>I partner non conservano il contenuto dopo l'elaborazione.</p></li>
+  <li><span class="blog-kicker">La tua libreria</span><strong>Cloud</strong><p>Le registrazioni restano su Fireflies finché non le cancelli.</p></li>
+</ul>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Correzione</span>
+  <p>Niente training non significa niente bot. Fireflies può entrare come partecipante se attivato.</p>
+</aside>
 
 ## Indice
 
@@ -48,20 +56,12 @@ Questo articolo cita quelle pagine vendor. Non è consulenza legale. Non decide 
 | Subprocessori | [trust.fireflies.ai/subprocessors](https://trust.fireflies.ai/subprocessors) |
 
 
-<Image src={inline1} alt="Schedario di legno chiuso in un ufficio" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@___atmos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Caroline Badran</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Le policy cambiano. Apri i link prima di fidartene.
 
 ## Fireflies addestra sulle registrazioni
 
 La query mescola tre strati:
 
-
-<Image src={inline2} alt="Pile di documenti su uno scaffale, nessuno schermo" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@theotherworkspace?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">David Fintz</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. **Training di modelli di fondazione.** Fireflies mette il tuo MP3 o il transcript nei pesi tipo GPT, o lo consente a OpenAI / Anthropic?
 2. **Miglioramento prodotto.** Fireflies tiene segnali derivati o de-identificati per migliorare funzioni?

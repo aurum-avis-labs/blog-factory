@@ -11,9 +11,6 @@ image: "@/assets/blog/microphone-noise-suppression/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/microphone-noise-suppression/inline1.jpg';
-import inline2 from '@/assets/blog/microphone-noise-suppression/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sunx?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sunx</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Microphone noise suppression** in Vemoir is a setting on the microphone track. You choose Off, Balanced, or Strong. Processing stays on the Mac. The call audio from Teams, Zoom, Meet, or another app is a separate track and is not what this control cleans.
@@ -35,9 +32,12 @@ If the room is already quiet, Off is often the better choice. Balanced and Stron
 The control sits on the microphone you select for the recording. That is your side of the conversation. System audio, the people on the other end of the call, is captured as its own local track through macOS System Audio Recording. An audio-only Core Audio tap takes that sound. It does not record the screen.
 
 
-<Image src={inline1} alt="Close-up of an unbranded mic on a wooden table" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Off</span><strong>Raw mic</strong><p>No extra processing on the microphone track.</p></li>
+  <li><span class="blog-kicker">Balanced</span><strong>Default</strong><p>Light cleanup for most rooms and headsets.</p></li>
+  <li><span class="blog-kicker">Strong</span><strong>Noisy room</strong><p>More suppression. System audio is unchanged.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Noise suppression does not mix those two tracks into one "clean meeting." It tries to reduce non-speech interference on the mic path before that mic audio is finalized. Speaker separation still runs on the Mac afterward, on the local audio, and is a different step.
 
@@ -52,9 +52,11 @@ The selected mode stays visible, so you can see whether the last meeting used Of
 | Strong | Louder steady noise: a busy keyboard, HVAC, a cafe table with a steady hum |
 
 
-<Image src={inline2} alt="A quiet room with a microphone and a closed notebook" width={700} quality={80} class="w-full" />
+<div class="blog-pair">
+  <div><h3>Who this is for</h3><ul><li>Calls on a laptop mic in a shared office</li></ul></div>
+  <div><h3>Who should skip it</h3><ul><li>Studios that already gate the mic in hardware</li></ul></div>
+</div>
 
-<p><em>Photo by <a href="https://unsplash.com/@mitchel3uo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">mitchel3uo</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 These names describe intensity, not a quality ranking of transcription models. Off is not a failure state. It is the honest setting when the mic is already fine and you do not want the voice color changed by processing.
 

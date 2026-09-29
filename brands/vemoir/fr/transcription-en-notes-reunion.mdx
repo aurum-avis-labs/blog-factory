@@ -12,12 +12,20 @@ image: "@/assets/blog/turn-transcript-into-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/turn-transcript-into-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/turn-transcript-into-meeting-notes/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Transformer une transcription en notes de réunion, c'est tirer décisions, responsables et dates d'un texte que vous avez déjà. Le mail est cette page courte. La transcription reste la preuve à côté, pas la pièce jointe que personne ne lit. Un modèle peut rédiger le brouillon. Il ne peut pas remplacer la phrase où quelqu'un a posé une condition.
+
+<ol class="blog-flow">
+  <li><strong>Parcourir</strong><p>Lire titres et horodatages, pas chaque mot de remplissage.</p></li>
+  <li><strong>Extraire</strong><p>Tirer décisions, actions et questions ouvertes vers un modèle.</p></li>
+  <li><strong>Vérifier</strong><p>Envoyer les actions aux responsables avant l'e-mail externe.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>L'outil navigateur peut brouillonner depuis un fichier existant; il n'enregistre pas les réunions live.</p>
+</aside>
 
 ## Sommaire
 
@@ -33,10 +41,6 @@ Transformer une transcription en notes de réunion, c'est tirer décisions, resp
 Vous n'avez pas besoin d'un second enregistreur si Teams ou Zoom vous a déjà donné du texte. Le chemin :
 
 
-<Image src={inline1} alt="Surligneur et courte carte de resume sur le bureau" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@cherrydeck?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Cherrydeck</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 1. Garder l'original.
 2. Retirer l'échafaudage si le fichier est un VTT ou un SRT.
 3. Produire un brouillon de notes et le lire contre les lignes.
@@ -51,10 +55,6 @@ Un enregistrement Zoom local est souvent encore de l'audio, pas une transcriptio
 
 Un VTT plein de temps de cue pousse le modèle à traiter les temps comme du contenu, ou à les avaler en perdant des conditions. Déposez d'abord l'export sur le [nettoyage de transcription](/fr/outils/nettoyer-transcription). En-tête, numéros et horodatages partent. Les noms restent s'ils étaient déjà là comme `<v Nom>`, `Nom :`, `Speaker 1 :` ou `SPEAKER_01 :`. Cette étape ne dépense pas de passage hebdomadaire.
 
-
-<Image src={inline2} alt="Quelqu'un reecrit des notes a partir d'une pile de pages" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 S'il manque des noms, la page le dit. N'envoyez le texte plus loin que si vous voulez des décisions sans personnes inventées. La page de notes ne nomme personne qui n'est pas dans le texte.
 

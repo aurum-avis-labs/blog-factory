@@ -11,9 +11,6 @@ image: "@/assets/blog/export-to-apple-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/export-to-apple-notes/inline1.jpg';
-import inline2 from '@/assets/blog/export-to-apple-notes/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Export to Apple Notes** sends a meeting record into a Notes account and folder you choose. Vemoir stores the note's identifier, so a later export updates that same note instead of dropping a second copy beside it. You see a combined-note preview before the handoff.
@@ -25,11 +22,13 @@ The audio does not go to Apple with the note. You are exporting the record: the 
 The note includes the canonical summary, key points, risks, open questions, decisions, actions, participants, custom documents, and Vemoir provenance. It does not repeat derivative artifacts that only restate the same summary. Manual notes you typed keep their standing as your text. They are not pasted in as if they were transcript quotes.
 
 
-<Image src={inline1} alt="Someone copying a page into a personal notebook" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@shpetimujkani?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">shpetimujkani</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 You pick a real Apple Notes account and a nested folder as the destination for a project. The folder is yours. Vemoir does not invent a hidden notebook.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Select the sections to share</h3><p>Minutes, actions, or the full record.</p></li>
+  <li data-step="2"><h3>Use the share sheet</h3><p>Pick Notes or another destination.</p></li>
+  <li data-step="3"><h3>Review before sync</h3><p>iCloud copies what you export.</p></li>
+</ol>
 
 ## Export once, then update
 
@@ -40,10 +39,6 @@ You pick a real Apple Notes account and a nested folder as the destination for a
 5. If processing is regenerated later, export again. Vemoir updates the same note. If a retry fails, the error is kept so you can see it, rather than quietly creating a duplicate.
 
 
-<Image src={inline2} alt="A stack of cards tucked into a cream notebook" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kseegars?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kseegars</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 You can also turn on an optional automatic export after a meeting processes successfully. Leave that off if you want to read the preview every time. Automatic does not mean the audio is shared. It means the text record is sent to that folder after success, without an extra click.
 
 ## What stays on the Mac
@@ -53,6 +48,11 @@ Transcription, speaker separation, and the recording remain on the Mac. Apple No
 If you delete the meeting or purge audio in Vemoir, the note already in Apple Notes is a copy you sent. Deleting it there is a separate act in Notes. Conversely, updating the note from Vemoir overwrites that note's Vemoir-managed content according to the export, so read the preview when the minutes changed a lot.
 
 Identity settings can map `ME` to your real name and show `Name (Me)` in copied or shared content. Set that before a client-facing export if "ME" would look unfinished.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Export is your choice. The original recording stays in Vemoir until you delete it.</p>
+</aside>
 
 ## Where Apple Notes is the wrong destination
 

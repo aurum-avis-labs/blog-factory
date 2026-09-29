@@ -12,14 +12,33 @@ image: "@/assets/blog/minutes-vs-transcript/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/minutes-vs-transcript/inline1.jpg';
-import inline2 from '@/assets/blog/minutes-vs-transcript/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Kelly Sikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Meeting minutes vs a transcript is a choice of record, not of software. The transcript is the words people said, in order, often with times. The minutes are the short page someone can act on: who was there, what was decided, which questions stayed open, and which tasks have an owner and a date. If you send the transcript and call it the minutes, people will not read it. If you keep only a polished summary and throw away the words, you cannot check a disputed line later.
 
 You do not have to pick one and delete the other. Most professional sittings need both, stored as different things. This note is about that split. The copyable layout is in the [meeting minutes template](/blog/meeting-minutes-template).
+
+<div class="blog-pair">
+  <div>
+    <h3>Minutes</h3>
+    <ul>
+      <li>Decisions, actions, owners, dates</li>
+      <li>Safe to forward to people who missed the call</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Transcript</h3>
+    <ul>
+      <li>Near-verbatim talk, including side threads</li>
+      <li>Better for search and dispute review</li>
+    </ul>
+  </div>
+</div>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Do not paste a transcript into the board pack and call it minutes.</p>
+</aside>
 
 ## Contents
 
@@ -36,10 +55,6 @@ You do not have to pick one and delete the other. Most professional sittings nee
 A transcript is a rendering of speech as text. A careful human transcript marks speakers, overlapping talk, and words that were unclear. An automatic transcript does some of that and invents none of the intent. It will keep false starts, "yeah", and the sentence someone later retracted.
 
 
-<Image src={inline1} alt="A short card next to a long printed document" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Annie Spratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Common shapes:
 
 - A Zoom cloud `.vtt` file, with a WEBVTT header, cue times, and sometimes a speaker tag.
@@ -55,10 +70,6 @@ Browser tools that transcribe a file you already have do not add speaker names. 
 
 Minutes are the record of the sitting, written so a person who was not there can see the outcome. A usable page has a date, the attendees, the agenda, the decisions, the action items with one owner and a due date, and the open questions. That shape is what the [minutes sheet](/tools/minutes-sheet) holds in the browser. You fill it. It does not transcribe the room, and it does not spend a weekly speech-model run.
 
-
-<Image src={inline2} alt="A notebook beside loose transcript pages" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Kelly Sikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 A decision is different from an action. "We will ship in April" can be finished in the room. "Mara tells the client on Tuesday" happens afterward. Mixing them turns the page into a diary.
 

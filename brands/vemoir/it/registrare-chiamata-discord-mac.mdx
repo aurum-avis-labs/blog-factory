@@ -11,10 +11,6 @@ image: "@/assets/blog/record-discord-call-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/record-discord-call-mac/inline1.jpg';
-import inline2 from '@/assets/blog/record-discord-call-mac/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Registrare una chiamata Discord sul Mac** significa catturare il suono che Discord sta già riproducendo, più il microfono, sul computer davanti a te. Discord non ti consegna una cartella stile Zoom di file locali quando un canale vocale finisce. Se ti serve una trascrizione, esci con un file che hai catturato tu, oppure accetti che la chiamata sia esistita solo come suono dal vivo. Vemoir è la cattura dalla barra dei menu per quel file. L'app non entra nel canale come bot.
 
@@ -32,11 +28,6 @@ L'app Mac è un acquisto unico. In Svizzera costa **CHF 20**. L'App Store mostra
 
 Una chiamata vocale o video su Discord è dal vivo. Quando finisce, restano i messaggi nel canale. Il parlato non diventa una trascrizione scaricabile, salvo che qualcuno abbia registrato o che un bot installato sul server abbia fatto quel lavoro. I bot del server che registrano o trascrivono sono visibili a chi gestisce il server, e sono un altro prodotto rispetto a un'app sul Mac. Se le regole del server vietano i bot, non aggiungerne uno solo per avere una trascrizione.
 
-
-<Image src={inline1} alt="Ufficio di casa di notte, cuffia e portatile chiuso" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 I canali Stage, le condivisioni schermo e gli stream Go Live restano audio, a volte video, che esce dall'app Discord sul Mac. Una cattura dell'audio di sistema sente quello che sente il Mac. Non scarica i server di Discord e non raggiunge un partecipante il cui client non ha mai suonato sulla tua macchina. Se qualcuno parlava e lo avevi in muto, mancherà. La registrazione corrisponde alle tue orecchie.
 
 Spetta a te dirlo al canale. Un'app locale non pubblica un messaggio «registrazione avviata» in Discord. In molti posti il consenso non è facoltativo. Una trascrizione non lo crea dopo.
@@ -51,10 +42,12 @@ Spetta a te dirlo al canale. Un'app locale non pubblica un messaggio «registraz
 6. Avvia la registrazione dalla barra dei menu. Se la chiamata è di un cliente o di un progetto, scegli quel progetto prima, così il file non è una riunione sciolta. Di' al canale che stai registrando.
 7. Ferma quando la chiamata finisce. La trascrizione si ricostruisce dall'audio finito sul Mac. L'anteprima durante la chiamata è un indizio, non il fascicolo.
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Call su questo Mac</h3><p>Telefono o console non passano dall'audio di sistema.</p></li>
+  <li data-step="2"><h3>Imposta l'uscita</h3><p>Le cuffie che senti sono l'uscita catturata.</p></li>
+  <li data-step="3"><h3>Micro e audio di sistema</h3><p>Annuncia la registrazione a tutti.</p></li>
+</ol>
 
-<Image src={inline2} alt="Tavolo serale accogliente con cuffie e tazza" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Discord compare con le altre app di riunione sotto [piattaforme](/it#platforms). Lo stesso schema locale, senza bot, è il tema di [note di riunione senza bot](/it/blog/note-riunione-senza-bot).
 
@@ -65,6 +58,12 @@ L'import c'è se hai già un file: MP3, M4A, WAV, AIFF, CAF o FLAC. Un breve est
 ## Cuffie, audio dello stream, tracce basse
 
 L'audio di sistema è «quello che il Mac ha riprodotto». Alcuni setup lo rendono più basso di quanto le orecchie suggerivano.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Discord non offre registrazione ufficiale per ogni workspace. Vemoir cattura ciò che il Mac riproduce; non cambia i termini Discord.</p>
+</aside>
+
 
 **Cuffia USB o Bluetooth in uscita.** Finché macOS manda Discord a quel dispositivo e l'audio di sistema è consentito, la chiamata dovrebbe stare sulla traccia di sistema. Se colleghi le cuffie dopo l'inizio, fermati e controlla qualche secondo di registrazione prima della conversazione vera. Una traccia morta è evidente all'ascolto e dolorosa da scoprire un'ora dopo.
 

@@ -11,9 +11,6 @@ image: "@/assets/blog/mic-and-system-audio/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/mic-and-system-audio/inline1.jpg';
-import inline2 from '@/assets/blog/mic-and-system-audio/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sandrawilliams2025?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sandrawilliams2025</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Mic and system audio** in Vemoir are two local tracks, not one mixed file and not a picture of your screen. The microphone track is you. The system-audio track is whatever the Mac is playing from the meeting app: Teams, Zoom, Google Meet, Slack, Discord, or another app that makes sound.
@@ -37,9 +34,12 @@ You start and stop the recording. No bot joins the participant list. Both tracks
 | System audio | Apps playing on the Mac, including the meeting | Your voice, unless the meeting app plays you back to yourself |
 
 
-<Image src={inline1} alt="A microphone and a speaker side by side on a table" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Mic track</span><strong>Your voice</strong><p>Follows the microphone you pick in the menu bar.</p></li>
+  <li><span class="blog-kicker">System track</span><strong>The call</strong><p>Whatever the meeting app plays on the Mac.</p></li>
+  <li><span class="blog-kicker">Bot</span><strong>None</strong><p>You start and stop. Nobody joins the roster.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@yanahd?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">yanahd</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Microphone capture is its own session, separate from the system-audio tap. You choose the mic. A headset mic hears you and little of the room. A laptop mic hears the room and, if the remote audio is on speakers, some of the call as well. That overlap is ordinary physics, not a third recording mode.
 
@@ -52,9 +52,11 @@ The system-audio track is the meeting as the Mac plays it. Vemoir uses an audio-
 Older notes about Mac apps often say that capturing another app's sound requires Screen Recording. That was the permission name people learned. The shipped Vemoir app asks for System Audio Recording. It captures meeting audio. It does not record screen contents, pixels, or video of your desktop.
 
 
-<Image src={inline2} alt="Two separate cables coiled next to a notebook" width={700} quality={80} class="w-full" />
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>macOS asks for System Audio Recording for the call track. That permission is audio-only. It does not record screen pixels.</p>
+</aside>
 
-<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 You still grant microphone access for your own track. Those are two permissions for two sources. Denying system audio leaves you with the mic. Denying the mic leaves you with the call, and with almost none of your own voice unless it leaks through speakers into another mic you did not intend to use.
 

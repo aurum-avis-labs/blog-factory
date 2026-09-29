@@ -11,11 +11,7 @@ image: "@/assets/blog/best-private-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/best-private-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/best-private-meeting-notes/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@amyhirschi?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">amyhirschi</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 L'outil des **meilleures notes de réunion privées** est celui qui correspond au risque que vous essayez vraiment de réduire. Pour certaines personnes, cela veut dire aucun bot dans la liste des participants. Pour d'autres, le fichier audio ne séjourne jamais sur les serveurs d'un fournisseur. Ce sont des produits différents, et une liste honnête le dit.
 
 Cette comparaison utilise des pages fournisseurs vérifiées en septembre 2026, plus ce que l'app Mac Vemoir livre&nbsp;: enregistrement depuis la barre de menus, transcription sur le Mac, pas de bot, et un prix unique App Store de CHF 20 en Suisse. L'App Store affiche le prix local. Ce n'est pas un classement de précision de transcription. Ce n'est pas un avis juridique.
@@ -34,14 +30,16 @@ Cette comparaison utilise des pages fournisseurs vérifiées en septembre 2026, 
 - [Limites qui restent vraies quelle que soit la ligne](#limites-qui-restent-vraies-quelle-que-soit-la-ligne)
 - [Questions fréquentes](#questions-fréquentes)
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot</span><strong>Invité visible</strong><p>Otter et Fireflies rejoignent comme participants.</p></li>
+  <li><span class="blog-kicker">Fichier audio</span><strong>Sur le Mac</strong><p>Vemoir et MacWhisper gardent les fichiers en local.</p></li>
+  <li><span class="blog-kicker">Granola</span><strong>Sans bot</strong><p>Les notes restent dans le cloud US selon l'éditeur.</p></li>
+</ul>
+
 ## Ce que privé veut dire le plus souvent
 
 Quatre questions avant le nom de marque&nbsp;:
 
-
-<Image src={inline1} alt="Tiroir de bureau ferme a cle et carnet ferme" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Une autre personne apparaît-elle dans la réunion&nbsp;?
 2. L'audio quitte-t-il le Mac&nbsp;?
@@ -57,10 +55,6 @@ Aucune de ces réponses ne remplace le consentement. Enregistrer des personnes r
 Vemoir est une app Mac d'Aurum Avis Labs GmbH, à Oberägeri. Elle enregistre le micro et l'audio système en deux pistes locales. Vous démarrez et vous arrêtez depuis la barre de menus. Aucun bot ne rejoint Teams, Zoom, Meet, Slack, Discord ni une autre app qui joue du son sur le Mac. La piste d'appel utilise System Audio Recording, un tap Core Audio uniquement sonore. Elle n'enregistre pas l'écran.
 
 
-<Image src={inline2} alt="Cartes creme sur un bureau eloigne des fenetres" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@wocintechchat?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">wocintechchat</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 La parole vers le texte tourne sur le Mac avec le modèle que vous installez&nbsp;: Parakeet v3 (25 langues européennes) ou Whisper Turbo, Medium ou Large-v3. Notes, documents et Ask utilisent un modèle de langue local pour écrire, Qwen3 4B sur la plupart des Mac ou gpt-oss-20b sur les Mac à grande mémoire, ou Apple Intelligence là où le Mac l'a, ou une clé OpenAI ou Anthropic que vous stockez dans le Trousseau et activez vous-même. Cette clé est du texte seulement. L'audio et la séparation des intervenants restent sur le Mac. Il n'y a pas de repli silencieux vers un transcripteur cloud.
 
 Les noms d'intervenants commencent anonymes. Vous pouvez renommer une étiquette sans créer de profil. Remember this speaker est un opt-in, chiffré et supprimable. Un glossaire de projet garde les graphies préférées. La transcription d'origine reste la preuve.
@@ -68,6 +62,33 @@ Les noms d'intervenants commencent anonymes. Vous pouvez renommer une étiquette
 Prérequis&nbsp;: puce Apple, macOS Sonoma 14.2 ou plus récent, 8&nbsp;Go de mémoire, 10&nbsp;Go libres, 16&nbsp;Go recommandés pour les longues réunions. Les Mac Intel ne sont pas pris en charge. Si vous n'avez qu'un court fichier, [transcrire un audio](/fr/outils/transcrire-audio) tourne dans le navigateur, jusqu'à 15 minutes, trois passages réussis par semaine, sans étiquettes, fichier non envoyé. Cet essai n'est pas l'app en direct.
 
 Une carte plus longue de la capture sans bot est dans [notes de réunion sans bot](/fr/blog/notes-reunion-sans-bot).
+
+  </div>
+  <div>
+    <h3>Pick local when</h3>
+    <ul>
+      <li>Client contract forbids US processors</li>
+      <li>You need no guest in the room</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-pair">
+  <div>
+    <h3>Choisir le cloud</h3>
+    <ul>
+      <li>Recherche partagée en équipe commerciale</li>
+      <li>Bot déjà approuvé par l'IT</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Choisir le local</h3>
+    <ul>
+      <li>Contrat client interdit processeurs US</li>
+      <li>Pas d'invité dans la salle</li>
+    </ul>
+  </div>
+</div>
 
 ## MacWhisper
 

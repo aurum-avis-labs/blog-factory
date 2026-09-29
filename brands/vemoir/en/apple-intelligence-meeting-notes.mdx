@@ -11,11 +11,7 @@ image: "@/assets/blog/apple-intelligence-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/apple-intelligence-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/apple-intelligence-meeting-notes/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@andrewilliam?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">andrewilliam</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Apple Intelligence for meeting notes** in Vemoir is optional, and only where the Mac actually has Apple Intelligence. It can take part in cleanup and in generated artifacts. It does not transcribe the meeting. The words come from the local speech model you selected: Parakeet v3, or Whisper Turbo, Medium, or Large-v3.
 
 If this Mac does not offer Apple Intelligence, the meeting still runs. Cleanup and artifacts use a downloaded local language model instead: Qwen3 4B on most Macs, or gpt-oss-20b on high-memory Macs. Those models write. They do not replace the speech model either.
@@ -25,22 +21,31 @@ If this Mac does not offer Apple Intelligence, the meeting still runs. Cleanup a
 After you stop, the app rebuilds the transcript from the finalized audio on the Mac. That step is speech-to-text. Apple Intelligence is not in that step.
 
 
-<Image src={inline1} alt="Notebooks closed and water glasses empty after a call" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@allysphotos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">allysphotos</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 What it may help with, on a Mac that has it, is the later writing: cleaning up generated prose and producing artifacts such as the summary and related documents. You still see a transcript you can open. Manual notes you typed keep their own provenance and are not treated as spoken lines. Evidence links, when a summary has them, point at transcript passages, not at a polished sentence that has no source.
 
 The choice is visible with the other model choices. Vemoir does not silently download a different speech model because Apple Intelligence is missing, and it does not silently send the audio to a cloud model because Apple Intelligence failed. Cloud text, if you want it, is a separate activation with your own key. Audio and speaker separation stay on the Mac.
+
+<div class="blog-pair">
+  <div>
+    <h3>Apple Intelligence fits</h3>
+    <ul>
+      <li>Quick summaries inside Apple apps you already use</li>
+      <li>Personal calls on supported Macs and iPhones</li>
+    </ul>
+  </div>
+  <div>
+    <h3>A Mac recorder fits</h3>
+    <ul>
+      <li>Teams or Zoom audio on the Mac</li>
+      <li>Speaker separation and project folders</li>
+    </ul>
+  </div>
+</div>
 
 ## When it is available, and when it is not
 
 Apple Intelligence depends on the Mac and on macOS, not on a switch inside a meeting. If the system does not offer it, Vemoir's local language model is the path for cleanup and artifacts. Read the model screen for device fit, storage, and which model is selected. Do not assume a brand-new Mac mini and a base laptop behave the same. The app states the fit. This page does not rank writing quality between Apple Intelligence, Qwen3 4B, and gpt-oss-20b.
 
-
-<Image src={inline2} alt="A neat paper stack and a closed laptop at the end of a call" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@sql?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sql</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Interface language is separate. The app can run in English, German, French, Italian, or Dutch. That does not choose the speech model, and it does not turn Apple Intelligence on.
 
@@ -53,6 +58,11 @@ Interface language is separate. The app can run in English, German, French, Ital
 5. Read the summary. If cleanup smoothed a number you typed in Manual Notes, trust the note's provenance and edit the generated line.
 
 On a Mac without Apple Intelligence, step 2 is the local language model only. The transcript step does not change.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Scope</span><strong>Apple apps</strong><p>Not a replacement for every meeting link workflow.</p></li>
+  <li><span class="blog-kicker">Vemoir</span><strong>Any meeting app</strong><p>Captures system audio plus mic from the menu bar.</p></li>
+</ul>
 
 ## Where another path is better
 

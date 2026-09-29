@@ -11,11 +11,6 @@ image: "@/assets/blog/meeting-recording-no-sound-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/meeting-recording-no-sound-mac/inline1.jpg';
-import inline2 from '@/assets/blog/meeting-recording-no-sound-mac/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Un **enregistrement réunion pas de son sur Mac** veut rarement dire que Zoom ou Teams «&nbsp;n’a pas enregistré&nbsp;». En général vous avez capturé une piste et pas l’autre. Le microphone est votre voix dans la pièce. L’audio système est ce que Zoom, Teams, Meet, Slack ou Discord joue via le Mac. Sans audio système, le fichier vous montre en train de parler dans le vide. Sans micro, le fichier est l’appel sans vous. Sans les deux, vous avez un fichier qui a l’air complet et ne contient rien d’utile.
 
 Réglez l’autorisation et le périphérique de sortie avant de recapturer. Vemoir enregistre ces deux sources séparément depuis la barre de menus. Aucun bot ne rejoint l’appel. Pour le côté distant, il faut **System Audio Recording** (audio seulement). L’écran n’est pas filmé. Les guides anciens qui envoient vers la case Enregistrement de l’écran pour cette app sont périmés. Partez de [comment fonctionne la capture](/fr#capture).
@@ -24,10 +19,11 @@ Réglez l’autorisation et le périphérique de sortie avant de recapturer. Vem
 
 Un fichier muet est une liste de deux questions, pas une app de réunion cassée.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Micro</span><strong>Votre voix</strong><p>Muet, droit refusé ou mauvaise entrée si cette piste est vide.</p></li>
+  <li><span class="blog-kicker">Audio système</span><strong>Interlocuteurs</strong><p>Droit ou périphérique de sortie si vous entendiez en direct mais pas dans le fichier.</p></li>
+</ul>
 
-<Image src={inline1} alt="Casque debranche a cote d'un portable ferme" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@niko_nguyen_10?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">niko_nguyen_10</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. **Est-ce que je m’entends à la lecture&nbsp;?** Oui&nbsp;: le chemin micro a fonctionné. Non&nbsp;: micro coupé, refusé, ou mauvaise entrée.
 2. **Est-ce que j’entends les autres&nbsp;?** Non&nbsp;: l’audio système manque. Causes habituelles&nbsp;: **System Audio Recording** refusé, app de réunion sans sortie, ou son dirigé ailleurs (Bluetooth confus, téléphone à l’oreille).
@@ -40,10 +36,11 @@ L’app de réunion peut être n’importe quelle app qui joue du son sur le Mac
 
 Lisez l’enregistrement et nommez la panne en une phrase. La réparation change.
 
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>L'autorisation d'enregistrement d'écran ne remplace pas l'enregistrement audio système pour Vemoir. Autorisez l'audio seulement, puis relancez l'app.</p>
+</aside>
 
-<Image src={inline2} alt="Table silencieuse, tasses et carnets, aucun casque porte" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@greaterbythehour2020?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">greaterbythehour2020</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 **Seulement votre voix.** L’audio système n’est jamais entré dans le fichier. Réglages Système, Confidentialité et sécurité. Apple regroupe la liste sous **Enregistrement de l’écran et de l’audio système**. Pour Vemoir, autorisez **l’audio seulement**, pas une capture d’écran. Quittez Vemoir et rouvrez. macOS applique souvent l’autorisation après un relancement. Apple documente la page dans [Contrôler l’accès à l’enregistrement de l’écran et de l’audio système](https://support.apple.com/guide/mac-help/control-access-screen-system-audio-recording-mchld6aa7d23/mac).
 

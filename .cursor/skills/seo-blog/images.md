@@ -1,28 +1,36 @@
 # Images
 
-One image set per article, stored at `brands/{brand}/images/{translationKey}/` and reused by every locale.
+One hero per article, stored at `brands/{brand}/images/{translationKey}/hero.jpg` and reused by every locale. No inline photos (`inline1`, `inline2`, `img2`). Limits, steps, and comparisons go in HTML from [blocks.md](blocks.md).
 
-Default is **Unsplash**. Use **Higgsfield** when Unsplash cannot show the subject, or when the brand guide below requires generated art.
+The hero has to show this article's subject. If the same photo could sit on any other post in the batch, replace it. Prefer a targeted Higgsfield image over a generic Unsplash office or laptop shot.
 
-| Brand | Source |
+| Brand | Default hero source |
 |---|---|
 | `aurum` | Higgsfield. Black and gold, no stock. Guide: `context/aurum/context-files/aurum_avis_labs_blogpost_image_instructions.md` |
 | `holist-iq` | Higgsfield. Abstract systems, no stock. Guide: `context/holist-iq/context-files/holist_iq_blog_support_imagery_guide.md` |
 | `kitchen-crew` | Higgsfield. Illustrated crew, not photos. Guide: `context/kitchen-crew/context-files/kitchencrew_blog_image_instructions.md` |
-| `postology`, `vemoir`, `do-for-me`, `citysage`, `canvas-games`, `gold-crew` | Unsplash first. Higgsfield if search returns nothing that fits, or the scene is a diagram a photo cannot carry. |
-| Any other brand | Unsplash first. Read `context/{brand}/` before generating. |
+| `postology`, `vemoir`, `do-for-me`, `citysage`, `canvas-games`, `gold-crew` | Keep an Unsplash hero only if it clearly matches the article. Otherwise Higgsfield. |
+| Any other brand | Same rule. Read `context/{brand}/` before generating. |
 
-Postology's style guide describes generated SaaS art. Published posts use Unsplash. Keep using Unsplash unless the user asks for generated art on that batch.
+Vemoir heroes are 1200×900 and must look like ordinary photographed work, or a generated scene that still looks like that. No fake UI, logos, or neon. See `context/vemoir/brand-context.md`.
 
-Vemoir heroes are 1200×900 and must look like ordinary photographed work. No fake UI, logos, or neon. See `context/vemoir/brand-context.md`.
+Do4Me wants ordinary Zürich help: people, tasks, streets.
 
-Do4Me wants ordinary Zürich help: people, tasks, streets. Photos, not illustrations.
+## Hero challenge
 
-## Unsplash
+Keep the current `hero.jpg` only when a reader who has not opened the article would still guess the topic from the image.
 
-Requires `UNSPLASH_ACCESS_KEY` in the environment (optional `UNSPLASH_ACCESS_KEY_FALLBACK`). The script tracks downloads, skips used photo IDs, and writes attribution.
+Replace it when:
 
-Write a jobs file, then run:
+- it is a generic laptop, desk, city, or handshake
+- it would fit three other posts in the same brand
+- it contradicts the brand image guide
+
+Then generate one Higgsfield image. Prompt the actual subject (a closed laptop on a meeting table, a paper calendar next to a phone, a causal-loop sketch). No words, logos, or UI text in the frame. Save as `hero.jpg`.
+
+## Unsplash (only when the photo already fits)
+
+Requires `UNSPLASH_ACCESS_KEY` (optional `UNSPLASH_ACCESS_KEY_FALLBACK`).
 
 ```bash
 python3 scripts/fetch-unsplash-images.py --jobs scripts/unsplash-jobs-{brand}.json
@@ -35,23 +43,17 @@ python3 scripts/fetch-unsplash-images.py --jobs scripts/unsplash-jobs-{brand}.js
     "slug": "english-slug",
     "query": "specific scene, not the keyword stuffed",
     "files": [
-      {"name": "hero.jpg", "hero": true, "width": 1200, "height": 675},
-      {"name": "inline1.jpg", "hero": false, "width": 1200, "height": 800},
-      {"name": "inline2.jpg", "hero": false, "width": 1200, "height": 800}
+      {"name": "hero.jpg", "hero": true, "width": 1200, "height": 675}
     ]
   }
 ]
 ```
 
-`slug` is the `translationKey`. Search queries describe a scene (a person at a laptop with a calendar), not the article keyword. If the key is missing or every result is wrong, switch that article to Higgsfield and set `resolvedSource` accordingly.
-
-Copy `attributionHtml` from `sources.json` into each locale next to the image.
+`slug` is the `translationKey`. Copy `attributionHtml` from `sources.json` into each locale under the hero, or omit it when the hero is Higgsfield.
 
 ## Higgsfield
 
-Read the brand image guide, then the `generate_image` schema, then generate. Save JPEG files into the same folder with the same names. Do not render words, logos, or UI text into the image.
-
-`sources.json`:
+Read the brand image guide, then generate. Save JPEG as `hero.jpg`.
 
 ```json
 {
@@ -63,7 +65,7 @@ Read the brand image guide, then the `generate_image` schema, then generate. Sav
 
 ## Either source
 
-- Hero plus at most two inline images.
-- Do not reuse a photo the script has already recorded.
+- Hero only. Delete leftover inline files from the article folder when you strip them from the MDX.
+- Do not reuse a photo the Unsplash script has already recorded.
 - Alt text is written in each locale. The file is not.
 - Skip the `image` frontmatter line rather than ship a placeholder.

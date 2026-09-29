@@ -12,14 +12,22 @@ image: "@/assets/blog/speaker-labels-missing/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/speaker-labels-missing/inline1.jpg';
-import inline2 from '@/assets/blog/speaker-labels-missing/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Speaker labels missing from a transcript means the file has words and no reliable "who." You can still read it. You cannot honestly answer who agreed, who owned a task, or who spoke most. The fix is not a button that guesses. A browser page does not run a speaker-separation model. If the names were not in the export, they stay missing until a person or a local diarization pass adds them.
 
 This is the unlabeled-file problem. Renaming a label you already have is a different job, and it belongs on the Mac after a recording, not in a caption cleaner.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Rename in order</h3><p>Start with whoever spoke most; fix one label at a time.</p></li>
+  <li data-step="2"><h3>Use context lines</h3><p>Project names and roles often reveal who is speaking.</p></li>
+  <li data-step="3"><h3>Remember voices (optional)</h3><p>On the Mac app, speaker memory is opt-in and deletable.</p></li>
+</ol>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>The free browser tools do not separate speakers. That job needs the Mac app or manual editing.</p>
+</aside>
 
 ## Contents
 
@@ -36,10 +44,6 @@ This is the unlabeled-file problem. Renaming a label you already have is a diffe
 Several normal exports are nameless. That is not a bug in your paste.
 
 
-<Image src={inline1} alt="Several chairs at a conference table without labels" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 - A local Zoom recording is audio. `audio_only.m4a` has no speakers in it. Zoom's cloud VTT sometimes does, when cloud transcription was on and the account allows it. The local file does not inherit those names. See [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording).
 - A microphone recording of a room, a voice memo, or a single mixed track is one waveform. Speech-to-text can write the words. It does not know the faces.
 - Some Teams downloads are speaker-attributed VTT, with `<v Name>` tags. Others, and some admin settings, are text without those tags. If the tag is absent, no later cleaner can recover a name that was not stored.
@@ -51,10 +55,6 @@ If you needed names, the moment to get them was a source that had them, or a too
 
 The [transcript cleaner](/tools/transcript-cleaner) removes timestamps and cue headers. It keeps a speaker only when it finds one. The patterns it understands include a WebVTT voice tag (`<v Jane>`), a line like `Jane: text`, `Speaker 1:`, or `SPEAKER_01:`. Anything else is treated as words without a person.
 
-
-<Image src={inline2} alt="A group conversation photographed from above, no screens" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@2hmedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">2H Media</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 When nothing matches, the page tells you the file had no speaker names. It still returns the text. It does not fill in "Speaker A" and "Speaker B" as a guess. Invented labels look like data, and they are not.
 

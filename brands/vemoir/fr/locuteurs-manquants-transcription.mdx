@@ -12,12 +12,20 @@ image: "@/assets/blog/speaker-labels-missing/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/speaker-labels-missing/inline1.jpg';
-import inline2 from '@/assets/blog/speaker-labels-missing/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Des locuteurs manquants dans la transcription apparaissent souvent au moment où vous voulez partager l'export. Vous entendez deux voix sur l'enregistrement et le fichier reste un bloc. C'est normal pour beaucoup d'exports, et ce n'est pas une panne qu'un outil du navigateur répare en devinant. Les noms viennent de ce qui est déjà dans le texte, ou d'une séparation sur le Mac. Un fichier sans noms le reste jusqu'à ce que vous posiez les noms vous-même et que vous les marquiez comme votre ajout.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Renommer dans l'ordre</h3><p>Commencer par celui qui parle le plus; un libellé à la fois.</p></li>
+  <li data-step="2"><h3>Utiliser le contexte</h3><p>Noms de projet et rôles indiquent souvent le locuteur.</p></li>
+  <li data-step="3"><h3>Mémoriser les voix (option)</h3><p>Sur l'app Mac, la mémoire locuteur est opt-in et supprimable.</p></li>
+</ol>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Les outils navigateur ne séparent pas les locuteurs. Il faut l'app Mac ou une édition manuelle.</p>
+</aside>
 
 ## Sommaire
 
@@ -34,10 +42,6 @@ Des locuteurs manquants dans la transcription apparaissent souvent au moment où
 Une transcription est du texte plus ce que la source a stocké comme attribut de locuteur. Beaucoup de sources ne stockent rien.
 
 
-<Image src={inline1} alt="Plusieurs chaises a une table de conference, sans etiquettes" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Un enregistrement Zoom local est souvent `audio_only.m4a`. Pas de VTT, pas de noms. Le VTT cloud n'existe que si la fonction que vous avez vraiment utilisée a écrit une transcription, et même alors les noms dépendent de ce que Zoom a mis dans les cues. Le chemin depuis le fichier local est dans [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom).
 
 Teams peut montrer des noms à l'écran pendant les sous-titres et vous donner quand même un téléchargement sans balises de voix. Voir et exporter ne sont pas le même droit, ni le même fichier. Des sous-titres qui défilent ne sont pas un `<v Nom>` archivé.
@@ -48,10 +52,6 @@ Un mémo vocal, un entretien sur un seul micro et l'audio système sans diarisat
 
 Les outils du navigateur ne séparent pas les locuteurs à partir de l'audio. [Transcrire un audio](/fr/outils/transcrire-audio) écrit ce qui a été dit, jusqu'à 15 minutes, sans envoyer le fichier, et n'ajoute pas de noms. Si les étiquettes manquent dans un texte que vous avez déjà, elles manquent encore.
 
-
-<Image src={inline2} alt="Discussion de groupe vue du dessus, sans ecrans" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@2hmedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">2H Media</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Le [nettoyage de transcription](/fr/outils/nettoyer-transcription) garde les motifs déjà présents et vous dit quand il n'y en avait pas. Il n'invente pas un `Speaker 1` pour rendre la page plus jolie. Un procès-verbal collé sans source serait pire qu'une ligne sans nom.
 

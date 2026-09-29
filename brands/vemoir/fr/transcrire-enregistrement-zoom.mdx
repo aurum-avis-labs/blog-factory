@@ -10,12 +10,8 @@ relatedPosts: ["alternative-a-fireflies", "alternative-a-granola", "alternative-
 tool: "transcribe-zoom-recording"
 image: "@/assets/blog/zoom-local-recording-transcript/hero.jpg"
 draft: false
+
 ---
-
-import { Image } from 'astro:assets';
-import privateRecords from '@/assets/blog/zoom-local-recording-transcript/private-records.jpg';
-import voiceCapture from '@/assets/blog/zoom-local-recording-transcript/voice-capture.jpg';
-
 Pour **transcrire un enregistrement Zoom** après l'appel, le dossier sur votre Mac contient souvent de l'audio ou de la vidéo, pas un compte rendu prêt à l'emploi. Zoom ne génère un fichier de transcription séparé que lorsque la réunion a été **enregistrée dans le cloud** sur un **forfait payant**, avec enregistrement cloud et transcription audio activés. Si vous choisissez **Enregistrer sur cet ordinateur** (fréquent sur les comptes gratuits et sur de nombreux comptes payants), vous obtenez des fichiers MP4 et M4A en local. Le texte, c'est à vous de le produire à partir de la piste audio.
 
 Ce guide indique où Zoom stocke ces fichiers sur Mac et Windows, ce qui distingue une transcription cloud VTT d'un M4A local, et comment obtenir le texte dans le navigateur **sans envoyer** l'enregistrement à un serveur.
@@ -36,8 +32,6 @@ Par défaut, tout se trouve sous **Documents/Zoom**, avec un sous-dossier par r�
 Le chemin peut différer si **Emplacement de stockage de l'enregistrement local** a été modifié dans l'application Zoom&nbsp;: photo de profil → **Paramètres** → **Enregistrement** → **Ouvrir** ou **Modifier** (même article). Si un enregistrement manque, le [guide de dépannage Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0083769) recommande d'ouvrir le dossier depuis les paramètres et de vérifier si la réunion a été enregistrée dans le cloud.
 
 Dans ce dossier, prenez le fichier **audio seul** pour la transcription. La doc des formats nomme l'audio local `audio[numéro aléatoire].m4a`&nbsp;; beaucoup d'installations affichent aussi **`audio_only.m4a`**. Conservez le dossier entier jusqu'à ce que le texte vous convienne&nbsp;: un enregistrement local n'existe que sur cet ordinateur, Zoom ne garde pas de copie sur ses serveurs.
-
-<Image src={privateRecords} alt="Bureau ordonné avec ordinateur portable" width={700} quality={80} class="w-full" />
 
 ## VTT cloud vs M4A ou MP4 local
 
@@ -64,8 +58,6 @@ Vous préférez éviter de chercher un dossier après chaque appel&nbsp;? [Vemoi
 6. **Copier le texte** pour vos notes, e-mails ou archives projet.
 
 Quand `audio_only.m4a` ou `audio*.m4a` est prêt, vous pouvez [transcrire l'enregistrement Zoom dans le navigateur](/fr/outils/transcrire-enregistrement-zoom) sans téléverser l'audio de la réunion.
-
-<Image src={voiceCapture} alt="Notes et documents sur un bureau" width={700} quality={80} class="w-full" />
 
 Pour d'autres fichiers, le hub [/fr/outils](/fr/outils) liste les outils associés. Si vous avez déjà du texte brut et voulez des notes structurées, voir [/fr/outils/notes-depuis-transcription](/fr/outils/notes-depuis-transcription).
 
@@ -95,6 +87,17 @@ Passez à l'app Mac lorsque&nbsp;:
 **Court extrait local (15 minutes ou moins)&nbsp;:** ouvrez l'[outil gratuit de transcription Zoom](/fr/outils/transcrire-enregistrement-zoom) et déposez votre M4A. Le traitement reste dans l'onglet du navigateur&nbsp;; utilisez l'onglet Réseau ci-dessus si vous devez prouver l'absence d'envoi.
 
 **Réunions plus longues, locuteurs ou prochain appel en direct&nbsp;:** importez le fichier local complet dans l'[application Mac Vemoir](https://apps.apple.com/app/id6794693630), ou [enregistrez la prochaine réunion sur votre Mac](/fr#how) depuis la barre de menus pendant que vous restez dans Zoom. Aucun bot dans la liste des participants.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Transcription cloud</span><strong>Offres payantes</strong><p>Texte seulement si l'enregistrement cloud est actif.</p></li>
+  <li><span class="blog-kicker">Fichier local</span><strong>audio_only.m4a</strong><p>L'enregistrement local gratuit est audio, pas texte.</p></li>
+  <li><span class="blog-kicker">Outil navigateur</span><strong>15 min</strong><p>Transcrire dans l'onglet sans envoyer le fichier.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Les enregistrements intégrés dépendent de la licence de l'hôte. Une app barre de menus ne remplace pas les bannières Teams ou Zoom.</p>
+</aside>
 
 ## Questions fréquentes
 

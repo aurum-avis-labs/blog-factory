@@ -11,11 +11,7 @@ image: "@/assets/blog/otter-vs-fireflies/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/otter-vs-fireflies/inline1.jpg';
-import inline2 from '@/assets/blog/otter-vs-fireflies/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@sigmund?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sigmund</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Otter ou Fireflies** est un choix entre deux produits de réunion cloud qui peuvent placer un notetaker dans l'appel et garder la bibliothèque sur leurs serveurs. Ils ne sont pas identiques sur l'entraînement, et ils ne sont pas un enregistreur Mac local. Cette page utilise leurs propres documents en septembre 2026. Les prix bougent. Suivez les liens tarifaires avant d'acheter un siège.
 
 Si l'exigence est que l'audio reste sur le Mac, aucun des deux n'est l'outil. Vemoir est un achat unique sur le Mac App Store (CHF 20 en Suisse, le prix local est celui de l'App Store) qui enregistre le micro et l'audio système sans bot. C'est une troisième option, pas un vainqueur d'Otter ou Fireflies sur les fonctions d'équipe.
@@ -33,14 +29,16 @@ Si l'exigence est que l'audio reste sur le Mac, aucun des deux n'est l'outil. Ve
 - [Ce que vous faites encore sur le Mac](#ce-que-vous-faites-encore-sur-le-mac)
 - [Questions fréquentes](#questions-fréquentes)
 
+|  | Otter | Fireflies |
+| --- | --- | --- |
+| Bot dans l'appel | Notetaker visible | Notetaker visible |
+| Cloud par défaut | États-Unis (AWS) | États-Unis (AWS/GCP) |
+| Entraînement (pages publiques, sep. 2026) | Entraînement sur données dé-identifiées | Pas d'entraînement sur données personnelles indiqué |
+
 ## Ce que sont les deux produits
 
 Otter est un assistant de réunion construit autour d'un notetaker de calendrier pour Zoom, Microsoft Teams et Google Meet, avec transcriptions, résumés et usage partagé sur les plans payants. Fireflies rejoint les réunions comme notetaker, stocke enregistrements et transcriptions dans son espace, et vend des sièges plus un palier gratuit. Les deux supposent que la conversation sera traitée dans leur cloud. Les deux peuvent être le bon achat quand l'équipe veut une bibliothèque cherchable et a accepté cette forme.
 
-
-<Image src={inline1} alt="Deux tasses de cafe et deux stylos cote a cote" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@linkedinsalesnavigator?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">linkedinsalesnavigator</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Une liste plus large est dans [alternatives à Otter](/fr/blog/alternative-a-otter-ai) et [alternatives à Fireflies](/fr/blog/alternative-a-fireflies). La lecture de confidentialité des pages d'Otter est dans [Otter.ai est-il sûr](/fr/blog/otter-ai-est-il-sur). Cet article est le face-à-face.
 
@@ -49,15 +47,28 @@ Une liste plus large est dans [alternatives à Otter](/fr/blog/alternative-a-ott
 La politique de confidentialité d'Otter décrit l'audio et les transcriptions de réunion traités pour fournir le service, et nomme des fournisseurs cloud dont Amazon Web Services aux États-Unis. Les pages confidentialité et sécurité décrivent un stockage AWS avec chiffrement côté serveur. Elles décrivent aussi un entraînement d'IA propre sur audio et transcriptions dé-identifiés. Un passage plus prudent dans ces phrases, avec les liens du centre d'aide, est l'article sur Otter ci-dessus. Ne le comprimez pas en «&nbsp;Otter n'entraîne jamais&nbsp;». Leurs pages distinguent l'entraînement dé-identifié des modèles d'Otter d'une affirmation sur les fournisseurs de modèles tiers.
 
 
-<Image src={inline2} alt="Deux personnes comparent des notes papier de part et d'autre de la table" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@invest_europe?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">invest_europe</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 La politique de Fireflies dit qu'il n'utilise pas d'informations personnelles pour l'entraînement de modèles d'IA et qu'il interdit contractuellement aux fournisseurs d'utiliser ces informations pour leur propre entraînement. Une section Zero Data Retention dit que le contenu de réunion (audio, vidéo, transcriptions, résumés) n'est pas stocké par un fournisseur tiers après traitement, n'est plus consulté par ce fournisseur une fois le service terminé, et n'est pas utilisé pour entraîner des modèles d'IA internes ou externes ([politique](https://fireflies.ai/privacy-policy), [sécurité](https://fireflies.ai/security), vérifié en septembre 2026). Son article de stockage dit que le cloud public par défaut est aux États-Unis, sur AWS et Google Cloud, avec stockage privé et bring-your-own storage décrits pour Enterprise ([stockage et transfert](https://guide.fireflies.ai/articles/9596505232-learn-about-data-storage-and-transfer)).
 
 La séparation pratique, selon ces pages&nbsp;: les deux sont par défaut dans un cloud aux États-Unis. Fireflies formule plus durement «&nbsp;nous n'entraînons pas, et les fournisseurs n'entraînent pas&nbsp;». Otter documente un entraînement dé-identifié de ses propres modèles. Si cette différence est la raison de votre comparaison, relisez les politiques plutôt que ce résumé, parce que le libellé est le produit.
 
 Fireflies décrit aussi SOC 2 Type II, RGPD et HIPAA sur ses pages de sécurité. Ce sont des déclarations de Fireflies sur Fireflies. Elles ne certifient pas votre réunion, et elles ne sont pas des déclarations sur une autre app. Elles ne tranchent pas non plus la nLPD pour un cabinet suisse.
+
+<div class="blog-pair">
+  <div>
+    <h3>Pour qui Otter convient</h3>
+    <ul>
+      <li>Équipe déjà sur Otter avec conditions d'entraînement acceptées</li>
+      <li>Transcription partagée en direct, apps mobiles</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Qui devrait éviter Otter</h3>
+    <ul>
+      <li>Refus ferme de l'entraînement dé-identifié</li>
+      <li>Invitations client interdisant les bots</li>
+    </ul>
+  </div>
+</div>
 
 ## Les bots et qui les voit
 

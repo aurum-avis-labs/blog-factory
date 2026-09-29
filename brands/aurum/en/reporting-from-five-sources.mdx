@@ -1,34 +1,77 @@
 ---
-translationKey: reporting-from-five-sources
-title: "The Monday report from five different sources"
-description: "A CRM export, two sheets, a PDF, a mail: the same glue every Monday. When Copilot is not enough, and when to leave it."
+title: "How to automate a Monday report from five sources"
+description: "How to automate a Monday report from five sources. Same columns, a weekly time, one person who checks the figures before they go out."
 pubDate: 2026-12-01
 author: "Aurum Avis Labs"
-funnelStage: interest
 tags: ["reporting", "excel", "process automation"]
+funnelStage: interest
+translationKey: reporting-from-five-sources
 relatedPosts: ["three-workflows-worth-automating", "excel-as-shadow-system", "which-process-to-automate-first"]
-image: "@/assets/blog/reporting-from-five-sources/img1.jpg"
+image: "@/assets/blog/reporting-from-five-sources/hero.jpg"
 draft: false
 ---
 
-The picture is almost always the same. A CRM export. Two spreadsheets nobody merged. A supplier PDF. A mail with the figures "that are not in the system". The same glue every Monday, often in Excel, often by the same person.
+## The Monday report from five sources
 
-Copilot in the document writes a nicer paragraph about the numbers. It does not pull the numbers from five systems with different permissions. The glue stays.
+You can automate a Monday report when the output is the same file every week: the same columns, the same order, the same people receiving it, and one person who checks the figures before it goes out. If the question in the room changes every Monday, the report is a conversation. A workflow will turn that conversation into a file that looks certain and is wrong.
 
-In the trio with invoices and follow-ups: [three workflows worth automating](/blog/three-workflows-worth-automating).
+This is for the office lead, the controller, or the managing director in a Swiss SME who still glues the weekly numbers by hand. Typically a CRM export, two spreadsheets nobody merged, a supplier PDF, and a mail with the figure "that is not in the system". The same person does it. If they are ill, the report waits.
 
-## What "good enough" means
+Copilot in the document can write a cleaner paragraph about numbers you already pasted. It does not pull five systems that use different logins and different permissions. The glue stays. In the set with invoices and quote follow-up: [three workflows worth automating](/blog/three-workflows-worth-automating).
 
-A defined output: the same columns, the same order, the same recipients. A rhythm: weekly, not "when leadership asks". A person who checks before the report goes out. Figures that enter reporting do not come unchecked from a model.
+## Name the five sources before you talk about a dashboard
 
-If the truth between systems lives in a workbook only one person understands, that is often [Excel as a shadow system](/blog/excel-as-shadow-system). Then you do not need an AI that explains Excel. You need the same import, the same columns.
+Write the actual files from last Monday, not the systems you wish you had. Most offices land on a set like this.
 
-## When to leave it
+<ol class="blog-flow">
+  <li><strong>Export</strong><p>The CRM or the shop system, saved to a known folder, same filename pattern each week.</p></li>
+  <li><strong>Two sheets</strong><p>Usually sales or operations, maintained by hand because the system does not have the column.</p></li>
+  <li><strong>A PDF</strong><p>Supplier, bank, or a portal someone downloads. It does not arrive by itself.</p></li>
+  <li><strong>A mail</strong><p>One figure a colleague types because it is not in any export yet.</p></li>
+  <li><strong>One output</strong><p>The sheet or PDF leadership already knows, with a fixed column order.</p></li>
+</ol>
 
-Different questions every week, different files, different recipients. Then the report is a conversation, not a workflow. Automation turns that into expensive, false certainty.
+If you cannot point at last week's five, you are designing a report that does not exist yet. Build the manual version until it has survived four Mondays in the same shape. Then the automation has something to copy.
 
-Same filter as in [which process to automate first](/blog/which-process-to-automate-first): does it repeat, does it hurt, is it bounded, do the files already exist.
+Rights matter as much as columns. The person who builds the flow needs a login that is allowed to read each source, or a drop folder the owner already fills. "We will figure out access later" means the report still depends on someone clicking Export while logged in as themselves.
 
-## Sources, recipients, frequency into the Check
+## What good enough means
 
-That is the material for the [Process Check](/prozess-check). Not a dashboard pitch. One hour on *your* Monday report.
+Good enough is boring, and you can check it on a Thursday.
+
+<ul class="blog-checklist">
+  <li>The same columns, in the same order, with written names that do not change because someone preferred a shorter header</li>
+  <li>A clock time: before 10:00 Monday, not "when leadership asks"</li>
+  <li>A named person who opens the file and compares totals to the source before it is sent</li>
+  <li>A rule for a missing source: the report waits, or that cell stays blank. It does not get a guessed number</li>
+</ul>
+
+Figures that enter the report do not come unchecked from a model. A model may draft the two-sentence commentary after the totals match. The send still waits for the person on the checklist.
+
+If the truth between the systems lives in a workbook only one person understands, that is often [Excel as a shadow system](/blog/excel-as-shadow-system). In that case you do not need an AI that explains the workbook. You need the same import and the same columns, with a second person who could run Friday if the first is away.
+
+## A wholesale Monday in Aarau
+
+Picture a 35-person wholesale firm in Aarau. No analyst. Every Monday the office manager builds one sheet for the two managing directors.
+
+The sources, in the order she actually opens them: an open-invoices export from bexio, a pipeline export from the CRM, a visits sheet and a discounts sheet that sales keep in Excel, a supplier PDF of back orders she downloads from a portal, and a short mail from the warehouse with a count that is not in the system. She pastes, deletes last week's rows, checks that three totals still match the exports, and sends the file. On a clean week it takes under an hour. On a bad week a column has moved and she is still in it at noon.
+
+The output that is worth automating is that sheet: eight columns she can name without opening the file, same recipients, same deadline. The build can place the two exports and the two sales sheets into those columns, and leave two cells empty until the PDF and the warehouse mail are in. She still checks the totals. She still types or approves the warehouse number, because that number has no system behind it.
+
+What you leave alone: the question the directors sometimes ask on Tuesday ("what if we drop this product line"). That is a new cut of the data. It belongs in the meeting, and it should not become the Monday file's layout.
+
+Same test as [which process to automate first](/blog/which-process-to-automate-first). This one repeats, it hurts when the columns move, it ends when the sheet is sent, and the files already exist. The Tuesday hypothetical fails the test because the question is new each time.
+
+## When to leave it alone
+
+Leave it when the recipients, the columns, or the question change most weeks. Leave it when a source is a conversation: a colleague who "will know the number" and does not write it down. A workflow will freeze last week's question and present it as this week's answer.
+
+Leave it when you want a live dashboard of everything, and nobody has agreed the eight columns. That project has no edge. You will spend the build negotiating the report, which is a management task, and the Monday paste will still happen in the meantime.
+
+A missing permission is a pause, not a reason to scrape someone's inbox. If the portal has no export and a person must download the PDF, the flow starts at the folder where they drop it. The download stays a person until the vendor gives you a file.
+
+## What you bring to the Check
+
+Bring last Monday's sources, the names of the recipients, and the time the file has to leave. One sample with the columns marked is enough. Black out customer names if you want. The hour is about your report, not a dashboard pitch.
+
+That is the [Process Check](/prozess-check): 60 minutes, one workflow, a case and a package size if a build is justified. If the columns still move every week, the hour can end with "write the sheet down for a month, then come back". That is a usable result.

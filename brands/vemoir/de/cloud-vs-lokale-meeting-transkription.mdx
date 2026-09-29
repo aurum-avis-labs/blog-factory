@@ -12,14 +12,9 @@ image: "@/assets/blog/cloud-vs-local-meeting-transcription/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline1.jpg';
-import inline2 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline2.jpg';
+**Cloud vs lokale Meeting-Transkription** ist die Frage, wo das Audio verarbeitet wird, nicht die Frage, ob du KI-Notizen oder ein handschriftliches Protokoll willst. Im Cloud-Weg bekommt ein Anbieter die Sitzung, sei es ein Bot in der Runde, ein Datei-Upload oder die Aufnahme, die die Meeting-App schon auf seinen Servern hat, und liefert Text von dort. Im lokalen Weg läuft die Spracherkennung auf dem Rechner, der die Aufnahme schon hat. Der Text kann ähnlich aussehen. Unterschiedlich sind der Auftragsverarbeiter, die Teilnehmerliste und die Kopie, die du nicht mehr vom fremden Datenträger holst.
 
-<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Cloud vs lokale Meeting-Transkription** ist die Frage, wo das Audio verarbeitet wird, nicht die Frage "KI-Notizen oder handschriftliches Protokoll". Im Cloud-Weg bekommt ein Anbieter die Sitzung (Bot in der Runde, Datei-Upload oder die Aufnahme, die die Meeting-App schon auf seinen Servern hat) und liefert Text von dort. Im lokalen Weg läuft Speech-to-Text auf dem Rechner, der die Aufnahme schon hat. Der Text kann ähnlich aussehen. Processor, Teilnehmerliste und die Kopie, die du nicht mehr vom fremden Datenträger holst, unterscheiden sich.
-
-Der Beitrag ordnet beide Muster ein, inklusive des schmaleren Browser-Wegs für eine Datei, die du schon hältst. Das ist keine Rechtsberatung und keine Genauigkeitsrangliste. Für einen kurzen Clip ohne Versand reicht das kostenlose [Audio-Transkribieren-Tool](/de/tools/audio-transkribieren) im Tab, nach dem Modell-Download.
+Der Beitrag ordnet beide Muster ein, inklusive des schmaleren Browser-Wegs für eine Datei, die du schon hältst. Das ist keine Rechtsberatung und keine Rangliste nach Genauigkeit. Für einen kurzen Clip ohne Versand reicht das kostenlose [Audio-Transkribieren-Tool](/de/tools/audio-transkribieren) im Tab, nach dem Download des Modells.
 
 - [Was Cloud-Transkription in der Praxis tut](#was-cloud-transkription-in-der-praxis-tut)
 - [Was lokale Transkription in der Praxis tut](#was-lokale-transkription-in-der-praxis-tut)
@@ -31,128 +26,129 @@ Der Beitrag ordnet beide Muster ein, inklusive des schmaleren Browser-Wegs für 
 
 ## Was Cloud-Transkription in der Praxis tut
 
-Cloud-Notetaker und Transkripte der Meeting-Apps folgen demselben Muster: Audio verlässt den Raum (oder den Laptop) und wird auf fremden Rechnern verarbeitet.
+Protokoll-Apps in der Cloud und Transkripte der Meeting-Apps folgen demselben Muster: Audio verlässt den Raum oder den Laptop und wird auf fremden Rechnern verarbeitet.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot</span><strong>Sichtbarer Gast</strong><p>Kalender-Assistenten erscheinen in der Teilnehmerliste.</p></li>
+  <li><span class="blog-kicker">Upload</span><strong>Neue Kopie</strong><p>Eine Datei landet trotzdem beim Anbieter.</p></li>
+  <li><span class="blog-kicker">Lokal am Mac</span><strong>Kein Bot</strong><p>Spracherkennung läuft auf dem Rechner mit der Aufnahme.</p></li>
+</ul>
 
-<Image src={inline1} alt="Lokale Papiere auf dem Holztisch, Himmel im Fenster" width={700} quality={80} class="w-full" />
+Kalender-Assistenten treten in Zoom, Teams, Meet und ähnlichen Apps als eigene Teilnehmerin auf. Alle sehen den zusätzlichen Gast. Die Aufnahme ist damit offengelegt, und viele Kundenteams verbieten Bots. Wie der Beitritt aussieht: [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot). Zur Wortlaut-Seite eines Anbieters: [Ist Otter.ai sicher](/de/blog/ist-otter-ai-sicher). Richtlinien ändern sich. Lies die Seite am Tag der Entscheidung.
 
-<p><em>Photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Meeting-Plattformen transkribieren in der Cloud, wenn du ihre eingebaute Aufnahme nutzt. Das Zoom-Transkript gehört zur Cloud-Aufnahme auf bezahlten Plänen, nicht zur lokalen `audio_only.m4a`. Teams legt Cloud-Aufnahmen in OneDrive oder SharePoint ab, wenn der Tenant das zulässt. Das Transkript lebt beim Konto der Plattform, mit deren Aufbewahrung und Admin-Regeln.
 
-Kalender-Assistenten treten in Zoom, Teams, Meet und ähnlichen Apps als eigene Teilnehmerin auf. Alle sehen den Extra-Gast. Das hilft bei der Offenlegung, und genau deshalb verbieten viele Kundenteams Bots. Wie der Join aussieht: [Meeting Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot). Zur Wortlaut-Seite eines Anbieters: [Ist Otter.ai sicher](/de/blog/ist-otter-ai-sicher). Richtlinien ändern sich; lies die Seite am Tag der Entscheidung.
+Upload-Seiten sitzen dazwischen: niemand tritt live bei, aber die Datei geht trotzdem raus. Sagen Einwilligung oder Kundenvertrag, die Aufnahme bleibt auf deinem Gerät, ist ein Upload eine neue Kopie, auch wenn die Produktseite «verschlüsselt» schreibt.
 
-Meeting-Plattformen transkribieren in der Cloud, wenn du ihre eingebaute Aufnahme nutzt. Das Zoom-Transkript gehört zur Cloud-Aufnahme auf bezahlten Plänen, nicht zur lokalen `audio_only.m4a`. Teams legt Cloud-Aufnahmen in OneDrive oder SharePoint ab, wenn der Tenant das zulässt. Das Transkript lebt beim Plattform-Konto, mit deren Aufbewahrung und Admin-Regeln.
-
-Upload-Seiten sitzen dazwischen: niemand tritt live bei, aber die Datei geht trotzdem raus. Wenn Einwilligung oder Kundenvertrag sagen, die Aufnahme bleibt auf deinem Gerät, ist ein Upload eine neue Kopie, auch wenn die Marketingseite "verschlüsselt" schreibt.
-
-Cloud ist nicht automatisch schlampig. Viele Firmen wählen einen Anbieter, schliessen einen Auftragsverarbeitungsvertrag und wollen eine gemeinsame Bibliothek. Der Preis ist ein Processor, ein Standort und (bei Bots) ein sichtbarer Extra-Teilnehmer.
+Cloud ist nicht automatisch schlampig. Viele Firmen wählen einen Anbieter, schliessen einen Auftragsverarbeitungsvertrag und wollen eine gemeinsame Bibliothek. Der Preis dafür ist ein Verarbeiter, ein Standort und, bei Bots, ein sichtbarer zusätzlicher Teilnehmer.
 
 ## Was lokale Transkription in der Praxis tut
 
-Lokal heisst: das Sprachmodell läuft auf der Maschine, die das Audio schon hat. Das zwingt zu keiner Marke. Du kannst Whisper im Terminal starten. Eine Mac-App kann Mikrofon und Systemton aufnehmen und auf demselben Rechner transkribieren.
+Lokal heisst: das Sprachmodell läuft auf der Maschine, die das Audio schon hat. Das zwingt dich zu keiner Marke. Du kannst Whisper im Terminal starten. Eine Mac-App kann Mikrofon und Systemton aufnehmen und auf demselben Rechner transkribieren.
 
-
-<Image src={inline2} alt="Zugeklappter Laptop drinnen, Sturmwolken draussen" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Lokale Verarbeitung ersetzt keine Einwilligung. Sag zu Beginn, dass du aufzeichnest, und halt eine Löschregel fest.</p>
+</aside>
 
 Was lokal **nicht** heisst:
 
 - Die Aufnahme wird dadurch nicht rechtmässig. Einwilligung und Aufbewahrung bleiben bei dir.
 - Es entsteht kein beglaubigtes Transkript.
-- Es ersetzt kein Team-Archiv, wenn fünf Leute morgen dieselbe Suche brauchen.
+- Es ersetzt kein Teamarchiv, wenn fünf Leute morgen dieselbe Suche brauchen.
 
-Was sich ändert: kein Bot in der Liste, wenn du vom Mac aus aufnimmst. Die Meeting-App kann Teams, Zoom, Meet, Slack, Discord oder jede andere sein, die auf dem Rechner Ton spielt. Nach dem Stopp entsteht das Transkript aus der fertigen lokalen Audio. Zusammenfassungen können auf dem Mac bleiben, bis du exportierst oder bewusst **Text** an ein Modell mit eigenem API-Key schickst. Der Key-Weg ist opt-in, kein stiller Fallback, und transkribiert das Audio nicht in der Cloud.
+Was sich ändert: kein Bot in der Liste, wenn du vom Mac aus aufnimmst. Die Meeting-App kann Teams, Zoom, Meet, Slack, Discord oder jede andere sein, die auf dem Rechner Ton spielt. Nach dem Stopp entsteht das Transkript aus der fertigen lokalen Aufnahme. Zusammenfassungen können auf dem Mac bleiben, bis du exportierst oder bewusst **Text** an ein Modell mit eigenem API-Schlüssel schickst. Der Schlüsselweg ist freiwillig, kein stiller Ersatz, und transkribiert das Audio nicht in der Cloud.
 
-Vemoir ist eine Mac-App in dieser Kategorie: Menüleiste, lokale Modelle standardmässig, [so funktioniert die Aufnahme](/de#capture). Apple Silicon, macOS Sonoma 14.2 oder neuer. Intel-Macs sind nicht unterstützt. Sind die Modelle installiert, kann der Ablauf offline laufen. Netz brauchst du für Setup und Downloads.
+Vemoir ist eine Mac-App in dieser Kategorie: Menüleiste, lokale Modelle standardmässig, [so funktioniert die Aufnahme](/de#capture). Apple Silicon, macOS Sonoma 14.2 oder neuer. Intel-Macs sind nicht unterstützt. Sind die Modelle installiert, kann der Ablauf offline laufen. Netz brauchst du für die Einrichtung und die Downloads.
 
-Lokal scheitert langweilig, wenn du Record vergisst. Cloud-Bots scheitern langweilig, wenn IT den Join sperrt oder die Kundin fragt, wer der Extra-Gast ist.
+Lokal scheitert unspektakulär, wenn du die Aufnahme vergisst. Cloud-Bots scheitern unspektakulär, wenn die IT den Beitritt sperrt oder die Kundin fragt, wer der zusätzliche Gast ist.
 
 ## Der Browser-Weg ist weder Bot noch Mac-App
 
-In den Suchergebnissen wirkt "im Browser" schnell wie Cloud.
+In den Suchergebnissen wirkt «im Browser» schnell wie Cloud.
 
-Die kostenlosen Tools auf vemoir.ch transkribieren eine Datei, die du schon hast. MP3, M4A, WAV oder MP4. Die Verarbeitung läuft im Tab mit einem öffentlichen Whisper-Modell. **Die Datei geht nicht an Vemoir.** Die Modellgewichte laden einmal; spätere Läufe können ohne Netz gehen. Im Netzwerk-Tab solltest du das Audio nicht an einen Vemoir-Server gepostet sehen.
+Die kostenlosen Werkzeuge auf vemoir.ch transkribieren eine Datei, die du schon hast. MP3, M4A, WAV oder MP4. Die Verarbeitung läuft im Tab mit einem öffentlichen Whisper-Modell. **Die Datei geht nicht an Vemoir.** Die Modellgewichte laden einmal. Spätere Läufe können ohne Netz gehen. Im Netzwerk-Tab solltest du das Audio nicht an einen Vemoir-Server geschickt sehen.
 
-Grenzen Stand September 2026: Dateien bis **15 Minuten**, **drei erfolgreiche Läufe pro Woche**, **keine Sprecherlabels**, **keine Live-Aufnahme** im Tab. Keine Extension, kein Bot, kein Tab-Audio. Dialekt-Output wird nicht behauptet. Live, Sprechertrennung und lange Meetings gehören in eine Mac-App, nicht in den Tab.
+Grenzen, Stand September 2026: Dateien bis **15 Minuten**, **drei erfolgreiche Läufe pro Woche**, **keine Sprecherlabels**, **keine Live-Aufnahme** im Tab. Keine Erweiterung, kein Bot, kein Ton aus dem Tab. Dialekt-Output wird nicht behauptet. Live-Aufnahme, Sprechertrennung und lange Meetings gehören in eine Mac-App, nicht in den Tab.
 
-Nutze den Weg, wenn der Call vorbei und der Clip kurz ist. Interviews und Einwilligung: [Interview transkribieren ohne Upload](/de/blog/interview-transkribieren-ohne-upload).
+Nutze den Weg, wenn der Call vorbei und der Clip kurz ist. Zu Interviews und Einwilligung: [Interview transkribieren ohne Upload](/de/blog/interview-transkribieren-ohne-upload).
 
 ## Cloud vs lokale Meeting-Transkription im Vergleich
 
 Zahlen zu namentlichen Anbietern stehen auf deren Seiten. Die Zeilen unten beschreiben das **Muster**, Stand öffentliches Produktverhalten September 2026.
 
-| Muster | Tritt live bei? | Wo Speech-to-Text läuft | Typische Bibliothek | Live im Browser-Tab? |
+| Muster | Tritt live bei? | Wo die Spracherkennung läuft | Typische Bibliothek | Live im Browser-Tab? |
 | --- | --- | --- | --- | --- |
-| Kalender-Bot | Ja, als sichtbare Teilnehmerin, wenn aktiv | Cloud des Anbieters | Geteilter Workspace | Nein; der Bot sitzt in der Meeting-App |
-| Cloud-Aufnahme der Plattform | Kein Extra-Bot; die Plattform nimmt auf | Cloud (Zoom, Teams, Meet und ähnlich) | Drive oder Chat der Plattform | Nein |
+| Kalender-Bot | Ja, als sichtbare Teilnehmerin, wenn aktiv | Cloud des Anbieters | Gemeinsamer Arbeitsraum | Nein. Der Bot sitzt in der Meeting-App |
+| Cloud-Aufnahme der Plattform | Kein zusätzlicher Bot. Die Plattform nimmt auf | Cloud (Zoom, Teams, Meet und ähnlich) | Drive oder Chat der Plattform | Nein |
 | Upload-Website | Nein | Cloud des Anbieters | Was die Seite speichert | Nein |
 | Lokale Mac-Aufnahme | Kein Bot | Auf dem Mac | Auf diesem Mac, bis du exportierst | Nein |
-| Vemoir-Browser-Tool | Nein | Im Tab; Datei geht nicht an Vemoir | Du kopierst den Text raus | Nein; nur Datei, 15 Minuten, 3 Läufe/Woche |
+| Vemoir-Browser-Werkzeug | Nein | Im Tab. Die Datei geht nicht an Vemoir | Du kopierst den Text raus | Nein. Nur Datei, 15 Minuten, 3 Läufe/Woche |
 
-"Lokal" heisst Verarbeitung auf dem Gerät. Es heisst nicht "vor den Teilnehmenden versteckt". Wenn du aufnimmst, sagst du es.
+«Lokal» heisst Verarbeitung auf dem Gerät. Es heisst nicht, dass die Aufnahme vor den Teilnehmenden versteckt bleibt. Wenn du aufnimmst, sagst du es.
 
 ## Wann der Cloud-Weg besser passt
 
-Bleib beim Cloud-Notetaker oder beim Plattform-Transkript, wenn das meiste hiervon stimmt:
+Bleib beim Cloud-Anbieter oder beim Transkript der Plattform, wenn das meiste hiervon stimmt:
 
-- Die Firma hat sich auf einen Anbieter geeinigt, alle durchsuchen denselben Workspace.
-- Verträge erlauben diesen Processor, der Extra-Teilnehmer ist auf den relevanten Calls akzeptiert.
-- Recurring Meetings sollen ohne Tastendruck Record laufen.
-- CRM-Coaching, Team-Analysen oder Admin-Retention gibt es nur in diesem Produkt.
-- Das offizielle File muss in Teams oder Zoom liegen, weil Legal oder die Kundin dort sucht.
+- Die Firma hat sich auf einen Anbieter geeinigt, alle durchsuchen denselben Arbeitsraum.
+- Verträge erlauben diesen Verarbeiter, der zusätzliche Teilnehmer ist auf den relevanten Calls akzeptiert.
+- Wiederkehrende Meetings sollen ohne Tastendruck aufgenommen werden.
+- Coaching im CRM, Auswertungen fürs Team oder Aufbewahrung durch die Administration gibt es nur in diesem Produkt.
+- Die offizielle Datei muss in Teams oder Zoom liegen, weil die Rechtsabteilung oder die Kundin dort sucht.
 
-Gegen den Bot zu kämpfen, und trotzdem kein Archiv zu haben, das der Rest der Firma nutzt, ist doppelter Aufwand. Lokale Aufnahme ersetzt keine vorgeschriebene Teams-Aufnahme in SharePoint.
+Gegen den Bot anzukämpfen und trotzdem kein Archiv zu haben, das der Rest der Firma nutzt, ist doppelter Aufwand. Eine lokale Aufnahme ersetzt keine vorgeschriebene Teams-Aufnahme in SharePoint.
 
 ## Wann der lokale Weg besser passt
 
 Lokal, wenn das meiste hiervon stimmt:
 
-- Ein Bot in der Liste ist verboten, oder du willst den Extra-Gast auf einem Kundencall nicht erklären.
-- Das Audio soll keine Datei auf der Disk eines Anbieters werden, auch nicht als einmaliger Upload.
+- Ein Bot in der Liste ist verboten, oder du willst den zusätzlichen Gast in einem Kundencall nicht erklären.
+- Das Audio soll keine Datei auf der Platte eines Anbieters werden, auch nicht als einmaliger Upload.
 - Du bist auf einem Mac und kannst selbst starten und stoppen.
-- Offline nach dem Modell-Download zählt (Zug, Flug, gesperrtes Netz).
-- Du hast schon eine Datei und brauchst Text von einem kurzen Clip: das ist das Browser-Tool, kein neues Anbieterkonto.
+- Offline nach dem Modell-Download zählt, im Zug, im Flug oder in einem gesperrten Netz.
+- Du hast schon eine Datei und brauchst Text von einem kurzen Clip. Das ist das Browser-Werkzeug, kein neues Anbieterkonto.
 
-Lokal ist schwach, wenn zehn Leute denselben Stand brauchen und nie an deinen Laptop kommen. Exportiere die Notizen, die du teilen willst. Der Mac ist kein Firmenarchiv.
+Lokal ist schwach, wenn zehn Leute denselben Stand brauchen und nie an deinen Laptop kommen. Exportier die Notizen, die du teilen willst. Der Mac ist kein Firmenarchiv.
 
-Willst du den nächsten Call auf dem Mac ohne Bot? [So nimmt Vemoir auf](/de#capture). Datei schon da: [im Browser transkribieren](/de/tools/audio-transkribieren).
+Willst du den nächsten Call auf dem Mac ohne Bot? [So nimmt Vemoir auf](/de#capture). Liegt die Datei schon da: [im Browser transkribieren](/de/tools/audio-transkribieren).
 
 ## Was keiner der Wege für dich entscheidet
 
-Transkription klärt weder Einwilligung noch Aufbewahrung noch den Verteiler. Eine lokale Datei geht per Mail an die falsche Adresse. Ein Cloud-Workspace kann schlecht konfiguriert sein. Schweizer und EU-Datenschutz (in der Schweiz das revidierte DSG, **nDSG**) behandeln Stimme als Personendaten. Processor, Zweck und Löschfrist sind deine Arbeit, egal ob das Modell in Virginia oder auf deinem Schreibtisch lief.
+Transkription klärt weder Einwilligung noch Aufbewahrung noch den Verteiler. Eine lokale Datei geht per Mail an die falsche Adresse. Ein Cloud-Arbeitsraum kann schlecht eingerichtet sein. Schweizer und EU-Datenschutz, in der Schweiz das revidierte DSG (**nDSG**), behandeln Stimme als Personendaten. Verarbeiter, Zweck und Löschfrist sind deine Arbeit, ob das Modell in Virginia oder auf deinem Schreibtisch lief.
 
-Ein generiertes Summary ist kein VR-Protokoll. Browser-Output ist kein beglaubigtes Transkript. "Lokal" heisst nicht "konform". Diese Wörter verspricht diese Seite nicht.
+Eine erzeugte Zusammenfassung ist kein Protokoll des Verwaltungsrats. Die Ausgabe im Browser ist kein beglaubigtes Transkript. «Lokal» heisst nicht «konform». Diese Wörter verspricht diese Seite nicht.
 
-Wenn du Microsoft Teams auf dem Mac aufnimmst und die Frage der Live-Call ist, nicht die Processor-Philosophie: [Teams Meeting aufnehmen Mac](/de/blog/teams-meeting-aufnehmen-mac).
+Wenn du Microsoft Teams auf dem Mac aufnimmst und die Frage der laufende Call ist, nicht die Wahl des Verarbeiters: [Teams-Meeting aufnehmen am Mac](/de/blog/teams-meeting-aufnehmen-mac).
 
 ## Häufige Fragen
 
 ### Ist Cloud vs lokale Meeting-Transkription nur Datenschutz?
 
-Nein. Datenschutz ist der übliche Suchgrund. Praktisch unterscheiden sich Teilnehmerliste (Bot oder nicht), wer die Bibliothek besitzt, ob du offline arbeiten kannst, und wer Record drückt. Ein Team, das jedes Standup im selben Workspace will, wählt Cloud aus Betrieb, nicht aus einem Slogan.
+Nein. Datenschutz ist der übliche Suchgrund. Praktisch unterscheiden sich die Teilnehmerliste (Bot oder nicht), wer die Bibliothek besitzt, ob du offline arbeiten kannst, und wer auf Aufnahme drückt. Ein Team, das jedes Standup im selben Arbeitsraum will, wählt Cloud aus dem Betrieb, nicht aus einem Slogan.
 
 ### Heisst lokal, dass die Datei den Mac nie verlässt?
 
-Standardmässig ja, bis du exportierst, kopierst oder bewusst **Text** an ein Drittmodell mit eigenem Key schickst. Die Audio-Transkription bleibt im Default auf dem Mac. Ein Summary teilen ist ein anderer Schritt. Eine lokale Datei kannst du trotzdem falsch anhängen.
+Standardmässig ja, bis du exportierst, kopierst oder bewusst **Text** an ein Drittmodell mit eigenem Schlüssel schickst. Die Transkription des Audios bleibt in der Grundeinstellung auf dem Mac. Eine Zusammenfassung zu teilen ist ein anderer Schritt. Eine lokale Datei kannst du trotzdem falsch anhängen.
 
 ### Ist Transkribieren im Browser auch lokal?
 
-Bei den Vemoir-Tools geht das Audio nicht an Vemoir, das Modell läuft im Tab. Das ist lokal zum Browser, mit 15 Minuten und 3 Läufen pro Woche, ohne Sprecherlabels und ohne Live-Aufnahme. Das ist nicht die Menüleisten-Aufnahme eines Live-Calls.
+Bei den Vemoir-Werkzeugen geht das Audio nicht an Vemoir, das Modell läuft im Tab. Das ist lokal zum Browser, mit 15 Minuten und drei Läufen pro Woche, ohne Sprecherlabels und ohne Live-Aufnahme. Das ist nicht die Aufnahme eines laufenden Calls aus der Menüleiste.
 
 ### Trainieren Cloud-Bots immer auf meinen Meetings?
 
-Das steht nicht in diesem Beitrag. Lies die aktuellen Privacy-Seiten des Anbieters. Manche beschreiben Training, manche Enterprise-Defaults. Verlinke in deinem Review das Dokument, auf das du dich stützt. Hier wird keine Trainingspolicy erfunden.
+Das steht nicht in diesem Beitrag. Lies die aktuellen Datenschutzseiten des Anbieters. Manche beschreiben Training, manche die Voreinstellungen für Unternehmen. Verlinke in deiner Prüfung das Dokument, auf das du dich stützt. Hier wird keine Trainingsregel erfunden.
 
 ### Welcher Weg läuft unter Windows oder auf dem iPhone?
 
-Die Vemoir-Mac-App nicht. Cloud-Notetaker und Plattform-Aufnahmen oft schon. Ist die Flotte gemischt, ist ein einzelnes Mac-lokales Tool kein Firmenstandard.
+Die Vemoir-Mac-App nicht. Cloud-Anbieter und Aufnahmen der Plattform oft schon. Ist die Geräteflotte gemischt, ist ein einzelnes lokales Mac-Werkzeug kein Firmenstandard.
 
 ### Läuft lokale Transkription ohne Internet?
 
-Nach der Modellinstallation kann der Vemoir-Ablauf offline laufen. Setup und Downloads brauchen Netz. Browser-Tools brauchen den ersten Modell-Download; danach kann der Tab ohne Netz arbeiten. Cloud-Tools müssen den Anbieter erreichen.
+Nach der Installation der Modelle kann der Ablauf in Vemoir offline laufen. Einrichtung und Downloads brauchen Netz. Die Browser-Werkzeuge brauchen den ersten Modell-Download. Danach kann der Tab ohne Netz arbeiten. Cloud-Werkzeuge müssen den Anbieter erreichen.
 
-### Ist ein heruntergeladenes Zoom- oder Teams-VTT "lokal"?
+### Ist ein heruntergeladenes Zoom- oder Teams-VTT «lokal»?
 
-Nein. Speech-to-Text ist schon beim Anbieter gelaufen. Der Download ist eine Kopie dieses Resultats.
+Nein. Die Spracherkennung ist schon beim Anbieter gelaufen. Der Download ist eine Kopie dieses Resultats.
 
-Nächster Schritt: Datei unter 15 Minuten im [Audio-Transkribieren-Tool](/de/tools/audio-transkribieren). Nächstes Meeting auf dem Mac: [Aufnahme](/de#capture).
+Nächster Schritt: eine Datei unter 15 Minuten im [Audio-Transkribieren-Tool](/de/tools/audio-transkribieren). Das nächste Meeting auf dem Mac: [Aufnahme](/de#capture).

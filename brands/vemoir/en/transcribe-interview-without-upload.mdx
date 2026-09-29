@@ -10,12 +10,8 @@ relatedPosts: ["best-meeting-notes-app-mac", "fireflies-alternative", "granola-a
 tool: "transcribe-interview"
 image: "@/assets/blog/transcribe-interview-without-upload/hero.jpg"
 draft: false
+
 ---
-
-import { Image } from 'astro:assets';
-import voiceCapture from '@/assets/blog/transcribe-interview-without-upload/voice-capture.jpg';
-import privateRecords from '@/assets/blog/transcribe-interview-without-upload/private-records.jpg';
-
 If you need to **transcribe an interview without uploading** the recording, you are usually balancing two jobs at once: turn spoken answers into searchable text, and keep the audio under the rules your participant agreed to. Cloud transcription services ask you to send the file to their servers. That can trigger data-protection review, ethics paperwork, or a simple client policy that says interview material never leaves your laptop.
 
 This guide explains, in plain language, why that upload step matters under GDPR and Swiss law, how the free [interview transcription tool](/tools/transcribe-interview) on vemoir.ch processes audio in the browser without sending it to Vemoir, and when the [Vemoir Mac app](https://apps.apple.com/app/id6794693630) is the better fit for long recordings and speaker separation. This is practical workflow guidance, not legal advice.
@@ -43,8 +39,6 @@ Limits to plan for: recordings up to **15 minutes** per file, **three successful
 5. **Copy or save the transcript.** Use the text for coding, quotes you have permission to publish, or your research notes. You remain responsible for consent, accuracy checks, and retention.
 
 For a quick check before you rely on the workflow in a regulated project, run a short test clip and inspect network traffic while the job runs.
-
-<Image src={voiceCapture} alt="Calm desk scene suggesting a single voice being captured for transcription without leaving the laptop" width={700} quality={80} class="w-full" />
 
 ## How to verify nothing was uploaded
 
@@ -80,8 +74,6 @@ When the recording exceeds **15 minutes**, when two voices need to stay separate
 
 Need live capture for the next call instead of a file you already have? Vemoir records system audio and your microphone without a bot joining the meeting ([supported meeting apps](/#platforms)). For the same idea in meeting notes, see [meeting notes without a bot](/blog/meeting-notes-without-a-bot).
 
-<Image src={privateRecords} alt="Still life of paper notes on a desk, suggesting private interview records kept locally" width={700} quality={80} class="w-full" />
-
 ## Consent, retention, and your responsibilities
 
 Vemoir does not store your browser transcription file on its servers in this workflow. That reduces one category of processor risk; it does **not** replace your obligations. You still need a lawful basis, accurate privacy information, retention schedules, secure storage on your Mac, and deletion when the project ends. If a participant withdraws consent, your process must cover both the audio and any transcript copies.
@@ -99,6 +91,17 @@ If the file is already on your machine and under 15 minutes, [try the interview 
 **One interview file, privacy check, up to 15 minutes:** Open [/tools/transcribe-interview](/tools/transcribe-interview), run the job, and use the Network tab if you need proof that the audio stayed local.
 
 **Longer recordings, speakers, or live capture on Apple silicon:** Install [Vemoir from the Mac App Store](https://apps.apple.com/app/id6794693630), import the full interview or record the next session from the menu bar. See [pricing](/#pricing) and [FAQ](/faq) for requirements (macOS Sonoma 14.2+, Apple silicon, storage for local models).
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Browser tool</span><strong>No upload</strong><p>Audio stays in the tab; check the Network panel.</p></li>
+  <li><span class="blog-kicker">Limit</span><strong>15 min</strong><p>Longer tapes and speaker labels need the Mac app.</p></li>
+  <li><span class="blog-kicker">Swiss German</span><strong>Standard German text</strong><p>Public Whisper models do not write dialect.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>This is not legal advice. Ethics boards and the nLPD still govern how long you keep files and who may see them.</p>
+</aside>
 
 ## Frequently asked questions
 

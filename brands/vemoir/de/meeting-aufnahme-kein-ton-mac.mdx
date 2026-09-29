@@ -1,6 +1,6 @@
 ---
 title: "Meeting-Aufnahme kein Ton am Mac: Mikrofon vs Systemton"
-description: "Meeting-Aufnahme kein Ton am Mac heisst meist: nur Mikrofon oder Systemton gesperrt. Beide Spuren prüfen, bevor du den Call noch einmal aufnimmst."
+description: "Meeting-Aufnahme kein Ton am Mac heisst meist: nur das Mikrofon, oder der Systemton ist gesperrt. Beide Spuren prüfen, bevor du neu aufnimmst."
 pubDate: 2026-10-20
 author: "Vemoir Team"
 tags: ["mac", "aufnahme", "fehlerbehebung"]
@@ -11,110 +11,107 @@ image: "@/assets/blog/meeting-recording-no-sound-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/meeting-recording-no-sound-mac/inline1.jpg';
-import inline2 from '@/assets/blog/meeting-recording-no-sound-mac/inline2.jpg';
+**Meeting-Aufnahme kein Ton am Mac** heisst selten, dass Zoom oder Teams «nichts aufgenommen» hat. Meist hast du eine Spur erfasst und die andere nicht. Das Mikrofon ist deine Stimme im Raum. Der Systemton ist das, was Zoom, Teams, Meet, Slack oder Discord auf dem Mac abspielt. Fehlt der Systemton, hörst du in der Datei nur dich, und dazwischen Stille. Fehlt das Mikrofon, hörst du den Call ohne dich. Fehlen beide, sieht die Datei vollständig aus und enthält nichts Brauchbares.
 
-<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Meeting-Aufnahme kein Ton am Mac** heisst selten, dass Zoom oder Teams "nicht aufgenommen hat". Meist hast du eine Spur erfasst und die andere nicht. Das Mikrofon ist deine Stimme im Raum. Systemton ist, was Zoom, Teams, Meet, Slack oder Discord über den Mac spielt. Fehlt der Systemton, ist die Datei du gegen Stille. Fehlt das Mikrofon, ist die Datei der Call ohne dich. Fehlen beide, siehst du eine Datei, die vollständig wirkt und nichts Brauchbares enthält.
-
-Richte Berechtigung und Ausgabegerät, bevor du neu aufnimmst. Vemoir nimmt die zwei Quellen getrennt über die Menüleiste auf. Es tritt nicht als Bot bei. Für die Gegenseite braucht es **System Audio Recording** (nur Audio). Es nimmt den Bildschirm nicht auf. Ältere Anleitungen mit Screen-Recording-Häkchen für diese App sind überholt. Start bei [so funktioniert die Aufnahme](/de#capture).
+Richte Berechtigung und Ausgabegerät ein, bevor du den Call noch einmal aufnimmst. Vemoir nimmt die zwei Quellen getrennt über die Menüleiste auf. Es tritt nicht als Bot bei. Für die Gegenseite braucht es **System Audio Recording**, und zwar nur Audio. Der Bildschirm wird nicht aufgenommen. Ältere Anleitungen, die für diese App noch ein Häkchen bei der Bildschirmaufnahme verlangen, sind überholt. Der Einstieg steht bei [so funktioniert die Aufnahme](/de#capture).
 
 ## Meeting-Aufnahme kein Ton am Mac: zwei Spuren
 
-Eine stumme Datei ist eine Checkliste mit zwei Fragen, kein kaputtes Meeting-Tool.
+Eine stumme Datei ist eine Liste mit zwei Fragen. Das Meeting-Programm selbst ist meist in Ordnung.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Mikrofon</span><strong>Deine Stimme</strong><p>Stumm, Berechtigung fehlt, oder das Eingabegerät stimmt nicht, wenn diese Spur leer ist.</p></li>
+  <li><span class="blog-kicker">Systemton</span><strong>Gegenstelle</strong><p>Berechtigung oder Ausgabegerät, wenn du live hörst und die Datei still bleibt.</p></li>
+</ul>
 
 
-<Image src={inline1} alt="Ausgesteckte Kopfhoerer neben einem zugeklappten Laptop" width={700} quality={80} class="w-full" />
+1. **Höre ich mich in der Wiedergabe?** Ja: der Mikrofonweg hat funktioniert. Nein: das Mikrofon war stumm, die Berechtigung fehlte, oder das falsche Eingabegerät war gewählt.
+2. **Höre ich die anderen?** Nein: der Systemton fehlt. Häufig ist **System Audio Recording** abgelehnt, die Meeting-App gibt keinen Ton aus, oder der Ton läuft woanders (Bluetooth durcheinander, Telefon am Ohr).
 
-<p><em>Photo by <a href="https://unsplash.com/@niko_nguyen_10?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">niko_nguyen_10</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Vemoir speichert das als getrennte lokale Spuren. Nach dem Stopp entsteht das Transkript aus der fertigen Audiodatei auf dem Mac. Die Zeile während des Calls ist eine Vorschau. Sie beweist nicht, dass auf beiden Spuren Ton lag.
 
-1. **Höre ich mich in der Wiedergabe?** Ja: Mikrofonpfad hat funktioniert. Nein: Mic stumm, verweigert oder falsches Eingabegerät.
-2. **Höre ich die anderen?** Nein: Systemton fehlt. Üblich: **System Audio Recording** verweigert, Meeting-App ohne Output, oder Ton läuft woanders (Bluetooth-Wirrwarr, Telefon am Ohr).
-
-Vemoir hält das als getrennte lokale Spuren. Nach dem Stopp kommt das Transkript aus der fertigen Audio auf dem Mac. Die Live-Zeile während des Calls ist Vorschau, kein Beweis, dass beide Spuren scharf waren.
-
-Die Meeting-App kann jede App sein, die auf dem Mac Ton spielt. Siehe [Plattformen](/de#platforms). Kein Teams-Plugin, kein Zoom-Bot. Live-Teams ausführlicher: [Teams Meeting aufnehmen Mac](/de/blog/teams-meeting-aufnehmen-mac).
+Die Meeting-App kann jede App sein, die auf dem Mac Ton abspielt. Siehe [Plattformen](/de#platforms). Kein Teams-Plugin, kein Zoom-Bot. Teams im Live-Gespräch ausführlicher: [Teams-Meeting aufnehmen am Mac](/de/blog/teams-meeting-aufnehmen-mac).
 
 ## Welche Seite stumm ist
 
-Spiel die Aufnahme ab und benenne den Fehler in einem Satz. Die Reparatur ist jeweils anders.
+Spiel die Aufnahme ab und benenne den Fehler in einem Satz. Die Reparatur hängt davon ab.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Die Bildschirmaufnahme ersetzt für Vemoir nicht System Audio Recording. Nur Audio erlauben, dann die App neu starten.</p>
+</aside>
 
 
-<Image src={inline2} alt="Stiller Tisch mit Tassen und Notizbuechern, kein Headset" width={700} quality={80} class="w-full" />
+**Nur deine Stimme.** Der Systemton ist nie in die Datei gekommen. Systemeinstellungen, Datenschutz und Sicherheit. Apple bündelt die Liste unter **Bildschirm- und Systemaudioaufnahme**. Für Vemoir nur **Audio** erlauben, nicht den Bildschirm. Vemoir beenden und neu öffnen. macOS wendet die Änderung oft erst nach dem Neustart der App an. Apple beschreibt die Seite in [Zugriff auf Bildschirm- und Systemaudioaufnahme steuern](https://support.apple.com/guide/mac-help/control-access-screen-system-audio-recording-mchld6aa7d23/mac).
 
-<p><em>Photo by <a href="https://unsplash.com/@greaterbythehour2020?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">greaterbythehour2020</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Nur die Gegenseite.** Das Mikrofon fehlt. Datenschutz und Sicherheit, **Mikrofon**, Vemoir einschalten. In den Toneinstellungen das Eingabegerät prüfen: eingebautes Mikrofon, Headset oder USB-Mikrofon, nicht ein totes Sammelgerät von einem alten Zoom-Installer. In Vemoir prüfen, ob du versehentlich nur den Systemton eingeschaltet hast.
 
-**Nur deine Stimme.** Systemton ist nie in die Datei gegangen. Systemeinstellungen, Datenschutz und Sicherheit. Apple bündelt die Liste unter **Bildschirm- und Systemaudioaufnahme**. Für Vemoir nur **Audio** erlauben, kein Bildschirm. Vemoir beenden und neu öffnen. macOS wendet das oft erst nach dem Neustart der App an. Apple beschreibt die Seite in [Zugriff auf Bildschirm- und Systemaudioaufnahme steuern](https://support.apple.com/guide/mac-help/control-access-screen-system-audio-recording-mchld6aa7d23/mac).
+**Keine Seite.** Der Recorder lief, bevor die Meeting-App Ton hatte, und stoppte vor dem ersten Satz. Oder du hast ein anderes Ausgabegerät aufgenommen als das, über das du gehört hast. Oder du hast die Bildschirmaufnahme für ein anderes Programm erlaubt und gedacht, das gelte für Vemoir. Das tut es nicht.
 
-**Nur die Gegenseite.** Das Mikrofon fehlt. Datenschutz und Sicherheit, **Mikrofon**, Vemoir einschalten. In den Sound-Einstellungen das Eingabegerät prüfen: Built-in, Headset-Boom oder USB-Mic, kein totes Aggregate-Device von einem alten Zoom-Installer. In Vemoir prüfen, ob du nicht versehentlich nur Systemton scharf geschaltet hast.
-
-**Keine Seite.** Recorder vor dem Ton der Meeting-App gestartet und vor dem ersten Satz gestoppt. Oder ein anderes Output-Gerät aufgenommen als du gehört hast. Oder Screen Recording für ein anderes Tool erteilt und gedacht, das gelte für Vemoir. Tut es nicht.
-
-**Lange Datei, Transkript trotzdem leer.** Zuerst Wiedergabe. Hörst du Audio, hat die Aufnahme geklappt, als Nächstes ist das Sprachmodell (falsche Sprache, sehr leise Stimmen, Musik). Ist die Wiedergabe stumm, bleib auf dieser Seite. Ein grösseres Modell repariert keine Berechtigung.
+**Lange Datei, Transkript trotzdem leer.** Zuerst die Wiedergabe. Hörst du Audio, hat die Aufnahme geklappt, und als Nächstes kommt das Sprachmodell (falsche Sprache, sehr leise Stimmen, Musik). Ist die Wiedergabe stumm, bleib bei dieser Seite. Ein grösseres Modell repariert keine fehlende Berechtigung.
 
 ## Systemton reparieren, wenn der Call in der Datei fehlt
 
-1. In der Meeting-App prüfen, ob Output wirklich auf **diesem** Mac ankommt (Zoom "Computer-Audio verlassen" macht die Datei taub, auch wenn du über ein Handy mithörst).
-2. In den Sound-Einstellungen **Output** auf das Gerät setzen, das du wirklich nutzt. AirPods verbunden, Output aber "MacBook Speakers": du hörst hier, nimmst dort auf.
-3. Vemoir unter **System Audio Recording** (nur Audio) erlauben. Bildschirmaufnahme "sicherheitshalber" schaltet nichts in der Systemton-Spur scharf.
-4. Vemoir neu starten. Aufnahme in der Menüleiste **nachdem** die Meeting-App schon Ton spielt.
-5. Einen Testsatz von dir, einen Satz von jemand anderem, stoppen, beide Spuren anhören, falls die App sie getrennt zeigt.
+1. In der Meeting-App prüfen, ob der Ausgang wirklich auf **diesem** Mac ankommt. In Zoom macht «Computer-Audio verlassen» die Datei taub, auch wenn du über ein Handy mithörst.
+2. In den Toneinstellungen **Ausgabe** auf das Gerät setzen, das du wirklich nutzt. AirPods verbunden, Ausgabe aber «MacBook-Lautsprecher»: du hörst hier und nimmst dort auf.
+3. Vemoir unter **System Audio Recording** (nur Audio) erlauben. Bildschirmaufnahme «zur Sicherheit» schaltet die Systemton-Spur nicht ein.
+4. Vemoir neu starten. Die Aufnahme in der Menüleiste starten, **nachdem** die Meeting-App schon Ton abspielt.
+5. Einen Satz von dir, einen Satz von jemand anderem, stoppen, beide Spuren anhören, falls die App sie getrennt zeigt.
 
-Vemoir nutzt einen reinen Audio-Tap (Core Audio) und schliesst die eigene Ausgabe aus. Es speichert kein Bild. Wenn die Abfrage nur System Audio Recording will, ist das die Abfrage zum Erlauben.
+Vemoir nutzt einen reinen Audio-Zugriff (Core Audio) und nimmt die eigene Ausgabe aus. Es speichert kein Bild. Fragt das System nur nach System Audio Recording, ist das die Abfrage, die du erlauben musst.
 
 ## Mikrofon reparieren, wenn du in der Datei fehlst
 
-1. In der Meeting-App entstummen. Hardware-Schalter am Headset prüfen.
-2. Vemoir unter **Mikrofon** erlauben, App neu starten.
-3. Sound-Einstellungen, **Input**, Pegelmeter beim Sprechen. Bewegt es sich nicht, hat das OS dich nicht gehört. Anderes Input wählen.
-4. Optionale Rauschunterdrückung in Vemoir (Aus, Ausgewogen, Stark) sitzt auf dem Mic-Pfad, lokal. Klingt es in einem stillen Raum zerquetscht, eine Minute mit "Aus" testen.
-5. Ein Lautsprecher-Telefon im Raum leckt ins Mikrofon. Das ist Raumton, kein Systemton. Es ersetzt keine verweigerte System-Audio-Berechtigung.
+1. In der Meeting-App die Stummschaltung aufheben. Den Schalter am Headset prüfen.
+2. Vemoir unter **Mikrofon** erlauben, die App neu starten.
+3. Toneinstellungen, **Eingabe**, Pegelanzeige beim Sprechen. Bewegt sie sich nicht, hat das System dich nicht gehört. Ein anderes Eingabegerät wählen.
+4. Die optionale Rauschunterdrückung in Vemoir (Aus, Ausgewogen, Stark) liegt auf dem Mikrofonweg, lokal. Klingt es in einem stillen Raum gepresst, eine Minute mit «Aus» prüfen.
+5. Ein Lautsprechertelefon im Raum läuft ins Mikrofon. Das ist Raumschall, kein Systemton. Es ersetzt keine verweigerte Berechtigung für den Systemton.
 
-## Kopfhörer, Bluetooth, "ich habs gehört, die Datei nicht"
+## Kopfhörer, Bluetooth und «ich habe es gehört, die Datei nicht»
 
-Wenn du den Call gehört hast, hat der Mac irgendwo Ton gespielt. Der Tap nimmt Systemton, den der Mac spielt, keinen privaten Bluetooth-Kanal, der nie in den Mix kommt.
+Wenn du den Call gehört hast, hat der Mac irgendwo Ton abgespielt. Der Zugriff nimmt den Systemton, den der Mac abspielt, nicht einen privaten Bluetooth-Kanal, der nie in den Mix kommt.
 
-- Kabel und gewöhnliches Bluetooth, das macOS als Output-Gerät listet, sind der Normalfall.
-- Telefon am Ohr oder ein zweiter Rechner, der den Call führt, erreicht den Mac nicht.
-- Alte Virtual-Cable-Hacks können den Output stehlen. Unbekannte Geräte in den Sound-Einstellungen entfernen.
+- Kabel und gewöhnliches Bluetooth, das macOS als Ausgabegerät listet, sind der Normalfall.
+- Das Telefon am Ohr oder ein zweiter Rechner, der den Call führt, erreicht den Mac nicht.
+- Alte virtuelle Kabel können die Ausgabe abzweigen. Unbekannte Geräte in den Toneinstellungen entfernen.
 
-QuickTime oder die Screenshot-Leiste können Ton als Nebeneffekt einer Bildaufnahme mitnehmen. Das ist der schwere Weg zu Sound, und du hast immer noch kein Protokoll, bis etwas den Film transkribiert. So nimmt Vemoir einen Call nicht auf. Screen Recording schaltet Vemoirs stumme Systemton-Spur nicht scharf.
+QuickTime oder die Screenshot-Leiste können Ton mitnehmen, weil sie den Bildschirm aufnehmen. Das ist der umständliche Weg zum Ton, und ein Protokoll hast du erst, wenn etwas den Film transkribiert. So nimmt Vemoir einen Call nicht auf. Die Bildschirmaufnahme schaltet die stumme Systemton-Spur von Vemoir nicht ein.
 
 ## Nach dem Call: du hast schon eine Datei
 
-Hat jemand sonst aufgenommen, oder Zoom hat `audio_only.m4a` gelegt, bist du nicht mehr im Live-Problem. Transkribiere die Datei. Das [Audio-Transkribieren-Tool](/de/tools/audio-transkribieren) nimmt MP3, M4A, WAV oder MP4 bis **15 Minuten**, **drei erfolgreiche Läufe pro Woche**, im Browser, ohne Upload an Vemoir. Keine Sprecherlabels, keine Live-Tab-Aufnahme. Speziell Zoom lokal: [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
+Hat jemand anders aufgenommen, oder liegt von Zoom `audio_only.m4a`, bist du nicht mehr im Live-Problem. Transkribiere die Datei. Das Tool [Audio transkribieren](/de/tools/audio-transkribieren) nimmt MP3, M4A, WAV oder MP4 bis **15 Minuten**, **drei erfolgreiche Läufe pro Woche**, im Browser, ohne Upload an Vemoir. Keine Sprechernamen, keine Live-Aufnahme aus dem Tab. Speziell für lokales Zoom: [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
 
-Willst du beim nächsten Versuch dich und den Call? Mikrofon und System Audio Recording vor dem Join setzen, dann [Aufnahme](/de#capture).
+Beim nächsten Versuch gehören deine Stimme und der Call in die Datei. Mikrofon und System Audio Recording vor dem Beitritt setzen, dann [Aufnahme](/de#capture).
 
 ## Häufige Fragen
 
 ### Warum ist die Meeting-Aufnahme ohne Ton am Mac, obwohl ich den Call live gehört habe?
 
-Du hast den Call über einen Weg gehört, den der Recorder nicht erfasst hat. Meist Systemton: Berechtigung aus, oder Output nicht dieser Mac. Hören ist nicht dasselbe wie den Tap scharf zu schalten.
+Du hast den Call über einen Weg gehört, den die Aufnahme nicht erfasst. Meist fehlt der Systemton: die Berechtigung ist aus, oder die Ausgabe ist nicht dieser Mac. Hören und Aufnehmen sind zwei verschiedene Wege.
 
-### Braucht Vemoir Screen Recording, um Teams oder Zoom zu hören?
+### Braucht Vemoir die Bildschirmaufnahme, um Teams oder Zoom zu hören?
 
-Nein. Es fragt System Audio Recording und nutzt das nur für Audio. Es nimmt den Bildschirm nicht auf. Screen Recording für eine andere App ist unabhängig.
+Nein. Es fragt System Audio Recording und nutzt das nur für Audio. Den Bildschirm nimmt es nicht auf. Die Bildschirmaufnahme für eine andere App gilt separat.
 
 ### Kann ich eine stumme Datei nachträglich retten?
 
-Ist die Datei stumm, gibt es nichts zu transkribieren. Hat sie Ton, transkribiere sie. Das Browser-Tool ist für eine kurze Datei, die du schon hältst. Es rekonstruiert keine Spur, die nie aufgenommen wurde.
+Ist die Datei stumm, gibt es nichts zu transkribieren. Hat sie Ton, transkribier sie. Das Browser-Tool ist für eine kurze Datei, die du schon hast. Es rekonstruiert keine Spur, die nie aufgenommen wurde.
 
-### Ich habe Screen Recording erlaubt, die Gegenseite ist trotzdem still. Was jetzt?
+### Ich habe die Bildschirmaufnahme erlaubt, die Gegenseite ist trotzdem still. Was jetzt?
 
-System Audio Recording (nur Audio) für Vemoir, dann neu starten. Prüfen, dass die Meeting-App auf diesem Mac spielt und du die Menüleiste gestartet hast, während sie spielte.
+System Audio Recording (nur Audio) für Vemoir, dann neu starten. Prüfen, dass die Meeting-App auf diesem Mac spielt und du die Aufnahme in der Menüleiste gestartet hast, während sie spielte.
 
-### Nimmt der Browser Systemton auf, wenn der Tab während des Calls offen bleibt?
+### Nimmt der Browser den Systemton auf, wenn der Tab während des Calls offen bleibt?
 
-Nein. Die Tools transkribieren eine Datei nach dem Call. Kein Live-Systemton, keine Sprecherlabels, keine Extension.
+Nein. Die Tools transkribieren eine Datei nach dem Call. Kein Live-Systemton, keine Sprechernamen, keine Erweiterung.
 
 ### Funktioniert das, wenn ich am iPhone in der Sitzung bin und auf dem Mac Notizen mache?
 
-Nicht für Systemton. Der Mac muss die Maschine sein, die den Call spielt. Der iPhone-Weg trifft den Tap nicht. Das Mac-Mikrofon kann ein lautes Freisprechen mithören. Das ist ein schlechter Ersatz.
+Nicht für den Systemton. Der Mac muss der Rechner sein, der den Call abspielt. Der Weg über das iPhone trifft die Aufnahme nicht. Das Mac-Mikrofon kann ein lautes Freisprechen mithören. Das ist ein schlechter Ersatz.
 
 ### Muss ich trotzdem sagen, dass ich aufnehme, sobald der Ton klappt?
 
-Ja. Eine funktionierende Berechtigung ersetzt keine Einwilligung.
+Ja. Eine erteilte Berechtigung ersetzt die Einwilligung nicht.
 
-Nächster Schritt: System Audio Recording (nur Audio) und Mikrofon einschalten, neu starten, [Aufnahme](/de#capture) vor dem nächsten Call lesen.
+Nächster Schritt: System Audio Recording (nur Audio) und Mikrofon einschalten, neu starten, und [Aufnahme](/de#capture) vor dem nächsten Call lesen.

@@ -12,10 +12,6 @@ image: "@/assets/blog/meeting-notes-subscription-cost/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/meeting-notes-subscription-cost/inline1.jpg';
-import inline2 from '@/assets/blog/meeting-notes-subscription-cost/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@aaronburden?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">aaronburden</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 A **meeting notes subscription cost** is not the number on the pricing page. It is that number times seats, times twelve months, plus whatever usage line the vendor adds for summaries or extra storage. The meeting you just sat in has a separate cost: the people and the hours. This page is about the software bill. The people bill has its own calculator.
 
@@ -34,10 +30,12 @@ If you only need one sentence for the minutes, skip the vendor comparison and op
 
 Most AI notetakers bill **per user per month**. Add a teammate and the invoice grows, even if that person joins two calls a week. Annual billing is lower per month and is still a renewal. Fireflies documents this shape in its billing article: a seat is created when a teammate is added, and removing someone does not refund the current cycle ([Fireflies billing terms](https://guide.fireflies.ai/articles/9606045468-fireflies-billing-terms), as of September 2026).
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Seat math</span><strong>Headcount</strong><p>Monthly price times active users.</p></li>
+  <li><span class="blog-kicker">Usage math</span><strong>Minutes</strong><p>Imports and long calls add lines.</p></li>
+  <li><span class="blog-kicker">Free tier</span><strong>Expires</strong><p>History caps push teams to paid plans.</p></li>
+</ul>
 
-<Image src={inline1} alt="A monthly planner beside a closed laptop and coffee" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@m15ky?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">m15ky</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Otter’s pricing page lists Pro at $16.99 per user per month and Business at $30 per user per month, with lower figures when you pay for a year or accept a promotion. Pro includes 1,200 in-app recording minutes and 10 monthly file imports on the page as checked in September 2026 ([Otter pricing](https://otter.ai/pricing)). Business is the row that drops the in-app minute cap and shows a four-hour figure per conversation. Those caps matter more than the sticker price if you import files or run long workshops.
 
@@ -48,11 +46,6 @@ Read the vendor page on the day you buy. Promotions, annual toggles, and “firs
 ## Seat plans, usage plans, and the free tier that expires
 
 Three patterns show up often enough to name them.
-
-
-<Image src={inline2} alt="Bills and a notebook next to a calculator" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@honza_kahanek?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">honza_kahanek</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 **Seat.** You pay for a person. Everyone who needs the shared library, the admin console, or the CRM push is a line on the invoice. This is the default for Otter, Fireflies, and Granola’s paid tiers.
 
@@ -65,6 +58,12 @@ A one-time Mac purchase is a fourth pattern: no seat count and no renewal for th
 ## A year of seats, worked as arithmetic
 
 Use list prices and your own headcount. Tax, currency, and discounts are yours to add.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Subscription cost is not the same as the cost of people's time in the meeting. Use a wage calculator for the latter.</p>
+</aside>
+
 
 Take Fireflies Pro at the annual rate published in the billing article: $10 per user per month, billed annually, or $18 if you pay month to month (as of September 2026). Five people on the annual rate are $50 a month, $600 a year, before AI credit add-ons. The same five people on monthly billing are $90 a month, $1,080 a year. The software did not get better in the second case. The commitment did.
 

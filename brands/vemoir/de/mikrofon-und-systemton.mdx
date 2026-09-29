@@ -11,12 +11,9 @@ image: "@/assets/blog/mic-and-system-audio/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/mic-and-system-audio/inline1.jpg';
-import inline2 from '@/assets/blog/mic-and-system-audio/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sandrawilliams2025?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sandrawilliams2025</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Mikrofon und Systemton** sind in Vemoir zwei lokale Spuren, keine gemischte Datei und kein Bild deines Schirms. Die Mikrofonspur bist du. Die Systemtonspur ist das, was der Mac aus der Meeting-App abspielt: Teams, Zoom, Google Meet, Slack, Discord oder eine andere App mit Ton.
+**Mikrofon und Systemton** sind in Vemoir zwei lokale Spuren, keine gemischte Datei und kein Bild deines Bildschirms. Die Mikrofonspur bist du. Die Systemtonspur ist das, was der Mac aus der Meeting-App abspielt: Teams, Zoom, Google Meet, Slack, Discord oder eine andere App mit Ton.
 
 Du startest und stoppst die Aufnahme. Kein Bot erscheint in der Teilnehmerliste. Beide Spuren bleiben auf dem Mac, bis du sie exportierst oder später ein optionales Textmodell mit eigenem Schlüssel einschaltest.
 
@@ -37,24 +34,29 @@ Du startest und stoppst die Aufnahme. Kein Bot erscheint in der Teilnehmerliste.
 | Systemton | Apps, die auf dem Mac spielen, inklusive Sitzung | Deine Stimme, ausser die Meeting-App spielt dich an dich zurück |
 
 
-<Image src={inline1} alt="Mikrofon und Lautsprecher nebeneinander auf dem Tisch" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Mikrofon</span><strong>Deine Stimme</strong><p>Folgt dem Mikrofon in der Menüleiste.</p></li>
+  <li><span class="blog-kicker">Systemton</span><strong>Der Call</strong><p>Alles, was die Meeting-App auf dem Mac abspielt.</p></li>
+  <li><span class="blog-kicker">Bot</span><strong>Keiner</strong><p>Du startest und stoppst. Niemand in der Teilnehmerliste.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@yanahd?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">yanahd</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
-Die Mikrofonaufnahme ist eine eigene Session, getrennt vom Systemton-Tap. Du wählst das Mikrofon. Ein Headset-Mikrofon hört dich und wenig vom Raum. Ein Laptop-Mikrofon hört den Raum und, wenn der Gegenton über Lautsprecher läuft, etwas vom Call. Das ist normale Akustik, kein dritter Aufnahmemodus.
+Die Mikrofonaufnahme ist eine eigene Aufnahme, getrennt vom Systemton-Zugriff. Du wählst das Mikrofon. Ein Headset-Mikrofon hört dich und wenig vom Raum. Ein Laptop-Mikrofon hört den Raum und, wenn der Gegenton über Lautsprecher läuft, etwas vom Call. Das ist normale Akustik, kein dritter Aufnahmemodus.
 
-Die Systemtonspur ist die Sitzung, wie der Mac sie abspielt. Vemoir nutzt einen Audio-Tap nur für Ton und lässt sich selbst aus diesem Tap heraus, damit die App ihre eigene Wiedergabe nicht in die Aufnahme füttert. Die Berechtigung heisst in macOS System Audio Recording.
+Die Systemtonspur ist die Sitzung, wie der Mac sie abspielt. Vemoir nutzt einen Audio-Zugriff nur für Ton und nimmt sich selbst aus diesem Zugriff heraus, damit die App ihre eigene Wiedergabe nicht in die Aufnahme füttert. Die Berechtigung heisst in macOS System Audio Recording.
 
-Die [Mikrofon-Rauschunterdrückung](/de/blog/mikrofon-rauschunterdrueckung) gilt nur für die Mikrofonspur, in Off, Balanced oder Strong. Sie putzt die Systemtonspur nicht.
+Die [Mikrofon-Rauschunterdrückung](/de/blog/mikrofon-rauschunterdrueckung) gilt nur für die Mikrofonspur, in Aus, Ausgewogen oder Stark. Sie putzt die Systemtonspur nicht.
 
 ## Die Berechtigung gilt für Ton, nicht für den Bildschirm
 
-Ältere Texte über Mac-Apps sagen oft, fremden App-Ton gebe es nur über Screen Recording. Das war der Name, den viele gelernt haben. Die ausgelieferte Vemoir-App verlangt System Audio Recording. Sie nimmt den Sitzungston auf. Sie nimmt keine Bildschirminhalte, keine Pixel und kein Video des Schreibtischs auf.
+Ältere Texte über Mac-Apps sagen oft, fremden App-Ton gebe es nur über die Bildschirmaufnahme. Das war der Name, den viele gelernt haben. Die ausgelieferte Vemoir-App verlangt System Audio Recording. Sie nimmt den Sitzungston auf. Sie nimmt keine Bildschirminhalte, keine Pixel und kein Video des Schreibtischs auf.
 
 
-<Image src={inline2} alt="Zwei getrennte Kabel neben einem Notizbuch" width={700} quality={80} class="w-full" />
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>macOS verlangt System Audio Recording für den Call. Nur Audio, keine Bildschirmpixel.</p>
+</aside>
 
-<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Für deine Spur brauchst du zusätzlich den Mikrofonzugriff. Zwei Quellen, zwei Berechtigungen. Verweigerst du den Systemton, bleibt das Mikrofon. Verweigerst du das Mikrofon, bleibt der Call, und von deiner Stimme fast nichts, ausser sie fällt über Lautsprecher in ein Mikrofon, das du nicht dafür wolltest.
 
@@ -65,7 +67,7 @@ Die Einrichtung fragt nur die Berechtigungen ab, die das gewählte Setup braucht
 1. Tritt der Sitzung in der App bei, die du schon nutzt. Vemoir kommt nicht als Teilnehmer rein. Der Unterschied steht kurz in [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot).
 2. Wähle in der Menüleiste das Projekt, wenn du Calls nach Kunde ablegst, und starte die Aufnahme, wenn du sie willst.
 3. Sprich normal. Die Mikrofonspur folgt dem Mikrofon, das du gewählt hast. Die Systemspur folgt der Wiedergabe der Meeting-App.
-4. Stoppe, wenn der Call endet. Das massgebliche Transkript entsteht aus dem abgeschlossenen lokalen Audio nach dem Stopp. Eine Live-Vorschau während des Calls ist nur Hinweis. Sie ersetzt diesen Durchgang nicht.
+4. Stoppe, wenn der Call endet. Das massgebliche Transkript entsteht aus dem abgeschlossenen lokalen Audio nach dem Stopp. Eine Live-Vorschau während des Calls ist nur ein Hinweis. Sie ersetzt diesen Durchgang nicht.
 5. Die Sprechertrennung läuft auf dem Mac und beginnt mit anonymen Labels, die du umbenennen kannst. Unbekannte Sprecher bleiben anonym, bis du eine Stimme ausdrücklich merken lässt.
 
 Dasselbe Paar gilt für jede App, die auf dem Mac Ton abspielt. Es hängt nicht an der Cloud-Aufnahme eines Anbieters. Teams auf dem Mac ist ein Beispiel, von der Meeting-App aus beschrieben in [Teams-Meeting auf dem Mac aufnehmen](/de/blog/teams-meeting-aufnehmen-mac). Zoom, Meet, Slack-Huddles und Discord folgen derselben Idee: spielt der Mac es ab, kann die Systemspur es hören.
@@ -78,20 +80,20 @@ Zwei lokale Spuren passen besser, wenn du Stimme und Call getrennt auf dem Mac h
 
 - Du brauchst die offizielle Cloud-Aufnahme des Meeting-Anbieters als Sitzungsakte. Nutze dessen Aufnahmeknopf. Vemoir ist deine lokale Kopie, nicht dessen Archiv.
 - Das Team arbeitet auf Windows oder auf dem Telefon, und das Ziel ist eine geteilte Bot-Bibliothek. Dafür ist ein Cloud-Notetaker gebaut. Vemoir ist eine Mac-App auf Apple Silicon, macOS Sonoma 14.2 oder neuer.
-- Ihr sitzt im Raum, mehrere Personen, kein Gegenton. Die Systemspur bleibt leise. Das Mikrofon hört, wer nahe ist. Das ist eine Mikrofonaufnahme des Raums, kein eigener Modus, der den Tisch setzt und alle benennt. Für ein langes Interview, das du schon als eine Datei hast, kann das Browser-Tool unter [/de/tools/audio-transkribieren](/de/tools/audio-transkribieren) einen kurzen Clip in Text wandeln, ohne Upload. Es setzt keine Sprechernamen, und es endet bei 15 Minuten und drei erfolgreichen Läufen pro Woche.
+- Ihr sitzt im Raum, mehrere Personen, kein Ton von aussen. Die Systemspur bleibt leise. Das Mikrofon hört, wer nahe ist. Das ist eine Mikrofonaufnahme des Raums, kein eigener Modus, der Sitzplätze vergibt und alle benennt. Für ein langes Interview, das du schon als eine Datei hast, kann das Browser-Tool unter [/de/tools/audio-transkribieren](/de/tools/audio-transkribieren) einen kurzen Ausschnitt in Text wandeln, ohne Upload. Es setzt keine Sprechernamen, und es endet bei 15 Minuten und drei erfolgreichen Läufen pro Woche.
 - Du wolltest nur deine eigene Ansage, nicht den Call. Pausiere den Sitzungston oder nimm ein Gerät für Einzelsprache. Die Systemspur greift weiter andere Apps, die gerade spielen.
 
 Ein Headset verändert die Systemspur nützlich: die Gegenstimmen bleiben auf der Systemspur und fallen weniger ins Mikrofon. Das willst du meist, wenn du später hören willst, wer lokal war.
 
-Wenn du beide Spuren behältst, kannst du nach der Sitzung zuerst den Systemton prüfen und dann das Mikrofon. So hörst du, ob der Call überhaupt angekommen ist, bevor du die Rauschstufe an deiner Stimme änderst. Eine leere Systemspur bei laufendem Call heisst fast immer: die Meeting-App war stumm, das Ausgabe-Gerät war ein anderes, oder die Berechtigung fehlt. Das ist ein Setup-Thema, kein zweites Mikrofon.
+Wenn du beide Spuren behältst, kannst du nach der Sitzung zuerst den Systemton prüfen und dann das Mikrofon. So hörst du, ob der Call überhaupt angekommen ist, bevor du die Rauschstufe an deiner Stimme änderst. Eine leere Systemspur bei laufendem Call heisst fast immer: die Meeting-App war stumm, das Ausgabegerät war ein anderes, oder die Berechtigung fehlt. Das ist ein Thema der Einrichtung, kein zweites Mikrofon.
 
 ## Was nach dem Stopp passiert
 
-Für die Transkription zählt das abgeschlossene Audio. Parakeet v3 oder ein Whisper-Modell, das du gewählt hast (Turbo, Medium oder Large-v3), läuft auf dem Mac. Diese Modelle transkribieren Sprache. Sie schreiben nicht das Protokoll. Notizen, Dokumente und Fragen nutzen ein lokales Sprachmodell oder einen optionalen reinen Text-Schlüssel, den du selbst einschaltest. Nichts davon schickt das Audio still vom Mac.
+Für die Transkription zählt das abgeschlossene Audio. Parakeet v3 oder ein Whisper-Modell, das du gewählt hast (Turbo, Medium oder Large-v3), läuft auf dem Mac. Diese Modelle transkribieren Sprache. Sie schreiben nicht das Protokoll. Notizen, Dokumente und Fragen nutzen ein lokales Sprachmodell oder einen optionalen Schlüssel nur für Text, den du selbst einschaltest. Nichts davon schickt das Audio still vom Mac.
 
-Ob Sitzungsaudio bleibt, steuert der Speicher. Jede Sitzung behält die Wahl, die beim Anlegen galt. Behältst du das Audio, kann die Wiedergabe eine Spur wählen. Löschst oder räumst du die Aufnahme, zeigt die App, dass das Audio fehlt. Das Protokoll kann trotzdem da sein, weil das Transkript schon erstellt wurde.
+Ob das Audio der Sitzung bleibt, steuert der Speicher. Jede Sitzung behält die Wahl, die beim Anlegen galt. Behältst du das Audio, kann die Wiedergabe eine Spur wählen. Löschst oder räumst du die Aufnahme, zeigt die App, dass das Audio fehlt. Das Protokoll kann trotzdem da sein, weil das Transkript schon erstellt wurde.
 
-Teilen entscheidest du. Das native Teilen von macOS und der Export schicken die Teile, die du wählst, nicht beide Rohspuren in einen Team-Bereich, den du nicht eingerichtet hast. Vemoir behauptet nicht, eine Aufnahme sei rechtmässig, weil sie lokal blieb. Sag Bescheid, wenn du aufnimmst. Diese Seite ist keine Rechtsberatung.
+Teilen entscheidest du. Das Teilen von macOS und der Export schicken die Teile, die du wählst, nicht beide Rohspuren in einen Team-Bereich, den du nicht eingerichtet hast. Vemoir behauptet nicht, eine Aufnahme sei rechtmässig, weil sie lokal blieb. Sag Bescheid, wenn du aufnimmst. Diese Seite ist keine Rechtsberatung.
 
 Die zwei Quellen neben der Modellwahl stehen unter [Aufnahme](/de#capture).
 
@@ -103,7 +105,7 @@ Sie werden als getrennte lokale Spuren aufgenommen: das gewählte Mikrofon und d
 
 ### Nimmt Vemoir den Bildschirm auf, um den Call zu hören?
 
-Nein. Die Call-Spur nutzt System Audio Recording über einen reinen Audio-Tap. Bildschirminhalte werden nicht aufgezeichnet.
+Nein. Die Call-Spur nutzt System Audio Recording über einen reinen Audio-Zugriff. Bildschirminhalte werden nicht aufgezeichnet.
 
 ### Sehen die anderen einen Bot?
 
@@ -127,6 +129,6 @@ Apple Silicon, M1 oder neuer, macOS Sonoma 14.2 oder neuer, mindestens 8 GB Spei
 
 ### Wo schalte ich die Spuren ein?
 
-Wähle das Mikrofon, erlaube System Audio Recording, und starte in der Menüleiste. Der Abschnitt [Aufnahme](/de#capture) zeigt die Steuerungen. Rauschminderung, wenn du sie willst, liegt nur auf dem Mikrofon, in Off, Balanced oder Strong.
+Wähle das Mikrofon, erlaube System Audio Recording, und starte in der Menüleiste. Der Abschnitt [Aufnahme](/de#capture) zeigt die Steuerungen. Die Rauschminderung, wenn du sie willst, liegt nur auf dem Mikrofon, in Aus, Ausgewogen oder Stark.
 
 Die nächste Sitzung ist der Test: Headset auf, beide Berechtigungen erlaubt, Aufnahme in der Menüleiste, Stopp wenn der Call endet. [Aufnahme](/de#capture) zeigt, wo die zwei Quellen sitzen.

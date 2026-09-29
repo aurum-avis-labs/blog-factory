@@ -11,9 +11,6 @@ image: "@/assets/blog/best-offline-transcription-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/best-offline-transcription-mac/inline1.jpg';
-import inline2 from '@/assets/blog/best-offline-transcription-mac/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@lreverchuk?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">lreverchuk</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 The **best offline transcription for Mac** in 2026 is the setup that already has its speech model on disk, so the next recording does not need a network to become text. “Offline” is not a mood and not a browser tab that still phones home. It is a weight file you downloaded earlier, plus software that refuses to swap in a cloud model when the wifi drops. Several tools meet that bar. They do not do the same job.
@@ -30,14 +27,16 @@ This comparison stays away from accuracy percentages. Nobody is quoting a benchm
 - [Setup you do once, on purpose](#setup-you-do-once-on-purpose)
 - [Frequently asked questions](#frequently-asked-questions)
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Offline</span><strong>After download</strong><p>Models and files stay on the Mac until you export.</p></li>
+  <li><span class="blog-kicker">Browser tool</span><strong>15 min</strong><p>Whisper in the tab, no upload, no speaker labels.</p></li>
+  <li><span class="blog-kicker">Mac app</span><strong>Live + import</strong><p>Menu-bar capture and long imports on Apple silicon.</p></li>
+</ul>
+
 ## What has to be true before a tool is offline
 
 An offline transcription path has four checks.
 
-
-<Image src={inline1} alt="A cabin office, closed laptop, snow in the window" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@pjayth3kreator?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">pjayth3kreator</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 **The model is already installed.** The first download needs the internet. Whisper weights, Parakeet, or whatever speech model the app uses are not magic inside the binary unless the developer bundled them. Vemoir does not silently download or substitute a model during a recording. You pick, you see the size, you wait, you can resume a failed download. After that, transcription does not require a connection.
 
@@ -54,10 +53,6 @@ Offline does not include Swiss German dialect as dialect text. Plan on Standard 
 [OpenAI Whisper](https://github.com/openai/whisper) is the reference local model a lot of Mac tools wrap. You can run it yourself. Once the weights are downloaded, the transcription step does not need the network. There is no 15-minute product cap in the open-source project. There is also no meeting, no action list, and no speaker names unless you add them.
 
 
-<Image src={inline2} alt="A remote-work desk with a forest window and papers" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 That path, or a Finder-first app wrapped around the same idea, is the **better choice** when:
 
 - You drag in files and you never record a live call.
@@ -69,6 +64,23 @@ MacWhisper is the usual example of that Finder-first shape. Use it, or anything 
 DIY Whisper is also where you go if you need a model size the meeting app does not list, and you accept the setup time. You own the failure modes: a wrong sample rate, a file the command did not open, a transcript with no timestamps because of a flag you skipped.
 
 You do not go to raw Whisper when the next hour is a Teams call you have not recorded yet. The model does not hear the call. Something else has to capture system audio first.
+
+<div class="blog-pair">
+  <div>
+    <h3>Who local fits</h3>
+    <ul>
+      <li>Consultant on a train without Wi‑Fi</li>
+      <li>Researcher who cannot upload interviews</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who cloud fits</h3>
+    <ul>
+      <li>Team library with shared search</li>
+      <li>CRM workflows tied to a bot</li>
+    </ul>
+  </div>
+</div>
 
 ## A meeting record that also runs offline
 

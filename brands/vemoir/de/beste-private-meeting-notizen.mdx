@@ -11,12 +11,7 @@ image: "@/assets/blog/best-private-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/best-private-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/best-private-meeting-notes/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@amyhirschi?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">amyhirschi</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Die **besten privaten Meeting-Notizen** sind die, die zum Risiko passen, das du wirklich schneiden willst. Für manche heisst das: kein Bot in der Teilnehmerliste. Für andere: die Audiodatei sitzt nie auf den Servern eines Anbieters. Das sind verschiedene Produkte, und eine faire Liste sagt das.
+Die **besten privaten Meeting-Notizen** sind die, die zum Risiko passen, das du wirklich reduzieren willst. Für manche heisst das: kein Bot in der Teilnehmerliste. Für andere: die Audiodatei sitzt nie auf den Servern eines Anbieters. Das sind verschiedene Produkte, und eine faire Liste sagt das.
 
 Dieser Vergleich nutzt Herstellerseiten, geprüft im September 2026, plus das, was die Vemoir-Mac-App ausliefert: Aufnahme aus der Menüleiste, Transkription auf dem Mac, kein Bot, und ein einmaliger App-Store-Preis von CHF 20 in der Schweiz. Den lokalen Preis zeigt der Store. Das ist keine Rangliste der Transkriptionsgenauigkeit. Es ist keine Rechtsberatung.
 
@@ -34,46 +29,59 @@ Dieser Vergleich nutzt Herstellerseiten, geprüft im September 2026, plus das, w
 - [Grenzen, die in jeder Zeile gelten](#grenzen-die-in-jeder-zeile-gelten)
 - [Häufige Fragen](#häufige-fragen)
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot</span><strong>Sichtbarer Gast</strong><p>Otter und Fireflies treten als Teilnehmer bei.</p></li>
+  <li><span class="blog-kicker">Audiodatei</span><strong>Auf dem Mac</strong><p>Vemoir und MacWhisper halten Dateien lokal.</p></li>
+  <li><span class="blog-kicker">Granola</span><strong>Kein Bot</strong><p>Notizen liegen trotzdem in der US-Cloud laut Hersteller.</p></li>
+</ul>
+
 ## Was privat meistens heisst
 
 Vier Fragen, bevor der Markenname kommt:
-
-
-<Image src={inline1} alt="Abgeschlossene Schreibtischschublade und geschlossenes Notizbuch" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Erscheint eine weitere Person in der Sitzung?
 2. Verlässt das Audio den Mac?
 3. Darf der Anbieter den Inhalt zum Training von Modellen nutzen?
 4. Kannst du es löschen, und wo?
 
-Ein Werkzeug kann eine Frage bestehen und die nächste verfehlen. Granola fügt keinen Bot hinzu und sagt ausserdem, es speichere Meeting-Audio nicht langfristig, während Notizen und Transkripte in seiner US-Cloud liegen. Otters Notetaker tritt als sichtbarer Teilnehmer bei und speichert Inhalt bei AWS in den Vereinigten Staaten. Vemoir behält die Aufnahme auf dem Mac, ausser du exportierst sie oder schaltest einen reinen Text-Schlüssel ein. MacWhisper zielt auf lokale Transkription unter macOS, inklusive Dateien, und das ist eine andere Aufgabe als eine geteilte Bibliothek.
+Ein Werkzeug kann eine Frage bestehen und die nächste verfehlen. Granola fügt keinen Bot hinzu und sagt ausserdem, es speichere Meeting-Audio nicht langfristig, während Notizen und Transkripte in seiner US-Cloud liegen. Der Aufnahme-Assistent von Otter tritt als sichtbarer Teilnehmer bei und speichert Inhalt bei AWS in den Vereinigten Staaten. Vemoir behält die Aufnahme auf dem Mac, ausser du exportierst sie oder schaltest einen Schlüssel ein, der nur Text sieht. MacWhisper zielt auf lokale Transkription unter macOS, inklusive Dateien, und das ist eine andere Aufgabe als eine geteilte Bibliothek.
 
 Keine dieser Antworten ersetzt Einwilligung. Menschen aufzunehmen bleibt deine Verantwortung.
 
 ## Vemoir
 
-Vemoir ist eine Mac-App von Aurum Avis Labs GmbH in Oberägeri. Sie nimmt Mikrofon und Systemton als zwei lokale Spuren auf. Du startest und stoppst aus der Menüleiste. Kein Bot tritt Teams, Zoom, Meet, Slack, Discord oder einer anderen App bei, die Ton auf dem Mac abspielt. Die Call-Spur nutzt System Audio Recording, einen reinen Audio-Tap von Core Audio. Den Bildschirm nimmt sie nicht auf.
+Vemoir ist eine Mac-App von Aurum Avis Labs GmbH in Oberägeri. Sie nimmt Mikrofon und Systemton als zwei lokale Spuren auf. Du startest und stoppst aus der Menüleiste. Kein Bot tritt Teams, Zoom, Meet, Slack, Discord oder einer anderen App bei, die Ton auf dem Mac abspielt. Die Call-Spur nutzt die Systemaudioaufnahme, einen reinen Audio-Tap von Core Audio. Den Bildschirm nimmt sie nicht auf.
 
+Sprache zu Text läuft auf dem Mac mit dem Modell, das du installierst: Parakeet v3 (25 europäische Sprachen) oder Whisper Turbo, Medium oder Large-v3. Notizen, Dokumente und Ask nutzen ein lokales Sprachmodell zum Schreiben, Qwen3 4B auf den meisten Macs oder gpt-oss-20b auf Macs mit viel Speicher, oder Apple Intelligence, wo der Mac sie hat, oder einen Schlüssel für OpenAI oder Anthropic, den du im Schlüsselbund speicherst und selbst aktivierst. Dieser Schlüssel ist nur Text. Audio und Sprechertrennung bleiben auf dem Mac. Es gibt keinen stillen Ersatz durch eine Cloud-Transkription.
 
-<Image src={inline2} alt="Cremefarbene Karten auf einem Schreibtisch abseits der Fenster" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@wocintechchat?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">wocintechchat</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Sprache zu Text läuft auf dem Mac mit dem Modell, das du installierst: Parakeet v3 (25 europäische Sprachen) oder Whisper Turbo, Medium oder Large-v3. Notizen, Dokumente und Ask nutzen ein lokales Sprachmodell zum Schreiben, Qwen3 4B auf den meisten Macs oder gpt-oss-20b auf Macs mit viel Speicher, oder Apple Intelligence, wo der Mac sie hat, oder einen OpenAI- oder Anthropic-Schlüssel, den du im Schlüsselbund speicherst und selbst aktivierst. Dieser Schlüssel ist nur Text. Audio und Sprechertrennung bleiben auf dem Mac. Es gibt keinen stillen Ersatz durch einen Cloud-Transkriptor.
-
-Sprechernamen beginnen anonym. Ein Label kannst du umbenennen, ohne ein Profil anzulegen. Remember this speaker ist ein Opt-in, verschlüsselt und löschbar. Ein Projekt-Glossar hält bevorzugte Schreibweisen. Das Originaltranskript bleibt der Nachweis.
+Sprechernamen beginnen anonym. Eine Beschriftung kannst du umbenennen, ohne ein Profil anzulegen. «Diesen Sprecher merken» ist freiwillig, verschlüsselt und löschbar. Ein Glossar im Projekt hält bevorzugte Schreibweisen. Das Originaltranskript bleibt der Nachweis.
 
 Voraussetzungen: Apple Silicon, macOS Sonoma 14.2 oder neuer, 8 GB Speicher, 10 GB frei, 16 GB empfohlen für lange Sitzungen. Intel-Macs werden nicht unterstützt. Hast du nur eine kurze Datei, läuft [Audio transkribieren](/de/tools/audio-transkribieren) im Browser, bis 15 Minuten, drei erfolgreiche Läufe pro Woche, ohne Sprechernamen, Datei wird nicht hochgeladen. Dieser Versuch ist nicht die Live-App.
 
-Eine längere Karte der Aufnahme ohne Bot liegt in [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot).
+Eine längere Beschreibung der Aufnahme ohne Bot liegt in [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot).
+
+<div class="blog-pair">
+  <div>
+    <h3>Cloud wählen</h3>
+    <ul>
+      <li>Geteilte Suche im Vertriebsteam</li>
+      <li>Bot von der IT freigegeben</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Lokal wählen</h3>
+    <ul>
+      <li>Kundenvertrag verbietet Verarbeiter in den USA</li>
+      <li>Kein Gast im Raum</li>
+    </ul>
+  </div>
+</div>
 
 ## MacWhisper
 
 MacWhisper transkribiert auf dem Mac und kann Online-Meetings ohne Bot aufnehmen, standardmässig mit lokalen Modellen ([MacWhisper](https://www.macwhisper.com/), geprüft September 2026). Pro stand auf dieser Seite im September 2026 als Einmallizenz zu €64. Zusammenfassungen können lokale oder angebundene KI nutzen, die du einrichtest.
 
-MacWhisper ist die bessere Wahl, wenn die Aufgabe Dateien im Finder sind: Aufnahme ablegen, Transkript holen, und du brauchst Protokoll, Entscheide, Aufgaben, Projekte und Ask nicht als einen Sitzungsdatensatz. Es ist die schlechtere Wahl, wenn du diesen strukturierten Datensatz aus einem Live-Call willst, mit optionalen Schreibmodellen auf dem Gerät in derselben App wie die Aufnahme. Vemoir ist um den Sitzungsdatensatz gebaut. MacWhisper ist um die Transkription gebaut. Nimm das, das zur Stunde passt, die du sparen willst.
+MacWhisper ist die bessere Wahl, wenn die Aufgabe Dateien im Finder sind: Aufnahme ablegen, Transkript holen, und du brauchst Protokoll, Entscheide, Aufgaben, Projekte und Ask nicht als einen Sitzungsdatensatz. Es passt schlechter, wenn du diesen strukturierten Datensatz aus einem Live-Call willst, mit freiwilligen Schreibmodellen auf dem Gerät in derselben App wie die Aufnahme. Vemoir ist um den Sitzungsdatensatz gebaut. MacWhisper ist um die Transkription gebaut. Nimm das, das zur Stunde passt, die du sparen willst.
 
 Behandle einen Pro-Preis auf einer Herstellerseite nicht als App-Store-Preis. Kauf über den Kanal, den du meinst.
 
@@ -81,29 +89,29 @@ Behandle einen Pro-Preis auf einer Herstellerseite nicht als App-Store-Preis. Ka
 
 Granola ist ein KI-Notizblock für Desktop und Mobil. Du startest es selbst. Es tritt nicht automatisch als Bot bei. Auf dem Desktop nutzt es dein Mikrofon und den Meeting-Ton und schickt das über Transkriptionsanbieter wie Deepgram und Assembly und KI-Anbieter wie OpenAI und Anthropic ([Granola security](https://www.granola.ai/security), geprüft September 2026). Dieselbe Seite sagt, Granola speichere Meeting-Audio nicht langfristig, und Notizen sowie Transkripte lägen in einer AWS-Umgebung in den USA, verschlüsselt im Ruhezustand und unterwegs. Granola trainiert auf anonymisierten Daten, um das Produkt zu verbessern. Du kannst in den Einstellungen widersprechen. Für Enterprise ist Training standardmässig aus. Dritte wie OpenAI oder Anthropic dürfen laut dieser Seite nicht auf deinen Daten trainieren.
 
-Granola ist die bessere Wahl, wenn du einen botfreien Notizblock willst, der auch unter Windows und auf dem Telefon läuft, und Cloud-Transkripte akzeptierst. Es ist die schlechtere Wahl, wenn «privat» heisst, Audio und Transkript bleiben auf dem Mac. Mobile Aufnahme für Gespräche im Raum ist ihre Funktion. Vemoires Live-Aufnahme ist heute Mikrofon plus Systemton eines Calls, den der Mac abspielt, nicht ein eigener Raummodus.
+Granola ist die bessere Wahl, wenn du einen Notizblock ohne Bot willst, der auch unter Windows und auf dem Telefon läuft, und Cloud-Transkripte akzeptierst. Es passt schlechter, wenn «privat» heisst, Audio und Transkript bleiben auf dem Mac. Aufnahme auf dem Mobilgerät für Gespräche im Raum ist ihre Funktion. Die Live-Aufnahme von Vemoir ist heute Mikrofon plus Systemton eines Calls, den der Mac abspielt, nicht ein eigener Modus für den Raum.
 
 ## Otter und Fireflies
 
-Otter ist ein Cloud-Notetaker. Die Datenschutzrichtlinie beschreibt Speicher bei Amazon Web Services in den Vereinigten Staaten und einen sichtbaren Notetaker, der nicht anonym beitreten kann. Die Datenschutzdokumente beschreiben auch Training eigener Modelle auf de-identifiziertem Audio und Transkripten. Eine genauere Lesart liegt in [Ist Otter.ai sicher](/de/blog/ist-otter-ai-sicher), mit Links, geprüft September 2026. Otter ist stark, wenn ein geteiltes Transkript und ein Kalender-Bot das sind, was das Team will.
+Otter ist eine Protokoll-App in der Cloud. Die Datenschutzrichtlinie beschreibt Speicher bei Amazon Web Services in den Vereinigten Staaten und einen sichtbaren Aufnahme-Assistenten, der nicht anonym beitreten kann. Die Datenschutzdokumente beschreiben auch Training eigener Modelle auf de-identifiziertem Audio und Transkripten. Eine genauere Lesart liegt in [Ist Otter.ai sicher](/de/blog/ist-otter-ai-sicher), mit Links, geprüft September 2026. Otter ist stark, wenn ein geteiltes Transkript und ein Kalender-Bot das sind, was das Team will.
 
-Fireflies speichert Daten standardmässig in seiner Cloud in den Vereinigten Staaten (AWS und Google Cloud), mit privatem Speicher, den die Dokumentation für Enterprise beschreibt ([Datenspeicher](https://guide.fireflies.ai/articles/9596505232-learn-about-data-storage-and-transfer), [Sicherheit](https://fireflies.ai/security), geprüft September 2026). Die Datenschutzrichtlinie sagt, Fireflies nutze personenbezogene Informationen nicht für das Training von KI-Modellen und verbiete Anbietern vertraglich, diese Informationen für deren eigenes Training zu nutzen. Ein Notetaker kann dem Call beitreten. Das ist bequem für eine Team-Bibliothek und die falsche Form, wenn niemand einen zusätzlichen Teilnehmer sehen darf. Siehe [Fireflies-Alternativen](/de/blog/fireflies-alternative), wenn du einen botfreien Weg suchst.
+Fireflies speichert Daten standardmässig in seiner Cloud in den Vereinigten Staaten (AWS und Google Cloud), mit privatem Speicher, den die Dokumentation für Enterprise beschreibt ([Datenspeicher](https://guide.fireflies.ai/articles/9596505232-learn-about-data-storage-and-transfer), [Sicherheit](https://fireflies.ai/security), geprüft September 2026). Die Datenschutzrichtlinie sagt, Fireflies nutze personenbezogene Informationen nicht für das Training von KI-Modellen und verbiete Anbietern vertraglich, diese Informationen für deren eigenes Training zu nutzen. Ein Aufnahme-Assistent kann dem Call beitreten. Das ist bequem für eine Team-Bibliothek und die falsche Form, wenn niemand einen zusätzlichen Teilnehmer sehen darf. Siehe [Fireflies-Alternativen](/de/blog/fireflies-alternative), wenn du einen Weg ohne Bot suchst.
 
-Beide können «privat» sein innerhalb einer Firma, die US-Cloud-Verarbeitung akzeptiert hat und Admin-Steuerung hat. Sie sind nicht privat im Sinn von Audio, das nie hochgeladen wird.
+Beide können «privat» sein innerhalb einer Firma, die Cloud-Verarbeitung in den USA akzeptiert hat und Steuerung durch die Administration hat. Sie sind nicht privat im Sinn von Audio, das nie hochgeladen wird.
 
 ## Fathom
 
-Fathoms Hilfeartikel [Is Fathom secure?](https://help.fathom.video/en/articles/296512) (geprüft September 2026) sagt, alle Fathom-Daten würden in den Vereinigten Staaten gespeichert, benannte KI-Subprozessoren dürften ihre Modelle nicht mit Nutzerdaten trainieren, und Fathom nutze de-identifizierte Kundendaten für eigene Modelle, ausser du widersprichst. Admins können einen Notetaker-Bot erzwingen, auch wenn ein botfreier Modus existiert. Die längere Quellenangabe gehört auf eine spätere Seite. Für diese Liste behandle Fathom als Cloud-Produkt mit einer grosszügigen Gratisstufe für Einzelpersonen, nicht als Archiv auf dem Mac.
+Der Hilfeartikel von Fathom [Is Fathom secure?](https://help.fathom.video/en/articles/296512) (geprüft September 2026) sagt, alle Fathom-Daten würden in den Vereinigten Staaten gespeichert, benannte KI-Subprozessoren dürften ihre Modelle nicht mit Nutzerdaten trainieren, und Fathom nutze de-identifizierte Kundendaten für eigene Modelle, ausser du widersprichst. Admins können einen Bot erzwingen, auch wenn ein Modus ohne Bot existiert. Die längere Quellenangabe gehört auf eine spätere Seite. Für diese Liste behandle Fathom als Cloud-Produkt mit einer grosszügigen Gratisstufe für Einzelpersonen, nicht als Archiv auf dem Mac.
 
-Fathom ist die bessere Wahl, wenn du eine geteilte Bibliothek willst und ihre Speicherbedingungen akzeptabel sind. Es ist die schlechtere Wahl, wenn die Datei den Laptop nicht verlassen darf.
+Fathom ist die bessere Wahl, wenn du eine geteilte Bibliothek willst und ihre Speicherbedingungen akzeptabel sind. Es passt schlechter, wenn die Datei den Laptop nicht verlassen darf.
 
 ## Wo die besten privaten Meeting-Notizen in der Cloud bleiben
 
-Die besten privaten Meeting-Notizen auf einem Mac sind ein schlechter Sitz für ein Vertriebsbüro, das in einem CRM lebt. Fireflies, Fathom und ähnliche Werkzeuge sind für Plätze, geteilte Suche und Admin-Aufbewahrung gebaut. Müssen zwanzig Leute denselben Call unter Windows öffnen, frustriert eine lokale Mac-App. Zahl für das Cloud-Produkt und leg die Datenschutzprüfung auf seine Verarbeitungsbedingungen, statt so zu tun, als wäre ein Menüleisten-Rekorder eine Team-Konsole.
+Die besten privaten Meeting-Notizen auf einem Mac sind ein schlechter Sitz für ein Vertriebsbüro, das in einem CRM lebt. Fireflies, Fathom und ähnliche Werkzeuge sind für Plätze, geteilte Suche und Aufbewahrung durch die Administration gebaut. Müssen zwanzig Leute denselben Call unter Windows öffnen, frustriert eine lokale Mac-App. Zahl für das Cloud-Produkt und leg die Datenschutzprüfung auf seine Verarbeitungsbedingungen, statt so zu tun, als wäre ein Rekorder in der Menüleiste eine Konsole fürs Team.
 
-Cloud-Werkzeuge sind auch besser, wenn du Aufnahme nicht selbst starten willst. Ein Kalender-Bot, der von allein beitritt, nimmt diesen Schritt weg. Er fügt einen sichtbaren Teilnehmer und eine Herstellerkopie hinzu. Ist dieser Tausch in Ordnung, nimm ihn. Verbietet der Kunde Bots, lies [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot) und wähle eine lokale Aufnahme.
+Cloud-Werkzeuge sind auch besser, wenn du die Aufnahme nicht selbst starten willst. Ein Kalender-Bot, der von allein beitritt, nimmt diesen Schritt weg. Er fügt einen sichtbaren Teilnehmer und eine Kopie beim Hersteller hinzu. Ist dieser Tausch in Ordnung, nimm ihn. Verbietet der Kunde Bots, lies [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot) und wähle eine lokale Aufnahme.
 
-MacWhisper bleibt besser für einen Stapel Dateien ohne Sitzungsstruktur. Granola bleibt besser, wenn du Windows und Telefon brauchst und ihre Cloud akzeptierst. Otter bleibt besser für einen ausgefeilten Bot-Ablauf auf Plänen, die du schon bezahlst. Der Vergleich in [Otter-Alternativen](/de/blog/otter-ai-alternative) und in der [Mac-App-Übersicht](/de/blog/beste-meeting-protokoll-app-mac) geht breiter auf Preis und Plattformen. Diese Seite bleibt dabei, wohin das Audio geht.
+MacWhisper bleibt besser für einen Stapel Dateien ohne Sitzungsstruktur. Granola bleibt besser, wenn du Windows und Telefon brauchst und ihre Cloud akzeptierst. Otter bleibt besser für einen ausgearbeiteten Bot-Ablauf auf Plänen, die du schon bezahlst. Der Vergleich in [Otter-Alternativen](/de/blog/otter-ai-alternative) und in der [Mac-App-Übersicht](/de/blog/beste-meeting-protokoll-app-mac) geht breiter auf Preis und Plattformen. Diese Seite bleibt dabei, wohin das Audio geht.
 
 ## So wählst du
 
@@ -111,7 +119,7 @@ MacWhisper bleibt besser für einen Stapel Dateien ohne Sitzungsstruktur. Granol
 | --- | --- |
 | Audio bleibt auf dem Mac, ausser du exportierst | Vemoir oder MacWhisper |
 | Ein Transkript von Dateien, kein Sitzungssystem | MacWhisper |
-| Kein Bot, und Cloud-Transkripte sind akzeptabel | Granola, oder Fathoms botfreier Modus, wenn ein Admin ihn lässt |
+| Kein Bot, und Cloud-Transkripte sind akzeptabel | Granola, oder den Modus von Fathom ohne Bot, wenn ein Admin ihn lässt |
 | Eine geteilte Bibliothek, und ein Bot ist in Ordnung | Otter, Fireflies, Fathom |
 | Eine kurze Datei, keine Installation | [Browser-Transkription](/de/tools/audio-transkribieren) |
 
@@ -119,23 +127,23 @@ Prüfe die Herstellerseite danach noch einmal. September 2026 ist das Datum der 
 
 ## Ein Beratungsgespräch, durchgespielt
 
-Du hast morgens einen Kunden in Zürich, der Notetaker-Bots in der Einladung verboten hat, und nachmittags einen Call mit dem eigenen Team, das schon einen Cloud-Platz bezahlt. Der Morgen ist der private Fall. Du nimmst ihn auf dem Mac auf, sagst, dass du aufnimmst, und lässt jeden API-Schlüssel aus, damit das Transkript nicht zum Umschreiben weggeht. Protokoll, Entscheide und die Notizen, die du getippt hast, bleiben auf dem Gerät, bis du eine Textzusammenfassung ohne das Audio in den Ordner exportierst, den sie verlangt haben. Ist ein Name falsch, benennst du das Label um. Die Stimme musst du nicht merken.
+Du hast morgens einen Kunden in Zürich, der Aufnahme-Bots in der Einladung verboten hat, und nachmittags einen Call mit dem eigenen Team, das schon einen Cloud-Platz bezahlt. Der Morgen ist der private Fall. Du nimmst ihn auf dem Mac auf, sagst, dass du aufnimmst, und lässt jeden API-Schlüssel aus, damit das Transkript nicht zum Umschreiben weggeht. Protokoll, Entscheide und die Notizen, die du getippt hast, bleiben auf dem Gerät, bis du eine Textzusammenfassung ohne das Audio in den Ordner exportierst, den sie verlangt haben. Ist ein Name falsch, benennst du die Beschriftung um. Die Stimme musst du nicht merken.
 
 Der Nachmittag kann auf dem Cloud-Werkzeug bleiben, das das Team schon akzeptiert hat. Beide Calls in einen Anbieter zu legen, weil es ordentlicher wirkt, mischt zwei Regeln. Die besten privaten Meeting-Notizen dürfen zwei Werkzeuge sein. Die Kosten der lokalen App sind der einmalige Store-Preis, nicht ein zweiter Platz auf dem Nachmittagsprodukt. Die Kosten des Nachmittags sind der Platz, den sie schon zahlen. Kündige ihn nicht wegen der Morgengrenze.
 
-Ist die Morgendatei nur zwölf Minuten und du willst die App nicht öffnen, passt das Browser-Tool immer noch, mit der 15-Minuten-Grenze und ohne Sprechernamen. Ein Kunde, der fragt, wer den Satz gesagt hat, bekommt das aus dem Browser nicht. Er bekommt es, als anonyme Gruppen, die du dann benennst, aus der Mac-App.
+Ist die Morgendatei nur zwölf Minuten lang und willst du die App nicht öffnen, passt das Browser-Werkzeug immer noch, mit der Grenze von 15 Minuten und ohne Sprechernamen. Ein Kunde, der fragt, wer den Satz gesagt hat, bekommt das aus dem Browser nicht. Er bekommt es, als anonyme Gruppen, die du dann benennst, aus der Mac-App.
 
 ## Grenzen, die in jeder Zeile gelten
 
-Kein Produkt auf dieser Liste macht die Aufnahme rechtmässig. Kein Produkt hier ist ein beglaubigtes Transkript für ein Gericht oder eine Aufsicht, nur weil eine Marketingseite «konform» sagt. Fathom, Fireflies und andere veröffentlichen eigene Zertifizierungsaussagen. Diese Aussagen gelten für sie. Eine lokale Aufnahme erbt sie nicht.
+Kein Produkt auf dieser Liste macht die Aufnahme rechtmässig. Kein Produkt hier ist ein beglaubigtes Transkript für ein Gericht oder eine Aufsicht, nur weil eine Produktseite «konform» sagt. Fathom, Fireflies und andere veröffentlichen eigene Aussagen zu Zertifizierungen. Diese Aussagen gelten für sie. Eine lokale Aufnahme erbt sie nicht.
 
 Dialektschreibung ist eine eigene Ehrlichkeit. Erwarte von den hier genannten Modellen keine Dialektschreibung. Standarddeutsch aus einem öffentlichen Whisper-Lauf im Browser ist ein häufiges Ergebnis, und das ist kein Dialektmodell. Muss ein Zitat den Dialekt bewahren, liegt das ausserhalb dessen, was dieser Vergleich versprechen kann.
 
-Intel-Macs, Windows, iPhone und iPad liegen ausserhalb von Vemoir. Ist das die Flotte, ist die beste private Option auf einem Mac egal, und du solltest die Aufbewahrungsseiten der Cloud-Anbieter lesen. 8 GB Speicher sind die Untergrenze der Mac-App. Lange Sitzungen sind mit 16 GB angenehmer. Ein Download eines Sprachmodells ist nicht optional, wenn du lokal transkribieren willst. Bis er fertig ist, hast du keine lokale Transkription, und nichts setzt still einen Cloud-Motor ein. Freier Platz zählt ebenfalls. Die App verlangt 10 GB frei als Basis, und ein Sprachmodell plus ein Schreibmodell können eine sichtbare Scheibe davon brauchen. Der Modellbildschirm zeigt die Grösse vor dem Download. Ist die Platte voll, sind lokale Notizen noch nicht verfügbar, und ein Cloud-Notetaker ist ehrlich das Werkzeug, das heute funktioniert. Miss den Ordner nach der ersten Modellinstallation, damit die zweite Sitzung nicht die ist, die die Platte füllt.
+Intel-Macs, Windows, iPhone und iPad liegen ausserhalb von Vemoir. Ist das die Flotte, ist die beste private Option auf einem Mac egal, und du solltest die Aufbewahrungsseiten der Cloud-Anbieter lesen. 8 GB Speicher sind die Untergrenze der Mac-App. Lange Sitzungen sind mit 16 GB angenehmer. Ein Download eines Sprachmodells ist nicht freiwillig, wenn du lokal transkribieren willst. Bis er fertig ist, hast du keine lokale Transkription, und nichts setzt still einen Cloud-Motor ein. Freier Platz zählt ebenfalls. Die App verlangt 10 GB frei als Basis, und ein Sprachmodell plus ein Schreibmodell können eine sichtbare Scheibe davon brauchen. Der Modellbildschirm zeigt die Grösse vor dem Download. Ist die Platte voll, sind lokale Notizen noch nicht verfügbar, und eine Cloud-Protokoll-App ist ehrlich das Werkzeug, das heute funktioniert. Miss den Ordner nach der ersten Modellinstallation, damit die zweite Sitzung nicht die ist, die die Platte füllt.
 
 Für den nächsten Live-Call auf Apple Silicon liegen die Aufnahme-Steuerung unter [Aufnahme](/de#capture) und die [App-Store-Seite](https://apps.apple.com/app/id6794693630) ist die Installation. Der Preis ist die einmalige Zahl am Anfang dieses Artikels, in lokaler Währung im Store.
 
-Bevor du den Anbieter wechselst, schreib den Grund in einem Satz auf, den ein Kollege versteht, der bei der Auswahl nicht dabei war. «Kein Bot auf Kundencalls» ist ein Satz. «Wir wollen moderner sein» ist keiner. Der Satz entscheidet, welche Zeile der Tabelle gilt, und er verhindert, dass nächste Woche jemand denselben Vergleich noch einmal aufmacht, weil die erste Entscheidung nur in einem Chat stand.
+Bevor du den Anbieter wechselst, schreib den Grund in einem Satz auf, den eine Kollegin versteht, die bei der Auswahl nicht dabei war. «Kein Bot auf Kundencalls» ist ein Satz. «Wir wollen moderner sein» ist keiner. Der Satz entscheidet, welche Zeile der Tabelle gilt, und er verhindert, dass nächste Woche jemand denselben Vergleich noch einmal aufmacht, weil die erste Entscheidung nur in einem Chat stand.
 
 Prüfe auch, was nach dem ersten Monat noch auf dem Gerät liegt. Eine lokale App hält Aufnahme und Transkript, bis du sie löschst oder exportierst. Ein Cloud-Platz hält sie, bis deren Löschweg sie aus Speicher und Backups nimmt. Wenn du beide Wege parallel fährst, musst du beide Wege aufräumen. Der einmalige Store-Preis, CHF 20 in der Schweiz, und der lokale Preis im App Store, ersetzt diese Aufräumarbeit nicht. Er ersetzt auch nicht die Plätze, die das Team für die Calls behält, die in der Cloud bleiben dürfen.
 
@@ -143,19 +151,19 @@ Prüfe auch, was nach dem ersten Monat noch auf dem Gerät liegt. Eine lokale Ap
 
 ### Was sind die besten privaten Meeting-Notizen, wenn Audio den Mac nicht verlassen darf?
 
-Eine lokale App. Vemoir und MacWhisper transkribieren standardmässig auf dem Mac. Cloud-Notetaker speichern Inhalt auf ihrer Infrastruktur, auch wenn sie einen Bot auslassen.
+Eine lokale App. Vemoir und MacWhisper transkribieren standardmässig auf dem Mac. Cloud-Protokoll-Apps speichern Inhalt auf ihrer Infrastruktur, auch wenn sie einen Bot auslassen.
 
 ### Heisst privat, dass kein Bot dabei ist?
 
 Nicht für sich allein. Granola und ein lokaler Rekorder können beide den Bot auslassen. Nur der lokale Rekorder hält die Standardkopie auf dem Gerät.
 
-### Gibt es eine Genauigkeitsrangliste?
+### Gibt es eine Rangliste nach Genauigkeit?
 
 Nein. Dieser Artikel bewertet Parakeet nicht gegen Whisper und kein Sprachmodell eines Anbieters.
 
 ### Was kostet Vemoir?
 
-Ein einmaliger Kauf im Mac App Store: CHF 20 in der Schweiz. Den lokalen Preis zeigt der Store. Keine Gebühr pro Sitzung von Vemoir. Ein optionaler API-Schlüssel wird von diesem Anbieter berechnet.
+Ein einmaliger Kauf im Mac App Store: CHF 20 in der Schweiz. Den lokalen Preis zeigt der Store. Keine Gebühr pro Sitzung von Vemoir. Ein freiwilliger API-Schlüssel wird von diesem Anbieter berechnet.
 
 ### Muss ich trotzdem sagen, dass ich aufnehme?
 
@@ -171,6 +179,6 @@ Das, dessen eigene Seiten zu deinen Speicher- und Trainingsregeln passen. Otter,
 
 ### Nimmt die Mac-App den Bildschirm auf?
 
-Nein. System Audio Recording nimmt nur Meeting-Audio auf.
+Nein. Die Systemaudioaufnahme nimmt nur Meeting-Audio auf.
 
 Ist die Grenze der Laptop, starte mit [wie die Aufnahme funktioniert](/de#capture) oder im [App Store](https://apps.apple.com/app/id6794693630). Ist die Grenze eine geteilte Cloud-Bibliothek, nimm die Herstellerseite, die zu dieser Bibliothek passt, und akzeptiere das Hosting, das sie beschreibt. Schreib den Grund in einem Satz in die Notiz des Projekts, damit der nächste Call nicht wieder bei der falschen Zeile der Tabelle landet.

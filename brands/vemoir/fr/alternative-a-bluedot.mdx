@@ -12,11 +12,7 @@ image: "@/assets/blog/bluedot-alternative/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/bluedot-alternative/inline1.jpg';
-import inline2 from '@/assets/blog/bluedot-alternative/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@prateekkatyal?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">prateekkatyal</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Une **alternative à Bluedot** est la bonne recherche quand vous aimez un preneur de notes qui ne rejoint pas l'appel, et que vous devez encore décider où l'audio vit ensuite. La page d'accueil de Bluedot dit qu'il capture et transcrit les réunions, en ligne ou en personne, sans bot, et que vos données ne servent pas à entraîner des modèles d'IA. Sa page sécurité dit que les données sont stockées dans AWS. Une app Mac qui garde l'enregistrement sur la machine est un autre produit, même si les deux sont « sans bot ».
 
 Cette page utilise les pages tarifs et sécurité de Bluedot, vérifiées en septembre 2026. Un espace d'équipe sans bot gagne encore pour plusieurs travaux. Le point est de les nommer. La nLPD ne se déduit pas d'une ligne SOC 2.
@@ -39,9 +35,11 @@ Cette page utilise les pages tarifs et sécurité de Bluedot, vérifiées en sep
 [Bluedot](https://www.bluedothq.com/) décrit un preneur de notes qui capture, transcrit et résume les réunions sans qu'un bot rejoigne l'appel. La page d'accueil cite Zoom, Google Meet, Teams, les appels téléphoniques et les réunions en personne, et dit que les notes peuvent aller vers un CRM, Notion et d'autres outils. Elle dit aussi que les données clients ne sont jamais utilisées pour entraîner ou améliorer des modèles d'IA.
 
 
-<Image src={inline1} alt="Petite reunion, une chaise inutilisee, pas de gadget extra" width={700} quality={80} class="w-full" />
+<div class="blog-pair">
+  <div><h3>Pour qui</h3><ul><li>Equipes avec bibliotheque cloud partagee et bot calendrier</li></ul></div>
+  <div><h3>Qui doit passer</h3><ul><li>Appels dont l'audio doit rester sur le Mac</li></ul></div>
+</div>
 
-<p><em>Photo by <a href="https://unsplash.com/@jackson_films?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jackson_films</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 La [page sécurité](https://www.bluedothq.com/security), septembre 2026, répète la ligne sans entraînement et ajoute que les données ne sont pas stockées, journalisées ou conservées par les fournisseurs d'IA après la génération. Elle énonce AES-256 et TLS, que les données supprimées sont retirées immédiatement et que les sauvegardes sont purgées sous 30 jours, et que les données sont dans AWS. Elle dit que Bluedot maintient des contrôles SOC 2 Type II et des contrôles conformes au GDPR. Ce sont des déclarations de Bluedot. Elles décrivent un service nuage avec de l'admin, pas un fichier qui ne quitte jamais l'ordinateur. Elles ne tranchent pas si votre appel peut être enregistré.
 
@@ -52,9 +50,11 @@ Les admins d'espace, sur cette page, peuvent fixer la conservation des enregistr
 « Pas de bot dans la liste des participants » répond à une plainte. Cela ne répond pas à « où est le fichier ».
 
 
-<Image src={inline2} alt="Quatre personnes parlent, portables fermes" width={700} quality={80} class="w-full" />
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Verifier tarifs et donnees BlueDot sur le site editeur. Les chiffres ici sont dates.</p>
+</aside>
 
-<p><em>Photo by <a href="https://unsplash.com/@negipho?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">negipho</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Le dessin de Bluedot, d'après les pages ci-dessus, est un produit que votre équipe peut partager : liens, commentaires, extraits, accroches CRM et ATS sur le plan supérieur, Slack et Notion dès le palier gratuit. La page sécurité place les données de production dans AWS. Si votre règle est « la transcription se fait sur ce Mac sauf si j'exporte », cette page est la raison de regarder une app locale.
 

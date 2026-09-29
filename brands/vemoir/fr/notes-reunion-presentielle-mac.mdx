@@ -11,9 +11,6 @@ image: "@/assets/blog/in-person-meeting-notes-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/in-person-meeting-notes-mac/inline1.jpg';
-import inline2 from '@/assets/blog/in-person-meeting-notes-mac/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@carmelalustrephotography?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">carmelalustrephotography</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Les **notes de réunion présentielle** sur un Mac sont un enregistrement depuis le microphone que vous choisissez, dans la salle avec les personnes. Il n'y a pas de mode présentiel à part. Le même enregistreur de barre de menus que vous utilisez pour un appel vidéo prend ce micro. L'audio système, la seconde piste, reste silencieux si personne n'est en appel. Les noms de locuteurs sont plus faibles que sur un appel où votre voix et le mix distant étaient captés à part.
@@ -34,9 +31,12 @@ Prévenez la salle avant de démarrer. Un portable sur la table se remarque peu.
 Vemoir enregistre le microphone choisi et l'audio système de macOS en deux pistes locales. Sur un appel Zoom, ces pistes vous séparent des autres. Dans une salle, non. Toutes les personnes qui parlent près du portable arrivent sur la piste micro. L'audio système n'ajoute que ce que le Mac joue déjà : une vidéo, une musique d'attente, une personne distante si quelqu'un met un appel sur haut-parleur.
 
 
-<Image src={inline1} alt="Reunion en presentiel, carnets et verres d'eau a la lumiere du jour" width={700} quality={80} class="w-full" />
+<ul class="blog-scenarios">
+  <li><h3>Salle calme</h3><p>Le micro entend qui est proche. L'audio systeme peut rester silencieux.</p></li>
+  <li><h3>Telephone en haut-parleur</h3><p>La voix distante peut aller sur la piste systeme.</p></li>
+  <li><h3>Places nommees</h3><p>Les locuteurs sont etiquetes apres arret, sur le Mac.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@prolabprints?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">prolabprints</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Vous démarrez et vous arrêtez. Si vous faites une pause déjeuner et oubliez d'arrêter, la bande inclut le déjeuner. Si vous démarrez tard, la décision d'ouverture manque. L'application ne détecte pas une réunion dans la salle et ne démarre pas seule.
 
@@ -51,9 +51,11 @@ Les exigences sont les mêmes que pour tout autre enregistrement dans l'applicat
 La réduction de bruit facultative tourne sur le Mac, sur le chemin du microphone, pas dans un cloud. Les modes sont Off, Balanced et Strong : arrêt, équilibré, fort. Ils visent un bruit régulier : clavier, ronflement de pièce, autres interférences qui ne sont pas de la parole. Le mode choisi reste visible. Si la réduction ne peut pas garder la parole, l'application revient au chemin micro ordinaire.
 
 
-<Image src={inline2} alt="Six chaises autour d'une table en bois avec des papiers" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot</span><strong>Aucun</strong><p>Aucun participant a une table physique.</p></li>
+  <li><span class="blog-kicker">Ecran</span><strong>Non capture</strong><p>L'enregistrement audio systeme est audio seulement.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@marissacristina?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">marissacristina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Fort n'est pas un moyen d'enregistrer une personne au bout d'une longue table. Si elle est faible dans le micro brut, elle est faible dans le transcript. Rapprochez le portable, demandez-lui de parler plus fort, ou notez sa phrase et marquez-la comme la vôtre.
 

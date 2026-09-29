@@ -11,9 +11,6 @@ image: "@/assets/blog/fix-wrong-speaker-names/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/fix-wrong-speaker-names/inline1.jpg';
-import inline2 from '@/assets/blog/fix-wrong-speaker-names/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@stacysuxx?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">stacysuxx</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Puoi **correggere nomi speaker sbagliati** in una riunione Vemoir finita rinominando l'etichetta. Quella rinomina non crea un profilo vocale. `Remember this speaker` è un altro controllo e aspetta un sì esplicito. Se l'unico problema è un nome su questa trascrizione, cambia l'etichetta e fermati lì.
@@ -25,11 +22,13 @@ La separazione grezza e le righe con timestamp restano la prova. Correggi a chi 
 Le etichette compaiono dopo lo stop, quando la separazione sul Mac ha raggruppato l'audio. Fino ad allora un'anteprima live è solo un'anteprima. Non passare tempo a dare nomi nell'anteprima aspettandoti che quella bozza sia il verbale.
 
 
-<Image src={inline1} alt="Riga vuota su carta, nessun nome leggibile" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@dlxmedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dlxmedia</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Apri la riunione, passa alla trascrizione o all'elenco speaker, e leggi qualche turno prima di rinominare. Un nome sbagliato è spesso una di tre cose: il gruppo è giusto e l'etichetta è un segnaposto, due persone sono state messe insieme, o la tua voce e la stanza sono finite nello stesso microfono. La rinomina sistema il primo caso. Gli altri due chiedono una correzione del gruppo, non un nome sicuro su un miscuglio.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Rinomina nella trascrizione</h3><p>Correggi l'etichetta sulla riga affidabile.</p></li>
+  <li data-step="2"><h3>Profilo speaker</h3><p>Collega un cluster vocale al nome giusto.</p></li>
+  <li data-step="3"><h3>Rigenera il verbale</h3><p>Rilancia dopo cambio profilo.</p></li>
+</ol>
 
 ## Rinominare senza salvare una voce
 
@@ -39,10 +38,6 @@ Apri la riunione, passa alla trascrizione o all'elenco speaker, e leggi qualche 
 4. Controlla una riga con timestamp per vedere il nome nuovo sui turni giusti.
 5. Se hai ricordato qualcuno per errore, rifiuta o annulla quell'abbinamento, poi cancella o anonimizza il profilo in Privacy. La rinomina in sé non era il problema.
 
-
-<Image src={inline2} alt="Qualcuno riscrive un'etichetta su una scheda crema" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 I parlanti sconosciuti restano anonimi finché non li nomini. Un'etichetta vuota o generica è onesta se non sei sicuro. Inventare un nome per tenere il verbale in ordine è peggio di «Speaker 2» se quel nome non lo difenderesti dopo.
 
@@ -55,6 +50,12 @@ Una rinomina senza profilo è la scelta migliore per una call unica, un ospite, 
 Lasciare l'etichetta anonima è meglio quando non distingui le voci. Un notetaker cloud condiviso può essere meglio quando tutto il team vuole la stessa rubrica e la policy accetta il loro cloud. Vemoir non sincronizza un elenco speaker su altri Mac. I nomi che scrivi restano nel record locale.
 
 Gli strumenti nel browser qui non aiutano. [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) trasforma un file che hai già in testo, fino a 15 minuti, e non inventa nomi. Se il file non ha etichette, la pagina lo dice. La separazione live è l'app Mac.
+
+<ul class="blog-checklist">
+  <li>Sistema i nomi prima dell'email cliente</li>
+  <li>Stessa ortografia del glossario progetto</li>
+  <li>Non assumere che il modello impari da un edit</li>
+</ul>
 
 ## I nomi nel verbale e in ciò che condividi
 

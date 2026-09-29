@@ -114,12 +114,17 @@ function skipPostWhenImagesMissing(filePath: string, brandId: string, content: s
   );
 }
 
-// Clean previous sync
+// Clean previous sync. Also drop Astro's content-assets cache so renamed
+// heroes (img1.jpg → hero.jpg) cannot leave stale imports behind.
+const ASTRO_CACHE = path.join(PREVIEW_ROOT, ".astro");
 if (fs.existsSync(CONTENT_DEST)) {
   fs.rmSync(CONTENT_DEST, { recursive: true });
 }
 if (fs.existsSync(ASSETS_DEST)) {
   fs.rmSync(ASSETS_DEST, { recursive: true });
+}
+if (fs.existsSync(ASTRO_CACHE)) {
+  fs.rmSync(ASTRO_CACHE, { recursive: true });
 }
 fs.mkdirSync(CONTENT_DEST, { recursive: true });
 fs.mkdirSync(ASSETS_DEST, { recursive: true });

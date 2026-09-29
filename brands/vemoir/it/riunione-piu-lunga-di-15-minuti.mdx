@@ -11,23 +11,27 @@ image: "@/assets/blog/meeting-longer-than-15-minutes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/meeting-longer-than-15-minutes/inline1.jpg';
-import inline2 from '@/assets/blog/meeting-longer-than-15-minutes/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Una riunione più lunga di 15 minuti non si trascrive con gli strumenti gratuiti nel browser. La prova accetta un file audio o video fino a 15 minuti: MP3, M4A, WAV o MP4. Oltre, la pagina rifiuta il file prima che il modello parta. Quel limite è la prova, non un'affermazione su quanto a lungo una persona può parlare. Una chiamata con il cliente di un'ora, un laboratorio o un consiglio stanno nell'app per Mac, fatta per una riunione intera sulla macchina.
 
 Tagliare l'ora in quattro pezzi non ne fa una pipeline gratuita senza fine. Ogni trascrizione riuscita spende uno dei tre passaggi della settimana, condivisi tra gli strumenti di trascrizione. Quattro pezzi possono bruciare la settimana e lasciarti quattro testi da ricucire a mano.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Strumento browser</span><strong>15 min</strong><p>Tetto per file su vemoir.ch.</p></li>
+  <li><span class="blog-kicker">App Mac</span><strong>Nessun costo per riunione</strong><p>Call lunghe dopo i modelli installati.</p></li>
+  <li><span class="blog-kicker">Memoria</span><strong>16 GB+</strong><p>Consigliato per riunioni di un'ora su Apple silicon.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Spezzare un file lungo nel browser consuma quota e rompe la timeline.</p>
+</aside>
+
 ## Una riunione più lunga di 15 minuti nel browser
 
 Il limite ferma la voce-in-testo su un file, e il passaggio a catena «registrazione in note», che trascrive e poi stende le note in un solo uso. Metti il file, la pagina controlla tipo, dimensione e durata, e un file oltre i 15 minuti viene rifiutato. C'è anche un tetto di dimensione nella prova (80 MB). Un file corto può comunque essere troppo pesante se è un video poco compresso. Preferisci la traccia audio quando ce l'hai, per esempio `audio_only.m4a` di Zoom, e solo se quell'audio è sotto i 15 minuti.
 
-
-<Image src={inline1} alt="Luce del pomeriggio su un tavolo lungo e tazze vuote" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@leshatuman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">leshatuman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Il contatore settimanale sono tre passaggi di modello riusciti in questo browser, non un account. I campioni non contano. Pianifica come se tre file veri a settimana fossero il budget. Il contatore vive nel browser. Un altro browser, o uno spazio svuotato, non è un secondo abbonamento da presentare al team come scorciatoia.
 
@@ -37,10 +41,6 @@ Queste pagine non registrano la chiamata dal vivo. Non entrano in Zoom o Teams. 
 
 Il limite vale per l'audio nel browser. Non vale per ogni pagina.
 
-
-<Image src={inline2} alt="Lungo tavolo di legno con molte sedie in luce serale" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - Pulire un VTT, un SRT o un export simile non spende un passaggio e non si cura che la riunione sia durata due ore. I timestamp cadono. I nomi restano se erano nel file. [Pulire la trascrizione](/it/strumenti/pulire-trascrizione) non inventa parlanti.
 - [Note da una trascrizione](/it/strumenti/note-da-trascrizione) stende una bozza dal testo che incolli. Quella bozza spende un passaggio, perché chiama un modello. Un incolla molto lungo può essere tagliato. Se la pagina dice che il testo è stato accorciato, la bozza non ha visto la fine della chiamata.

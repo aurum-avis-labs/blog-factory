@@ -11,9 +11,6 @@ image: "@/assets/blog/mic-and-system-audio/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/mic-and-system-audio/inline1.jpg';
-import inline2 from '@/assets/blog/mic-and-system-audio/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sandrawilliams2025?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sandrawilliams2025</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Le **micro et audio système** dans Vemoir sont deux pistes locales, pas un fichier mélangé et pas une image de votre écran. La piste micro, c'est vous. La piste système, c'est ce que le Mac joue depuis l'app de réunion&nbsp;: Teams, Zoom, Google Meet, Slack, Discord, ou une autre app qui produit du son.
@@ -37,9 +34,12 @@ Vous démarrez et vous arrêtez. Aucun bot n'entre dans la liste des participant
 | Audio système | Les apps qui jouent sur le Mac, réunion comprise | Votre voix, sauf si l'app vous renvoie à vous-même |
 
 
-<Image src={inline1} alt="Micro et haut-parleur cote a cote sur une table" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Micro</span><strong>Votre voix</strong><p>Suit le micro choisi dans la barre de menus.</p></li>
+  <li><span class="blog-kicker">Audio systeme</span><strong>L'appel</strong><p>Tout ce que l'app de reunion lit sur le Mac.</p></li>
+  <li><span class="blog-kicker">Bot</span><strong>Aucun</strong><p>Vous demarrez et arretez. Personne dans la liste.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@yanahd?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">yanahd</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 La capture micro est une session distincte du tap audio système. Vous choisissez le micro. Un micro de casque vous entend et peu la pièce. Un micro d'ordinateur entend la pièce et, si l'audio distant sort des haut-parleurs, un peu de l'appel. Ce recouvrement est de l'acoustique, pas un troisième mode.
 
@@ -52,9 +52,11 @@ La [suppression du bruit micro](/fr/blog/suppression-bruit-micro) ne concerne qu
 D'anciennes notes sur les apps Mac disent souvent qu'entendre une autre app exige Screen Recording. C'était le nom que beaucoup ont appris. L'app Vemoir livrée demande System Audio Recording. Elle capte l'audio de la réunion. Elle n'enregistre pas le contenu de l'écran, ni les pixels, ni une vidéo du bureau.
 
 
-<Image src={inline2} alt="Deux cables distincts enroulees a cote d'un carnet" width={700} quality={80} class="w-full" />
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>macOS demande l'enregistrement audio systeme pour l'appel. Audio seulement, pas de capture d'ecran.</p>
+</aside>
 
-<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 L'accès au micro reste nécessaire pour votre piste. Deux sources, deux autorisations. Refuser l'audio système vous laisse le micro. Refuser le micro vous laisse l'appel, et presque rien de votre voix, sauf fuite par les haut-parleurs dans un micro que vous ne visiez pas.
 

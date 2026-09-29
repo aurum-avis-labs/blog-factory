@@ -10,13 +10,8 @@ relatedPosts: ["enregistrer-reunion-teams-sur-mac", "otter-ai-est-il-sur", "meil
 tool: "transcribe-recording"
 image: "@/assets/blog/remove-ai-bot-from-meeting/hero.jpg"
 draft: false
+
 ---
-
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/remove-ai-bot-from-meeting/inline1.jpg';
-import inline2 from '@/assets/blog/remove-ai-bot-from-meeting/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@bruskrd?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Brusk Dede</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Pour **retirer un bot IA** d'une réunion, vous le traitez comme un participant&nbsp;: l'hôte ou le cohôte le retire de l'appel, et la personne qui l'a ajouté coupe la jointure automatique pour qu'il ne revienne pas. Un bot n'est pas un réglage caché dans votre micro. C'est un compte ou une application dans la liste des participants. Si vous ne l'avez pas ajouté, il vous faut l'hôte, ou la personne qui a relié le preneur de notes à son calendrier.
 
 Ceci est le correctif pendant l'appel. Pourquoi les bots apparaissent, et à quoi ressemble une réunion sans bot, est le sujet de [notes de réunion sans bot](/fr/blog/notes-reunion-sans-bot). Les étapes ici supposent que le bot est déjà dans la salle.
@@ -34,10 +29,6 @@ Ceci est le correctif pendant l'appel. Pourquoi les bots apparaissent, et à quo
 Regardez la liste des participants avant de changer quoi que ce soit. Le bot porte en général un nom que vous pouvez dire à voix haute&nbsp;: Otter, Fireflies, Fathom, tl;dv, le «&nbsp;notetaker&nbsp;» d'une entreprise, ou le nom d'une personne plus «&nbsp;AI&nbsp;». Lisez ce nom une fois pour que tout le monde sache quelle ligne vous visez.
 
 
-<Image src={inline1} alt="Quatre chaises autour d'une table, une reculee" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@michaelfousert?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Michael Fousert</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Sur Zoom, l'hôte ou un cohôte ouvre Participants et retire cette entrée. Sur Google Meet, l'hôte retire le participant depuis le même panneau. Sur Microsoft Teams, un organisateur ou un présentateur autorisé à gérer le lobby peut retirer un participant. Le libellé est «&nbsp;Supprimer&nbsp;» ou «&nbsp;Retirer de la réunion&nbsp;». Si vous êtes invité et que le contrôle manque, demandez à l'hôte. Vous ne retirez pas un bot d'une réunion que vous ne contrôlez pas.
 
 Le retrait l'arrête pour cet appel. Il ne supprime pas l'audio que le bot a déjà envoyé. L'aide d'Otter décrit les droits d'enregistrement et le notetaker qui rejoint ([autorisations d'enregistrement Otter](https://help.otter.ai/hc/en-us/articles/39339238308503-Recording-Permissions-with-Otter), septembre 2026). Ce que ce produit a stocké avant le clic reste dans le compte, jusqu'à ce que quelqu'un l'y supprime. Demandez à la personne qui possède le compte de couper l'enregistrement et de supprimer la réunion dans ce produit, si vos règles l'exigent.
@@ -48,10 +39,6 @@ N'inventez pas, à ce moment-là, un blocage Teams pour tout le locataire. Qu'un
 
 Il revient parce que quelqu'un, parfois vous, a relié un preneur de notes au calendrier ou a activé «&nbsp;rejoindre chaque réunion&nbsp;». Le retirer une fois ne vide pas ce réglage.
 
-
-<Image src={inline2} alt="Petite table de reunion avec des verres d'eau et une place vide" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@heyquilia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Quilia</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Trouvez le compte auquel le bot appartient&nbsp;:
 
@@ -80,6 +67,17 @@ Dites le nom du bot, dites que vous le retirez, et dites si quelqu'un enregistre
 Si la réunion était avec un client qui interdisait l'enregistrement, arrêtez aussi la capture locale. Retirer le bot ne rend pas un enregistreur personnel permis. Le consentement est votre travail. L'application ne demande rien à l'autre partie.
 
 Si vous n'avez besoin que d'un texte pour un fichier que vous avez déjà, et que le bot est déjà parti, l'outil navigateur est le plus petit pas. Ouvrez [transcrire un audio](/fr/outils/transcrire-audio) avec un extrait de moins de 15 minutes. Pour le prochain appel, démarrez la capture avant que les gens rejoignent, et nommez-la à voix haute quand ils sont là.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Vérifier la liste</h3><p>Quel nom a rejoint comme preneur de notes ?</p></li>
+  <li data-step="2"><h3>Règles calendrier</h3><p>Désactivez l'auto-join dans le bot.</p></li>
+  <li data-step="3"><h3>Demander l'expulsion</h3><p>L'hôte peut retirer un invité dans la plupart des apps.</p></li>
+</ol>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Les enregistrements intégrés dépendent de la licence de l'hôte. Une app barre de menus ne remplace pas les bannières Teams ou Zoom.</p>
+</aside>
 
 ## Questions fréquentes
 

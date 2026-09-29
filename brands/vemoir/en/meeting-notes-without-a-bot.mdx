@@ -10,13 +10,8 @@ relatedPosts: ["best-meeting-notes-app-mac", "fireflies-alternative", "granola-a
 tool: "transcribe-recording"
 image: "@/assets/blog/meeting-notes-without-bot/hero.jpg"
 draft: false
+
 ---
-
-import { Image } from 'astro:assets';
-import privateRecords from '@/assets/blog/meeting-notes-without-bot/private-records.jpg';
-import voiceCapture from '@/assets/blog/meeting-notes-without-bot/voice-capture.jpg';
-import actionItems from '@/assets/blog/meeting-notes-without-bot/action-items.jpg';
-
 You can keep **meeting notes without a bot** in the participant list when you capture audio on your Mac instead of inviting a cloud notetaker. Calendar-linked assistants such as Otter or Fireflies are convenient for internal standups, but many client calls, board meetings, and regulated environments treat an extra guest as a recording you did not fully disclose. The practical pattern is simple: you control start and stop, the call app stays unchanged, and text comes from audio you already hold locally or from a file you transcribe in the browser without uploading it.
 
 This guide explains how bot notetakers join calls, when they are still the better tool, and how local recording plus transcription fits teams that cannot add another participant.
@@ -52,8 +47,6 @@ macOS requires **Screen Recording** permission for apps to capture other apps’
 
 Tell participants you are recording and follow your local consent rules. Vemoir does not make a recording lawful or compliant; that remains your responsibility.
 
-<Image src={privateRecords} alt="Calm desk with folded paper cards suggesting meeting records kept privately on a Mac" width={700} quality={80} class="w-full" />
-
 ## Already have an audio file? Use the browser transcription tool
 
 When the call is over and you hold an MP3, M4A, WAV, or MP4, you can turn it into text with the free [transcribe recording tool](/tools/transcribe-recording) on vemoir.ch. The file is **not uploaded**; the speech model runs in the browser tab after a one-time download. You can confirm that in the **Network** tab of developer tools.
@@ -73,8 +66,6 @@ Figures below come from each vendor’s public privacy and product pages as of *
 | Vemoir Mac app | No bot; you record locally | On your Mac by default | No cloud upload unless you export or opt into a third-party model with your key ([product facts](/#capture)) |
 | Vemoir browser tool | No; offline file only | In your browser tab; file not sent to Vemoir | Public Whisper models; no live join |
 
-<Image src={voiceCapture} alt="Abstract illustration of sound becoming structured notes without a third-party meeting guest" width={700} quality={80} class="w-full" />
-
 ## Where local recording is not the whole answer
 
 Local capture shifts responsibility to the person at the keyboard. You must remember to start recording, store files safely, and align with retention policies yourself. Bot notetakers centralize storage and sharing for a team, which is valuable when everyone agrees to the vendor.
@@ -89,13 +80,22 @@ Browser transcription does not replace a bot for always-on team libraries. It he
 4. **Review the transcript on the Mac** or export only the sections you are allowed to share ([export and share](/#exports)).
 5. **For a short existing file**, run [/tools/transcribe-recording](/tools/transcribe-recording) and inspect the Network tab if you need to demonstrate that the audio stayed local.
 
-<Image src={actionItems} alt="Paper cards listing decisions and action items derived from a meeting conversation" width={700} quality={80} class="w-full" />
-
 ## Try local transcription or the Mac app
 
 **Short file after the call (15 minutes or less):** Use the [free transcribe recording tool](/tools/transcribe-recording). Processing stays in the browser; nothing is uploaded to Vemoir.
 
 **Live client calls without a bot:** Install the [Vemoir Mac app](https://apps.apple.com/app/id6794693630) and record from the menu bar while you stay in Zoom, Teams, or Meet. See [supported meeting apps](/#platforms) and [how it works](/#how).
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Visible guest</span><strong>Yes</strong><p>Calendar bots show up in the participant list.</p></li>
+  <li><span class="blog-kicker">Local capture</span><strong>No extra guest</strong><p>Menu-bar recording uses your Mac audio only.</p></li>
+  <li><span class="blog-kicker">After the call</span><strong>Browser tool</strong><p>Short files can be transcribed in-tab without upload.</p></li>
+</ul>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Announcing recording and getting consent is still your job. A local app does not replace client policy or Swiss consent practice.</p>
+</aside>
 
 ## Frequently asked questions
 

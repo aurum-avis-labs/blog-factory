@@ -11,23 +11,27 @@ image: "@/assets/blog/meeting-longer-than-15-minutes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/meeting-longer-than-15-minutes/inline1.jpg';
-import inline2 from '@/assets/blog/meeting-longer-than-15-minutes/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 A meeting longer than 15 minutes will not transcribe in the free browser tools. The trial accepts an audio or video file up to 15 minutes: MP3, M4A, WAV, or MP4. Past that, the page refuses the file before the model runs. That limit is the trial, not a statement about how long a person can talk. A one-hour client call, a workshop, or a board sitting belongs on the Mac app, which is built for a full meeting on the machine.
 
 Splitting the hour into four clips does not make it a free unlimited pipeline. Each successful transcription spends one of three weekly runs, shared across the transcription tools. Four chunks can burn the week and still leave you with four texts to stitch by hand.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Browser tool</span><strong>15 min</strong><p>Hard cap per file on vemoir.ch.</p></li>
+  <li><span class="blog-kicker">Mac app</span><strong>No per-meeting fee</strong><p>Long calls after models are installed.</p></li>
+  <li><span class="blog-kicker">Memory</span><strong>16 GB+</strong><p>Recommended for hour-long meetings on Apple silicon.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Splitting a long file into chunks in the browser burns quota and breaks timeline context.</p>
+</aside>
+
 ## A meeting longer than 15 minutes, in the browser
 
 It stops speech-to-text on a file, and the chained "recording to notes" pass that transcribes and then drafts notes in one use. You drop the file, the page checks type, size, and length, and a file over 15 minutes is rejected. There is also a size ceiling on the trial (80 MB). A short file can still be too big if it is an uncompressed video. Prefer the audio track when you have one, such as Zoom's `audio_only.m4a`, and only if that audio is itself under 15 minutes.
 
-
-<Image src={inline1} alt="Afternoon light on a long meeting table and empty cups" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@leshatuman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">leshatuman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 The weekly counter is three successful model runs in this browser, not an account. Samples do not count. A failed run that never succeeds should not be your planning assumption. Plan as if three real files a week is the budget. The counter lives in the browser. Another browser, or a cleared site storage, is not a second subscription you are entitled to treat as a workaround for a team.
 
@@ -37,10 +41,6 @@ These pages do not record the live call. They do not join Zoom or Teams. They do
 
 The cap is on audio in the browser. It is not a cap on every page.
 
-
-<Image src={inline2} alt="A long wooden table with many chairs in late daylight" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - Cleaning a VTT, SRT, or similar export does not spend a run and does not care that the meeting was two hours. Timestamps come off. Names stay if they were in the file. The [transcript cleaner](/tools/transcript-cleaner) will not invent speakers.
 - [Meeting notes from a transcript](/tools/meeting-notes-from-transcript) drafts from text you paste. That draft does spend a run, because it calls a model. A very long paste can be truncated. If the page says the text was cut, the draft did not see the end of the call.

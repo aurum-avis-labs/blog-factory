@@ -11,9 +11,6 @@ image: "@/assets/blog/parakeet-vs-whisper/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/parakeet-vs-whisper/inline1.jpg';
-import inline2 from '@/assets/blog/parakeet-vs-whisper/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@towfiqu999999?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">towfiqu999999</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Parakeet vs Whisper** in Vemoir is a choice of local speech models, not a scoreboard. Parakeet v3 transcribes 25 European languages. Whisper is the other family you can download: Turbo, Medium, or Large-v3, each with its own coverage. You pick one, you see the download size and whether it fits this Mac, and the meeting uses that selection. This article does not rank them for accuracy. Nobody should quote a percentage from a blog post when the app does not publish one.
@@ -31,22 +28,20 @@ Neither model writes the minutes. Notes, documents, and Ask use a language model
 | Download | Explicit, resumable, no silent swap | Same |
 
 
-<Image src={inline1} alt="European language books stacked next to headphones" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@altumcode?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">altumcode</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 The model library shows readiness, storage, and hardware fit. You can remove a model you no longer want. A later meeting does not substitute the other family because you were offline or the file was missing. Fix the download, then process.
 
 The app interface language (English, German, French, Italian, Dutch) is not the transcription language. Set them separately.
+
+|  | Parakeet v3 | Whisper |
+| --- | --- | --- |
+| Languages | 25 European (Vemoir docs) | Depends on model size |
+| Runs on | Apple silicon Mac | Mac or browser download |
+| Swiss German | Standard German text | Standard German text |
 
 ## Where Parakeet is the better choice
 
 Parakeet v3 is the better choice when the meetings you care about sit inside those 25 European languages and you want that model as the one speech download. It is the straightforward pick when you do not need Whisper-specific glossary prompt hints, because those hints are documented for compatible Whisper transcription. The glossary still does not rewrite the transcript. It can steer generated text. The original lines stay the evidence.
 
-
-<Image src={inline2} alt="Two similar recorders side by side on a table" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@zachccamp?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zachccamp</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 It is the worse choice if you already standardized your other tools on a Whisper variant and you want the same family here, or if a glossary hint on the speech pass is the feature you came for. Then pick Whisper and accept its coverage, not a story about which one "wins" on accents.
 
@@ -59,6 +54,23 @@ Whisper Turbo, Medium, or Large-v3 is the better choice when you want a Whisper 
 Whisper is the worse choice when you only wanted the 25-language European model and you do not want a second speech stack. Download Parakeet and leave the Whisper variants uninstalled. Unused models are optional weight on the disk.
 
 The browser tools use public Whisper in the tab for a file you already have. That is not the Mac app's Parakeet install, and it is not Large-v3 by another name. Cap: 15 minutes, three successful runs a week, no speaker labels. The page is [/tools/transcribe-recording](/tools/transcribe-recording).
+
+<div class="blog-pair">
+  <div>
+    <h3>Pick Parakeet</h3>
+    <ul>
+      <li>Multilingual EU meetings on one Mac</li>
+      <li>Names tuned with glossaries</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Pick Whisper</h3>
+    <ul>
+      <li>You already use the browser tool</li>
+      <li>One language, smaller download</li>
+    </ul>
+  </div>
+</div>
 
 ## After the speech model finishes
 

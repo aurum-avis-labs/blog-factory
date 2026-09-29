@@ -10,12 +10,8 @@ relatedPosts: ["best-meeting-notes-app-mac", "fireflies-alternative", "granola-a
 tool: "recording-to-notes"
 image: "@/assets/blog/record-teams-meeting-mac/hero.jpg"
 draft: false
+
 ---
-
-import { Image } from 'astro:assets';
-import voiceCaptureImg from '@/assets/blog/record-teams-meeting-mac/inline-voice-capture.jpg';
-import privateRecordsImg from '@/assets/blog/record-teams-meeting-mac/inline-private-records.jpg';
-
 You can **record a Teams meeting on Mac** in three common ways: Teams’ own cloud recording (when your license and role allow it), a macOS screen capture that saves a video file, or a Mac app that records system audio and your microphone without joining a bot to the call. The right choice depends on who must receive the official file, whether you need a transcript inside Teams, and whether the audio should stay on your Mac.
 
 This guide walks through each path with steps, storage locations from Microsoft’s documentation, and honest limits. It is not legal advice. Tell participants you are recording and follow your organization’s rules before you start.
@@ -52,8 +48,6 @@ Screen recording is reasonable for a short demo you will edit once. It is a poor
 
 A Mac app such as [Vemoir](https://apps.apple.com/app/id6794693630) records **system audio and your microphone** while Teams (or any meeting app) plays sound on the Mac. No bot joins the participant list. You start and stop recording from the menu bar.
 
-<Image src={voiceCaptureImg} alt="Camera and desk setup without readable UI" width={600} quality={80} class="w-full" />
-
 That model fits when:
 
 - IT or clients disallow third-party notetaker bots.
@@ -77,8 +71,6 @@ After the call, Vemoir transcribes on the Mac, then builds minutes, decisions, a
 If you already have an audio file instead of a live call, use the free [recording to notes](/tools/recording-to-notes) browser tool for short files, or import longer audio into the Mac app (MP3, M4A, WAV, and other supported formats).
 
 Want minutes without waiting for a cloud recording link? [Vemoir records the next Teams call from your Mac menu bar](/#how).
-
-<Image src={privateRecordsImg} alt="Remote work laptop in a cozy evening setting" width={600} quality={80} class="w-full" />
 
 ## Tell participants and get consent
 
@@ -108,6 +100,17 @@ For the next call where Teams recording is unavailable, [Vemoir can record from 
 ## Strong next step
 
 If you need a Teams meeting record that stays on your Mac, with transcription and minutes you control, download Vemoir and run a short test call with a colleague before an important client meeting. One-time pricing, no per-meeting fee, and every feature is included. [Get Vemoir on the Mac App Store](https://apps.apple.com/app/id6794693630) or read [how the record is built](/#record) from a capture.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Announce recording</h3><p>Tell participants before you press Record in the menu bar.</p></li>
+  <li data-step="2"><h3>Grant audio permission</h3><p>macOS needs Screen Recording permission for system audio capture.</p></li>
+  <li data-step="3"><h3>Stop at the end</h3><p>Export minutes from the Mac when the call ends.</p></li>
+</ol>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Built-in meeting recorders follow the host's licence. A menu-bar app does not replace Teams or Zoom policy banners.</p>
+</aside>
 
 ## Frequently asked questions
 

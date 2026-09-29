@@ -11,11 +11,6 @@ image: "@/assets/blog/system-audio-recording-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/system-audio-recording-mac/inline1.jpg';
-import inline2 from '@/assets/blog/system-audio-recording-mac/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@greaterbythehour2020?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">greaterbythehour2020</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 System audio recording on a Mac is how Vemoir hears the meeting app. macOS asks for **System Audio Recording**. That permission lets the app take the audio other apps play, through an audio-only capture. Vemoir does not ask for Screen Recording, and it does not record the screen, a window, or the camera image. If a guide, a screenshot, or an older article tells you to enable Screen Recording for Vemoir, that advice is out of date.
 
 You still need the microphone if you want your own voice as its own track. The two captures are separate: the mic is your side, system audio is the call.
@@ -23,11 +18,6 @@ You still need the microphone if you want your own voice as its own track. The t
 ## Why the old name keeps showing up
 
 For a while, the only practical way for a Mac app to hear another app was the Screen Recording permission, even when the app never saved video. People wrote setup guides around that checkbox. macOS now has a permission whose job is system audio. Vemoir uses that one. Searching "screen recording permission meeting" will land you on articles written for the old path, including some that predate this change. Follow the prompt Vemoir actually shows, and the toggle named System Audio Recording.
-
-
-<Image src={inline1} alt="Audio cables going into a recorder on a table" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@pawell?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">pawell</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 The capture is a Core Audio tap. It takes meeting audio. It leaves the pixels alone. It also excludes Vemoir's own output so the app is not recording itself.
 
@@ -39,16 +29,24 @@ The capture is a Core Audio tap. It takes meeting audio. It leaves the pixels al
 4. Do not go looking for a Vemoir row under Screen Recording in order to "finish" setup. That row is not the permission this version uses. Turning on Screen Recording for some other tool is a different decision, and it is how people end up saving a video of the desktop when they wanted a transcript.
 5. Start the recording from the menu bar when the call starts, and stop it when the call ends. Nothing joins the meeting as a bot. The meeting app can be Teams, Zoom, Meet, Slack, Discord, or any other app that plays audio on the Mac. See [platforms](/#platforms) and [capture](/#capture).
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Open Privacy settings</h3><p>System Settings, Privacy & Security, Screen & System Audio Recording.</p></li>
+  <li data-step="2"><h3>Allow audio only</h3><p>Enable Vemoir for system audio, not screen capture.</p></li>
+  <li data-step="3"><h3>Relaunch Vemoir</h3><p>macOS often applies the toggle only after a quit and reopen.</p></li>
+</ol>
 
-<Image src={inline2} alt="A desktop microphone with a foam windscreen in a quiet room" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@productschool?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">productschool</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 If system audio is allowed and the remote people are still silent, the next checks are mute in the meeting app, the wrong output device, and a recording that only armed the microphone. Those are the "no sound" problems, and they are not fixed by granting Screen Recording.
 
 ## What gets stored
 
 Vemoir keeps the microphone and system audio as separate local tracks. After you stop, the transcript is built from the finished audio on the Mac. A live line on screen while you record is a preview. It is not the record you keep.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Correction</span>
+  <p>Older guides mention Screen Recording for meeting audio. Vemoir uses System Audio Recording and does not store screen video.</p>
+</aside>
+
 
 Transcription and speaker separation stay on the machine. Notes run on the machine by default. If you turn on your own API key for text, the audio still does not go out for that step, and the app does not silently switch to a cloud model when the local one fails. Once the models are installed, the meeting can be processed offline. Internet is for the first download.
 

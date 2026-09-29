@@ -12,10 +12,6 @@ image: "@/assets/blog/zoom-cloud-vs-local-recording/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/zoom-cloud-vs-local-recording/inline1.jpg';
-import inline2 from '@/assets/blog/zoom-cloud-vs-local-recording/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@seffen99?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">seffen99</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Zoom cloud o registrazione locale** è una scelta di archiviazione con una trascrizione attaccata. La registrazione cloud vive su Zoom e, sugli account che Zoom tratta come idonei, può includere una trascrizione VTT dopo l'elaborazione. La registrazione locale vive sul computer che ha premuto Registra e ti dà audio, di solito un M4A, senza quel VTT. Se hai registrato in locale e ti aspettavi una mail con la trascrizione, l'articolo sui formati dei file è la spiegazione, non un guasto.
 
@@ -33,10 +29,12 @@ La nota di Zoom sui [formati dei file di registrazione](https://support.zoom.com
 
 **Cloud.** L'host registra sul cloud di Zoom. L'elaborazione avviene dopo la riunione. L'host, e le persone che host o admin autorizzano, aprono la registrazione dal portale web di Zoom. Sui piani idonei, Zoom può produrre una trascrizione in **VTT** accanto al video. Quell'idoneità è una questione di account e di impostazioni. Un host gratuito che non ha mai attivato la registrazione cloud non ottiene un VTT desiderandolo. Gli admin possono spegnere la registrazione cloud per tutto l'account. Se manca Registra nel cloud, pensa prima a una policy, poi a un guasto.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Cloud</span><strong>Piano a pagamento</strong><p>Trascrizione legata allo storage cloud Zoom.</p></li>
+  <li><span class="blog-kicker">Locale</span><strong>audio_only.m4a</strong><p>Percorso predefinito su molti account gratuiti.</p></li>
+  <li><span class="blog-kicker">Browser</span><strong>15 min</strong><p>File locale senza upload a Vemoir.</p></li>
+</ul>
 
-<Image src={inline1} alt="Disco locale su un tavolo di legno, nuvole fuori" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@leowieling?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">leowieling</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Il cloud è anche dove valgono conservazione e condivisione di Zoom. Un link può uscire dall'azienda più in fretta di un file su un portatile, e si può revocare nel portale, cosa che un M4A copiato nella cartella Download di qualcun altro non può fare. Se la vostra revisione di sicurezza ha già approvato Zoom come luogo delle registrazioni, restare in quel sistema è più semplice che inventare un secondo archivio.
 
@@ -50,10 +48,11 @@ Puoi anche ignorare il registratore di Zoom e catturare la riunione dal Mac ment
 
 Dopo una registrazione locale, Zoom scrive una cartella. Il posto è quello che l'app desktop di Zoom ha sotto Impostazioni, Registrazione, Registrazione locale. Spesso si lascia il default, che mette la cartella della riunione sotto Documenti, in una directory Zoom, con data e argomento nel nome.
 
+<aside class="blog-callout">
+  <span class="blog-kicker">Correzione</span>
+  <p>Scaricare un VTT Zoom non è trascrizione locale. Il riconoscimento vocale è già passato dal cloud Zoom.</p>
+</aside>
 
-<Image src={inline2} alt="Cassetto di file e finestra aperta nella stessa stanza" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@ejmerrell?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ejmerrell</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 In quella cartella cerca il file di solo audio. La documentazione Zoom parla di un file audio locale dal nome tipo `audio` più un numero, con estensione `.m4a`. Molte installazioni mostrano anche `audio_only.m4a`. Usa quel file per la trascrizione. È più piccolo dell'MP4 ed è il parlato senza decodifica video. Tieni tutta la cartella finché non ti fidi del testo. Il file della chat, se c'è, è un canale laterale e non un sostituto di ciò che è stato detto ad alta voce.
 

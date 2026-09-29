@@ -12,23 +12,27 @@ image: "@/assets/blog/export-teams-transcript/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/export-teams-transcript/inline1.jpg';
-import inline2 from '@/assets/blog/export-teams-transcript/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Vous exportez une transcription Teams après la réunion depuis le Récap du chat, si la transcription a tourné et si votre rôle peut la télécharger. La page de support Microsoft dit que les organisateurs et co-organisateurs peuvent la télécharger par défaut en `.docx` ou `.vtt`, et que les autres peuvent souvent seulement la consulter, sauf politique d'admin contraire. Le fichier n'est pas une capture d'écran, et il n'existe pas si personne n'a lancé la transcription.
 
 Les noms de menus bougent. Les étapes ci-dessous suivent le support Microsoft, septembre 2026 : [télécharger une transcription](https://support.microsoft.com/en-au/teams/meetings/start-stop-and-download-live-transcripts-in-microsoft-teams-meetings). Si votre client Teams diffère, fiez-vous aux libellés de votre client, et demandez à l'organisateur avant de fouiller OneDrive.
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Confirmer la transcription</h3><p>L'organisateur et la licence conditionnent toujours les transcripts Teams.</p></li>
+  <li data-step="2"><h3>Ouvrir le récap</h3><p>Utiliser l'export Microsoft VTT ou doc, pas une capture.</p></li>
+  <li data-step="3"><h3>Stocker où c'est permis</h3><p>Une copie locale sur Mac est distincte de la rétention Copilot.</p></li>
+</ol>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Sans transcript Teams, l'export n'en crée pas. Enregistrez localement la prochaine fois si vous devez un fichier.</p>
+</aside>
+
 ## Vérifier qu'une transcription existe
 
 Teams ne transcrit une réunion que si la transcription a tourné. Lancer un enregistrement ne signifie pas toujours qu'une transcription sera ensuite téléchargeable. Si le bouton n'a jamais été là, un admin a peut-être désactivé la transcription, ou le type de réunion ne la prend pas en charge. Les invités et les personnes hors de l'organisation de l'organisateur ne peuvent souvent pas télécharger, même s'ils ont vu des sous-titres à l'écran.
 
-
-<Image src={inline1} alt="Disque externe a cote d'un dossier papier" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@carlosgil83?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Carlos Gil</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Les sous-titres en direct pendant l'appel ne sont pas le même artefact que le fichier. Les sous-titres défilent. La transcription, quand elle existe, reste avec la réunion. Microsoft indique que les transcriptions des réunions avec enregistrement ou transcription sont stockées dans le OneDrive for Business de l'organisateur, et qu'on y accède par le chat de réunion et l'onglet Récap jusqu'à ce que l'organisateur les supprime.
 
@@ -38,10 +42,6 @@ Avant de suivre un guide en cinq étapes, ouvrez la réunion passée et voyez si
 
 Sur Teams bureau, Microsoft documente ce chemin :
 
-
-<Image src={inline2} alt="Quelqu'un tend un document imprime, pas un portable" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@creatopy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Creatopy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Sélectionnez **Conversation**.
 2. Ouvrez la conversation de la réunion passée.

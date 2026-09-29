@@ -10,12 +10,8 @@ relatedPosts: ["best-meeting-notes-app-mac", "fireflies-alternative", "granola-a
 tool: "transcribe-recording"
 image: "@/assets/blog/is-otter-ai-safe/hero.jpg"
 draft: false
+
 ---
-
-import { Image } from 'astro:assets';
-import voiceCapture from '@/assets/blog/is-otter-ai-safe/voice-capture.jpg';
-import privateRecords from '@/assets/blog/is-otter-ai-safe/private-records.jpg';
-
 **Is Otter.ai safe** for your meetings depends on what you mean by safe: who sees a bot in the call, where audio and transcripts are stored, whether content is used to improve models, and how deletion works. Otter publishes detailed privacy, security, and help pages. This article summarizes what those documents say as of September 2026. It is practical guidance, not legal advice, and it does not decide whether Otter fits your contract, sector rules, or internal policy.
 
 If you need a shared cloud notetaker with calendar sync and real-time team transcripts, Otter can be a reasonable choice when participants consent and your organization accepts U.S. cloud processing. If the audio must stay on your Mac unless you export it, a local recorder is the different model. Both can be valid; the question is which risks you are trying to reduce.
@@ -45,8 +41,6 @@ Most professionals asking **is Otter.ai safe** are really asking four things:
 4. **Control:** Can I delete copies and limit who sees the transcript afterward?
 
 Otter's answers are mostly "yes, it is a visible cloud service with documented training on de-identified content, plus sharing controls and deletion flows." That can be acceptable for many internal standups. It can be a poor fit for confidential client work, air-gapped policies, or teams that forbid guest bots.
-
-<Image src={voiceCapture} alt="Abstract soft blue privacy mood" width={700} quality={80} class="w-full" />
 
 ## Where Otter stores recordings and transcripts
 
@@ -90,8 +84,6 @@ For client calls, visibility matters as much as storage. A visible bot is easier
 **Policy retention:** The Privacy Policy says Otter stores personal information **as long as necessary** for the purposes in the policy or **as required by law**, and describes making deleted personal information **irrecoverable** when deleted.
 
 **De-identified data:** The Privacy Policy treats **deidentified or aggregated data** separately from personal information. Deleting a conversation does not automatically tell you whether derived de-identified datasets are removed from every downstream use. If you need certainty for a compliance review, ask Otter or your enterprise admin rather than assuming.
-
-<Image src={privateRecords} alt="Person reviewing documents on a laptop" width={700} quality={80} class="w-full" />
 
 ## Honest limits (what Otter does not solve for you)
 
@@ -142,6 +134,17 @@ If your next call cannot include a guest notetaker, you can [record the meeting 
 **Staying on Otter:** Review [Privacy & Security](https://otter.ai/privacy-security), your **auto-join** settings, and **Trash** retention before client calls. Tell participants a notetaker is present, and align with your internal policy.
 
 **Avoiding a cloud notetaker:** Use the [Vemoir Mac app](https://apps.apple.com/app/id6794693630) to capture the next Teams, Zoom, or Meet call locally, or transcribe an existing file with [/tools/transcribe-recording](/tools/transcribe-recording) without uploading audio to Vemoir.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot visibility</span><strong>Participant list</strong><p>Guests can see when Otter joins.</p></li>
+  <li><span class="blog-kicker">Deletion</span><strong>Account settings</strong><p>Check Otter help for retention controls.</p></li>
+  <li><span class="blog-kicker">Local option</span><strong>Mac app</strong><p>Audio stays on device unless you export.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Built-in meeting recorders follow the host's licence. A menu-bar app does not replace Teams or Zoom policy banners.</p>
+</aside>
 
 ## Frequently asked questions
 

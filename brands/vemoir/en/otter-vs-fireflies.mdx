@@ -11,11 +11,7 @@ image: "@/assets/blog/otter-vs-fireflies/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/otter-vs-fireflies/inline1.jpg';
-import inline2 from '@/assets/blog/otter-vs-fireflies/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@sigmund?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sigmund</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Otter vs Fireflies** is a choice between two cloud meeting products that can put a notetaker in the call and keep the library on their servers. They are not the same on training, and they are not a local Mac recorder. This page uses their own documents as of September 2026. Prices move. Follow the pricing links before you buy a seat.
 
 If the requirement is that audio stays on the Mac, neither is the tool. Vemoir is a one-time Mac App Store purchase (CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the US) that records microphone and system audio without a bot. That is a third option, not a winner of Otter vs Fireflies on team features.
@@ -33,14 +29,16 @@ If the requirement is that audio stays on the Mac, neither is the tool. Vemoir i
 - [What you still do on the Mac either way](#what-you-still-do-on-the-mac-either-way)
 - [Frequently asked questions](#frequently-asked-questions)
 
+|  | Otter | Fireflies |
+| --- | --- | --- |
+| Bot in call | Visible notetaker | Visible notetaker |
+| Default cloud | United States (AWS) | United States (AWS/GCP) |
+| Training (public pages, Sep 2026) | De-identified model training described | No training on personal data stated |
+
 ## What both products are
 
 Otter is a meeting assistant built around a calendar notetaker for Zoom, Microsoft Teams, and Google Meet, with transcripts, summaries, and team sharing on paid plans. Fireflies joins meetings as a notetaker, stores recordings and transcripts in its workspace, and sells per-seat plans plus a free tier. Both assume the conversation will be processed in their cloud. Both can be the right buy when the team wants one searchable library and has accepted that shape.
 
-
-<Image src={inline1} alt="Two coffee cups and two pens side by side" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@linkedinsalesnavigator?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">linkedinsalesnavigator</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 A wider list sits in [Otter alternatives](/blog/otter-ai-alternative) and [Fireflies alternatives](/blog/fireflies-alternative). The privacy reading of Otter's own pages is in [is Otter.ai safe](/blog/is-otter-ai-safe). This article is the head-to-head.
 
@@ -49,15 +47,28 @@ A wider list sits in [Otter alternatives](/blog/otter-ai-alternative) and [Firef
 Otter's privacy policy describes meeting audio and transcripts processed to provide the service, and names cloud providers including Amazon Web Services in the United States. The privacy and security pages describe AWS storage with server-side encryption. They also describe training proprietary AI on de-identified audio and transcriptions. A more careful walk through those sentences, with the help-center links, is the Otter safety article above. Do not compress it to "Otter never trains." Their pages distinguish de-identified training of Otter's models from a claim about third-party model providers.
 
 
-<Image src={inline2} alt="Two people comparing paper notes across a table" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@invest_europe?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">invest_europe</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Fireflies' privacy policy says it does not use personal information for AI model training and that it contractually prohibits vendors from using that information for their own model training. A Zero Data Retention section says meeting content (audio, video, transcripts, summaries) is not stored by a third-party vendor after processing, is not accessed by that vendor once the service is done, and is not used to train internal or external AI models ([privacy policy](https://fireflies.ai/privacy-policy), [security](https://fireflies.ai/security), checked September 2026). Its storage article says the default public cloud is in the United States, on AWS and Google Cloud, with private storage and bring-your-own storage described for Enterprise ([data storage and transfer](https://guide.fireflies.ai/articles/9596505232-learn-about-data-storage-and-transfer)).
 
 So the practical split, as of those pages: both default to US cloud. Fireflies states a harder "we do not train, and vendors do not train" line. Otter documents de-identified training of its own models. If that difference is why you are comparing them, read the policies again rather than this summary, because the wording is the product.
 
 Fireflies also describes SOC 2 Type II, GDPR, and HIPAA on its security pages. Those are Fireflies' claims about Fireflies. They are not a certification of your meeting, and they are not claims about any other app.
+
+<div class="blog-pair">
+  <div>
+    <h3>Who Otter fits</h3>
+    <ul>
+      <li>Team already on Otter with accepted training terms</li>
+      <li>Real-time shared transcript on mobile</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip Otter</h3>
+    <ul>
+      <li>Hard no on de-identified training</li>
+      <li>Client invites that ban guest bots</li>
+    </ul>
+  </div>
+</div>
 
 ## Bots and who sees them
 

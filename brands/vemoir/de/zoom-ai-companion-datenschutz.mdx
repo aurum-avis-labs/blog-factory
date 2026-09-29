@@ -12,14 +12,21 @@ image: "@/assets/blog/zoom-ai-companion-privacy/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/zoom-ai-companion-privacy/inline1.jpg';
-import inline2 from '@/assets/blog/zoom-ai-companion-privacy/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@pranjallk1995?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Pranjall Kumar</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Zoom AI Companion Datenschutz** betrifft Zooms eigenen Assistenten, nicht einen Dritt-Bot in der Teilnehmerliste. Zoom schreibt, wie die Funktion Meeting-Inhalte verarbeitet, welche Modelle sie sehen und welche Schalter ein Admin sperren kann. Diese Seite fasst die Dokumente Stand September 2026 zusammen. Das ist keine Rechtsberatung und sagt nicht, ob AI Companion zu deinem Vertrag passt.
+**Zoom AI Companion Datenschutz** betrifft Zooms eigenen Assistenten, nicht einen Dritt-Bot in der Teilnehmerliste. Zoom beschreibt, wie die Funktion Sitzungsinhalte verarbeitet, welche Modelle sie sehen und welche Schalter ein Admin sperren kann. Diese Seite fasst die Dokumente zusammen, Stand September 2026. Das ist keine Rechtsberatung und sie sagt nicht, ob AI Companion zu deinem Vertrag passt.
 
-Wenn deine Latte heisst «das Audio bleibt auf diesem Mac, bis ich es exportiere», ist Zooms dokumentiertes Modell ein anderes. AI Companion läuft in Zooms Cloud (und auf manchen Konten über Drittmodelle). Eine lokale Zoom-Aufnahme auf der Platte ist ein zweiter Weg. Beides kann passen. Es ist nicht dieselbe Kopie.
+Wenn für dich gilt, dass das Audio auf diesem Mac bleibt, bis du es exportierst, ist das von Zoom dokumentierte Modell ein anderer Weg. AI Companion läuft in Zooms Cloud, auf manchen Konten über Drittmodelle. Eine lokale Zoom-Aufnahme auf der Platte ist ein zweiter Weg. Beides kann passen. Es ist nicht dieselbe Kopie.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Training</span><strong>Zoom-Docs</strong><p>Zoom schreibt, Kundeninhalte trainieren ihre Modelle nicht (Seiten September 2026).</p></li>
+  <li><span class="blog-kicker">Drittanbieter</span><strong>Opt-in</strong><p>Einige Funktionen rufen externe Modelle auf, wenn das Konto es erlaubt.</p></li>
+  <li><span class="blog-kicker">Lokale Datei</span><strong>Getrennt</strong><p>Eine lokale Zoom-M4A auf der Platte ist nicht die Kopie, die AI Companion verarbeitet.</p></li>
+</ul>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Admins können AI Companion für Gastgeber sperren. Die interne Regel kann Cloud-Zusammenfassungen trotzdem verbieten.</p>
+</aside>
 
 ## Inhalt
 
@@ -34,122 +41,114 @@ Wenn deine Latte heisst «das Audio bleibt auf diesem Mac, bis ich es exportiere
 
 ## Zoom AI Companion Datenschutz, laut Zoom
 
-AI Companion ist Zooms Meeting-Assistent: Zusammenfassung, nächste Schritte, Fragen zur Sitzung. Das ist nicht Otter oder Fireflies als benannter Gast. Teilnehmende können trotzdem sehen, dass eine KI-Funktion an ist. Zooms [Administrative Controls](https://library.zoom.com/ai/ai-whitepaper/administrative-controls) beschreiben Schalter auf Konto-, Gruppen- und Benutzerebene und Sperren, die der Host nicht mehr kippen kann.
+AI Companion ist Zooms Assistent in der Sitzung: Zusammenfassung, nächste Schritte, Fragen zur Sitzung. Das ist nicht Otter oder Fireflies als benannter Gast. Teilnehmende können trotzdem sehen, dass eine KI-Funktion an ist. Zooms [Administrative Controls](https://library.zoom.com/ai/ai-whitepaper/administrative-controls) beschreiben Schalter auf Konto-, Gruppen- und Benutzerebene und Sperren, die der Gastgeber nicht mehr umlegen kann.
 
 
-<Image src={inline1} alt="Laptop auf einem Holztisch, Kamera abgeklebt" width={700} quality={80} class="w-full" />
+Für diese Funktionen muss Zoom den Inhalt der Sitzung verarbeiten. Die Frage zum Datenschutz ist nicht, ob etwas verarbeitet wird. Sie ist, was Zoom mit dem Inhalt danach macht: Training, Aufbewahrung bei Dritten, Speicherregion, und ob ein Transkript auf dem Konto bleibt.
 
-<p><em>Photo by <a href="https://unsplash.com/@azwedo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Azwedo L.LC</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Für diese Funktionen muss Zoom Meeting-Inhalt verarbeiten. Die Datenschutzfrage ist nicht «passiert etwas». Sie ist, was Zoom mit dem Inhalt danach macht: Training, Aufbewahrung bei Dritten, Speicherregion, und ob ein Transkript auf dem Konto bleibt.
-
-Der Support-Artikel ist [How Zoom AI features handle your data](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057861). Das Kapitel [Data Governance and Privacy](https://library.zoom.com/ai/ai-whitepaper/data-governance-and-privacy) im KI-Whitepaper wiederholt den Trainingssatz und ergänzt Verschlüsselung, Mitarbeiterzugriff und Retention. Richtlinien ändern sich. Lies die datierte Seite vor einem Kundenreview.
+Der Support-Artikel heisst [How Zoom AI features handle your data](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057861). Das Kapitel [Data Governance and Privacy](https://library.zoom.com/ai/ai-whitepaper/data-governance-and-privacy) im KI-Whitepaper wiederholt den Satz zum Training und ergänzt Verschlüsselung, Zugriff durch Mitarbeitende und Aufbewahrung. Die Richtlinien ändern sich. Lies die datierte Seite, bevor du sie einem Kundenreview zugrunde legst.
 
 ## Trainiert Zoom mit Meeting-Audio
 
 Zooms Satz, im Support-Artikel und im Whitepaper (geprüft September 2026):
 
 
-<Image src={inline2} alt="Jemand klappt den Laptop nach dem Gespraech zu" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@samsungmemory?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Samsung Memory</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Zoom verwendet kein Audio, Video, Chat, Screen-Sharing, Anhänge oder ähnliche Kommunikationsinhalte (Umfragen, Whiteboard, Reaktionen), um Zooms oder Dritt-KI-Modelle zu trainieren.
 
-Das ist Zooms Zusage zum **Training**. Es ist kein Versprechen, dass das Audio auf deinem Laptop bleibt. Derselbe Text sagt, dass KI-Funktionen bestimmte Inhalte brauchen, um den Dienst zu liefern. Eine Zusammenfassung muss die Sitzung hören. «Kein Training» und «keine Verarbeitung» sind zwei Sätze. Zoom macht den ersten. Den zweiten nicht.
+Das ist Zooms Zusage zum **Training**. Es ist kein Versprechen, dass das Audio auf deinem Laptop bleibt. Derselbe Text sagt, dass die KI-Funktionen bestimmte Inhalte brauchen, um den Dienst zu liefern. Eine Zusammenfassung muss die Sitzung hören. «Kein Training» und «keine Verarbeitung» sind zwei verschiedene Aussagen. Zoom macht die erste. Die zweite nicht.
 
-Zoom schreibt ausserdem, dass Mitarbeitende auf Meeting- oder KI-Inhalte nur zugreifen, wenn der Kontoinhaber oder Admin das erlaubt, oder wenn Recht, Sicherheit, Support das verlangen. Zugriff sei rollenbasiert und protokolliert. Das ist Zugriffskontrolle, kein «niemand bei Zoom kann je eine Datei sehen».
+Zoom schreibt ausserdem, dass Mitarbeitende auf Sitzungs- oder KI-Inhalte nur zugreifen, wenn der Kontoinhaber oder Admin das erlaubt, oder wenn Recht, Sicherheit oder Support das verlangen. Der Zugriff sei rollenbasiert und protokolliert. Das ist eine Zugriffskontrolle. In den genannten Fällen kann jemand bei Zoom eine Datei sehen.
 
-Optionales Feedback ist ein eigener Pfad. Nutzer können Daumen hoch oder runter schicken und Prompts, Antworten, Screenshots und Diagnosedaten anhängen. Admins können diesen Extra-Kontext sperren. Schickst du kein Feedback, läuft der Pfad nicht.
+Optionales Feedback ist ein eigener Weg. Nutzer können Daumen hoch oder runter schicken und Prompts, Antworten, Screenshots und Diagnosedaten anhängen. Admins können diesen zusätzlichen Kontext sperren. Schickst du kein Feedback, läuft dieser Weg nicht.
 
 ## Welche Modelle das Meeting sehen
 
-Zoom beschreibt als Default einen **föderierten** Ansatz: Zoom-eigene Modelle plus Drittmodelle. Das Kapitel [Models, Processing, Storage, and Usage](https://library.zoom.com/ai/ai-whitepaper/models-processing-storage-and-usage) nennt Anthropic, OpenAI und Google Gemini in dieser Föderation, plus weitere Anbieter für Einzel-Features. Zoom sagt, die Modelle können wechseln.
+Zoom beschreibt als Voreinstellung einen **föderierten** Ansatz: Zoom-eigene Modelle plus Drittmodelle. Das Kapitel [Models, Processing, Storage, and Usage](https://library.zoom.com/ai/ai-whitepaper/models-processing-storage-and-usage) nennt Anthropic, OpenAI und Google Gemini in dieser Kombination, plus weitere Anbieter für einzelne Funktionen. Zoom sagt, die Modelle können wechseln.
 
-Für generative Drittanbieter auf diesem Pfad schreibt Zoom **Zero Data Retention**: die Anbieter behalten Kundeninhalt nicht, mit begrenzten Trust-and-Safety-Ausnahmen (etwa CSAM). Sie dürfen die Daten laut Zoom auch nicht zum Trainieren ihrer Modelle nutzen.
+Für generative Drittanbieter auf diesem Weg schreibt Zoom **Zero Data Retention**: die Anbieter behalten Kundeninhalt nicht, mit begrenzten Ausnahmen für Trust and Safety (etwa CSAM). Sie dürfen die Daten laut Zoom auch nicht zum Training ihrer Modelle nutzen.
 
-Zwei engere Deployments, wenn das Account-Team sie einschaltet:
+Zwei engere Betriebsarten, wenn das Account-Team sie einschaltet:
 
-- **ZM+ (Zoom-Hosted Models Plus):** Drittmodell-Instanzen über Amazon Bedrock, von Zoom verwaltet, ohne Versand an die Plattform des Modell-Vendors. Zoom nennt US, EU und AU.
-- **ZMO (Zoom-Hosted Models Only):** nur Zoom-hosted Modelle, kein Drittanbieter. Der Funktionsumfang kann kleiner sein.
+- **ZM+ (Zoom-Hosted Models Plus):** Instanzen von Drittmodellen über Amazon Bedrock, von Zoom verwaltet, ohne Versand an die Plattform des Modellanbieters. Zoom nennt US, EU und AU.
+- **ZMO (Zoom-Hosted Models Only):** nur bei Zoom gehostete Modelle, kein Drittanbieter. Der Funktionsumfang kann kleiner sein.
 
-Konten ausserhalb der USA bekommen unterstützte KI-Features laut Zoom über ZM+ oder ZMO. EU- oder AU-gehostete Konten nutzen ZM+ (oder ZMO). Andere Regionen können ZMO nutzen. Frag Zoom, welches Deployment dein Konto wirklich hat. Eine Schweizer Firma auf einem US-Konto ist nicht automatisch auf ZMO.
+Konten ausserhalb der USA bekommen unterstützte KI-Funktionen laut Zoom über ZM+ oder ZMO. In der EU oder in AU gehostete Konten nutzen ZM+ (oder ZMO). Andere Regionen können ZMO nutzen. Frag Zoom, welche Betriebsart dein Konto wirklich hat. Eine Schweizer Firma auf einem US-Konto ist nicht automatisch auf ZMO.
 
-Triffst du Leute auf einem anderen Zoom-Konto, können Chats und Transkripte laut Zoom nach den Einstellungen des **fremden** Kontos verarbeitet werden. Deine Sperre ist nicht deren Sperre.
+Triffst du Leute auf einem anderen Zoom-Konto, können Chats und Transkripte laut Zoom nach den Einstellungen des **fremden** Kontos verarbeitet werden. Deine Sperre gilt dort nicht.
 
 ## Wo Zoom KI-Daten verarbeitet und speichert
 
-Zoom verarbeitet und speichert Daten gemäss gehosteter Rechenzentrumsregion und den Einstellungen von Host, Owner oder User. Der Artikel [Using Data & Privacy for data management](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057736) beschreibt die Wahl United States oder EEA, **sichtbar für Kontoinhaber im Europäischen Wirtschaftsraum**. Die Schweiz ist nicht im EWR. Nimm nicht an, dass der Schalter auf einem schweizerischen Konto erscheint, und verwechsle EEA-Speicher nicht mit Schweizer Speicher.
+Zoom verarbeitet und speichert Daten nach der Region des Rechenzentrums, in dem das Konto gehostet ist, und nach den Einstellungen von Gastgeber, Kontoinhaber oder Benutzer. Der Artikel [Using Data & Privacy for data management](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057736) beschreibt die Wahl United States oder EEA, **sichtbar für Kontoinhaber im Europäischen Wirtschaftsraum**. Die Schweiz liegt nicht im EWR. Nimm nicht an, dass der Schalter auf einem schweizerischen Konto erscheint, und setze EEA-Speicher nicht mit Speicher in der Schweiz gleich.
 
-Zooms Beitrag zu [AI Companion data residency](https://www.zoom.com/en/blog/ai-companion-data-residency-options/) beschreibt Deployment-Optionen und wiederholt den Trainingssatz. Für Kunden auf einem lokalen Cluster in Europa nennt Zoom eine Mischung aus ZMO und ZM+ und API-Calls in die Region. Das ist eine Produktoption, kein Default für jeden Schweizer Workspace.
+Zooms Beitrag zu [AI Companion data residency](https://www.zoom.com/en/blog/ai-companion-data-residency-options/) beschreibt die Betriebsarten und wiederholt den Satz zum Training. Für Kunden auf einem lokalen Cluster in Europa nennt Zoom eine Mischung aus ZMO und ZM+ und API-Aufrufe in die Region. Das ist eine Produktoption, und es ist nicht die Voreinstellung für jeden Workspace in der Schweiz.
 
-Verschlüsselung laut Zoom: mindestens TLS 1.2 unterwegs, AES-256 in Ruhe für Inhalte, die KI-Features nutzen oder erzeugen. Enterprise kann Customer Managed Key für manche Assets nutzen. Verschlüsselung sagt, wie Bits liegen. Sie legt sie nicht auf deinen Mac.
+Verschlüsselung laut Zoom: mindestens TLS 1.2 auf dem Weg, AES-256 im Ruhezustand für Inhalte, die KI-Funktionen nutzen oder erzeugen. Enterprise kann für manche Daten einen Customer Managed Key nutzen. Damit ist beschrieben, wie die Daten geschützt sind. Der Ablageort bleibt Zooms Infrastruktur.
 
 ## Aufbewahrung, Transkript und Zusammenfassung
 
-Normale Zoom-Retention gilt weiter für Inhalte, die der zugehörige Dienst behält (Cloud-Recording, gespeicherter Chat). Kunden können für manchen Inhalt eigene Fristen setzen. Trust-and-Safety kann länger dauern als die Sitzung.
+Die normale Aufbewahrung von Zoom gilt weiter für Inhalte, die der zugehörige Dienst behält (Cloud-Aufnahme, gespeicherter Chat). Kunden können für manchen Inhalt eigene Fristen setzen. Trust and Safety kann länger dauern als die Sitzung.
 
-Admins, die eine Zusammenfassung **ohne** dauerhaftes Transkript wollen, können Meeting-Transkript aus und sperren, oder die Transkript-Retention auf null Tage setzen. Zoom nutzt dann temporäres Speech-to-Text, OCR und In-Meeting-Chat, erzeugt die Summary und verwirft die temporären Daten nach erfolgreichem Lauf. Eine spätere Neu-Generierung aus einem nie behaltenen Transkript geht nicht. Features, die ein Transkript brauchen (My Notes, Archiv), sind betroffen.
+Admins, die eine Zusammenfassung **ohne** dauerhaftes Transkript wollen, können das Meeting-Transkript ausschalten und sperren, oder die Aufbewahrung des Transkripts auf null Tage setzen. Zoom nutzt dann vorübergehend Speech-to-Text, OCR und den Chat während der Sitzung, erzeugt die Zusammenfassung und verwirft die vorübergehenden Daten nach einem erfolgreichen Lauf. Eine spätere Neuerzeugung aus einem Transkript, das nie behalten wurde, geht nicht. Funktionen, die ein Transkript brauchen (My Notes, Archiv), sind davon betroffen.
 
-Cloud-Recording ist ein eigener Schalter. Ist es an, kann Zoom trotzdem ein Transkript zu den Cloud-Dateien legen, auch wenn die In-Meeting-Transkript-Retention null ist. Prüfe beide Settings. Eine lokale Aufnahme auf dem Mac erzeugt dieses Cloud-Transkript nicht. Ordner und M4A: [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
+Cloud-Aufnahme ist ein eigener Schalter. Ist sie an, kann Zoom trotzdem ein Transkript zu den Cloud-Dateien legen, auch wenn die Aufbewahrung des Transkripts in der Sitzung null Tage beträgt. Prüfe beide Einstellungen. Eine lokale Aufnahme auf dem Mac erzeugt dieses Cloud-Transkript nicht. Ordner und M4A: [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
 
 ## Admin- und Host-Schalter
 
-Laut Zooms Admin-Doku (geprüft September 2026):
+Laut Zooms Admin-Dokumentation (geprüft September 2026):
 
-1. Owner und Admins schalten Zoom-KI-Features auf Konto- oder Gruppenebene im Admin Center unter Settings, Zoom AI.
-2. Sie können einen Schalter sperren, damit Nutzer ihn nicht kippen.
-3. Ist ein Feature an und nicht gesperrt, bleiben manche User-Schalter.
-4. Custom AI Companion hat eigene Toggles; manche nur auf Konto- und Gruppenebene ([Getting started with Custom AI Companion features](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0079498)).
+1. Kontoinhaber und Admins schalten Zoom-KI-Funktionen auf Konto- oder Gruppenebene im Admin Center unter Settings, Zoom AI.
+2. Sie können einen Schalter sperren, damit Nutzer ihn nicht umlegen.
+3. Ist eine Funktion an und nicht gesperrt, bleiben manche Schalter bei den Nutzern.
+4. Custom AI Companion hat eigene Schalter. Manche gibt es nur auf Konto- und Gruppenebene ([Getting started with Custom AI Companion features](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0079498)).
 
-Ist AI Companion an und du willst es in einem Kundencall nicht, stell die Funktion für die Sitzung aus, wenn der Admin das noch erlaubt, oder lass sie für die Kundengruppe sperren. Teilnehmende zu informieren, dass eine Summary entsteht, bleibt deine Aufgabe. Zooms Seiten beschreiben Produktverhalten. Sie ersetzen keine Einwilligung.
+Ist AI Companion an und du willst es in einem Kundengespräch nicht, stell die Funktion für die Sitzung aus, wenn der Admin das noch erlaubt, oder lass sie für die Kundengruppe sperren. Die Teilnehmenden zu informieren, dass eine Zusammenfassung entsteht, bleibt deine Aufgabe. Zooms Seiten beschreiben das Verhalten des Produkts. Sie ersetzen keine Einwilligung.
 
-Willst du ein Transkript einer Zoom-Datei, die du schon hast, ohne Zooms KI-Pipeline? Das Browser-Tool [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren) läuft im Tab nach einem Modell-Download. Dateien bis 15 Minuten, drei erfolgreiche Läufe pro Woche, keine Sprecherlabels.
+Willst du ein Transkript einer Zoom-Datei, die du schon hast, ohne Zooms KI-Verarbeitung? Das Browser-Tool [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren) läuft im Tab, nachdem ein Modell geladen ist. Dateien bis 15 Minuten, drei erfolgreiche Läufe pro Woche, keine Sprecherlabels.
 
 ## Wann die lokale Zoom-Datei besser passt
 
-AI Companion passt, wenn die Organisation in Zoom lebt, die Summary im selben Portal will, Zooms Verarbeitung (und das tatsächliche Deployment) akzeptiert und die Trainings- und Retention-Seiten gelesen hat.
+AI Companion passt, wenn die Organisation in Zoom arbeitet, die Zusammenfassung im selben Portal will, Zooms Verarbeitung und die tatsächliche Betriebsart akzeptiert und die Seiten zu Training und Aufbewahrung gelesen hat.
 
-Die lokale Datei passt, wenn du absichtlich auf die Platte aufgenommen hast, Cloud-Recording aus ist, oder das Audio Zooms KI-Features gar nicht sehen soll. Lokal gibt es eine M4A (oft `audio_only.m4a`) und kein Zoom-VTT. Du transkribierst selbst. Das ist der Weg nach der Datei, kein Live-Zoom-Feature.
+Die lokale Datei passt, wenn du absichtlich auf die Platte aufgenommen hast, die Cloud-Aufnahme aus ist, oder das Audio die KI-Funktionen von Zoom gar nicht sehen soll. Lokal gibt es eine M4A (oft `audio_only.m4a`) und kein Zoom-VTT. Du transkribierst selbst. Das ist der Weg nach der Datei, keine Live-Funktion in Zoom.
 
-Ein Dritt-Notetaker-Bot ist die schlechtere Antwort, wenn der Kunde Extra-Teilnehmende schon verboten hat. AI Companion ist nicht dieser Bot. Es bleibt Zoom, das den Call in Zooms Infrastruktur verarbeitet.
+Ein Notetaker-Bot von einem Dritten ist die schlechtere Antwort, wenn der Kunde zusätzliche Teilnehmende schon verboten hat. AI Companion ist dieser Bot nicht. Es bleibt Zoom, das den Call in Zooms Infrastruktur verarbeitet.
 
-Vemoir nimmt Mikrofon und Systemton auf dem Mac auf, ohne Bot in der Zoom-Liste. Die Transkription bleibt auf dem Mac. Optionaler Cloud-Text ist ein Keychain-Schlüssel, den du aktivierst, und bekommt das Audio nicht. Die App braucht Apple Silicon und macOS Sonoma 14.2 oder neuer. Sie ist keine Zoom-Admin-Konsole und schaltet AI Companion nicht für die ganze Firma aus.
+Vemoir nimmt Mikrofon und Systemton auf dem Mac auf, ohne Bot in der Zoom-Liste. Die Transkription bleibt auf dem Mac. Optionaler Cloud-Text braucht einen Schlüssel in der Keychain, den du selbst einschaltest, und bekommt das Audio nicht. Die App braucht Apple Silicon und macOS Sonoma 14.2 oder neuer. Sie ist keine Zoom-Admin-Konsole und schaltet AI Companion nicht für die ganze Firma aus.
 
-Wenn du nur die Quellen brauchtest, halt bei den Links und prüfe die Daten. Gelesen wurde die Fassung vom September 2026.
+Wenn du nur die Quellen brauchtest, bleib bei den Links und prüfe die Daten. Gelesen wurde die Fassung vom September 2026.
 
 ## Häufige Fragen
 
 ### Trainiert Zoom AI Companion mit meinen Sitzungen?
 
-Zoom schreibt, Kunden-Audio, Video, Chat, Screen-Sharing, Anhänge und ähnliche Kommunikationsinhalte würden nicht zum Training von Zoom- oder Drittmodellen genutzt. Das ist ein Trainingssatz, kein «die Sitzung bleibt auf deinem Gerät».
+Zoom schreibt, Kunden-Audio, Video, Chat, Screen-Sharing, Anhänge und ähnliche Kommunikationsinhalte würden nicht zum Training von Zoom- oder Drittmodellen genutzt. Das ist ein Satz zum Training. Er sagt nicht, die Sitzung bleibe auf deinem Gerät.
 
 ### Behalten OpenAI oder Anthropic meinen Meeting-Inhalt?
 
-Auf dem föderierten Pfad nennt Zoom Zero-Retention-Verträge mit generativen Drittanbietern, mit begrenzten Trust-and-Safety-Ausnahmen. ZM+ und ZMO ändern, ob diese Anbieter überhaupt im Pfad sind. Klär das Deployment deines Kontos.
+Auf dem föderierten Weg nennt Zoom Verträge mit Zero Retention bei generativen Drittanbietern, mit begrenzten Ausnahmen für Trust and Safety. ZM+ und ZMO ändern, ob diese Anbieter überhaupt im Weg sind. Kläre die Betriebsart deines Kontos.
 
 ### Wo verarbeitet Zoom AI-Companion-Daten?
 
-Nach gehosteter Region und Kontoeinstellungen. EEA-Residency ist für EWR-Kontoinhaber dokumentiert. Die Schweiz ist nicht der EWR. Frag Zoom, wo dein Konto gehostet ist.
+Nach der Hosting-Region und den Kontoeinstellungen. Die Speicherung im EWR ist für Kontoinhaber im EWR dokumentiert. Die Schweiz liegt nicht im EWR. Frag Zoom, wo dein Konto gehostet ist.
 
 ### Kann mein Admin Zoom AI Companion ausstellen?
 
-Ja. Zoom dokumentiert Konto- und Gruppen-Toggles und Sperren im Admin Center unter Zoom AI. Ein gesperrtes «aus» kann der Host nicht einschalten.
+Ja. Zoom dokumentiert Schalter und Sperren auf Konto- und Gruppenebene im Admin Center unter Zoom AI. Steht ein gesperrtes Aus, kann der Gastgeber die Funktion nicht einschalten.
 
 ### Ist Zoom AI Companion ein Bot in der Teilnehmerliste?
 
-Nein. Es ist ein Zoom-Produkt. Dritt-Notetaker als Gäste sind ein anderer Weg. Siehe [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot).
+Nein. Es ist ein Zoom-Produkt. Notetaker von Dritten, die als Gäste beitreten, sind ein anderer Weg. Siehe [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot).
 
 ### Nutzt eine lokale Zoom-Aufnahme AI Companion?
 
-Lokales Recording schreibt Dateien auf den Rechner, der auf Record geklickt hat. Es startet nicht Zooms Cloud-Transkript-Pipeline. Cloud-Recording und AI Companion sind getrennte Konto-Features.
+Lokale Aufnahme schreibt Dateien auf den Rechner, auf dem jemand auf Aufnehmen geklickt hat. Sie startet nicht Zooms Cloud-Transkript. Cloud-Aufnahme und AI Companion sind getrennte Funktionen auf dem Konto.
 
 ### Heisst «kein Training», dass das Audio auf meinem Mac bleibt?
 
-Nein. Zoom verarbeitet Inhalt, um Summary oder Antworten zu erzeugen. «Kein Training» betrifft Modellverbesserung, nicht lokalen Speicher.
+Nein. Zoom verarbeitet Inhalt, um eine Zusammenfassung oder Antworten zu erzeugen. «Kein Training» betrifft die Verbesserung der Modelle, nicht den Speicher auf deinem Rechner.
 
-### Wo prüfe ich das vor einem Kundencall?
+### Wo prüfe ich das vor einem Kundengespräch?
 
-Öffne [How Zoom AI features handle your data](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057861) und die Whitepaper-Kapitel oben. Die für diese Seite geprüften Fassungen waren Stand September 2026.
+Öffne [How Zoom AI features handle your data](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057861) und die Whitepaper-Kapitel oben. Die Fassungen, die für diese Seite geprüft wurden, waren Stand September 2026.
 
-Hast du schon eine lokale Zoom-M4A, start mit [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren). Soll der nächste Call auf dem Mac bleiben, nimm dort auf statt AI Companion einzuschalten.
+Hast du schon eine lokale Zoom-M4A, starte mit [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren). Soll der nächste Call auf dem Mac bleiben, nimm dort auf, statt AI Companion einzuschalten.

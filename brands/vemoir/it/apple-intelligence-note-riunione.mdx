@@ -11,11 +11,7 @@ image: "@/assets/blog/apple-intelligence-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/apple-intelligence-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/apple-intelligence-meeting-notes/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@andrewilliam?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">andrewilliam</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Apple Intelligence per le note di riunione** in Vemoir è facoltativa, e solo dove il Mac ha davvero Apple Intelligence. Può entrare nella pulizia e negli artefatti generati. Non trascrive la riunione. Le parole arrivano dal modello vocale locale che hai scelto: Parakeet v3, oppure Whisper Turbo, Medium o Large-v3.
 
 Se questo Mac non offre Apple Intelligence, la riunione gira lo stesso. Pulizia e artefatti usano allora un modello di lingua locale scaricato: Qwen3 4B sulla maggior parte dei Mac, o gpt-oss-20b sui Mac con tanta memoria. Quei modelli scrivono. Non sostituiscono nemmeno il modello vocale.
@@ -25,22 +21,41 @@ Se questo Mac non offre Apple Intelligence, la riunione gira lo stesso. Pulizia 
 Dopo lo stop, l’app ricostruisce la trascrizione dall’audio finalizzato sul Mac. Quel passo è parlato-in-testo. Apple Intelligence non c’è in quel passo.
 
 
-<Image src={inline1} alt="Taccuini chiusi e bicchieri d'acqua vuoti dopo la chiamata" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@allysphotos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">allysphotos</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Dove può aiutare, su un Mac che la ha, è la scrittura dopo: pulire la prosa generata e produrre artefatti come il riassunto e i documenti collegati. Vedi comunque una trascrizione che puoi aprire. Le note manuali che hai digitato tengono la loro provenienza e non vengono trattate come battute parlate. I link di prova, quando un riassunto li ha, puntano a passaggi della trascrizione, non a una frase levigata senza fonte.
 
 La scelta è visibile con le altre scelte di modello. Vemoir non scarica in silenzio un altro modello vocale perché manca Apple Intelligence, e non manda in silenzio l’audio a un modello cloud perché Apple Intelligence è fallita. Il testo cloud, se lo vuoi, è un’attivazione separata con la tua chiave. Audio e separazione speaker restano sul Mac.
+
+  </div>
+  <div>
+    <h3>A Mac recorder fits</h3>
+    <ul>
+      <li>Teams or Zoom audio on the Mac</li>
+      <li>Speaker separation and project folders</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-pair">
+  <div>
+    <h3>Apple Intelligence</h3>
+    <ul>
+      <li>Riassunti rapidi nelle app Apple</li>
+      <li>Call personali su dispositivi supportati</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Registratore Mac</h3>
+    <ul>
+      <li>Audio Teams/Zoom sul Mac</li>
+      <li>Speaker e progetti</li>
+    </ul>
+  </div>
+</div>
 
 ## Quando c’è, e quando no
 
 Apple Intelligence dipende dal Mac e da macOS, non da un interruttore in una riunione. Se il sistema non la offre, il modello di lingua locale di Vemoir è il percorso per pulizia e artefatti. Leggi la schermata modelli per adeguatezza, spazio e quale modello è selezionato. Non dare per scontato che un Mac mini nuovo e un portatile base si comportino uguale. L’app dichiara l’adeguatezza. Questa pagina non classifica la qualità di scrittura tra Apple Intelligence, Qwen3 4B e gpt-oss-20b.
 
-
-<Image src={inline2} alt="Pila di fogli ordinata e portatile chiuso a fine chiamata" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@sql?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sql</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 La lingua dell’interfaccia è a parte. L’app può girare in inglese, tedesco, francese, italiano o olandese. Questo non sceglie il modello vocale e non accende Apple Intelligence.
 
@@ -53,6 +68,11 @@ La lingua dell’interfaccia è a parte. L’app può girare in inglese, tedesco
 5. Leggi il riassunto. Se la pulizia ha lisciato un numero che avevi digitato nelle note manuali, fidati della provenienza della nota e modifica la riga generata.
 
 Su un Mac senza Apple Intelligence, il passo 2 è solo il modello di lingua locale. Il passo di trascrizione non cambia.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Ambito</span><strong>App Apple</strong><p>Non sostituisce ogni link riunione.</p></li>
+  <li><span class="blog-kicker">Vemoir</span><strong>Ogni app riunione</strong><p>Audio di sistema e micro dalla menu bar.</p></li>
+</ul>
 
 ## Quando un altro percorso è migliore
 

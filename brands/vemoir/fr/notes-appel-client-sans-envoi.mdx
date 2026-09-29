@@ -12,9 +12,6 @@ image: "@/assets/blog/client-call-notes-without-upload/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/client-call-notes-without-upload/inline1.jpg';
-import inline2 from '@/assets/blog/client-call-notes-without-upload/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">charlesdeluvio</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Notes d'appel client sans envoi** signifie que le fichier audio n'a pas à être posté sur un serveur pour devenir une note. Sur le site, vous ouvrez un fichier que vous avez déjà et le modèle tourne dans l'onglet. Dans l'app Mac, l'appel est enregistré et transcrit sur la machine. Les deux vous laissent un texte que vous devez encore éditer avant qu'un client le voie. Aucun des deux ne rend l'enregistrement licite. Vous le dites encore au client.
@@ -29,14 +26,16 @@ Le chemin navigateur est [enregistrement en notes](/fr/outils/enregistrement-en-
 - [Quand un nuage partagé gagne encore](#quand-un-nuage-partagé-gagne-encore)
 - [Questions fréquentes](#questions-fréquentes)
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Navigateur</span><strong>Pas d'envoi</strong><p>Le fichier reste dans l'onglet; vérifiez l'onglet Réseau.</p></li>
+  <li><span class="blog-kicker">Limite</span><strong>15 minutes</strong><p>Trois exécutions réussies par semaine.</p></li>
+  <li><span class="blog-kicker">App Mac</span><strong>Local</strong><p>Enregistrement et transcription restent locaux sans export.</p></li>
+</ul>
+
 ## Notes d'appel client sans envoi, dans le navigateur
 
 Utilisez ceci quand l'appel est terminé et que vous tenez un fichier court.
 
-
-<Image src={inline1} alt="Dossier confidentiel et casque sur un bureau calme" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Exportez MP3, M4A, WAV ou MP4. Si la seule copie est un enregistrement plus long, coupez à la partie dont la note a besoin avant de dépenser une exécution hebdomadaire.
 2. Ouvrez [enregistrement en notes](/fr/outils/enregistrement-en-notes). Le modèle de parole se télécharge dans l'onglet. Les passages suivants peuvent tourner hors réseau. Le fichier n'est pas envoyé à Vemoir. Le panneau Réseau du navigateur est le contrôle.
@@ -53,10 +52,6 @@ Il n'y a pas d'extension navigateur, pas de capture d'onglet, pas d'enregistreme
 Arrêtez de vider un atelier client pour satisfaire un plafond. Enregistrez ou importez sur le Mac.
 
 
-<Image src={inline2} alt="Appel client prive: porte fermee et carnet" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@galen_crout?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">galen_crout</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Vemoir capture le micro et l'audio système comme pistes locales séparées depuis la barre de menus. Il fonctionne avec l'app de réunion qui joue, y compris Zoom, Teams, Meet, Slack et d'autres listées sous [plateformes](/fr#platforms). Aucun bot ne rejoint. Vous démarrez et arrêtez. L'autorisation macOS pour le côté distant de l'audio est **System Audio Recording**. Ce tap est audio seulement. L'écran n'est pas enregistré. Vous autorisez aussi le micro.
 
 La transcription et la séparation des locuteurs tournent sur le Mac. Procès-verbal, décisions, actions et un brouillon de relance viennent de cette transcription locale. Posez une question plus tard, et la réponse peut pointer la ligne. Les modèles de texte en nuage restent éteints tant que vous n'en activez pas un avec votre propre clé, et ils ne reçoivent pas l'audio. Il n'y a pas de bascule silencieuse vers un modèle nuage si le local échoue.
@@ -68,6 +63,11 @@ L'import d'un fichier existant sur le Mac accepte MP3, M4A, WAV, AIFF, CAF et FL
 Le prix, encore, parce que c'est l'étape de considération&nbsp;: CHF 20 en Suisse, une fois, dans le Mac App Store, toutes les fonctions incluses, pas de siège, pas de frais par réunion. Le Store affiche le prix local. Les mêmes chiffres sont sous [tarifs](/fr#pricing). Installation depuis l'[App Store](https://apps.apple.com/app/id6794693630).
 
 Dites-le au client avant d'enregistrer. Un bot absent n'est pas une déclaration absente.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Consentement et conservation vous incombent. Vemoir ne rend pas un appel client légal à lui seul.</p>
+</aside>
 
 ## Ce que vous envoyez au client
 

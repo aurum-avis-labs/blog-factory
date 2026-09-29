@@ -1,6 +1,6 @@
 ---
 title: "Eigenen API-Key mitbringen: nur Text, im Schlüsselbund"
-description: "Eigenen API-Key mitbringen für OpenAI oder Anthropic, nur Text. Er liegt im Schlüsselbund, geht erst an, wenn du es sagst, und sieht kein Audio."
+description: "Eigenen API-Key mitbringen für OpenAI oder Anthropic. Er liegt im Schlüsselbund, bleibt aus, bis du ihn aktivierst, und bekommt kein Audio."
 pubDate: 2026-11-04
 author: "Vemoir Team"
 tags: ["api-key", "datenschutz", "notizen"]
@@ -11,67 +11,65 @@ image: "@/assets/blog/bring-your-own-api-key/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/bring-your-own-api-key/inline1.jpg';
-import inline2 from '@/assets/blog/bring-your-own-api-key/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@zoshuacolah?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zoshuacolah</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Eigenen API-Key mitbringen**, wenn OpenAI oder Anthropic Text für dich schreiben soll, und du diese Wahl ausgeschrieben haben willst. Vemoir legt die Zugangsdaten im Data-Protection-Schlüsselbund von macOS ab. Speichern oder Prüfen eines Schlüssels schaltet ihn nicht ein. Du bestätigst eine Aktivierung, die Ask Vemoir, Dokumente, Sitzungsartefakte und eigene Artefakte auf diesen einen Anbieter legt. Audio und Sprechertrennung bleiben auf dem Mac. Fehlt der Schlüssel, hat sich der Endpunkt geändert, ist der Anbieter down oder scheitert der Aufruf, stoppt der Vorgang. Nichts greift still zu einem anderen Backend.
+**Eigenen API-Key mitbringen** heisst: OpenAI oder Anthropic soll den Text schreiben, und du willst diese Wahl ausdrücklich festgehalten haben. Vemoir legt den Schlüssel im Data-Protection-Schlüsselbund von macOS ab. Speichern oder Prüfen schaltet ihn nicht ein. Du bestätigst die Aktivierung separat. Erst danach laufen Ask Vemoir, Dokumente, Sitzungsartefakte und eigene Artefakte über diesen einen Anbieter. Audio und Sprechertrennung bleiben auf dem Mac. Fehlt der Schlüssel, hat sich der Endpunkt geändert, ist der Anbieter nicht erreichbar oder scheitert der Aufruf, bricht der Vorgang ab. Nichts wechselt still auf ein anderes System.
 
-Die Mac-App selbst ist ein einmaliger App-Store-Kauf: CHF 20 in der Schweiz. Der Store zeigt den lokalen Preis, in Deutschland, Österreich, Frankreich und Italien etwa 24,99 €, in den USA 22,99 $. Der Anbieter rechnet ab, was seine eigene API für den Text verlangt, den du sendest. Diese Sätze sind seine, und sie ändern sich. Prüf den Anbieter. Vemoir kann eine inhaltsfreie Quittung behalten mit Anbieter, Modell, Zeit, Ausgang, Nutzung und einer datierten Kostenschätzung, wenn passende Preise vorliegen. Die Quittung enthält weder den Prompt noch das Transkript, keine Namen und nicht den Schlüssel.
+Die Mac-App selbst ist ein einmaliger Kauf im App Store: CHF 20 in der Schweiz. Den Preis für dein Land zeigt der Store. In Deutschland, Österreich, Frankreich und Italien liegt er bei 24.99 €, in den USA bei 22.99 $. Was der Anbieter für den Text verlangt, den du sendest, rechnet er auf seinem Konto ab. Das sind seine Preise, und sie ändern sich. Schau sie bei ihm nach. Vemoir kann eine Quittung ohne Inhalt behalten: Anbieter, Modell, Zeit, Ausgang, Nutzung und eine datierte Kostenschätzung, wenn passende Preise vorhanden sind. In der Quittung stehen weder der Prompt noch das Transkript, keine Namen und nicht der Schlüssel.
 
 ## Was der mitgebrachte API-Key sehen darf
 
-Die externe Erzeugung ist nur Text. Rohes Audio, Dateien, Bilder und entfernte URLs gehören nicht zur Anfrage. Der Transkripttext und die Notizen, die du schon auf dem Mac hast, können das sein, was du als Text verarbeiten lässt, weil so eine Zusammenfassung entsteht. Die Aufnahme selbst geht nicht weg für Sprache-zu-Text. Parakeet oder Whisper haben das lokal schon erledigt, oder sie tun es. Die Sprechertrennung wandert nicht zum Anbieter.
+Nach aussen geht nur Text. Rohes Audio, Dateien, Bilder und externe URLs gehören nicht in die Anfrage. Der Transkripttext und die Notizen, die schon auf dem Mac liegen, können der Text sein, den du verarbeiten lässt. Daraus entsteht die Zusammenfassung. Die Aufnahme selbst geht nicht weg, damit jemand daraus Sprache macht. Parakeet oder Whisper haben das lokal schon erledigt, oder sie tun es noch. Die Sprechertrennung wandert nicht zum Anbieter.
 
+Es ist immer nur eine Quelle aktiv. Hast du den Schlüssel eingeschaltet, gehen Ask, Dokumente, Sitzungsartefakte und eigene Artefakte dorthin. Stellst du auf ein lokales Sprachmodell um, Qwen3 4B oder gpt-oss-20b, liegen alle vier wieder auf dem Mac. Du bekommst keine Mischung, in der Ask bei Anthropic nachfragt und das Protokoll bei Qwen entsteht, ausser du wechselst die Quelle dazwischen.
 
-<Image src={inline1} alt="Hausschluessel neben einem Notizbuch, keine Bildschirme" width={700} quality={80} class="w-full" />
+Du kannst die Einrichtung auch ganz ohne Anbieter lassen. Lokale Modelle bleiben der normale Weg.
 
-<p><em>Photo by <a href="https://unsplash.com/@jaye_haych?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jaye_haych</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Eine aktive Quelle zur Zeit. Die Aktivierung des Schlüssels schickt Ask, Dokumente, Sitzungsartefakte und eigene Artefakte dorthin. Wählst du ein lokales Sprachmodell, Qwen3 4B oder gpt-oss-20b, liegen alle vier wieder auf dem Mac. Du bekommst keine Mischung, in der Ask Anthropic nutzt und das Protokoll Qwen, ausser du änderst die aktive Quelle dazwischen.
-
-Die Einrichtung kannst du den Anbieter ganz überspringen. Lokale Modelle bleiben der Standardweg.
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Opt-in</span><strong>Standard aus</strong><p>Cloud-Schreibmodelle brauchen Schlüssel und Schalter.</p></li>
+  <li><span class="blog-kicker">Audio</span><strong>Bleibt lokal</strong><p>Nur Text verlässt den Mac bei Aktivierung.</p></li>
+  <li><span class="blog-kicker">Anbieter</span><strong>Dein Konto</strong><p>Abrechnung folgt dem Provider.</p></li>
+</ul>
 
 ## Einschalten, ohne dich selbst zu überraschen
 
-1. Öffne Einstellungen, KI. Derselbe Ablauf steht in der erweiterten Einrichtung, und du kannst ihn dort ablehnen.
-2. Wähle OpenAI oder Anthropic. Leg den Schlüssel ein. Er geht in den Schlüsselbund. Der Rest der Konfiguration ist nicht das Geheimnis.
-3. Prüfe, wenn du wissen willst, dass der Schlüssel funktioniert. Die Prüfung ist keine Aktivierung.
-4. Lies den Aktivierungshinweis und bestätige ihn. Diese Bestätigung ist der Moment, in dem ausgewählter Sitzungstext zum Anbieter gehen kann.
-5. Nach einer Sitzung suchst du die sichtbare Markierung für externe Verarbeitung auf der Ausgabe, die den Schlüssel genutzt hat. Eine lokale Zusammenfassung trägt diese Markierung nicht.
+1. Öffne Einstellungen, KI. Derselbe Ablauf steht in der erweiterten Einrichtung, und dort kannst du ihn ablehnen.
+2. Wähle OpenAI oder Anthropic. Leg den Schlüssel ab. Er geht in den Schlüsselbund. Der Rest der Einstellung ist kein Geheimnis.
+3. Prüfe den Schlüssel, wenn du wissen willst, ob er funktioniert. Die Prüfung ist keine Aktivierung.
+4. Lies den Aktivierungshinweis und bestätige ihn. Ab dieser Bestätigung kann ausgewählter Sitzungstext zum Anbieter gehen.
+5. Nach einer Sitzung suchst du auf der Ausgabe, die den Schlüssel genutzt hat, die sichtbare Markierung für externe Verarbeitung. Eine lokale Zusammenfassung trägt diese Markierung nicht.
 
+Den Schlüssel entfernen stoppt neue Anfragen und bricht laufende Arbeit für diesen Anbieter ab. Text, den du schon erzeugt hast, bleibt. Quittungen kannst du unter Datenschutz und Daten exportieren oder löschen. Sie enthalten absichtlich keinen Sitzungsinhalt.
 
-<Image src={inline2} alt="Kleiner Metallschluessel neben cremefarbenen Papierkarten" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@silas_crioco?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silas_crioco</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Den Schlüssel entfernen stoppt neue Anfragen und bricht registrierte Arbeit für diesen Anbieter ab. Text, den du schon erzeugt hast, löscht es nicht. Quittungen kannst du unter Datenschutz und Daten exportieren oder löschen. Sie sind absichtlich ohne Inhalt.
-
-Es gibt kein Blatt pro Anfrage, das die Aufnahme anhält, damit du die Nutzlast lesen kannst. Die Aktivierung ist die Entscheidung, im Voraus. Ist das für einen Kunden zu weit, aktiviere den Schlüssel für diese Arbeit nicht. Nutze das lokale Modell.
+Es gibt kein Formular vor jeder einzelnen Anfrage, das die Aufnahme anhält, damit du die Nutzlast lesen kannst. Die Entscheidung fällst du vorher, mit der Aktivierung. Ist das für einen Kunden zu weit, lass den Schlüssel für diese Arbeit aus und nimm das lokale Modell.
 
 ## Wann ein lokales Modell die bessere Wahl ist
 
-Ein eigener Schlüssel ist die bessere Wahl, wenn du einen Anbieter schon bezahlst, du dieses Modell zum Schreiben willst, und du akzeptierst, dass Sitzungstext den Mac unter einer Wahl verlässt, die du bestätigt hast. Das lokale Modell ist die bessere Wahl, wenn:
+Ein eigener Schlüssel passt, wenn du einen Anbieter schon bezahlst, du dieses Modell zum Schreiben willst und du akzeptierst, dass Sitzungstext den Mac verlässt, nachdem du das bestätigt hast. Das lokale Modell passt besser, wenn:
 
-- Audio oder Transkript überhaupt nicht zu einem Dritten dürfen. Lass den Schlüssel aus. Lokales Qwen oder gpt-oss schreibt auf dem Mac. Apple Intelligence, wo der Mac sie hat, kann Artefakte aufräumen ohne Anbieterschlüssel.
-- Du keine API-Rechnung willst, die mit der Nutzung mitläuft. Der App-Kauf deckelt den Anbieter nicht. Dessen Rechnung tut es.
-- Der Anbieter mitten in der Zusammenfassung ausfällt. Du willst, dass die Arbeit stoppt, nicht auf eine andere Firma rutscht. So läuft es. Mach weiter, wenn der Schlüssel wieder geht, oder stell die aktive Quelle selbst auf das lokale Modell.
-- Du nur Sprache-zu-Text brauchtest. Der Schlüssel transkribiert nicht. Parakeet oder Whisper herunterladen ist der Sprachschritt.
+- Audio oder Transkript bei keinem Dritten liegen dürfen. Lass den Schlüssel aus. Lokales Qwen oder gpt-oss schreibt auf dem Mac. Apple Intelligence, wo der Mac sie hat, kann Artefakte aufräumen, ohne dass du einen Anbieterschlüssel brauchst.
+- Du keine API-Rechnung willst, die mit der Nutzung mitläuft. Der App-Kauf deckelt den Anbieter nicht. Seine Rechnung tut es.
+- Der Anbieter mitten in der Zusammenfassung ausfällt. Die Arbeit soll stoppen, nicht auf eine andere Firma rutschen. So läuft es. Mach weiter, wenn der Schlüssel wieder geht, oder stell die aktive Quelle selbst auf das lokale Modell.
+- Du nur Sprache zu Text brauchtest. Der Schlüssel transkribiert nicht. Parakeet oder Whisper herunterladen ist der Sprachschritt.
 
-Ein gemeinsamer Firmenschlüssel, SSO für die ganze Firma und ein privater Modellhost sind dieses Merkmal nicht. Das ist dein Schlüssel, in deinem Schlüsselbund, auf diesem Mac.
+Ein gemeinsamer Firmenschlüssel, SSO für die ganze Firma und ein privater Modellhost sind dieses Merkmal nicht. Es ist dein Schlüssel, in deinem Schlüsselbund, auf diesem Mac.
 
-Die kostenlosen Browser-Tools sind auch kein Schlüsselschlitz. [/de/tools/audio-transkribieren](/de/tools/audio-transkribieren) führt ein öffentliches Whisper-Modell im Tab auf einer Datei aus, die du schon hast, bis 15 Minuten, drei erfolgreiche Läufe pro Woche. Es nimmt deinen OpenAI-Schlüssel nicht und setzt keine Sprecher.
+Die kostenlosen Browser-Werkzeuge sind auch kein Schlitz für den Schlüssel. [/de/tools/audio-transkribieren](/de/tools/audio-transkribieren) führt ein öffentliches Whisper-Modell im Tab auf einer Datei aus, die du schon hast, bis 15 Minuten, drei erfolgreiche Läufe pro Woche. Es nimmt deinen OpenAI-Schlüssel nicht und setzt keine Sprecher.
 
-Voraussetzungen der App: Apple Silicon, macOS Sonoma 14.2 oder neuer, 8 GB Speicher, 10 GB frei, 16 GB empfohlen für lange Sitzungen.
+Voraussetzungen der App: Apple Silicon, macOS Sonoma 14.2 oder neuer, 8 GB Arbeitsspeicher, 10 GB frei. Für lange Sitzungen sind 16 GB sinnvoll.
 
 Die Einrichtung liegt bei den anderen Modellwahlen unter [Aufnahme](/de#capture).
 
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Ein Schlüssel sendet Sitzungstext an Dritte. Aus lassen, wenn der Kunde den Anbieter verbietet.</p>
+</aside>
+
 ## Ein Kunde, der Cloud-Text verbietet
 
-Du hast den Call lokal aufgenommen. Das Transkript liegt auf dem Mac. Die Vereinbarung sagt, Sitzungsinhalt geht nicht zu einem Modellanbieter. Du fügst den Schlüssel nicht ein, und du «versuchst» die Aktivierung nicht nur, um den Hinweis zu sehen. Der Hinweis ist der Punkt, an dem Text gehen darf. Lass die Aktivierung aus und lass Qwen oder gpt-oss, oder Apple Intelligence wo der Mac sie hat, den Entwurf schreiben. Ist ein Absatz schwach, bearbeite ihn. Das ist langsamer als ein Frontier-Modell und es entspricht der Vereinbarung.
+Du hast den Call lokal aufgenommen. Das Transkript liegt auf dem Mac. Die Vereinbarung sagt, Sitzungsinhalt geht nicht zu einem Modellanbieter. Leg den Schlüssel nicht ab, und schalte die Aktivierung nicht ein, um den Hinweis nur einmal zu sehen. Der Hinweis ist der Punkt, an dem Text gehen darf. Lass die Aktivierung aus. Qwen, gpt-oss oder Apple Intelligence, wo der Mac sie hat, schreiben den Entwurf. Ist ein Absatz schwach, bearbeite ihn. Das dauert länger als ein grosses Cloud-Modell, und es entspricht der Vereinbarung.
 
-Bei einem anderen Auftrag erlaubt die Vereinbarung den API-Schlüssel der eigenen Firma. Du aktivierst, erzeugst das Follow-up, exportierst den Text, entfernst dann den Schlüssel oder wechselst zurück auf das lokale Modell, bevor der nächste Kunde kommt, der das nicht erlaubt. Quittungen zeigen, dass eine Anfrage lief, ohne das Transkript in der Quittung zu speichern. Behalt oder lösch diese Quittungen in den Datenschutzeinstellungen. Sie sind eine Spur der Wahl, keine zweite Kopie der Sitzung.
+Bei einem anderen Auftrag erlaubt die Vereinbarung den API-Schlüssel der eigenen Firma. Du aktivierst, erzeugst das Follow-up, exportierst den Text und entfernst dann den Schlüssel oder wechselst auf das lokale Modell zurück, bevor der nächste Kunde kommt, der das nicht erlaubt. Quittungen zeigen, dass eine Anfrage gelaufen ist, ohne das Transkript mitzuspeichern. Behalte oder lösche sie in den Datenschutzeinstellungen. Sie sind eine Spur der Wahl, keine zweite Kopie der Sitzung.
 
 ## Häufige Fragen
 
@@ -81,30 +79,30 @@ Nein. Anfragen sind nur Text. Transkription und Sprechertrennung bleiben auf dem
 
 ### Welche Anbieter kann ich verbinden?
 
-OpenAI oder Anthropic. Du aktivierst eine Textquelle zur Zeit.
+OpenAI oder Anthropic. Du aktivierst zur Zeit eine Textquelle.
 
 ### Schaltet Speichern den Schlüssel ein?
 
-Nein. Du prüfst, wenn du willst, und bestätigst die Aktivierung getrennt. Bis dahin bleibt das Schreiben auf dem lokalen Weg.
+Nein. Du prüfst den Schlüssel, wenn du willst, und bestätigst die Aktivierung separat. Bis dahin bleibt das Schreiben auf dem lokalen Weg.
 
 ### Was, wenn der Anbieter einen Fehler liefert?
 
-Der Vorgang stoppt. Es gibt keinen stillen Rückfall auf einen anderen Anbieter oder auf ein lokales Modell, das du nicht gewählt hast.
+Der Vorgang stoppt. Es gibt keinen stillen Wechsel auf einen anderen Anbieter und auch nicht auf ein lokales Modell, das du nicht gewählt hast.
 
 ### Wo liegt das Geheimnis?
 
-Im Data-Protection-Schlüsselbund von macOS. Den Schlüssel entfernen blockiert neue Anfragen. Erzeugten Text, den du schon hast, bleibt, bis du ihn selbst löschst.
+Im Data-Protection-Schlüsselbund von macOS. Den Schlüssel entfernen blockiert neue Anfragen. Text, den du schon erzeugt hast, bleibt, bis du ihn selbst löschst.
 
 ### Sehe ich, dass eine Notiz die Cloud genutzt hat?
 
-Ja. Externe Ausgabe behält eine sichtbare Markierung für externe Verarbeitung, plus Herkunft von Anbieter und Modell. Quittungen in den Datenschutzeinstellungen sind inhaltsfrei und lassen sich löschen.
+Ja. Externe Ausgabe behält eine sichtbare Markierung für externe Verarbeitung, plus Herkunft von Anbieter und Modell. Quittungen in den Datenschutzeinstellungen enthalten keinen Inhalt und lassen sich löschen.
 
 ### Ändert das den App-Store-Preis?
 
-Die App ist ein einmaliger Kauf zum Storepreis oben. API-Nutzung rechnet OpenAI oder Anthropic nach eigenen Bedingungen ab, nicht als Vemoir-Sitz.
+Die App bleibt ein einmaliger Kauf zum Storepreis oben. API-Nutzung rechnet OpenAI oder Anthropic nach eigenen Bedingungen ab, nicht als Vemoir-Abo.
 
 ### Kann Audio lokal bleiben und nur eine schwere Frage in der Cloud laufen?
 
-Ja, wenn du den Schlüssel aktivierst, fragst, und die aktive Quelle danach wieder auf das lokale Modell stellst. Solange der Schlüssel aktiv ist, nutzen Ask, Dokumente und Artefakte ihn, keine Mischung.
+Ja, wenn du den Schlüssel aktivierst, fragst und die aktive Quelle danach wieder auf das lokale Modell stellst. Solange der Schlüssel aktiv ist, nutzen Ask, Dokumente und Artefakte ihn. Eine Mischung aus beiden gibt es in diesem Zustand nicht.
 
 Aktiviere den Schlüssel nur für Text, den du senden willst, und lass ihn aus, wenn das lokale Modell reicht. Der Schalter liegt unter [Aufnahme](/de#capture).

@@ -11,12 +11,8 @@ image: "@/assets/blog/delete-a-meeting-recording/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/delete-a-meeting-recording/inline1.jpg';
-import inline2 from '@/assets/blog/delete-a-meeting-recording/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Eine **Sitzungsaufnahme löschen** heisst auf dem Mac: du wählst die Schicht. Die Audiodatei, der fertige Sitzungseintrag und das Projekt mit mehreren Sitzungen sind nicht dasselbe. Vemoir trennt diese Schritte auf dem Gerät. Weg mit dem Ton heisst nicht automatisch weg mit dem Protokoll.
+Eine **Sitzungsaufnahme löschen** heisst auf dem Mac: du wählst, was genau weg soll. Die Audiodatei, der fertige Sitzungseintrag und das Projekt mit mehreren Sitzungen sind verschiedene Dinge. Vemoir trennt diese Schritte auf dem Gerät. Den Ton zu entfernen nimmt das Protokoll nicht automatisch mit.
 
 Hier steht, wann das Audio geht, was in der Bibliothek bleibt, und was eine Projektlöschung wirklich räumt. Einwilligung und Aufbewahrungsfristen bleiben bei dir.
 
@@ -32,38 +28,44 @@ Hier steht, wann das Audio geht, was in der Bibliothek bleibt, und was eine Proj
 
 ## Wann du eine Sitzungsaufnahme löschen solltest
 
-Eine abgeschlossene Sitzung in Vemoir ist ein kleiner Stapel lokaler Dateien und Datenbankzeilen:
+Eine abgeschlossene Sitzung in Vemoir ist ein kleiner Stapel lokaler Dateien und Zeilen in der Datenbank:
 
 
-<Image src={inline1} alt="Papierkorb neben einem sauberen Notizbuch" width={700} quality={80} class="w-full" />
+<ol class="blog-flow">
+  <li><strong>Audio</strong><p>Mikrofon- und Systemton, wenn du sie behalten hast.</p></li>
+  <li><strong>Transkript</strong><p>Lokal erstellt, nachdem du stoppst.</p></li>
+  <li><strong>Projekt</strong><p>Die Ablage für mehrere Sitzungen.</p></li>
+</ol>
 
-<p><em>Photo by <a href="https://unsplash.com/@rawkkim?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">rawkkim</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - Mikrofonspur und Systemton, falls du sie behalten hast.
 - Das Transkript, das nach dem Stopp aus diesem Audio entsteht.
 - Zusammenfassung, Aufgaben, Entscheide, Dokumente und Notizen, die du während des Gesprächs getippt hast.
 - Sprechernamen für diese Sitzung. Ein gespeichertes Stimmprofil, falls du eines angelegt hast, liegt woanders.
 
-Suche und Ask Vemoir lesen die Bibliothek. Ist die Sitzung weg, sehen diese Werkzeuge sie nicht mehr. Archivierte Sitzungen sind aus dem normalen Ask-Bereich schon ausgeblendet. Löschen geht weiter: die Wissensstände zu dieser Sitzung werden entfernt.
+Suche und Ask Vemoir lesen die Bibliothek. Ist die Sitzung weg, sehen diese Werkzeuge sie nicht mehr. Archivierte Sitzungen sind aus dem normalen Bereich von Ask schon ausgeblendet. Löschen geht weiter: die Einträge, aus denen Ask zu dieser Sitzung antwortet, werden entfernt.
 
-Die Aufnahme selbst zeichnet nie den Bildschirm auf. Die macOS-Berechtigung für den Ton des Calls heisst **System Audio Recording**. Der Zugriff ist nur Audio. Eine Aufnahme zu löschen ist nicht dasselbe wie diese Berechtigung zu entziehen.
+Die Aufnahme selbst zeichnet nie den Bildschirm auf. Die macOS-Berechtigung für den Ton des Calls heisst **System Audio Recording**. Der Zugriff ist nur Audio. Eine Aufnahme zu löschen ist etwas anderes, als diese Berechtigung zu entziehen.
 
 ## Audio weg, Protokoll behalten
 
-Viele wollen das Protokoll am Montag und das Audio am Freitag los. Das ist eine Speicherwahl, keine Volllöschung.
+Viele wollen das Protokoll am Montag und das Audio am Freitag weg. Das ist eine Entscheidung zum Speicher, keine vollständige Löschung.
 
 
-<Image src={inline2} alt="Haende nehmen einen Ordner aus einer Schublade" width={700} quality={80} class="w-full" />
+<ul class="blog-checklist">
+  <li>Klären, ob du die Notizen brauchst, wenn das Audio weg ist</li>
+  <li>Audio im Speicher leeren, ohne die Sitzung zu löschen</li>
+  <li>Sitzung oder Projekt nur löschen, wenn alles weg soll</li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Bei der Einrichtung oder später unter **Einstellungen → Speicher** legst du fest, ob künftige Sitzungen ihr Audio behalten. Jede Sitzung behält die Wahl, die beim Anlegen galt. Eine Sitzung, die ohne Aufbewahrung entstand, bekommt nicht nachträglich eine Datei, nur weil du die Einstellung später änderst.
 
 Nach erfolgreicher Verarbeitung läuft die Audiobereinigung standardmässig. Hattest du Aufbewahrung an, kann der Speicher das behaltene Audio einer fertigen Sitzung trotzdem **leeren**. Die Bibliothek zeigt dann einen klaren Zustand: Wiedergabe nicht verfügbar. Transkript, Zusammenfassung, Aufgaben und Entscheide bleiben, weil sie schon geschrieben sind.
 
-Wiedergabe (Spurwahl, Spulen, verstrichene Zeit) gibt es nur, solange Audio da ist. Nach dem Leeren gibt es nichts zu scrubben.
+Wiedergabe mit Spurwahl, Vorspulen und verstrichener Zeit gibt es nur, solange Audio da ist. Nach dem Leeren gibt es nichts mehr abzuspielen.
 
-Fehlgeschlagene oder unterbrochene Verarbeitung ist die Ausnahme. Recovery-Audio bleibt liegen, damit du wiederholen kannst. Ein abgebrochener Lauf ist nicht «schon gelöscht». Schliesse ihn ab oder wirf ihn bewusst weg.
+Fehlgeschlagene oder unterbrochene Verarbeitung ist die Ausnahme. Das Audio für einen neuen Versuch bleibt liegen, damit du wiederholen kannst. Ein abgebrochener Lauf ist nicht «schon gelöscht». Schliesse ihn ab oder wirf ihn bewusst weg.
 
 ## Eine Sitzung löschen
 
@@ -71,9 +73,9 @@ Die Sitzung zu löschen nimmt diesen Termin aus der Bibliothek: Transkript, erze
 
 War derselbe Entscheid auch in der Projektübersicht sichtbar, war das derselbe Datensatz, keine zweite Kopie. Fällt die Quellsitzung weg, fällt der Eintrag in der Projektansicht mit.
 
-Umbenennen ist kein Löschen. Den Titel kannst du direkt ändern. Der erzeugte Titel bleibt als Rückfall, wenn du den Namen leerst. Das Audio bleibt dabei unangetastet.
+Umbenennen ist kein Löschen. Den Titel kannst du direkt ändern. Der erzeugte Titel bleibt als Ersatz, wenn du den Namen leerst. Das Audio bleibt dabei unangetastet.
 
-Archivieren ist ebenfalls kein Löschen. Archiv nimmt eine Sitzung oder ein Projekt aus der aktiven Liste. Wiederherstellen holt sie zurück. Nutze das Archiv, wenn du den Termin noch brauchen könntest und ihn nur aus der Alltagssuche haben willst.
+Archivieren ist ebenfalls kein Löschen. Das Archiv nimmt eine Sitzung oder ein Projekt aus der aktiven Liste. Wiederherstellen holt sie zurück. Nutze das Archiv, wenn du den Termin noch brauchen könntest und ihn nur aus der Alltagssuche haben willst.
 
 ## Ein Projekt löschen
 
@@ -87,21 +89,21 @@ Ein Projekt ist die Ablage, in die du den Call vor dem Aufnahmeknopf gelegt hast
 
 Projektsuche, Rückblick, angeheftete Dokumente und letzte Entscheide gehen mit. In Vemoir gibt es dafür keine zweite Cloud-Kopie. Die Bibliothek ist eine Datenbank nur für deinen Benutzer auf dem Mac.
 
-Ein Glossar für diesen Kunden (bevorzugte Begriffe und Aliase) sind Projektdaten. Es überlebt das Projekt nicht. Die Originaltranskripte sind ebenfalls weg. Es gibt keinen späteren Lauf, der das Protokoll aus Audio rekonstruiert, das du schon geleert hast.
+Ein Glossar für diesen Kunden (bevorzugte Begriffe und Aliase) gehört zu den Projektdaten. Es überlebt das Projekt nicht. Die Originaltranskripte sind ebenfalls weg. Es gibt keinen späteren Lauf, der das Protokoll aus Audio rekonstruiert, das du schon geleert hast.
 
 Willst du nur einen missratenen Call weghaben, lösche die Sitzung. Lass das Projekt stehen.
 
 ## Was die Löschung nicht erreicht
 
-Einiges liegt ausserhalb des Aufnahmeordners. Prüf das, wenn das Ziel lautet: von diesem Kunden bleibt auf diesem Mac nichts.
+Einiges liegt ausserhalb des Aufnahmeordners. Prüf das, wenn von diesem Kunden auf diesem Mac nichts bleiben soll.
 
-**Stimmprofile.** «Sprecher merken» speichert ein verschlüsseltes Profil erst nach deiner Zustimmung. Profile sichtest, deaktivierst, anonymisierst oder löschst du dauerhaft in den Privatsphäre-Einstellungen. Eine Sitzung zu löschen wischt ein Profil, das du behalten wolltest, nicht von selbst. Unbekannte Sprecher haben nie ein Profil bekommen.
+**Stimmprofile.** «Sprecher merken» speichert ein verschlüsseltes Profil erst nach deiner Zustimmung. Profile sichtest, deaktivierst, anonymisierst oder löschst du dauerhaft in den Privatsphäre-Einstellungen. Eine Sitzung zu löschen entfernt ein Profil, das du behalten wolltest, nicht von selbst. Unbekannte Sprecher haben nie ein Profil bekommen.
 
 **Apple Notizen.** Hast du exportiert, speichert Vemoir die Notiz-Kennung, damit ein späterer Export dieselbe Notiz aktualisiert statt ein Duplikat anzulegen. Die Notiz selbst liegt in Apple Notizen. Die Sitzung in Vemoir zu entfernen löscht diese Notiz nicht. Lösche sie in Notizen, wenn sie weg soll.
 
 **Zwischenablage und Dateien, die du schon verschickt hast.** Eine Markdown-Kopie, ein Dokument ausserhalb der App oder eine gesendete Mail liegen ausserhalb der Bibliothek. Exporte können ohne Beleglinks hinausgehen. Danach ist die Datei deine.
 
-**Dein eigener API-Schlüssel.** Hast du einen OpenAI- oder Anthropic-Schlüssel für Text eingeschaltet, geht Audio für die Transkription trotzdem nicht dorthin. Inhaltsfreie Belege (Anbieter, Dauer, Ergebnis, kein Transkripttext) kannst du unter Privatsphäre und Daten exportieren oder löschen. Das sind nicht die Aufnahmen.
+**Dein eigener API-Schlüssel.** Hast du einen OpenAI- oder Anthropic-Schlüssel für Text eingeschaltet, geht Audio für die Transkription trotzdem nicht dorthin. Belege ohne Inhalt (Anbieter, Dauer, Ergebnis, kein Transkripttext) kannst du unter Privatsphäre und Daten exportieren oder löschen. Das sind nicht die Aufnahmen.
 
 **Die geführte Beispielsitzung.** Sie ist als Beispiel markiert und lässt sich in einem Schritt löschen. Sie zählt nicht in den normalen Bibliothekszahlen und legt kein Stimmprofil im Stillen an.
 
@@ -111,13 +113,13 @@ Am ruhigsten ist es, die Aufbewahrung einmal festzulegen und nur im Ausnahmefall
 
 1. Öffne **Einstellungen → Speicher** und wähle, ob neue Sitzungen das Audio nach der Verarbeitung behalten.
 2. Nimm über die Menüleiste auf. Du startest und stoppst. Niemand betritt den Call als zusätzlicher Teilnehmer.
-3. Lies das Protokoll. Hat das Audio seinen Dienst getan, leere es und behalte den Eintrag.
+3. Lies das Protokoll. Hat das Audio seinen Zweck erfüllt, leere es und behalte den Eintrag.
 4. Soll der ganze Termin verschwinden, lösche die Sitzung.
 5. Ist das Mandat vorbei, lösche das Projekt und prüfe danach unter Privatsphäre, ob ein Stimmprofil weg soll.
 
 Ohne Netz gehen diese Schritte, sobald die App installiert ist. Die Löschung bleibt lokal.
 
-Die nächste Aufnahme soll dieser Speicherwahl von der ersten Minute an folgen? Mikrofon, Systemton und Modellwahl stehen im Abschnitt [Aufnahme](/de#capture). Wie eine Sitzung ohne Bot im Teilnehmerfeld funktioniert, steht in [Sitzungsnotizen ohne Bot](/de/blog/meeting-notizen-ohne-bot).
+Die nächste Aufnahme soll dieser Speicherwahl von der ersten Minute an folgen. Mikrofon, Systemton und Modellwahl stehen im Abschnitt [Aufnahme](/de#capture). Wie eine Sitzung ohne Bot im Teilnehmerfeld funktioniert, steht in [Sitzungsnotizen ohne Bot](/de/blog/meeting-notizen-ohne-bot).
 
 ## Häufige Fragen
 
@@ -131,7 +133,7 @@ Ja. Die Sitzungslöschung gilt für diesen Termin. Projekt und übrige Sitzungen
 
 ### Was ist, wenn die Verarbeitung mittendrin scheitert?
 
-Recovery-Audio bleibt für einen neuen Versuch. Leeren oder löschen erst, wenn du dieses Audio nicht mehr brauchst.
+Das Audio für einen neuen Versuch bleibt liegen. Leeren oder löschen erst, wenn du dieses Audio nicht mehr brauchst.
 
 ### Verschwinden Sprechernamen mit der Sitzung?
 

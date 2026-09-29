@@ -12,12 +12,20 @@ image: "@/assets/blog/turn-transcript-into-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/turn-transcript-into-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/turn-transcript-into-meeting-notes/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Ein Transkript in Meeting-Notizen zu verwandeln heisst, Entscheide, Verantwortliche und Daten aus dem Text zu ziehen, den du schon hast. Die Mail ist diese kurze Seite. Das Transkript bleibt der Beleg daneben, nicht der Anhang, den niemand liest. Ein Modell darf den Entwurf schreiben. Es darf nicht die Zeile ersetzen, an der jemand eine Bedingung genannt hat.
+
+Ein Transkript in Meeting-Notizen zu verwandeln heisst: du ziehst Entscheide, Verantwortliche und Daten aus dem Text, den du schon hast. Die Mail ist diese kurze Seite. Das Transkript bleibt der Beleg daneben. Es ist nicht der Anhang, den niemand liest. Ein Modell darf den Entwurf schreiben. Die Zeile, in der jemand eine Bedingung genannt hat, ersetzt es nicht.
+
+<ol class="blog-flow">
+  <li><strong>Überfliegen</strong><p>Überschriften und Zeitstempel lesen, nicht jedes Füllwort.</p></li>
+  <li><strong>Herausziehen</strong><p>Entscheide, Massnahmen und offene Fragen in eine Vorlage nehmen.</p></li>
+  <li><strong>Prüfen</strong><p>Aufgaben an die Zuständigen schicken, bevor die externe Mail geht.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Das Browser-Tool kann aus einer vorhandenen Datei einen Entwurf machen. Live-Sitzungen nimmt es nicht auf.</p>
+</aside>
 
 ## Inhalt
 
@@ -30,31 +38,21 @@ Ein Transkript in Meeting-Notizen zu verwandeln heisst, Entscheide, Verantwortli
 
 ## Ein Transkript in Meeting-Notizen verwandeln
 
-Du brauchst keinen zweiten Rekorder, wenn Teams oder Zoom dir schon Text gegeben hat. Der Weg ist:
+Du brauchst keinen zweiten Recorder, wenn Teams oder Zoom dir schon Text gegeben hat. Der Weg ist:
 
-
-<Image src={inline1} alt="Marker und kurze Summarikkarte auf dem Schreibtisch" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@cherrydeck?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Cherrydeck</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-1. Original behalten.
-2. Gerüst streichen, wenn die Datei ein VTT oder SRT ist.
-3. Einen Notizen-Entwurf erzeugen und ihn gegen die Zeilen lesen.
+1. Das Original behalten.
+2. Das Gerüst streichen, wenn die Datei ein VTT oder SRT ist.
+3. Einen Notizen-Entwurf erzeugen und ihn an den Zeilen gegenlesen.
 4. Nur Entscheide und Massnahmen auf ein Protokollblatt kopieren.
 5. Den Entwurf schicken, das Transkript ablegen.
 
-[Notizen aus einem Transkript](/de/tools/notizen-aus-transkript) ist Schritt drei. Dieser Durchgang ruft ein Modell auf und verbraucht einen der drei erfolgreichen Wochenläufe. Eine sehr lange Einfügung kann gekürzt werden. Was du nicht siehst, ist nicht «mitentschieden». Lies das Ende der Quelle, bevor du den Entwurf für vollständig hältst.
+[Notizen aus einem Transkript](/de/tools/notizen-aus-transkript) ist Schritt drei. Dieser Durchgang ruft ein Modell auf und verbraucht einen der drei erfolgreichen Wochenläufe. Eine sehr lange Einfügung kann gekürzt werden. Was du im Entwurf nicht siehst, ist nicht mitentschieden. Lies das Ende der Quelle, bevor du den Entwurf für vollständig hältst.
 
 Eine lokale Zoom-Aufnahme ist oft noch Audio, kein Transkript. Dann ist der erste Schritt [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren), nicht die Notizenseite.
 
 ## Die Datei säubern, bevor du Notizen verlangst
 
-Ein VTT voller Cue-Zeiten verführt das Modell, Zeiten als Inhalt zu behandeln oder sie still zu schlucken und dabei Bedingungen zu verlieren. Leg den Export zuerst auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Kopf, Nummern und Zeitstempel fallen weg. Namen bleiben, wenn sie als `<v Name>`, `Name:`, `Speaker 1:` oder `SPEAKER_01:` schon da waren. Dieser Schritt verbraucht keinen Wochenlauf.
-
-
-<Image src={inline2} alt="Jemand schreibt Notizen aus einem Seitenstapel neu" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Ein VTT voller Cue-Zeiten verleitet das Modell, Zeiten als Inhalt zu behandeln oder sie still zu schlucken und dabei Bedingungen zu verlieren. Leg den Export zuerst auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Kopf, Nummern und Zeitstempel fallen weg. Namen bleiben, wenn sie als `<v Name>`, `Name:`, `Speaker 1:` oder `SPEAKER_01:` schon da waren. Dieser Schritt verbraucht keinen Wochenlauf.
 
 Fehlen die Namen, sagt die Seite das. Schick den Text trotzdem nur weiter, wenn du Entscheide ohne erfundene Personen willst. Die Notizenseite setzt niemanden ein, der im Text nicht steht.
 
@@ -62,7 +60,7 @@ Ist die Datei schon Fliesstext, kannst du den Bereiniger überspringen. Lies tro
 
 ## Was die Notizenseite entwerfen darf
 
-Der Entwurf darf einen Recap, Entscheide, Massnahmen und offene Fragen vorschlagen, gestützt auf Sätze im Text. Ein Name darf in einer Massnahme stehen, wenn er im Transkript steht und den Fakt trägt.
+Der Entwurf darf eine Zusammenfassung, Entscheide, Massnahmen und offene Fragen vorschlagen, gestützt auf Sätze im Text. Ein Name darf in einer Massnahme stehen, wenn er im Transkript steht und den Sachverhalt trägt.
 
 Der Entwurf darf nicht:
 
@@ -70,48 +68,48 @@ Der Entwurf darf nicht:
 - aus «wir schauen es uns an» eine Zusage mit Datum machen,
 - zwei widersprüchliche Vorschläge zu einem Entscheid verschmelzen,
 - einen Witz oder eine verworfene Idee als Beschluss führen,
-- das ganze Transkript in den Mail-Text kippen.
+- das ganze Transkript in den Mailtext kippen.
 
 Die Form, die du ablegst, ist kürzer. Wie ein Protokoll aussieht, wenn die Zeilen feststehen, steht in der [Vorlage fürs Sitzungsprotokoll](/de/blog/sitzungsprotokoll-vorlage). Das Blatt zum Eintragen ist das [Sitzungsprotokoll](/de/tools/sitzungsprotokoll). Es transkribiert nicht und rät keine Namen.
 
 ## Den Entwurf an den Zeilen lesen
 
-Lies den Entwurf mit dem bereinigten Text daneben. Vier Fragen reichen für die meisten Calls.
+Lies den Entwurf mit dem bereinigten Text daneben. Vier Fragen reichen für die meisten Gespräche.
 
 - Steht der Entscheid als Satz in der Quelle, oder nur als Stimmung?
-- Hat die genannte Person die Massnahme angenommen, oder hast nur du einen Namen aus der Anwesenheit gesetzt?
+- Hat die genannte Person die Massnahme angenommen, oder hast nur du einen Namen aus der Anwesenheitsliste gesetzt?
 - Ist das Datum im Gespräch gefallen, oder ist es der nächste Kalendertag, den das Modell mag?
-- Fehlt eine Bedingung («wenn Rechts gut heisst», «nach der Zahl vom Freitag»)?
+- Fehlt eine Bedingung («wenn die Rechtsabteilung zustimmt», «nach der Zahl vom Freitag»)?
 
-Streite eine Zeile, die diese Prüfung nicht besteht. Eine hübsche Massnahme, die niemand gesagt hat, ist teurer als eine Lücke. Für Belege behältst du das Original mit den Cues. Die Notizen sind die Seite, die jemand in zwei Minuten lesen kann.
+Streich eine Zeile, die diese Prüfung nicht besteht. Eine saubere Massnahme, die niemand gesagt hat, kommt dich teurer zu stehen als eine Lücke. Für Belege behältst du das Original mit den Cues. Die Notizen sind die Seite, die jemand in zwei Minuten lesen kann.
 
-Eine Folge-Mail kann der Entwurf liefern, ohne das Transkript im Rumpf. Drei Entscheide, die offenen Massnahmen, ein Satz dazu, wo die Datei liegt, wenn jemand den Wortlaut braucht. Den Wortlaut schickst du nicht an die ganze Liste, ausser das war die Absprache.
+Eine Folge-Mail kann der Entwurf liefern, ohne das Transkript im Text. Drei Entscheide, die offenen Massnahmen, ein Satz dazu, wo die Datei liegt, wenn jemand den Wortlaut braucht. Den Wortlaut schickst du nicht an die ganze Liste, ausser das war abgemacht.
 
 ## Das Behaltene aufs Protokoll
 
 Kopiere nur die Zeilen, die die Prüfung bestanden haben, aufs Sitzungsprotokoll. Datum der Sitzung, Teilnehmende, die du wirklich kennst, Entscheid, Massnahme, Person, Termin, offene Frage. Der Rest bleibt im Transkript.
 
-Auf dem Mac bleiben Transkript und erzeugter Record getrennt. Du korrigierst eine Notiz, ohne die Aufnahme umzuschreiben. Du teilst Notizen, ohne die Audiodatei anzuhängen. Der Browser-Weg ist die kleine Version davon: Text, den du einfügst, bleibt in der Sitzung der Seite, die Datei wird nicht als Aufnahme hochgeladen, und du entscheidest, was du kopierst.
+Auf dem Mac bleiben Transkript und erzeugtes Protokoll getrennt. Du korrigierst eine Notiz, ohne die Aufnahme umzuschreiben. Du teilst Notizen, ohne die Audiodatei anzuhängen. Der Weg im Browser ist die kleine Version davon: Text, den du einfügst, bleibt in der Sitzung der Seite, die Datei wird nicht als Aufnahme hochgeladen, und du entscheidest, was du kopierst.
 
-Hast du nur Audio und es ist 15 Minuten oder kürzer, ist [Audio transkribieren](/de/tools/audio-transkribieren) der Schritt davor. Länger als 15 Minuten gehört die Datei auf den Mac, nicht in Stücke zerlegt, damit jedes Stück einen Wochenlauf verbraucht. Lies das Ende der Quelle noch einmal, wenn der Entwurf dort dünn wirkt.
+Hast du nur Audio und ist es 15 Minuten oder kürzer, ist [Audio transkribieren](/de/tools/audio-transkribieren) der Schritt davor. Länger als 15 Minuten gehört die Datei auf den Mac. Zerleg sie nicht in Stücke, damit jedes Stück einen Wochenlauf verbraucht. Lies das Ende der Quelle noch einmal, wenn der Entwurf dort dünn wirkt.
 
 ## Häufige Fragen
 
 ### Muss ich neu transkribieren, wenn ich schon ein VTT habe?
 
-Nein. Säubere das VTT und schick den Text an die Notizen. Nochmal zu transkribieren würde einen Lauf auf Audio verbrauchen, das du schon als Text hast, und es würde keine Sprecher erfinden, die der Export nicht hatte.
+Nein. Säubere das VTT und schick den Text an die Notizen. Noch einmal zu transkribieren würde einen Lauf auf Audio verbrauchen, das du schon als Text hast, und es würde keine Sprecher erfinden, die der Export nicht hatte.
 
 ### Was ist, wenn das Transkript länger ist als 15 Minuten Rede?
 
-Die Grenze von 15 Minuten gilt für Audio im Browser, nicht für Text, den du einfügst. Ein sehr langer Text kann im Notizen-Durchgang gekürzt werden, und dieser Durchgang verbraucht einen Wochenlauf. Lies, was am Ende der Quelle steht, wenn der Entwurf dort dünn wird. Für Stunde plus Library, Sprecher und Protokoll aus der Aufnahme selbst ist die Mac-App das passende Werkzeug.
+Die Grenze von 15 Minuten gilt für Audio im Browser, nicht für Text, den du einfügst. Ein sehr langer Text kann im Notizen-Durchgang gekürzt werden, und dieser Durchgang verbraucht einen Wochenlauf. Lies, was am Ende der Quelle steht, wenn der Entwurf dort dünn wird. Für eine Stunde und mehr, mit Bibliothek, Sprechern und Protokoll aus der Aufnahme selbst, ist die Mac-App das passende Werkzeug.
 
 ### Benennen die Notizen Sprecher, die die Datei nicht benennt?
 
-Nein. Ein Name in einer Massnahme muss im Text stehen. `Speaker 1` bleibt ein Label. Eine personenlose Zeile bleibt personenlos, bis du sie von Hand setzt und das sagst.
+Nein. Ein Name in einer Massnahme muss im Text stehen. `Speaker 1` bleibt eine Bezeichnung. Eine Zeile ohne Person bleibt ohne Person, bis du sie von Hand setzt und das sagst.
 
 ### Kann ich eine Folge-Mail bekommen, ohne das ganze Transkript?
 
-Ja. Der Entwurf ist dafür da, dass du Entscheide und Massnahmen kopierst. Das Transkript bleibt die Ablage. Klebe den Cue-Block nicht in den Mail-Rumpf.
+Ja. Der Entwurf ist dafür da, dass du Entscheide und Massnahmen kopierst. Das Transkript bleibt die Ablage. Den Cue-Block klebst du nicht in den Mailtext.
 
 ### Ist das dasselbe wie die Protokollvorlage?
 
@@ -127,6 +125,6 @@ Nein. Wenn der Entwurf einen Entscheid glättet, korrigierst du den Entwurf. Das
 
 ### Lädt die Seite mein Transkript hoch?
 
-Du fügst Text in die Seite ein. Es ist kein Sprachmodell-Upload einer Aufnahme, weil du keine Aufnahme gibst. Behalte das Original auf deinem Rechner. Kopiere danach nur die Notizen, die du verantworten kannst.
+Du fügst Text in die Seite ein. Es ist kein Upload einer Aufnahme an ein Sprachmodell, weil du keine Aufnahme gibst. Behalte das Original auf deinem Rechner. Kopiere danach nur die Notizen, die du vertreten kannst.
 
 Nächster Schritt: VTT zuerst auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen), dann [Notizen aus einem Transkript](/de/tools/notizen-aus-transkript). Die Zeilen, die du behältst, landen auf dem [Sitzungsprotokoll](/de/tools/sitzungsprotokoll).

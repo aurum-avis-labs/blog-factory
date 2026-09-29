@@ -12,14 +12,22 @@ image: "@/assets/blog/export-teams-transcript/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/export-teams-transcript/inline1.jpg';
-import inline2 from '@/assets/blog/export-teams-transcript/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 You export a Teams transcript after the meeting from the meeting chat's Recap, if transcription was on and your role is allowed to download it. Microsoft’s support page says organizers and co-organizers can download it as a `.docx` or a `.vtt` by default, and that others may only view it unless an admin policy says otherwise. The file is not a recording of the screen, and it does not exist if nobody turned transcription on.
 
 Menu names move. The steps below follow Microsoft Support as of September 2026: [download a meeting transcript](https://support.microsoft.com/en-au/teams/meetings/start-stop-and-download-live-transcripts-in-microsoft-teams-meetings). If your tenant looks different, trust the labels in your Teams client over this page, and ask the organizer before you hunt through OneDrive.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Confirm transcription ran</h3><p>Organizer rules and licence still gate Teams transcripts.</p></li>
+  <li data-step="2"><h3>Open the meeting recap</h3><p>Use Microsoft's export path for VTT or doc, not a screenshot.</p></li>
+  <li data-step="3"><h3>Store where policy allows</h3><p>A local copy on the Mac is separate from Copilot retention.</p></li>
+</ol>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>If Teams never created a transcript, export cannot invent one. Record locally next time if you need a file.</p>
+</aside>
 
 ## Contents
 
@@ -35,10 +43,6 @@ Menu names move. The steps below follow Microsoft Support as of September 2026: 
 Teams can transcribe a meeting only if transcription ran. Turning on a recording does not always mean a transcript was stored for you to download later. If the button was never available, an admin may have disabled transcription, or the meeting type may not support it. Guests and people outside the organizer’s org often cannot download even when they could see captions on screen.
 
 
-<Image src={inline1} alt="An external drive next to a paper folder" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@carlosgil83?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Carlos Gil</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Live captions during the call are not the same artifact as the file. Captions scroll away. The transcript, when it exists, is kept with the meeting. Microsoft says transcripts for meetings with recording or transcription are stored in the meeting organizer’s OneDrive for Business, and that people reach them through the meeting chat and the Recap tab until the organizer deletes them.
 
 Before you follow a five-step guide, open the past meeting and see whether Recap shows a transcript at all. If it does not, no export procedure will create one from memory.
@@ -47,10 +51,6 @@ Before you follow a five-step guide, open the past meeting and see whether Recap
 
 On desktop Teams, Microsoft documents this path:
 
-
-<Image src={inline2} alt="Someone handing over a printed document, not a laptop" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@creatopy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Creatopy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Select **Chat**.
 2. Open the past meeting chat.

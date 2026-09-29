@@ -11,9 +11,6 @@ image: "@/assets/blog/mic-and-system-audio/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/mic-and-system-audio/inline1.jpg';
-import inline2 from '@/assets/blog/mic-and-system-audio/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sandrawilliams2025?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sandrawilliams2025</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Microfono e audio di sistema** in Vemoir sono due tracce locali, non un file mischiato e non un'immagine dello schermo. La traccia microfono sei tu. La traccia di sistema è ciò che il Mac riproduce dall'app della riunione: Teams, Zoom, Google Meet, Slack, Discord o un'altra app che fa suono.
@@ -30,9 +27,12 @@ Avvii e fermi tu. Nessun bot entra nell'elenco partecipanti. Entrambe le tracce 
 - [Domande frequenti](#domande-frequenti)
 
 
-<Image src={inline1} alt="Microfono e altoparlante affiancati su un tavolo" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Microfono</span><strong>La tua voce</strong><p>Segue il microfono scelto nella barra dei menu.</p></li>
+  <li><span class="blog-kicker">Audio di sistema</span><strong>La chiamata</strong><p>Tutto ciò che l'app riunione riproduce sul Mac.</p></li>
+  <li><span class="blog-kicker">Bot</span><strong>Nessuno</strong><p>Avvii e fermi tu. Nessuno nell'elenco.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@yanahd?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">yanahd</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 ## Cosa catturano microfono e audio di sistema
 
@@ -42,9 +42,11 @@ Avvii e fermi tu. Nessun bot entra nell'elenco partecipanti. Entrambe le tracce 
 | Audio di sistema | Le app che suonano sul Mac, riunione compresa | La tua voce, salvo che l'app te la rimandi |
 
 
-<Image src={inline2} alt="Due cavi distinti arrotolati accanto a un taccuino" width={700} quality={80} class="w-full" />
+<aside class="blog-callout">
+  <span class="blog-kicker">Nota</span>
+  <p>macOS chiede la registrazione audio di sistema per la chiamata. Solo audio, non pixel dello schermo.</p>
+</aside>
 
-<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 La cattura del microfono è una sessione a parte rispetto al tap dell'audio di sistema. Scegli tu il microfono. Un microfono da cuffia sente te e poco la stanza. Un microfono del laptop sente la stanza e, se l'audio remoto esce dagli altoparlanti, un po' della call. Quella sovrapposizione è acustica, non una terza modalità.
 

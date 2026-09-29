@@ -37,18 +37,11 @@ Brand context may require extra fields. Vemoir posts include `tool:` after `draf
 
 ## Body images
 
-Place imports immediately after the frontmatter. Hero attribution sits near the top. Inline images sit at a real break in the argument.
+Do not import inline photos. The layout shows the hero from frontmatter. If the hero is Unsplash, put the photographer credit near the top of the body.
 
-```mdx
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/english-slug/inline1.jpg';
+Limits, steps, and comparisons use HTML from [blocks.md](blocks.md), not a second photo.
 
-<Image src={inline1} alt="..." width={700} quality={80} class="w-full" />
-```
-
-Alt text is in the post's language and describes the image. One hero (`hero.jpg`, 1200×675) and up to two inline images (`inline1.jpg`, `inline2.jpg`, 1200×800) unless the brand file sets a different crop (Vemoir hero is 1200×900).
-
-Unsplash attribution HTML comes from `sources.json` and sits next to the image. Do not strip the photographer credit.
+Hero file: `hero.jpg` at 1200×675 (Vemoir 1200×900). Older posts may still use `img1.png` as the hero only.
 
 ## Files
 
@@ -57,4 +50,4 @@ Unsplash attribution HTML comes from `sources.json` and sits next to the image. 
 | MDX | `brands/{brand}/{lang}/{localized-slug}.mdx` |
 | Images | `brands/{brand}/images/{translationKey}/` |
 
-Older posts may use `img1.png`. New posts use `hero.jpg` and `inline1.jpg`.
+Older posts may use `img1.png` as the hero. New posts use `hero.jpg` only.

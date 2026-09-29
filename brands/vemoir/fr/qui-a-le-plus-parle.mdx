@@ -12,23 +12,27 @@ image: "@/assets/blog/who-spoke-most-in-meeting/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/who-spoke-most-in-meeting/inline1.jpg';
-import inline2 from '@/assets/blog/who-spoke-most-in-meeting/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@creatopy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Creatopy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Qui a le plus parlé ne se défend que si le texte dit déjà qui a prononcé les mots. La page gratuite pour ce compte est [temps de parole](/fr/outils/temps-de-parole). Vous collez une transcription avec des noms. Vous obtenez chaque nom et sa part des mots. S'il n'y a pas de noms, la page s'arrête. Le navigateur ne sépare pas les voix, et il n'invente pas « Locuteur A » pour que le graphique ait l'air fini.
 
 La part de mots n'est pas des minutes d'antenne. Quelqu'un qui parle vite peut dépasser une personne qui a tenu la salle plus longtemps avec moins de mots. Le chiffre décrit le texte collé, pas un chronomètre.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Outil navigateur</span><strong>Pas de libellés</strong><p>Pas de classement des locuteurs dans l'onglet.</p></li>
+  <li><span class="blog-kicker">App Mac</span><strong>Diarisation locale</strong><p>Séparation des locuteurs sur le Mac.</p></li>
+  <li><span class="blog-kicker">Usage</span><strong>Animation</strong><p>Le temps de parole est un indice, pas une note.</p></li>
+</ul>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Renommez les locuteurs après l'appel avant de partager le procès-verbal.</p>
+</aside>
+
 ## Ce qu'il vous faut avant de compter
 
 Il vous faut une transcription où les locuteurs sont déjà marqués sous une forme que la page sait lire :
 
-
-<Image src={inline1} alt="Reunion vue du dessus, une personne parle en gesticulant" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@clynt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">clynt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - `Nom : ce qui a été dit`, sur sa propre ligne
 - `Speaker 1 :` ou `SPEAKER_01 :` si un outil en amont a séparé les voix et laissé ces étiquettes
@@ -42,10 +46,6 @@ Retirer les horodatages est permis et ne dépense pas un passage hebdomadaire. L
 
 Vous obtenez un nom et une part des mots. Lisez-la avec la réunion que vous avez vraiment eue.
 
-
-<Image src={inline2} alt="Deux personnes a une table, l'une parle nettement plus" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - Une personne à soixante pour cent dans un point d'avancement avait souvent simplement les diapositives. Ce n'est pas automatiquement un problème.
 - Un atelier qui voulait entendre tout le monde, et un nom qui porte la plus grande part des mots, est un fait de facilitation. La liste ne dit pas pourquoi. Elle dit que le texte est inégal.

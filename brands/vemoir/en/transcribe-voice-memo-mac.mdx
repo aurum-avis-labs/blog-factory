@@ -12,23 +12,27 @@ image: "@/assets/blog/transcribe-voice-memo-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/transcribe-voice-memo-mac/inline1.jpg';
-import inline2 from '@/assets/blog/transcribe-voice-memo-mac/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@yin0720?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Samuel Wan</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 To **transcribe a voice memo on Mac**, export the recording as an M4A from Voice Memos, then run speech-to-text on that file. Apple's app stores the audio; it does not give you a portable transcript you can drop into notes, email, or a research folder unless you copy Apple's built-in text (where that feature exists) or convert the file yourself.
 
 This guide covers Apple's official share and drag-to-Finder path, the built-in Voice Memos transcript on supported Macs, and how to turn an M4A into text in the browser without uploading it to Vemoir. It also marks where a longer memo belongs in a local Mac app.
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Export the memo</h3><p>In Voice Memos, share or drag the M4A to Finder.</p></li>
+  <li data-step="2"><h3>Check length</h3><p>Under 15 minutes for the free browser tool; longer files need the Mac app.</p></li>
+  <li data-step="3"><h3>Run locally</h3><p>Open the transcribe tool and confirm no upload in the Network tab.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Swiss German speech usually becomes Standard German text with public Whisper models.</p>
+</aside>
+
 ## How to transcribe a voice memo on Mac
 
 The reliable path is: **get an M4A you control**, then choose a transcription method that matches the length and whether the file may leave the device.
 
-
-<Image src={inline1} alt="Earbuds and paper notes on a wooden desk" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@abdulartega?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Abdul Artega</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Open the **Voice Memos** app on your Mac.
 2. Select the recording.
@@ -41,10 +45,6 @@ Do not rename or delete files inside Voice Memos' hidden Library folder. Treat t
 
 Voice Memos on Mac writes AAC audio. The usual container after export is **M4A**, which the browser tool and the Mac app both accept (along with MP3, WAV, and, in the browser, MP4 when the audio track decodes).
 
-
-<Image src={inline2} alt="A phone set down next to a pen after a voice memo" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@haomeng_yang?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Haomeng Yang</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Apple's supported export methods:
 

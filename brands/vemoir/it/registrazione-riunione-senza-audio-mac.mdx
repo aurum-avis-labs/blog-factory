@@ -11,11 +11,6 @@ image: "@/assets/blog/meeting-recording-no-sound-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/meeting-recording-no-sound-mac/inline1.jpg';
-import inline2 from '@/assets/blog/meeting-recording-no-sound-mac/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Una **registrazione riunione senza audio su Mac** quasi mai significa che Zoom o Teams «non ha registrato». Di solito hai catturato una traccia e non l’altra. Il microfono è la tua voce nella stanza. L’audio di sistema è quello che Zoom, Teams, Meet, Slack o Discord riproduce attraverso il Mac. Senza audio di sistema il file sei tu che parli nel vuoto. Senza microfono il file è la call senza di te. Senza entrambi vedi un file che sembra completo e non contiene nulla di utile.
 
 Sistema il permesso e il dispositivo di uscita prima di ricatturare. Vemoir registra quelle due sorgenti separate dalla barra dei menu. Non entra come bot. Per il lato remoto serve **System Audio Recording** (solo audio). Non registra lo schermo. Le guide vecchie che ti mandano alla spunta Registrazione schermo per questa app sono superate. Parti da [come funziona la cattura](/it#capture).
@@ -24,10 +19,11 @@ Sistema il permesso e il dispositivo di uscita prima di ricatturare. Vemoir regi
 
 Un file muto è una checklist a due domande, non un’app di riunione rotta.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Microfono</span><strong>La tua voce</strong><p>Muto, permesso o ingresso sbagliato se questa traccia è vuota.</p></li>
+  <li><span class="blog-kicker">Audio di sistema</span><strong>Remoti</strong><p>Permesso o uscita audio se li sentivi in diretta ma non nel file.</p></li>
+</ul>
 
-<Image src={inline1} alt="Cuffie staccate accanto a un portatile chiuso" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@niko_nguyen_10?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">niko_nguyen_10</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. **Mi sento in riproduzione?** Sì: il percorso microfono ha funzionato. No: microfono muto, negato o ingresso sbagliato.
 2. **Sento gli altri?** No: manca l’audio di sistema. Cause tipiche: **System Audio Recording** negato, app di riunione senza output, o suono instradato altrove (Bluetooth confuso, telefono all’orecchio).
@@ -40,10 +36,11 @@ L’app di riunione può essere qualsiasi app che riproduca suono sul Mac. Vedi 
 
 Riproduci la registrazione e nomina il guasto in una frase. La riparazione cambia.
 
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Il permesso di registrazione schermo non sostituisce System Audio Recording per Vemoir. Consenti solo l'audio, poi riapri l'app.</p>
+</aside>
 
-<Image src={inline2} alt="Tavolo silenzioso con tazze e taccuini, nessuna cuffia in uso" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@greaterbythehour2020?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">greaterbythehour2020</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 **Solo la tua voce.** L’audio di sistema non è mai entrato nel file. Impostazioni di Sistema, Privacy e sicurezza. Apple raggruppa l’elenco sotto **Registrazione schermo e audio di sistema**. Per Vemoir consenti **solo l’audio**, non una cattura dello schermo. Chiudi Vemoir e riaprilo. macOS applica spesso il permesso dopo un riavvio dell’app. Apple documenta la pagina in [Controllare l’accesso alla registrazione di schermo e audio di sistema](https://support.apple.com/guide/mac-help/control-access-screen-system-audio-recording-mchld6aa7d23/mac).
 

@@ -10,13 +10,8 @@ relatedPosts: ["registrare-riunione-teams-su-mac", "rimuovere-bot-ia-riunione", 
 tool: "recording-to-notes"
 image: "@/assets/blog/teams-transcript-not-showing/hero.jpg"
 draft: false
+
 ---
-
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/teams-transcript-not-showing/inline1.jpg';
-import inline2 from '@/assets/blog/teams-transcript-not-showing/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@nordwood?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">NordWood Themes</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Una **trascrizione Teams non visibile** dopo la chiamata di solito vuol dire una di tre cose: la trascrizione non è mai partita, il tuo account non può aprire il file, oppure il recap sta in un posto che non stai aprendo. Microsoft tiene una trascrizione salvata dall'organizzatore, non come file sparso sul desktop di chi ha partecipato. Questa pagina segue quel percorso. Non inventa un pulsante che riporta una trascrizione che Teams non ha mai creato.
 
 I passi seguono la guida di Microsoft, verificata a settembre 2026. I menu si spostano. Se un'etichetta è diversa, usa il tooltip del lucchetto sul controllo della trascrizione, non una checklist di terzi.
@@ -35,10 +30,6 @@ I passi seguono la guida di Microsoft, verificata a settembre 2026. I menu si sp
 L'articolo di Microsoft su avvio, stop e download delle trascrizioni dal vivo dice che dopo la riunione l'organizzatore o un co-organizzatore può scaricare un .docx o un .vtt dalla chat della riunione: apri la riunione passata, poi Riepilogo, poi Trascrizione ([scaricare le trascrizioni](https://support.microsoft.com/en-au/teams/meetings/start-stop-and-download-live-transcripts-in-microsoft-teams-meetings), settembre 2026). Lo stesso articolo dice che la trascrizione sta nel OneDrive for Business dell'organizzatore quando la riunione ha avuto registrazione o trascrizione, e che la si apre da chat e recap finché l'organizzatore non la cancella.
 
 
-<Image src={inline1} alt="Taccuino aperto e vuoto su una scrivania quieta" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@derstudi?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Timon Studler</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Una registrazione fuori da un canale sta nella cartella Recordings del OneDrive dell'organizzatore. Una riunione di canale sta nei file SharePoint di quel canale, cartella Recordings. Se cerchi sul tuo portatile un .vtt che Teams non ti ha mai copiato, stai cercando nella stanza sbagliata.
 
 La frase «Nessuna trascrizione disponibile», «mai creata, scaduta o eliminata» o «No meeting transcript» non vuol dire che il testo sia in una cache che puoi forzare. Microsoft usa quella formula quando nessuno ha avviato, l'elaborazione è fallita, qualcuno ha cancellato, o una riunione lunga non ha allegato il file. Non promettere a un collega che ricomparirà.
@@ -47,10 +38,6 @@ La frase «Nessuna trascrizione disponibile», «mai creata, scaduta o eliminata
 
 Procedi in quest'ordine. Fermati quando il file c'è, o quando il criterio è chiaro.
 
-
-<Image src={inline2} alt="Una penna sospesa sopra la carta durante una pausa" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@liliantruong2603?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Trương Tuyết Ly</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Apri la chat della riunione, non una chat nuova con le stesse persone. Trova la riunione già finita. Apri Riepilogo, poi Trascrizione. Se puoi scaricare .docx o .vtt, hai finito.
 2. Se non eri l'organizzatore, chiedigli di aprire il recap. Partecipanti esterni e anonimi spesso non possono vedere né scaricare la trascrizione dopo la riunione, anche se durante la chiamata vedevano i sottotitoli.
@@ -79,6 +66,17 @@ Se Teams non ha mai creato una trascrizione e hai un MP3, M4A, WAV o MP4 della c
 Per un file più lungo, o per la prossima chiamata mentre è in corso, l'app per Mac registra microfono e audio di sistema dalla barra dei menu. Non entra come bot e non usa l'archivio trascrizioni di Teams. Avvii e fermi tu. System Audio Recording e Microfono sono i permessi che macOS chiede. La cattura è il suono, non lo schermo. Trascrizione e separazione dei parlanti girano sul Mac. Dici comunque agli altri che stai registrando. L'app non si annuncia in Teams.
 
 Nessuno dei due percorsi ricostruisce una trascrizione che Teams ha cancellato. Coprono solo l'audio che hai già, o l'audio che catturerai la prossima volta.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Scheda trascrizione</span><strong>Licenza</strong><p>Teams può nascondere il testo senza piano adeguato.</p></li>
+  <li><span class="blog-kicker">Ritardo</span><strong>Ore</strong><p>Il cloud non è sempre immediato.</p></li>
+  <li><span class="blog-kicker">Ripiego</span><strong>Registrazione locale</strong><p>Cattura l'audio sul Mac se la scheda resta vuota.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>I registratori integrati seguono la licenza dell'host. Un'app menu bar non sostituisce gli avvisi di Teams o Zoom.</p>
+</aside>
 
 ## Domande frequenti
 

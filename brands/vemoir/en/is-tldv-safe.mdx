@@ -12,9 +12,6 @@ image: "@/assets/blog/is-tldv-safe/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/is-tldv-safe/inline1.jpg';
-import inline2 from '@/assets/blog/is-tldv-safe/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@hrsahatchiev?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">hrsahatchiev</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Is tl;dv safe** is a storage question, not a legal verdict. tl;dv, from Tldx Solutions GmbH in Aachen, records and transcribes meetings and keeps that material so a team can share it. Their privacy policy, current version published 9 September 2026, says where that material goes and what they state they will not do with it. A badge on the marketing page is their wording. It does not decide whether your meeting may be recorded.
@@ -35,9 +32,12 @@ If the recording should never leave the Mac, tl;dv is the wrong shape. This page
 People ask "is tl;dv safe" when they want four practical answers.
 
 
-<Image src={inline1} alt="A closed laptop in a quiet home office" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot</span><strong>Visible</strong><p>tl;dv joins calls as a participant when you use the bot path.</p></li>
+  <li><span class="blog-kicker">Storage</span><strong>Cloud</strong><p>Read tl;dv privacy pages for region and retention.</p></li>
+  <li><span class="blog-kicker">Local Mac</span><strong>Alternative</strong><p>No bot when you record system audio on the device.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@hasanalmasi?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">hasanalmasi</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Will the audio be used to train a general model? Who else can open the meeting? How long does a free account keep the file? Does a sentence on their site ("GDPR-compliant", "SOC2 compliant", hosted in the EU) replace your own decision to record?
 
@@ -50,9 +50,11 @@ Their homepage and security pages describe recording and transcription for Googl
 Section 9 of the privacy policy, "AI Model Training," says Tldx Solutions GmbH does not use Customer Content, including meeting recordings, transcripts, notes, files, or other data processed through the services, to train, fine-tune, or improve foundation models or other generative models for itself or any third party. Where they use third-party AI providers, they say Customer Content is processed only to provide the requested feature and is not used by them or those providers to train general-purpose models.
 
 
-<Image src={inline2} alt="A private filing box on a desk with curtains drawn" width={700} quality={80} class="w-full" />
+<div class="blog-pair">
+  <div><h3>tl;dv fits when</h3><ul><li>Shared clips and a team library matter more than local-only audio</li></ul></div>
+  <div><h3>Skip tl;dv when</h3><ul><li>Client contracts forbid a cloud meeting archive</li></ul></div>
+</div>
 
-<p><em>Photo by <a href="https://unsplash.com/@switchinglanes?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">switchinglanes</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 The subprocessors list names Anthropic and Google Vertex as artificial intelligence providers, and AssemblyAI and ElevenLabs as transcription providers, among others (hosting, support, analytics, CRM). Transcription in this product is not described as something that stays on your computer.
 

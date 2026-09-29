@@ -1,6 +1,6 @@
 ---
 title: "Apple Intelligence für Sitzungsnotizen: nur Aufräumen"
-description: "Apple Intelligence für Sitzungsnotizen ist optional, wenn der Mac sie hat. Nur Aufräumen und Artefakte. Die Transkription bleibt beim Sprachmodell."
+description: "Apple Intelligence für Sitzungsnotizen glättet Texte, transkribiert aber nicht. Die Wörter kommen vom lokalen Sprachmodell, das du gewählt hast."
 pubDate: 2026-11-05
 author: "Vemoir Team"
 tags: ["apple intelligence", "notizen", "mac"]
@@ -11,102 +11,109 @@ image: "@/assets/blog/apple-intelligence-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/apple-intelligence-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/apple-intelligence-meeting-notes/inline2.jpg';
+**Apple Intelligence für Sitzungsnotizen** ist in Vemoir freiwillig, und nur auf einem Mac, der Apple Intelligence auch anbietet. Sie kann Sätze glätten und Texte erzeugen, etwa die Zusammenfassung und die Dokumente, die dazugehören. Die Wörter der Sitzung kommen woanders her: vom lokalen Sprachmodell, das du gewählt hast, Parakeet v3 oder Whisper Turbo, Medium oder Large-v3.
 
-<p><em>Hero photo by <a href="https://unsplash.com/@andrewilliam?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">andrewilliam</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Apple Intelligence für Sitzungsnotizen** ist in Vemoir optional, und nur dort, wo der Mac Apple Intelligence wirklich hat. Sie kann beim Aufräumen und bei erzeugten Artefakten mitwirken. Sie transkribiert die Sitzung nicht. Die Wörter kommen vom lokalen Sprachmodell, das du gewählt hast: Parakeet v3 oder Whisper Turbo, Medium oder Large-v3.
+Fehlt Apple Intelligence auf diesem Mac, läuft die Sitzung trotzdem. Zum Glätten und für die erzeugten Texte nimmt Vemoir dann ein heruntergeladenes Sprachmodell: Qwen3 4B auf den meisten Macs, auf Rechnern mit viel Speicher gpt-oss-20b. Diese Modelle schreiben. Das Transkript ersetzen sie nicht.
 
-Bietet dieser Mac Apple Intelligence nicht, läuft die Sitzung trotzdem. Aufräumen und Artefakte nutzen dann ein heruntergeladenes lokales Sprachmodell: Qwen3 4B auf den meisten Macs, oder gpt-oss-20b auf Macs mit viel Speicher. Diese Modelle schreiben. Sie ersetzen das Sprachmodell ebenfalls nicht.
+## Was Apple Intelligence hier tun darf
 
-## Was Apple Intelligence berühren darf
+Nach dem Stopp baut die App das Transkript aus der fertigen Audiodatei auf dem Mac neu auf. Das ist der Schritt von Sprache zu Text. Apple Intelligence sitzt dort nicht drin.
 
-Nach dem Stopp baut die App das Transkript aus dem abgeschlossenen Audio auf dem Mac neu. Dieser Schritt ist Sprache-zu-Text. Apple Intelligence sitzt nicht in diesem Schritt.
+Auf einem Mac, der sie hat, kann sie später beim Schreiben helfen: erzeugte Prosa glätten, die Zusammenfassung formulieren, zugehörige Dokumente anlegen. Das Transkript bleibt eine Datei, die du öffnen kannst. Notizen, die du selbst getippt hast, behalten ihre Herkunft und gelten nicht als gesprochene Zeilen. Zeigt eine Zusammenfassung auf eine Stelle, zeigt sie ins Transkript, nicht auf einen geglätteten Satz ohne Quelle.
 
+Die Wahl steht bei den anderen Modellwahlen. Vemoir lädt nicht von selbst ein anderes Sprachmodell, nur weil Apple Intelligence fehlt, und schickt das Audio auch nicht an ein Cloud-Modell, wenn Apple Intelligence scheitert. Cloud-Text, falls du ihn willst, schaltest du getrennt ein, mit deinem eigenen Schlüssel. Audio und Sprechertrennung bleiben auf dem Mac.
 
-<Image src={inline1} alt="Notizbuecher zu, Wasserglaeser leer nach dem Gespraech" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@allysphotos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">allysphotos</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Wobei sie auf einem Mac, der sie hat, helfen kann, ist das spätere Schreiben: erzeugte Prosa aufräumen und Artefakte wie die Zusammenfassung und dazugehörige Dokumente erzeugen. Du siehst weiter ein Transkript, das du öffnen kannst. Manuelle Notizen, die du getippt hast, behalten ihre Herkunft und gelten nicht als gesprochene Zeilen. Nachweislinks, wenn eine Zusammenfassung sie hat, zeigen auf Transkriptstellen, nicht auf einen polierten Satz ohne Quelle.
-
-Die Wahl ist bei den anderen Modellwahlen sichtbar. Vemoir lädt nicht still ein anderes Sprachmodell, weil Apple Intelligence fehlt, und schickt das Audio nicht still an ein Cloud-Modell, weil Apple Intelligence gescheitert ist. Cloud-Text, wenn du ihn willst, ist eine getrennte Aktivierung mit deinem eigenen Schlüssel. Audio und Sprechertrennung bleiben auf dem Mac.
+<div class="blog-pair">
+  <div>
+    <h3>Apple Intelligence</h3>
+    <ul>
+      <li>Kurze Zusammenfassungen in Apple-Apps</li>
+      <li>Private Calls auf unterstützten Geräten</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Mac-Rekorder</h3>
+    <ul>
+      <li>Teams- und Zoom-Ton auf dem Mac</li>
+      <li>Sprecher und Projekte</li>
+    </ul>
+  </div>
+</div>
 
 ## Wann sie da ist, und wann nicht
 
-Apple Intelligence hängt am Mac und an macOS, nicht an einem Schalter in einer Sitzung. Bietet das System sie nicht, ist das lokale Sprachmodell von Vemoir der Weg für Aufräumen und Artefakte. Lies den Modellbildschirm für Gerätepassung, Speicherplatz und welches Modell gewählt ist. Nimm nicht an, ein neuer Mac mini und ein Basis-Laptop verhielten sich gleich. Die App sagt die Passung. Diese Seite rangiert die Schreibqualität zwischen Apple Intelligence, Qwen3 4B und gpt-oss-20b nicht.
+Apple Intelligence hängt am Mac und an macOS, nicht an einem Schalter in einer einzelnen Sitzung. Bietet das System sie nicht, nimmt Vemoir fürs Glätten und für die erzeugten Texte das lokale Sprachmodell. Im Modellbildschirm siehst du, ob das Gerät passt, wie viel Platz frei ist und welches Modell gewählt ist. Ein neuer Mac mini und ein Basis-Laptop verhalten sich nicht gleich. Die App sagt, was passt. Diese Seite vergleicht die Schreibqualität von Apple Intelligence, Qwen3 4B und gpt-oss-20b nicht.
 
-
-<Image src={inline2} alt="Ordentlicher Papierstapel und zugeklappter Laptop am Ende des Calls" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@sql?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sql</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Die Oberflächensprache ist getrennt. Die App kann auf Englisch, Deutsch, Französisch, Italienisch oder Niederländisch laufen. Das wählt weder das Sprachmodell noch schaltet es Apple Intelligence ein.
+Die Sprache der Oberfläche ist eine andere Sache. Die App kann auf Englisch, Deutsch, Französisch, Italienisch oder Niederländisch laufen. Damit wählst du weder das Sprachmodell noch schaltest du Apple Intelligence ein.
 
 ## Eine Sitzung mit und ohne sie
 
-1. Wähle das Sprachmodell, bevor du dich auf einen Call verlässt. Dieser Download ist ausdrücklich, mit Fortschritt, den du fortsetzen kannst.
-2. Wähle den Schreibweg: Apple Intelligence, wo der Mac sie hat, oder ein lokales Sprachmodell, das du geladen hast.
-3. Nimm in der Menüleiste auf. Mikrofon und Systemton bleiben lokal. Kein Bot tritt bei.
-4. Stoppe. Lies das Transkript, wenn ein Name falsch wirkt. Korrigiere das Label, ohne ein Stimmprofil anzulegen, ausser du wählst zusätzlich `Remember this speaker`.
-5. Lies die Zusammenfassung. Hat das Aufräumen eine Zahl geglättet, die du in Manual Notes getippt hast, vertrau der Herkunft der Notiz und bearbeite die erzeugte Zeile.
+1. Wähl das Sprachmodell, bevor du dich auf einen Call verlässt. Der Download ist ausdrücklich, mit einem Fortschritt, den du fortsetzen kannst.
+2. Wähl den Schreibweg: Apple Intelligence, wo der Mac sie hat, oder ein lokales Sprachmodell, das du geladen hast.
+3. Nimm in der Menüleiste auf. Mikrofon und Systemton bleiben lokal. Es kommt kein Bot dazu.
+4. Stopp. Lies das Transkript, wenn ein Name schief wirkt. Korrigiere die Beschriftung, ohne ein Stimmprofil anzulegen, ausser du wählst zusätzlich «Diesen Sprecher merken».
+5. Lies die Zusammenfassung. Hat das Glätten eine Zahl geglättet, die du in den eigenen Notizen getippt hast, vertrau der Herkunft der Notiz und korrigiere die erzeugte Zeile.
 
-Auf einem Mac ohne Apple Intelligence ist Schritt 2 nur das lokale Sprachmodell. Der Transkriptschritt ändert sich nicht.
+Auf einem Mac ohne Apple Intelligence ist Schritt 2 nur das lokale Sprachmodell. Der Transkriptschritt bleibt derselbe.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Umfang</span><strong>Apple-Apps</strong><p>Ersetzt nicht jeden Meeting-Link.</p></li>
+  <li><span class="blog-kicker">Vemoir</span><strong>Jede Meeting-App</strong><p>Systemton und Mikro aus der Menüleiste.</p></li>
+</ul>
 
 ## Wann ein anderer Weg besser ist
 
-Apple Intelligence zum Aufräumen ist die bessere Wahl, wenn der Mac sie hat, du On-Device-Schreibhilfe willst, und du mit diesem Systemmerkmal einverstanden bist. Es ist die schlechtere Wahl, wenn:
+Apple Intelligence zum Glätten ist die bessere Wahl, wenn der Mac sie hat, du die Schreibhilfe auf dem Gerät willst und du mit diesem Systemmerkmal einverstanden bist. In anderen Fällen greifst du besser woanders hin:
 
-- Du das Transkript selbst brauchst. Nutze das Sprachmodell. Aufräumen erfindet fehlendes Audio nicht.
-- Du ein bestimmtes lokales Sprachmodell willst, das du aus der Modellbibliothek entfernen kannst, auch auf Macs ohne Apple Intelligence. Lade Qwen3 4B oder, auf einem Mac mit viel Speicher, gpt-oss-20b.
-- Du einen Anbieter willst, den du schon bezahlst, OpenAI oder Anthropic, nur für Text. Das ist ein Schlüssel im Schlüsselbund und eine ausdrückliche Aktivierung, nicht Apple Intelligence, und er bekommt das Audio trotzdem nicht.
-- Der Mac verwaltet ist und Apple Intelligence per Richtlinie aus ist. Nutze das lokale Modell. Such keinen versteckten Rückfall.
+- Du brauchst das Transkript selbst. Dafür ist das Sprachmodell da. Glätten erfindet fehlendes Audio nicht.
+- Du willst ein bestimmtes lokales Sprachmodell, das du aus der Modellbibliothek wieder entfernen kannst, auch auf Macs ohne Apple Intelligence. Dann lädst du Qwen3 4B, oder auf einem Mac mit viel Speicher gpt-oss-20b.
+- Du willst einen Anbieter, den du schon bezahlst, OpenAI oder Anthropic, und nur für Text. Das ist ein Schlüssel im Schlüsselbund und eine ausdrückliche Aktivierung. Es ist nicht Apple Intelligence, und das Audio bekommt dieser Weg trotzdem nicht.
+- Der Mac ist verwaltet und Apple Intelligence ist per Richtlinie aus. Dann nutzt du das lokale Modell. Ein versteckter Ersatz ist nicht vorgesehen.
 
-Nichts davon macht eine Aufnahme rechtmässig. Sag den Leuten, wenn du aufnimmst. Diese Seite ist keine Rechtsberatung.
+Keiner dieser Punkte macht eine Aufnahme rechtmässig. Sag den Leuten, wenn du aufnimmst. Diese Seite ist keine Rechtsberatung.
 
-Die Browser-Tools nutzen Apple Intelligence nicht. [/de/tools/audio-transkribieren](/de/tools/audio-transkribieren) transkribiert eine Datei, die du schon hast, bis 15 Minuten, drei erfolgreiche Läufe pro Woche, mit öffentlichem Whisper im Tab und ohne Sprechernamen.
+Die Browser-Werkzeuge nutzen Apple Intelligence nicht. [Audio transkribieren](/de/tools/audio-transkribieren) nimmt eine Datei, die du schon hast, bis 15 Minuten, drei erfolgreiche Läufe pro Woche, mit öffentlichem Whisper im Tab und ohne Sprechernamen.
 
 Die Modellwahl liegt unter [Aufnahme](/de#capture).
 
 ## Aufräumen neben einer Zahl, die du getippt hast
 
-Du tippst «Lieferung Freitag, nicht Donnerstag» in Manual Notes, während der Call undeutlich ist. Das Transkript ist beim Tag unklar. Ein Aufräumlauf, ob Apple Intelligence oder ein lokales Sprachmodell, kann einen glatten Satz schreiben, der einen Tag wählt. Öffne die Notiz, bevor du dem glatten Satz traust. Die Herkunft der Notiz zeigt, dass du, nicht das Audio, Freitag geliefert hast. Bearbeite das Artefakt, wenn das Aufräumen geraten hat. Die Neuerzeugung soll deine Notiz behalten. Sie soll die Notiz nicht als Transkriptzitat umetikettieren.
+Du schreibst «Lieferung Freitag, nicht Donnerstag» in die eigenen Notizen, während der Call undeutlich ist. Im Transkript bleibt der Tag unklar. Ein Glättlauf, ob über Apple Intelligence oder über ein lokales Sprachmodell, kann daraus einen glatten Satz machen, der einen Tag festlegt. Öffne die Notiz, bevor du dem glatten Satz glaubst. Ihre Herkunft zeigt, dass du Freitag notiert hast, nicht das Audio. Korrigiere den erzeugten Text, wenn er geraten hat. Beim erneuten Erzeugen soll deine Notiz bleiben. Sie soll nicht als Transkriptzitat umetikettiert werden.
 
-Ist Apple Intelligence auf diesem Mac nicht da, gilt dieselbe Prüfung für die Ausgabe von Qwen3 oder gpt-oss. Der Fehlerfall ist ein flüssiger Satz, keine fehlende Datei. Das Sprachmodell hat den Tag nie behauptet. Der Schreibschritt hat es. Deshalb bleibt das Transkript einen Klick von der Zusammenfassung entfernt, und eine Zusammenfassung, die auf keine Zeile zeigen kann, solltest du nicht als die Aufnahme behandeln.
+Ist Apple Intelligence auf diesem Mac nicht da, gilt dieselbe Prüfung für die Ausgabe von Qwen3 oder gpt-oss. Der typische Fehler ist ein flüssiger Satz, keine fehlende Datei. Das Sprachmodell hat den Tag nie behauptet. Der Schreibschritt hat ihn gesetzt. Deshalb bleibt das Transkript einen Klick von der Zusammenfassung entfernt. Eine Zusammenfassung, die auf keine Zeile zeigen kann, solltest du nicht als die Aufnahme behandeln.
 
 ## Häufige Fragen
 
 ### Transkribiert Apple Intelligence die Sitzung?
 
-Nein. Die Transkription nutzt das lokale Sprachmodell, das du gewählt hast. Apple Intelligence, wo der Mac sie hat, ist für Aufräumen und Artefakte.
+Nein. Die Transkription nutzt das lokale Sprachmodell, das du gewählt hast. Apple Intelligence, wo der Mac sie hat, ist fürs Glätten und für die erzeugten Texte.
 
 ### Was, wenn mein Mac Apple Intelligence nicht hat?
 
-Nutze ein heruntergeladenes lokales Sprachmodell für Notizen und Artefakte. Das Transkript kommt weiter von Parakeet oder Whisper auf dem Mac.
+Dann nimmst du ein heruntergeladenes lokales Sprachmodell für Notizen und Dokumente. Das Transkript kommt weiter von Parakeet oder Whisper auf dem Mac.
 
-### Wechselt Vemoir Modelle, wenn das Aufräumen scheitert?
+### Wechselt Vemoir das Modell, wenn das Aufräumen scheitert?
 
-Nein. Es ersetzt nicht still ein Sprachmodell oder ein Cloud-Backend. Ein fehlender oder gescheiterter Weg stoppt diesen Vorgang, statt heimlich einen anderen zu wählen.
+Nein. Es ersetzt nicht von selbst ein Sprachmodell und springt nicht auf ein Cloud-Backend. Fehlt der Weg oder bricht er ab, stoppt dieser Vorgang. Ein anderer wird nicht heimlich gewählt.
 
 ### Lädt das das Audio hoch?
 
-Nein. Sprache-zu-Text und Sprechertrennung bleiben auf dem Mac. Optionaler Cloud-Text ist eine getrennte, ausdrückliche Wahl und gilt nur für Text.
+Nein. Sprache zu Text und Sprechertrennung bleiben auf dem Mac. Optionaler Cloud-Text ist eine eigene, ausdrückliche Wahl und gilt nur für Text.
 
 ### Kann ich Apple Intelligence und meinen API-Schlüssel gleichzeitig als zwei Schreiber nutzen?
 
-Ask, Dokumente, Sitzungsartefakte und eigene Artefakte nutzen eine aktive Textquelle zur Zeit. Die Aktivierung deines Schlüssels legt sie auf diesen Anbieter. Die Wahl eines lokalen Modells, oder des On-Device-Wegs, legt sie zurück. Apple Intelligence ist die On-Device-Aufräumoption, wo der Mac sie hat, kein zweiter stiller Schreiber neben einem Cloud-Schlüssel.
+Fragen, Dokumente, Sitzungstexte und eigene Texte nutzen jeweils eine aktive Textquelle. Aktivierst du deinen Schlüssel, liegen sie bei diesem Anbieter. Wählst du ein lokales Modell oder den Weg auf dem Gerät, liegen sie wieder dort. Apple Intelligence ist die Glättoption auf dem Gerät, wo der Mac sie hat. Sie schreibt nicht still neben einem Cloud-Schlüssel mit.
 
 ### Kommen Sprechernamen von Apple Intelligence?
 
-Nein. Die Trennung läuft auf dem Mac. Du benennst Labels selbst. `Remember this speaker` ist freiwillig, verschlüsselt und löschbar.
+Nein. Die Trennung läuft auf dem Mac. Beschriftungen benennst du selbst. «Diesen Sprecher merken» ist freiwillig, verschlüsselt und löschbar.
 
-### Gibt es das in den kostenlosen Browser-Tools?
+### Gibt es das in den kostenlosen Browser-Werkzeugen?
 
 Nein. Die transkribieren eine kurze Datei im Browser. Sie nehmen nicht live auf und rufen Apple Intelligence nicht auf.
 
 ### Welche Macs können Vemoir überhaupt ausführen?
 
-Apple Silicon, macOS Sonoma 14.2 oder neuer, mindestens 8 GB Speicher und 10 GB frei. 16 GB sind für lange Sitzungen empfohlen. Intel-Macs werden nicht unterstützt. Apple Intelligence hat darüber hinaus eigene Apple-Voraussetzungen.
+Apple Silicon, macOS Sonoma 14.2 oder neuer, mindestens 8 GB Speicher und 10 GB frei. Für lange Sitzungen sind 16 GB empfohlen. Intel-Macs werden nicht unterstützt. Apple Intelligence hat darüber hinaus eigene Voraussetzungen von Apple.
 
-Wähle zuerst das Sprachmodell, dann den Schreibweg, den dieser Mac wirklich hat. Beides liegt unter [Aufnahme](/de#capture).
+Wähl zuerst das Sprachmodell, dann den Schreibweg, den dieser Mac wirklich hat. Beides liegt unter [Aufnahme](/de#capture).

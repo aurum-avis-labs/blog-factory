@@ -11,9 +11,6 @@ image: "@/assets/blog/microphone-noise-suppression/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/microphone-noise-suppression/inline1.jpg';
-import inline2 from '@/assets/blog/microphone-noise-suppression/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sunx?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sunx</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 La **soppressione rumore microfono** in Vemoir è un'impostazione della traccia microfono. Scegli Off, Balanced o Strong. L'elaborazione resta sul Mac. L'audio dell'altra persona, da Teams, Zoom, Meet o un'altra app, è una traccia a parte e non passa da questo controllo.
@@ -31,18 +28,23 @@ Se la stanza è già silenziosa, Off è spesso la scelta migliore. Balanced e St
 - [Domande frequenti](#domande-frequenti)
 
 
-<Image src={inline1} alt="Primo piano di un microfono senza marca su un tavolo di legno" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Off</span><strong>Grezzo</strong><p>Nessuna elaborazione extra sulla traccia microfono.</p></li>
+  <li><span class="blog-kicker">Bilanciato</span><strong>Predefinito</strong><p>Pulizia leggera per la maggior parte delle stanze.</p></li>
+  <li><span class="blog-kicker">Forte</span><strong>Rumore</strong><p>Più soppressione. L'audio di sistema resta uguale.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 ## Cosa cambia la soppressione rumore microfono
 
 Il controllo sta sul microfono che selezioni per la registrazione. È il tuo lato della conversazione. L'audio di sistema, le persone dall'altra parte, viene catturato come traccia locale separata con il permesso macOS System Audio Recording. Un tap Core Audio solo audio prende quel suono. Lo schermo non viene registrato.
 
 
-<Image src={inline2} alt="Stanza quieta con microfono e taccuino chiuso" width={700} quality={80} class="w-full" />
+<div class="blog-pair">
+  <div><h3>Per chi</h3><ul><li>Chiamate con micro del portatile in open space</li></ul></div>
+  <div><h3>Chi può saltare</h3><ul><li>Studi con gating hardware sul micro</li></ul></div>
+</div>
 
-<p><em>Photo by <a href="https://unsplash.com/@mitchel3uo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">mitchel3uo</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 La soppressione non mescola le due tracce in una «riunione pulita». Cerca di ridurre le interferenze stabili sul percorso del microfono prima che quella traccia sia finalizzata. La separazione dei parlanti gira dopo, sul Mac, sull'audio locale, ed è un altro passo.
 

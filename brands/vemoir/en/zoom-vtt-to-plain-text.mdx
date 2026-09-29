@@ -12,14 +12,22 @@ image: "@/assets/blog/zoom-vtt-to-plain-text/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/zoom-vtt-to-plain-text/inline1.jpg';
-import inline2 from '@/assets/blog/zoom-vtt-to-plain-text/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@diana_pole?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Diana Polekhina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Zoom VTT to plain text is a formatting step. A cloud recording's audio transcript is a `.vtt` file: a `WEBVTT` header, cue times, and the words. Plain text is those words, with a speaker name only when Zoom already stored one. If what you have is `audio_only.m4a` from a local recording, you do not have a VTT. That file is audio. Turning it into text is transcription, which is a different article: [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording).
 
 Zoom documents the split on its file-format page (checked September 2026): [recording file formats](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394). VTT is the audio transcription of a cloud recording. Closed captions may be a separate `cc.vtt`. Local recordings are MP4 and M4A, not a transcript.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Open the VTT</h3><p>Find it beside the cloud recording or export from Zoom.</p></li>
+  <li data-step="2"><h3>Strip timing tags</h3><p>Remove WEBVTT headers and cue timestamps for plain text.</p></li>
+  <li data-step="3"><h3>Merge duplicate lines</h3><p>Zoom often repeats partial captions line by line.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Local Zoom recordings default to audio only. Cloud plans create the VTT.</p>
+</aside>
 
 ## Contents
 
@@ -35,10 +43,6 @@ Zoom documents the split on its file-format page (checked September 2026): [reco
 On a Mac, a local recording lands in a dated folder, often under `Documents/Zoom`. The useful audio file is `audio_only.m4a`. There is also a video MP4 if you recorded video. Zoom does not write a transcript for that local folder just because you clicked Record. Cloud audio transcription is an account feature for cloud recordings, not for the files Zoom saved on the computer.
 
 
-<Image src={inline1} alt="Plain pages stacked beside a closed laptop" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kate_gliz?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Kateryna Hliznitsova</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 In the cloud portal, a processed transcript shows up as a VTT next to the recording when "create audio transcript" (or the newer meeting-summary transcript, depending on the account) is enabled. Hosts download it from the recording page: hover **Audio transcript** and use the download control, as Zoom describes for cloud recordings. Admins and hosts may also see transcripts under Recordings and Transcripts when Meeting Summary retention is on. Those are Zoom's own help pages, and the labels differ by product. If you do not see a VTT, do not rename the M4A and hope.
 
 Language coverage is not "whatever was spoken." Older Zoom documentation for cloud audio transcription said it applied to English. Newer summary and transcript products list their own languages in Zoom's current articles. Check the page for the feature you actually turned on before you promise a German VTT from a setting that only covered English.
@@ -47,10 +51,6 @@ Language coverage is not "whatever was spoken." Older Zoom documentation for clo
 
 A typical audio-transcript VTT looks like this:
 
-
-<Image src={inline2} alt="Lined paper next to a simple printout" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@karepesinde?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Cht Gsml</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 ```text
 WEBVTT

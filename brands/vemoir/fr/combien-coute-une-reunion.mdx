@@ -12,11 +12,6 @@ image: "@/assets/blog/what-a-meeting-costs/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/what-a-meeting-costs/inline1.jpg';
-import inline2 from '@/assets/blog/what-a-meeting-costs/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Combien coûte une réunion**, c'est la paie des personnes qui y sont, pendant qu'elles y restent. Un appel de 45 minutes avec six salaires, ce sont six personnes fois 0,75 heure fois leurs taux. Logiciel, salle et taxi sont d'autres lignes si vous en avez besoin. Ce n'est pas le même nombre que les salaires.
 
 Vous n'avez pas besoin d'une transcription pour le chiffre des salaires. Il vous faut une durée et un taux horaire que vous acceptez d'écrire. Le [calculateur de coût de réunion](/fr/outils/cout-de-reunion) fait la multiplication dans le navigateur et rend une phrase en francs suisses. Rien n'est envoyé.
@@ -34,10 +29,12 @@ Vous n'avez pas besoin d'une transcription pour le chiffre des salaires. Il vous
 
 Un seul taux horaire suffit quand tout le monde dans la salle est au même prix, ce qui est rare hors d'une salle de cours. Un appel client mélange souvent un associé, deux consultants et quelqu'un du client dont vous ne connaissez le taux que comme un coût complet. Chaque taux a sa ligne. La durée est commune. Le total est la somme des personnes de la ligne fois le taux fois les heures.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Taux</span><strong>Par heure</strong><p>Coût chargé ou taux facturable, pas le salaire brut.</p></li>
+  <li><span class="blog-kicker">Durée</span><strong>Minutes</strong><p>Inclure retards et dépassements.</p></li>
+  <li><span class="blog-kicker">Participants</span><strong>Compter</strong><p>Multiplier le taux par les personnes présentes.</p></li>
+</ul>
 
-<Image src={inline1} alt="Grande table de reunion avec des bouteilles d'eau intactes" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 La devise par défaut du calculateur est le CHF. C'est un choix de format, pas une affirmation sur les salaires suisses. Si votre taux est en euros ou en dollars, l'arithmétique est la même et la phrase affichée reste en francs. Changez le symbole si vous classez la ligne hors de Suisse.
 
@@ -49,10 +46,11 @@ Le coût chargé, si vous en utilisez un, c'est le salaire plus ce que l'employe
 
 Supposez 50 minutes et trois lignes que vous saisissez vous-même&nbsp;:
 
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Les abonnements logiciels vont sur une ligne séparée sauf demande de ventilation par réunion.</p>
+</aside>
 
-<Image src={inline2} alt="Salle de conseil lumineuse avec des sieges vides" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - 1 personne à CHF 280 de l'heure
 - 2 personnes à CHF 160 de l'heure

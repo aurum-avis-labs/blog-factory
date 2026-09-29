@@ -12,23 +12,27 @@ image: "@/assets/blog/zoom-vtt-to-plain-text/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/zoom-vtt-to-plain-text/inline1.jpg';
-import inline2 from '@/assets/blog/zoom-vtt-to-plain-text/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@diana_pole?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Diana Polekhina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Un VTT Zoom in testo è un passo di formattazione. La trascrizione audio di una registrazione cloud è un file `.vtt`: un'intestazione `WEBVTT`, tempi di cue e le parole. Il testo semplice sono quelle parole, con un nome solo se Zoom ne ha già salvato uno. Se hai `audio_only.m4a` da una registrazione locale, non hai un VTT. Quel file è audio. Farne testo è una trascrizione, ed è un altro articolo: [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom).
 
 Zoom separa i formati nella pagina sui formati di file (settembre 2026): [recording file formats](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394). Il VTT è la trascrizione audio di una registrazione cloud. I sottotitoli possono essere un `cc.vtt` a parte. Le registrazioni locali sono MP4 e M4A, non una trascrizione.
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Apri il VTT</h3><p>Accanto alla registrazione cloud o da export Zoom.</p></li>
+  <li data-step="2"><h3>Togli i tag temporali</h3><p>Rimuovi header WEBVTT e timestamp per testo semplice.</p></li>
+  <li data-step="3"><h3>Unisci righe duplicate</h3><p>Zoom ripete spesso caption parziali riga per riga.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Nota</span>
+  <p>Le registrazioni Zoom locali sono solo audio. Il VTT arriva dai piani cloud.</p>
+</aside>
+
 ## Quale file Zoom hai davvero
 
 Su un Mac, una registrazione locale finisce in una cartella con la data, spesso sotto `Documents/Zoom`. Il file audio utile è `audio_only.m4a`. C'è anche un MP4 video se hai registrato il video. Zoom non scrive una trascrizione in quella cartella locale solo perché hai premuto Registra. La trascrizione audio cloud è una funzione dell'account per le registrazioni cloud, non per i file che Zoom ha salvato sul computer.
 
-
-<Image src={inline1} alt="Pagine semplici accanto a un portatile chiuso" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@kate_gliz?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Kateryna Hliznitsova</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Nel portale cloud, una trascrizione elaborata compare come VTT accanto alla registrazione quando «crea trascrizione audio» (o la trascrizione più recente del riassunto riunione, secondo l'account) è attiva. Chi ospita la scarica dalla pagina della registrazione: passa su **Audio transcript** e usa il download, come Zoom lo descrive per le registrazioni cloud. Admin e host vedono anche trascrizioni sotto Recordings and Transcripts quando la conservazione del riassunto è attiva. Le etichette cambiano secondo il prodotto. Se non vedi un VTT, non rinominare l'M4A sperando.
 
@@ -38,10 +42,6 @@ La copertura delle lingue non è «qualunque cosa sia stata detta». Una documen
 
 Una trascrizione audio tipica ha questa forma:
 
-
-<Image src={inline2} alt="Carta a righe accanto a una stampa semplice" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@karepesinde?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Cht Gsml</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 ```text
 WEBVTT

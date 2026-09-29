@@ -11,11 +11,7 @@ image: "@/assets/blog/qwen-vs-gpt-oss/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/qwen-vs-gpt-oss/inline1.jpg';
-import inline2 from '@/assets/blog/qwen-vs-gpt-oss/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@solomin_d?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">solomin_d</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Qwen o gpt-oss** in Vemoir è la scelta tra due modelli di lingua locali che scrivono. Qwen3 4B è quello per la maggior parte dei Mac. gpt-oss-20b è quello per i Mac con tanta memoria. Entrambi possono produrre note, documenti e risposte di Ask Vemoir. Nessuno trascrive la registrazione. La voce resta a Parakeet v3 o a un modello Whisper che hai scaricato. Qui non c’è una classifica di precisione, perché questi modelli non sono i trascrittori, e questa pagina non valuta quale «scrive meglio».
 
 L’app mostra spazio, adeguatezza hardware e quale modello è selezionato. Una riunione usa la selezione fissata per quel passaggio. Non scambia Qwen con gpt-oss, né il contrario, a metà strada perché uno dei due ha inciampato.
@@ -31,22 +27,26 @@ L’app mostra spazio, adeguatezza hardware e quale modello è selezionato. Una 
 | Se manca | scaricalo apposta, o l’elaborazione non finge che ci sia | Uguale. Nessun sostituto silenzioso |
 
 
-<Image src={inline1} alt="Due postazioni affiancate con portatili chiusi" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@jorienloman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jorienloman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Entrambi girano sul Mac. La rete serve per lo scaricamento, non per ogni frase di una riunione già elaborata una volta installato il modello. Puoi togliere l’uno o l’altro dalla libreria modelli. Lì vedi prontezza e spazio.
 
 Ask, documenti, artefatti di riunione e artefatti personalizzati condividono una fonte di testo attiva. Selezionare il modello locale, Qwen o gpt-oss, tiene quella fonte sul dispositivo. Se avevi attivato una chiave tua, tornare al modello locale riporta tutti e quattro sul Mac. Un errore non sceglie in silenzio l’altro modello locale o la chiave cloud.
+
+|  | Qwen (local) | GPT-OSS (local) |
+| --- | --- | --- |
+| Job | On-device writing | On-device writing |
+| Internet | Setup download | Setup download |
+| When off | Local templates only | Local templates only |
+
+|  | Qwen (locale) | GPT-OSS (locale) |
+| --- | --- | --- |
+| Compito | Scrittura on-device | Scrittura on-device |
+| Internet | Download iniziale | Download iniziale |
+| Off | Solo modelli locali | Solo modelli locali |
 
 ## Quando Qwen è la scelta migliore
 
 Qwen3 4B è la scelta migliore su un Mac che non è ad alta memoria, quando vuoi il modello di scrittura che l’impostazione presenta per la maggior parte delle macchine, e quando preferisci spendere disco e memoria sul modello vocale e sulla registrazione piuttosto che sul file di scrittura più grande. È anche la scelta migliore se sei incerto, perché forzare gpt-oss-20b su un Mac che non gli sta non è un salto di qualità che l’app copre. Le indicazioni di adeguatezza ci sono perché tu non indovini.
 
-
-<Image src={inline2} alt="Due persone a scrivanie vicine che prendono appunti" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@wasil_ahammed?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">wasil_ahammed</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Il modello vocale lo scegli comunque a parte. Un riassunto Qwen fluente di una trascrizione cattiva resta il riassunto di una trascrizione cattiva. Correggi il modello vocale, il microfono o il glossario se le parole sono sbagliate. Passare da Qwen a gpt-oss non rietichetta gli speaker e non applica indizi di glossario all’audio.
 
@@ -57,6 +57,33 @@ gpt-oss-20b è la scelta migliore quando il Mac ha la memoria per lui e vuoi que
 È la scelta peggiore quando il Mac è stretto. Non avviare lo scaricamento più grande sperando in una riduzione automatica a Qwen. Gli scaricamenti sono espliciti. Uno scaricamento fallito resta fallito finché non lo riprendi o lo togli.
 
 Cambiare tra i modelli installati per il prossimo turno Ask ripianifica quel turno. Non riscrive i messaggi già nella conversazione. Le risposte concluse continuano a mostrare quale modello le ha prodotte.
+
+  </div>
+  <div>
+    <h3>Stay fully local</h3>
+    <ul>
+      <li>Client NDAs forbid any external LLM</li>
+      <li>Air-gapped Mac after model download</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-pair">
+  <div>
+    <h3>Chiave cloud</h3>
+    <ul>
+      <li>Modello assente in locale</li>
+      <li>Solo un vendor esterno approvato</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Tutto locale</h3>
+    <ul>
+      <li>NDA vieta LLM esterni</li>
+      <li>Mac offline dopo download</li>
+    </ul>
+  </div>
+</div>
 
 ## Cosa non farà nessuno dei due modelli
 

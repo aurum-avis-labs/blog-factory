@@ -12,9 +12,6 @@ image: "@/assets/blog/tactiq-alternative/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/tactiq-alternative/inline1.jpg';
-import inline2 from '@/assets/blog/tactiq-alternative/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@mediamodifier?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">mediamodifier</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 A **Tactiq alternative** makes sense when you want meeting notes and you do not want to depend on the live captions of Google Meet, Zoom, or Microsoft Teams. Tactiq is a Chrome extension for those three. Its own FAQ says it does not record or store the audio: the transcript happens in real time and is saved as text. That is a real product, and it is not the same job as capturing microphone and system audio on a Mac.
@@ -39,9 +36,11 @@ This comparison stays with what Tactiq publishes, checked September 2026, and wi
 [Tactiq](https://tactiq.io/) describes an AI note taker for Google Meet, Zoom, and Microsoft Teams, delivered as a Chrome extension. The homepage says the transcript is shown to you, that you can notify others you are transcribing, and that the extension does not record or store meeting audio. The transcript is real-time text.
 
 
-<Image src={inline1} alt="Paper notes during a video call, photographed from behind" width={700} quality={80} class="w-full" />
+<div class="blog-pair">
+  <div><h3>Who this is for</h3><ul><li>Teams that want a shared cloud library and calendar bot</li></ul></div>
+  <div><h3>Who should skip it</h3><ul><li>Calls where audio must stay on the Mac unless you export</li></ul></div>
+</div>
 
-<p><em>Photo by <a href="https://unsplash.com/@mediamodifier?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">mediamodifier</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Their speech-to-text page says the same thing in shorter form: install the extension, turn on transcription in the meeting, save transcriptions from Meet, Zoom, and Teams ([Tactiq speech to text](https://tactiq.io/speech-to-text), checked September 2026). The product does not join the call as a participant. Nobody sees a "Tactiq bot" in the list unless you choose to tell people.
 
@@ -54,9 +53,11 @@ On AI, Tactiq's pricing FAQ says they use OpenAI's enterprise API, not ChatGPT, 
 The extension reads the meeting's live text. That has consequences a recording app does not share.
 
 
-<Image src={inline2} alt="A notebook on a lap during a call, no screen contents" width={700} quality={80} class="w-full" />
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Verify Tactiq pricing and data handling on the vendor site before you buy. Figures in this article are dated in the text.</p>
+</aside>
 
-<p><em>Photo by <a href="https://unsplash.com/@sincerelymedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sincerelymedia</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 **The platform has to be producing captions.** If captions are off, wrong, or unavailable in that tenant, Tactiq has nothing reliable to save. A system-audio recorder does not ask the meeting app for a caption track. It takes the sound leaving the Mac.
 

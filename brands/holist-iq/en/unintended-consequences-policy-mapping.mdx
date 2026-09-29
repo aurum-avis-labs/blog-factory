@@ -5,76 +5,92 @@ pubDate: 2026-10-27
 author: "Holist-IQ Team"
 tags: ["policy", "unintended-consequences", "systems-thinking"]
 funnelStage: "interest"
-draft: false
-relatedPosts: ["causal-loop-diagram-software", "leverage-points-systems-thinking", "executive-brief-from-causal-loop-map"]
-image: ../../../assets/blog/unintended-consequences-policy-mapping/img1.png
 translationKey: "unintended-consequences-policy-mapping"
+relatedPosts: ["causal-loop-diagram-software", "leverage-points-systems-thinking", "executive-brief-from-causal-loop-map"]
+image: "@/assets/blog/unintended-consequences-policy-mapping/hero.jpg"
+draft: false
 ---
 
-import { Image } from 'astro:assets';
-import img2 from '@/assets/blog/unintended-consequences-policy-mapping/img2.png';
-import img3 from '@/assets/blog/unintended-consequences-policy-mapping/img3.png';
+**Unintended consequences** in policy are usually adaptations. A rule changes what pays, what is risky, or what takes time, and actors move along paths the memo did not draw. **Policy mapping** with causal loops makes those paths discussable before rollout, while you can still change the instrument or the monitoring.
 
-<p><em>Hero photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Vitaly Gariev</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+This is for policy teams, regulators, and program owners who need a structure stakeholders can read. It does not claim to predict every outcome. It claims you can name the adaptations you already know how to look for, and attach a delay and a watch metric to each.
 
-**Unintended consequences** are adaptations, not bad luck. When a rule changes incentives, actors shift behavior along paths planners did not model. **Policy mapping** with causal loops makes those paths discussable before rollout.
+If you need the wider case for this kind of design, start with [systems thinking for public policy](/blog/systems-thinking-for-public-policy-designing-better-political-decisions-in-compl). When you are choosing how deep the instrument should sit, use [leverage points in systems thinking](/blog/leverage-points-systems-thinking).
 
-This guide is for policy teams, regulators, and program owners who need stakeholder-readable structure without pretending to predict every outcome.
+## Map actors who can adapt, not only the headline metric
 
-Start from [systems thinking for public policy](/blog/systems-thinking-for-public-policy-designing-better-political-decisions-in-compl) and pair with [leverage points in systems thinking](/blog/leverage-points-systems-thinking) when choosing intervention depth.
+List who can change behavior when the lever moves: firms, households, intermediaries, clinicians, landlords, enforcement staff, the contractors who implement the rule. Draw links from the lever to their constraints. Time, cash, legal risk, and spare capacity matter more than a slogan about compliance.
 
-## Map actors, not only metrics
+A map that only connects the lever to the KPI in the press line will show success by construction. The unintended path lives in the actors who were left off because they are not the official target.
 
-List who can adapt: firms, citizens, intermediaries, enforcement staff. Draw links from the policy lever to their constraints, not only to headline KPIs.
+For each actor, one sentence is enough: when this constraint tightens or loosens, they do this next. If you cannot write the sentence, you do not yet have a link. You have a worry.
 
-## Trace second-order paths explicitly
+## Trace second-order paths on purpose
 
-For each first-order win, ask "who gains time to adapt?" and "where does activity migrate?" Mark delays on enforcement and reporting links.
+For each first-order gain, ask two questions. Who gains time to adapt before enforcement or reporting catches up? Where does the activity go if the official channel gets more expensive?
 
-<Image src={img2} alt="Abstract branching paths suggesting policy adaptation routes" width={500} quality={80} class="w-full" />
+Mark delays on enforcement, appeals, reporting, and procurement. Those delays are the window in which the adaptation happens. A rule that looks tight on day one and leaky in month six is often a delay problem, not a mystery.
 
-<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Vitaly Gariev</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Illustration, not a recorded case.** Stricter reporting aimed at large firms raises their cost of a contract. Work shifts toward smaller entities with thinner oversight. The official metric on large-firm reporting improves. A later gap shows up in the smaller population, which the dashboard was not built to see. The map's job is to put that second population on the page before rollout, with a delay on the oversight link.
 
-**Example:** Stricter reporting on large firms shifts contracts to smaller entities with weaker oversight until a later compliance gap appears.
+Use the same shape for other instruments. A subsidy can raise demand faster than the stock of people who can deliver, so wait times grow and trust in the program falls. You do not need a named jurisdiction to ask whether your delivery stock is a variable or an assumption of instant capacity.
 
-## Run a pre-mortem on the loop map
+## Run a pre-mortem on the links
 
-Ask stakeholders to label links they distrust. Capture alternate polarities as dotted hypotheses instead of arguing facts in hour one.
+Ask stakeholders to mark the links they do not believe. Capture the alternate polarity as a dotted hypothesis with their name on the doubt. Hour one is for disagreement you can see. Arguing "the fact" before the link is named just sorts the room by rank.
 
-## Document boundaries and known omissions
+A useful pre-mortem question: if this policy is described as a failure in two years, which arrow in today's map will people say we refused to draw? Draw it now as a hypothesis. You can still reject it after the evidence rule is set.
 
-State what the map excludes (international spillovers, informal economy) so critics engage with scope, not strawmen.
+## Write the boundary so critics have something real to attack
 
-<Image src={img3} alt="Abstract map fragment with highlighted boundary notes" width={500} quality={80} class="w-full" />
+State what the map excludes: cross-border spillovers, the informal economy, a population you cannot measure, a security limit on what you will publish. Critics should be able to say "your boundary is wrong" instead of "you are naive." A map without omissions is advertising.
 
-<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Vitaly Gariev</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Keep the boundary on the same page as the loops. A footnote nobody reads will be treated as if the omission were covered.
 
-## When not to publish a loop map externally
+## Watch the second hop, not only the target
 
-Skip public release when security, active investigations, or negotiation leverage requires confidentiality. Internal loop discipline still helps.
+Choose one or two variables that sit on the adaptation path, downstream of the official KPI. Reporting completeness in the population the activity might flee to. Wait time. Exemption rate. Appeals. Price in the adjacent market. Assign an owner and a date before rollout, not after the first bad headline.
 
-## Mid-step: one-page adaptation brief
+If that variable has no data, the map has told you the gap. Either build a thin measure, or accept that you will learn about the adaptation from outside the program. Do not pretend the official KPI includes the hop. It does not.
 
-From your next policy memo, add three adaptation links and one delay. Circulate before the steering group meets.
+<ul class="blog-checklist">
+  <li>Actor list includes intermediaries and the people who enforce the rule</li>
+  <li>Each first-order gain has a "where does it migrate" sentence</li>
+  <li>At least one delay is written in months, not as "later"</li>
+  <li>Disputed signs are dotted, with a name attached</li>
+  <li>The boundary says what you left out</li>
+  <li>A second-hop metric has an owner and a date</li>
+</ul>
 
-## Strong next step: maintain maps across consultations
+## When not to publish the map
 
-Consultations change maps. Compare tools with [causal loop diagram software](/blog/causal-loop-diagram-software) and the [systems thinking tool checklist](/blog/systems-thinking-tool-checklist). Holist-IQ supports teams who need plain-language inputs and visible loops through iterative consultation.
+Do not release the working map when security, an active investigation, or a live negotiation would be harmed by showing the adaptation path in public. Internal use can still discipline the instrument. A public diagram that teaches people how to slip the rule is not a transparency win. Publish the boundary and the monitoring commitment instead, and keep the sensitive links in the working file.
+
+## One page on the next memo
+
+On the next policy memo, add three adaptation links and one delay before the steering group meets. If the group only discusses the target KPI, the page has not been read. Ask which of the three links they want dotted. That question is the whole method in miniature.
+
+## Keep the map through consultation
+
+Consultation changes links. A file that cannot show what moved, and why, will be redrawn from memory after each meeting. Compare maintenance options in [causal loop diagram software](/blog/causal-loop-diagram-software) and the [systems thinking tool checklist](/blog/systems-thinking-tool-checklist). Holist-IQ is for teams who take plain-language input from consultations and need the loops to stay visible across versions. It does not replace legal analysis, and it will not detect an adaptation you refused to name.
 
 ## Frequently asked questions
 
-### Is this partisan fact checking?
+<div class="blog-faq">
+  <p class="blog-faq-q">Is this partisan fact checking?</p>
+  <p>No. The work is structural: which feedback and which adaptation the headline design leaves out. You can do it for a proposal you support. The test is whether the omitted path is on the page.</p>
+</div>
 
-No. It is structural: what feedback and adaptation the headline omits.
+<div class="blog-faq">
+  <p class="blog-faq-q">Do we need a quantitative simulation first?</p>
+  <p>Not always. Qualitative loops plus monitoring on second-hop variables reduce surprise for many instruments. Simulate when the decision depends on levels, rates, and units. Then keep the variable names tied to the loop map so the two views can correct each other.</p>
+</div>
 
-### Do we need quantitative simulation?
-
-Not always. Qualitative loops plus targeted monitoring on second-hop variables reduce surprise.
-
-### How is this different from impact assessment templates?
-
-Templates list categories. Loops force directed stories and delays between categories.
+<div class="blog-faq">
+  <p class="blog-faq-q">How is this different from an impact assessment template?</p>
+  <p>Templates list categories: environment, distribution, small firms. Loops force a directed story between categories, and a delay. A category with no arrow is a heading, not a consequence.</p>
+</div>
 
 ## Closing next step
 
-Deepen economics-style loops in [economic systems modeling](/blog/economic-systems-modeling-mapping-policies-interest-rates-and-market-feedback-lo) or facilitation in [causal loop mapping workshop](/blog/causal-loop-mapping-workshop).
+Macro paths around rates, expectations, and political pushback are in [economic systems modeling](/blog/economic-systems-modeling-mapping-policies-interest-rates-and-market-feedback-lo). If the team needs a facilitated pass rather than another memo, use the [causal loop mapping workshop](/blog/causal-loop-mapping-workshop).

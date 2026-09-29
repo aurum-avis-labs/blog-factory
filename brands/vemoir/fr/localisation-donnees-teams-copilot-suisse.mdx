@@ -12,14 +12,21 @@ image: "@/assets/blog/teams-copilot-data-location-switzerland/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/teams-copilot-data-location-switzerland/inline1.jpg';
-import inline2 from '@/assets/blog/teams-copilot-data-location-switzerland/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@lofted_track?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Basit Abdul</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 La **localisation des données Teams Copilot en Suisse** n’est pas un tampon unique sur chaque fichier. Microsoft place les artefacts de réunion à des endroits différents&nbsp;: l’enregistrement cloud dans OneDrive ou SharePoint, les invites et réponses Copilot comme historique d’interaction, et le traitement LLM sur un trajet qui n’est pas toujours celui du stockage au repos. Cette page résume les articles Learn de Microsoft au mois de septembre 2026. Ce n’est pas un conseil juridique, et elle ne décide pas si Copilot convient à votre tenant ou à votre contrat client.
 
 Si votre exigence est «&nbsp;l’audio reste sur ce Mac tant que je ne l’exporte pas&nbsp;», Teams Copilot est une autre forme de produit. Il s’exécute dans Microsoft 365. Une capture locale sur le Mac est un second chemin. Les deux peuvent convenir lorsque l’organisation a lu les mêmes pages.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Résidence tenant</span><strong>Votre région</strong><p>La résidence Microsoft 365 suit le tenant, pas chaque fonction IA.</p></li>
+  <li><span class="blog-kicker">Traitement Copilot</span><strong>Variable</strong><p>Certaines charges Copilot utilisent des régions Microsoft&nbsp;; lisez la carte actuelle.</p></li>
+  <li><span class="blog-kicker">Barre suisse</span><strong>Contrat</strong><p>La nLPD et votre DPA tranchent, pas cet article.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Les listes de fonctions changent sur Microsoft Learn. Vérifiez la date avant un achat.</p>
+</aside>
 
 ## Sommaire
 
@@ -37,10 +44,6 @@ Si votre exigence est «&nbsp;l’audio reste sur ce Mac tant que je ne l’expo
 Microsoft a ajouté Copilot comme charge de travail couverte dans les Product Terms de résidence des données le 1er mars 2024. L’article [Data, Privacy, and Security for Microsoft Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy) (vérifié en septembre 2026) indique que Copilot respecte les engagements de résidence des Product Terms et de l’addendum de protection des données. Advanced Data Residency et Multi-Geo incluent Copilot à la même date.
 
 
-<Image src={inline1} alt="Lumiere d'un lac sur des papiers, bureau en bois" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@thierry_biland?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Thierry Biland</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 La Suisse figure sur les listes Microsoft des pays où une résidence **local-region** peut s’appliquer aux services Microsoft 365 de base (Exchange Online, SharePoint Online, Teams) et, pour certains composants Copilot, au contenu d’interaction au repos. C’est une condition des Product Terms, pas une garantie que votre tenant a été provisionné en Suisse. Une société suisse inscrite sous un autre pays, ou qui n’a jamais défini de Preferred Data Location (PDL), peut encore avoir des données au repos hors de Suisse.
 
 La page [Data Residency for Microsoft Copilot and Copilot Chat](https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-service-copilot) renvoie aujourd’hui Copilot et Copilot Chat aux engagements de base («&nbsp;no modifications&nbsp;») et cite la Suisse parmi les géographies par défaut pour le contenu d’interaction Copilot Cowork. Lisez la page en ligne. Les tableaux changent.
@@ -54,10 +57,6 @@ Deux autres phrases Microsoft comptent pour un lecteur suisse et se mélangent f
 
 Lorsqu’une personne utilise Copilot dans Word, Excel, PowerPoint, les réunions Teams et les autres applications listées, Microsoft stocke le **contenu des interactions**&nbsp;: l’invite, la réponse et les citations utilisées pour ancrer la réponse. Cet enregistrement est l’historique d’activité Copilot. Microsoft dit que cet historique alimente l’historique Copilot Chat **et les réunions dans Microsoft Teams**.
 
-
-<Image src={inline2} alt="Documents sur le bureau, ville alpine a la fenetre" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@vincent_61?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">VINCENZO INZONE</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Microsoft indique que ces données sont chiffrées au repos, traitées selon les mêmes engagements contractuels que le reste du contenu Microsoft 365, et **ne servent pas à entraîner les LLM de fondation**, y compris ceux utilisés par Copilot. Les invites, les réponses et les données lues via Microsoft Graph sont incluses dans cette phrase.
 

@@ -11,9 +11,6 @@ image: "@/assets/blog/bring-your-own-api-key/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/bring-your-own-api-key/inline1.jpg';
-import inline2 from '@/assets/blog/bring-your-own-api-key/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@zoshuacolah?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zoshuacolah</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Apporter sa clé API** quand vous voulez qu’OpenAI ou Anthropic écrive du texte pour vous, et que ce choix soit énoncé. Vemoir stocke l’identifiant dans le Trousseau de protection des données de macOS. Enregistrer ou vérifier une clé ne l’allume pas. Vous confirmez une activation qui oriente Ask Vemoir, les documents, les artefacts de réunion et les artefacts personnalisés vers ce seul prestataire. L’audio et la séparation des locuteurs restent sur le Mac. Si la clé manque, le point de terminaison a changé, le prestataire est indisponible ou l’appel échoue, l’opération s’arrête. Rien ne choisit en silence un autre backend.
@@ -25,13 +22,15 @@ L’app Mac elle-même est un achat unique sur l’App Store&nbsp;: CHF 20 en Su
 La génération externe est du texte seulement. L’audio brut, les fichiers, les images et les URL distantes ne font pas partie de la requête. Le texte de transcription et les notes déjà sur le Mac peuvent être ce que vous choisissez de traiter comme texte, parce que c’est ainsi qu’un résumé s’écrit. L’enregistrement lui-même ne part pas pour de la parole vers texte. Parakeet ou Whisper l’ont déjà fait en local, ou ils le feront. La séparation des locuteurs ne bascule pas chez le prestataire.
 
 
-<Image src={inline1} alt="Cles de maison a cote d'un carnet, sans ecrans" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@jaye_haych?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jaye_haych</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Une source active à la fois. Activer la clé envoie Ask, documents, artefacts de réunion et artefacts personnalisés vers elle. Sélectionner un modèle de langue local, Qwen3 4B ou gpt-oss-20b, ramène les quatre sur le Mac. Vous n’obtenez pas un mélange où Ask utilise Anthropic et le compte rendu utilise Qwen, sauf si vous changez la source active entre les deux.
 
 L’installation peut ignorer complètement le prestataire. Les modèles locaux restent le chemin par défaut.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Opt-in</span><strong>Désactivé par défaut</strong><p>Modèles cloud exigent clé et bascule.</p></li>
+  <li><span class="blog-kicker">Audio</span><strong>Reste local</strong><p>Seul le texte part si activé.</p></li>
+  <li><span class="blog-kicker">Fournisseur</span><strong>Votre compte</strong><p>Facturation chez ce fournisseur.</p></li>
+</ul>
 
 ## L’allumer sans vous surprendre
 
@@ -41,10 +40,6 @@ L’installation peut ignorer complètement le prestataire. Les modèles locaux 
 4. Lisez l’avis d’activation et confirmez-le. Cette confirmation est le moment où le texte de réunion sélectionné peut partir chez le prestataire.
 5. Après une réunion, cherchez la marque visible de traitement externe sur la sortie qui a utilisé la clé. Un résumé local ne porte pas cette marque.
 
-
-<Image src={inline2} alt="Petite cle metallique a cote de cartes de papier creme" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@silas_crioco?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silas_crioco</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Retirer la clé arrête les nouvelles requêtes et annule le travail enregistré pour ce prestataire. Cela ne supprime pas le texte déjà généré. Les reçus s’exportent ou se suppriment dans Confidentialité et données. Ils sont sans contenu exprès.
 
@@ -66,6 +61,11 @@ Les outils navigateur gratuits ne sont pas non plus un emplacement de clé. [/fr
 Prérequis de l’app&nbsp;: Apple silicon, macOS Sonoma 14.2 ou plus récent, 8 Go de mémoire, 10 Go libres, 16 Go recommandés pour les longues réunions.
 
 Le réglage se trouve avec les autres choix de modèles dans [la capture](/fr#capture).
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Une clé envoie du texte de réunion à un tiers. Désactivez si le client interdit ce fournisseur.</p>
+</aside>
 
 ## Un client qui interdit le texte dans le cloud
 

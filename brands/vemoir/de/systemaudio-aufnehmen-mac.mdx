@@ -1,6 +1,6 @@
 ---
-title: "Systemaudio aufnehmen auf dem Mac, nur der Meeting-Ton"
-description: "Systemaudio aufnehmen auf dem Mac ist die Berechtigung für den Meeting-Ton. Nur Audio. Nicht Bildschirmaufnahme, und kein Bild des Displays."
+title: "Systemaudio aufnehmen auf dem Mac, nur der Sitzungston"
+description: "Systemaudio aufnehmen auf dem Mac holt den Sitzungston der Meeting-App. Nur Audio: kein Bildschirm und kein Bild des Displays."
 pubDate: 2026-10-21
 author: "Vemoir Team"
 tags: ["mac", "audio", "berechtigungen"]
@@ -11,12 +11,7 @@ image: "@/assets/blog/system-audio-recording-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/system-audio-recording-mac/inline1.jpg';
-import inline2 from '@/assets/blog/system-audio-recording-mac/inline2.jpg';
-
-<p><em>Hero photo by <a href="https://unsplash.com/@greaterbythehour2020?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">greaterbythehour2020</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Systemaudio aufnehmen auf dem Mac ist der Weg, auf dem Vemoir die Meeting-App hört. macOS fragt nach **Systemaudioaufnahme** (System Audio Recording). Diese Berechtigung holt den Ton, den andere Apps abspielen, über eine reine Audioaufnahme. Vemoir fragt nicht nach der Bildschirmaufnahme und nimmt weder den Bildschirm noch ein Fenster noch das Kamerabild auf. Wenn eine Anleitung oder ein älterer Artikel dir sagt, du müsstest für Vemoir die Bildschirmaufnahme einschalten, ist der Rat veraltet.
+**Systemaudio aufnehmen** lässt Vemoir auf dem Mac die Meeting-App hören. macOS fragt nach **Systemaudioaufnahme** (System Audio Recording). Diese Berechtigung holt den Ton, den andere Apps abspielen, als reine Audioaufnahme. Vemoir fragt nicht nach der Bildschirmaufnahme und nimmt weder den Bildschirm noch ein Fenster noch das Kamerabild auf. Sagt eine Anleitung oder ein älterer Artikel, du müsstest für Vemoir die Bildschirmaufnahme einschalten, ist der Rat veraltet.
 
 Das Mikrofon brauchst du zusätzlich, wenn deine eigene Stimme eine eigene Spur sein soll. Die beiden Aufnahmen sind getrennt: das Mikrofon bist du, das Systemaudio ist das Gespräch.
 
@@ -24,49 +19,50 @@ Das Mikrofon brauchst du zusätzlich, wenn deine eigene Stimme eine eigene Spur 
 
 Lange war die Bildschirmaufnahme der praktische Weg, auf dem eine Mac-App eine andere App hören konnte, auch wenn sie nie Video gespeichert hat. Anleitungen haben dieses Kästchen beschrieben. macOS hat inzwischen eine Berechtigung, deren Aufgabe der Systemton ist. Vemoir benutzt diese. Eine Suche nach «Screen Recording» landet bei Texten für den alten Weg. Folge der Abfrage, die Vemoir wirklich zeigt, und dem Schalter Systemaudioaufnahme.
 
-
-<Image src={inline1} alt="Audiokabel zu einem Recorder auf dem Tisch" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@pawell?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">pawell</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Die Aufnahme ist ein Core-Audio-Tap. Sie nimmt den Meeting-Ton. Die Pixel lässt sie in Ruhe. Den eigenen Ausgang von Vemoir nimmt sie aus, damit die App sich nicht selbst aufzeichnet.
+Die Aufnahme ist ein Core-Audio-Tap. Sie nimmt den Sitzungston. Die Pixel lässt sie stehen. Den eigenen Ausgang von Vemoir nimmt sie aus, damit die App sich nicht selbst aufzeichnet.
 
 ## Systemaudio aufnehmen: was du einschaltest
 
 1. Installiere Vemoir aus dem [Mac App Store](https://apps.apple.com/app/id6794693630). Es braucht Apple Silicon, macOS Sonoma 14.2 oder neuer, und Platz für die lokalen Modelle. Intel-Macs werden nicht unterstützt.
-2. Wenn du den Meeting-Ton aufnimmst, erlaube **Systemaudioaufnahme**, sobald macOS fragt. Erlaube auch das **Mikrofon**, wenn du deine Stimme willst.
-3. Hast du die Abfrage weggeklickt, öffnest du die Systemeinstellungen, dann Datenschutz und Sicherheit, dann **Systemaudioaufnahme**, und schaltest Vemoir ein. Dasselbe beim Mikrofon. Beende die App und öffne sie neu, wenn du den Schalter gerade geändert hast. macOS wendet eine Berechtigung oft erst nach dem Neustart der App an.
-4. Such nicht unter Bildschirmaufnahme nach einer Zeile für Vemoir, um das Setup «fertig» zu machen. Diese Zeile ist nicht die Berechtigung, die diese Version benutzt. Die Bildschirmaufnahme für ein anderes Werkzeug ist eine andere Entscheidung. So entstehen Videos vom Schreibtisch, obwohl du ein Transkript wolltest.
+2. Wenn du den Sitzungston aufnimmst, erlaube **Systemaudioaufnahme**, sobald macOS fragt. Erlaube auch das **Mikrofon**, wenn du deine Stimme willst.
+3. Hast du die Abfrage weggeklickt, öffnest du die Systemeinstellungen, dann Datenschutz und Sicherheit, dann **Systemaudioaufnahme**, und schaltest Vemoir ein. Dasselbe beim Mikrofon. Beende die App und öffne sie neu, wenn du den Schalter gerade geändert hast. macOS wendet eine Berechtigung oft erst an, nachdem die App neu gestartet wurde.
+4. Such nicht unter Bildschirmaufnahme nach einer Zeile für Vemoir, um das Einrichten «fertig» zu machen. Diese Zeile ist nicht die Berechtigung, die diese Version benutzt. Die Bildschirmaufnahme für ein anderes Werkzeug ist eine andere Entscheidung. So entstehen Videos vom Schreibtisch, obwohl du ein Transkript wolltest.
 5. Starte die Aufnahme in der Menüleiste, wenn das Gespräch beginnt, und stoppe sie, wenn es endet. Niemand kommt als Bot in die Teilnehmerliste. Die Meeting-App kann Teams, Zoom, Meet, Slack, Discord oder jede andere App sein, die Ton auf dem Mac abspielt. Siehe [Plattformen](/de#platforms) und [Aufnahme](/de#capture).
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Datenschutz öffnen</h3><p>Systemeinstellungen, Datenschutz &amp; Sicherheit, Bildschirm- und Systemtonaufnahme.</p></li>
+  <li data-step="2"><h3>Nur Audio erlauben</h3><p>Vemoir für den Systemton aktivieren, keine Bildschirmaufnahme.</p></li>
+  <li data-step="3"><h3>Vemoir neu starten</h3><p>macOS wendet den Schalter oft erst an, nachdem du die App beendet und wieder geöffnet hast.</p></li>
+</ol>
 
-<Image src={inline2} alt="Schreibtischmikrofon mit Schaumstoff in einem ruhigen Raum" width={700} quality={80} class="w-full" />
+Wenn Systemaudio erlaubt ist und die anderen trotzdem stumm bleiben, prüfst du als Nächstes die Stummschaltung in der Meeting-App, das falsche Ausgabegerät und eine Aufnahme, die nur das Mikrofon eingeschaltet hat. Das sind die Fälle ohne Ton. Die Bildschirmaufnahme behebt sie nicht.
 
-<p><em>Photo by <a href="https://unsplash.com/@productschool?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">productschool</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
-Wenn Systemaudio erlaubt ist und die anderen trotzdem stumm bleiben, prüfst du als Nächstes Stummschaltung in der Meeting-App, das falsche Ausgabegerät, und eine Aufnahme, die nur das Mikrofon scharfgeschaltet hat. Das sind die Fälle ohne Ton. Die Bildschirmaufnahme behebt sie nicht.
-
-Kopfhörer ändern die Berechtigung nicht. Der Schalter gilt für die App, nicht für das Ausgabegerät. Der Tap hört die Ausgabe des Mac, auch wenn der Ton in den Hörern landet und die Lautsprecher still sind. Ein Bluetooth-Gerät kann die Stimme verzögern, das ist kein fehlender Ton. Wenn du nach dem Umschalten der Berechtigung immer noch Stille hast, beende Vemoir ganz, auch das Symbol in der Menüleiste, und öffne es neu, bevor du die Aufnahme noch einmal startest.
+Kopfhörer ändern die Berechtigung nicht. Der Schalter gilt für die App, nicht für das Ausgabegerät. Der Tap hört die Ausgabe des Mac, auch wenn der Ton in den Hörern landet und die Lautsprecher still sind. Ein Bluetooth-Gerät kann die Stimme verzögern. Das ist kein fehlender Ton. Hast du nach dem Umschalten der Berechtigung immer noch Stille, beende Vemoir ganz, auch das Symbol in der Menüleiste, und öffne es neu, bevor du die Aufnahme noch einmal startest.
 
 ## Was gespeichert wird
 
 Vemoir hält Mikrofon und Systemaudio als getrennte lokale Spuren. Nach dem Stopp entsteht das Transkript aus dem fertigen Audio auf dem Mac. Eine Zeile, die während der Aufnahme mitläuft, ist eine Vorschau. Sie ist nicht der Record, den du behältst.
 
-Transkription und Sprechertrennung bleiben auf dem Gerät. Notizen laufen standardmässig auf dem Gerät. Wenn du einen eigenen API-Schlüssel für Text einschaltest, geht das Audio dafür nicht raus, und die App wechselt nicht still auf ein Cloud-Modell, wenn das lokale scheitert. Sind die Modelle installiert, kann die Sitzung offline verarbeitet werden. Internet brauchst du für den ersten Download.
+<aside class="blog-callout">
+  <span class="blog-kicker">Korrektur</span>
+  <p>Ältere Anleitungen nennen die Bildschirmaufnahme für den Sitzungston. Vemoir nutzt System Audio Recording und speichert kein Bildschirmvideo.</p>
+</aside>
 
-Du entscheidest, ob das Audio nach einem erfolgreichen Durchlauf bleibt. Eine Zusammenfassung zu teilen hängt die Spuren nicht an, ausser du teilst diese Dateien ausdrücklich. Der Text ist das, was du kopierst. Siehe [Export](/de#exports).
+Transkription und Sprechertrennung bleiben auf dem Gerät. Notizen laufen standardmässig auf dem Gerät. Schaltest du einen eigenen API-Schlüssel für Text ein, geht das Audio dafür nicht raus, und die App wechselt nicht still auf ein Cloud-Modell, wenn das lokale scheitert. Sind die Modelle installiert, kann die Sitzung offline verarbeitet werden. Internet brauchst du für den ersten Download.
 
-Sprecherlabels aus dieser Aufnahme entstehen auf dem Mac, danach benennst du sie um. Der Browser hört Systemaudio überhaupt nicht, und er erfindet keine Sprecher aus einer Datei. Eine Datei bis 15 Minuten ist der Browser-Versuch. Live-Systemaudio ist das nicht.
+Du entscheidest, ob das Audio nach einem erfolgreichen Durchlauf bleibt. Eine geteilte Zusammenfassung hängt die Spuren nicht an, ausser du teilst diese Dateien ausdrücklich. Der Text ist das, was du kopierst. Siehe [Export](/de#exports).
+
+Sprechernamen aus dieser Aufnahme entstehen auf dem Mac. Danach benennst du sie um. Der Browser hört Systemaudio überhaupt nicht und erfindet keine Sprecher aus einer Datei. Eine Datei bis 15 Minuten ist der Versuch im Browser. Live-Systemaudio ist das nicht.
 
 ## Was diese Berechtigung nicht ist
 
-- Keine Bildschirmaufnahme, kein Screenshot-Werkzeug, keine Kamera.
+- Keine Bildschirmaufnahme, kein Werkzeug für Screenshots, keine Kamera.
 - Kein Bot in der Teilnehmerliste.
 - Keine Erlaubnis, den Leuten die Aufnahme zu verschweigen. Die Einwilligung bleibt bei dir.
 - Kein Windows, kein iPhone, kein Intel-Mac.
-- Nicht der Browser. Keine Vemoir-Seite nimmt Systemaudio in einem Tab auf.
+- Nicht der Browser. Keine Seite von Vemoir nimmt Systemaudio in einem Tab auf.
 
-QuickTime und andere Mac-Apps nutzen die Bildschirmaufnahme, wenn du einen Film vom Display willst. Ton kann da ein Nebeneffekt des Videos sein. Wenn du ein Transkript eines Gesprächs willst, ist ein Bildschirmfilm der schwere Weg zum Ton, und Minuten hast du danach immer noch nicht, bis etwas transkribiert. Systemaudio, so wie Vemoir es nutzt, lässt den Film weg.
+QuickTime und andere Mac-Apps nutzen die Bildschirmaufnahme, wenn du einen Film vom Display willst. Der Ton kann da ein Nebeneffekt des Videos sein. Willst du ein Transkript eines Gesprächs, ist ein Bildschirmfilm der umständliche Weg zum Ton. Ein Protokoll hast du danach immer noch nicht, bis etwas transkribiert. Systemaudio, so wie Vemoir es nutzt, lässt den Film weg.
 
 ## Häufige Fragen
 
@@ -80,7 +76,7 @@ Systemaudio ist der Ton der anderen, so wie der Mac ihn abspielt. Das Mikrofon b
 
 ### Ich habe die Bildschirmaufnahme erlaubt, und das Gespräch ist still. Was jetzt?
 
-Die Bildschirmaufnahme ist für diese App das falsche Kästchen. Prüfe Systemaudioaufnahme und Mikrofon, dann öffne Vemoir neu. Schalte die Meeting-App aus der Stummschaltung und prüfe, ob du die Aufnahme in der Menüleiste gestartet hast. Eine verweigerte Systemaudioaufnahme lässt Stille oder nur das Mikrofon.
+Die Bildschirmaufnahme ist für diese App das falsche Kästchen. Prüfe Systemaudioaufnahme und Mikrofon, dann öffne Vemoir neu. Nimm die Meeting-App aus der Stummschaltung und prüfe, ob du die Aufnahme in der Menüleiste gestartet hast. Ist die Systemaudioaufnahme verweigert, bleibt Stille, oder du hörst nur das Mikrofon.
 
 ### Lädt die Systemaudioaufnahme das Gespräch hoch?
 
@@ -92,7 +88,7 @@ Nein. Die freien Werkzeuge nehmen eine Datei, die du schon hast, bis 15 Minuten,
 
 ### Nimmt das ein Telefon auf, das nicht über den Mac läuft?
 
-Nein. Systemaudio ist Ton, den der Mac abspielt. Ein Hörer am Ohr oder ein Telefonlautsprecher, den der Mac nie hört, liegt ausserhalb dieses Taps. Das Mikrofon kann einen lauten Lautsprecher im Raum aufnehmen. Das ist Raumton, nicht die Systemaudio-Spur.
+Nein. Systemaudio ist Ton, den der Mac abspielt. Ein Hörer am Ohr oder ein Telefonlautsprecher, den der Mac nie hört, liegt ausserhalb dieses Taps. Das Mikrofon kann einen lauten Lautsprecher im Raum aufnehmen. Das ist Raumton, nicht die Spur des Systemaudios.
 
 ### Gilt die Berechtigung für jede Meeting-App?
 
@@ -100,6 +96,6 @@ Sie gilt für Ton, den diese Apps auf dem Mac abspielen. Es ist keine Teams-Inte
 
 ### Wird der Bildschirm aus Versehen gespeichert?
 
-Nein. Der Aufnahmepfad nimmt keine Bildschirmbilder und kein Video. Wenn eine andere App das Display aufnimmt, kommt diese Datei von jener App, nicht von dieser Berechtigung.
+Nein. Der Aufnahmepfad nimmt keine Bildschirmbilder und kein Video. Nimmt eine andere App das Display auf, kommt diese Datei von jener App, nicht von dieser Berechtigung.
 
 Nächster Schritt: Systemaudioaufnahme erlauben, dann [wie die Aufnahme läuft](/de#capture) vor dem nächsten Gespräch lesen. Die Installation ist der [Mac App Store](https://apps.apple.com/app/id6794693630).

@@ -11,9 +11,6 @@ image: "@/assets/blog/evidence-in-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/evidence-in-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/evidence-in-meeting-notes/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@lereverdo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">lereverdo</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Les **preuves dans les notes de réunion** sont un renvoi d’une affirmation vers la ligne qui la soutient. Le résumé peut être court. Le renvoi permet à quelqu’un qui n’était pas dans la salle, ou qui s’en souvient autrement, de vérifier le libellé sans rejouer tout l’appel.
@@ -34,9 +31,12 @@ Un paragraphe poli sans trace est facile à transmettre et difficile à défendr
 Ici, une preuve est le passage horodaté de la transcription dont une phrase ultérieure dépend. Ce n’est pas la phrase elle-même. Ce n’est pas votre impression du ton. Ce sont les mots captés, dans l’ordre, à partir de l’audio terminé.
 
 
-<Image src={inline1} alt="Carnet ouvert avec un ruban marque-page" width={700} quality={80} class="w-full" />
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Resume</span><strong>Court</strong><p>Pratique a parcourir. Facile a mal lire sans source.</p></li>
+  <li><span class="blog-kicker">Transcription</span><strong>Verbatim</strong><p>La ligne vers laquelle Ask peut renvoyer.</p></li>
+  <li><span class="blog-kicker">Export</span><strong>Votre choix</strong><p>Partager le compte rendu sans l'audio brut.</p></li>
+</ul>
 
-<p><em>Photo by <a href="https://unsplash.com/@katemacate?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">katemacate</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Cette séparation compte parce que les notes et la transcription n’ont pas le même travail. La transcription est longue et irrégulière. Les notes sont ce que vous envoyez. Entre les deux se trouve un jugement : quelles lignes sont devenues une décision, lesquelles une tâche, lesquelles sont restées de la conversation. La preuve est le chemin de retour de ce jugement vers les lignes.
 
@@ -51,9 +51,11 @@ Les étapes pour poser une question dans le chat et suivre une citation sont dan
 Lisez un résumé comme un ensemble d’affirmations, même quand la prose est lisse.
 
 
-<Image src={inline2} alt="Pages de transcription sous une courte carte de resume" width={700} quality={80} class="w-full" />
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Les liens de preuve ne certifient pas juridiquement. Conservation et consentement vous incombent.</p>
+</aside>
 
-<p><em>Photo by <a href="https://unsplash.com/@ryuldavidson?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ryuldavidson</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - « Nous avons convenu de suspendre les recrutements » affirme un accord, pas seulement une suggestion.
 - « Léa enverra le brouillon vendredi » affirme une personne et une date.

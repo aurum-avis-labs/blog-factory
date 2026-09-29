@@ -12,14 +12,21 @@ image: "@/assets/blog/teams-copilot-data-location-switzerland/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/teams-copilot-data-location-switzerland/inline1.jpg';
-import inline2 from '@/assets/blog/teams-copilot-data-location-switzerland/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@lofted_track?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Basit Abdul</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Teams Copilot data location in Switzerland** is not a single country stamp on every file. Microsoft stores different meeting artifacts in different places: the cloud recording in OneDrive or SharePoint, Copilot prompts and answers as interaction history, and LLM processing on a route that is not always the same as storage at rest. This page summarizes Microsoft's own Learn articles as of September 2026. It is not legal advice, and it does not decide whether Copilot fits your tenant or your client contract.
 
 If your bar is "the audio stays on this Mac unless I export it," Teams Copilot is a different product shape. It runs inside Microsoft 365. A local capture on the Mac is a second path. Both can be valid when the organization has read the same pages.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Tenant home</span><strong>Your region</strong><p>Microsoft 365 data residency follows the tenant, not every AI feature.</p></li>
+  <li><span class="blog-kicker">Copilot processing</span><strong>Varies</strong><p>Some Copilot workloads use Microsoft-controlled regions; read the current map.</p></li>
+  <li><span class="blog-kicker">Swiss bar</span><strong>Contract</strong><p>nLPD and your DPA decide what is acceptable, not this article.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Feature lists change on Microsoft Learn. Check the page date before a procurement review.</p>
+</aside>
 
 ## Contents
 
@@ -37,10 +44,6 @@ If your bar is "the audio stays on this Mac unless I export it," Teams Copilot i
 Microsoft added Copilot as a covered workload in its data-residency Product Terms on 1 March 2024. The privacy article [Data, Privacy, and Security for Microsoft Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy) (checked September 2026) says Copilot upholds the residency commitments in the Product Terms and the Data Protection Addendum. Advanced Data Residency and Multi-Geo include Copilot from that same date.
 
 
-<Image src={inline1} alt="Swiss lake light on papers at a wooden desk" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@thierry_biland?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Thierry Biland</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Switzerland appears on Microsoft's lists of countries where **local-region** residency can apply to core Microsoft 365 services (Exchange Online, SharePoint Online, Teams) and, for some Copilot components, to interaction content at rest. That is a Product Terms condition, not a guarantee that your tenant was provisioned in Switzerland. A Swiss company that signed up under another country, or that never set Preferred Data Location (PDL), can still have data at rest outside Switzerland.
 
 The residency page [Data Residency for Microsoft Copilot and Copilot Chat](https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-service-copilot) currently points Copilot and Copilot Chat at the core "no modifications" commitments, and lists Switzerland among default geographies for Copilot Cowork interaction content. Read the live page. Workload tables change.
@@ -54,10 +57,6 @@ Two other Microsoft sentences matter for a Swiss reader and are easy to mix up:
 
 When someone uses Copilot in Word, Excel, PowerPoint, Teams meetings, and the other listed apps, Microsoft stores the **content of interactions**: the prompt, the response, and citations used to ground the answer. That record is the user's Copilot activity history. Microsoft says this history is what powers Copilot history in Copilot Chat **and in meetings in Microsoft Teams**.
 
-
-<Image src={inline2} alt="Documents on a desk with an alpine town in the window" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@vincent_61?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">VINCENZO INZONE</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Microsoft says that data is encrypted at rest, processed under the same contractual commitments as other Microsoft 365 content, and **is not used to train foundation LLMs**, including those used by Copilot. Prompts, responses, and data accessed through Microsoft Graph are included in that no-training sentence.
 

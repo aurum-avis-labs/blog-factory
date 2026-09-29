@@ -12,14 +12,22 @@ image: "@/assets/blog/turn-transcript-into-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/turn-transcript-into-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/turn-transcript-into-meeting-notes/inline2.jpg';
 
 <p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 You turn a transcript into meeting notes when the words already exist and the reader needs the outcome. The notes are a short page: what was decided, what is still open, and which actions have one owner and a date. The transcript stays in the folder as the evidence. Sending the transcript and calling it notes wastes the reader's time. Asking a model to "make it nice" without reading the result invents owners.
 
 This path starts from text. If you only have audio, transcribe first. A local Zoom file with no VTT is described in [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording). The blank protocol, if you would rather type it yourself, is the [meeting minutes template](/blog/meeting-minutes-template).
+
+<ol class="blog-flow">
+  <li><strong>Skim</strong><p>Read headings and timestamps, not every filler word.</p></li>
+  <li><strong>Extract</strong><p>Pull decisions, actions, and open questions into a template.</p></li>
+  <li><strong>Verify</strong><p>Send draft actions to owners before the external email.</p></li>
+</ol>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>The browser tool can draft from a file you already have; it does not record live meetings.</p>
+</aside>
 
 ## Contents
 
@@ -35,10 +43,6 @@ This path starts from text. If you only have audio, transcribe first. A local Zo
 [Meeting notes from a transcript](/tools/meeting-notes-from-transcript) takes a paste or a file that is already words: a Zoom VTT, a Teams export, an SRT, or a plain dump. It does not listen to a live call. It does not join Zoom. You are past the meeting.
 
 
-<Image src={inline1} alt="A highlighter and a short summary card on a desk" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@cherrydeck?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Cherrydeck</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 The notes pass uses a model, so a successful run counts toward the three runs a week shared by the transcription tools. Cleaning a VTT does not. Filling the minutes sheet does not. If you have a weekly budget of three, do not spend one on a file you have not even skimmed.
 
 Limits that still apply elsewhere: audio transcription in the browser stops at 15 minutes. A long transcript you already exported is not that audio cap. A very large paste can still be truncated. If the page says the text was cut, do not trust a draft that never saw the last third of the call. Split the paste by agenda item and read each draft, or move the long recording to the Mac, where the meeting library is built for full calls.
@@ -49,10 +53,6 @@ There is no account. The work stays in the tab.
 
 Cue numbers and timestamps confuse a notes draft and they confuse you. Drop a VTT or SRT on the [transcript cleaner](/tools/transcript-cleaner) first. You get `Name: text` where a name existed. You get bare sentences where it did not. The cleaner will not invent speakers.
 
-
-<Image src={inline2} alt="Someone rewriting notes from a stack of pages" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Then delete, by hand, the parts that are not the meeting: a caption test, hold music noted as words, or the rolling line that repeated. Leave disagreements and conditions. Those are the lines a summary is most likely to sand away, and you want them visible when you review.
 

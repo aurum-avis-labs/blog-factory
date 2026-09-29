@@ -11,10 +11,6 @@ image: "@/assets/blog/record-discord-call-mac/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/record-discord-call-mac/inline1.jpg';
-import inline2 from '@/assets/blog/record-discord-call-mac/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Enregistrer un appel Discord sur Mac**, c'est capturer le son que Discord joue déjà, plus votre micro, sur l'ordinateur devant vous. Discord ne vous remet pas un dossier façon Zoom de fichiers locaux quand un salon vocal se termine. S'il vous faut une transcription, vous partez avec un fichier que vous avez capturé, ou vous acceptez que l'appel n'ait existé que comme son en direct. Vemoir est la capture depuis la barre de menus pour ce fichier. L'app ne rejoint pas le salon comme un bot.
 
@@ -32,11 +28,6 @@ L'app Mac est un achat unique. En Suisse elle coûte **CHF 20**. L'App Store aff
 
 Un appel vocal ou vidéo Discord est en direct. Quand il se termine, les messages du salon restent. La parole ne devient pas une transcription téléchargeable, sauf si quelqu'un a enregistré ou si un bot installé sur le serveur a fait ce travail. Les bots de serveur qui enregistrent ou transcrivent sont visibles pour les personnes qui gèrent le serveur, et ce sont un autre produit qu'une app sur votre Mac. Si les règles du serveur interdisent les bots, n'en ajoutez pas pour obtenir une transcription.
 
-
-<Image src={inline1} alt="Bureau a domicile la nuit, casque et portable ferme" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Les salons Stage, les partages d'écran et les streams Go Live restent du son, parfois de la vidéo, qui sort de l'app Discord sur votre Mac. Une capture d'audio système entend ce que le Mac entend. Elle ne télécharge pas les serveurs de Discord et n'atteint pas un participant dont le client n'a jamais joué sur votre machine. Si quelqu'un parlait et que vous l'aviez en sourdine, il manquera. L'enregistrement correspond à vos oreilles.
 
 C'est à vous de le dire au salon. Une app locale ne poste pas un message «&nbsp;enregistrement démarré&nbsp;» dans Discord. Dans beaucoup d'endroits, le consentement n'est pas facultatif. Une transcription ne le crée pas après coup.
@@ -51,10 +42,12 @@ C'est à vous de le dire au salon. Une app locale ne poste pas un message «&nbs
 6. Démarrez l'enregistrement dans la barre de menus. Si l'appel appartient à un client ou un projet, choisissez ce projet avant, pour que le fichier ne soit pas une réunion en vrac. Dites au salon que vous enregistrez.
 7. Arrêtez à la fin de l'appel. La transcription est reconstruite à partir de l'audio terminé sur le Mac. L'aperçu pendant l'appel est un indice, pas le dossier.
 
+<ol class="blog-steps">
+  <li data-step="1"><h3>Appel sur ce Mac</h3><p>Téléphone ou console ne passent pas par l'audio système.</p></li>
+  <li data-step="2"><h3>Choisir la sortie</h3><p>Le casque que vous entendez est la sortie captée.</p></li>
+  <li data-step="3"><h3>Micro et audio système</h3><p>Annoncez l'enregistrement à tout le groupe.</p></li>
+</ol>
 
-<Image src={inline2} alt="Bureau confortable le soir, casque et tasse" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 Discord figure avec les autres apps de réunion sous [plateformes](/fr#platforms). Le même schéma local, sans bot, est le sujet de [notes de réunion sans bot](/fr/blog/notes-reunion-sans-bot).
 
@@ -65,6 +58,12 @@ L'import existe si vous avez déjà un fichier&nbsp;: MP3, M4A, WAV, AIFF, CAF o
 ## Casque, audio de stream, pistes trop basses
 
 L'audio système, c'est «&nbsp;ce que le Mac a joué&nbsp;». Certains montages le rendent plus bas que vos oreilles ne le laissaient croire.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>Discord ne fournit pas d'enregistrement officiel pour chaque espace. Vemoir capture ce que le Mac joue; cela ne change pas les conditions Discord.</p>
+</aside>
+
 
 **Casque USB ou Bluetooth en sortie.** Tant que macOS envoie Discord vers cet appareil et que l'audio système est autorisé, l'appel devrait être sur la piste système. Si vous branchez le casque après le début, faites une pause et vérifiez quelques secondes d'enregistrement avant la vraie conversation. Une piste morte est évidente à l'écoute et pénible à découvrir une heure plus tard.
 

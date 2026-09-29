@@ -11,11 +11,7 @@ image: "@/assets/blog/best-private-meeting-notes/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/best-private-meeting-notes/inline1.jpg';
-import inline2 from '@/assets/blog/best-private-meeting-notes/inline2.jpg';
 
-<p><em>Hero photo by <a href="https://unsplash.com/@amyhirschi?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">amyhirschi</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 The **best private meeting notes** tool is the one that matches the risk you are actually trying to cut. For some people that means no bot in the participant list. For others it means the audio file never sits on a vendor's servers. Those are different products, and a fair list says so.
 
 This comparison uses vendor pages checked in September 2026, plus what the Vemoir Mac app ships: menu-bar recording, transcription on the Mac, no bot, and a one-time App Store price of CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, or $22.99 in the US. It is not a ranking of transcription accuracy. It is not legal advice.
@@ -34,14 +30,16 @@ This comparison uses vendor pages checked in September 2026, plus what the Vemoi
 - [Limits that stay true whichever row you pick](#limits-that-stay-true-whichever-row-you-pick)
 - [Frequently asked questions](#frequently-asked-questions)
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Bot</span><strong>Visible guest</strong><p>Otter and Fireflies join as participants.</p></li>
+  <li><span class="blog-kicker">Audio file</span><strong>On Mac</strong><p>Vemoir and MacWhisper keep files local by design.</p></li>
+  <li><span class="blog-kicker">Granola</span><strong>No bot</strong><p>Notes still sync to its US cloud unless you read enterprise terms.</p></li>
+</ul>
+
 ## What private usually means
 
 Ask four questions before the brand name:
 
-
-<Image src={inline1} alt="A locked desk drawer and a closed notebook" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 1. Does another person appear in the meeting?
 2. Does the audio leave the Mac?
@@ -57,10 +55,6 @@ None of these answers replace consent. Recording people is still your responsibi
 Vemoir is a Mac app from Aurum Avis Labs GmbH in Oberägeri. It records the microphone and system audio as two local tracks. You start and stop from the menu bar. No bot joins Teams, Zoom, Meet, Slack, Discord, or any other app that plays sound on the Mac. The call track uses System Audio Recording, an audio-only Core Audio tap. It does not record the screen.
 
 
-<Image src={inline2} alt="Cream cards on a desk set back from the windows" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@wocintechchat?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">wocintechchat</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-
 Speech-to-text runs on the Mac with the model you install: Parakeet v3 (25 European languages) or Whisper Turbo, Medium, or Large-v3. Notes, documents, and Ask use a local language model, Qwen3 4B on most Macs or gpt-oss-20b on high-memory Macs, or Apple Intelligence where the Mac has it, or an OpenAI or Anthropic key you store in the Keychain and activate yourself. That key is text only. Audio and speaker separation stay on the Mac. There is no silent fallback to a cloud transcriber.
 
 Speaker names start anonymous. You can rename a label without creating a profile. Remember this speaker is opt-in, encrypted, and deletable. A project glossary keeps preferred spellings. The original transcript stays the evidence.
@@ -68,6 +62,23 @@ Speaker names start anonymous. You can rename a label without creating a profile
 Requirements: Apple silicon, macOS Sonoma 14.2 or later, 8 GB of memory, 10 GB free, 16 GB recommended for long meetings. Intel Macs are not supported. If you only have a short file, [transcribe a recording](/tools/transcribe-recording) runs in the browser, up to 15 minutes, three successful runs a week, no speaker labels, file not uploaded. That trial is not the live app.
 
 A longer map of capture without a bot is in [meeting notes without a bot](/blog/meeting-notes-without-a-bot).
+
+<div class="blog-pair">
+  <div>
+    <h3>Pick cloud when</h3>
+    <ul>
+      <li>Shared search across a sales team</li>
+      <li>Bot already approved by IT</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Pick local when</h3>
+    <ul>
+      <li>Client contract forbids US processors</li>
+      <li>You need no guest in the room</li>
+    </ul>
+  </div>
+</div>
 
 ## MacWhisper
 

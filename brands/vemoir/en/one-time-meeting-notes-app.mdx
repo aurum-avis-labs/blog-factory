@@ -11,10 +11,6 @@ image: "@/assets/blog/one-time-meeting-notes-app/hero.jpg"
 draft: false
 ---
 
-import { Image } from 'astro:assets';
-import inline1 from '@/assets/blog/one-time-meeting-notes-app/inline1.jpg';
-import inline2 from '@/assets/blog/one-time-meeting-notes-app/inline2.jpg';
-
 <p><em>Hero photo by <a href="https://unsplash.com/@ryunosuke_kikuno?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ryunosuke_kikuno</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 A **one-time meeting notes app** is a purchase you make once, then use on that Mac without a seat count or a monthly renewal. Vemoir is that app, sold on the Mac App Store for **CHF 20** in Switzerland, **€24.99** in Germany, Austria, France, and Italy, and **$22.99** in the US. There is no subscription, no charge per meeting, and no extra price for a feature that shipped in the app.
 
@@ -33,10 +29,23 @@ That price is for the Mac app. The free tools on the website are separate: they 
 
 Vemoir records from the menu bar. It captures your microphone and the Mac’s system audio as separate local tracks, so a call in Teams, Zoom, Meet, Slack, Discord, or another app that plays sound on the Mac can be recorded without a bot joining the participant list. You start and stop the recording. Nobody on the call sees an extra guest.
 
+<div class="blog-pair">
+  <div>
+    <h3>Who it fits</h3>
+    <ul>
+      <li>You want one Mac purchase, no seat renewal</li>
+      <li>Audio should stay on the device by default</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip it</h3>
+    <ul>
+      <li>Ten people need the same searchable archive tomorrow</li>
+      <li>You need Windows or phone capture</li>
+    </ul>
+  </div>
+</div>
 
-<Image src={inline1} alt="One coin and a paper bag on an oak table" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@eugenechystiakov?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">eugenechystiakov</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 macOS asks you to allow **System Audio Recording** for that tap. It is audio only. The app does not record the screen. You also allow the microphone if you want your own voice on its own track. Details sit on [capture](/#capture). Which apps this covers is on [platforms](/#platforms).
 
@@ -50,10 +59,12 @@ Once the models you chose are downloaded, the meeting workflow can run offline. 
 
 On the Mac App Store:
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Store</span><strong>One payment</strong><p>No per-meeting fee from Vemoir.</p></li>
+  <li><span class="blog-kicker">Models</span><strong>On Mac</strong><p>Transcription runs locally by default.</p></li>
+  <li><span class="blog-kicker">Cloud text</span><strong>Opt-in key</strong><p>Your API key for summaries, not silent upload.</p></li>
+</ul>
 
-<Image src={inline2} alt="A single boxed notebook on a quiet desk" width={700} quality={80} class="w-full" />
-
-<p><em>Photo by <a href="https://unsplash.com/@aaronburden?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">aaronburden</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 
 - **CHF 20** in Switzerland
 - **€24.99** in Germany, Austria, France, and Italy
