@@ -1,0 +1,25 @@
+name: Scheduled blog publish
+
+on:
+  schedule:
+    - cron: "15 5 */2 * *"
+  workflow_dispatch: {}
+
+jobs:
+  dispatch-due:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Dispatch brands with posts due since last deploy
+        run: npx tsx scripts/dispatch-due-deploys.ts
+        env:
+          CROSS_REPO_PAT: ${{ secrets.CROSS_REPO_PAT }}
