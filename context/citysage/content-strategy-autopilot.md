@@ -116,7 +116,7 @@ Document cross-links in each writing PR until a formal link map is added here.
 
 - Topic backlog: `context/citysage/topic-queue-2026-q4.md`  
 - ICP: attached `citysage-icp` (Robert, 2026-09-26)  
-- Post schema & funnel rules: `AGENTS.md`, `writing-instructions.md` (brand-specific brief overrides when added)
+- Post schema and funnel rules: `.cursor/skills/seo-blog/SKILL.md` (this brief overrides the skill when they conflict)
 
 ## 13. Autopilot handoff (for the writing agent)
 

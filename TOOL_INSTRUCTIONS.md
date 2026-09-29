@@ -1,5 +1,7 @@
 # Blog Factory — Local Tool Instructions for Claude Code
 
+This document is the spec for the local Express app in `tool/`. It is not the blog-writing guide. Agents that write or queue posts follow `.cursor/skills/seo-blog/SKILL.md`. Keep this app's output compatible with that schema (`hero.jpg`, `translationKey`, `draft`, funnel rules).
+
 This document contains everything needed to build the `tool/` local web app inside the `blog-factory` repository. Read this fully before writing any code.
 
 ---

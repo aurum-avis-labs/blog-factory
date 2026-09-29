@@ -1229,19 +1229,6 @@ function bindSettings() {
     .then(d => { document.getElementById('global-instructions').value = d.content || ''; })
     .catch(() => {});
 
-  // Save global instructions
-  document.getElementById('save-instructions-btn').addEventListener('click', async () => {
-    const status = document.getElementById('instructions-save-status');
-    try {
-      await api('/api/instructions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: document.getElementById('global-instructions').value }),
-      });
-      showStatus(status, '✓ Saved to writing-instructions.md');
-    } catch (e) { showStatus(status, '✗ ' + e.message, true); }
-  });
-
   // Brand context — enable/disable helpers
   const setBrandContextEnabled = (enabled) => {
     const textarea   = document.getElementById('brand-context');

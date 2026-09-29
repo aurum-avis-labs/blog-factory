@@ -178,14 +178,25 @@ async function gitCommitAndPush(message: string): Promise<string> {
 
 // ── Writing instructions & brand context helpers ───────────────────────────────
 const INSTRUCTIONS_FILE = resolve(REPO_ROOT, 'writing-instructions.md');
+const SKILL_DIR = resolve(REPO_ROOT, '.cursor/skills/seo-blog');
+const SKILL_FILES = [
+  'SKILL.md',
+  'frontmatter.md',
+  'query-map.md',
+  'batch.md',
+  'images.md',
+  'seo-2026.md',
+];
 
 function readInstructions(): string {
+  const parts = SKILL_FILES.map((name) => {
+    const filePath = resolve(SKILL_DIR, name);
+    if (!existsSync(filePath)) return '';
+    return readFileSync(filePath, 'utf-8');
+  }).filter((part) => part.trim().length > 0);
+  if (parts.length > 0) return parts.join('\n\n');
   if (!existsSync(INSTRUCTIONS_FILE)) return '';
   return readFileSync(INSTRUCTIONS_FILE, 'utf-8');
-}
-
-function saveInstructions(content: string): void {
-  writeFileSync(INSTRUCTIONS_FILE, content, 'utf-8');
 }
 
 // ── Context root: repo/context/{brandId}/ — never watched by deploy pipeline ──
@@ -1876,14 +1887,10 @@ app.get('/api/instructions', (_req: Request, res: Response) => {
 });
 
 // ── POST /api/instructions ─────────────────────────────────────────────────────
-app.post('/api/instructions', (req: Request, res: Response) => {
-  try {
-    const { content } = req.body as { content: string };
-    saveInstructions(content ?? '');
-    res.json({ ok: true });
-  } catch (err) {
-    res.status(500).json({ error: String(err) });
-  }
+app.post('/api/instructions', (_req: Request, res: Response) => {
+  res.status(400).json({
+    error: 'Writing rules live in .cursor/skills/seo-blog/. Edit those files.',
+  });
 });
 
 // ── GET /api/brand-context/:brandId ───────────────────────────────────────────

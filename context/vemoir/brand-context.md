@@ -8,7 +8,7 @@ Each week, write the next 2 or 3 articles from the queue in 3.9. Each article ex
 
 Before writing, read the posts already in `brands/vemoir/` so you do not repeat a topic and can pick real `relatedPosts`.
 
-Where this brief disagrees with `blog-factory/writing-instructions.md`, **this brief wins** for Vemoir. The differences: funnelStage values, author, pricing, and the extra frontmatter fields `translationKey` and `tool`.
+Where this brief disagrees with `.cursor/skills/seo-blog/`, **this brief wins** for Vemoir. The differences: author, pricing, and the extra frontmatter field `tool`.
 
 ## 3.2 Product facts (the only claims you may make)
 
@@ -24,7 +24,7 @@ Vemoir is a Mac app for meeting records, made by Aurum Avis Labs GmbH in Oberäg
 - **Own notes:** notes typed during the meeting become part of the record and are folded into the minutes, decisions and actions.
 - **Speakers:** speaker profiles and project glossaries help Vemoir tell who said what and keep names and terms right. Speaker separation runs on the Mac.
 - **Languages:** the app interface is in English, German, French, Italian and Dutch. With the Parakeet v3 model, Vemoir transcribes 25 European languages. Other models have their own coverage.
-- **Price:** one-time purchase, no subscription, no charge per meeting, no seat count, every feature included. In the Mac App Store: CHF 20 in Switzerland, €24.99 in Germany, Austria, France and Italy, $22.99 in the US. In a German, French or Italian post, say "CHF 20 in Switzerland" and that the App Store shows the local price. You may mention the price in `consideration` posts (this overrides the "no pricing" rule in `writing-instructions.md`).
+- **Price:** one-time purchase, no subscription, no charge per meeting, no seat count, every feature included. In the Mac App Store: CHF 20 in Switzerland, €24.99 in Germany, Austria, France and Italy, $22.99 in the US. In a German, French or Italian post, say "CHF 20 in Switzerland" and that the App Store shows the local price. Mention this price only in `consideration` posts.
 - **Requirements:** Mac with Apple silicon (M1 or newer), macOS Sonoma 14.2 or later, at least 8 GB of memory and 10 GB of free storage. 16 GB or more is recommended for long meetings. Intel Macs are not supported.
 - **App Store:** https://apps.apple.com/app/id6794693630
 
