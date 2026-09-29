@@ -1,0 +1,106 @@
+---
+title: "Lecture Transcription on a Mac From a File or the Room"
+description: "Lecture transcription on a Mac from a file you already have, or from the microphone in the room. Short clips in the browser, long classes on the Mac."
+pubDate: 2026-11-17
+author: "Vemoir Team"
+tags: ["lectures", "transcription", "Mac"]
+funnelStage: "interest"
+translationKey: "lecture-transcription-mac"
+tool: "transcribe-recording"
+relatedPosts: ["transcribe-loom-recording", "import-audio-file-mac", "offline-transcription-mac"]
+image: "@/assets/blog/lecture-transcription-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/lecture-transcription-mac/inline1.jpg';
+import inline2 from '@/assets/blog/lecture-transcription-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@saungdigital?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">saungdigital</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Lecture transcription** on a Mac starts from audio you are allowed to keep: a recording the lecturer already shared, or the microphone in the room while you sit there. It is not a live captions product for the projector, and it is not a promise about how many words will be right. If the institution forbids personal recordings, a local app does not overrule that.
+
+Say it if you are the one holding the mic. A laptop on the desk is easy for the back row to miss.
+
+## Lecture transcription from a file you already have
+
+When the department posts the audio, download it and transcribe the file. Do not re-record the playback through speakers. That second copy adds room noise and loses the cleaner track you were given.
+
+
+<Image src={inline1} alt="University notes and a closed laptop in an auditorium" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@saungdigital?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">saungdigital</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Short files go through [transcribe recording](/tools/transcribe-recording). MP3, M4A, WAV, and MP4. Fifteen minutes. Three successful runs a week. The model downloads once into the browser. The file is not uploaded. There are no speaker labels. A public model usually renders Swiss German as Standard German. The Mac app has the same limit: standard languages, not a dialect mode.
+
+A 90-minute lecture will not fit the browser cap. Do not slice it into unofficial extra runs and then lose the middle when you are revising. Convert video to audio if you need the Mac import, and bring the whole class across.
+
+Import formats on the Mac are MP3, M4A, WAV, AIFF, CAF, and FLAC. An MP4 from a lecture capture is video. Extract the soundtrack first. Then the same on-device pipeline used for a meeting can build a transcript. Speaker labels on one mixed room track, or on a file with a lapel and a hall in the same mix, will be rough. The lecturer may dominate. Questions from the floor may collapse into one voice or into none. Rename a label if you know it. Leave unknowns unnamed. "Remember this speaker" is optional, encrypted, and deletable. For a one-off guest lecturer, leave it off.
+
+## The microphone in the room
+
+There is no separate lecture mode and no separate in-person mode. You select the microphone and press record in the menu bar. System audio stays quiet unless the Mac is playing sound, such as a clip the lecturer started on that machine. The words in the hall are on the mic.
+
+
+<Image src={inline2} alt="A seminar room with chairs, a notebook, and daylight" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@saungdigital?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">saungdigital</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Place the Mac where speech is loud enough. The built-in microphone can cover a small seminar if people are close. A lecture theatre with one laptop in row twelve will miss the front and smear the back. Noise suppression on that mic is Off, Balanced, or Strong, on the Mac, for steady noise such as hum or a projector. It does not pull a quiet question out of a hall, and it does not invent a second microphone.
+
+You start and stop. If you arrive late, the definition at the start is missing. If you forget to stop, the tape includes the break. The app does not notice a class and begin on its own. The live view is a preview. The transcript you keep is built after you stop, on the Mac. Apple silicon, macOS Sonoma 14.2 or later, 8 GB of memory, 10 GB free. 16 GB is the recommendation when the recording is long. Intel Macs and Windows are not supported. The app is on the [Mac App Store](https://apps.apple.com/app/id6794693630).
+
+Transcription stays on the device. Notes can stay on the device. An optional text API key, yours, sends text only if you turn it on. No audio goes with it. No silent fallback if you leave it off. After the speech models are downloaded, the classroom does not need a network for processing. Parakeet v3 covers 25 European languages as standard speech. The interface is English, German, French, Italian, and Dutch.
+
+## What to do with the text
+
+A lecture transcript is a study aid, not minutes of a board.
+
+Mark definitions, examples, and the assignment in your own notes, labeled as yours. Those notes fold into the record with a mark that they are not verbatim evidence. A sentence the model heard is the one you can check: open the transcript and read the passage before you quote it in an essay. If the line is wrong, fix it from the audio. Do not smooth a guess into a quotation.
+
+Search can find a term across lectures you filed in one project. Ask can point at a passage in that meeting, that project, or the active library. Archived and deleted items are left out. A citation that cannot be resolved is not shown as a link. The glossary can hold course terms you care about. It does not rewrite the original transcript.
+
+Keep the audio if you will relisten before an exam, using the retention choice stored when the recording was created. Purge audio later if the policy is text only, and playback goes with it. Delete the recording if you were told not to keep it. Deleting removes the transcript, generated notes, attached actions or decisions, and the recording folder. A file still sitting in Downloads is separate. Remove that yourself.
+
+Copy text out. There is no PDF or DOCX from the app. Paste into whatever notes app the course already uses.
+
+## What this will not do
+
+It will not caption the lecture for someone else in the room in real time. It will not read slides. Music, a silent screen recording, or a video with burned-in text and no speech has nothing for a speech model to transcribe.
+
+It will not tell you an accuracy percentage. Long pauses, a strong accent outside the model's standard languages, two people talking, and a noisy hall all show up as errors you have to read. Budget time to check the parts you will cite.
+
+It will not replace the lecturer's own captions or the accessibility service the institution provides. If the course already publishes a transcript, use that first and treat your file as a backup you were allowed to make.
+
+If you only need to type while you listen, and recording is not allowed, use the [minutes sheet](/tools/minutes-sheet). No model, no upload, a blank page, Markdown when you copy it out.
+
+## Frequently asked questions
+
+### Can I transcribe a whole lecture in the browser?
+
+Not if it is longer than 15 minutes. The browser tool is a short file, three runs a week, no speaker names, nothing uploaded. A full class belongs on the Mac after you have an audio file, or as a microphone recording you started yourself.
+
+### Does the app record the slides?
+
+No. Capture is the selected microphone and system audio. The screen is not recorded. A formula on the board has to be in your typed notes if it was never spoken.
+
+### Will student names in the transcript be reliable?
+
+Not from one room mic. Questions from the seats often share a label or get none. Do not build voice profiles for classmates. Unknown speakers stay anonymous.
+
+### Can I run this on a Windows laptop in the lecture?
+
+Not this app. A short clip can still go through the browser tool. The library path is Apple silicon.
+
+### Is Swiss German a separate result?
+
+No. Expect Standard German from the public browser model, and standard-language text on the Mac. Read the passage before you treat a dialect phrase as settled.
+
+### Who is allowed to record?
+
+The course and the room. Local processing does not grant permission. If recording is banned, do not start the mic.
+
+### What if I need the text for an essay?
+
+Check every quotation against the transcript or the audio. Mark your summary as yours. A wrong line that sounds fluent is still a wrong line.
+
+Start from the file the course already gave you when you have one: [transcribe recording](/tools/transcribe-recording) if it is short, the Mac if it is a full lecture. If you are in the room and allowed to record, use the microphone and stop when the class stops. Capture is described on [the homepage](/#capture).

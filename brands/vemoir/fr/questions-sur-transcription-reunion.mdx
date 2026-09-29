@@ -1,0 +1,106 @@
+---
+title: "Questions sur une transcription de réunion sur Mac"
+description: "Questions sur une transcription de réunion, sur votre Mac. Les réponses peuvent viser la ligne. L'audio reste local, sauf texte activé."
+pubDate: 2026-11-03
+author: "Vemoir Team"
+tags: ["transcription", "questions", "réunion"]
+funnelStage: "consideration"
+translationKey: "ask-questions-about-meeting-transcript"
+relatedPosts: ["apporter-sa-cle-api", "meilleures-notes-reunion-privees", "notes-appel-client-sans-envoi"]
+image: "@/assets/blog/ask-questions-about-meeting-transcript/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/ask-questions-about-meeting-transcript/inline1.jpg';
+import inline2 from '@/assets/blog/ask-questions-about-meeting-transcript/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@marissacristina?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">marissacristina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Vous pouvez poser des **questions sur une transcription de réunion** dès que Vemoir en a une sur le Mac. Ask Vemoir répond depuis une réunion, un projet ou la bibliothèque active, et une réponse peut pointer vers la transcription. L'enregistrement et le modèle de parole sont restés sur la machine. Un modèle cloud n'entre en jeu que si vous avez activé votre propre clé texte, et même alors la requête est du texte, pas de l'audio.
+
+L'app est un achat unique. En Suisse, elle coûte CHF 20. L'App Store affiche le prix local. Poser une question n'ajoute pas de frais par réunion côté Vemoir. Une clé d'API, si vous en activez une, est facturée par ce fournisseur.
+
+## Ce qui est déjà sur le disque
+
+La transcription existe parce que Parakeet v3 ou un modèle Whisper a tourné en local après l'arrêt. Ask n'écoute pas l'appel une seconde fois. Il travaille à partir du texte, de vos notes manuelles et des autres éléments dans le périmètre. Les notes manuelles gardent leur propre origine. Elles ne sont pas citées comme si le micro les avait dites.
+
+
+<Image src={inline1} alt="Pages ouvertes, un doigt pointe, texte illisible" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@lgnwvr?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">lgnwvr</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Ask ouvert depuis une réunion démarre une nouvelle conversation pour cette réunion. Les chats plus anciens restent dans l'historique. Ask ouvert depuis un projet a pour périmètre le projet. Une question sur toute la bibliothèque couvre la bibliothèque active. Les réunions et projets archivés sont exclus. Supprimer une réunion la retire de ce que les questions suivantes peuvent utiliser.
+
+Les réponses peuvent inclure des liens de preuve vers la réunion source et un horodatage. Vemoir limite le nombre de passages qu'une réponse cite, afin que vous obteniez les liens les plus solides plutôt que chaque ligne parcourue. Un lien que vous pouvez ouvrir, c'est le but. Un paragraphe lisse sans ligne à vérifier est un brouillon, pas l'enregistrement.
+
+## Questions sur une transcription de réunion, au bon périmètre
+
+1. Attendez la fin du traitement. Des questions sur un aperçu en direct sont des questions sur un aperçu.
+2. Corrigez les étiquettes d'intervenants que vous savez fausses avant de demander ce que Léna a décidé. Un renommage ne crée pas de profil de voix.
+3. Partez de la réunion si la question porte sur cet appel. Partez du projet si elle porte sur le dernier mois avec ce client.
+4. Lisez les liens de preuve. Si un lien manque, ne traitez pas la phrase comme une citation.
+5. Enregistrez la réponse comme document dans la réunion ou le projet si vous voulez la classer. Enregistrer n'envoie pas l'audio.
+
+
+<Image src={inline2} alt="Deux personnes examinent un document ensemble" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@shamalaa?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">shamalaa</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Si la réponse est fausse, la transcription est toujours là. Modifiez le document. Relancez un tour échoué ou annulé. Un tour interrompu parce que l'app a quitté revient comme annulé, pas comme un fait achevé.
+
+Basculer le modèle d'écriture entre Qwen3 4B et gpt-oss-20b replanifie le tour suivant. Cela ne réécrit pas les réponses déjà données. Ces modèles ne transcrivent pas. Si vous activez une clé OpenAI ou Anthropic, Ask utilise cette source texte jusqu'à ce que vous reveniez en arrière. Il n'y a pas de repli silencieux si la clé échoue.
+
+## Quand Ask est le mauvais outil
+
+Interroger la transcription est le meilleur choix quand le texte est déjà local et que vous voulez une question précise avec un retour vers la ligne. C'est le moins bon choix quand&nbsp;:
+
+- Vous n'avez pas encore de transcription. Enregistrez ou importez un fichier (MP3, M4A, WAV, AIFF, CAF, FLAC) et laissez le modèle de parole terminer.
+- Vous vouliez un chatbot partagé que toute l'équipe interroge dans un navigateur. Ask est sur ce Mac, dans cette bibliothèque.
+- La question a besoin de l'audio parce que la transcription est inutilisable. Écoutez si vous avez gardé l'enregistrement, ou relancez le traitement. Ask n'entend pas un mot que la transcription a manqué.
+- Vous n'avez qu'un fichier de dix minutes et pas l'app. L'outil navigateur sur [/fr/outils/transcrire-audio](/fr/outils/transcrire-audio) peut produire du texte depuis ce fichier, jusqu'à 15 minutes, trois passages réussis par semaine, sans étiquettes d'intervenants. Ce n'est pas Ask, et il n'enregistre pas l'appel suivant.
+
+Chercher un mot dans le projet suffit parfois, sans réponse générée. Cherchez quand vous connaissez le mot. Utilisez Ask quand la décision est formulée de trois façons et que vous avez besoin qu'elles tiennent dans une phrase que vous vérifierez quand même.
+
+L'entrée est [Ask](/fr#chat).
+
+## Une question qui aurait dû être une recherche
+
+«&nbsp;Quel était le plafond du budget&nbsp;» est une bonne question Ask quand le chiffre a été dit une fois, enfoui, et que vous voulez la ligne. «&nbsp;Budget&nbsp;» comme mot unique est une bonne recherche dans le projet, parce que vous reconnaîtrez le résultat vous-même. Prenez l'outil le plus petit d'abord quand vous connaissez le vocabulaire. Prenez Ask quand la décision est dite de trois façons et que vous avez besoin d'une seule réponse dont vous ouvrirez les liens.
+
+Sur une question à toute la bibliothèque, n'excluez rien en croisant les doigts. Si le projet de l'an dernier est archivé, il n'apparaîtra pas. Désarchivez-le si la question porte sur ce travail, ou acceptez que la réponse ne couvre que les éléments actifs. Une mauvaise réponse qui cite une vraie ligne est une lecture que vous pouvez corriger. Une mauvaise réponse sans ligne est une raison d'ignorer la phrase et de lire la transcription. Le prix de l'app Mac ne change pas cette discipline. CHF 20 en Suisse, et le prix local dans l'App Store, achètent l'app, pas une garantie que chaque phrase générée est ce qui a été dit. Si le lien de preuve ouvre la mauvaise minute, la réponse est encore fausse. Dites-le dans le document que vous enregistrez, ou supprimez la phrase avant que quelqu'un d'autre la lise. Une deuxième question dans le même chat ne répare pas la première réponse. Corrigez la première, ou supprimez-la, avant de partager le fil.
+
+## Questions fréquentes
+
+### Les réponses citent-elles la transcription&nbsp;?
+
+Elles peuvent renvoyer vers la réunion source et un horodatage. Ouvrez le lien. La limite du nombre de passages cités sert à garder la réponse lisible.
+
+### Ask envoie-t-il l'audio&nbsp;?
+
+Non, pas par défaut. La reconnaissance vocale a déjà tourné sur le Mac. Une clé d'API optionnelle n'envoie que du texte, après activation, et un échec ne bascule pas en silence vers un autre service.
+
+### Puis-je interroger plusieurs réunions&nbsp;?
+
+Oui. Périmètre projet ou bibliothèque active. Les éléments archivés sont laissés de côté. Supprimer une réunion la retire des questions suivantes.
+
+### Quel modèle rédige la réponse&nbsp;?
+
+La source texte active&nbsp;: un modèle local comme Qwen3 4B ou gpt-oss-20b, Apple Intelligence là où le Mac l'a pour ce chemin d'écriture, ou une clé OpenAI ou Anthropic activée. Le modèle de parole est un autre choix.
+
+### Que se passe-t-il si l'app quitte au milieu d'une réponse&nbsp;?
+
+Le tour revient comme annulé et peut être relancé. Il n'est pas stocké comme réponse terminée.
+
+### Ask invente-t-il des noms d'intervenants&nbsp;?
+
+Non. Les intervenants inconnus restent anonymes tant que vous ne les avez pas nommés ou n'avez pas activé un profil. Ask travaille avec les étiquettes du dossier.
+
+### Est-ce inclus dans le prix unique&nbsp;?
+
+Oui, comme fonction de l'app Mac. Les frais d'API du fournisseur, si vous utilisez une clé, sont en plus et ne sont pas un abonnement Vemoir.
+
+### Puis-je interroger les outils gratuits du navigateur&nbsp;?
+
+Ces outils transcrivent ou nettoient un fichier. Ils ne sont pas l'Ask limité à une réunion dans l'app Mac. Les longs appels et la capture en direct appartiennent au Mac.
+
+Posez la question depuis la réunion que vous venez de terminer, ouvrez un lien de preuve, et corrigez la phrase si le lien ne la soutient pas. La commande est sous [Ask](/fr#chat).

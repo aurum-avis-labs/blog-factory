@@ -1,0 +1,153 @@
+---
+title: "Turn Zoom VTT to Plain Text for a File You Can Read"
+description: "Zoom VTT to plain text means dropping the cue times and keeping names that are already in the file. A local Zoom recording is not a VTT."
+pubDate: 2026-10-17
+author: "Vemoir Team"
+tags: ["zoom", "vtt", "transcript"]
+funnelStage: "interest"
+translationKey: "zoom-vtt-to-plain-text"
+relatedPosts: ["export-teams-transcript", "messy-meeting-transcript", "transcribe-zoom-local-recording"]
+tool: "transcript-cleaner"
+image: "@/assets/blog/zoom-vtt-to-plain-text/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/zoom-vtt-to-plain-text/inline1.jpg';
+import inline2 from '@/assets/blog/zoom-vtt-to-plain-text/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@diana_pole?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Diana Polekhina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Zoom VTT to plain text is a formatting step. A cloud recording's audio transcript is a `.vtt` file: a `WEBVTT` header, cue times, and the words. Plain text is those words, with a speaker name only when Zoom already stored one. If what you have is `audio_only.m4a` from a local recording, you do not have a VTT. That file is audio. Turning it into text is transcription, which is a different article: [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording).
+
+Zoom documents the split on its file-format page (checked September 2026): [recording file formats](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394). VTT is the audio transcription of a cloud recording. Closed captions may be a separate `cc.vtt`. Local recordings are MP4 and M4A, not a transcript.
+
+## Contents
+
+- [Which Zoom file you actually have](#which-zoom-file-you-actually-have)
+- [Where a cloud VTT comes from](#where-a-cloud-vtt-comes-from)
+- [Zoom VTT to plain text](#zoom-vtt-to-plain-text)
+- [What the plain text should still contain](#what-the-plain-text-should-still-contain)
+- [From plain text to notes](#from-plain-text-to-notes)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## Which Zoom file you actually have
+
+On a Mac, a local recording lands in a dated folder, often under `Documents/Zoom`. The useful audio file is `audio_only.m4a`. There is also a video MP4 if you recorded video. Zoom does not write a transcript for that local folder just because you clicked Record. Cloud audio transcription is an account feature for cloud recordings, not for the files Zoom saved on the computer.
+
+
+<Image src={inline1} alt="Plain pages stacked beside a closed laptop" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@kate_gliz?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Kateryna Hliznitsova</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+In the cloud portal, a processed transcript shows up as a VTT next to the recording when "create audio transcript" (or the newer meeting-summary transcript, depending on the account) is enabled. Hosts download it from the recording page: hover **Audio transcript** and use the download control, as Zoom describes for cloud recordings. Admins and hosts may also see transcripts under Recordings and Transcripts when Meeting Summary retention is on. Those are Zoom's own help pages, and the labels differ by product. If you do not see a VTT, do not rename the M4A and hope.
+
+Language coverage is not "whatever was spoken." Older Zoom documentation for cloud audio transcription said it applied to English. Newer summary and transcript products list their own languages in Zoom's current articles. Check the page for the feature you actually turned on before you promise a German VTT from a setting that only covered English.
+
+## Where a cloud VTT comes from
+
+A typical audio-transcript VTT looks like this:
+
+
+<Image src={inline2} alt="Lined paper next to a simple printout" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@karepesinde?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Cht Gsml</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+```text
+WEBVTT
+
+1
+00:00:04.000 --> 00:00:07.500
+Jane Doe: We can ship the notes, not the recording.
+
+2
+00:00:07.500 --> 00:00:09.200
+Jane Doe: I'll send them today.
+```
+
+Sometimes the name is a voice tag, `<v Jane Doe>text</v>`, which is the same idea as a Teams export. Sometimes a machine diarization label appears as `Speaker 1`. Sometimes there is no name, only the sentence under the time line.
+
+The header, the cue index, and the `-->` line are not speech. They are how a video player knows when to show the line. A person reading the meeting does not want them. A search for a decision does not want them either.
+
+`cc.vtt` is closed caption text. It can be shorter or timed differently from the audio transcript VTT. Clean the file you meant. Do not concatenate both and call it one conversation.
+
+## Zoom VTT to plain text
+
+Use the [transcript cleaner](/tools/transcript-cleaner). Drop the `.vtt` or paste it.
+
+What changes:
+
+- `WEBVTT` goes away.
+- Cue numbers go away.
+- Timestamp lines go away.
+- A name that was already there stays, as `Name: text`.
+- Back-to-back cues from the same speaker are joined.
+
+What does not change:
+
+- The words. Fillers stay. A wrong name that Zoom wrote stays until you edit it.
+- Missing names stay missing. The page tells you when it found none. It does not invent `Speaker 1` to make the file look structured.
+- The language. Nothing is translated.
+
+This clean does not spend a weekly model run. The three runs are for speech-to-text and for notes that call a model. You can tidy a VTT even if you have already used the week's transcription runs.
+
+Keep the original VTT. The plain text is for reading and for notes. The VTT is what you compare if a time or a cue matters, and it is what Zoom gave you if anyone asks for the export.
+
+## What the plain text should still contain
+
+Read it once before you forward it.
+
+**Names you trust.** `Jane Doe:` from a signed-in participant is usable. `Speaker 1:` only means "same label as the other Speaker 1 lines," and only if Zoom actually separated them. Map it before you put that label in a mail as a person.
+
+**Corrections.** If someone said the date, then corrected it, both lines should still be in the text. Do not delete the first date just because the second one is the one you prefer. Minutes may keep only the corrected date. The transcript should keep the correction visible.
+
+**Chat.** `chat.txt` in a local Zoom folder is the meeting chat, not the audio transcript. Do not merge it into the VTT output. People type things they did not say out loud.
+
+**A local M4A you wished was a VTT.** Stop. Plain text does not exist yet. A file of 15 minutes or less can go through [transcribe a Zoom recording](/tools/transcribe-zoom-recording) in the browser. The file is not uploaded. There are no speaker labels. Longer meetings are the Mac app: import the M4A, or record the next call from the menu bar. System audio uses the System Audio Recording permission, audio only.
+
+## From plain text to notes
+
+Plain text is still a transcript. It is just readable. Meeting notes are shorter.
+
+1. Skim the plain text for decisions and for "I'll" plus a name.
+2. If you want a draft, open [meeting notes from a transcript](/tools/meeting-notes-from-transcript) and paste the plain text. That step does use a weekly run. Cut any owner the draft added without support.
+3. File the keepers on the [minutes sheet](/tools/minutes-sheet): decisions, actions with one owner and a date, open questions.
+
+Do not send the VTT, the plain text, and a model recap as three attachments that disagree. Send the notes. Keep the VTT for the people who may audit a sentence.
+
+Zoom's copy of the transcript remains in Zoom's cloud according to the account's retention settings. Downloading a VTT does not delete Zoom's copy. If the recording should not live there, that is a Zoom admin setting, not a feature of the cleaner.
+
+## Frequently asked questions
+
+### Is every Zoom recording a VTT?
+
+No. Local recordings are audio and video files. A VTT is the cloud audio transcript, or a caption file, when that feature produced one. `audio_only.m4a` needs transcription, not a text cleaner.
+
+### Do I need a paid Zoom plan for a VTT?
+
+Cloud recording and audio transcription depend on the account. Zoom's transcription articles describe Pro, Business, Education, or Enterprise plans with cloud recording, plus an admin setting to create the transcript. A free local recording does not include that VTT. Confirm the current requirement on Zoom's site. Plans change.
+
+### Will plain text add speaker names Zoom left out?
+
+No. Names stay if the VTT had them. Otherwise you get sentences, and the cleaner says the names were not there.
+
+### Does converting VTT to text use my three weekly runs?
+
+No. Cleaning does not. Transcribing an M4A does. Drafting notes from the text does.
+
+### What is the difference between VTT and CC.VTT?
+
+Zoom describes VTT as the audio transcription and CC.VTT as closed captions for the cloud recording. They can both exist. Clean the one that matches the words you need.
+
+### Can I do this with a Teams VTT too?
+
+Yes. The same cleaner takes a Teams export or an SRT. The download steps differ. The formatting problem is the same: header, times, then words.
+
+### Should I delete the VTT after I have plain text?
+
+Keep it until you are sure you will not need the cue times or a fresh download from Zoom. Plain text is easier to read and worse as evidence of what the export contained.
+
+### The VTT is in the wrong language. Can the cleaner translate it?
+
+No. It only removes caption scaffolding. Translation is a separate decision, and a speech model that was set to the wrong language will not be repaired by deleting timestamps.
+
+Next step: if the file starts with `WEBVTT`, open the [transcript cleaner](/tools/transcript-cleaner). If the file is `audio_only.m4a`, use [transcribe a Zoom recording](/tools/transcribe-zoom-recording) only when it is 15 minutes or under.

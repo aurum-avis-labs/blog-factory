@@ -1,0 +1,155 @@
+---
+title: "Granola vs Otter: Where Meeting Audio Actually Goes"
+description: "Granola vs Otter, as of September 2026: no bot versus a visible notetaker, and where transcripts live. A local Mac app when audio must stay put."
+pubDate: 2026-11-02
+author: "Vemoir Team"
+tags: ["granola", "otter", "privacy"]
+funnelStage: "consideration"
+translationKey: "granola-vs-otter"
+relatedPosts: ["otter-vs-fireflies", "granola-alternative", "otter-ai-alternative"]
+image: "@/assets/blog/granola-vs-otter/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/granola-vs-otter/inline1.jpg';
+import inline2 from '@/assets/blog/granola-vs-otter/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Granola vs Otter** is a choice between a bot-free cloud notepad and a cloud notetaker that joins the meeting. Both process content off your laptop. They are not substitutes for a recording that stays on the Mac. Vendor pages below were checked in September 2026.
+
+The Mac app in this comparison, Vemoir, is a one-time App Store purchase: CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the US. It records microphone and system audio locally, with no bot. Mentioning it is not a claim that it wins Granola vs Otter on mobile or on shared workspaces. It wins the narrower case where the file should not leave the machine.
+
+## Contents
+
+- [Granola in its own words](#granola-in-its-own-words)
+- [Otter in its own words](#otter-in-its-own-words)
+- [Granola vs Otter on the bot](#granola-vs-otter-on-the-bot)
+- [Where Granola is the better choice](#where-granola-is-the-better-choice)
+- [Where Otter is the better choice](#where-otter-is-the-better-choice)
+- [Where you want neither cloud](#where-you-want-neither-cloud)
+- [One week with both](#one-week-with-both)
+- [What to verify in the product, not in a screenshot](#what-to-verify-in-the-product-not-in-a-screenshot)
+- [After you pick one, write the rule down](#after-you-pick-one-write-the-rule-down)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## Granola in its own words
+
+Granola's [security page](https://www.granola.ai/security) says you start Granola yourself. It does not auto-join or auto-record. On the desktop it uses microphone audio and meeting audio from the computer, and it does not add a bot. It works with any desktop meeting platform. Mobile is described for in-person meetings. Transcription uses providers such as Deepgram and Assembly. Summaries use providers such as OpenAI and Anthropic. Third parties are not allowed to train on your data. Granola does train on anonymized data to improve Granola, with an opt-out in Settings, and with training off by default for enterprise users. Granola says it does not store meeting audio long term. It stores the transcript and the notes you provide, in a US-hosted AWS environment, encrypted at rest and in transit, with daily backups. Notes are private until you share them. You can delete notes or request deletion of your data.
+
+
+<Image src={inline1} alt="Side-by-side notepads on a wooden table in daylight" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@dtravisphd?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dtravisphd</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+That is a bot-free product whose text lives in Granola's cloud. "We do not keep the audio" is not "we never saw the audio," and it is not "the transcript is only on my Mac."
+
+## Otter in its own words
+
+Otter's notetaker joins as a visible participant and does not join anonymously. Storage described in its privacy materials includes Amazon Web Services in the United States, with server-side encryption. Training language covers de-identified audio and transcripts used for Otter's own models. The detailed citations, including deletion (trash, then permanent deletion), are collected in [is Otter.ai safe](/blog/is-otter-ai-safe). Otter is a shared transcript product with calendar automation, mobile apps, and team workspaces on paid plans ([Otter](https://otter.ai/), checked September 2026).
+
+
+<Image src={inline2} alt="A morning meeting with two pads of paper and coffee" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@hcphotos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">hcphotos</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+If a participant list must not gain a guest, Otter's default notetaker is the wrong shape. If the team wants that guest so everyone sees the notes, it is the point of the product.
+
+## Granola vs Otter on the bot
+
+| | Granola | Otter |
+| --- | --- | --- |
+| Joins as a participant | No, you start it | Yes, visible notetaker |
+| Audio kept long term | Not stored long term, per Granola's security page | Cloud meeting content, per Otter's privacy materials |
+| Transcript location | US AWS, per Granola | US AWS, per Otter |
+| Training | Anonymized, opt-out, enterprise off by default. Third parties do not train | De-identified training of Otter's models, as documented on Otter's pages |
+| Platforms | Desktop and mobile, per Granola | Web, iOS, Android, and meeting integrations |
+| Local by default | No | No |
+
+Both can be appropriate. The table is not a moral ranking. It is where the bytes go.
+
+## Where Granola is the better choice
+
+Granola is the better choice when a bot is banned and you still want live notes, when you want the same product on a phone for a face-to-face conversation, and when you accept a cloud transcript in the US with their training opt-out. It is the better choice when "start it yourself" is the behavior you want, rather than a calendar guest that can join because the meeting was on the calendar.
+
+Granola is the worse choice when the transcript must remain on the Mac, when you need Otter's team workspace and you already live there, or when you need a vendor that stores the audio recording itself for playback inside their library. Granola's page says it does not keep the audio long term. If playback of their copy of the audio is the requirement, read that sentence again and do not buy Granola for it.
+
+## Where Otter is the better choice
+
+Otter is the better choice when the team wants a visible bot, a shared transcript, and the product they already trained people to use. It is the better choice when mobile and web access to that shared library matters more than the absence of a guest tile. It is the worse choice when the client invite forbids notetakers, when de-identified training is unacceptable and you will not take an enterprise agreement that changes it, or when you only needed a personal notepad without a participant.
+
+Switching a whole company from Otter to Granola to "be more private" can be a downgrade if what you needed was admin controls and a shared archive. Read [Otter alternatives](/blog/otter-ai-alternative) before you migrate. Read [best private meeting notes](/blog/best-private-meeting-notes) if the real constraint is the laptop.
+
+## Where you want neither cloud
+
+You want neither cloud when the recording, the transcript, and the minutes should stay on the Mac unless you export text. Record from the menu bar. System Audio Recording captures the call as audio, not as a screen video. The microphone is a separate track. Parakeet v3 or Whisper transcribes locally. Qwen3 4B or gpt-oss-20b, or Apple Intelligence where the Mac has it, writes notes. An API key is optional, text only, in the Keychain, and off until you activate it. Speaker labels start anonymous. Remembering a voice is opt-in.
+
+That app does not give you Otter's shared workspace or Granola's phone app. Colleagues on Windows do not open your Mac library. If they must, stay with Granola or Otter and accept the hosting in the table.
+
+A short file you already have can go through [transcribe a recording](/tools/transcribe-recording): 15 minutes, three successful runs a week, no speakers, no upload to Vemoir. It is not Granola and it is not Otter.
+
+Requirements for the Mac app: Apple silicon, macOS Sonoma 14.2 or later, 8 GB of memory, 10 GB free, 16 GB recommended for long meetings.
+
+## One week with both
+
+Monday is an internal standup. Otter's bot is already accepted. Leave it. Tuesday is a client who wrote "no notetakers" in the invite. Granola, if you accept their cloud transcript, can take notes without a tile. A local recording can take the audio without their cloud. Pick one of those two for Tuesday. Do not leave Otter's auto-join on and hope the client will not notice. Wednesday you want the playback of the audio inside the notes product. Granola's security page says it does not store the audio long term. If Wednesday needs that playback in their library, Otter or your own Mac file is the honest option, not Granola. Thursday the team asks for a shared search of every call this month. That is Otter or a similar team library, not a folder of local files nobody else can open. Friday you export a text summary to the client and keep the audio on the Mac. That Friday is the local app, or a careful export from whichever cloud you used, after you have read what that export still leaves on their servers.
+
+The week is the comparison. Granola vs Otter is not settled by a single feature row. It is settled by which day of this week you are on, and by which of their sentences about audio and training you can live with on that day.
+
+## What to verify in the product, not in a screenshot
+
+Create a test meeting on each tool with people who agreed to be recorded. On Otter, confirm the notetaker name in the participant list and then delete the test from Otter using the help article's steps. On Granola, confirm you had to start it, confirm no extra participant appeared, and then look for whether any audio file remains in their interface after the notes exist. Their security page says audio is not stored long term. The test is whether the product you installed behaves like that page. If playback of the audio is still there days later, trust the product in front of you and re-read the page in case it changed after September 2026.
+
+Export the notes from each test. See whether the export includes the transcript, only the summary, or both. A client who asked for minutes does not need the raw transcript. A client who asked for what was said does. The tool that makes the wrong export easy is the wrong tool for that client, even if the other columns in the table look better.
+
+Then turn training settings to the strictest option each product documents: Granola's opt-out, and whatever Otter's current enterprise or personal control is on the page you open that day. Screenshot the setting with the date. A comparison article cannot flip the switch for you.
+
+If both tests feel like too much cloud for a single client who forbids uploads, stop the bake-off and record that client on the Mac. The bake-off still stands for the meetings that are allowed to live in a shared library.
+
+## After you pick one, write the rule down
+
+Granola vs Otter falls apart in the second month if the rule lives in someone's head. Write three lines where the team will see them. Internal meetings may use Otter, including the bot, because the company already accepted that library. Client meetings that ban a guest use Granola only if cloud transcripts are allowed, and otherwise use the Mac recorder with the API key left off. Exports to the client are text, and someone checks the note before it is sent.
+
+Put the date you read their security pages next to the rule. September 2026 is the date for this article. If Granola changes the audio-retention sentence or Otter changes the training sentence, the rule is stale until someone rereads the page. The Mac app does not watch those pages for you.
+
+If the rule says the Mac, the practical checks are dull and worth doing once. System Audio Recording is allowed, the microphone is the headset, noise suppression is Off in a quiet room, and the meeting is filed to the client project before you press record. None of that appears in Otter or Granola. Mixing their steps into the local path is how a recording ends up with no system audio and a transcript of your own voice only.
+
+Do the reverse check too. If Tuesday's client allows a cloud transcript and you choose Granola, do not also start the Mac recorder unless you have a reason to keep a second copy. Two transcripts of one call drift. People quote the smoother one. Agree which transcript is allowed in the follow-up email, and leave the other in the tool that created it. Granola vs Otter is already enough disagreement without a third text that nobody owns.
+
+One more check belongs on the invoice, not in the transcript. Granola's free tier and Otter's free tier are trials of a habit. If the team used either product every workday for a month, open the pricing page and see what that month would have cost as seats. Put the figure next to the one-time Mac price only for the calls that actually moved to the Mac. The calls that stayed in the cloud keep their seat. Comparing a free screenshot to a paid app is how this decision gets made badly. Use the page you would pay, dated the day you looked, and file it with the three-line rule. If the paid page and the product you tested disagree, believe the page attached to the account you will be billed on, and retest on that plan before you announce the switch. Tell the team the date of that retest. A switch announced on a free-tier afternoon is not the product finance will pay for in week two. Do that before the announcement goes out.
+
+## Frequently asked questions
+
+### Does Granola or Otter keep audio on my Mac?
+
+No. Both are cloud products. Granola says it does not store meeting audio long term and does store transcripts in US AWS. Otter stores meeting content in US cloud infrastructure described in its privacy materials.
+
+### Which one adds a bot?
+
+Otter's notetaker joins as a visible participant. Granola says it does not add a bot and that you start it manually.
+
+### Which one trains on my meetings?
+
+Granola says it trains on anonymized data unless you opt out, and that third-party providers do not train on your data. Otter's pages describe de-identified training of Otter's models. Check both sites before you rely on this summary.
+
+### Is one of them the private choice for a Swiss client who bans bots?
+
+Granola is closer on the bot. A local Mac recording is closer on "the file stays here." Granola's transcript is still in their cloud.
+
+### What does the Mac app cost next to their subscriptions?
+
+Vemoir is a one-time purchase at the prices above. Otter and Granola price seats and limits on their own pages. Confirm those pages. An optional API key on the Mac app is billed by the provider, not as a second Vemoir subscription.
+
+### Can I use Otter for internal meetings and something else for clients?
+
+Yes. Turn Otter's auto-join off for the client event, and record that event locally if the audio should not upload.
+
+### Do either of them record my screen?
+
+Granola's security page describes audio capture, not a screenshot product. Otter's notetaker is a meeting participant. A Mac app that uses System Audio Recording is also audio, not a screen recording. Do not conflate the three.
+
+### Is this legal advice about recording?
+
+No.
+
+If the bot is the problem, read Granola's security page and try their desktop app, or record locally. If the shared Otter workspace is the point, stay there and accept the hosting. The local install, when you want it, is on the [App Store](https://apps.apple.com/app/id6794693630). Capture details are in [capture](/#capture).

@@ -1,0 +1,103 @@
+---
+title: "Enregistrement audio système sur Mac, seulement le son"
+description: "L'enregistrement audio système sur Mac prend seulement le son. Ce n'est pas l'enregistrement de l'écran et il ne filme pas l'affichage."
+pubDate: 2026-10-21
+author: "Vemoir Team"
+tags: ["mac", "audio", "autorisations"]
+funnelStage: "interest"
+translationKey: "system-audio-recording-mac"
+relatedPosts: ["enregistrement-reunion-pas-de-son-mac", "enregistrer-reunion-zoom-mac", "importer-fichier-audio-mac"]
+image: "@/assets/blog/system-audio-recording-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/system-audio-recording-mac/inline1.jpg';
+import inline2 from '@/assets/blog/system-audio-recording-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@greaterbythehour2020?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">greaterbythehour2020</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+L'enregistrement audio système sur Mac est la façon dont Vemoir entend l'app de réunion. macOS demande **System Audio Recording**, l'enregistrement audio du système. Cette autorisation prend le son que les autres apps diffusent, par une capture audio seulement. Vemoir ne demande pas l'enregistrement de l'écran, et il n'enregistre ni l'écran, ni une fenêtre, ni l'image de la caméra. Si un guide ou un article plus ancien vous dit d'activer l'enregistrement de l'écran pour Vemoir, ce conseil est dépassé.
+
+Le micro reste nécessaire si vous voulez votre propre voix sur une piste à part. Les deux captures sont distinctes : le micro, c'est vous, l'audio système, c'est l'appel.
+
+## Pourquoi l'ancien nom circule encore
+
+Pendant un temps, le seul moyen pratique pour une app Mac d'entendre une autre app passait par l'enregistrement de l'écran, même quand l'app ne gardait aucune vidéo. Les guides ont été écrits autour de cette case. macOS a maintenant une autorisation dont le travail est l'audio système. Vemoir utilise celle-là. Une recherche sur « screen recording » vous envoie vers des textes écrits pour l'ancien chemin. Suivez l'invite que Vemoir affiche vraiment, et l'interrupteur nommé enregistrement audio système.
+
+
+<Image src={inline1} alt="Cables audio vers un enregistreur sur la table" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@pawell?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">pawell</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+La capture est un tap Core Audio. Elle prend le son de la réunion. Elle laisse les pixels tranquilles. Elle exclut aussi la sortie de Vemoir, pour que l'app ne s'enregistre pas elle-même.
+
+## Activer l'enregistrement audio système
+
+1. Installez Vemoir depuis le [Mac App Store](https://apps.apple.com/app/id6794693630). Il faut une puce Apple, macOS Sonoma 14.2 ou plus récent, et de la place pour les modèles locaux. Les Mac Intel ne sont pas pris en charge.
+2. Quand vous enregistrez le son de la réunion, autorisez **System Audio Recording** si macOS le demande. Autorisez aussi le **microphone** si vous voulez votre voix.
+3. Si vous avez fermé l'invite, ouvrez Réglages Système, puis Confidentialité et sécurité, puis **Enregistrement audio du système**, et activez Vemoir. Faites de même pour le microphone. Quittez l'app et rouvrez-la si vous venez de changer l'interrupteur. macOS n'applique souvent une autorisation qu'après le redémarrage de l'app.
+4. N'allez pas chercher une ligne Vemoir sous Enregistrement de l'écran pour « finir » l'installation. Cette ligne n'est pas l'autorisation que cette version utilise. Activer l'enregistrement de l'écran pour un autre outil est une autre décision. C'est ainsi que l'on se retrouve avec une vidéo du bureau alors qu'on voulait une transcription.
+5. Démarrez l'enregistrement depuis la barre des menus quand l'appel commence, et arrêtez-le quand il se termine. Personne ne rejoint la réunion comme bot. L'app peut être Teams, Zoom, Meet, Slack, Discord, ou toute autre app qui joue du son sur le Mac. Voir [plateformes](/fr#platforms) et [capture](/fr#capture).
+
+
+<Image src={inline2} alt="Micro de bureau avec bonnette en mousse dans une piece calme" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@productschool?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">productschool</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Si l'audio système est autorisé et que les personnes à distance restent silencieuses, les contrôles suivants sont le mute dans l'app de réunion, le mauvais périphérique de sortie, et un enregistrement qui n'a armé que le micro. Ce sont les cas sans son. L'enregistrement de l'écran ne les règle pas.
+
+## Ce qui est gardé
+
+Vemoir garde le micro et l'audio système comme deux pistes locales distinctes. Après l'arrêt, la transcription est construite à partir de l'audio terminé, sur le Mac. Une ligne qui défile pendant l'enregistrement est un aperçu. Ce n'est pas le dossier que vous conservez.
+
+La transcription et la séparation des locuteurs restent sur la machine. Les notes tournent sur la machine par défaut. Si vous activez votre propre clé d'API pour le texte, l'audio ne sort pas pour cette étape, et l'app ne bascule pas en silence vers un modèle cloud si le modèle local échoue. Une fois les modèles installés, la réunion peut être traitée hors ligne. Internet sert au premier téléchargement.
+
+Vous choisissez de garder ou non l'audio après un passage réussi. Partager un résumé n'attache pas les pistes, sauf si vous partagez ces fichiers vous-même. Le texte est ce que vous copiez. Voir [exports](/fr#exports).
+
+Les étiquettes de locuteurs de cette capture sont produites sur le Mac, puis vous les renommez. Le navigateur n'écoute pas l'audio système, et il n'invente pas de locuteurs à partir d'un fichier. Un fichier de 15 minutes ou moins est l'essai dans le navigateur. L'audio système en direct ne l'est pas.
+
+## Ce que cette autorisation n'est pas
+
+- Pas une capture d'écran, pas un outil de copie d'écran, pas une caméra.
+- Pas un bot dans la liste des participants.
+- Pas la permission de taire l'enregistrement. Le consentement reste le vôtre.
+- Pas Windows, pas un iPhone, pas un Mac Intel.
+- Pas le navigateur. Aucune page Vemoir n'enregistre l'audio système dans un onglet.
+
+QuickTime et d'autres apps Mac utilisent encore la capture d'écran quand vous voulez un film de l'affichage. Le son peut être un effet secondaire de la vidéo. Si votre but est une transcription d'appel, un film d'écran est le chemin lourd vers le son, et vous n'avez toujours pas de compte rendu tant que quelque chose ne transcrit pas. L'enregistrement audio système, tel que Vemoir l'utilise, laisse le film de côté.
+
+## Questions fréquentes
+
+### Vemoir a-t-il besoin de l'enregistrement de l'écran pour entendre Teams ou Zoom ?
+
+Non. Il demande l'enregistrement audio système, et il l'utilise pour l'audio seulement. Il n'enregistre pas l'écran. Les consignes plus anciennes qui vous envoient vers la liste Enregistrement de l'écran décrivent une autorisation que cette app ne demande pas.
+
+### Pourquoi vois-je aussi une invite micro ?
+
+L'audio système est le son des autres, tel que le Mac le joue. Le micro, c'est vous. Ce sont des pistes séparées. Vous pouvez enregistrer l'audio système sans le micro si vous n'avez besoin que du côté distant. Votre voix ne sera pas sur cette piste.
+
+### J'ai activé l'enregistrement de l'écran et l'appel est toujours muet. Que faire ?
+
+L'enregistrement de l'écran est la mauvaise case pour cette app. Vérifiez l'enregistrement audio système et le micro, puis rouvrez Vemoir. Enlevez aussi le mute dans l'app de réunion et confirmez que vous avez lancé l'enregistrement depuis la barre des menus. Une autorisation d'audio système refusée laisse le silence, ou seulement le micro.
+
+### L'enregistrement audio système envoie-t-il l'appel ?
+
+Pas par défaut. Les pistes restent sur le Mac, sauf si vous les exportez ou si vous envoyez explicitement du texte à un modèle avec votre propre clé. La transcription elle-même reste locale.
+
+### Un onglet de navigateur peut-il enregistrer l'audio système de la même façon ?
+
+Non. Les outils gratuits prennent un fichier que vous avez déjà, jusqu'à 15 minutes, ou du texte que vous collez. Ils ne capturent pas l'audio système en direct et ne demandent pas cette autorisation à macOS.
+
+### Est-ce que cela enregistre un téléphone qui ne passe pas par le Mac ?
+
+Non. L'audio système est le son que le Mac joue. Un combiné à l'oreille, ou un haut-parleur de téléphone que le Mac n'entend jamais, est hors de ce tap. Le micro peut capter un haut-parleur fort dans la pièce. C'est le son de la pièce, pas la piste d'audio système.
+
+### L'autorisation couvre-t-elle chaque app de réunion ?
+
+Elle couvre le son que ces apps jouent sur le Mac. Ce n'est pas une intégration Teams ni un plugin Zoom. Si le son est audible dans vos écouteurs ou vos haut-parleurs, le tap peut prendre cette sortie. Si l'app est en mute, il n'y a rien à prendre.
+
+### L'écran est-il jamais stocké par erreur ?
+
+Non. Le chemin de capture ne prend ni images d'écran ni vidéo. Si une autre app enregistre aussi l'affichage, ce fichier vient de cette app, pas de cette autorisation.
+
+Étape suivante : autorisez l'enregistrement audio système, puis lisez [comment la capture fonctionne](/fr#capture) avant le prochain appel. L'installation est le [Mac App Store](https://apps.apple.com/app/id6794693630).

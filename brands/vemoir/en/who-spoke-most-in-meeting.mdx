@@ -1,0 +1,122 @@
+---
+title: "Who Spoke Most in a Meeting, From Names You Already Have"
+description: "Who spoke most in a meeting is a share of words, and only if the transcript already names people. A nameless file cannot be split."
+pubDate: 2026-10-19
+author: "Vemoir Team"
+tags: ["meetings", "speakers", "transcript"]
+funnelStage: "interest"
+translationKey: "who-spoke-most-in-meeting"
+relatedPosts: ["speaker-labels-missing", "speaker-profiles-mac", "fix-wrong-speaker-names"]
+tool: "who-held-the-floor"
+image: "@/assets/blog/who-spoke-most-in-meeting/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/who-spoke-most-in-meeting/inline1.jpg';
+import inline2 from '@/assets/blog/who-spoke-most-in-meeting/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@creatopy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Creatopy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Who spoke most in a meeting is a count you can defend only when the text already says who said the words. The free page for that count is [who held the floor](/tools/who-held-the-floor). You paste a transcript with names. It lists each name and that name's share of the words. If the paste has no names, it stops. The browser cannot separate voices, and it will not invent "Speaker A" so the chart looks finished.
+
+Word share is not minutes of airtime. A fast talker can outscore someone who held the room longer with fewer words. Use the number as a reading of the text you pasted, not as a stopwatch.
+
+## What you need before you count
+
+You need a transcript where speakers are already marked in a form the page can read:
+
+
+<Image src={inline1} alt="A meeting from above, one person gesturing while speaking" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@clynt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">clynt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- `Name: what they said` on its own line
+- `Speaker 1:` or `SPEAKER_01:` if some earlier tool diarized and left those labels
+- A WebVTT voice tag, `<v Name>text</v>`, including the kind Teams and some Zoom cloud files use
+
+A local Zoom `audio_only.m4a` does not have those lines. A raw microphone file does not either. Browser transcription of a file will not add them. If you only have audio, the count is not available yet. Speaker separation that creates anonymous labels you can rename is the Mac app, after you record or import. Details of capture are on [capture](/#capture). This page does not do that step.
+
+Cleaning timestamps is allowed and does not spend a weekly run. The [transcript cleaner](/tools/transcript-cleaner) keeps names that were present and tells you when they were not. Run that first if you are holding a VTT, then paste the plain text into who-held-the-floor. Talk share also does not spend a run. It does not download a speech model. It does not record the room.
+
+## Who spoke most in a meeting, as a word share
+
+You get a name and a share of words. Read it with the meeting you actually had.
+
+
+<Image src={inline2} alt="Two people at a table, one clearly doing more of the talking" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- One person at 60 percent in a status update may simply have been the one with the slides. That is not automatically a problem.
+- A workshop that set out to hear from everyone, and shows one name at most of the words, is a facilitation fact. The chart does not say why. It says the text is uneven.
+- `Speaker 2` is not a colleague until you map it. Count the label if you must, and do not put "Speaker 2 dominated" in a mail as if it were a person.
+- `Conference Room` or `iPhone` is a device name the meeting app stored. It will soak up a share that belongs to several humans. Do not treat that row as one personality.
+- Short agreements ("yes", "go ahead") add little. A long monologue adds a lot. The tool is counting words, so the monologue wins even if the short agreements were the decisions.
+
+If two spellings of the same person appear (`Jon` and `Jonathan`), they will not merge. Fix the paste so one spelling is used, then count again. The page does not know your org chart.
+
+## When the number is the wrong question
+
+Minutes do not need talk time. A protocol needs decisions, owners, and dates. Who spoke most is a poor proxy for who decided. The quiet person may have been the one whose "no" ended the option. Put that in the decision line on the [minutes sheet](/tools/minutes-sheet). Leave the word share out of the board pack unless the sitting was about participation itself.
+
+Research and interviews sometimes do care about who held the floor. Even there, code from names you trust. A chart from a nameless automatic transcript is not coding. It is a picture of a single mixed voice, or of nothing, if the tool correctly refuses.
+
+A summary model is the wrong counter. It will say "Alex led the discussion" because the prose felt that way. That sentence is not a share of words. If you want the count, use the count. If a draft named someone the file never named, delete it.
+
+## If the file has no labels
+
+Stop. Do not hand-draw percentages from memory and attribute them to a tool. You have three honest options.
+
+1. For a short call you attended, prefix a copy of the text with `Name:` lines you are sure about. Leave gaps unlabeled. Then count the copy, not the original export.
+2. For a longer or multi-person recording, import or record on the Mac. Diarization produces anonymous labels. You rename them. Remembering a voice is a separate opt-in and is not required to count one meeting. Unknown speakers stay anonymous.
+3. Skip the chart. Write the minutes from what you are willing to sign. Attribution you cannot support does not belong in the notes you share.
+
+Do not split one nameless paragraph into fake turns so the tool returns a pie. The pie will look precise. It will be your fiction.
+
+## A small procedure
+
+1. Keep the original transcript unchanged.
+2. If it is a VTT or SRT, clean it. Read whether names survived.
+3. Normalize spellings on a copy.
+4. Paste into [who held the floor](/tools/who-held-the-floor).
+5. If the page says there are no speaker names, believe it.
+6. Write one sentence you could say out loud: "In this text, Jordan has the largest share of words." Do not upgrade it to "Jordan talked over everyone" unless you watched that happen.
+7. File participation notes separately from decisions. The [minutes sheet](/tools/minutes-sheet) is for the decisions.
+
+Live capture still needs people to know they are being recorded. A participation chart does not change consent. It is not a performance review by itself, and it is not a compliance report.
+
+## Frequently asked questions
+
+### Does who spoke most mean the most minutes?
+
+Not here. The browser tool reports each name's share of the words in the paste. It does not measure seconds of audio. A fast speaker can rank above a slow one who held the floor longer.
+
+### Why does the page refuse my transcript?
+
+It found no speaker prefixes it recognizes. Timestamps alone are not names. A cleaner will not add names either. You need labels already in the text, or a diarization pass on the Mac, or a file you label by hand.
+
+### Can I count speakers in a Zoom local recording?
+
+Not until it is text with names. `audio_only.m4a` is audio. Cloud VTT sometimes has names, local audio does not. See [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording) if you still need the words.
+
+### Does this use one of my three weekly runs?
+
+No. Talk share does not run the speech model. Cleaning a VTT does not either. Transcribing audio does. Drafting notes from a transcript does.
+
+### What if one person joined from a conference room?
+
+The export may label every word from that room as the room. The share is then meaningless as a person. Split it by hand only if you know the turns, or do not report it.
+
+### Should I put the chart in the meeting notes I send out?
+
+Only if participation was the point and the names are real. Otherwise it distracts from owners and dates, and a wrong label becomes a fact in someone else's inbox.
+
+### Can the Mac app do this without the browser?
+
+The Mac app separates speakers into labels you can rename, on the machine. The word-share page is the browser tool for text you already have. Use the app to get labels. Use the page to count a paste. Do not expect the browser to listen to the call.
+
+### Is a high share a problem?
+
+Only in a meeting where you wanted a wider set of voices. In a briefing, one speaker should have most of the words. The number does not interpret itself.
+
+Next step: paste a labeled transcript into [who held the floor](/tools/who-held-the-floor). If the names are missing, fix that before you count anything.

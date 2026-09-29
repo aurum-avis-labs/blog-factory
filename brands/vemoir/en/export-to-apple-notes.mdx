@@ -1,0 +1,112 @@
+---
+title: "Export to Apple Notes and Update the Same Note Later"
+description: "Export to Apple Notes from a folder you pick. A later export updates that same note instead of creating a duplicate each time you regenerate."
+pubDate: 2026-11-08
+author: "Vemoir Team"
+tags: ["apple notes", "export", "meetings"]
+funnelStage: "interest"
+translationKey: "export-to-apple-notes"
+relatedPosts: ["follow-up-from-meeting-notes", "delete-a-meeting-recording", "share-notes-without-the-recording"]
+image: "@/assets/blog/export-to-apple-notes/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/export-to-apple-notes/inline1.jpg';
+import inline2 from '@/assets/blog/export-to-apple-notes/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Export to Apple Notes** sends a meeting record into a Notes account and folder you choose. Vemoir stores the note's identifier, so a later export updates that same note instead of dropping a second copy beside it. You see a combined-note preview before the handoff.
+
+The audio does not go to Apple with the note. You are exporting the record: the text you chose to send.
+
+## What export to Apple Notes puts in the note
+
+The note includes the canonical summary, key points, risks, open questions, decisions, actions, participants, custom documents, and Vemoir provenance. It does not repeat derivative artifacts that only restate the same summary. Manual notes you typed keep their standing as your text. They are not pasted in as if they were transcript quotes.
+
+
+<Image src={inline1} alt="Someone copying a page into a personal notebook" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@shpetimujkani?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">shpetimujkani</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+You pick a real Apple Notes account and a nested folder as the destination for a project. The folder is yours. Vemoir does not invent a hidden notebook.
+
+## Export once, then update
+
+1. In the project, choose the Apple Notes account and the folder.
+2. From meeting actions, or from Project Exports, start an export when the meeting has finished processing.
+3. Read the combined preview. If a speaker name or a decision is wrong, fix it in Vemoir first. The note will show what you send.
+4. Confirm the handoff. The first successful export stores the note identifier, the destination, a content fingerprint, timestamps, and the state.
+5. If processing is regenerated later, export again. Vemoir updates the same note. If a retry fails, the error is kept so you can see it, rather than quietly creating a duplicate.
+
+
+<Image src={inline2} alt="A stack of cards tucked into a cream notebook" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@kseegars?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kseegars</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+You can also turn on an optional automatic export after a meeting processes successfully. Leave that off if you want to read the preview every time. Automatic does not mean the audio is shared. It means the text record is sent to that folder after success, without an extra click.
+
+## What stays on the Mac
+
+Transcription, speaker separation, and the recording remain on the Mac. Apple Notes receives the exported text through the Notes destination you selected. A bring-your-own API key, if you use one for generating text, is a different choice: it is text-only, stored in the Keychain, and activated explicitly. It does not replace Apple Notes, and it does not send audio. There is no silent fallback from a failed Notes export to some other cloud notebook.
+
+If you delete the meeting or purge audio in Vemoir, the note already in Apple Notes is a copy you sent. Deleting it there is a separate act in Notes. Conversely, updating the note from Vemoir overwrites that note's Vemoir-managed content according to the export, so read the preview when the minutes changed a lot.
+
+Identity settings can map `ME` to your real name and show `Name (Me)` in copied or shared content. Set that before a client-facing export if "ME" would look unfinished.
+
+## Where Apple Notes is the wrong destination
+
+Export to Apple Notes is the better choice when you already live in Notes, you want one note per meeting that stays current, and you pick the folder yourself. It is the worse choice when:
+
+- The client requires a PDF in their data room, or a shared drive with their naming rules. Export or copy the text and put it where they asked. This path does not produce a PDF or a Word file.
+- Several colleagues must edit one living document with comments. Notes can be shared from Apple's side after the export, under Apple's own sharing. Vemoir does not add a team workspace on top.
+- You wanted the recording in the note. The export is the record, not the audio files.
+- You have not fixed speaker names or glossary spellings yet. Fix them, regenerate if needed, then export. A duplicate-free update is only helpful if the second version is the one you mean.
+
+Copy to the clipboard is still there for a summary, a document, or the minutes when you do not want Notes at all. Toolbar sharing follows the view you are in: summary, actions, decisions, or transcript.
+
+The folder picker and the export state sit with the other handoff options in [exports](/#exports).
+
+## After you regenerate, export again
+
+You fix a speaker label and a glossary spelling, then regenerate the minutes. The Apple Notes note from yesterday still has the old names until you export again. The update uses the stored note identifier, so Notes does not grow a second page titled almost the same. The preview is the moment to catch a decision you no longer want in that folder. If the preview looks wrong, cancel and edit in Vemoir. The note already in Apple Notes stays as the previous export until a new handoff succeeds.
+
+If automatic export is on, the successful processing pass will try that update without the extra click. Turn it off for a sensitive client if you want the preview every time. A failed retry stays visible. It does not fall through to email, to a different notes account, or to a cloud transcription vendor.
+
+Participants listed in the note are the names on the record at export time. Anonymous clusters stay unnamed. You can rename them without creating a voice profile, then export so the note matches. The encrypted profile, if you also chose Remember this speaker, is not part of the note body. If Notes asks macOS for permission to be written by Vemoir, that prompt is about the note, not about screen capture. System audio for the meeting is a different permission, granted when you record. If the note landed in the wrong Apple Notes account, turn automatic export off, pick the account again, and export once by hand. The stored identifier belongs to the note the last successful run created or updated.
+
+## Frequently asked questions
+
+### Does a second export create a second Apple Notes note?
+
+No. Vemoir stores the exported note identifier and updates that note. The preview shows the combined note before you hand it off.
+
+### Can I choose the folder?
+
+Yes. A project can select a real Apple Notes account and a nested folder.
+
+### Can export run by itself?
+
+You can export manually from meeting actions or Project Exports. A project can also export automatically after processing succeeds. That option is yours to turn on.
+
+### Does the note include the audio?
+
+No. It includes the written record: summary, key points, risks, open questions, decisions, actions, participants, custom documents, and provenance.
+
+### What if the update fails?
+
+Retry state and errors are stored so you can see the failure. Check the Notes account and try the export again after the meeting is in a good state.
+
+### Will unknown speakers be named in the note?
+
+Only if you named them. Unknown speakers stay anonymous unless you set a label or opt in to remembering a voice.
+
+### Is this the same as the free browser tools?
+
+No. Those tools transcribe a file in the browser, up to 15 minutes, with no Apple Notes handoff and no speaker labels. The Notes export is in the Mac app.
+
+### Do I need a bot in the meeting for this?
+
+No. You record on the Mac, then export the text you want. Nobody was added to the call.
+
+Pick the folder once, export when the minutes are right, and let the next export update that note. The controls are under [exports](/#exports).

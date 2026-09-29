@@ -1,0 +1,137 @@
+---
+title: "Cercare riunioni passate, trascrizioni e decisioni sul Mac"
+description: "Cercare riunioni passate sul Mac: trascrizioni, azioni e decisioni. Archivio e cancellazioni restano fuori dai risultati della ricerca."
+pubDate: 2026-11-10
+author: "Vemoir Team"
+tags: ["ricerca", "trascrizione", "Mac"]
+funnelStage: "interest"
+translationKey: "search-past-meetings"
+relatedPosts: ["eliminare-registrazione-riunione", "follow-up-dalle-note", "domande-sulla-trascrizione"]
+image: "@/assets/blog/search-past-meetings/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/search-past-meetings/inline1.jpg';
+import inline2 from '@/assets/blog/search-past-meetings/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@declansun?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">declansun</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Puoi **cercare riunioni passate** sul Mac che le ha registrate: titoli, trascrizioni, artefatti, azioni e decisioni, senza mandare la libreria a un indice ospitato. La ricerca della libreria e Ask Vemoir restano sulla macchina, a meno che tu non abbia instradato in modo esplicito la generazione di testo verso la tua chiave API.
+
+La ricerca risponde a «dove l'abbiamo detto». Ask risponde a una domanda e può indicare una riga. Sono comandi diversi. Questa pagina spiega come trovare la seduta e poi chiedere dentro un ambito che scegli tu.
+
+## Indice
+
+- [Dove guarda la ricerca delle riunioni passate](#dove-guarda-la-ricerca-delle-riunioni-passate)
+- [Trovare una seduta da tastiera](#trovare-una-seduta-da-tastiera)
+- [Chiedere in una seduta, un progetto o la libreria](#chiedere-in-una-seduta-un-progetto-o-la-libreria)
+- [Cosa non compare mai](#cosa-non-compare-mai)
+- [Quando una citazione della trascrizione è il risultato sbagliato](#quando-una-citazione-della-trascrizione-è-il-risultato-sbagliato)
+- [Domande frequenti](#domande-frequenti)
+
+## Dove guarda la ricerca delle riunioni passate
+
+La ricerca di progetto copre sedute, trascrizioni, artefatti, azioni e decisioni. La dashboard del progetto aggiunge un riepilogo, il lavoro aperto, le decisioni recenti, i documenti fissati e le sedute recenti, con un salto al record di origine.
+
+
+<Image src={inline1} alt="Qualcuno cerca in una scatola di note su carta" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Basta quando ricordi un cliente, una formula o un nome. Non è lo strumento giusto se vuoi una risposta composta («cosa abbiamo promesso ad Acme sulla data di rilascio»). Per quello apri Ask Vemoir e scegli un ambito.
+
+Gli ambiti sono fissi:
+
+- una seduta
+- un progetto
+- la libreria attiva
+
+Aprire Ask da una seduta o da un progetto avvia una conversazione nuova in quell'ambito. I fili più vecchi restano nella cronologia di Ask, ambito compreso. Puoi tornare alla domanda della settimana scorsa senza mescolarla a quella di oggi.
+
+Sedute e progetti archiviati sono esclusi. Le cancellazioni rimuovono i record di conoscenza che li indicavano. Se hai svuotato solo l'audio e tenuto la seduta, la ricerca trova ancora trascrizione e note. La riproduzione non c'è più. Le parole sì.
+
+## Trovare una seduta da tastiera
+
+Le destinazioni della libreria usano Comando-1 fino a Comando-6. **Comando-F** mette il focus sulla ricerca delle sedute. Le frecce scorrono la barra dei progetti e l'elenco delle sedute. Il trascinamento tra Registrazioni locali e un progetto funziona ancora. La ricerca non sostituisce l'archiviazione.
+
+
+<Image src={inline2} alt="Cassetto di catalogo in legno leggermente aperto" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@hayko_badalyan?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">hayko_badalyan</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Un ordine utile quando non ricordi quale martedì fosse:
+
+1. Metti la chiamata in un progetto prima di registrare, con il selettore di progetto della barra dei menu. La ricerca è più veloce quando il cliente è già la cartella.
+2. Premi Comando-F e digita un nome, un termine di prodotto o una formula di decisione.
+3. Apri la seduta se la riga è quella giusta.
+4. Se ti serve la riga, passa alla trascrizione, oppure chiedi dentro quella seduta così la risposta può citare un passaggio.
+
+Un glossario di progetto (grafie preferite e alias) aiuta le note successive a usare il nome giusto. La ricerca colpisce comunque la trascrizione originale. La formulazione originale è la prova. Il glossario non riscrive la storia per far sparire un vecchio soprannome dal nastro.
+
+## Chiedere in una seduta, un progetto o la libreria
+
+Ask Vemoir è una conversazione con un confine. Le domande ordinarie vengono ristrette prima che il modello locale scriva. Una richiesta che copre tutto l'ambito fa un passaggio limitato sulle sedute di quell'ambito, e la ricevuta di contesto indica la copertura anche quando la risposta collega solo le fonti più forti.
+
+Le risposte possono includere link alle prove: apri la seduta, atterri sulla trascrizione e vedi il passaggio citato. Al modello si chiede di citare le righe più forti, e l'app limita una risposta a 24 fonti distinte. Una domanda lunga sulla libreria non allega ogni paragrafo che ha guardato.
+
+Le risposte concluse mostrano quale modello le ha scritte. Se passi da un modello locale installato all'altro (Qwen3 4B sulla maggior parte dei Mac, gpt-oss-20b sui Mac con molta memoria), il turno successivo viene ripianificato. I messaggi precedenti restano com'erano.
+
+La generazione di testo può usare Apple Intelligence dove il Mac ce l'ha, oppure un modello locale che hai scaricato. Una chiave OpenAI o Anthropic è facoltativa, solo testo, e spenta finché non la attivi. La trascrizione dell'audio originale non va da quel fornitore. Se il fornitore fallisce, il turno si ferma. Non c'è un cambio silenzioso verso un altro modello.
+
+Niente di questo cerca una seduta che non è mai entrata in libreria. Un evento di calendario senza audio non è un risultato.
+
+## Cosa non compare mai
+
+Ricerca e Ask leggono la libreria attiva. Lasciano fuori:
+
+- sedute e progetti archiviati
+- sedute che hai cancellato
+- il contenuto di un profilo vocale (gli embedding non stanno nella ricerca, negli export o nei log ordinari)
+- le chiavi di prova interne, tolte dalla risposta visibile
+- una nota scritta a mano presentata come una riga testuale (le note manuali tengono il proprio segno)
+
+La seduta di esempio guidata è marcata in modo visibile come Esempio. Cancellala dopo il giro, così non sta accanto ai clienti veri nella ricerca.
+
+Se Comando-F non restituisce nulla, le cause di solito sono piatte. La parola è stata solo detta, e la trascrizione l'ha scritta diversamente. La seduta è archiviata. Vive in un altro progetto e tu cerchi dentro uno solo. Oppure l'audio è stato importato con un nome di file che non ricordi, mentre la formula detta sarebbe stata nella trascrizione.
+
+## Quando una citazione della trascrizione è il risultato sbagliato
+
+Un risultato nella trascrizione prova che qualcuno ha detto quelle parole. Non prova che la stanza abbia accettato. Le decisioni in Vemoir sono schede a parte: formulazione, persona responsabile e data, modificabili dopo la chiamata. Le azioni hanno un responsabile, una scadenza e uno stato. La ricerca può trovare quelle righe senza farti scorrere il nastro.
+
+Quando ti serve una riga su cui stare, chiedi dentro la seduta e segui il link alla prova. Quando ti serve l'impegno, apri Decisioni su quel progetto.
+
+La superficie che delimita queste domande è descritta nella sezione [Ask](/it#chat). Come la cattura fa entrare l'audio in libreria sta sotto [cattura](/it#capture).
+
+## Domande frequenti
+
+### Cercare riunioni passate carica la libreria?
+
+No. La ricerca delle sedute gira sul Mac. Ask gira in locale per impostazione predefinita. Un modello linguistico nel cloud entra solo se attivi la tua chiave per il testo, e anche allora l'audio resta sulla macchina.
+
+### Posso cercare tra tutti i clienti insieme?
+
+Sì. Ask può usare la libreria attiva come ambito. La ricerca di progetto è la vista di un solo progetto. L'archivio sta fuori da entrambe.
+
+### Perché una seduta cancellata sparisce dalle risposte vecchie?
+
+Le cancellazioni rimuovono i record di conoscenza. La libreria non tiene un'ombra per la ricerca.
+
+### Ask inventa un nome di parlante?
+
+I parlanti sconosciuti restano anonimi. Un'etichetta rinominata vale per quella seduta. Un profilo memorizzato si usa solo se l'hai approvato e la corrispondenza supera i controlli dell'app.
+
+### Qual è la scorciatoia per la ricerca delle sedute?
+
+Comando-F mette il focus sulla ricerca delle sedute. Comando-1 fino a Comando-6 salta tra le destinazioni della libreria.
+
+### Funziona offline?
+
+Dopo che i modelli scelti sono scaricati, ricerca e Ask non hanno bisogno di rete. Il primo download sì.
+
+### Posso cercare un file Loom o Zoom che non ho importato?
+
+Non finché non è in libreria. Importa l'audio, oppure registra la prossima chiamata dalla barra dei menu, poi cerca quella seduta.
+
+Un alias del glossario non nasconde la formulazione vecchia. Se a marzo la stanza ha detto «il portale» e il glossario oggi dice «area clienti», la trascrizione di marzo dice ancora portale. Cerca le parole che sono state dette, poi leggi la riga di decisione se il nome è stato corretto dopo nel verbale.
+
+Usa [Ask Vemoir](/it#chat) quando la parola chiave non basta e vuoi una risposta legata a una seduta, a un progetto o alla libreria attiva.

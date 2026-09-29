@@ -1,0 +1,132 @@
+---
+title: "Microfono e audio di sistema: due tracce locali sul Mac"
+description: "Microfono e audio di sistema sono due tracce locali sul Mac: la tua voce e la call. Niente schermo, niente bot, niente invio di default."
+pubDate: 2026-11-09
+author: "Vemoir Team"
+tags: ["audio", "registrazione", "mac"]
+funnelStage: "awareness"
+translationKey: "mic-and-system-audio"
+relatedPosts: ["soppressione-rumore-microfono", "audio-di-sistema-mac", "note-riunione-in-presenza-mac"]
+image: "@/assets/blog/mic-and-system-audio/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/mic-and-system-audio/inline1.jpg';
+import inline2 from '@/assets/blog/mic-and-system-audio/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@sandrawilliams2025?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sandrawilliams2025</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Microfono e audio di sistema** in Vemoir sono due tracce locali, non un file mischiato e non un'immagine dello schermo. La traccia microfono sei tu. La traccia di sistema è ciò che il Mac riproduce dall'app della riunione: Teams, Zoom, Google Meet, Slack, Discord o un'altra app che fa suono.
+
+Avvii e fermi tu. Nessun bot entra nell'elenco partecipanti. Entrambe le tracce restano sul Mac, salvo export, o se più tardi attivi un modello di testo facoltativo con la tua chiave.
+
+## Contenuti
+
+- [Cosa catturano microfono e audio di sistema](#cosa-catturano-microfono-e-audio-di-sistema)
+- [Il permesso riguarda l'audio, non lo schermo](#il-permesso-riguarda-laudio-non-lo-schermo)
+- [Come una call usa le due tracce](#come-una-call-usa-le-due-tracce)
+- [Quando una traccia è lo strumento sbagliato](#quando-una-traccia-è-lo-strumento-sbagliato)
+- [Cosa succede dopo lo stop](#cosa-succede-dopo-lo-stop)
+- [Domande frequenti](#domande-frequenti)
+
+
+<Image src={inline1} alt="Microfono e altoparlante affiancati su un tavolo" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@yanahd?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">yanahd</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+## Cosa catturano microfono e audio di sistema
+
+| Traccia | Cosa sente | Cosa non sente |
+| --- | --- | --- |
+| Microfono | Il microfono scelto: la tua voce e il suono vicino | Chi è in remoto, salvo che la sua voce esca da un altoparlante in quel microfono |
+| Audio di sistema | Le app che suonano sul Mac, riunione compresa | La tua voce, salvo che l'app te la rimandi |
+
+
+<Image src={inline2} alt="Due cavi distinti arrotolati accanto a un taccuino" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+La cattura del microfono è una sessione a parte rispetto al tap dell'audio di sistema. Scegli tu il microfono. Un microfono da cuffia sente te e poco la stanza. Un microfono del laptop sente la stanza e, se l'audio remoto esce dagli altoparlanti, un po' della call. Quella sovrapposizione è acustica, non una terza modalità.
+
+La traccia di sistema è la riunione come la riproduce il Mac. Vemoir usa un tap Core Audio solo audio e ne resta fuori, così l'app non rimette la propria riproduzione nella registrazione. Il permesso di macOS si chiama System Audio Recording.
+
+La [soppressione rumore microfono](/it/blog/soppressione-rumore-microfono) vale solo per la traccia microfono, in Off, Balanced o Strong. Non pulisce la traccia di sistema.
+
+## Il permesso riguarda l'audio, non lo schermo
+
+Vecchie note sulle app Mac dicono spesso che sentire un'altra app richiede Screen Recording. Era il nome che molti hanno imparato. L'app Vemoir rilasciata chiede System Audio Recording. Cattura l'audio della riunione. Non registra il contenuto dello schermo, né i pixel, né un video della scrivania.
+
+L'accesso al microfono serve ancora per la tua traccia. Due sorgenti, due permessi. Se neghi l'audio di sistema resta il microfono. Se neghi il microfono resta la call, e quasi niente della tua voce, salvo una fuga dagli altoparlanti in un microfono che non volevi usare.
+
+La configurazione chiede solo i permessi che servono al setup scelto. Se ne rifiuti uno e poi cambi idea, puoi riaprire la configurazione da Impostazioni. Un rifiuto non viene sostituito da un invio silenzioso a un servizio di trascrizione.
+
+## Come una call usa le due tracce
+
+1. Entra nella riunione con l'app che usi già. Vemoir non entra come partecipante. La differenza è riassunta in [note di riunione senza bot](/it/blog/note-riunione-senza-bot).
+2. Nella barra dei menu scegli il progetto se archivi le call per cliente, poi avvia quando lo decidi.
+3. Parla come fai di solito. La traccia microfono segue il microfono scelto. La traccia di sistema segue la riproduzione dell'app.
+4. Ferma alla fine della call. La trascrizione che conta si ricostruisce dall'audio locale finalizzato dopo lo stop. Un'anteprima durante la call informa soltanto. Non sostituisce quel passaggio.
+5. La separazione dei parlanti gira sul Mac e parte da etichette anonime che puoi rinominare. I parlanti sconosciuti restano anonimi finché non scegli di ricordare una voce.
+
+La stessa coppia vale per ogni app che riproduce audio sul Mac. Non è legata alla registrazione cloud di un fornitore. Teams su Mac è un esempio, dal lato dell'app in [registrare una riunione Teams su Mac](/it/blog/registrare-riunione-teams-su-mac). Zoom, Meet, gli huddle di Slack e Discord seguono la stessa idea: se il Mac lo riproduce, la traccia di sistema può sentirlo.
+
+Puoi anche saltare la cattura live e importare un file che hai già: MP3, M4A, WAV, AIFF, CAF o FLAC. Un file importato segue la stessa elaborazione locale. Non viene diviso in «tu» e «gli altri» se il file non contiene già quella separazione. Un export Zoom mischiato è un file, non le due tracce che Vemoir registra dal vivo.
+
+## Quando una traccia è lo strumento sbagliato
+
+Due tracce locali vanno meglio quando vuoi voce e call separate, sul Mac, senza una persona in più nell'elenco. Vanno peggio in alcuni casi comuni.
+
+- Ti serve la registrazione cloud ufficiale del fornitore della riunione come atto. Usa il suo pulsante. Vemoir è la tua copia locale, non il suo archivio.
+- Il team è su Windows o sul telefono, e il punto è una libreria condivisa con bot. Un notetaker cloud è fatto per quello. Vemoir è un'app Mac su Apple silicon, macOS Sonoma 14.2 o successivo.
+- Siete in una stanza, più persone, niente audio remoto. La traccia di sistema resterà bassa. Il microfono sente chi è vicino. È una registrazione microfono della stanza, non una modalità a parte che assegna i posti al tavolo. Per un'intervista lunga già registrata in un file, lo strumento [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) può trascrivere un clip breve senza caricarlo. Non mette nomi ai parlanti, e si ferma a 15 minuti, con tre esecuzioni riuscite a settimana.
+- Volevi solo il tuo dettato, non la call. Metti in pausa l'audio della riunione, o usa uno strumento da dettatura. La traccia di sistema prenderà comunque le altre app che stanno suonando.
+
+Una cuffia cambia in modo utile la traccia di sistema: le voci remote restano lì e finiscono meno nel microfono. Di solito è quello che vuoi se dopo devi sentire chi era in stanza.
+
+Se tieni entrambe le tracce, dopo la riunione ascolta prima l'audio di sistema e poi il microfono. Così senti se la call è arrivata, prima di cambiare la riduzione del rumore sulla tua voce. Una traccia di sistema vuota durante una call accesa significa quasi sempre: l'app era muta, l'uscita era un altro dispositivo, o manca il permesso. È una questione di setup, non un secondo microfono.
+
+## Cosa succede dopo lo stop
+
+La trascrizione usa l'audio finalizzato. Parakeet v3 o un modello Whisper che hai scelto (Turbo, Medium o Large-v3) gira sul Mac. Quei modelli trascrivono il parlato. Non scrivono il verbale. Note, documenti e domande usano un modello linguistico locale, o una chiave solo testo che attivi tu. Niente di questo manda l'audio fuori dal Mac in silenzio.
+
+L'archiviazione decide se l'audio della riunione resta. Ogni riunione tiene la scelta attiva al momento della creazione. Se tieni l'audio, la riproduzione può selezionare una traccia. Se elimini o svuoti la registrazione, l'app mostra che l'audio non c'è più. Il verbale può restare, perché la trascrizione è già stata fatta.
+
+La condivisione è tua. La condivisione nativa di macOS e l'export mandano le parti che scegli, non entrambe le tracce grezze in uno spazio di team che non hai configurato. Vemoir non rende lecita una registrazione perché è rimasta in locale. Avvisa le persone quando registri. Questa pagina non è consulenza legale secondo la nLPD.
+
+Le due sorgenti, accanto alla scelta del modello, stanno in [cattura](/it#capture).
+
+## Domande frequenti
+
+### Microfono e audio di sistema finiscono in un solo file?
+
+Vengono catturati come tracce locali separate: il microfono scelto e l'audio di sistema di macOS. La riproduzione di una registrazione conservata può scegliere una traccia.
+
+### Vemoir registra lo schermo per prendere l'audio della call?
+
+No. La traccia della call usa System Audio Recording con un tap solo audio. Il contenuto dello schermo non viene registrato.
+
+### Gli altri vedranno un bot?
+
+No. Avvii e fermi dalla barra dei menu. L'app della riunione resta com'è. Nessuno viene aggiunto all'elenco.
+
+### E se uso gli altoparlanti invece della cuffia?
+
+L'audio remoto resta sulla traccia di sistema. Una parte può entrare anche in un microfono del laptop. Una cuffia tiene il microfono soprattutto per te.
+
+### Può registrare più persone sedute con me?
+
+Il microfono sente ciò che è vicino. La traccia di sistema sente ciò che il Mac riproduce. Non esiste una modalità separata che tratta un gruppo al tavolo come una riunione con posti nominati. Le etichette anonime, se l'audio lo consente, arrivano dopo dalla separazione sul Mac.
+
+### Lo strumento gratuito nel browser cattura entrambe le tracce?
+
+No. Gli strumenti nel browser trascrivono un file che hai già. Non registrano una call dal vivo, non prendono l'audio di sistema e non etichettano i parlanti.
+
+### Quale Mac serve?
+
+Apple silicon, M1 o successivo, macOS Sonoma 14.2 o successivo, almeno 8 GB di memoria e 10 GB liberi. 16 GB sono consigliati per le riunioni lunghe. I Mac Intel non sono supportati.
+
+### Dove si attivano le tracce?
+
+Scegli il microfono, consenti System Audio Recording e avvia dalla barra dei menu. La sezione [cattura](/it#capture) mostra quei controlli. La riduzione del rumore, se la vuoi, sta solo sul microfono, in Off, Balanced o Strong.
+
+La prossima riunione è la prova: cuffia, entrambi i permessi, registrazione dalla barra dei menu, stop a fine call. [Cattura](/it#capture) indica dove stanno le due sorgenti.

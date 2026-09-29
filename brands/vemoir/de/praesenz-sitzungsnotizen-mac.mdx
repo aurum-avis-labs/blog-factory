@@ -1,0 +1,136 @@
+---
+title: "Präsenz-Sitzungsnotizen am Mac mit dem Mikrofon im Raum"
+description: "Präsenz-Sitzungsnotizen am Mac nutzen das Mikrofon, das du im Raum wählst. Ein Mikrofon, schwächere Namen, kein eigener Präsenz-Modus."
+pubDate: 2026-11-15
+author: "Vemoir Team"
+tags: ["Sitzungsnotizen", "Präsenz", "Mac"]
+funnelStage: "interest"
+translationKey: "in-person-meeting-notes-mac"
+relatedPosts: ["teams-meeting-aufnehmen-mac", "systemaudio-aufnehmen-mac", "notion-ki-sitzungsnotizen"]
+image: "@/assets/blog/in-person-meeting-notes-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/in-person-meeting-notes-mac/inline1.jpg';
+import inline2 from '@/assets/blog/in-person-meeting-notes-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@carmelalustrephotography?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">carmelalustrephotography</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Präsenz-Sitzungsnotizen** am Mac sind eine Aufnahme über das Mikrofon, das du wählst, im Raum bei den Leuten. Es gibt keinen eigenen Präsenz-Modus. Derselbe Menüleisten-Recorder, den du für einen Video-Call nutzt, nimmt dieses Mikrofon. Systemton, die zweite Spur, bleibt still, wenn niemand in einem Call ist. Sprechernamen sind schwächer als bei einem Call, bei dem deine Stimme und der entfernte Mix getrennt erfasst wurden.
+
+Sag es dem Raum, bevor du startest. Ein Laptop auf dem Tisch ist leicht zu übersehen. Die Einwilligung holst du. Eine lokale Datei macht eine Aufnahme nicht erlaubt.
+
+## Inhalt
+
+- [Was Präsenz-Sitzungsnotizen erfassen](#was-präsenz-sitzungsnotizen-erfassen)
+- [Rauschunterdrückung an diesem Mikrofon](#rauschunterdrückung-an-diesem-mikrofon)
+- [Warum Namen vor Ort schwächer sind](#warum-namen-vor-ort-schwächer-sind)
+- [Ein brauchbares Setup](#ein-brauchbares-setup)
+- [Wann Telefon oder geschriebenes Protokoll besser ist](#wann-telefon-oder-geschriebenes-protokoll-besser-ist)
+- [Häufige Fragen](#häufige-fragen)
+
+## Was Präsenz-Sitzungsnotizen erfassen
+
+Vemoir nimmt das gewählte Mikrofon und den Systemton von macOS als zwei lokale Spuren auf. In einem Zoom-Call trennen diese Spuren dich von den anderen. Im Raum tun sie das nicht. Alle, die nahe am Laptop sprechen, landen auf der Mikrofonspur. Systemton fügt nur hinzu, was der Mac schon abspielt: ein Video, Wartemusik, eine entfernte Person, wenn jemand einen Call auf Lautsprecher legt.
+
+
+<Image src={inline1} alt="Sitzung vor Ort mit Notizbuechern und Wasserglaesern im Tageslicht" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@prolabprints?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">prolabprints</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Du startest und stoppst. Pausierst du fürs Mittagessen und vergisst zu stoppen, enthält das Band das Mittagessen. Startest du spät, fehlt der Eröffnungsentscheid. Die App erkennt keine Sitzung im Raum und startet nicht von selbst.
+
+Transkription und Sprechertrennung laufen auf dem Mac, nachdem du stoppst. Die Live-Ansicht während der Aufnahme ist eine Vorschau, nicht das Transkript, das du behältst. Die Modelle brauchen zuerst einen Download. Danach braucht der Raum kein Netz für die Verarbeitung. Oberflächensprachen sind Englisch, Deutsch, Französisch, Italienisch und Niederländisch. Parakeet v3 deckt 25 europäische Sprachen als Standardsprache ab. Ein Raum auf Schweizerdeutsch wird nicht als Dialekttext versprochen.
+
+Manuelle Notizen, die du während der Sitzung tippst, fliessen ins Protokoll mit einer Markierung, dass sie von dir sind. Sie gelten nie als wörtliche Zeilen aus dem Audio. Schreibst du einen Namen an den Rand, zeigt ein Beleg weiter auf Sprache, nicht auf diese Notiz.
+
+Die Anforderungen sind dieselben wie bei jeder anderen Aufnahme in der App: Apple Silicon, macOS Sonoma 14.2 oder neuer, 8 GB Speicher, 10 GB frei, 16 GB empfohlen, wenn die Sitzung lang ist. Die App liegt im [Mac App Store](https://apps.apple.com/app/id6794693630). Kein Windows, kein Intel-Mac, keine iPhone-Aufnahme in dieser App.
+
+## Rauschunterdrückung an diesem Mikrofon
+
+Die optionale Rauschunterdrückung läuft auf dem Mac, auf dem Mikrofonweg, nicht in einer Cloud. Die Modi sind Aus, Ausgewogen und Stark. Sie zielen auf gleichmässiges Rauschen: Tastatur, Raumbrummen, andere Störungen, die keine Sprache sind. Der gewählte Modus bleibt sichtbar. Kann die Unterdrückung die Sprache nicht halten, fällt die App auf den gewöhnlichen Mikrofonweg zurück.
+
+
+<Image src={inline2} alt="Sechs Stuehle um einen Holztisch mit Papieren" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@marissacristina?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">marissacristina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Stark ist kein Weg, eine Person am fernen Ende eines langen Tisches aufzunehmen. Ist sie im rohen Mikrofon leise, ist sie im Transkript leise. Rück den Laptop, bitt sie lauter zu sprechen, oder notier den Satz und markier ihn als deinen.
+
+Ein klingelndes Telefon, Stühle, ein Café oder zwei Leute, die gleichzeitig reden, bleiben in der Datei. Unterdrückung ist kein zweites Mikrofon.
+
+## Warum Namen vor Ort schwächer sind
+
+Sprechertrennung funktioniert besser, wenn zwei Spuren existieren: dein nahes Mikrofon und der entfernte Mix. Ein Raum-Mikrofon gibt dem Modell eine einzige Mischung. Leute, die ähnlich klingen, die sich ins Wort fallen, und die gleich weit sitzen, bekommen gemischte Namen oder keine.
+
+Du kannst eine Bezeichnung danach umbenennen, ohne ein Profil anzulegen. «Sprecher merken» ist optional, verschlüsselt und unter Datenschutz löschbar. Es erfindet keinen Namen, den das Audio nie hergegeben hat. Unbekannte Stimmen bleiben anonym.
+
+Plan keine saubere Liste «Alex / Sam / Jordan» für ein Standup mit sechs Personen um ein MacBook. Plan ein Transkript, das du durchsuchen kannst, plus eigene Notizen, wer den strittigen Satz gesagt hat. Braucht eine spätere Frage die Wörter, kann Ask auf eine Stelle in der Sitzung, im Projekt oder in der aktiven Bibliothek zeigen. Archivierte und gelöschte Sitzungen bleiben draussen. Dieser Verweis ist nur so gut wie das Audio. Eine gemurmelte Zustimmung am fernen Platz wird kein scharfes Zitat.
+
+Dieselbe Grenze steht in anderen Werkzeugen. Die Hilfe von Notion sagt, ihre Sprechernamen seien vor Ort und für eine Gruppe an einem Mikrofon schwach. Die App zu wechseln fügt keine Mikrofone hinzu, die du nicht hingestellt hast.
+
+## Ein brauchbares Setup
+
+Stell den Mac hin, wo die Stimmen ähnlich laut sind. Das eingebaute Mikrofon reicht für zwei oder drei Personen nahe an der Tastatur. Ein einzelnes externes Mikrofon zur Tischmitte ist dieselbe Idee mit einer besseren Kapsel. Mehrere Ansteckmikrofone sind ein anderes Setup, das diese App nicht für dich mischt.
+
+Wähl das Mikrofon in der App, damit du nicht ein Bluetooth-Headset in der Tasche aufnimmst. Schau auf den Pegel vor dem ersten echten Satz. Dann:
+
+1. Sag laut, dass du auf dem Laptop aufnimmst und wo die Notizen liegen werden.
+2. Start in der Menüleiste. Wähl zuerst das Projekt, wenn die Sitzung zu einem gehört.
+3. Lass die Rauschunterdrückung auf Ausgewogen, ausser der Raum ist ruhig genug für Aus, oder das Brummen ist stark genug für Stark.
+4. Tippe Entscheide, die du siehst, das Mikrofon aber verpassen kann: eine Whiteboard-Zahl, ein Nicken, ein Name auf Papier.
+5. Stopp, wenn die Sitzung endet, vor den Nebengesprächen.
+
+Lies Entscheide und Aufgaben, bevor du sie schickst. Eine Entscheidzeile braucht Formulierung, eine verantwortliche Person und ein Datum. Eine Aufgabe braucht Beschreibung, Verantwortliche, Fälligkeit und Status. Hat der Raum nie eine zuständige Person genannt, lass das Feld leer.
+
+Behalt oder verwirf das Audio unter Speicher. Die Aufbewahrung wird pro Sitzung beim Anlegen gewählt. Du kannst behaltenes Audio später leeren und das Transkript behalten, dann fällt die Wiedergabe weg. Du kannst die Sitzung löschen. Das entfernt Transkript, erzeugten Eintrag, angehängte Aufgaben und Entscheide und den Aufnahmeordner. Apple-Notizen, die du schon exportiert hast, bleiben in Notizen.
+
+Text in die Zwischenablage, oder Markdown, oder eine Apple-Notiz. Es gibt kein PDF oder DOCX aus der App.
+
+Ein leeres Protokollformular im Browser, ohne Modell und ohne Upload, passt weiter, wenn du lieber tippst: [Sitzungsprotokoll](/de/tools/sitzungsprotokoll). Die strukturierte Vorlage für ein geschriebenes Protokoll ist die [Protokollvorlage](/de/blog/sitzungsprotokoll-vorlage).
+
+## Wann Telefon oder geschriebenes Protokoll besser ist
+
+Nutze einen anderen Weg, wenn der Mac auf dem Tisch das falsche Gerät ist.
+
+Leute willigen in eine Laptop-Aufnahme nicht ein, akzeptieren aber Notizen. Schreib das Protokoll. Versteck kein Mikrofon.
+
+Du brauchst ein Taschengerät, weil du eine Baustelle abläufst, nicht an einem Mac sitzst. Diese App verlässt die Maschine nicht. Ein Hardware-Recorder ist ein anderes Produkt, mit eigenem Konto und eigenen Cloud-Regeln. Beschreib ihn nicht als dasselbe.
+
+Die Gruppe ist gross, der Raum laut, und du brauchst benannte Redebeiträge für ein formelles Protokoll. Hol eine protokollführende Person, oder nutze ein Gerät mit einem Mikrofon pro Person, und importier später eine Audiodatei (MP3, M4A, WAV, AIFF, CAF oder FLAC) in dieselbe lokale Pipeline. Eine Datei hat weiterhin die Namensgrenze einer Spur. Sie bekommt auch keinen eigenen Präsenz-Modus.
+
+Jemand ist remote auf Lautsprecher und der Raum redet mit. Getrennte Spuren hast du nur für die Wiedergabe des Mac gegen das Raum-Mikrofon. Überlappung bleibt unordentlich. Schreib das in die Notiz, statt eine aufgeräumte Sprecherliste zu zeigen.
+
+Du wolltest automatischen Start, wenn du einen Sitzungsraum betrittst. Das gibt es hier nicht. Du drückst Aufnahme.
+
+## Häufige Fragen
+
+### Gibt es einen Präsenz-Modus?
+
+Nein. Du wählst das Mikrofon und nimmst auf. Das Produkt schaltet nicht in einen eigenen Raum-Modus, und es startet nicht, weil es eine Sitzung bemerkt hat.
+
+### Hilft Systemton im Raum?
+
+Nur, wenn der Mac Ton abspielt, den du brauchst. Ein geschlossener Laptop mit einer stillen Sitzung fügt eine leere Spur hinzu. Die Wörter sind am Mikrofon.
+
+### Verbessert Rauschunterdrückung die Namen?
+
+Die Unterdrückung mindert gleichmässiges Rauschen am Mikrofon. Sie verteilt keine Namen. Namen bleiben an einem Raum-Mikrofon schwach, verglichen mit einem Call aus Mikrofon plus Systemton.
+
+### Verlässt das Audio den Mac?
+
+Die Transkription bleibt auf dem Gerät. Zusammenfassungen können auf dem Gerät bleiben. Ein optionaler Text-API-Schlüssel, deiner, schickt nur Text, wenn du ihn einschaltest, ohne stillen Rückfall und ohne Audio. Der Standard ist lokal.
+
+### Was wird gelöscht?
+
+Die Sitzung zu löschen entfernt Transkript, erzeugte Einträge, Aufgaben und Entscheide, die daran hängen, und den Aufnahmeordner. Ein gespeichertes Sprecherprofil löschst du getrennt unter Datenschutz. Eine schon exportierte Apple-Notiz bleibt in Notizen.
+
+### Geht das auf einem Windows-Laptop im Raum?
+
+Nicht mit dieser App. Nur Apple Silicon. Ein geschriebenes Protokoll geht auf jeder Maschine.
+
+### Soll ich stattdessen das iPhone-Mikrofon nutzen?
+
+Diese Mac-App nimmt nicht über das Telefon auf. Ist das Telefon das Gerät im Raum, nutze, was du auf dem Telefon schon vertraust, und importier eine Audiodatei auf den Mac, wenn du das lokale Transkript und die Notizen willst. Lies die Datenschutzbedingungen dieses Produkts, bevor du annimmst, die Datei sei auf dem Telefon geblieben.
+
+Für einen Raum, in dem du schon sitzt, stell den Mac hin, wo man ihn sieht, sag es, und nimm auf dem gewählten Mikrofon auf. Die Aufnahme steht auf der [Startseite](/de#capture). Die App liegt im [Mac App Store](https://apps.apple.com/app/id6794693630).

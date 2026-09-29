@@ -1,0 +1,120 @@
+---
+title: "Meeting Recording No Sound on Mac: Mic vs System Audio"
+description: "Meeting recording no sound on a Mac is usually a mic-only capture or a denied system audio permission. Check both tracks before you recapture the call."
+pubDate: 2026-10-20
+author: "Vemoir Team"
+tags: ["mac", "troubleshooting", "recording"]
+funnelStage: "interest"
+translationKey: "meeting-recording-no-sound-mac"
+relatedPosts: ["system-audio-recording-mac", "record-teams-meeting-mac", "bilingual-meeting-transcription"]
+image: "@/assets/blog/meeting-recording-no-sound-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/meeting-recording-no-sound-mac/inline1.jpg';
+import inline2 from '@/assets/blog/meeting-recording-no-sound-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Meeting recording no sound on a Mac** almost never means the meeting app "failed to record." It usually means you captured one track and not the other. Your microphone is your voice in the room. System audio is what Zoom, Teams, Meet, Slack, or Discord is playing through the Mac. If system audio is off, the recording is you talking into silence. If the microphone is off, the recording is the call without you. If both are off, you get a file that looks complete and contains nothing useful.
+
+Fix the permission and the output device before you recapture. Vemoir records those two sources separately from the menu bar. It does not join the call as a bot. The permission it needs for the remote side is **System Audio Recording** (audio only). It does not record the screen. Older guides that send you to a Screen Recording checkbox for this app are out of date. Start from [how capture works](/#capture).
+
+## Meeting recording no sound on a Mac: two tracks
+
+Treat a silent recording as a two-question checklist, not as a broken meeting app.
+
+
+<Image src={inline1} alt="Unplugged headphones next to a closed laptop" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@niko_nguyen_10?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">niko_nguyen_10</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. **Do I hear myself in the playback?** If yes, the microphone path worked. If no, the mic was muted, denied, or pointed at the wrong input.
+2. **Do I hear the other people?** If no, system audio was not captured. The usual causes are a denied **System Audio Recording** permission, a muted meeting app, or audio routed somewhere the Mac is not playing (a Bluetooth headset with a confused output, or a phone at your ear).
+
+Vemoir keeps those as separate local tracks. After you stop, the transcript is built from the finished audio on the Mac. A live line of text during the call is a preview. It is not proof that both tracks were armed.
+
+The meeting app can be any app that plays sound on the Mac. See [platforms](/#platforms). There is no special Teams plugin and no Zoom bot. For the live Teams path in more detail, use [record a Teams meeting on Mac](/blog/record-teams-meeting-mac).
+
+## Diagnose which side is silent
+
+Play the recording back and name the failure in one sentence. The fix is different for each.
+
+
+<Image src={inline2} alt="A silent table of cups and notebooks, no headset in use" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@greaterbythehour2020?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">greaterbythehour2020</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+**Only your voice.** System audio never entered the file. Open System Settings, then Privacy & Security. Apple groups the relevant list under **Screen & System Audio Recording**. For Vemoir, allow **audio only**, not a screen capture. Quit Vemoir and reopen it after you change the toggle. macOS often applies this permission only after a relaunch. Apple documents the settings page in [Control access to screen and system audio recording on Mac](https://support.apple.com/guide/mac-help/control-access-screen-system-audio-recording-mchld6aa7d23/mac).
+
+**Only the remote people.** The microphone never entered the file. Check System Settings, Privacy & Security, **Microphone**, and turn Vemoir on. Confirm the Mac's input device in Sound settings: the built-in mic, a headset boom, or a USB mic, not a dead aggregate device from an old Zoom installer. In Vemoir, confirm you did not start a system-audio-only recording by accident.
+
+**Neither side.** You may have started the recorder before the call app was playing sound, then stopped before anyone spoke. You may have recorded a different output device than the one you were listening to. You may have granted Screen Recording to some other tool and assumed that covered Vemoir. It does not.
+
+**The file is long and still "empty" in the transcript.** Playback first. If you hear audio, the capture worked and the speech model is the next step (wrong language, tiny voices, heavy music). If playback is silent, stay on this page. Do not download a larger model to fix a permission.
+
+## Fix system audio when the call is silent
+
+1. In the meeting app, confirm you are not muted as a listener in a way that also mutes output (rare, but "leave computer audio" in Zoom will do it). You should hear the others in your headphones or speakers **on this Mac**.
+2. In Sound settings, set **Output** to the device you are actually using. If AirPods are connected but output is still "MacBook Speakers," you may be listening in one place and recording another.
+3. Allow Vemoir under **System Audio Recording** (audio only) as above. Do not enable screen capture "just in case." Screen video is a different file from a different permission, and it will not repair a silent system-audio track.
+4. Quit and reopen Vemoir. Start recording from the menu bar **after** the meeting app is already playing sound.
+5. Speak a test sentence, ask someone else to say a sentence, stop, and play both tracks if the app shows them separately.
+
+Vemoir uses an audio-only Core Audio tap. It excludes its own output so the app is not recording itself. It does not store screen images. If a prompt asks only for System Audio Recording, that is the prompt to accept.
+
+## Fix the microphone when you are missing from the file
+
+1. Unmute in the meeting app. Unmute the hardware switch on a headset if it has one.
+2. Allow Vemoir in **Microphone** settings. Relaunch the app.
+3. In Sound settings, **Input**, watch the level meter while you talk. If it does not move, the OS never heard you. Pick another input.
+4. Optional on-device noise suppression (Off, Balanced, Strong) sits on the mic path in Vemoir. If you turned Strong on in a quiet room and then sounded clipped, try Off and recapture a minute. Suppression is local. It is not a cloud filter.
+5. A phone on speaker in the same room can leak into the mic. That is room sound, not system audio. It will not replace a denied system-audio permission.
+
+## Headphones, Bluetooth, and "I heard it, the file did not"
+
+If you heard the call, the Mac was playing something. The tap records system audio the Mac is playing, not a private Bluetooth channel that never hits the Mac's mix. In practice:
+
+- Wired headphones and ordinary Bluetooth output that macOS lists as the Sound output device are the normal case.
+- A mobile phone at your ear, or a second computer handling the call, never reaches the Mac. System audio cannot invent that call.
+- Exclusive-mode virtual cables from old "stereo mix" hacks can steal the output. Remove them if Sound settings show a device you do not recognize.
+
+QuickTime or screenshot-toolbar screen recording can pick up audio as a side effect of filming the display. That is the heavy way to get sound, and you still have no minutes until something transcribes the movie. It is not how Vemoir captures a call, and turning on Screen Recording will not fix Vemoir's silent system-audio track.
+
+## After the call: you already have a file
+
+If someone else recorded, or Zoom saved `audio_only.m4a`, you are no longer in a live-capture problem. Transcribe the file. The free [transcribe recording tool](/tools/transcribe-recording) handles MP3, M4A, WAV, or MP4 up to **15 minutes**, **three successful runs per week**, in the browser, without uploading the file to Vemoir. No speaker labels, no live tab capture. For a local Zoom file specifically, see [how to transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording).
+
+Want the next attempt to include both you and the call? Set microphone and System Audio Recording before you join, then follow [capture](/#capture).
+
+## Frequently asked questions
+
+### Why is my meeting recording no sound on a Mac when I heard the call live?
+
+You heard the call through a device or app path that the recorder did not capture. The usual miss is system audio: the permission is off, or output is not the Mac you are recording. Hearing the call is not the same as arming the tap.
+
+### Does Vemoir need Screen Recording to hear Teams or Zoom?
+
+No. It asks for System Audio Recording and uses that for audio only. It does not record the screen. Enabling Screen Recording for another app is unrelated.
+
+### Can I fix a silent file after the meeting?
+
+If the file is silent, there is nothing to transcribe. If the file has sound, transcribe it. The browser tool is for a short file you already hold. It cannot reconstruct a track that was never recorded.
+
+### I allowed Screen Recording and the remote side is still silent. What now?
+
+Use the System Audio Recording (audio only) control for Vemoir, then relaunch. Check that the meeting app is playing on this Mac and that you started the menu-bar recorder while it was playing.
+
+### Does the browser record system audio if I leave the tab open during the call?
+
+No. Browser tools on vemoir.ch transcribe a file after the call. They do not capture live system audio, they do not add speaker labels, and they do not run as an extension.
+
+### Will this work if I join the meeting on my iPhone and take notes on the Mac?
+
+Not for system audio. The Mac has to be the machine playing the call. The iPhone path never hits the tap. The Mac microphone might pick up a loud speakerphone. That is a poor substitute for system audio.
+
+### Do I still need to tell people I am recording once the sound works?
+
+Yes. A working permission does not replace consent. That stays your responsibility.
+
+Next step: turn on System Audio Recording (audio only) and the microphone, relaunch, and read [how capture works](/#capture) before the next call.

@@ -1,0 +1,113 @@
+---
+title: "Fix Wrong Speaker Names on a Mac Without a Profile"
+description: "Fix wrong speaker names on a Mac by renaming the label. That edit does not create a voice profile. Remember this speaker stays a separate opt-in."
+pubDate: 2026-11-06
+author: "Vemoir Team"
+tags: ["speakers", "transcript", "mac"]
+funnelStage: "interest"
+translationKey: "fix-wrong-speaker-names"
+relatedPosts: ["speaker-profiles-mac", "speaker-labels-missing", "who-spoke-most-in-meeting"]
+image: "@/assets/blog/fix-wrong-speaker-names/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/fix-wrong-speaker-names/inline1.jpg';
+import inline2 from '@/assets/blog/fix-wrong-speaker-names/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@stacysuxx?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">stacysuxx</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+You can **fix wrong speaker names** on a finished Vemoir meeting by renaming the label. That rename does not create a voice profile. `Remember this speaker` is a different control, and it waits for an explicit yes. If the only problem is a name on this transcript, change the label and stop there.
+
+The raw separation and the timestamped lines stay as evidence. You are correcting who the cluster refers to, not rewriting the words.
+
+## Fix wrong speaker names after the transcript exists
+
+Speaker labels appear after you stop, when on-Mac separation has grouped the audio. Until then, a live preview is only a preview. Do not spend time naming people in the preview and expect that draft to be the record.
+
+
+<Image src={inline1} alt="A blank line being marked on paper, no readable names" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@dlxmedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dlxmedia</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Open the meeting, switch to the transcript or the speaker list, and read a few turns before you rename. A wrong name is often one of three things: the cluster is right and the label is a placeholder, two people were grouped together, or your own voice and the room leaked into the same mic. The rename fixes the first case. The other two need a correction of the cluster, not a confident name on a mixture.
+
+## Rename without saving a voice
+
+1. Open the completed meeting.
+2. Select the speaker label that is wrong.
+3. Type the name you want on this record. Leave `Remember this speaker` untouched.
+4. Check a timestamped line to see the new name on the right turns.
+5. If you already remembered someone by mistake, reject or undo that match, then delete or anonymize the profile in Privacy settings. The rename itself was not the problem.
+
+
+<Image src={inline2} alt="Someone rewriting a label on a cream card" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Unknown speakers stay anonymous until you name them. A blank or generic label is honest when you are not sure. Inventing a name to tidy the minutes is worse than leaving "Speaker 2" if you would not defend that name later.
+
+Correct and undo preserve the underlying separation. If a regenerated summary was written with the old name, regenerate after the rename so actions and decisions pick up the label you just set. User-written manual notes keep their own provenance. They are not silently rewritten as if the transcript had always said the new name.
+
+## Where a profile, or no name at all, is better
+
+A rename without a profile is the better choice for a one-off call, a guest, or any person you do not want stored as a voice template. Creating a profile is better only when that person will be back and you want a later suggestion, with gates on confidence. That choice is described in [speaker profiles on a Mac](/blog/speaker-profiles-mac).
+
+Leaving the label anonymous is better when you cannot tell the voices apart. A shared cloud notetaker can be better when the whole team needs the same directory and your policy allows their cloud. Vemoir does not sync a speaker roster to other Macs. Names you type stay in the local record.
+
+Browser tools do not help here. [/tools/transcribe-recording](/tools/transcribe-recording) turns a file you already have into text, up to 15 minutes, and it does not invent speaker names. If the file has no labels, the page says so. Live separation is the Mac app.
+
+## Names in the minutes and in what you share
+
+Generated minutes, actions, and decisions can show the names on the speakers you set. Export and copy use those names. There is a separate identity setting that can map `ME` to your real name and render it as `Name (Me)` in copied or shared text. That setting is you, not a guest profile.
+
+Apple Notes and other exports carry the record you chose to send. They do not attach the encrypted voice template. If a name is sensitive, fix it before you export. Sharing is a conscious step from the meeting, not an automatic post to a team.
+
+A glossary can keep product words stable. It does not assign people. If "Alex" is both a product and a person, the speaker rename is what marks the person. The glossary is what marks the product.
+
+Audio never leaves the Mac for this edit. A text-only API key, if you have activated one, still does not receive the recording just because a name was wrong.
+
+The place to work is the meeting you just stopped, reached from [capture](/#capture) and the meeting library.
+
+## A short example from a four-person call
+
+Suppose the transcript shows Speaker 1, Speaker 2, Speaker 3, and a cluster that clearly mixes two voices. You rename Speaker 1 and Speaker 2 because you can hear who they are in consecutive turns. You leave Speaker 3 as a temporary name until you confirm it against the recording, if you kept the audio. You do not rename the mixed cluster to the louder person's name and then remember it. In the minutes, you can say the last point was disputed between two people if that is what you heard, in your own manual notes, which keep a separate provenance from the transcript.
+
+After the renames, glance at actions. If an owner was generated as Speaker 1, regenerate or edit the owner so the task carries the name you just set. Editing the action by hand is enough when the only change is the person. Regeneration is better when several generated lines still say the placeholder.
+
+Then export, or do not. A wrong name that never leaves the Mac is a smaller problem than a wrong name pasted into a client email. Fix the label first. The share button is a later step, from the summary, the actions, the decisions, or the transcript, depending on which view you are in.
+
+## Frequently asked questions
+
+### Does fixing a speaker name save their voice?
+
+No. A rename changes the label on this meeting. A voice profile is created only if you choose `Remember this speaker`.
+
+### Can I fix names while the call is still going?
+
+You can watch a live preview, but the authoritative transcript is built after you stop, from the finalized audio. Rename on that finished transcript.
+
+### What if two people share one label?
+
+Do not give that cluster a single confident name and remember it. Correct the grouping if the review controls let you split or reject it, or leave it unnamed and note the ambiguity in your own notes.
+
+### Will the summary keep the old name?
+
+Regenerate after the rename so generated lines pick up the new label. Edits you typed yourself stay as your text.
+
+### Can I undo a bad rename?
+
+Yes. Correct and undo keep the raw separation and the timestamped evidence. If a profile was created as well, remove that in Privacy settings.
+
+### Do exports include the voice profile?
+
+No. Sharing and export send the record you choose, such as summary and transcript text. Profile embeddings stay out of exports.
+
+### What if there are no labels at all?
+
+Then separation did not produce clusters you can name, or you are in a browser tool that never labels speakers. The Mac app is the path with separation. A file with no speaker marks cannot gain them from a text cleaner.
+
+### Is this legal advice about naming people in minutes?
+
+No. Putting a name on a line is your editorial choice. Recording still needs whatever consent your situation requires.
+
+Rename the label, skip Remember, and check one timestamp before you export. The speaker list is part of [capture](/#capture).

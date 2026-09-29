@@ -1,0 +1,156 @@
+---
+title: "Where Swiss Companies Meeting Data Goes After a Call"
+description: "Where Swiss companies meeting data goes: Zoom cloud, Teams OneDrive, notetaker clouds, or your Mac. A map of copies, not legal advice."
+pubDate: 2026-10-13
+author: "Vemoir Team"
+tags: ["switzerland", "meetings", "privacy"]
+funnelStage: "awareness"
+translationKey: "where-swiss-companies-meeting-data-goes"
+relatedPosts: ["is-otter-ai-safe", "teams-copilot-data-location-switzerland", "cloud-vs-local-meeting-transcription"]
+tool: "transcribe-recording"
+image: "@/assets/blog/where-swiss-companies-meeting-data-goes/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/where-swiss-companies-meeting-data-goes/inline1.jpg';
+import inline2 from '@/assets/blog/where-swiss-companies-meeting-data-goes/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@markokovic?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Marko Kovic</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Where Swiss companies meeting data goes** is a map of copies, not a verdict under Swiss law. After a call, the same conversation can sit in Zoom's cloud, in a Teams OneDrive folder, in a US notetaker account, on one laptop, or in a browser tab that never uploaded the file. This page names those usual places, using vendor documentation as of September 2026. It is not legal advice. It does not say what the revised Swiss data protection act requires, and it does not call any product compliant, certified, or safe for your contract.
+
+If you need the legal reading (information duty, processors, retention), that is a different article, for counsel. Here the job is narrower: know which copy you created, and which vendor page describes it.
+
+## Contents
+
+- [Where Swiss companies meeting data goes in practice](#where-swiss-companies-meeting-data-goes-in-practice)
+- [The meeting app's own cloud](#the-meeting-apps-own-cloud)
+- [A notetaker that joined the call](#a-notetaker-that-joined-the-call)
+- [A file that never left the tab](#a-file-that-never-left-the-tab)
+- [A recording that stayed on the Mac](#a-recording-that-stayed-on-the-mac)
+- [How many copies a single sitting can create](#how-many-copies-a-single-sitting-can-create)
+- [What this page does not decide](#what-this-page-does-not-decide)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## Where Swiss companies meeting data goes in practice
+
+A Swiss GmbH, a Treuhand, a consultancy in Zurich, or a team with clients in Germany still uses the same four pipes everyone else uses. The company seat does not move the bits. The product you clicked does.
+
+
+<Image src={inline1} alt="Papers on a desk beside a city-district window" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@sandspykid?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Sandip Chauhan</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Ask one question after every meeting that was recorded or summarized: **which system has a copy, and what does that vendor say about the copy?** Write the answer in the minutes if the sitting was sensitive. "We used Teams cloud recording; file is in the organizer's OneDrive" is a complete sentence. "It should be fine, we are in Switzerland" is not.
+
+Typical destinations, each documented by the vendor, not by this blog:
+
+| What you clicked | Usual resting place (vendor docs) | Extra copy you might forget |
+| --- | --- | --- |
+| Zoom cloud recording or AI Companion | Zoom's hosted region and AI pipeline | A VTT or summary in the Zoom portal; third-party models on some accounts |
+| Teams cloud recording or Copilot | OneDrive or SharePoint; Copilot interaction history | A transcript next to the recording; prompts stored as history |
+| Otter, Fireflies, or a similar bot | That vendor's cloud (Otter documents AWS in the United States) | The bot in the participant list; training terms on that vendor's privacy page |
+| Local Zoom or a menu-bar recorder | The computer that recorded | A second local folder if two people hit Record |
+| In-browser transcription of a file you already have | The tab, after a model download, if the tool never uploads | None at Vemoir; you still hold the original file |
+
+Vendor pages change. Recheck them the month you fill a security form. The September 2026 reading is what this article used.
+
+## The meeting app's own cloud
+
+**Zoom.** Cloud recording lives in Zoom's web portal. On eligible plans it can include a VTT transcript. Zoom AI Companion is a Zoom feature, not a guest bot. Zoom states that it does not use customer audio, video, chat, or similar communications content to train Zoom's or third-party AI models, and that it still must process content to provide the feature. Hosted region and optional EEA residency controls are account settings. EEA is not Switzerland. Details and links: [Zoom AI Companion privacy](/blog/zoom-ai-companion-privacy).
+
+
+<Image src={inline2} alt="A quiet boardroom in daylight with no screens showing" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@florianwehde?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Florian Wehde</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+**Microsoft Teams.** A cloud recording lands in the organizer's OneDrive for a private meeting, or in the channel SharePoint library for a channel meeting, according to Microsoft's recording documentation. Copilot prompts and answers are stored as interaction history. Microsoft lists Switzerland among countries that can have local-region residency for core Microsoft 365 workloads, if the tenant is actually provisioned that way. Microsoft also says customers outside the EU may have Copilot queries processed in the US, the EU, or other regions. Switzerland is not in the EU Data Boundary. Details: [Teams Copilot data location in Switzerland](/blog/teams-copilot-data-location-switzerland).
+
+**Google Meet and others.** The same pattern: if you used the platform's recording or summary, the copy is in that platform's account, under that platform's retention. Read that vendor's admin help, not a generic "Swiss cloud" assumption.
+
+None of these products become Swiss-hosted because the participants sat in Zug. The signup country, the admin's data-location card, and the feature you enabled decide the map.
+
+## A notetaker that joined the call
+
+Calendar-linked assistants join as a named participant. Everyone can see them. That visibility is useful. It is also why many client-facing teams ban them.
+
+Otter documents cloud compute and storage with Amazon Web Services in the United States, and describes training of its own models on de-identified audio and transcripts. That is Otter's page, summarized in [is Otter.ai safe](/blog/is-otter-ai-safe). Fireflies and similar products publish their own storage and training terms. Read those pages; do not copy Otter's sentences onto another logo.
+
+A Swiss company that invites a US notetaker has created a copy in that vendor's cloud, whatever the GmbH's register address says. If the invitation said "no AI notetaker," the bot is the copy you were asked not to make. [Meeting notes without a bot](/blog/meeting-notes-without-a-bot) explains the roster problem. This page only places the file.
+
+## A file that never left the tab
+
+Sometimes the meeting is already over and you hold an M4A or MP3. An upload site creates a new processor. A tab that downloads a speech model and runs it locally does not send the file to Vemoir. Users can watch the Network tab.
+
+The free [transcribe recording](/tools/transcribe-recording) tool works that way: files up to 15 minutes, three successful runs a week, MP3, M4A, WAV, or MP4. No speaker labels. Swiss German speech usually comes out as Standard German text. It is not a live recorder and it is not a team archive.
+
+That path answers "where does this file go" with "it stays in the browser, plus the original still on your disk." It does not answer "where did the live call go" if Zoom or Teams already stored a cloud recording.
+
+## A recording that stayed on the Mac
+
+Local Zoom recording writes a folder on the computer that clicked Record, typically under Documents, with an `audio_only.m4a` or similar M4A. Zoom does not keep a cloud backup of that local folder. Delete the folder and that copy is gone.
+
+A menu-bar app can record the Mac's microphone and system audio while Teams, Zoom, Meet, Slack, or Discord plays. No extra participant appears. After you stop, transcription can run on that Mac with local models. Exports are a later, conscious step. Optional cloud text, if the user turns it on with their own API key, is text, not the audio file.
+
+Vemoir is one such Mac app, made in Oberägeri. It needs Apple silicon and macOS Sonoma 14.2 or later. Intel Macs are not supported. Once the chosen models are installed, the meeting workflow can run offline. Internet is for setup and downloads. That is a location statement: the record stays on the Mac until you share it. It is not a legal clearance.
+
+If two people record locally, you have two folders. Agree who records.
+
+## How many copies a single sitting can create
+
+A messy but common pattern for a Swiss client call:
+
+1. The host turns on Teams cloud recording. Copy in OneDrive.
+2. Someone enables Copilot recap. Interaction history in Microsoft 365.
+3. A colleague's Otter bot joins. Copy in Otter's US cloud, plus a visible guest.
+4. You also recorded locally "just in case." Copy on your Mac.
+
+That is four systems, four retention clocks, four deletion chores. The minutes should say which copy is the official one. If the official copy is the Teams file, delete or refrain from the extras next time. If the official copy must stay off cloud recorders, do not press Record in Teams and do not invite the bot.
+
+Cloud is not automatically careless. Plenty of firms pick one approved vendor, read the data-location card, and want a shared library. The failure mode is **untracked extras**, not the existence of OneDrive.
+
+## What this page does not decide
+
+This is not a guide to the revised Federal Act on Data Protection, and it is not a substitute for the FDPIC or for counsel. French- and Italian-speaking readers will see the law abbreviated as nLPD; German speakers often say nDSG. Naming the act does not interpret it.
+
+This page does not say that local processing is required, that US hosting is forbidden, or that a Swiss data center makes a product lawful. It does not call Vemoir, Zoom, Microsoft, or Otter compliant, GDPR-certified, or HIPAA-certified.
+
+Consent to record, how long you keep a file, and whether a processor is allowed remain your decisions. A tidy map of copies only tells you what you already made.
+
+If you already have a short file and you want text without adding a vendor, use [transcribe a recording](/tools/transcribe-recording). If you are choosing a live tool, read that vendor's current privacy page the same week you decide.
+
+## Frequently asked questions
+
+### Where does Zoom put meeting recordings?
+
+Cloud recordings sit in Zoom's portal, in the hosted region the account uses. Local recordings sit on the computer that recorded. AI Companion is a further Zoom processing path. See Zoom's own AI data article and [Zoom AI Companion privacy](/blog/zoom-ai-companion-privacy).
+
+### Where does Teams put meeting recordings?
+
+In OneDrive or SharePoint, as Microsoft's recording pages describe. Copilot history is stored separately. See [Teams Copilot data location in Switzerland](/blog/teams-copilot-data-location-switzerland).
+
+### Where do Otter and Fireflies store calls?
+
+On those vendors' clouds. Otter documents AWS in the United States. Read each vendor's privacy and security pages the month you ask. A starting point for Otter is [is Otter.ai safe](/blog/is-otter-ai-safe).
+
+### What stays on the Mac?
+
+A local Zoom folder, a menu-bar recording, or an imported audio file that you never upload. Exports create a new copy wherever you send them.
+
+### Is this legal advice under the nLPD or nDSG?
+
+No. This is a map of product copies from vendor documentation. Ask counsel for the legal reading.
+
+### Does a Swiss company have to use a Swiss host?
+
+This page does not say that. Some vendors offer regional hosting; others do not. Your contract and your counsel decide what is acceptable. A Swiss register address does not relocate a US bucket.
+
+### What is a second copy?
+
+Any extra system that received the same audio or transcript: a bot, a second cloud recorder, a forwarded link, a download to a USB stick. Count them. Delete the ones you did not mean to create.
+
+### How do I check a vendor this month?
+
+Open that vendor's privacy, security, and residency pages, note the date, and screenshot the admin data-location view if there is one. Do not rely on a blog after the vendor has changed the page.
+
+If the next file should stay in the tab, use [transcribe a recording](/tools/transcribe-recording). If you want the live call to stay on one Mac, record there and write down that this was the only copy.

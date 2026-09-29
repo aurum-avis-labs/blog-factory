@@ -1,0 +1,162 @@
+---
+title: "Clean a Messy Meeting Transcript Before You Share It"
+description: "A messy meeting transcript is full of timestamps and cue numbers. How to strip them, keep real speaker names, and get a page you can read."
+pubDate: 2026-10-15
+author: "Vemoir Team"
+tags: ["transcript", "meetings", "vtt"]
+funnelStage: "interest"
+translationKey: "messy-meeting-transcript"
+relatedPosts: ["zoom-vtt-to-plain-text", "export-teams-transcript", "turn-transcript-into-meeting-notes"]
+tool: "transcript-cleaner"
+image: "@/assets/blog/messy-meeting-transcript/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/messy-meeting-transcript/inline1.jpg';
+import inline2 from '@/assets/blog/messy-meeting-transcript/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@lukesouthern?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Luke Southern</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+A messy meeting transcript is usually not a bad meeting. It is a caption file that was never meant to be read as a page. Zoom and Teams hand you a `.vtt` with a `WEBVTT` header, cue numbers, and lines like `00:12:04.000 --> 00:12:09.120`. A Whisper dump adds timestamps of its own, plus every "uh" and every false start. You can share that file, and nobody will find the decision.
+
+Cleaning is a formatting job. It removes the scaffolding and keeps the words. It does not invent speaker names, and it does not turn the talk into minutes. Those are later steps.
+
+## Contents
+
+- [What a messy meeting transcript looks like](#what-a-messy-meeting-transcript-looks-like)
+- [Strip the scaffolding, keep the names](#strip-the-scaffolding-keep-the-names)
+- [A short example of what should change](#a-short-example-of-what-should-change)
+- [What still looks messy after the timestamps are gone](#what-still-looks-messy-after-the-timestamps-are-gone)
+- [A practical order of work](#a-practical-order-of-work)
+- [Where a model makes the mess worse](#where-a-model-makes-the-mess-worse)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## What a messy meeting transcript looks like
+
+Open the file in a plain-text editor before you paste it into a document. You are looking at one of these:
+
+
+<Image src={inline1} alt="A messy desk being tidied into a neat notebook" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@regeci?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Adrian Regeci</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- A WebVTT file. The first line is `WEBVTT`. Then blank lines, cue times, then the spoken text. Teams and Zoom cloud transcripts often look like this. A speaker may appear as `<v Jane Doe>we should ship Friday</v>` or as `Jane Doe: we should ship Friday`.
+- An SRT file. Numbered cues, then times with a comma before the milliseconds (`00:01:02,000`), then text.
+- A plain dump where every line starts with a bracketed time and no names.
+- A file that already has names, but still has duplicate lines because the captioner split one sentence across two cues.
+
+The words can be fine and the file can still be unreadable. The mess is the metadata. If the words themselves are wrong (a product name, a person, a number), cleaning the timestamps will not fix that. You fix recognition errors by reading, not by hiding the times.
+
+## Strip the scaffolding, keep the names
+
+The free [transcript cleaner](/tools/transcript-cleaner) takes a Zoom VTT, a Teams export, or an SRT. You drop the file or paste the text. It removes the header, the cue numbers, and the timestamps. If a speaker name is already in the file, it stays, in the form `Name: text`. If two cues in a row belong to the same speaker, they are joined.
+
+
+<Image src={inline2} alt="Scattered pages gathered into a folder" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+If the file has no speaker names, the page says so. The timestamps still come off. Names are not invented. That is the whole behavior of the cleaner: it will not guess who talked.
+
+Cleaning does not spend one of the three weekly model runs. Those runs are for speech-to-text and for notes that call a model. A VTT you already have is text. You can clean several files in the same week without touching that counter.
+
+A link on the page can hand the cleaned text to [meeting notes from a transcript](/tools/meeting-notes-from-transcript) when you want a recap, decisions, and actions. Do that after you have looked at the cleaned page, not before. A model will smooth a file that still contains a joke or a rejected idea.
+
+## A short example of what should change
+
+Before, a fragment of VTT:
+
+```text
+WEBVTT
+
+1
+00:03:10.000 --> 00:03:14.200
+<v Lee>Can you send the redline by Thursday?
+
+2
+00:03:14.200 --> 00:03:16.800
+<v Lee>I'll look at clause four first.
+```
+
+After a clean pass, you want something you can read:
+
+```text
+Lee: Can you send the redline by Thursday? I'll look at clause four first.
+```
+
+What you should not want from a cleaner:
+
+- `Speaker 1` when the file never had a name.
+- A deleted half-sentence because it sounded like filler.
+- A new decision that nobody said.
+
+If the voice tag is missing, the honest output is the sentence without a name. You can add names later from memory, and you should mark them as your addition, not as something the file contained.
+
+## What still looks messy after the timestamps are gone
+
+Timestamps were only the obvious layer. Four other kinds of mess survive a clean pass.
+
+**Fillers and false starts.** "I, I think, um, the date" is still the transcript. For minutes, you may tighten that line. For evidence, you leave it. Do not run one "cleaned" file as both.
+
+**Repeated captions.** Some exports repeat a rolling caption. After joining same-speaker lines, read the page once. If the same clause appears twice, delete the duplicate by hand. A tool that merges adjacent cues from one speaker will not always spot a caption that restated the same words ten seconds later.
+
+**Chat mixed into the speech.** Zoom's `chat.txt` is a different file from the audio transcript. Do not paste both into one blob and hope the cleaner sorts the room. Keep chat as chat.
+
+**Wrong names that are really in the file.** If Teams labeled the guest as "Conference Room" or "Phone", the cleaner will keep that label, because it was there. Rename it yourself if you know who it was. The browser will not look up your org chart.
+
+**Language mix and recognition errors.** Cleaning does not translate, and it does not rerun speech recognition. A name spelled three ways is still three ways until you edit it. On the Mac, a project glossary can nudge later transcripts toward the terms you prefer. The original transcript stays the evidence. The browser cleaner does not apply a glossary.
+
+## A practical order of work
+
+1. Save the original `.vtt` or `.srt`. Do not clean the only copy.
+2. Drop it on the [transcript cleaner](/tools/transcript-cleaner). Read the note if it says there were no speaker names.
+3. Skim for duplicates, room mics, and numbers (dates, money, versions).
+4. If you need a recap, send the cleaned text to notes. Check every owner against the lines you just read.
+5. If you need a protocol, copy only the decisions and the actions onto the [minutes sheet](/tools/minutes-sheet). The transcript is not that sheet.
+6. File the original next to the cleaned text. If someone disputes a line, you still have the cues.
+
+A file that is only audio, not text, does not belong on the cleaner. A local Zoom recording is often `audio_only.m4a` with no transcript at all. That path is [transcribe a Zoom recording](/blog/transcribe-zoom-local-recording). Files longer than 15 minutes are outside the browser transcription trial. Cleaning a VTT you already exported is not that trial.
+
+## Where a model makes the mess worse
+
+People paste a VTT into a chatbot and ask for "clean notes." The model will drop timestamps, which is what you wanted, and it will also drop conditions, merge two speakers, and write an owner who never volunteered. You then have a tidy page you cannot defend.
+
+Use a cleaner that only changes format when the file is a caption export. Use a notes pass when you want a draft recap, and read it against the cleaned text. Use the minutes sheet when you are ready to commit names and dates. Do not ask one step to do all three.
+
+On the Mac, the transcript and the generated record stay separate. You can correct a line without losing the timestamps that were on the recording. You can also share the notes without attaching the audio. The browser cleaner is the small version of the first half of that job: readable text, original file still yours, nothing uploaded as a caption file to Vemoir.
+
+## Frequently asked questions
+
+### Does cleaning a transcript use my weekly runs?
+
+No. The three successful runs a week are for tools that run a model on audio or on notes. Stripping a VTT, an SRT, or a similar export does not spend a run.
+
+### Will the cleaner add speaker names?
+
+No. It keeps `<v Name>` tags and lines that already look like `Name: text`, `Speaker 1:`, or `SPEAKER_01:`. If those patterns are absent, you get the words without names, and the page says the names were not there.
+
+### Can I clean a Word transcript from Teams?
+
+Paste the text, or save it in a form the page can read. A `.docx` may need to be opened and copied out. The timestamps and cue lines are what the cleaner removes. If the Word file is already prose with no times, you may not need this step.
+
+### Should I delete "um" and "yeah"?
+
+For a protocol, yes, you leave them out of the minutes. For the transcript you keep as evidence, leave them. The cleaner does not make that editorial cut for you.
+
+### What about a two-hour VTT?
+
+Length is not the 15-minute audio cap. The cleaner works on text you already have. A very long paste can still be awkward in a browser tab. If the meeting was long and you want minutes, decisions, and speaker labels from the audio itself, that is the Mac app, not a caption tidy-up.
+
+### Does the original file get uploaded?
+
+The cleaner runs on the text in the tab. It is not a speech model download in the same sense as transcription, and it does not send your recording anywhere because you did not give it a recording. Keep the original on your machine anyway.
+
+### Can I go from a messy file to action items in one click?
+
+You can hand the cleaned text to the notes tool, which drafts a recap with decisions and actions. Read the owners before you send them. The [minutes sheet](/tools/minutes-sheet) is where you commit the lines. Neither step invents a speaker the file did not have.
+
+### Is a cleaned transcript the same as minutes?
+
+No. It is still what people said, just without cue times. Minutes are shorter and structured. The comparison is in the idea of a record versus a tape. Use both, and do not label one as the other.
+
+Next step: drop the export on the [transcript cleaner](/tools/transcript-cleaner). If you still only have audio, start from [transcribe a recording](/tools/transcribe-recording) when the file is 15 minutes or less.

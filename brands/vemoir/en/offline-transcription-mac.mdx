@@ -1,0 +1,145 @@
+---
+title: "Offline Transcription on Mac After Models Download"
+description: "Offline transcription on Mac after the speech model is on disk: browser trial limits, local Mac apps, and what still needs the internet."
+pubDate: 2026-10-10
+author: "Vemoir Team"
+tags: ["offline", "transcription", "mac"]
+funnelStage: "interest"
+translationKey: "offline-transcription-mac"
+relatedPosts: ["transcribe-voice-memo-mac", "import-audio-file-mac", "best-offline-transcription-mac"]
+tool: "transcribe-recording"
+image: "@/assets/blog/offline-transcription-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/offline-transcription-mac/inline1.jpg';
+import inline2 from '@/assets/blog/offline-transcription-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@enchponnt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Thomas Chizzali</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Offline transcription on Mac** means the speech model is already on the machine, and the audio file never has to leave that machine for the text step. It does not mean "never used the internet." Setup, first model downloads, account sign-in, and most cloud notetakers still need a network. Once the weights sit in a browser cache or in a Mac app's model library, you can transcribe with Wi-Fi off.
+
+This guide separates three honest cases: the free browser tools on vemoir.ch, a local Mac meeting app after models are installed, and cloud services that transcribe on someone else's servers even when you started the call on a Mac. It also says when a Finder-only file app is the simpler offline choice.
+
+## What offline transcription on Mac actually means
+
+People search **offline transcription mac** for two different jobs:
+
+
+<Image src={inline1} alt="Closed laptop on a countryside desk in daylight" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@stev_tensai89?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Stefanus Stefanus</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. **A file already on disk** (Voice Memo M4A, Zoom `audio_only.m4a`, interview WAV). They want text without uploading the file.
+2. **The next live meeting.** They want capture and transcription without a bot and without sending audio to a vendor cloud.
+
+Those jobs share a test: after the model is present, can you disconnect the network and still get a transcript? If the product breaks without an API call, it is not offline transcription. If it only caches notes you already made in the cloud, that is offline *editing*, not offline speech-to-text.
+
+Local processing still needs storage and memory. Vemoir's Mac app asks for Apple silicon, macOS Sonoma 14.2 or later, at least 8 GB of memory and 10 GB free; 16 GB or more is the practical recommendation for long meetings. Intel Macs are not supported. Those are hardware limits, not a privacy claim.
+
+## Browser tools: first download, then offline runs
+
+The free tools on vemoir.ch transcribe a file you already have **in the browser tab**. The audio is **not uploaded** to Vemoir. A public Whisper model downloads once. Later runs can work with the network off if the browser still has the model cached. You can confirm that in the **Network** tab (no multipart upload of your file).
+
+
+<Image src={inline2} alt="Rural office table with paper notes by a window" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@istin?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Irvin Aloise</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Use [/tools/transcribe-recording](/tools/transcribe-recording) for a generic MP3, M4A, WAV, or MP4. Zoom locals have a dedicated page at [/tools/transcribe-zoom-recording](/tools/transcribe-zoom-recording). Voice memos sit at [/tools/transcribe-voice-memo](/tools/transcribe-voice-memo).
+
+Limits that do not go away when you go offline:
+
+- **15 minutes** per file.
+- **Three successful runs per week**.
+- **No speaker labels**.
+- **No live meeting capture** in the tab. There is no extension, bot, or tab-audio recorder.
+
+Swiss German usually comes out as **Standard German** text. That is how public Whisper behaves, not a dialect model.
+
+First-run checklist:
+
+1. Stay online long enough for the model download to finish. Keep the tab open.
+2. Open **Developer Tools → Network** and run a short file.
+3. Confirm you see weight or asset downloads, not your audio posted to a remote host.
+4. Optional: turn Wi-Fi off and run a second short file to prove the cache.
+
+If the cache was cleared, you will need the network again. Private browsing and aggressive site-data wipers undo the offline part.
+
+## Mac app: install models once, then the meeting workflow can stay offline
+
+Vemoir for Mac is built around **local-first** processing. Microphone and system audio are captured as separate local tracks. No bot joins the call. You start and stop from the menu bar ([how it works](/#how), [platforms](/#platforms)).
+
+After the chosen transcription models are downloaded, **transcription and speaker processing always run on the Mac**. Summaries, actions, decisions, Ask Vemoir, and documents run locally by default. A cloud text model (OpenAI or Anthropic, with your own key) is opt-in and **text only**. Raw audio does not go to that provider. There is no silent cloud fallback if a local model fails ([capture and models](/#capture)).
+
+Internet is still required for:
+
+- First-time setup and **model downloads** (progress is visible and resumable; Vemoir does not silently swap a model mid-run).
+- Optional Apple Notes export, if you choose that path.
+- Optional own-key text generation, if you activate it.
+
+Once the models you picked are on disk, you can record a Teams, Zoom, Meet, or Slack huddle, transcribe, and draft minutes **without a network**. Import of MP3, M4A, WAV, AIFF, CAF, and FLAC uses the same local pipeline.
+
+That is the operational difference from a notepad that transcribes through Deepgram or Assembly and stores notes on AWS: those products can feel "local" because no bot appears, but the speech step is still a cloud call. See [is Otter.ai safe](/blog/is-otter-ai-safe) for a cloud-bot example documented from vendor pages.
+
+Want the next call transcribed on the Mac after models are installed? [Record from the menu bar](/#how) and keep the file on the device unless you export it.
+
+## What still needs the internet (so you are not surprised)
+
+| Step | Browser tool | Vemoir Mac app (local models) | Typical cloud notetaker |
+| --- | --- | --- | --- |
+| First model or app setup | Yes, download weights | Yes, download models | Account and service |
+| Later transcription | Can be offline if cached | Yes, offline | No: audio or stream goes to vendor |
+| Live meeting capture | Not available | Yes, on the Mac | Bot or desktop upload |
+| Speaker labels | No | Yes, on the Mac | Vendor feature, in their cloud |
+| Sharing a transcript | You copy text yourself | You export what you choose | Often stored and shareable in their workspace |
+
+"Airplane mode after setup" is a fair test for the first two columns. It is not a fair test for Otter, Fireflies, or similar services: they are designed to keep a library in their cloud.
+
+Granola's own security FAQ (as of September 2026) says notes are cached locally so you can edit them offline, while **all data is stored on AWS in the United States**, and desktop transcription uses third-party providers. That is offline *notes access*, not offline speech-to-text. Read their pages if that product is in your shortlist.
+
+## When a Finder-only local app is the better fit
+
+If you never record live meetings and you only drop files from Finder, a dedicated local file transcriber (for example MacWhisper) can be the shorter path: pick a Whisper build, point it at a folder, stay offline after the model download. You will not get meeting minutes, decisions, or a menu-bar recorder from that class of tool.
+
+Vemoir is the better fit when the job is **the call itself**: system audio plus microphone, no participant in the roster, then a record you can search and export ([minutes and record](/#record)). It is the wrong fit if you need Windows, iPhone capture as the main product, or a shared team library that lives in a vendor workspace.
+
+Cloud notetakers remain the better fit when the point is calendar auto-join, CRM sync, and a searchable org-wide archive. Those products are not offline transcription. They are online libraries with a Mac client.
+
+## Frequently asked questions
+
+### Can I do offline transcription on Mac without installing an app?
+
+Yes, for short files. Use [/tools/transcribe-recording](/tools/transcribe-recording) after the Whisper model has cached. Cap is 15 minutes and three successful runs per week. There are no speaker labels and no live capture.
+
+### Does "local" always mean offline?
+
+No. A desktop app can still stream audio to a transcription vendor. Check whether speech-to-text runs on-device after a one-time model download, or whether every session needs their API.
+
+### What does Vemoir need the internet for?
+
+Setup and model downloads. Optional own-key text models and Apple Notes export also need a network when you use them. Transcription itself stays on the Mac with the selected local speech model.
+
+### Can the browser tools record a meeting offline?
+
+No. They only transcribe a file you already have. Live recording is a Mac-app job.
+
+### Will I get speaker names offline?
+
+In the browser, no. In the Mac app, speaker separation runs locally. Remember-this-speaker profiles are opt-in, encrypted, and deletable. Unknown speakers stay anonymous.
+
+### Does offline transcription support Swiss German dialect?
+
+Do not plan on dialect spelling. Public Whisper in the browser, and the shipped Mac speech models, write **Standard German** from Swiss German speech. A dialect path is not something this article can date.
+
+### What if my file is longer than 15 minutes?
+
+Import it in the Mac app, or split it only if you accept multiple browser runs and a broken timeline. The weekly browser quota is three successful jobs.
+
+### Is airplane mode a good privacy test?
+
+It is a good test that **this run** did not need the network. It does not prove where earlier copies went, and it does not replace consent or retention rules for other people's voices.
+
+## Next step
+
+For a file you already have, open [/tools/transcribe-recording](/tools/transcribe-recording), download the model once, then try a run with the network off. For the next live meeting, install models in the [Mac app](https://apps.apple.com/app/id6794693630) and work from [capture](/#capture) without sending audio to a notetaker cloud.

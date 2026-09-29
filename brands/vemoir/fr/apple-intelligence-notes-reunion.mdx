@@ -1,0 +1,112 @@
+---
+title: "Apple Intelligence pour nettoyer les notes de réunion"
+description: "Apple Intelligence pour les notes de réunion est facultatif si le Mac l'offre. Nettoyage et artefacts seulement. La transcription reste locale."
+pubDate: 2026-11-05
+author: "Vemoir Team"
+tags: ["apple intelligence", "notes", "mac"]
+funnelStage: "interest"
+translationKey: "apple-intelligence-meeting-notes"
+relatedPosts: ["telecharger-modele-local", "qwen-ou-gpt-oss", "parakeet-ou-whisper"]
+image: "@/assets/blog/apple-intelligence-meeting-notes/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/apple-intelligence-meeting-notes/inline1.jpg';
+import inline2 from '@/assets/blog/apple-intelligence-meeting-notes/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@andrewilliam?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">andrewilliam</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Apple Intelligence pour les notes de réunion** dans Vemoir est facultatif, et seulement là où le Mac a réellement Apple Intelligence. Il peut participer au nettoyage et aux artefacts générés. Il ne transcrit pas la réunion. Les mots viennent du modèle de parole local que vous avez choisi&nbsp;: Parakeet v3, ou Whisper Turbo, Medium ou Large-v3.
+
+Si ce Mac n’offre pas Apple Intelligence, la réunion tourne quand même. Le nettoyage et les artefacts utilisent alors un modèle de langue local téléchargé&nbsp;: Qwen3 4B sur la plupart des Mac, ou gpt-oss-20b sur les Mac à mémoire élevée. Ces modèles écrivent. Ils ne remplacent pas non plus le modèle de parole.
+
+## Ce qu’Apple Intelligence peut toucher
+
+Après l’arrêt, l’app reconstruit la transcription à partir de l’audio finalisé sur le Mac. Cette étape est la parole vers texte. Apple Intelligence n’y figure pas.
+
+
+<Image src={inline1} alt="Carnets fermes et verres d'eau vides apres un appel" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@allysphotos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">allysphotos</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Là où il peut aider, sur un Mac qui l’a, c’est l’écriture ensuite&nbsp;: nettoyer la prose générée et produire des artefacts tels que le résumé et les documents liés. Vous voyez toujours une transcription que vous pouvez ouvrir. Les notes manuelles que vous avez tapées gardent leur provenance et ne sont pas traitées comme des répliques parlées. Les liens de preuve, quand un résumé en a, pointent vers des passages de transcription, pas vers une phrase polie sans source.
+
+Le choix est visible avec les autres choix de modèles. Vemoir ne télécharge pas en silence un autre modèle de parole parce qu’Apple Intelligence manque, et n’envoie pas en silence l’audio vers un modèle cloud parce qu’Apple Intelligence a échoué. Le texte cloud, si vous le voulez, est une activation séparée avec votre propre clé. L’audio et la séparation des locuteurs restent sur le Mac.
+
+## Quand c’est disponible, et quand ça ne l’est pas
+
+Apple Intelligence dépend du Mac et de macOS, pas d’un interrupteur dans une réunion. Si le système ne l’offre pas, le modèle de langue local de Vemoir est le chemin pour le nettoyage et les artefacts. Lisez l’écran des modèles pour l’adéquation, le stockage et le modèle sélectionné. Ne supposez pas qu’un Mac mini tout neuf et un portable d’entrée se comportent pareil. L’app indique l’adéquation. Cette page ne classe pas la qualité d’écriture entre Apple Intelligence, Qwen3 4B et gpt-oss-20b.
+
+
+<Image src={inline2} alt="Pile de papiers nette et portable ferme a la fin de l'appel" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@sql?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sql</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+La langue de l’interface est séparée. L’app peut tourner en anglais, allemand, français, italien ou néerlandais. Cela ne choisit pas le modèle de parole et n’allume pas Apple Intelligence.
+
+## Une réunion avec et sans
+
+1. Sélectionnez le modèle de parole avant de vous reposer sur un appel. Ce téléchargement est explicite, avec une progression que vous pouvez reprendre.
+2. Sélectionnez le chemin d’écriture&nbsp;: Apple Intelligence là où le Mac l’a, ou un modèle de langue local que vous avez téléchargé.
+3. Enregistrez depuis la barre de menus. Micro et audio système restent locaux. Aucun bot ne rejoint.
+4. Arrêtez. Lisez la transcription si un nom paraît faux. Corrigez l’étiquette sans créer un profil vocal, sauf si vous choisissez aussi `Remember this speaker`.
+5. Lisez le résumé. Si le nettoyage a lissé un chiffre que vous aviez tapé dans les notes manuelles, faites confiance à la provenance de la note et éditez la ligne générée.
+
+Sur un Mac sans Apple Intelligence, l’étape 2 est uniquement le modèle de langue local. L’étape de transcription ne change pas.
+
+## Quand un autre chemin est meilleur
+
+Apple Intelligence pour le nettoyage est le meilleur choix quand le Mac l’a, que vous voulez une aide d’écriture sur l’appareil, et que vous acceptez cette fonction système. C’est le moins bon choix quand&nbsp;:
+
+- Vous avez besoin de la transcription elle-même. Utilisez le modèle de parole. Le nettoyage n’invente pas l’audio manquant.
+- Vous voulez un modèle de langue local précis que vous pouvez retirer de la bibliothèque, y compris sur les Mac sans Apple Intelligence. Téléchargez Qwen3 4B ou, sur un Mac à mémoire élevée, gpt-oss-20b.
+- Vous voulez un prestataire que vous payez déjà, OpenAI ou Anthropic, pour du texte seulement. C’est une clé dans le Trousseau et une activation explicite, pas Apple Intelligence, et elle ne reçoit toujours pas l’audio.
+- Le Mac est géré et Apple Intelligence est éteint par politique. Utilisez le modèle local. Ne cherchez pas une bascule cachée.
+
+Rien de tout cela ne rend un enregistrement licite. Dites-le aux gens quand vous enregistrez. Cette page n’est pas un conseil juridique.
+
+Les outils navigateur n’utilisent pas Apple Intelligence. [/fr/outils/transcrire-audio](/fr/outils/transcrire-audio) transcrit un fichier que vous avez déjà, jusqu’à 15 minutes, trois passages réussis par semaine, avec Whisper public dans l’onglet et sans étiquettes de locuteurs.
+
+Le choix de modèle se trouve dans [la capture](/fr#capture).
+
+## Le nettoyage à côté d’un chiffre que vous avez tapé
+
+Vous tapez «&nbsp;livraison vendredi, pas jeudi&nbsp;» dans les notes manuelles pendant que l’appel est brouillé. La transcription est floue sur le jour. Un passage de nettoyage, qu’il s’agisse d’Apple Intelligence ou d’un modèle de langue local, peut écrire une phrase lisse qui choisit un jour. Ouvrez la note avant de faire confiance à la phrase lisse. La provenance de la note montre que c’est vous, pas l’audio, qui avez fourni vendredi. Éditez l’artefact si le nettoyage a deviné. La régénération doit garder votre note. Elle ne doit pas relabeller la note comme citation de transcription.
+
+Si Apple Intelligence est indisponible sur ce Mac, le même contrôle s’applique à la sortie de Qwen3 ou gpt-oss. Le mode de défaillance est une phrase fluide, pas un fichier manquant. Le modèle de parole n’a jamais revendiqué le jour. L’étape d’écriture l’a fait. C’est pourquoi la transcription reste à un clic du résumé, et pourquoi un résumé qui ne peut pas pointer une ligne ne doit pas être traité comme l’enregistrement.
+
+## Questions fréquentes
+
+### Apple Intelligence transcrit-il la réunion&nbsp;?
+
+Non. La transcription utilise le modèle de parole local que vous avez choisi. Apple Intelligence, là où le Mac l’a, sert au nettoyage et aux artefacts.
+
+### Que se passe-t-il si mon Mac n’a pas Apple Intelligence&nbsp;?
+
+Utilisez un modèle de langue local téléchargé pour les notes et les artefacts. La transcription vient toujours de Parakeet ou Whisper sur le Mac.
+
+### Vemoir changera-t-il de modèle si le nettoyage échoue&nbsp;?
+
+Non. Il ne substitue pas en silence un modèle de parole ni un backend cloud. Un chemin manquant ou en échec arrête cette opération plutôt que d’en choisir un autre en secret.
+
+### Cela envoie-t-il l’audio&nbsp;?
+
+Non. La parole vers texte et la séparation des locuteurs restent sur le Mac. Le texte cloud facultatif est un choix séparé, explicite, et texte seulement.
+
+### Puis-je utiliser Apple Intelligence et ma clé API ensemble comme deux rédacteurs&nbsp;?
+
+Ask, documents, artefacts de réunion et artefacts personnalisés utilisent une source de texte active à la fois. Activer votre clé les oriente vers ce prestataire. Sélectionner un modèle local, ou le chemin sur l’appareil, les ramène. Apple Intelligence est l’option de nettoyage sur l’appareil là où le Mac l’a, pas un second rédacteur silencieux à côté d’une clé cloud.
+
+### Les noms de locuteurs viennent-ils d’Apple Intelligence&nbsp;?
+
+Non. La séparation tourne sur le Mac. Vous renommez les étiquettes vous-même. `Remember this speaker` est facultatif, chiffré et supprimable.
+
+### Est-ce dans les outils navigateur gratuits&nbsp;?
+
+Non. Ces outils transcrivent un fichier court dans le navigateur. Ils n’enregistrent pas en direct et n’appellent pas Apple Intelligence.
+
+### Quels Mac peuvent faire tourner Vemoir&nbsp;?
+
+Apple silicon, macOS Sonoma 14.2 ou plus récent, au moins 8 Go de mémoire et 10 Go de stockage libre. 16 Go sont recommandés pour les longues réunions. Les Mac Intel ne sont pas pris en charge. Apple Intelligence a ses propres prérequis Apple en plus.
+
+Choisissez d’abord le modèle de parole, puis le chemin d’écriture que ce Mac a réellement. Les deux sont dans [la capture](/fr#capture).

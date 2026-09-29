@@ -1,0 +1,110 @@
+---
+title: "Porta la tua chiave API: solo testo, nel Portachiavi"
+description: "Chiave API personale per OpenAI o Anthropic, solo testo. Resta nel Portachiavi, si attiva quando lo confermi e non riceve mai l'audio."
+pubDate: 2026-11-04
+author: "Vemoir Team"
+tags: ["chiave api", "privacy", "note"]
+funnelStage: "consideration"
+translationKey: "bring-your-own-api-key"
+relatedPosts: ["domande-sulla-trascrizione", "app-note-riunione-acquisto-unico", "migliori-note-riunione-private"]
+image: "@/assets/blog/bring-your-own-api-key/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/bring-your-own-api-key/inline1.jpg';
+import inline2 from '@/assets/blog/bring-your-own-api-key/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@zoshuacolah?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zoshuacolah</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Chiave API personale** quando vuoi che OpenAI o Anthropic scrivano testo per te, e vuoi quella scelta scritta chiaro. Vemoir conserva la credenziale nel Portachiavi di protezione dati di macOS. Salvare o verificare una chiave non la accende. Confermi un’attivazione che indirizza Ask Vemoir, documenti, artefatti di riunione e artefatti personalizzati verso quel solo fornitore. Audio e separazione speaker restano sul Mac. Se la chiave manca, l’endpoint è cambiato, il fornitore è giù o la chiamata fallisce, l’operazione si ferma. Niente sceglie in silenzio un altro backend.
+
+L’app Mac in sé è un acquisto unico sull’App Store: CHF 20 in Svizzera. Lo Store mostra il prezzo locale, circa 24,99 € in Germania, Austria, Francia e Italia, 22,99 $ negli Stati Uniti. Il fornitore addebita quanto chiede la sua API per il testo che invii. Quelle tariffe sono sue, e cambiano. Controlla dal fornitore. Vemoir può tenere una ricevuta senza contenuto, con fornitore, modello, tempi, esito, uso e una stima di costo datata quando esistono prezzi compatibili. La ricevuta non contiene il prompt, la trascrizione, i nomi o la chiave.
+
+## Cosa la chiave API personale può vedere
+
+La generazione esterna è solo testo. Audio grezzo, file, immagini e URL remoti non fanno parte della richiesta. Il testo della trascrizione e le note già sul Mac possono essere ciò che scegli di trattare come testo, perché così si scrive un riassunto. La registrazione in sé non parte per il parlato-in-testo. Parakeet o Whisper l’hanno già fatto in locale, o lo faranno. La separazione speaker non si sposta dal fornitore.
+
+
+<Image src={inline1} alt="Chiavi di casa accanto a un taccuino, nessuno schermo" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@jaye_haych?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jaye_haych</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Una fonte attiva alla volta. Attivare la chiave manda Ask, documenti, artefatti di riunione e artefatti personalizzati verso di lei. Selezionare un modello di lingua locale, Qwen3 4B o gpt-oss-20b, riporta tutti e quattro sul Mac. Non ottieni un misto in cui Ask usa Anthropic e il verbale usa Qwen, a meno che tu non cambi la fonte attiva in mezzo.
+
+L’impostazione può saltare del tutto il fornitore. I modelli locali restano il percorso predefinito.
+
+## Accenderla senza sorprenderti
+
+1. Apri Impostazioni, IA. Lo stesso flusso esiste nell’impostazione avanzata, e lì puoi rifiutarlo.
+2. Scegli OpenAI o Anthropic. Inserisci la chiave. Va nel Portachiavi. Il resto della configurazione non è il segreto.
+3. Verifica se vuoi sapere che la chiave funziona. La verifica non è l’attivazione.
+4. Leggi l’avviso di attivazione e confermalo. Quella conferma è il momento in cui il testo di riunione selezionato può andare al fornitore.
+5. Dopo una riunione, cerca il segno visibile di elaborazione esterna sull’output che ha usato la chiave. Un riassunto locale non porta quel segno.
+
+
+<Image src={inline2} alt="Piccola chiave di metallo accanto a carte di carta crema" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@silas_crioco?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silas_crioco</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Togliere la chiave ferma le nuove richieste e annulla il lavoro registrato per quel fornitore. Non cancella il testo già generato. Le ricevute si esportano o si cancellano in Privacy e dati. Sono senza contenuto di proposito.
+
+Non c’è un foglio per richiesta che mette in pausa la registrazione perché tu legga il payload. L’attivazione è la decisione, in anticipo. Se è troppo ampio per un cliente, non attivare la chiave per quel lavoro. Usa il modello locale.
+
+## Quando un modello locale è la scelta migliore
+
+Una chiave tua è la scelta migliore quando paghi già un fornitore, vuoi quel modello per scrivere e accetti che il testo della riunione lasci il Mac sotto una scelta che hai confermato. Il modello locale è la scelta migliore quando:
+
+- L’audio o la trascrizione non devono andare da terzi. Lascia la chiave spenta. Qwen o gpt-oss locali scrivono sul Mac. Apple Intelligence, dove il Mac la ha, può pulire artefatti senza chiave di fornitore.
+- Non vuoi una fattura API che si muove con l’uso. L’acquisto dell’app non limita il fornitore. La sua fattura sì.
+- Il fornitore fallisce a metà riassunto. Vuoi che il lavoro si fermi, non che scivoli su un’altra azienda. È quello che succede. Riprendi quando la chiave funziona, o passa tu la fonte attiva al modello locale.
+- Ti serviva solo il parlato-in-testo. La chiave non trascrive. Scaricare Parakeet o Whisper è il passo vocale.
+
+Un caveau di chiavi condiviso, SSO per tutta l’azienda e un host di modelli privato non sono questa funzione. Questa è la tua chiave, nel tuo Portachiavi, su questo Mac.
+
+Gli strumenti gratuiti nel browser non sono nemmeno uno slot per la chiave. [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) esegue un modello Whisper pubblico nella scheda su un file che hai già, fino a 15 minuti, tre esecuzioni riuscite a settimana. Non prende la tua chiave OpenAI e non etichetta gli speaker.
+
+Requisiti dell’app: Apple silicon, macOS Sonoma 14.2 o successivo, 8 GB di memoria, 10 GB liberi, 16 GB consigliati per le riunioni lunghe.
+
+L’impostazione sta con le altre scelte di modello in [cattura](/it#capture).
+
+## Un cliente che vieta il testo nel cloud
+
+Hai registrato la chiamata in locale. La trascrizione è sul Mac. L’accordo dice che il contenuto della riunione non va a un fornitore di modelli. Non incolli la chiave, non «provi» l’attivazione solo per vedere l’avviso. L’avviso è il punto in cui il testo può uscire. Lascia l’attivazione spenta e lascia scrivere la bozza a Qwen o gpt-oss, o ad Apple Intelligence dove il Mac la ha. Se un paragrafo è debole, correggilo. È più lento di un modello di frontiera e corrisponde all’accordo.
+
+Su un altro incarico l’accordo consente la chiave API della tua azienda. Attivi, generi il follow-up, esporti il testo, poi togli la chiave o torni al modello locale prima del cliente successivo che non lo consente. Le ricevute mostrano che una richiesta è avvenuta, senza conservare la trascrizione nella ricevuta. Tieni o cancella quelle ricevute nelle impostazioni Privacy. Sono una traccia della scelta, non una seconda copia della riunione.
+
+## Domande frequenti
+
+### La chiave API personale invia la registrazione?
+
+No. Le richieste sono solo testo. Trascrizione e separazione speaker restano sul Mac.
+
+### Quali fornitori posso collegare?
+
+OpenAI o Anthropic. Attivi una fonte di testo alla volta.
+
+### Salvare la chiave la accende?
+
+No. Verifichi se vuoi, poi confermi l’attivazione a parte. Fino ad allora la scrittura resta sul percorso locale.
+
+### Cosa succede se il fornitore dà errore?
+
+L’operazione si ferma. Non c’è fallback silenzioso verso un altro fornitore o verso un modello locale che non hai selezionato.
+
+### Dove sta il segreto?
+
+Nel Portachiavi di protezione dati di macOS. Togliere la chiave blocca le nuove richieste. Il testo già generato resta finché non lo cancelli tu.
+
+### Vedrò che una nota ha usato il cloud?
+
+Sì. L’output esterno tiene un segno visibile di elaborazione esterna, più la provenienza di fornitore e modello. Le ricevute in Privacy sono senza contenuto e si possono cancellare.
+
+### Cambia il prezzo sull’App Store?
+
+L’app è un acquisto unico al prezzo sopra. L’uso API lo addebitano OpenAI o Anthropic alle loro condizioni, non come un posto Vemoir.
+
+### Posso tenere l’audio in locale e mandare nel cloud solo una domanda difficile?
+
+Sì, se attivi la chiave, fai la domanda e poi riporti la fonte attiva al modello locale. Finché la chiave è attiva, Ask, documenti e artefatti la usano, non un misto.
+
+Attiva la chiave solo per il testo che sei disposto a inviare e lasciala spenta quando basta il modello locale. L’interruttore è in [cattura](/it#capture).

@@ -1,0 +1,112 @@
+---
+title: "Exporter vers Notes Apple et mettre à jour la note"
+description: "L'export vers Notes d'Apple va dans un dossier que vous choisissez. Un export plus tard met à jour la même note au lieu de créer un doublon."
+pubDate: 2026-11-08
+author: "Vemoir Team"
+tags: ["notes apple", "export", "réunions"]
+funnelStage: "interest"
+translationKey: "export-to-apple-notes"
+relatedPosts: ["relance-depuis-notes-reunion", "supprimer-enregistrement-reunion", "partager-notes-sans-enregistrement"]
+image: "@/assets/blog/export-to-apple-notes/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/export-to-apple-notes/inline1.jpg';
+import inline2 from '@/assets/blog/export-to-apple-notes/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Exporter vers Notes** envoie un dossier de réunion dans un compte et un dossier Notes que vous choisissez. Vemoir stocke l’identifiant de la note, pour qu’un export plus tard mette à jour cette même note au lieu de poser une seconde copie à côté. Vous voyez un aperçu de la note combinée avant la remise.
+
+L’audio ne part pas chez Apple avec la note. Vous exportez le dossier&nbsp;: le texte que vous avez choisi d’envoyer.
+
+## Ce que l’export vers Notes met dans la note
+
+La note contient le résumé canonique, les points clés, les risques, les questions ouvertes, les décisions, les actions, les participants, les documents personnalisés et la provenance Vemoir. Elle ne répète pas les artefacts dérivés qui ne font que restater le même résumé. Les notes manuelles que vous avez tapées restent votre texte. Elles ne sont pas collées comme si elles étaient des citations de transcription.
+
+
+<Image src={inline1} alt="Quelqu'un copie une page dans un carnet personnel" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@shpetimujkani?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">shpetimujkani</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Vous choisissez un vrai compte Notes et un dossier imbriqué comme destination d’un projet. Le dossier est le vôtre. Vemoir n’invente pas un carnet caché.
+
+## Exporter une fois, puis mettre à jour
+
+1. Dans le projet, choisissez le compte Notes et le dossier.
+2. Depuis les actions de réunion, ou depuis les exports du projet, lancez un export quand la réunion a fini de se traiter.
+3. Lisez l’aperçu combiné. Si un nom de locuteur ou une décision est faux, corrigez d’abord dans Vemoir. La note montrera ce que vous envoyez.
+4. Confirmez la remise. Le premier export réussi stocke l’identifiant de la note, la destination, une empreinte de contenu, des horodatages et l’état.
+5. Si le traitement est régénéré plus tard, exportez à nouveau. Vemoir met à jour la même note. Si une tentative échoue, l’erreur est conservée pour que vous la voyiez, plutôt que de créer un doublon en silence.
+
+
+<Image src={inline2} alt="Pile de cartes rangee dans un carnet creme" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@kseegars?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kseegars</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Vous pouvez aussi activer un export automatique facultatif après le succès du traitement d’une réunion. Laissez-le éteint si vous voulez lire l’aperçu à chaque fois. Automatique ne veut pas dire que l’audio est partagé. Cela veut dire que le dossier texte part vers ce dossier après le succès, sans clic de plus.
+
+## Ce qui reste sur le Mac
+
+La transcription, la séparation des locuteurs et l’enregistrement restent sur le Mac. Notes reçoit le texte exporté via la destination que vous avez choisie. Une clé API personnelle, si vous en utilisez une pour générer du texte, est un autre choix&nbsp;: texte seulement, dans le Trousseau, activée explicitement. Elle ne remplace pas Notes, et elle n’envoie pas d’audio. Il n’y a pas de bascule silencieuse d’un export Notes en échec vers un autre carnet cloud.
+
+Si vous supprimez la réunion ou purgez l’audio dans Vemoir, la note déjà dans Notes est une copie que vous avez envoyée. La supprimer là est un acte séparé dans Notes. À l’inverse, une mise à jour depuis Vemoir écrase le contenu géré par Vemoir dans cette note selon l’export, donc lisez l’aperçu quand le procès-verbal a beaucoup changé.
+
+Les réglages d’identité peuvent faire correspondre `ME` à votre vrai nom et l’afficher comme `Name (Me)` dans le contenu copié ou partagé. Réglez cela avant un export destiné à un client si «&nbsp;ME&nbsp;» paraîtrait inachevé.
+
+## Quand Notes est la mauvaise destination
+
+Exporter vers Notes est le meilleur choix quand vous vivez déjà dans Notes, que vous voulez une note par réunion qui reste à jour, et que vous choisissez le dossier vous-même. C’est le moins bon choix quand&nbsp;:
+
+- Le client exige un fichier dans son espace documentaire, ou un lecteur partagé avec ses règles de nommage. Exportez ou copiez le texte et posez-le où il l’a demandé. Ce chemin ne produit pas un fichier de dossier documentaire.
+- Plusieurs collègues doivent éditer un document vivant avec des commentaires. Notes peut se partager ensuite du côté d’Apple, selon les règles d’Apple. Vemoir n’ajoute pas un espace collectif par-dessus.
+- Vous vouliez l’enregistrement dans la note. L’export est le dossier, pas les fichiers audio.
+- Vous n’avez pas encore corrigé les noms de locuteurs ou les orthographes du glossaire. Corrigez, régénérez si besoin, puis exportez. Une mise à jour sans doublon n’aide que si la seconde version est celle que vous visez.
+
+Copier dans le presse-papiers reste là pour un résumé, un document ou le procès-verbal quand vous ne voulez pas Notes du tout. Le partage de la barre d’outils suit la vue où vous êtes&nbsp;: résumé, actions, décisions ou transcription.
+
+Le sélecteur de dossier et l’état d’export se trouvent avec les autres remises dans [les exports](/fr#exports).
+
+## Après une régénération, exporter à nouveau
+
+Vous corrigez une étiquette de locuteur et une orthographe de glossaire, puis vous régénérez le procès-verbal. La note Notes d’hier a encore les anciens noms jusqu’à ce que vous exportiez à nouveau. La mise à jour utilise l’identifiant stocké, pour que Notes n’ajoute pas une seconde page au titre presque identique. L’aperçu est le moment d’attraper une décision que vous ne voulez plus dans ce dossier. Si l’aperçu paraît faux, annulez et éditez dans Vemoir. La note déjà dans Notes reste l’export précédent jusqu’à ce qu’une nouvelle remise réussisse.
+
+Si l’export automatique est allumé, le passage de traitement réussi tentera cette mise à jour sans clic de plus. Éteignez-le pour un client sensible si vous voulez l’aperçu à chaque fois. Une tentative en échec reste visible. Elle ne tombe pas vers le mail, un autre compte Notes, ni un prestataire de transcription cloud.
+
+Les participants listés dans la note sont les noms du dossier au moment de l’export. Les grappes anonymes restent sans nom. Vous pouvez les renommer sans créer de profil vocal, puis exporter pour que la note corresponde. Le profil chiffré, si vous avez aussi choisi `Remember this speaker`, ne fait pas partie du corps de la note. Si macOS demande la permission d’écrire dans Notes, cette invite concerne la note, pas une capture d’écran. L’audio système de la réunion est une autre autorisation, accordée quand vous enregistrez. Si la note a atterri dans le mauvais compte Notes, éteignez l’export automatique, choisissez à nouveau le compte, et exportez une fois à la main. L’identifiant stocké appartient à la note que le dernier passage réussi a créée ou mise à jour.
+
+## Questions fréquentes
+
+### Un second export crée-t-il une seconde note Notes&nbsp;?
+
+Non. Vemoir stocke l’identifiant de la note exportée et met à jour cette note. L’aperçu montre la note combinée avant la remise.
+
+### Puis-je choisir le dossier&nbsp;?
+
+Oui. Un projet peut sélectionner un vrai compte Notes et un dossier imbriqué.
+
+### L’export peut-il tourner tout seul&nbsp;?
+
+Vous pouvez exporter à la main depuis les actions de réunion ou les exports du projet. Un projet peut aussi exporter automatiquement après le succès du traitement. Cette option, c’est vous qui l’allumez.
+
+### La note inclut-elle l’audio&nbsp;?
+
+Non. Elle inclut le dossier écrit&nbsp;: résumé, points clés, risques, questions ouvertes, décisions, actions, participants, documents personnalisés et provenance.
+
+### Que se passe-t-il si la mise à jour échoue&nbsp;?
+
+L’état de nouvelle tentative et les erreurs sont stockés pour que vous voyiez l’échec. Vérifiez le compte Notes et relancez l’export une fois la réunion en bon état.
+
+### Les locuteurs inconnus seront-ils nommés dans la note&nbsp;?
+
+Seulement si vous les avez nommés. Les inconnus restent anonymes tant que vous n’avez pas posé une étiquette ou accepté de mémoriser une voix.
+
+### Est-ce la même chose que les outils navigateur gratuits&nbsp;?
+
+Non. Ces outils transcrivent un fichier dans le navigateur, jusqu’à 15 minutes, sans remise vers Notes et sans étiquettes de locuteurs. L’export Notes est dans l’app Mac.
+
+### Faut-il un bot dans la réunion pour cela&nbsp;?
+
+Non. Vous enregistrez sur le Mac, puis vous exportez le texte que vous voulez. Personne n’a été ajouté à l’appel.
+
+Choisissez le dossier une fois, exportez quand le procès-verbal est juste, et laissez l’export suivant mettre à jour cette note. Les commandes sont sous [les exports](/fr#exports).

@@ -1,0 +1,137 @@
+---
+title: "Search Past Meetings, Transcripts, Actions, and Decisions"
+description: "Search past meetings on your Mac across transcripts, actions, and decisions. Archived and deleted sittings stay out of the results."
+pubDate: 2026-11-10
+author: "Vemoir Team"
+tags: ["meeting search", "transcripts", "Mac"]
+funnelStage: "interest"
+translationKey: "search-past-meetings"
+relatedPosts: ["delete-a-meeting-recording", "follow-up-from-meeting-notes", "ask-questions-about-meeting-transcript"]
+image: "@/assets/blog/search-past-meetings/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/search-past-meetings/inline1.jpg';
+import inline2 from '@/assets/blog/search-past-meetings/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@declansun?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">declansun</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+You can **search past meetings** on the Mac that recorded them: titles, transcripts, artifacts, actions, and decisions, without sending the library to a hosted search index. Vemoir's library search and Ask Vemoir both stay on the machine unless you have explicitly routed text generation to your own API key.
+
+Search answers "where did we say that." Ask answers a question and can point at a line. They are different controls. This page is about finding the sitting, then asking inside a scope you choose.
+
+## Contents
+
+- [Where search past meetings actually looks](#where-search-past-meetings-actually-looks)
+- [Find a meeting from the keyboard](#find-a-meeting-from-the-keyboard)
+- [Ask inside one meeting, one project, or the library](#ask-inside-one-meeting-one-project-or-the-library)
+- [What never shows up](#what-never-shows-up)
+- [When a transcript quote is the wrong result](#when-a-transcript-quote-is-the-wrong-result)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## Where search past meetings actually looks
+
+Project search covers meetings, transcripts, artifacts, actions, and decisions. The project dashboard adds a recap, open work, recent decisions, pinned documents, and recent meetings, with jumps back to the source record.
+
+
+<Image src={inline1} alt="Someone looking through a box of paper notes" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+That is enough when you remember a client, a phrase, or an owner's name. It is the wrong tool when you want a composed answer ("what did we promise Acme about the rollout date"). For that, open Ask Vemoir and pick a scope.
+
+The scope choices are fixed:
+
+- one meeting
+- one project
+- the active library
+
+Opening Ask from a meeting or a project starts a new conversation in that scope. Older threads stay in Ask history, including their scope, so you can return to last week's question without mixing it into today's.
+
+Archived meetings and archived projects are excluded. Deletions remove the knowledge records that pointed at them. If you purged only the audio and kept the meeting, search still finds the transcript and the notes. Playback is gone. The words are not.
+
+## Find a meeting from the keyboard
+
+Library destinations use Command-1 through Command-6. **Command-F** focuses meeting search. Arrow keys move through the project sidebar and the meeting list. Drag and drop between Local Recordings and a project still works. Search does not replace filing.
+
+
+<Image src={inline2} alt="A wooden card-catalog drawer slightly open" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@hayko_badalyan?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">hayko_badalyan</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+A practical order when you cannot remember which Tuesday it was:
+
+1. File calls into a project before you record, using the menu-bar project picker. Search is faster when the client is already the folder.
+2. Press Command-F and type a name, a product term, or a decision phrase.
+3. Open the meeting if the row is the one you wanted.
+4. If you need the line, switch to the transcript, or ask inside that meeting so the answer can cite a passage.
+
+A project glossary (preferred spellings and aliases) helps later notes use the right name. Search still matches the original transcript. The original wording is the evidence. The glossary does not rewrite history so that an old nickname disappears from the tape.
+
+## Ask inside one meeting, one project, or the library
+
+Ask Vemoir is a conversation with a boundary. Ordinary questions are narrowed before the local model writes. A request that needs the whole scope uses a bounded pass over the meetings in that scope, and the context receipt tells you the coverage even when the answer only links its strongest sources.
+
+Answers can include evidence links: open the meeting, land on the transcript, and see the cited passage. The model is asked to cite the strongest lines, and the app caps a single answer at 24 unique sources. A long library question will not attach every paragraph it looked at.
+
+Completed answers show which model wrote them. If you switch between the local models installed on the Mac (Qwen3 4B on most machines, gpt-oss-20b on high-memory Macs), the next turn is re-planned. Earlier messages stay as they were.
+
+Text generation can use Apple Intelligence where the Mac has it, or a local model you downloaded. An OpenAI or Anthropic key is optional, text only, and off until you activate it. Transcription of the original audio does not move to that provider. If the provider fails, the turn stops. There is no silent swap to another model.
+
+None of this searches a meeting that was never recorded into the library. A calendar event with no audio is not a result.
+
+## What never shows up
+
+Search and Ask read the active library. They skip:
+
+- archived meetings and projects
+- meetings you deleted
+- the contents of a voice profile (embeddings are not in search, exports, or ordinary logs)
+- internal evidence keys, which are stripped from the visible answer
+- a manual note presented as if it were a verbatim line (manual notes keep their own mark)
+
+The guided sample is visibly marked Sample. Delete it when you are done with the tour so it does not sit next to real clients in search.
+
+If Command-F returns nothing, the usual causes are dull ones. The word was only spoken and the transcript used a different spelling. The meeting is archived. The meeting lives in another project and you are searching inside one project. Or the audio was imported under a file name you no longer remember, while the spoken phrase is what search would have matched inside the transcript.
+
+## When a transcript quote is the wrong result
+
+A hit in the transcript proves someone said the words. It does not prove the room agreed. Decisions in Vemoir are their own records: wording, a responsible person, and a date, editable after the call. Actions have an owner, a due date, and a status. Search can find those rows without making you skim the tape.
+
+When you need a line you can stand on, ask inside the meeting and follow the evidence link. When you need the commitment, open Decisions on that project.
+
+The chat surface that scopes those questions is described on the [Ask section of the homepage](/#chat). How capture gets audio into the library in the first place is under [capture](/#capture).
+
+## Frequently asked questions
+
+### Does search past meetings upload the library?
+
+No. Meeting search runs on the Mac. Ask runs locally by default. A cloud language model is used only if you turn on your own key for text, and even then the audio stays on the machine.
+
+### Can I search across every client at once?
+
+Yes. Ask can use the active library as the scope. Project search is the view for one project. Archived items are out of both.
+
+### Why did a deleted meeting vanish from old answers?
+
+Deletions remove the knowledge records. The library does not keep a shadow copy for search.
+
+### Will Ask invent a speaker name?
+
+Unknown speakers stay anonymous. A renamed label applies to that meeting. A remembered profile is used only when you approved it and the match clears the app's checks.
+
+### What is the keyboard shortcut for meeting search?
+
+Command-F focuses meeting search. Command-1 through Command-6 jump between library destinations.
+
+### Does this work offline?
+
+After the models you selected are downloaded, search and Ask do not need a network. The first download does.
+
+### Can I search a Loom or Zoom file I have not imported?
+
+Not until it is in the library. Import the audio, or record the next call from the menu bar, and then search that meeting.
+
+A glossary alias does not hide the old wording. If the room said "the portal" in March and the glossary now says "customer workspace," March's transcript still says portal. Search for the words that were spoken, then read the decision row if the name was corrected later in the minutes.
+
+Use [Ask Vemoir](/#chat) when the keyword hit is not enough and you want an answer tied to a meeting, a project, or the active library.

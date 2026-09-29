@@ -1,0 +1,121 @@
+---
+title: "Is Plaud Private When the Transcript Leaves the Device?"
+description: "Is Plaud private if the recorder stays in a pocket? Plaud's trust page on cloud transcription, Cloud Sync, and a Mac that skips the device."
+pubDate: 2026-11-18
+author: "Vemoir Team"
+tags: ["privacy", "Plaud", "hardware"]
+funnelStage: "interest"
+translationKey: "is-plaud-private"
+tool: "transcribe-recording"
+relatedPosts: ["is-otter-ai-safe", "is-granola-private", "plaud-alternative"]
+image: "@/assets/blog/is-plaud-private/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/is-plaud-private/inline1.jpg';
+import inline2 from '@/assets/blog/is-plaud-private/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@ruben18rodriguez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ruben18rodriguez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Is Plaud private** depends on which copy you mean. The hardware can hold audio until it moves to the phone. The transcript, on Plaud's own trust page, is a cloud job. Checked September 2026: [Plaud trust center](https://global.plaud.ai/pages/trust). A pocket recorder is not the same product as a Mac app that never leaves the desk, and the privacy question is not settled by a badge.
+
+## Contents
+
+- [What Plaud is](#what-plaud-is)
+- [Is Plaud private about the transcript](#is-plaud-private-about-the-transcript)
+- [Cloud Sync, loss, and labels](#cloud-sync-loss-and-labels)
+- [What their certifications do not decide](#what-their-certifications-do-not-decide)
+- [When the pocket wins, and when the Mac does](#when-the-pocket-wins-and-when-the-mac-does)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## What Plaud is
+
+Plaud sells hardware. Note, Note Pro, NotePin, and NotePin S are recorders you carry, paired with a phone app, plus web and desktop apps they list for Plaud Intelligence. The capture happens away from a laptop. That is the point of a wearable: a conversation in a hallway, a site visit, a meeting where the Mac stays in the bag.
+
+
+<Image src={inline1} alt="A small recorder put away in a closed drawer" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@oculareuphoria?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">oculareuphoria</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Their shop chrome, on the same trust page, describes a free Starter plan at 300 transcription minutes a month, a Pro plan at 1,200 minutes, and an Unlimited plan. Dollar amounts move. Read the shop before you buy minutes. This article is about where the audio goes, not about which plan is the bargain.
+
+Vemoir does not pair with that hardware. If you already recorded on a Plaud and you exported a file you may keep, a short clip can be transcribed again on your machine without their account. That is a different product decision. It does not pull the file back out of Plaud's cloud for you.
+
+## Is Plaud private about the transcript
+
+Plaud's trust answers are direct.
+
+
+<Image src={inline2} alt="An unbranded recorder on a side table" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@annastampfli?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">annastampfli</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+They list data centers in US AWS-West, EU AWS in Frankfurt, Japan AWS, and Singapore AWS. Users outside those regions are processed in the nearest region they have. For the models they name (GPT, Claude, and Gemini), users in Europe get EU-hosted enterprise subprocessors, and the rest of the world gets US-hosted models.
+
+Then the sentence that settles the "local recorder" story: all data is transferred to the cloud for processing. Audio and transcription data are not stored in the cloud unless Cloud Sync is enabled. If Cloud Sync is off, they say associated data is deleted from the cloud once it has been transferred back to the phone.
+
+So the device is not a sealed box that writes a transcript by itself. Asking for a transcript sends the audio out. With sync off, they say they do not keep a standing server copy after it returns to the phone. With sync on, the cloud copy is the feature you turned on. "Is Plaud private" is yes-for-storage only in the sync-off case, and even then the processing hop happened.
+
+They say they do not train on user data by default. Training requires a manual opt-in in settings. They say subprocessors use enterprise APIs with a zero data retention policy, written into contracts and data processing agreements, so those providers do not store or reuse customer data for training. That is Plaud's description of their contracts. It is not an audit printed here, and it is not a reason to skip telling the other person you are recording.
+
+Transcription, they say, uses multiple enterprise models, including proprietary fine-tuned ones. User data is not used to train those models unless someone opts in. There is no accuracy percentage on this page, and none worth repeating from a slogan.
+
+Encryption, in their words: HTTPS/TLS 1.2 or above in transit, AES-256 at rest.
+
+## Cloud Sync, loss, and labels
+
+If you lose the recorder, their trust page says recordings are deleted from the device once they have been transferred to the phone through the Plaud app. Only the Plaud account the device is bound to can access and decrypt the data. You can unbind a lost device remotely with Plaud support, and they say data is deleted from the lost device after that unbind. A stranger who picks up the recorder is not, on that description, holding a library they can open without the account.
+
+Speaker labels, by default, are manual. Do not expect the pin on the table to know who spoke. You type the names. That is the honest version of a single microphone in a room, whether the mic is a Mac or a wearable.
+
+A transcript you asked for has already crossed to their region, even if the standing copy is deleted afterward. If your rule is "this audio never leaves the building," a Plaud transcript request breaks that rule. Capturing on the device and never asking for a transcript would keep the processing hop from happening, and then you also would not have the text. Most people buy the device for the text.
+
+## What their certifications do not decide
+
+Plaud says it does not offer a private-cloud deployment of yours. They describe a multi-region cloud, and they say it meets standards including GDPR, ISO 27001, ISO 27701, SOC 2 Type 2, HIPAA, and EN 18031. Those names are their claim. This article does not grade them. A HIPAA line on a hardware vendor's trust page is not a finding that your conversation is covered, and it is not a feature of a Mac meeting app that never makes that claim.
+
+You still tell people you are recording. A small device is easier to miss than a laptop with the lid open. Consent is yours. In Switzerland, informing people is still your responsibility. The vendor's region list does not do it for you.
+
+If the file should not exist in any cloud even briefly, do not request a Plaud transcript. Use a recorder path whose transcription stays on a machine you control, or do not record.
+
+## When the pocket wins, and when the Mac does
+
+Plaud wins when you are not at a Mac. Walking a site, sitting in a room with no laptop, or needing a wearable that starts when the computer is closed is their category. A menu-bar app cannot hear a conversation two floors away from the machine. Do not pretend it can. Import a file later if you exported one and you are allowed to keep it: MP3, M4A, WAV, AIFF, CAF, or FLAC on the Mac, or a short file in the browser.
+
+The Mac wins when the call is already playing there. Zoom, Teams, Meet, or Webex through speakers or headphones can be captured as system audio plus your microphone, with no extra device and no account on a recorder. Transcription runs on the Mac. The audio is not sent out for that transcript. Optional text models, if you turn on your own key, take text only. Default is local. That is Vemoir, Apple silicon, macOS Sonoma 14.2 or later, on the [Mac App Store](https://apps.apple.com/app/id6794693630). It does not replace a pin on a shirt.
+
+A short file you already exported, from Plaud or from anywhere else, can go through [transcribe recording](/tools/transcribe-recording): 15 minutes, three runs a week, nothing uploaded, no speaker labels. Swiss German usually comes out as Standard German in that public model. The Mac app does not add a dialect mode either.
+
+Deleting a meeting in Vemoir removes the local transcript, the generated record, attached actions and decisions, and the recording folder. It does not delete a Plaud cloud copy. If both exist, delete both.
+
+## Frequently asked questions
+
+### Does Plaud transcribe on the device?
+
+Not according to their trust page. All data is transferred to the cloud for processing. With Cloud Sync off, they say audio and the transcript are not kept in the cloud after the result returns to the phone. The hop still happened.
+
+### Where is that cloud?
+
+They list US AWS-West, EU AWS Frankfurt, Japan AWS, and Singapore AWS, and the nearest region if you are outside those. European users get EU-hosted models for GPT, Claude, and Gemini. Everyone else, in their words, gets US-hosted models.
+
+### Do they train on the recordings?
+
+They say no, by default, unless you opt in. They also say subprocessors are under a zero data retention contractual policy. Read the trust page rather than a recap if you are about to record someone else.
+
+### Is the HIPAA line a reason to record a patient or a client?
+
+No. It is Plaud's description of their program. Whether you may record is your rule, your professional duty, and the other person's consent. This page does not bless that recording.
+
+### What if I only have a Mac?
+
+You do not need the hardware for a call that already plays on the Mac. Capture there, or transcribe a file you already have. Buy the wearable when the Mac is not in the room.
+
+### Can I get speaker names automatically?
+
+Their trust page says labeling is manual by default. A single mic, on a pin or on a laptop, is a weak place to expect a clean name list.
+
+### Does "private" mean nobody at Plaud could see a transcript while it was processing?
+
+Their page does not say the audio is invisible in transit. It says it is encrypted on the way, processed in a region, and not retained for training unless you opt in, and not stored after the return trip if sync is off. That is a processing design, not an absence of a processor.
+
+Use the pocket recorder when the conversation is not on a computer. Use the Mac when it is. The trust page is [here](https://global.plaud.ai/pages/trust). A file you already hold can start at [transcribe recording](/tools/transcribe-recording).

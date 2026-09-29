@@ -1,0 +1,144 @@
+---
+title: "Client call notes without upload, from a local file"
+description: "Client call notes without upload come from audio that stays in the browser or on your Mac. Fifteen minutes is the browser cap."
+pubDate: 2026-10-31
+author: "Vemoir Team"
+tags: ["clients", "privacy", "notes"]
+funnelStage: "consideration"
+translationKey: "client-call-notes-without-upload"
+relatedPosts: ["transcribe-interview-without-upload", "record-teams-meeting-mac", "best-private-meeting-notes"]
+tool: "recording-to-notes"
+image: "@/assets/blog/client-call-notes-without-upload/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/client-call-notes-without-upload/inline1.jpg';
+import inline2 from '@/assets/blog/client-call-notes-without-upload/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">charlesdeluvio</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Client call notes without upload** means the audio file never has to be posted to a server to become a note. On the website, you open a file you already have and the model runs in the browser tab. On the Mac app, the call is recorded and transcribed on the machine. Both leave you with text you still have to edit before a client sees it. Neither makes the recording permitted. You still tell the client.
+
+The browser path is [recording to notes](/tools/recording-to-notes). Cap: **15 minutes**, **3 successful runs a week**, MP3, M4A, WAV, or MP4, no speaker labels. The Mac app is the path for a live call or a longer file, sold once: **CHF 20** in Switzerland, **€24.99** in Germany, Austria, France, and Italy, **$22.99** in the US. No subscription.
+
+## Contents
+
+- [Client call notes without upload, in the browser](#client-call-notes-without-upload-in-the-browser)
+- [When the call is longer than fifteen minutes](#when-the-call-is-longer-than-fifteen-minutes)
+- [What you send the client](#what-you-send-the-client)
+- [Where a shared cloud still wins](#where-a-shared-cloud-still-wins)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## Client call notes without upload, in the browser
+
+Use this when the call is over and you hold a short file.
+
+
+<Image src={inline1} alt="A confidential folder and headphones on a quiet desk" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. Export MP3, M4A, WAV, or MP4. If the only copy is a longer recording, trim to the part the note needs before you spend a weekly run.
+2. Open [recording to notes](/tools/recording-to-notes). The speech model downloads into the tab. Later runs can work with the network off. The file is not uploaded to Vemoir. The browser’s Network panel is the check.
+3. You get text, then a notes-shaped draft. You do not get speaker names. For a two-person client call you can usually tell the voices apart by hand. Write the names in. Do not leave “the client said” on a sentence you are not sure about.
+4. Edit decisions and dates. Public Whisper models aim Swiss German at Standard German. Figures need your eyes.
+5. Three successful runs a week is the ceiling for the free tools together, not a per-client quota. A day of back-to-back calls will not all fit.
+
+The interview-shaped version of the same limit is [transcribe an interview without upload](/blog/transcribe-interview-without-upload). Use the recording-to-notes page when the output you want is the note, not only the verbatim line.
+
+There is no browser extension, no tab capture, and no live meeting recording on the website. If the call is still happening, the browser cannot hear it.
+
+## When the call is longer than fifteen minutes
+
+Stop trimming the life out of a client workshop to satisfy a cap. Record or import on the Mac.
+
+
+<Image src={inline2} alt="A private client call: closed door and a notebook" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@galen_crout?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">galen_crout</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Vemoir captures microphone and system audio as separate local tracks from the menu bar. It works with the meeting app that is playing, including Zoom, Teams, Meet, Slack, and others listed on [platforms](/#platforms). No bot joins. You start and stop. macOS permission for the remote side of the audio is **System Audio Recording**. That tap is audio only. The screen is not recorded. You also allow the microphone.
+
+Transcription and speaker separation run on the Mac. Minutes, decisions, action items, and a follow-up draft come from that local transcript. Ask a question later and the answer can point at the line. Cloud text models stay off unless you enable one with your own key, and they do not receive the audio. There is no silent switch to a cloud model if the local one fails.
+
+Requirements: Apple silicon, M1 or newer, macOS Sonoma 14.2 or later, 8 GB of memory, 10 GB free for models. 16 GB is recommended for long meetings. Intel Macs are not supported. Once the models are downloaded, the workflow can run offline. Internet is for setup and downloads.
+
+Import of an existing file on the Mac accepts MP3, M4A, WAV, AIFF, CAF, and FLAC. That is how a long client recording you already made becomes a local note without a 15-minute ceiling.
+
+Price, again, because this is the consideration step: CHF 20 / €24.99 / $22.99 on the Mac App Store, one time, every feature included, no seat, no per-meeting charge. The same figures are on [pricing](/#pricing). Install from the [App Store](https://apps.apple.com/app/id6794693630).
+
+Tell the client before you record. A missing bot is not a missing disclosure.
+
+## What you send the client
+
+Send the note. Keep the audio unless the contract says they receive recordings. [Exports](/#exports) are how you share a chosen piece through macOS, not how the whole library publishes itself.
+
+Before it goes:
+
+- One project name, one date, attendees.
+- Decisions in sentences.
+- Actions with a person and a date.
+- Your redactions. Other clients, internal fees, and side comments stay out.
+- A human check of every number.
+
+The [minutes sheet](/tools/minutes-sheet) is there if you want a blank structure instead of a generated draft. [Meeting minutes template](/blog/meeting-minutes-template) is the general write-up of what to include. A client note can be shorter than a formal protocol. It should not be vaguer about the decision.
+
+If you and a colleague both took notes, send one version. Two documents create two scopes.
+
+Two files of the same call, one from your recorder and one the client later sends from their Zoom cloud, will not match word for word. Use one as the source for the note and say which. Quoting both in the same email looks like two meetings. If a number differs, listen before you pick the fluent sentence.
+
+A week of travel is when the offline Mac path earns the purchase. Download models before you leave. The browser tool’s first model fetch also wants a network. A hotel captive portal is a bad moment to discover that. The 15-minute cap still applies on the road. The Mac app does not add that cap. It does require the models to be present.
+
+## Where a shared cloud still wins
+
+A team that must search every client call in one login will not get that from a single Mac. A contracted workspace, with the client’s permission and a vendor you can name in the engagement, is the better system for that firm. A one-time local app is the better system when you are the person on the call, the client does not want a bot, and the audio should not be the vendor’s copy.
+
+Hand notes win when the client says no recording. Do not transcribe “from memory” and present it as if a tape existed.
+
+A 15-minute browser run wins when you need one confirmation from the end of the call and you do not want to install anything. It loses as soon as the file is longer or you need speakers separated.
+
+None of these options is a GDPR certificate or a HIPAA claim. Consent and retention stay with you. In Switzerland, people mean the nLPD when they talk about data-protection duties. The product does not discharge them.
+
+If you trimmed a long recording down to fifteen minutes, say in the note that the text covers that slice, not the whole call. A client who remembers the first half will otherwise think you ignored it.
+
+Name the file you transcribed in your own notes so you can find the audio again if a figure is challenged.
+
+That filename saves you when the client replies two weeks later.
+
+## Frequently asked questions
+
+### Do client call notes without upload still need a file?
+
+Yes. The browser tool transcribes a file you already have. It does not pull the call from Zoom’s cloud for you.
+
+### What is too long for the free tool?
+
+Over 15 minutes, or a fourth successful run in the same week. Use the Mac app for the longer recording.
+
+### Are speakers named?
+
+Not in the browser. The Mac app separates speakers locally into labels you can correct. Uncertain speakers stay anonymous.
+
+### How much is the Mac app?
+
+CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the US, one time. No subscription.
+
+### Does system audio mean you record the screen?
+
+No. System Audio Recording hears other apps. The screen is not part of the capture.
+
+### Can I run this offline?
+
+The browser tool can, after the model has downloaded, inside the usual limits. The Mac app can, after you have installed the models you selected.
+
+### What if the client forbids recording?
+
+Do not record. Take notes. The tool is not a workaround.
+
+### Will the note send itself to the client?
+
+No. You share what you choose. Check it first. If the client replies with a correction, edit the note and send the correction in the same thread. Do not start a second document that still contains the wrong figure.
+
+## Next step
+
+For a short file, open [recording to notes](/tools/recording-to-notes) and stay inside 15 minutes and three runs a week. For the next live client call on a supported Mac, install from the [App Store](https://apps.apple.com/app/id6794693630) and read [pricing](/#pricing) if you want the store figures beside the feature summary. Download the speech model before the call, not during the introduction.

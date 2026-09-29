@@ -1,0 +1,131 @@
+---
+title: "Message vocal WhatsApp en texte à partir du fichier audio"
+description: "Un message vocal WhatsApp en texte part du fichier enregistré, pas du chat en direct. Les fichiers courts se transcrivent sans envoi."
+pubDate: 2026-10-26
+author: "Vemoir Team"
+tags: ["whatsapp", "transcription", "voix"]
+funnelStage: "interest"
+translationKey: "whatsapp-voice-to-text"
+relatedPosts: ["transcrire-note-vocale-mac", "transcription-hors-ligne-mac", "importer-fichier-audio-mac"]
+tool: "transcribe-voice-memo"
+image: "@/assets/blog/whatsapp-voice-to-text/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/whatsapp-voice-to-text/inline1.jpg';
+import inline2 from '@/assets/blog/whatsapp-voice-to-text/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Un **message vocal WhatsApp en texte**, c'est prendre un message que vous avez déjà et en faire des mots. Ce n'est pas une extension de navigateur qui écoute dans WhatsApp. Le message doit exister comme un fichier que la page de transcription peut ouvrir, dans un format accepté, et assez court pour tourner. Sur vemoir.ch ce chemin est l'outil [transcrire une note vocale](/fr/outils/transcrire-note-vocale).
+
+Les limites sont les mêmes que pour les autres outils du navigateur&nbsp;: **15 minutes**, **3 exécutions réussies par semaine**, MP3, M4A, WAV ou MP4. Le fichier n'est pas envoyé. Les voix ne sont pas nommées.
+
+## Sommaire
+
+- [Sortir le message vocal de la conversation](#sortir-le-message-vocal-de-la-conversation)
+- [Message vocal WhatsApp en texte dans le navigateur](#message-vocal-whatsapp-en-texte-dans-le-navigateur)
+- [Quand le format ne convient pas](#quand-le-format-ne-convient-pas)
+- [Un appel en direct n'est pas un message vocal](#un-appel-en-direct-nest-pas-un-message-vocal)
+- [Questions fréquentes](#questions-fréquentes)
+
+## Sortir le message vocal de la conversation
+
+WhatsApp garde les messages vocaux dans la conversation. L'outil de transcription ne voit jamais la conversation. Vous exportez ou enregistrez l'audio d'abord, sur un appareil que vous avez le droit d'utiliser.
+
+
+<Image src={inline1} alt="Telephone et ecouteurs sur une table de cafe" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Sur un téléphone, ouvrez la conversation, utilisez le partage ou l'enregistrement que WhatsApp montre pour ce message, et déplacez l'audio là où l'ordinateur peut l'atteindre. Un export de conversation avec médias produit un dossier de fichiers plus un journal texte. Prenez le fichier audio, pas le `.txt`. Le journal n'est pas la parole.
+
+Sur WhatsApp pour Mac, la même idée tient&nbsp;: enregistrez le message comme un fichier, puis passez à l'outil du navigateur. N'attendez pas que le site lise la bibliothèque WhatsApp sur place. Il ne le fera pas.
+
+Un message vocal transféré reste l'enregistrement de quelqu'un d'autre. Le sauver pour vos notes n'élargit pas ce que vous pouvez faire des mots. Si l'expéditeur s'attendait à ce que le message reste dans la conversation, demandez avant de le transcrire dans un document que vous transférez à nouveau.
+
+Les conversations de groupe multiplient le problème. Une note vocale peut contenir une personne qui ne vous parlait pas. Ne transcrivez que ce que vous avez une raison de garder, et ne déposez pas le texte entier dans une autre conversation par défaut.
+
+## Message vocal WhatsApp en texte dans le navigateur
+
+1. Enregistrez le message vocal comme un fichier que vous pouvez ouvrir dans le Finder.
+2. S'il est déjà en MP3, M4A, WAV ou MP4 et sous 15 minutes, vous pouvez sauter la conversion.
+3. Ouvrez [transcrire une note vocale](/fr/outils/transcrire-note-vocale).
+4. Le modèle se télécharge une fois dans le navigateur. Les passages suivants peuvent marcher hors ligne. Le panneau Réseau des outils de développement est la vérification que le fichier audio lui-même n'est pas posté vers un serveur.
+5. Lancez le fichier. Vous obtenez du texte. Vous n'obtenez pas de noms de voix. Un message vocal est en général une personne, donc les noms manquants pèsent moins que dans une réunion. Un message où deux personnes se sont passé le téléphone se lira comme un seul flux.
+6. Copiez le texte dans vos notes. La page ne le classe pas dans WhatsApp.
+
+
+<Image src={inline2} alt="Telephone portable a cote de notes manuscrites a la lumiere du jour" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+La page utilise des modèles Whisper publics. Le suisse allemand revient en général en allemand standard. Si la note est en dialecte et que vous avez besoin de l'orthographe dialectale, cet outil vous décevra. Lisez l'allemand standard comme un brouillon et corrigez les mots qui comptent. Il n'y a pas de pourcentage de précision à citer.
+
+Trois exécutions réussies par semaine, c'est un plafond dur. Une série de vingt messages vocaux un lundi ne passera pas. Priorisez ceux qui portent une décision ou une citation qui doit être juste. Le reste peut attendre la semaine suivante, ou passer à une app locale qui n'est pas sur le compteur hebdomadaire.
+
+La même limite et la même règle sans envoi sont décrites pour les entretiens dans [transcrire un entretien sans envoi](/fr/blog/transcrire-entretien-sans-envoi). Une note WhatsApp est plus courte que la plupart des entretiens et, pour le reste, la même forme de vie privée&nbsp;: fichier entrant, texte sortant, audio non envoyé à Vemoir.
+
+## Quand le format ne convient pas
+
+WhatsApp enregistre souvent les messages vocaux en Opus dans un conteneur Ogg. Cette extension n'est pas sur la liste de l'outil. MP3, M4A, WAV et MP4 le sont. Convertissez avant d'ouvrir la page.
+
+Sur un Mac, `afconvert` est le convertisseur intégré. Dans le Terminal, depuis le dossier qui contient le fichier&nbsp;:
+
+```bash
+afconvert -f m4af -d aac input.ogg output.m4a
+```
+
+Utilisez les vrais noms de fichiers. Si `afconvert` refuse le fichier Opus, exportez à nouveau depuis WhatsApp ou utilisez la feuille de partage vers un format que Musique ou Dictaphone acceptera, puis exportez le M4A de là. Ne passez pas par un site «&nbsp;convertisseur&nbsp;» au hasard. Le but de ce flux est que l'audio reste sur la machine. L'envoyer à un convertisseur annule cela.
+
+Après la conversion, vérifiez la durée. Un message vocal de plus de 15 minutes doit être coupé ou traité hors de l'outil du navigateur. Découper une longue note en plusieurs morceaux dépense plusieurs passages hebdomadaires. Coupez à la minute dont vous avez vraiment besoin.
+
+L'app Mac peut importer MP3, M4A, WAV, AIFF, CAF et FLAC par le même pipeline local qu'une réunion. Opus n'est toujours pas sur cette liste d'import. Convertissez d'abord, puis importez si la note fait partie d'un projet plutôt que d'un collage ponctuel. Cet article ne cite pas le prix de l'app. La fiche du store le fait, quand vous êtes prêt à acheter.
+
+## Un appel en direct n'est pas un message vocal
+
+Un message vocal est un fichier. Un appel WhatsApp est de l'audio en direct. L'outil du navigateur ne rejoint pas WhatsApp, ne lit pas l'appel et ne capture pas l'onglet. S'il vous faut des notes d'un appel qui a lieu maintenant, l'appel doit jouer sur le Mac et un enregistreur local doit tourner.
+
+Cet enregistreur est l'app Mac&nbsp;: micro et audio système, pas de bot dans l'appel, transcription sur la machine après avoir raccroché. L'autorisation macOS pour le son des autres apps s'appelle System Audio Recording. Elle ne capture pas l'écran. Vous le dites quand même à l'autre personne. WhatsApp n'affichera pas une bannière «&nbsp;Vemoir enregistre&nbsp;».
+
+S'il vous fallait seulement le message vocal, n'achetez pas un flux pour les appels en direct. Enregistrez le fichier, convertissez si besoin, et utilisez la page de note vocale.
+
+Si le texte doit entrer dans un compte rendu avec décisions et responsables, collez-le dans le [modèle de procès-verbal](/fr/outils/modele-proces-verbal) et éditez. Une transcription brute d'une note vocale est en général un paragraphe. Le compte rendu a quand même besoin d'une date, d'un nom et de la suite. [Modèle de procès-verbal de réunion](/fr/blog/modele-proces-verbal-reunion) est une structure que vous pouvez copier quand la note est vraiment une décision, pas un chat.
+
+## Questions fréquentes
+
+### Le site peut-il lire WhatsApp directement&nbsp;?
+
+Non. Enregistrez le fichier audio, puis ouvrez l'outil de transcription. Il n'y a pas de connexion WhatsApp et pas d'extension.
+
+### Quelle est la limite de durée&nbsp;?
+
+15 minutes par fichier, et 3 exécutions réussies par semaine, sur les outils du navigateur.
+
+### L'audio est-il envoyé&nbsp;?
+
+Non. Le modèle tourne dans le navigateur. Le panneau Réseau montre que le fichier n'est pas envoyé à Vemoir.
+
+### Pourquoi mon fichier .ogg a-t-il échoué&nbsp;?
+
+Opus/Ogg n'est pas dans la liste acceptée. Convertissez en M4A, MP3, WAV ou MP4 sur votre Mac, puis réessayez.
+
+### Le dialecte suisse allemand est-il conservé&nbsp;?
+
+Attendez de l'allemand standard depuis le modèle Whisper public. Corrigez le brouillon. Ne promettez pas une sortie en dialecte.
+
+### Y a-t-il des noms de voix&nbsp;?
+
+Non. Les outils du navigateur ne séparent pas les voix. Un message vocal unique en a rarement besoin.
+
+### Puis-je transcrire un appel WhatsApp en direct dans le navigateur&nbsp;?
+
+Non. La capture en direct n'est pas une fonction du navigateur. Un message vocal déjà reçu est le cas que cette page couvre.
+
+### Est-ce le même outil qu'une transcription de réunion&nbsp;?
+
+C'est la même famille de limites, sur la page de note vocale. Les réunions à plusieurs voix et un flux de compte rendu sont un autre travail qu'une bulle enregistrée.
+
+## Étape suivante
+
+Enregistrez le message vocal, convertissez-le s'il n'est pas en MP3, M4A, WAV ou MP4, et ouvrez [transcrire une note vocale](/fr/outils/transcrire-note-vocale). Restez sous 15 minutes pour que le passage compte.
