@@ -1,0 +1,122 @@
+---
+title: "Speaker Profiles on a Mac Stay Encrypted and Optional"
+description: "Speaker profiles on a Mac stay optional. Remember this speaker is opt-in, encrypted, and deletable. Unknown voices stay anonymous."
+pubDate: 2026-11-06
+author: "Vemoir Team"
+tags: ["speakers", "privacy", "mac"]
+funnelStage: "interest"
+translationKey: "speaker-profiles-mac"
+relatedPosts: ["fix-wrong-speaker-names", "speaker-labels-missing", "who-spoke-most-in-meeting"]
+image: "@/assets/blog/speaker-profiles-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/speaker-profiles-mac/inline1.jpg';
+import inline2 from '@/assets/blog/speaker-profiles-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@c1st?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">c1st</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Speaker profiles on a Mac** in Vemoir exist only if you ask for one. After a meeting, speaker separation labels people as anonymous clusters. `Remember this speaker` creates or updates an encrypted local voice profile, and only after you approve it. If you never tap that, the voice is not stored as a profile. You can still rename the label for that meeting.
+
+Unknown and ambiguous speakers stay anonymous. A profile is not a guess the app makes because someone sounded familiar.
+
+## What speaker profiles on a Mac actually store
+
+Separation runs on the Mac after you stop. It groups remote participants into reviewable labels. Those labels are names you can edit for the record of that meeting. A profile is different: a local template of a voice, encrypted, used later when the same person may be back.
+
+
+<Image src={inline1} alt="Unlabeled place cards around a wooden table" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@dvhoang2106?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dvhoang2106</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+You can rename a label without creating a profile. That path is the one to use when the name was wrong once and you do not want a voice kept. The steps sit in [fix wrong speaker names](/blog/fix-wrong-speaker-names).
+
+Confirm, reject, correct, and undo keep the raw separation and the timestamped transcript as evidence. Changing a display name does not rewrite what was said.
+
+## When a saved profile is allowed to match
+
+An approved profile can suggest or assign a known speaker only when compatibility, confidence, margin, and cluster quality all pass. If those gates fail, the speaker stays anonymous. A near miss does not become a name.
+
+
+<Image src={inline2} alt="Several empty cups as stand-ins for speakers" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@olly_p?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">olly_p</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+That is the useful limit. One noisy call should not stamp your client's name onto a different voice next week. If you wanted a firm name anyway, assign it by hand for that meeting, or reject the suggestion.
+
+The guided sample meeting, if you run the tour, is marked as a sample and does not silently create a remembered voice profile. You can delete sample data in one action.
+
+## Remember this speaker
+
+1. Open the finished meeting and the speaker list.
+2. Check the anonymous label against a stretch of the transcript. If the cluster mixed two people, correct it before you remember anyone.
+3. Choose `Remember this speaker` only for the person you intend. That approval is the opt-in.
+4. Later meetings may suggest that name when the gates pass. You can confirm, reject, or undo.
+5. If you do not want the voice kept, skip Remember and rename the label only.
+
+There is a separate personal profile, recorded by you in Settings, for My Voice isolation on your own microphone. That is your voice, not a meeting guest. It is also explicit, local, and deletable. It is not created by Remember this speaker on someone else.
+
+## Where skipping the profile is better
+
+Remember this speaker is the better choice when the same people return, you want a suggestion next time, and you are willing to keep an encrypted template you can delete. It is the worse choice when:
+
+- The call was a one-off. A rename is enough, and no voice template is stored.
+- The cluster is messy. Remembering a mixed cluster teaches the wrong voice. Fix or reject first.
+- Someone in the room did not agree to a voice template, even if they agreed to a transcript. A local profile is still their voice pattern on your Mac. Leave them anonymous.
+- You wanted a company directory of every colleague, shared with the team. Vemoir keeps profiles on that Mac. It does not publish a shared voice roster. A cloud notetaker with team admin, if your policy allows it, is built for a shared library. This app is not.
+
+Embeddings and matches from profiles are left out of ordinary logs, diagnostics, exports, analytics, and crash metadata. Deleting a profile is a privacy control, not a hidden extra.
+
+## Review, disable, or delete
+
+Privacy settings are where a profile is reviewed, disabled, reset, anonymized in past meetings, or permanently deleted. Disabled means it should stop matching. Deleted means you do not want that template kept. Historical anonymizing strips the identity from earlier records without pretending the transcript line was never spoken.
+
+Do this when a person leaves a project, when a match was wrong, or when you simply do not want voice templates on the machine. Export a meeting afterward if you need the names in the notes you share. The profile itself is not the thing you share.
+
+Audio and speaker separation stay on the Mac even if you later turn on a text-only key for notes. A profile is not uploaded because you asked a question about the meeting.
+
+The controls sit with capture and speakers in [capture](/#capture). Consent to record is still yours. A profile does not replace telling people they are being recorded. This page is not legal advice.
+
+## A concrete case: the same two clients, every Tuesday
+
+You meet the same client pair on a video call. The first week, both labels are anonymous. You rename them for the minutes and you do not remember either voice, because you are still checking that separation put each person in their own cluster. The second week the clusters look clean again. You use Remember this speaker for each person, once. From the third week, a suggestion can appear when the gates pass. If one of them calls from a phone in a car, the match may fail. The label stays anonymous, and you rename that meeting by hand instead of forcing the stored profile onto a bad cluster.
+
+If the client asks you to stop keeping a voice template, you do not argue with the match confidence. You open Privacy settings, delete or disable that profile, and anonymize historical matches if they want the earlier records unnamed. The transcript lines remain. The identity attached to them does not have to.
+
+A project can hold many meetings. Profiles are not "the project's property" in the sense of a shared team login. They live on this Mac, under your approval. Another person on another Mac does not inherit them. That is the point of keeping the template local, and it is also why a company that wants one roster for twenty staff will find a shared cloud workspace a better fit.
+
+## Frequently asked questions
+
+### Are speaker profiles on by default?
+
+No. Unknown speakers stay anonymous. `Remember this speaker` runs only after you approve it for that person.
+
+### Is the profile encrypted, and can I delete it?
+
+Yes. It is an encrypted local voice profile. Privacy settings can disable it, reset it, anonymize it in past meetings, or delete it permanently.
+
+### Does a rename create a profile?
+
+No. Renaming a label updates that meeting's name. Remember this speaker is the separate opt-in that stores a voice.
+
+### Will a weak match still get a name?
+
+No. Suggestion or automatic assignment needs the compatibility, confidence, margin, and cluster-quality gates. Otherwise the speaker stays anonymous.
+
+### Does the sample tour save my colleagues?
+
+No. The sample is marked as sample data, can be deleted in one action, and does not silently create a remembered profile.
+
+### Do browser tools on vemoir.ch build profiles?
+
+No. They transcribe a file you already have, up to 15 minutes, three successful runs a week, with no speaker labels and no voice profiles. Separation and profiles are in the Mac app.
+
+### Where does the voice data go if I use my own API key?
+
+Speaker separation stays on the Mac. A bring-your-own key, if you activate one, is text only. It does not receive the audio or the voice template as a silent fallback.
+
+### Can I undo a match?
+
+Yes. Confirm, reject, correct, and undo keep the raw separation and the timestamped evidence. You can also anonymize historical matches from Privacy settings.
+
+If you only needed a name on today's transcript, rename the label and leave the profile off. The speaker list lives with [capture](/#capture).

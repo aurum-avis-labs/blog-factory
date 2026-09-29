@@ -1,0 +1,131 @@
+---
+title: "Turn WhatsApp voice to text from a saved audio file"
+description: "WhatsApp voice to text starts from the saved audio, not a live tap. Short files can be transcribed in the browser without upload."
+pubDate: 2026-10-26
+author: "Vemoir Team"
+tags: ["whatsapp", "transcription", "voice"]
+funnelStage: "interest"
+translationKey: "whatsapp-voice-to-text"
+relatedPosts: ["transcribe-voice-memo-mac", "offline-transcription-mac", "import-audio-file-mac"]
+tool: "transcribe-voice-memo"
+image: "@/assets/blog/whatsapp-voice-to-text/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/whatsapp-voice-to-text/inline1.jpg';
+import inline2 from '@/assets/blog/whatsapp-voice-to-text/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**WhatsApp voice to text** means taking a voice message you already have and turning that audio into words. It does not mean a browser extension that listens inside WhatsApp. The message has to exist as a file the transcription page can open, in a format it accepts, and short enough to run. On vemoir.ch that file path is the [voice memo transcription](/tools/transcribe-voice-memo) tool.
+
+The limits are the same as the other browser tools: **15 minutes**, **3 successful runs a week**, MP3, M4A, WAV, or MP4. The file is not uploaded. Speakers are not labeled.
+
+## Contents
+
+- [Get the voice message out of the chat](#get-the-voice-message-out-of-the-chat)
+- [WhatsApp voice to text in the browser](#whatsapp-voice-to-text-in-the-browser)
+- [When the file is the wrong format](#when-the-file-is-the-wrong-format)
+- [A live WhatsApp call is not a voice message](#a-live-whatsapp-call-is-not-a-voice-message)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## Get the voice message out of the chat
+
+WhatsApp stores voice messages inside the chat. The transcription tool never sees the chat. You export or save the audio first, on a device you are allowed to use.
+
+
+<Image src={inline1} alt="A phone and earbuds on a cafe table" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+On a phone, open the chat, use the share or save option WhatsApp shows for that message, and move the audio somewhere you can reach from the computer. Chat export with media, in WhatsApp’s own menu, produces a folder of files plus a text log. Use the audio file, not the `.txt` log. The log is not the speech.
+
+On WhatsApp for Mac, the same idea holds: save the message out as a file, then switch to the browser tool. Do not expect the website to read WhatsApp’s library in place. It will not.
+
+A forwarded voice message is still someone else’s recording. Saving it for your notes does not expand what you may do with the words. If the sender expected the message to stay in the chat, ask before you transcribe it into a document you will forward again.
+
+Group chats multiply that problem. One voice note can include a person who was not speaking to you. Transcribe only what you have a reason to keep, and do not drop the full text into another chat by default.
+
+## WhatsApp voice to text in the browser
+
+1. Save the voice message as a file you can open in Finder.
+2. If it is already MP3, M4A, WAV, or MP4 and under 15 minutes, you can skip conversion.
+3. Open [transcribe a voice memo](/tools/transcribe-voice-memo).
+4. The model downloads once into the browser. Later runs can work offline. The Network panel in developer tools is the check that the audio file itself is not posted to a server.
+5. Run the file. You get text. You do not get speaker labels. A voice message is usually one person, so the missing labels matter less than they do on a meeting. A message where two people passed the phone will read as one stream.
+6. Copy the text into your notes. The page does not file it into WhatsApp.
+
+
+<Image src={inline2} alt="A mobile phone next to handwritten notes in daylight" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Public Whisper models are what the page uses. Swiss German usually comes back as Standard German. If the voice note is dialect and you need the dialect spelling, this tool will disappoint you. Read the Standard German as a draft and correct the words that matter. There is no accuracy percentage to quote.
+
+Three successful runs per week is a hard cap. A string of 20 voice messages on a Monday will not all fit. Prioritize the ones that carry a decision or a quote you must get right. The rest can wait until the next week or move to a local app that is not on the weekly counter.
+
+The same limit and the same no-upload rule are described for interviews in [transcribe an interview without upload](/blog/transcribe-interview-without-upload). A WhatsApp note is shorter than most interviews and otherwise the same privacy shape: file in, text out, audio not sent to Vemoir.
+
+## When the file is the wrong format
+
+WhatsApp often saves voice messages as Opus in an Ogg container. That extension is not on the tool’s list. MP3, M4A, WAV, and MP4 are. Convert before you open the page.
+
+On a Mac, `afconvert` is the built-in converter. In Terminal, from the folder that contains the file:
+
+```bash
+afconvert -f m4af -d aac input.ogg output.m4a
+```
+
+Use the real file names. If `afconvert` refuses the Opus file, export again from WhatsApp or use the share sheet to a format the Music app or Voice Memos will accept, then export M4A from there. Do not run a random “converter” website. The point of this workflow is that the audio stays on the machine. Uploading it to a converter undoes that.
+
+After conversion, check the duration. A voice message over 15 minutes needs to be trimmed or handled outside the browser tool. Splitting one long note into many pieces spends multiple weekly runs. Trim to the minute you actually need.
+
+The Mac app can import MP3, M4A, WAV, AIFF, CAF, and FLAC through the same local pipeline as a meeting. Opus is still not on that import list. Convert first, then import if the note is part of a project rather than a one-off paste. This interest article does not quote the app’s price. The store listing does, when you are ready to buy.
+
+## A live WhatsApp call is not a voice message
+
+A voice message is a file. A WhatsApp call is live audio. The browser tool does not join WhatsApp, does not read the call, and does not capture the tab. If you need notes from a call that is happening now, the call has to play on the Mac and a local recorder has to be running.
+
+That recorder is the Mac app: microphone and system audio, no bot in the call, transcription on the machine after you hang up. macOS permission for other apps’ audio is System Audio Recording. It does not capture the screen. You still tell the other person. WhatsApp will not show a “Vemoir is recording” banner.
+
+If you only needed the voice message, do not buy a workflow for live calls. Save the file, convert if needed, and use the voice-memo page.
+
+If the text is going into minutes with decisions and owners, paste it into the [minutes sheet](/tools/minutes-sheet) and edit. A raw transcript of a voice note is usually one paragraph. The minutes still need a date, a name, and what you will do next. [Meeting minutes template](/blog/meeting-minutes-template) is a structure you can copy when the note is really a decision, not a chat.
+
+## Frequently asked questions
+
+### Can the website read WhatsApp directly?
+
+No. Save the audio file, then open the transcription tool. There is no WhatsApp login and no extension.
+
+### What is the length limit?
+
+15 minutes per file, and 3 successful runs per week, on the browser tools.
+
+### Does the audio upload?
+
+No. The model runs in the browser. Use the Network panel if you want to see that the file is not sent to Vemoir.
+
+### Why did my .ogg file fail?
+
+Opus/Ogg is not in the accepted list. Convert to M4A, MP3, WAV, or MP4 on your Mac, then try again.
+
+### Will it keep Swiss German dialect?
+
+Expect Standard German from the public Whisper model. Correct the draft. Do not promise dialect output.
+
+### Are there speaker names?
+
+No. Browser tools do not separate speakers. A single voice message rarely needs them.
+
+### Can I transcribe a WhatsApp call live in the browser?
+
+No. Live capture is not a browser feature. A voice message you already received is the case this page covers.
+
+### Is this the same tool as a meeting transcription?
+
+It is the same family of limits, on the voice-memo page. Meetings with several speakers and a minutes workflow are a different job from one saved bubble.
+
+## Next step
+
+Save the voice message, convert it if it is not MP3, M4A, WAV, or MP4, and open [transcribe a voice memo](/tools/transcribe-voice-memo). Stay under 15 minutes so the run counts.

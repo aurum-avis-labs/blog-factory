@@ -1,0 +1,121 @@
+---
+title: "Plaud est-il privé quand le transcript quitte l'appareil"
+description: "Plaud est-il privé si l'enregistreur reste en poche ? La page trust sur la transcription cloud, Cloud Sync, et un Mac sans l'appareil."
+pubDate: 2026-11-18
+author: "Vemoir Team"
+tags: ["confidentialité", "Plaud", "matériel"]
+funnelStage: "interest"
+translationKey: "is-plaud-private"
+tool: "transcribe-recording"
+relatedPosts: ["otter-ai-est-il-sur", "granola-est-il-prive", "alternative-a-plaud"]
+image: "@/assets/blog/is-plaud-private/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/is-plaud-private/inline1.jpg';
+import inline2 from '@/assets/blog/is-plaud-private/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@ruben18rodriguez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ruben18rodriguez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Plaud est-il privé** dépend de la copie dont vous parlez. Le matériel peut garder l'audio jusqu'à ce qu'il passe sur le téléphone. Le transcript, sur la page trust de Plaud, est un travail dans le cloud. Vérifié en septembre 2026 : [centre trust de Plaud](https://global.plaud.ai/pages/trust). Un enregistreur de poche n'est pas le même produit qu'une application Mac qui ne quitte pas le bureau, et la question de confidentialité n'est pas réglée par un badge. Si des personnes sont en Suisse, les informer reste de votre ressort au regard de la nLPD.
+
+## Sommaire
+
+- [Ce qu'est Plaud](#ce-quest-plaud)
+- [Plaud est-il privé pour le transcript](#plaud-est-il-privé-pour-le-transcript)
+- [Cloud Sync, perte et noms](#cloud-sync-perte-et-noms)
+- [Ce que leurs certifications ne décident pas](#ce-que-leurs-certifications-ne-décident-pas)
+- [Quand la poche gagne, et quand le Mac gagne](#quand-la-poche-gagne-et-quand-le-mac-gagne)
+- [Questions fréquentes](#questions-fréquentes)
+
+## Ce qu'est Plaud
+
+Plaud vend du matériel. Note, Note Pro, NotePin et NotePin S sont des enregistreurs que vous portez, associés à une application téléphone, plus des applications web et bureau qu'ils listent pour Plaud Intelligence. La capture se fait loin d'un portable. C'est le sens d'un objet porté : une conversation dans un couloir, une visite de site, une réunion où le Mac reste dans le sac.
+
+
+<Image src={inline1} alt="Petit enregistreur range dans un tiroir ferme" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@oculareuphoria?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">oculareuphoria</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Le bandeau de boutique, sur la même page trust, décrit un plan Starter gratuit à 300 minutes de transcription par mois, un plan Pro à 1 200 minutes, et un plan Unlimited. Les montants en dollars bougent. Lisez la boutique avant d'acheter des minutes. Cet article porte sur l'endroit où va l'audio, pas sur le plan qui est l'affaire.
+
+Vemoir ne s'associe pas à ce matériel. Si vous avez déjà enregistré sur un Plaud et exporté un fichier que vous pouvez garder, un court extrait peut être transcrit à nouveau sur votre machine sans leur compte. C'est une autre décision de produit. Elle ne retire pas le fichier du cloud de Plaud à votre place.
+
+## Plaud est-il privé pour le transcript
+
+Les réponses trust de Plaud sont directes.
+
+
+<Image src={inline2} alt="Enregistreur sans marque sur une table d'appoint" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@annastampfli?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">annastampfli</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Ils listent des centres aux États-Unis (AWS-West), en UE (AWS à Francfort), au Japon (AWS) et à Singapour (AWS). Les utilisateurs hors de ces régions sont traités dans la région la plus proche qu'ils ont. Pour les modèles qu'ils nomment (GPT, Claude et Gemini), les utilisateurs en Europe ont des sous-traitants entreprise hébergés dans l'UE, et le reste du monde a des modèles hébergés aux États-Unis.
+
+Puis la phrase qui tranche l'histoire de l'« enregistreur local » : toutes les données sont transférées vers le cloud pour le traitement. Les données audio et de transcription ne sont pas stockées dans le cloud, sauf si Cloud Sync est activé. Si Cloud Sync est éteint, ils disent que les données associées sont supprimées du cloud une fois renvoyées vers le téléphone.
+
+L'appareil n'est donc pas une boîte close qui écrit un transcript seule. Demander un transcript envoie l'audio dehors. Avec la synchro éteinte, ils disent ne pas garder de copie serveur durable après le retour sur le téléphone. Avec la synchro allumée, la copie cloud est la fonction que vous avez activée. « Plaud est-il privé » ne vaut, pour le stockage, que dans le cas synchro éteinte, et même alors le passage de traitement a eu lieu.
+
+Ils disent ne pas entraîner sur les données utilisateur par défaut. L'entraînement exige un opt-in manuel dans les réglages. Ils disent que les sous-traitants utilisent des API entreprise avec une politique de non-conservation, écrite dans les contrats et les accords de traitement, pour que ces fournisseurs ne stockent ni ne réutilisent les données client pour l'entraînement. C'est la description que Plaud fait de ses contrats. Ce n'est pas un audit imprimé ici, et ce n'est pas une raison de taire l'enregistrement à l'autre personne.
+
+La transcription, disent-ils, utilise plusieurs modèles entreprise, y compris des modèles affinés qui leur sont propres. Les données utilisateur ne servent pas à entraîner ces modèles, sauf opt-in. Il n'y a pas de pourcentage d'exactitude sur cette page, et aucun slogan ne mérite d'être répété.
+
+Chiffrement, dans leurs mots : HTTPS/TLS 1.2 ou plus en transit, AES-256 au repos.
+
+## Cloud Sync, perte et noms
+
+Si vous perdez l'enregistreur, leur page trust dit que les enregistrements sont supprimés de l'appareil une fois transférés vers le téléphone par l'application Plaud. Seul le compte Plaud auquel l'appareil est lié peut accéder aux données et les déchiffrer. Vous pouvez délier un appareil perdu à distance avec le support Plaud, et ils disent que les données sont supprimées de l'appareil perdu après ce déliement. Une personne étrangère qui ramasse l'enregistreur ne tient pas, dans cette description, une bibliothèque qu'elle peut ouvrir sans le compte.
+
+Les noms de locuteurs sont manuels par défaut. N'attendez pas que l'épingle sur la table sache qui a parlé. Vous tapez les noms. C'est la version honnête d'un seul microphone dans une pièce, que le micro soit un Mac ou un objet porté.
+
+Un transcript que vous avez demandé a déjà rejoint leur région, même si la copie durable est supprimée ensuite. Si votre règle est « cet audio ne quitte jamais le bâtiment », une demande de transcript Plaud casse la règle. Capturer sur l'appareil et ne jamais demander de transcript éviterait le passage de traitement, et vous n'auriez pas le texte non plus. La plupart des gens achètent l'appareil pour le texte.
+
+## Ce que leurs certifications ne décident pas
+
+Plaud dit ne pas offrir un cloud privé à vous. Ils décrivent un cloud multi-régions, et ils disent qu'il répond à des normes dont le RGPD, ISO 27001, ISO 27701, SOC 2 Type 2, HIPAA et EN 18031. Ces noms sont leur affirmation. Cet article ne les note pas. Une ligne HIPAA sur la page trust d'un vendeur de matériel n'est pas une conclusion que votre conversation est couverte, et ce n'est pas une fonction d'une application Mac de réunion qui ne fait jamais cette affirmation.
+
+Vous dites encore aux gens que vous enregistrez. Un petit appareil se remarque moins qu'un portable ouvert. Le consentement est à votre charge. La liste de régions du fournisseur ne le fait pas à votre place.
+
+Si le fichier ne doit exister dans aucun cloud, même brièvement, ne demandez pas de transcript Plaud. Utilisez un chemin dont la transcription reste sur une machine que vous contrôlez, ou n'enregistrez pas.
+
+## Quand la poche gagne, et quand le Mac gagne
+
+Plaud gagne quand vous n'êtes pas à un Mac. Marcher sur un site, s'asseoir dans une pièce sans portable, ou avoir besoin d'un objet porté qui démarre quand l'ordinateur est fermé : c'est leur catégorie. Une application de barre de menus n'entend pas une conversation deux étages plus loin que la machine. Ne faites pas semblant. Importez un fichier plus tard si vous en avez exporté un et si vous pouvez le garder : MP3, M4A, WAV, AIFF, CAF ou FLAC sur le Mac, ou un fichier court dans le navigateur.
+
+Le Mac gagne quand l'appel joue déjà là. Zoom, Teams, Meet ou Webex par haut-parleurs ou casque peut être capté comme audio système plus votre microphone, sans appareil supplémentaire et sans compte sur un enregistreur. La transcription tourne sur le Mac. L'audio n'est pas envoyé pour ce transcript. Des modèles de texte facultatifs, si vous activez votre propre clé, ne prennent que du texte. Le défaut est local. C'est Vemoir, Apple silicon, macOS Sonoma 14.2 ou plus récent, sur le [Mac App Store](https://apps.apple.com/app/id6794693630). Cela ne remplace pas une épingle sur une chemise.
+
+Un fichier court déjà exporté, depuis Plaud ou d'ailleurs, peut passer par [transcrire un audio](/fr/outils/transcrire-audio) : 15 minutes, trois passages par semaine, rien n'est envoyé, pas de noms de locuteurs. Le suisse allemand en sort en général en allemand standard. L'application Mac n'ajoute pas non plus de mode dialecte.
+
+Supprimer une réunion dans Vemoir retire le transcript local, le dossier généré, les actions et décisions attachées, et le dossier d'enregistrement. Cela n'efface pas une copie cloud Plaud. Si les deux existent, supprimez les deux.
+
+## Questions fréquentes
+
+### Plaud transcrit-il sur l'appareil ?
+
+Pas selon leur page trust. Toutes les données sont transférées vers le cloud pour le traitement. Avec Cloud Sync éteint, ils disent que l'audio et le transcript ne sont pas gardés dans le cloud après le retour du résultat sur le téléphone. Le passage a quand même eu lieu.
+
+### Où est ce cloud ?
+
+Ils listent AWS-West aux États-Unis, AWS Francfort dans l'UE, AWS au Japon et AWS à Singapour, et la région la plus proche si vous êtes dehors. Les utilisateurs européens ont des modèles hébergés dans l'UE pour GPT, Claude et Gemini. Les autres, dans leurs mots, ont des modèles hébergés aux États-Unis.
+
+### Entraînent-ils sur les enregistrements ?
+
+Ils disent non, par défaut, sauf si vous optez. Ils disent aussi que les sous-traitants sont sous une politique contractuelle de non-conservation. Lisez la page trust plutôt qu'un résumé si vous allez enregistrer quelqu'un d'autre.
+
+### La ligne HIPAA est-elle une raison d'enregistrer un patient ou un client ?
+
+Non. C'est la description que Plaud fait de son programme. Savoir si vous pouvez enregistrer est votre règle, votre devoir professionnel, et le consentement de l'autre personne. Cette page ne bénit pas cet enregistrement.
+
+### Et si je n'ai qu'un Mac ?
+
+Vous n'avez pas besoin du matériel pour un appel qui joue déjà sur le Mac. Capturez là, ou transcrivez un fichier que vous avez déjà. Achetez l'objet porté quand le Mac n'est pas dans la pièce.
+
+### Puis-je avoir les noms automatiquement ?
+
+Leur page trust dit que l'étiquetage est manuel par défaut. Un seul micro, sur une épingle ou sur un portable, est un mauvais endroit pour attendre une liste de noms propre.
+
+### « Privé » veut-il dire que personne chez Plaud n'a pu voir un transcript pendant le traitement ?
+
+Leur page ne dit pas que l'audio est invisible en transit. Elle dit qu'il est chiffré en route, traité dans une région, non conservé pour l'entraînement sauf opt-in, et non stocké après le retour si la synchro est éteinte. C'est un dessin de traitement, pas l'absence d'un traiteur.
+
+Utilisez l'enregistreur de poche quand la conversation n'est pas sur un ordinateur. Utilisez le Mac quand elle l'est. La page trust est [ici](https://global.plaud.ai/pages/trust). Un fichier que vous détenez déjà peut commencer sur [transcrire un audio](/fr/outils/transcrire-audio).

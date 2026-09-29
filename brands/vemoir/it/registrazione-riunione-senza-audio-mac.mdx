@@ -1,0 +1,120 @@
+---
+title: "Registrazione riunione senza audio su Mac: microfono"
+description: "Registrazione riunione senza audio su Mac: di solito solo il microfono, o l’audio di sistema negato. Controlla entrambe le tracce prima di rifare la call."
+pubDate: 2026-10-20
+author: "Vemoir Team"
+tags: ["mac", "risoluzione-problemi", "registrazione"]
+funnelStage: "interest"
+translationKey: "meeting-recording-no-sound-mac"
+relatedPosts: ["audio-di-sistema-mac", "registrare-riunione-teams-su-mac", "trascrivere-riunione-in-tedesco"]
+image: "@/assets/blog/meeting-recording-no-sound-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/meeting-recording-no-sound-mac/inline1.jpg';
+import inline2 from '@/assets/blog/meeting-recording-no-sound-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Una **registrazione riunione senza audio su Mac** quasi mai significa che Zoom o Teams «non ha registrato». Di solito hai catturato una traccia e non l’altra. Il microfono è la tua voce nella stanza. L’audio di sistema è quello che Zoom, Teams, Meet, Slack o Discord riproduce attraverso il Mac. Senza audio di sistema il file sei tu che parli nel vuoto. Senza microfono il file è la call senza di te. Senza entrambi vedi un file che sembra completo e non contiene nulla di utile.
+
+Sistema il permesso e il dispositivo di uscita prima di ricatturare. Vemoir registra quelle due sorgenti separate dalla barra dei menu. Non entra come bot. Per il lato remoto serve **System Audio Recording** (solo audio). Non registra lo schermo. Le guide vecchie che ti mandano alla spunta Registrazione schermo per questa app sono superate. Parti da [come funziona la cattura](/it#capture).
+
+## Registrazione riunione senza audio su Mac: due tracce
+
+Un file muto è una checklist a due domande, non un’app di riunione rotta.
+
+
+<Image src={inline1} alt="Cuffie staccate accanto a un portatile chiuso" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@niko_nguyen_10?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">niko_nguyen_10</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. **Mi sento in riproduzione?** Sì: il percorso microfono ha funzionato. No: microfono muto, negato o ingresso sbagliato.
+2. **Sento gli altri?** No: manca l’audio di sistema. Cause tipiche: **System Audio Recording** negato, app di riunione senza output, o suono instradato altrove (Bluetooth confuso, telefono all’orecchio).
+
+Vemoir tiene tracce locali separate. Dopo lo stop la trascrizione nasce dall’audio finito sul Mac. La riga live durante la call è un’anteprima, non la prova che entrambe le tracce fossero armate.
+
+L’app di riunione può essere qualsiasi app che riproduca suono sul Mac. Vedi [piattaforme](/it#platforms). Nessun plugin Teams, nessun bot Zoom. Per Teams in diretta: [registrare una riunione Teams su Mac](/it/blog/registrare-riunione-teams-su-mac).
+
+## Capire quale lato è silenzioso
+
+Riproduci la registrazione e nomina il guasto in una frase. La riparazione cambia.
+
+
+<Image src={inline2} alt="Tavolo silenzioso con tazze e taccuini, nessuna cuffia in uso" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@greaterbythehour2020?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">greaterbythehour2020</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+**Solo la tua voce.** L’audio di sistema non è mai entrato nel file. Impostazioni di Sistema, Privacy e sicurezza. Apple raggruppa l’elenco sotto **Registrazione schermo e audio di sistema**. Per Vemoir consenti **solo l’audio**, non una cattura dello schermo. Chiudi Vemoir e riaprilo. macOS applica spesso il permesso dopo un riavvio dell’app. Apple documenta la pagina in [Controllare l’accesso alla registrazione di schermo e audio di sistema](https://support.apple.com/guide/mac-help/control-access-screen-system-audio-recording-mchld6aa7d23/mac).
+
+**Solo gli altri.** Il microfono non è nel file. Privacy e sicurezza, **Microfono**, attiva Vemoir. In Suono controlla l’ingresso: microfono integrato, boom della cuffia o USB, non un aggregato morto di un vecchio installer Zoom. In Vemoir verifica di non aver armato solo l’audio di sistema.
+
+**Nessun lato.** Registratore avviato prima che l’app di riunione riproducesse suono, fermato prima della prima frase. Oppure un altro dispositivo di uscita rispetto a quello che ascoltavi. Oppure Registrazione schermo concessa a un altro strumento, pensando che coprisse Vemoir. Non è così.
+
+**File lungo, trascrizione comunque vuota.** Prima la riproduzione. Se senti audio, la cattura ha funzionato; poi è il modello (lingua sbagliata, voci minuscole, musica). Se la riproduzione è muta, resta su questa pagina. Un modello più grande non ripara un permesso.
+
+## Sistemare l’audio di sistema quando la call manca nel file
+
+1. Nell’app di riunione conferma che l’uscita arrivi **su questo Mac** (in Zoom, «esci dall’audio del computer» rende sordo il file anche se ascolti dal telefono).
+2. In Suono imposta **Uscita** sul dispositivo che usi davvero. AirPods collegati ma uscita ancora «Altoparlanti MacBook»: ascolti qui, registri là.
+3. Consenti Vemoir sotto **System Audio Recording** (solo audio). Una cattura schermo «per sicurezza» non arma la traccia di audio di sistema.
+4. Riavvia Vemoir. Avvia dalla barra dei menu **dopo** che l’app di riunione sta già riproducendo suono.
+5. Una frase di prova tua, una di qualcun altro, stop, ascolta entrambe le tracce se l’app le mostra separate.
+
+Vemoir usa un tap Core Audio solo audio ed esclude la propria uscita. Non memorizza immagini dello schermo. Se il prompt chiede solo System Audio Recording, è quello da accettare.
+
+## Sistemare il microfono quando manchi tu nel file
+
+1. Togli il muto nell’app di riunione. Controlla l’interruttore hardware della cuffia.
+2. Consenti Vemoir in **Microfono**, riavvia l’app.
+3. In Suono, **Ingresso**, guarda il misuratore mentre parli. Se non si muove, il sistema non ti ha sentito. Scegli un altro ingresso.
+4. La riduzione rumore opzionale in Vemoir (Off, Bilanciata, Forte) sta sul percorso microfono, in locale. Se la voce è schiacciata in una stanza silenziosa, prova un minuto su Off.
+5. Un telefono in vivavoce nella stanza cola nel microfono. È suono d’ambiente, non audio di sistema. Non sostituisce un permesso di sistema negato.
+
+## Cuffie, Bluetooth, «lo sentivo, il file no»
+
+Se hai sentito la call, il Mac stava riproducendo qualcosa. Il tap registra l’audio di sistema che il Mac riproduce, non un canale Bluetooth privato che non entra mai nel mix.
+
+- Cuffie cablate e Bluetooth ordinario elencato come uscita in Suono: caso normale.
+- Telefono all’orecchio, o secondo computer che gestisce la call: il Mac non ci arriva.
+- Vecchi cavi virtuali possono rubare l’uscita. Togli i dispositivi sconosciuti in Suono.
+
+QuickTime o la barra screenshot possono portare audio come effetto collaterale di un filmato dello schermo. È il modo pesante per avere suono, e non hai ancora un verbale finché qualcosa non trascrive il filmato. Non è così che Vemoir cattura una call. Attivare Registrazione schermo non arma la traccia di audio di sistema di Vemoir.
+
+## Dopo la call: hai già un file
+
+Se ha registrato qualcun altro, o Zoom ha lasciato `audio_only.m4a`, non sei più in un problema di cattura live. Trascrivi il file. Lo [strumento trascrivere audio](/it/strumenti/trascrivere-audio) accetta MP3, M4A, WAV o MP4 fino a **15 minuti**, **tre esecuzioni andate a buon fine a settimana**, nel browser, senza invio a Vemoir. Niente etichette speaker, niente cattura live nella scheda. Per Zoom in locale: [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom).
+
+Per il prossimo tentativo con te e la call: microfono e System Audio Recording prima di entrare, poi [cattura](/it#capture).
+
+## Domande frequenti
+
+### Perché la registrazione riunione è senza audio su Mac se sentivo la call?
+
+Hai sentito la call su un percorso che il registratore non ha catturato. Il buco abituale è l’audio di sistema: permesso spento, o uscita che non è questo Mac. Sentire non è armare il tap.
+
+### Vemoir ha bisogno della Registrazione schermo per sentire Teams o Zoom?
+
+No. Chiede System Audio Recording e lo usa solo per l’audio. Non registra lo schermo. La Registrazione schermo per un’altra app è indipendente.
+
+### Posso salvare un file muto dopo la riunione?
+
+Se il file è muto non c’è nulla da trascrivere. Se ha suono, trascrivilo. Lo strumento browser serve a un file breve che hai già. Non ricostruisce una traccia mai registrata.
+
+### Ho concesso Registrazione schermo e il lato remoto è ancora muto. E adesso?
+
+System Audio Recording (solo audio) per Vemoir, poi riavvia. Verifica che l’app di riunione riproduca su questo Mac e che tu abbia avviato la barra dei menu mentre riproduceva.
+
+### Il browser registra l’audio di sistema se lascio la scheda aperta durante la call?
+
+No. Gli strumenti trascrivono un file dopo la call. Niente audio di sistema live, niente etichette speaker, niente estensione.
+
+### Funziona se sono in riunione sull’iPhone e prendo note sul Mac?
+
+Non per l’audio di sistema. Il Mac deve essere la macchina che riproduce la call. Il percorso iPhone non colpisce il tap. Il microfono del Mac può sentire un vivavoce rumoroso. È un sostituto scadente.
+
+### Devo comunque dire che registro una volta che l’audio funziona?
+
+Sì. Un permesso che funziona non sostituisce il consenso.
+
+Passo successivo: attiva System Audio Recording (solo audio) e il microfono, riavvia, leggi [la cattura](/it#capture) prima della prossima call.

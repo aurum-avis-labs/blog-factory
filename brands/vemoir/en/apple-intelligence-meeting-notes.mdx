@@ -1,0 +1,112 @@
+---
+title: "Using Apple Intelligence for Meeting Notes Cleanup"
+description: "Apple Intelligence for meeting notes is optional where the Mac has it. Cleanup and artifacts only. Transcription stays on your speech model."
+pubDate: 2026-11-05
+author: "Vemoir Team"
+tags: ["apple intelligence", "notes", "mac"]
+funnelStage: "interest"
+translationKey: "apple-intelligence-meeting-notes"
+relatedPosts: ["local-model-download", "qwen-vs-gpt-oss", "parakeet-vs-whisper"]
+image: "@/assets/blog/apple-intelligence-meeting-notes/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/apple-intelligence-meeting-notes/inline1.jpg';
+import inline2 from '@/assets/blog/apple-intelligence-meeting-notes/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@andrewilliam?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">andrewilliam</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Apple Intelligence for meeting notes** in Vemoir is optional, and only where the Mac actually has Apple Intelligence. It can take part in cleanup and in generated artifacts. It does not transcribe the meeting. The words come from the local speech model you selected: Parakeet v3, or Whisper Turbo, Medium, or Large-v3.
+
+If this Mac does not offer Apple Intelligence, the meeting still runs. Cleanup and artifacts use a downloaded local language model instead: Qwen3 4B on most Macs, or gpt-oss-20b on high-memory Macs. Those models write. They do not replace the speech model either.
+
+## What Apple Intelligence may touch
+
+After you stop, the app rebuilds the transcript from the finalized audio on the Mac. That step is speech-to-text. Apple Intelligence is not in that step.
+
+
+<Image src={inline1} alt="Notebooks closed and water glasses empty after a call" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@allysphotos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">allysphotos</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+What it may help with, on a Mac that has it, is the later writing: cleaning up generated prose and producing artifacts such as the summary and related documents. You still see a transcript you can open. Manual notes you typed keep their own provenance and are not treated as spoken lines. Evidence links, when a summary has them, point at transcript passages, not at a polished sentence that has no source.
+
+The choice is visible with the other model choices. Vemoir does not silently download a different speech model because Apple Intelligence is missing, and it does not silently send the audio to a cloud model because Apple Intelligence failed. Cloud text, if you want it, is a separate activation with your own key. Audio and speaker separation stay on the Mac.
+
+## When it is available, and when it is not
+
+Apple Intelligence depends on the Mac and on macOS, not on a switch inside a meeting. If the system does not offer it, Vemoir's local language model is the path for cleanup and artifacts. Read the model screen for device fit, storage, and which model is selected. Do not assume a brand-new Mac mini and a base laptop behave the same. The app states the fit. This page does not rank writing quality between Apple Intelligence, Qwen3 4B, and gpt-oss-20b.
+
+
+<Image src={inline2} alt="A neat paper stack and a closed laptop at the end of a call" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@sql?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sql</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Interface language is separate. The app can run in English, German, French, Italian, or Dutch. That does not choose the speech model, and it does not turn Apple Intelligence on.
+
+## A meeting with and without it
+
+1. Select the speech model before you rely on a call. That download is explicit, with progress you can resume.
+2. Select the writing path: Apple Intelligence where the Mac has it, or a local language model you downloaded.
+3. Record from the menu bar. Microphone and system audio stay local. No bot joins.
+4. Stop. Read the transcript if a name looks wrong. Fix the label without creating a voice profile, unless you also choose Remember this speaker.
+5. Read the summary. If cleanup smoothed a number you typed in Manual Notes, trust the note's provenance and edit the generated line.
+
+On a Mac without Apple Intelligence, step 2 is the local language model only. The transcript step does not change.
+
+## Where another path is better
+
+Apple Intelligence for cleanup is the better choice when the Mac has it, you want on-device writing help, and you are fine with that system feature. It is the worse choice when:
+
+- You need the transcript itself. Use the speech model. Cleanup does not invent missing audio.
+- You want a specific local language model you can remove from the model library, including on Macs without Apple Intelligence. Download Qwen3 4B or, on a high-memory Mac, gpt-oss-20b.
+- You want a provider you already pay, OpenAI or Anthropic, for text only. That is a Keychain key and an explicit activation, not Apple Intelligence, and it still does not receive the audio.
+- The Mac is managed and Apple Intelligence is turned off by policy. Use the local model. Do not look for a hidden fallback.
+
+None of these make a recording lawful. Tell people when you record. This page is not legal advice.
+
+Browser tools do not use Apple Intelligence. [/tools/transcribe-recording](/tools/transcribe-recording) transcribes a file you already have, up to 15 minutes, three successful runs a week, with public Whisper in the tab and no speaker labels.
+
+The model choice sits in [capture](/#capture).
+
+## Cleanup next to a number you typed
+
+You typed "ship Friday, not Thursday" in Manual Notes while the call was muddy. The transcript is unclear on the day. A cleanup pass, whether it is Apple Intelligence or a local language model, may write a smooth sentence that picks one day. Open the note before you trust the smooth sentence. The note's provenance is how you see that you, not the audio, supplied Friday. Edit the artifact if cleanup guessed. Regeneration should keep your note. It should not relabel the note as a transcript quote.
+
+If Apple Intelligence is unavailable on this Mac, the same check still applies to Qwen3 or gpt-oss output. The failure mode is a fluent sentence, not a missing file. The speech model never claimed the day. The writing step did. That is why the transcript stays one click away from the summary, and why a summary that cannot point at a line should not be treated as the recording.
+
+## Frequently asked questions
+
+### Does Apple Intelligence transcribe the meeting?
+
+No. Transcription uses the local speech model you selected. Apple Intelligence, where the Mac has it, is for cleanup and artifacts.
+
+### What if my Mac does not have Apple Intelligence?
+
+Use a downloaded local language model for notes and artifacts. The transcript still comes from Parakeet or Whisper on the Mac.
+
+### Will Vemoir switch models if cleanup fails?
+
+No. It does not silently substitute a speech model or a cloud backend. A missing or failed path stops that operation rather than picking another one in secret.
+
+### Does this upload the audio?
+
+No. Speech-to-text and speaker separation stay on the Mac. Optional cloud text is a separate, explicit choice and is text only.
+
+### Can I use Apple Intelligence and my own API key together as two writers?
+
+Ask, documents, meeting artifacts, and custom artifacts use one active text source at a time. Activating your own key routes those to that provider. Selecting a local model, or the on-device path, switches them back. Apple Intelligence is the on-device cleanup option where the Mac has it, not a second silent writer beside a cloud key.
+
+### Do speaker names come from Apple Intelligence?
+
+No. Separation runs on the Mac. You rename labels yourself. Remember this speaker is opt-in, encrypted, and deletable.
+
+### Is this in the free browser tools?
+
+No. Those tools transcribe a short file in the browser. They do not record live and do not call Apple Intelligence.
+
+### Which Macs can run Vemoir at all?
+
+Apple silicon, macOS Sonoma 14.2 or later, at least 8 GB of memory and 10 GB of free storage. 16 GB is recommended for long meetings. Intel Macs are not supported. Apple Intelligence has its own Apple requirements on top of that.
+
+Pick the speech model first, then the writing path your Mac actually has. Both are in [capture](/#capture).

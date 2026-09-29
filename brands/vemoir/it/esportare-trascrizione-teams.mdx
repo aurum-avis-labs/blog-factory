@@ -1,0 +1,128 @@
+---
+title: "Esportare una trascrizione Teams dopo la fine della riunione"
+description: "Una trascrizione Teams la esporti da Recap come .vtt o .docx, se ti è permesso. Poi il file diventa testo, senza parlanti inventati."
+pubDate: 2026-10-17
+author: "Vemoir Team"
+tags: ["teams", "trascrizione", "export"]
+funnelStage: "interest"
+translationKey: "export-teams-transcript"
+relatedPosts: ["trascrizione-riunione-disordinata", "vtt-zoom-in-testo", "trascrizione-teams-non-visibile"]
+tool: "transcript-cleaner"
+image: "@/assets/blog/export-teams-transcript/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/export-teams-transcript/inline1.jpg';
+import inline2 from '@/assets/blog/export-teams-transcript/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Una trascrizione Teams la esporti dopo la riunione dal Recap della chat, se la trascrizione è partita e il tuo ruolo può scaricarla. La pagina di supporto Microsoft dice che organizzatori e co-organizzatori possono scaricarla per impostazione come `.docx` o `.vtt`, e che gli altri spesso possono solo vederla, salvo una policy admin diversa. Il file non è una cattura dello schermo, e non esiste se nessuno ha acceso la trascrizione.
+
+I nomi dei menu si spostano. I passi sotto seguono il supporto Microsoft, settembre 2026: [scaricare una trascrizione](https://support.microsoft.com/en-au/teams/meetings/start-stop-and-download-live-transcripts-in-microsoft-teams-meetings). Se il tuo Teams è diverso, valgono le etichette del tuo client, e chiedi a chi organizza prima di cercare in OneDrive.
+
+## Controllare che una trascrizione esista
+
+Teams trascrive una riunione solo se la trascrizione è corsa. Accendere una registrazione non vuol dire sempre che poi ci sia una trascrizione da scaricare. Se il pulsante non c'è mai stato, un admin può aver disattivato la trascrizione, o il tipo di riunione non la supporta. Gli ospiti e chi è fuori dall'organizzazione di chi organizza spesso non possono scaricare, anche se hanno visto i sottotitoli a schermo.
+
+
+<Image src={inline1} alt="Disco esterno accanto a una cartella di carta" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@carlosgil83?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Carlos Gil</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+I sottotitoli dal vivo durante la chiamata non sono lo stesso oggetto del file. I sottotitoli scorrono. La trascrizione, quando esiste, resta con la riunione. Microsoft dice che le trascrizioni delle riunioni con registrazione o trascrizione stanno nel OneDrive for Business di chi organizza, e che ci si arriva dalla chat della riunione e dal Recap finché quella persona non le cancella.
+
+Prima di seguire una guida in cinque passi, apri la riunione passata e guarda se Recap mostra una trascrizione. Se no, nessuna procedura di export ne crea una a memoria.
+
+## Esportare una trascrizione Teams da Recap
+
+Su Teams desktop, Microsoft documenta questo percorso:
+
+
+<Image src={inline2} alt="Qualcuno consegna un documento stampato, non un portatile" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@creatopy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Creatopy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. Seleziona **Chat**.
+2. Apri la chat della riunione passata.
+3. Seleziona **Recap**.
+4. Seleziona **Trascrizione**.
+5. Apri il menu accanto a **Scarica** e scegli il tipo di file, di solito `.docx` o `.vtt`.
+
+Puoi anche partire dall'evento di calendario e cercare registrazioni e trascrizioni, secondo la versione. Assemblee e alcuni webinar usano un altro riquadro. Se Scarica manca, probabilmente non sei chi organizza o un co-organizzatore, o la policy blocca il download per i partecipanti anche dentro il tenant.
+
+L'app Teams sul telefono può mostrare una trascrizione dopo la riunione dalla chat. Microsoft nota che il download è un compito da desktop. Non aspettarti il VTT dal telefono.
+
+Salva il file in un posto che controlli. Il nome scelto da Teams si confonde facilmente col video. Tieni la trascrizione accanto a una nota con la data, e non buttare l'unica copia in una chat aziendale «così ce l'hanno tutti», se non era quello il punto.
+
+## Che cosa contiene davvero il download
+
+Un `.vtt` è un file di sottotitoli. Inizia con `WEBVTT`, poi tempi di cue, poi righe di parlato. Se c'è l'attribuzione dei parlanti, una riga somiglia spesso a `<v Nome>quello che è stato detto</v>`. Quel nome è ciò che Teams ha salvato. Può essere un nome a schermo, una sala o un telefono. Non è una lista presenze pulita.
+
+Un `.docx` è la stessa conversazione in un documento, più facile da inoltrare, peggiore da scomporre se ti servono ancora i tempi. Alcuni tenant e una documentazione più vecchia non concordano sul download Word. Se vedi un solo formato, prendi quello. Non installare un «convertitore di trascrizioni Teams» a caso per forzare l'altro.
+
+Nessuno dei due file è il video della riunione. La registrazione, se esiste, è un download a parte e sta nel OneDrive di chi organizza. Condividere la trascrizione non è condividere il video, e condividere l'uno o l'altro può andare oltre ciò che i partecipanti hanno accettato. Questo articolo non è una consulenza legale.
+
+Se ti serviva una trascrizione e la riunione non è stata trascritta, Teams non la ricostruisce dal video tramite il pulsante Recap. A volte i sottotitoli arrivano dopo in Stream su una registrazione. È un'altra funzione Microsoft, con il suo ritardo e i suoi permessi. Non è la promessa che la chiamata di ieri, non trascritta, ora abbia un VTT.
+
+## Dal file esportato a un testo leggibile
+
+Il VTT è l'ingresso giusto per una pulizia di formato, non per una seconda trascrizione. Lascialo su [pulire la trascrizione](/it/strumenti/pulire-trascrizione). Numeri di cue e timestamp cadono. I nomi restano se erano nel file, compresi i tag `<v Nome>`. Se non c'erano nomi, la pagina lo dice e non inventa parlanti. Questa pulizia non spende uno dei tre passaggi settimanali.
+
+Poi:
+
+- Scorri numeri, date e nomi di prodotto.
+- Manda il testo pulito a [note da una trascrizione](/it/strumenti/note-da-trascrizione) solo se vuoi una bozza di recap. Quella bozza spende un passaggio. Controlla ogni responsabile.
+- Copia decisioni e azioni sul [modello di verbale](/it/strumenti/modello-verbale) quando vuoi archiviare un verbale. Quella scheda non trascrive e non indovina i nomi.
+
+Non incollare il VTT grezzo nella mail di follow-up. Le cue sono rumore. Non incollare nemmeno un recap del modello senza la frase che regge ogni decisione.
+
+Un `.docx` che è già prosa forse non ha bisogno del pulitore. Copia il testo, guarda le intestazioni che Teams ha inserito, e non trattare lo stesso «Conference Room» come una persona.
+
+## Quando non puoi esportare
+
+Il percorso Recap fallisce per motivi noiosi: eri ospite, la trascrizione era spenta, chi organizza ha cancellato il file, o l'admin consente la visione ma non il download. Ricaricare la chat non ne sistema nessuno.
+
+Per la prossima chiamata decidi prima.
+
+- Se chi organizza trascriverà e tu sei co-organizzatore, usa Teams ed esporta dopo. Il percorso lo conosci.
+- Se rischi di non avere il file, registra sul Mac dalla barra dei menu mentre sei nella riunione, e dillo. Vemoir cattura microfono e audio di sistema. Nessun bot entra nell'elenco Teams. Il permesso macOS per il suono delle altre app è la **registrazione dell'audio di sistema**, solo audio, non una cattura dello schermo. Il lato dal vivo è in [registrare una riunione Teams su Mac](/it/blog/registrare-riunione-teams-su-mac).
+- Se qualcuno ti ha già dato un file audio di 15 minuti o meno, [trascrivere audio](/it/strumenti/trascrivere-audio) gira nel browser e non carica il file. Non etichetta i parlanti. I file più lunghi stanno sul Mac: importa MP3, M4A, WAV, AIFF, CAF o FLAC.
+
+Una registrazione locale è il tuo file. Una trascrizione Teams è il file di chi organizza nel suo OneDrive finché non la cancella. Prendi quello che ti è davvero permesso tenere.
+
+## Domande frequenti
+
+### Chi può esportare una trascrizione Teams?
+
+Per impostazione chi organizza e i co-organizzatori, secondo il supporto Microsoft. Altre persone dell'organizzazione spesso la vedono in Recap e non hanno lo stesso Scarica. Gli ospiti vedono meno. Le policy admin superano il default.
+
+### Quale file, VTT o Word?
+
+Scegli `.vtt` se vuoi togliere i timestamp e tenere i tag dei parlanti in una forma di testo prevedibile. Scegli `.docx` se qualcuno deve leggerlo subito in Word. Un VTT lo puoi pulire senza spendere un passaggio di trascrizione.
+
+### Manca il pulsante Scarica. La trascrizione è fallita?
+
+Non sempre. La trascrizione può essere corsa, e il tuo account può solo vedere. Chiedi a chi organizza di scaricare o di cambiare chi può. Se Recap non ha la scheda trascrizione, era probabilmente spenta, o il file è stato cancellato.
+
+### Posso esportare dall'app Teams sul telefono?
+
+Lì puoi vederla dopo la riunione. Pianifica il desktop per il file. Microsoft documenta il download da Chat, Recap e il controllo di download su desktop.
+
+### L'export include i nomi dei parlanti?
+
+Spesso, come tag vocali nel VTT, quando il tenant consente ancora l'attribuzione. Se i tag mancano, nessun pulitore li rimette. Il browser non separa i parlanti dall'audio, e questo download è già testo.
+
+### Dove sta il file?
+
+Microsoft dice che sta nel OneDrive for Business di chi organizza e si apre dalla chat della riunione e da Recap finché quella persona non lo cancella. Non dare per scontato che una copia resti sul laptop se non l'hai scaricata.
+
+### Ottengo una trascrizione se abbiamo registrato solo il video?
+
+Non dal controllo trascrizione di Recap, se la trascrizione non è mai partita. Una registrazione può essere un oggetto diverso da una trascrizione. Guarda Stream solo se il tuo tenant ci genera davvero i sottotitoli, e non promettere un file che non hai visto.
+
+### Una trascrizione Teams è la stessa cosa di un verbale?
+
+No. È ciò che è stato detto, più timestamp e i nomi che Teams ha salvato. Il verbale sono le decisioni e le azioni. Pulisci l'export, poi scrivi la pagina corta.
+
+Passo successivo: se Recap ti ha dato un VTT, apri [pulire la trascrizione](/it/strumenti/pulire-trascrizione). Se la prossima chiamata Teams non ti darà un download, leggi [registrare una riunione Teams su Mac](/it/blog/registrare-riunione-teams-su-mac) prima di contare sul OneDrive di chi organizza.

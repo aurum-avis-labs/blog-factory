@@ -1,0 +1,164 @@
+---
+title: "How to Transcribe a Voice Memo on Mac After Export"
+description: "Transcribe a voice memo on Mac from the exported M4A: Apple's share path, the 15-minute browser tool, and when the Mac app is the better fit."
+pubDate: 2026-10-10
+author: "Vemoir Team"
+tags: ["voice memo", "transcription", "mac"]
+funnelStage: "interest"
+translationKey: "transcribe-voice-memo-mac"
+relatedPosts: ["whatsapp-voice-to-text", "offline-transcription-mac", "import-audio-file-mac"]
+tool: "transcribe-voice-memo"
+image: "@/assets/blog/transcribe-voice-memo-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/transcribe-voice-memo-mac/inline1.jpg';
+import inline2 from '@/assets/blog/transcribe-voice-memo-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@yin0720?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Samuel Wan</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+To **transcribe a voice memo on Mac**, export the recording as an M4A from Voice Memos, then run speech-to-text on that file. Apple's app stores the audio; it does not give you a portable transcript you can drop into notes, email, or a research folder unless you copy Apple's built-in text (where that feature exists) or convert the file yourself.
+
+This guide covers Apple's official share and drag-to-Finder path, the built-in Voice Memos transcript on supported Macs, and how to turn an M4A into text in the browser without uploading it to Vemoir. It also marks where a longer memo belongs in a local Mac app.
+
+## How to transcribe a voice memo on Mac
+
+The reliable path is: **get an M4A you control**, then choose a transcription method that matches the length and whether the file may leave the device.
+
+
+<Image src={inline1} alt="Earbuds and paper notes on a wooden desk" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@abdulartega?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Abdul Artega</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. Open the **Voice Memos** app on your Mac.
+2. Select the recording.
+3. Export a copy (Share, or drag to a Finder folder). Apple documents both in [Share a recording on Mac](https://support.apple.com/guide/voice-memos/share-a-recording-vm05f9fa82d4/mac).
+4. Transcribe that M4A: Apple's in-app transcript if it is available on your Mac, the free [voice memo tool](/tools/transcribe-voice-memo) for files up to 15 minutes, or [import the file](/#capture) in the Vemoir Mac app for longer memos and speaker separation.
+
+Do not rename or delete files inside Voice Memos' hidden Library folder. Treat that path as a last-resort backup, not as an editing workspace.
+
+## Export the M4A from Voice Memos
+
+Voice Memos on Mac writes AAC audio. The usual container after export is **M4A**, which the browser tool and the Mac app both accept (along with MP3, WAV, and, in the browser, MP4 when the audio track decodes).
+
+
+<Image src={inline2} alt="A phone set down next to a pen after a voice memo" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@haomeng_yang?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Haomeng Yang</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Apple's supported export methods:
+
+1. Go to **Voice Memos** on your Mac.
+2. Select the memo.
+3. Click the **Share** button and choose an app or service, or **drag the recording into a Finder window** to save a copy in a folder you pick ([Apple Support](https://support.apple.com/guide/voice-memos/share-a-recording-vm05f9fa82d4/mac)).
+
+You can also drag a recording into Mail, Notes, or Messages. For transcription, a folder on disk is cleaner: you keep the original in Voice Memos and work on the copy.
+
+Quality lives under **Voice Memos → Settings**. Apple lets you choose **Compressed** (smaller) or **Lossless** (larger) ([Voice Memos settings](https://support.apple.com/guide/voice-memos/change-voice-memos-settings-vm0ba246ff3e/mac)). Either format can become an M4A you drop on a tool. Lossless files are heavier; if a browser decode fails, export again as Compressed or convert to WAV.
+
+If the memo synced from iPhone, it still appears in Voice Memos on the Mac when you use the same Apple Account ([see recordings on all your devices](https://support.apple.com/guide/voice-memos/see-your-recordings-on-all-your-apple-devices/mac)). Export from the Mac once it has finished downloading. A memo that is still a cloud placeholder will not give you a complete file.
+
+WhatsApp voice notes are a different container. Many land as `.opus` or `.ogg`. The Vemoir browser tool refuses those. Save or share a copy as **M4A or MP3** on the phone first. There is no WhatsApp bot in this workflow.
+
+## When Apple's built-in Voice Memos transcript is enough
+
+On **macOS 15 or later** with **Apple silicon**, Voice Memos can recognize speech and show a transcript in the app. Apple documents this in [View a Voice Memos transcription on Mac](https://support.apple.com/guide/voice-memos/view-a-transcription-of-a-recording-vm4a03609f0d/mac). The feature is **not available in all countries or regions**. You can view text while recording or afterward, copy passages, and search titles plus transcripts.
+
+Use that path when:
+
+- The memo is already in Voice Memos on a supported Mac.
+- You only need to copy a few paragraphs into Notes or an email.
+- You do not need speaker labels, a minutes draft, or a file-based workflow you can rerun later.
+
+Stay off that path when Apple's transcript is missing in your region, the copy-out is awkward, or you need a workflow that does not depend on Voice Memos staying open. Then export the M4A and transcribe it as a file.
+
+Apple's in-app text is still not a certified transcript. Names, numbers, and quotes need a human pass, the same as any speech-to-text output.
+
+## Turn the exported M4A into text in the browser
+
+For a memo you already exported, the free tool at [/tools/transcribe-voice-memo](/tools/transcribe-voice-memo) runs a public Whisper model **in the tab**. The file is **not uploaded** to Vemoir. On first use the model downloads into the browser cache. Later runs can work with the network off once that cache is in place.
+
+Limits to plan for:
+
+- **15 minutes** per file.
+- **Three successful runs per week**.
+- **No speaker labels**. Names already in the file stay; the tool does not invent who spoke.
+- **No live recording** in the browser. This is after-the-file work.
+
+Swiss German speech in public Whisper models usually comes out as **Standard German** text, not dialect spelling. Do not treat the wording as a certified or court-ready record.
+
+Steps:
+
+1. Confirm the file is MP3, M4A, WAV, or MP4, and **15 minutes or shorter**.
+2. Open [/tools/transcribe-voice-memo](/tools/transcribe-voice-memo).
+3. Drop the file and pick the **spoken language** (the tool does not translate).
+4. Copy or download the text. Keep or delete the M4A yourself. Retention stays with you.
+
+The same 15-minute trial exists on the generic [transcribe recording](/tools/transcribe-recording) page if you already have a meeting file rather than a Voice Memo.
+
+## How to check that the memo was not uploaded
+
+1. Open the tool page and start a short run.
+2. Open **Developer Tools** (Chrome or Edge: **View → Developer → Developer Tools**, or right-click → **Inspect**).
+3. Open the **Network** tab. Filter by **Fetch/XHR** if you have that option.
+4. Watch for a multipart upload of your audio. You should see **model or asset downloads** on first use, not your M4A posted to a Vemoir host.
+
+Internet is required for that first model download. After the model is cached, you can disconnect and run again if the browser still has the weights. Closing the tab stops a run in progress.
+
+## When the memo is longer than 15 minutes
+
+The browser page refuses a file over 15 minutes **before** the model runs. Splitting a long interview into clips still spends **one weekly run per successful pass**, and you lose a single continuous transcript.
+
+For long Voice Memos, import the M4A in the [Vemoir Mac app](https://apps.apple.com/app/id6794693630). Common local audio files can be imported with a file picker or drag and drop, assigned to a project, and processed with the same local pipeline as a recorded meeting ([capture and models](/#capture)). Transcription and speaker processing stay on the Mac. Summaries and Ask Vemoir run locally by default. A cloud text model is opt-in with your own API key; it does not receive the raw audio.
+
+If the next capture is a live call rather than a memo, record from the menu bar instead of hunting files afterward ([how it works](/#how)). No bot joins Zoom, Teams, Meet, or a Slack huddle.
+
+Want this without hunting Voice Memos folders every time? [Import the next M4A on your Mac](/#capture) or record the call from the menu bar.
+
+## The hidden Library folder (last resort)
+
+On current macOS versions, Voice Memos often keeps recordings under:
+
+`~/Library/Group Containers/group.com.apple.VoiceMemos.shared/Recordings/`
+
+That path is not in Apple's user guide. People find it via Finder's hidden Library (hold **Option** in the **Go** menu) or by inspecting the Voice Memos process. Filenames inside are not always the titles you see in the app. A companion database tracks titles.
+
+Copy a file out if Voice Memos will not export. **Do not rename, move, or delete files in place.** You can break the app's library. Prefer Share or drag-to-Finder whenever those work.
+
+## Frequently asked questions
+
+### How do I transcribe a voice memo on Mac without uploading it?
+
+Export an M4A with Share or drag-to-Finder ([Apple Support](https://support.apple.com/guide/voice-memos/share-a-recording-vm05f9fa82d4/mac)), then use the [voice memo tool](/tools/transcribe-voice-memo) in the browser. The file stays in the tab. For longer memos, import the same M4A in the Mac app.
+
+### Does Voice Memos already transcribe on Mac?
+
+On macOS 15 or later with Apple silicon, Voice Memos can show a transcript in the app, not in every country or region ([Apple Support](https://support.apple.com/guide/voice-memos/view-a-transcription-of-a-recording-vm4a03609f0d/mac)). If the feature is missing or you need a file-based workflow, export the M4A.
+
+### Where does Voice Memos store files on Mac?
+
+Work from the app. Apple's documented path is Share or drag a recording into Finder. A hidden Group Containers folder exists on many Macs; treat it as a backup, not as the place to edit files.
+
+### Can I convert M4A to text on Mac for free?
+
+Yes, for files up to 15 minutes and up to three successful browser runs per week on [/tools/transcribe-voice-memo](/tools/transcribe-voice-memo). Apple's built-in transcript, where available, is another free path inside Voice Memos.
+
+### Will the browser tool label speakers?
+
+No. Browser tools do not separate speakers. Speaker profiles and rename-after-the-fact are Mac-app features ([capture](/#capture)).
+
+### What about a WhatsApp voice note?
+
+Export it as M4A or MP3 first. `.opus` and `.ogg` are refused. There is no live WhatsApp capture and no bot.
+
+### Does Swiss German stay Swiss German?
+
+Usually not in the browser. Public Whisper models typically write **Standard German**. There is no dialect model in that download.
+
+### What if my memo is longer than 15 minutes?
+
+Use the Mac app import path, or stay in Voice Memos if Apple's transcript is available and good enough. Splitting clips in the browser burns the weekly quota quickly.
+
+## Next step
+
+Export the memo, then open [/tools/transcribe-voice-memo](/tools/transcribe-voice-memo) if it is 15 minutes or shorter. For a longer file or speaker labels, import the M4A in the [Mac app](https://apps.apple.com/app/id6794693630) and keep processing on the device.

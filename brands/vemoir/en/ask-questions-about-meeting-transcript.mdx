@@ -1,0 +1,106 @@
+---
+title: "Ask Questions About Your Meeting Transcript on Mac"
+description: "Ask questions about a meeting transcript on your Mac. Answers can point back to the line. Audio stays local unless you opt into text-only AI."
+pubDate: 2026-11-03
+author: "Vemoir Team"
+tags: ["transcript", "ask", "meetings"]
+funnelStage: "consideration"
+translationKey: "ask-questions-about-meeting-transcript"
+relatedPosts: ["bring-your-own-api-key", "best-private-meeting-notes", "client-call-notes-without-upload"]
+image: "@/assets/blog/ask-questions-about-meeting-transcript/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/ask-questions-about-meeting-transcript/inline1.jpg';
+import inline2 from '@/assets/blog/ask-questions-about-meeting-transcript/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@marissacristina?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">marissacristina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+You can **ask questions about a meeting transcript** after Vemoir has one on the Mac. Ask Vemoir answers from a meeting, a project, or the active library, and an answer can point back to the transcript. The recording and the speech model stayed on the machine. A cloud model is not involved unless you have activated your own text key, and even then the request is text, not audio.
+
+The app is a one-time purchase: CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the United States. Asking does not add a per-meeting fee from Vemoir. An API key, if you turned one on, is billed by that provider.
+
+## What you are asking, and what is already on disk
+
+The transcript exists because Parakeet v3 or a Whisper model ran locally after you stopped. Ask does not listen to the call again. It works from the text, your manual notes, and the other records in scope. Manual notes keep their own provenance. They are not quoted back as if the microphone said them.
+
+
+<Image src={inline1} alt="Open pages with a finger pointing, text not readable" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@lgnwvr?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">lgnwvr</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Open Ask from a meeting and you start a new conversation for that meeting. Earlier chats stay in history. Open it from a project and the scope is the project. A library-wide ask covers the active library. Archived meetings and projects are excluded. Deleting a meeting removes it from what later questions can use.
+
+Answers can include evidence links to the source meeting and a timestamp. Vemoir limits how many passages one answer will cite, so you get the strongest links rather than every line that was searched. A citation you can open is the point. A smooth paragraph with no line to check is a draft, not the recording.
+
+## Ask in a way that matches the scope
+
+1. Finish processing. Questions against a live preview are questions against a preview.
+2. Fix speaker labels you know are wrong before you ask "what did Lena decide." A rename does not create a voice profile.
+3. Start from the meeting if the question is about that call. Start from the project if it is about the last month with that client.
+4. Read the evidence links. If a link is missing, do not treat the sentence as a quote.
+5. Save the answer as a document in the meeting or project if you want it filed. Saving does not upload the audio.
+
+
+<Image src={inline2} alt="Two people reviewing a document together" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@shamalaa?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">shamalaa</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+If the answer is wrong, the transcript is still there. Edit the document. Retry a failed or cancelled turn. A turn interrupted because the app quit comes back as cancelled, not as a finished fact.
+
+Switching the writing model between Qwen3 4B and gpt-oss-20b replans the next turn. It does not rewrite earlier replies. Those models do not transcribe. If you activate an OpenAI or Anthropic key, Ask uses that text source until you switch back. There is no silent fallback if the key fails.
+
+## Where Ask is the wrong tool
+
+Asking the transcript is the better choice when the text is already local and you want a pointed question with a way back to the line. It is the worse choice when:
+
+- You do not have a transcript yet. Record or import a file (MP3, M4A, WAV, AIFF, CAF, FLAC) and let the speech model finish.
+- You wanted a shared chatbot your whole team can query in a browser. Ask is on this Mac, in this library.
+- The question needs the audio because the transcript is unusable. Listen if you retained the recording, or reprocess. Ask will not hear a word the transcript missed.
+- You only have a 10-minute file and no app. The browser tool at [/tools/transcribe-recording](/tools/transcribe-recording) can make text from that file, up to 15 minutes, three successful runs a week, without speaker labels. It is not Ask, and it does not record the next call.
+
+Searching the project for a keyword is sometimes enough, without a generated answer. Use search when you know the word. Use Ask when you need the scattered pieces pulled into a sentence you will still verify.
+
+The entry is [Ask](/#chat).
+
+## A question that should have been a search
+
+"What was the budget ceiling" is a good Ask when the number was said once, buried, and you want the line. "Budget" as a single word is a good search in the project, because you will recognize the hit yourself. Use the smaller tool first when you know the vocabulary. Use Ask when the decision is phrased three different ways and you need them in one reply you will still click through.
+
+On a library ask, exclude nothing by hoping. If last year's project is archived, it will not appear. Unarchive it if the question is about that work, or accept that the answer covers active records only. A wrong answer that cites a real line is a fixable reading. A wrong answer with no line is a reason to ignore the sentence and read the transcript. The Mac app price does not change that discipline. CHF 20, €24.99, or $22.99 buys the app, not a guarantee that every generated sentence is the thing that was said. If the evidence link opens the wrong minute, the answer is still wrong. Say so in the document you save, or delete the sentence before anyone else reads it. A second question in the same chat does not repair the first reply. Fix the first reply, or delete it, before you share the thread.
+
+## Frequently asked questions
+
+### Do answers quote the meeting transcript?
+
+They can link back to the source meeting and a timestamp. Open the link. The limit on how many passages one answer cites is there so the reply stays readable.
+
+### Does Ask upload the audio?
+
+No, not by default. Speech-to-text already ran on the Mac. An optional API key sends text only, after you activate it, and a failure does not fall back in silence.
+
+### Can I ask across several meetings?
+
+Yes. Project scope or the active library. Archived items are left out. Deleting a meeting drops it from later questions.
+
+### Which model writes the answer?
+
+The active text source: a local model such as Qwen3 4B or gpt-oss-20b, Apple Intelligence where the Mac has it for that writing path, or an activated OpenAI or Anthropic key. The speech model is a different choice.
+
+### What if the app quits mid-answer?
+
+The turn comes back as cancelled and can be retried. It is not stored as a completed answer.
+
+### Will Ask invent speaker names?
+
+No. Unknown speakers stay anonymous unless you named them or opted into a profile. Ask works with the labels on the record.
+
+### Is this included in the one-time price?
+
+Yes, as a feature of the Mac app. Provider API charges, if you use a key, are extra and are not a Vemoir subscription.
+
+### Can I ask inside the free browser tools?
+
+Those tools transcribe or clean a file. They are not the meeting-scoped Ask in the Mac app. Long calls and live capture belong on the Mac.
+
+Ask from the meeting you just finished, open one evidence link, and correct the sentence if the link does not support it. The control is under [Ask](/#chat).

@@ -1,0 +1,152 @@
+---
+title: "Supprimer un enregistrement de réunion sans perdre les notes"
+description: "Supprimer un enregistrement de réunion sur Mac : l’audio, une séance ou un projet entier. Le compte rendu reste tant que vous ne l’effacez pas."
+pubDate: 2026-11-10
+author: "Vemoir Team"
+tags: ["enregistrement", "confidentialité", "Mac"]
+funnelStage: "interest"
+translationKey: "delete-a-meeting-recording"
+relatedPosts: ["classer-reunions-par-projet", "rechercher-reunions-passees", "partager-notes-sans-enregistrement"]
+image: "@/assets/blog/delete-a-meeting-recording/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/delete-a-meeting-recording/inline1.jpg';
+import inline2 from '@/assets/blog/delete-a-meeting-recording/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Supprimer un enregistrement de réunion** sur un Mac, c’est choisir la couche. Le fichier audio, la fiche de séance terminée et le projet qui en regroupe plusieurs ne sont pas le même objet. Vemoir sépare ces étapes sur la machine. Retirer la bande ne retire pas le procès-verbal.
+
+Cette page dit quand l’audio part, ce qui reste dans la bibliothèque, et ce qu’une suppression de projet vide vraiment. Le consentement et les délais de conservation restent de votre côté.
+
+## Sommaire
+
+- [Quand supprimer un enregistrement de réunion](#quand-supprimer-un-enregistrement-de-réunion)
+- [Garder le compte rendu, retirer l’audio](#garder-le-compte-rendu-retirer-laudio)
+- [Supprimer une séance](#supprimer-une-séance)
+- [Supprimer un projet](#supprimer-un-projet)
+- [Ce que la suppression n’atteint pas](#ce-que-la-suppression-natteint-pas)
+- [La conservation avant le prochain appel](#la-conservation-avant-le-prochain-appel)
+- [Questions fréquentes](#questions-fréquentes)
+
+## Quand supprimer un enregistrement de réunion
+
+Une séance terminée dans Vemoir est une petite pile de fichiers locaux et de lignes de base :
+
+
+<Image src={inline1} alt="Corbeille a papier a cote d'un carnet propre" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@rawkkim?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">rawkkim</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- la piste micro et la piste audio système, si vous les avez gardées ;
+- la transcription construite à partir de cet audio après l’arrêt ;
+- le résumé, les actions, les décisions, les documents et les notes saisies pendant l’appel ;
+- les étiquettes de locuteurs pour cette séance. Un profil vocal mémorisé, si vous en avez créé un, vit ailleurs.
+
+La recherche et Ask Vemoir lisent la bibliothèque. Si la séance a disparu, ces outils ne la voient plus. Les séances archivées sont déjà hors du périmètre Ask ordinaire. La suppression va plus loin : les enregistrements de connaissance liés à cette séance sont retirés.
+
+La capture elle-même ne filme pas l’écran. L’autorisation macOS pour le son de l’appel s’appelle **System Audio Recording**. Le prélèvement est uniquement audio. Supprimer un enregistrement n’est pas la même opération que retirer cette autorisation.
+
+## Garder le compte rendu, retirer l’audio
+
+Beaucoup veulent le procès-verbal le lundi et l’audio parti le vendredi. C’est un choix de stockage, pas une suppression complète.
+
+
+<Image src={inline2} alt="Mains qui retirent un dossier d'un tiroir" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Pendant la configuration, ou plus tard dans **Réglages → Stockage**, vous décidez si les prochaines séances gardent leur audio. Chaque séance conserve le choix actif au moment de sa création. Une séance enregistrée sans conservation ne gagne pas un fichier audio parce que vous changez le réglage ensuite.
+
+Une fois le traitement réussi, le nettoyage audio est le comportement par défaut. Si vous aviez choisi de conserver l’audio, le stockage peut quand même **purger l’audio conservé** d’une séance terminée. La bibliothèque affiche alors un état clair : lecture indisponible. La transcription, le résumé, les actions et les décisions restent, parce qu’ils sont déjà écrits.
+
+Les commandes de lecture (choix de piste, recherche, temps écoulé) n’existent que tant que l’audio est là. Après une purge, il n’y a plus rien à parcourir.
+
+Le traitement échoué ou interrompu est l’exception. Un audio de reprise est gardé pour que vous puissiez réessayer. Ne traitez pas une exécution ratée comme « déjà supprimée ». Terminez-la ou écartez-la exprès.
+
+## Supprimer une séance
+
+Supprimer la séance retire cette occurrence de la bibliothèque : transcription, éléments générés, actions et décisions qui lui appartiennent, et le dossier d’enregistrement. La barre latérale et le tableau de bord du projet ne la listent plus. Ask Vemoir ne répond plus à partir d’elle.
+
+Si la même décision apparaissait aussi sur le tableau de bord du projet, c’était le même enregistrement, pas une seconde copie. Retirer la séance source retire aussi cette ligne de la vue projet.
+
+Renommer n’est pas supprimer. Vous pouvez renommer le titre sur place. Le titre généré reste un repli si vous videz le nom. L’audio n’est pas touché.
+
+Archiver n’est pas supprimer non plus. L’archive sort une séance ou un projet de la liste active. La restauration le ramène. Utilisez l’archive quand vous pourriez avoir encore besoin de la séance et que vous ne la voulez plus dans la recherche de tous les jours.
+
+## Supprimer un projet
+
+Un projet est le dossier dans lequel vous avez classé l’appel avant d’appuyer sur enregistrer (ou celui vers lequel vous avez glissé la séance plus tard). Supprimer le projet retire, en un nettoyage local :
+
+- ses séances ;
+- les transcriptions ;
+- les éléments générés, les actions et les décisions ;
+- les données de locuteurs qui appartiennent à ce périmètre de projet ;
+- les dossiers d’enregistrement.
+
+La recherche de projet, le récapitulatif, les documents épinglés et les décisions récentes partent avec. Il n’y a pas, dans Vemoir, une seconde copie nuage de ces lignes. La bibliothèque est une base réservée à votre utilisateur, sur le Mac.
+
+Un glossaire construit pour ce client (termes préférés et alias) fait partie des données du projet. Il ne survit pas au projet. Les transcriptions d’origine disparaissent aussi. Aucune passe ultérieure ne peut reconstruire le procès-verbal à partir d’un audio déjà purgé.
+
+Si vous ne vouliez enlever qu’un mauvais appel, supprimez la séance. Laissez le projet.
+
+## Ce que la suppression n’atteint pas
+
+Quelques éléments vivent hors du dossier d’enregistrement. Vérifiez-les si le but est : plus rien sur ce client sur ce Mac.
+
+**Profils vocaux.** « Mémoriser ce locuteur » n’enregistre un profil chiffré qu’après votre accord. Vous révisez, désactivez, anonymisez ou supprimez définitivement les profils dans les réglages de confidentialité. Supprimer une séance n’efface pas, à elle seule, un profil que vous aviez demandé à l’app de garder. Les locuteurs inconnus n’ont jamais eu de profil.
+
+**Notes Apple.** Si vous avez exporté une séance, Vemoir conserve l’identifiant de la note pour qu’un export ultérieur mette à jour la même note au lieu d’un doublon. La note elle-même vit dans Notes. Retirer la séance dans Vemoir n’efface pas cette note. Supprimez-la dans Notes si elle doit disparaître.
+
+**Presse-papiers et fichiers déjà envoyés.** Une copie Markdown, un document enregistré hors de l’app ou un e-mail déjà parti sont hors de la bibliothèque. Un export peut sortir sans les liens de preuve. Ensuite, le fichier est le vôtre.
+
+**Votre propre clé d’API.** Si vous avez activé une clé OpenAI ou Anthropic pour le texte, l’audio ne part toujours pas pour la transcription. Les reçus sans contenu (fournisseur, durée, résultat, aucun texte de transcription) s’exportent ou se suppriment dans Confidentialité et données. Ce ne sont pas les enregistrements.
+
+**La séance d’exemple guidée.** Elle est marquée Exemple et se supprime en une action. Elle est exclue des décomptes ordinaires de la bibliothèque et ne crée pas silencieusement un profil vocal.
+
+## La conservation avant le prochain appel
+
+Le réglage le moins surprenant est de décider la conservation une fois, puis de supprimer seulement par exception.
+
+1. Ouvrez **Réglages → Stockage** et choisissez si les nouvelles séances gardent l’audio après le traitement.
+2. Enregistrez depuis la barre des menus. Vous démarrez et vous arrêtez. Personne ne rejoint l’appel.
+3. Lisez le procès-verbal. Si l’audio a fait son office, purgez-le et gardez la fiche.
+4. Si toute la séance doit disparaître, supprimez la séance.
+5. Si la mission client est finie, supprimez le projet, puis vérifiez dans Confidentialité qu’aucun profil vocal ne doit partir.
+
+Ces étapes n’ont pas besoin d’Internet une fois l’app installée. La suppression est locale.
+
+Vous voulez que la prochaine capture suive ce choix de stockage dès la première minute ? Le micro, l’audio système et les modèles sont décrits dans la section [capture](/fr#capture). Un rappel sur l’enregistrement sans participant supplémentaire se trouve dans [notes de réunion sans bot](/fr/blog/notes-reunion-sans-bot).
+
+## Questions fréquentes
+
+### Supprimer l’audio supprime-t-il la transcription ?
+
+Non. Purger l’audio conservé retire la lecture. La transcription et la fiche générée restent jusqu’à ce que vous supprimiez la séance.
+
+### Puis-je supprimer une séance et garder les autres dans le projet ?
+
+Oui. La suppression de séance porte sur cette occurrence. Le projet et ses autres séances restent.
+
+### Que se passe-t-il si le traitement échoue à mi-chemin ?
+
+L’audio de reprise est conservé pour un nouvel essai. Ne purgez ou ne supprimez qu’une fois que vous avez décidé que cette reprise ne sert plus.
+
+### Les noms de locuteurs partent-ils avec la séance ?
+
+Les étiquettes de cette séance partent avec elle. Un profil vocal que vous avez enregistré explicitement se retire dans les réglages de confidentialité, pas avec le bouton de suppression de la séance.
+
+### Cela efface-t-il une note déjà envoyée dans Notes ?
+
+Non. La note exportée reste dans Notes jusqu’à ce que vous l’y supprimiez.
+
+### Y a-t-il une annulation ?
+
+Traitez la suppression de séance et de projet comme un nettoyage local définitif. L’archive est l’étape réversible. Il n’y a pas de corbeille nuage pour la bibliothèque, parce que la bibliothèque n’est pas dans un nuage Vemoir.
+
+### L’outil du navigateur garde-t-il une copie ?
+
+Les outils gratuits du site tournent dans l’onglet et n’envoient pas le fichier. C’est un autre chemin que la bibliothèque Mac. Supprimer une séance dans l’app ne change rien à un fichier encore présent dans Téléchargements.
+
+Le prochain enregistrement peut garder ou laisser tomber son audio dès le départ. Réglez cela dans Stockage, puis utilisez l’enregistreur de la barre des menus décrit sous [capture](/fr#capture).

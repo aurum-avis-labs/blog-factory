@@ -1,0 +1,155 @@
+---
+title: "Zoom AI Companion Privacy: Training, Storage, Controls"
+description: "Zoom AI Companion privacy from Zoom's own pages: training, third-party models, residency, and admin controls, as of September 2026."
+pubDate: 2026-10-12
+author: "Vemoir Team"
+tags: ["zoom", "privacy", "ai companion"]
+funnelStage: "interest"
+translationKey: "zoom-ai-companion-privacy"
+relatedPosts: ["is-otter-ai-safe", "transcribe-zoom-local-recording", "record-zoom-meeting-mac"]
+tool: "transcribe-zoom-recording"
+image: "@/assets/blog/zoom-ai-companion-privacy/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/zoom-ai-companion-privacy/inline1.jpg';
+import inline2 from '@/assets/blog/zoom-ai-companion-privacy/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@pranjallk1995?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Pranjall Kumar</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Zoom AI Companion privacy** is a question about Zoom's built-in assistant, not about a third-party bot in the participant list. Zoom publishes how the feature handles meeting content, which models can see it, and which switches an admin can lock. This page summarizes those documents as of September 2026. It is not legal advice, and it does not decide whether AI Companion fits your contract.
+
+If your bar is "the audio never leaves this Mac unless I export it," Zoom's documented model is different. AI Companion runs inside Zoom's cloud (and, on some accounts, through third-party models). A local Zoom recording on disk is a separate path. Both can be valid. They are not the same copy.
+
+## Contents
+
+- [Zoom AI Companion privacy, from Zoom's pages](#zoom-ai-companion-privacy-from-zooms-pages)
+- [Does Zoom train on meeting audio](#does-zoom-train-on-meeting-audio)
+- [Which models process the meeting](#which-models-process-the-meeting)
+- [Where Zoom processes and stores AI data](#where-zoom-processes-and-stores-ai-data)
+- [Retention, transcripts, and meeting summary](#retention-transcripts-and-meeting-summary)
+- [Admin and host controls](#admin-and-host-controls)
+- [Where a local Zoom file is the better fit](#where-a-local-zoom-file-is-the-better-fit)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## Zoom AI Companion privacy, from Zoom's pages
+
+AI Companion is Zoom's own meeting assistant: summaries, next steps, and questions about the call. It is not Otter or Fireflies joining as a named guest. Participants may still see that an AI feature is on. Zoom's [administrative controls](https://library.zoom.com/ai/ai-whitepaper/administrative-controls) describe account, group, and user toggles, and locks that stop a host from changing them.
+
+
+<Image src={inline1} alt="Laptop on a wooden desk with the camera taped over" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@azwedo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Azwedo L.LC</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+To provide those features, Zoom must process meeting content. The privacy question is not "does anything happen." It is what Zoom says it does with that content after the feature runs: training, third-party retention, storage region, and whether a transcript stays on the account.
+
+The primary support article is [How Zoom AI features handle your data](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057861). The [Data Governance and Privacy](https://library.zoom.com/ai/ai-whitepaper/data-governance-and-privacy) chapter of Zoom's AI whitepaper repeats the same training sentence and adds encryption, employee access, and retention. Policies move. Read the dated page before a client review.
+
+## Does Zoom train on meeting audio
+
+Zoom's sentence, repeated on the support article and in the whitepaper (checked September 2026), is:
+
+
+<Image src={inline2} alt="Someone closing a laptop lid after a call" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@samsungmemory?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Samsung Memory</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Zoom does not use any of your audio, video, chat, screen sharing, attachments, or other communications-like customer content (such as poll results, whiteboard, and reactions) to train Zoom's or its third-party artificial intelligence models.
+
+That is Zoom's commitment about **training**. It is not a promise that the audio stays on your laptop. The next sentence on the same pages is that AI features must use certain content to provide the service. A summary has to hear the meeting. "No training" and "no processing" are different claims. Zoom makes the first. It does not make the second.
+
+Zoom also says employees may not access meeting or AI-generated content unless the account owner or admin authorizes it, or unless access is required for legal, safety, security, or support reasons. Access is described as role-based and logged. That is an access-control statement, not a claim that nobody at Zoom can ever see a file.
+
+Optional feedback is a separate path. Users can send thumbs-up or thumbs-down, and can choose to attach prompts, responses, screenshots, and diagnostic data. Admins can block that extra context. If you never submit feedback, that path does not run. If someone on the call does, their optional packet is what Zoom's page describes.
+
+## Which models process the meeting
+
+Zoom describes a **federated** default: Zoom-hosted models plus third-party models. The [models, processing, storage, and usage](https://library.zoom.com/ai/ai-whitepaper/models-processing-storage-and-usage) chapter names Anthropic, OpenAI, and Google Gemini in that federation, and other providers for specific features (Perplexity for some web search, ElevenLabs for Clip avatars, and others). Zoom says it may change the models used.
+
+For third-party generative providers in that federated path, Zoom says it has **zero data retention** agreements: those providers do not retain customer content, with limited trust-and-safety exceptions such as detecting and reporting CSAM. Zoom also says it does not allow those providers to use the data to improve or train their models.
+
+Two narrower deployments exist if the account team enables them:
+
+- **ZM+ (Zoom-Hosted Models Plus):** third-party model instances through Amazon Bedrock, described as Zoom-managed so data is not sent to the model vendor's own platform. Zoom lists this as currently available in the US, EU, and AU.
+- **ZMO (Zoom-Hosted Models Only):** Zoom-hosted models only, no third-party model providers. Zoom says the feature set can be smaller.
+
+For accounts hosted outside the US, Zoom says supported AI features are made available using ZM+ or ZMO. EU- or AU-hosted customers use ZM+ (or can choose ZMO). Other hosted regions can use ZMO. Ask Zoom which deployment your account actually has. A Swiss company on a US-hosted account is not automatically on ZMO.
+
+When you meet people on another Zoom account, Zoom says chats and transcripts exchanged between accounts may be processed according to the **external** account's settings. Your lock is not their lock.
+
+## Where Zoom processes and stores AI data
+
+Zoom says it processes and stores data based on the hosted data center region and the applicable settings of the host, owner, or user. The support article [Using Data & Privacy for data management](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057736) describes a Data Residency choice (United States or EEA) that is **visible to account owners in the European Economic Area**. Switzerland is not in the EEA. Do not assume that toggle appears on a Swiss-owned account, and do not treat EEA storage as Swiss storage.
+
+Zoom's [AI Companion data residency](https://www.zoom.com/en/blog/ai-companion-data-residency-options/) post describes deployment options and repeats the no-training sentence. For customers on a local data cluster in Europe, it describes a mix of ZMO and ZM+ and API calls to data centers in the region for certain models. That is a Zoom product option, not a default for every Swiss workspace.
+
+Encryption, as Zoom documents it: TLS 1.2 minimum in transit, AES-256 at rest for content used or generated by AI features. Enterprise customers can use Customer Managed Key for some stored assets. Encryption describes how bits are stored. It does not move those bits onto your Mac.
+
+## Retention, transcripts, and meeting summary
+
+Ordinary Zoom retention still applies to content the associated service would keep (a cloud recording, a saved chat). Customers can set custom retention on some content. Trust-and-safety retention can last longer than a meeting, according to the same whitepaper chapter.
+
+Admins who want a summary **without** a lasting transcript can disable and lock Meeting transcript, or set transcript retention to zero days. Zoom then uses temporary speech-to-text, OCR, and in-meeting chat to build the summary, then discards that temporary data after a successful generate. You cannot later regenerate the summary from a transcript that was never kept. Features that need a transcript (My Notes, archival) are affected.
+
+Cloud recording is a separate switch. If cloud recording is on, Zoom can still generate and keep a transcript with the cloud files, even when the in-meeting transcript retention is zero. Check both settings. A local recording on the Mac does not create that cloud transcript. See [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording) for the folder and the M4A.
+
+## Admin and host controls
+
+From Zoom's admin documentation (checked September 2026):
+
+1. Account owners and admins enable or disable Zoom AI features at account or group level in the Admin Center, under Settings, Zoom AI.
+2. They can lock a setting so users cannot flip it.
+3. If a feature is enabled and not locked, some user-level controls remain.
+4. Custom AI Companion features have their own toggles; some exist only at account and group level ([Getting started with Custom AI Companion features](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0079498)).
+
+If AI Companion is on and you do not want it in a client call, turn the feature off for that meeting if the admin still allows it, or ask the admin to lock it off for the group that hosts clients. Telling participants that a summary will be generated is still your job. Zoom's pages describe product behavior. They do not replace consent.
+
+Want a transcript of a Zoom file you already have, without sending it to Zoom's AI pipeline? The browser tool [transcribe a Zoom recording](/tools/transcribe-zoom-recording) runs in the tab after a model download. Files up to 15 minutes, three successful runs a week, no speaker labels.
+
+## Where a local Zoom file is the better fit
+
+AI Companion is the better choice when the organization already lives in Zoom, wants a summary in the same portal as the meeting, accepts Zoom's processing (and the deployment model the account actually uses), and has read the training and retention pages above.
+
+A local file is the better fit when you recorded to disk on purpose, when cloud recording is off, or when the audio should not enter Zoom's AI features at all. Local recording gives you an M4A (often `audio_only.m4a`) and no Zoom VTT. You transcribe it yourself. That is the after-the-file path, not a live Zoom feature.
+
+A third-party notetaker bot is a worse answer when the client already banned extra participants. AI Companion is not that bot. It is still Zoom processing the call in Zoom's infrastructure.
+
+Vemoir records microphone and system audio on the Mac, with no bot in the Zoom roster. Transcription stays on the Mac. Optional cloud text is a Keychain key you activate, and it does not receive the audio. The app needs Apple silicon and macOS Sonoma 14.2 or later. It is not a Zoom admin console, and it does not turn AI Companion off for the rest of the company.
+
+If you only needed the cited pages, stop at the links and check the dates. The September 2026 reading is the one this article used.
+
+## Frequently asked questions
+
+### Does Zoom train AI Companion on my meetings?
+
+Zoom states that it does not use customer audio, video, chat, screen sharing, attachments, or similar communications content to train Zoom's or third-party AI models. That is a training statement, not a statement that the meeting stays on your device.
+
+### Do OpenAI or Anthropic keep my meeting content?
+
+On the federated path, Zoom says it has zero-retention policies with third-party generative providers, with limited trust-and-safety exceptions. ZM+ and ZMO change whether those providers are in the path at all. Confirm which deployment your account uses.
+
+### Where does Zoom process AI Companion data?
+
+Zoom processes and stores data based on the hosted region and account settings. EEA residency controls are documented for EEA account owners. Switzerland is not the EEA. Ask Zoom where your account is hosted.
+
+### Can my admin turn Zoom AI Companion off?
+
+Yes. Zoom documents account- and group-level toggles and locks in the Admin Center under Zoom AI. A locked-off feature cannot be enabled by a host.
+
+### Is Zoom AI Companion a bot in the participant list?
+
+No. It is a Zoom product feature. Third-party notetakers that join as guests are a different path. See [meeting notes without a bot](/blog/meeting-notes-without-a-bot).
+
+### Does a local Zoom recording use AI Companion?
+
+Local recording writes files to the computer that clicked Record. It does not run Zoom's cloud transcript pipeline. Cloud recording and AI Companion are separate account features.
+
+### Does "no training" mean the audio stays on my Mac?
+
+No. Zoom still processes content to generate the summary or answers. "No training" is about model improvement, not about local storage.
+
+### Where do I confirm this before a client call?
+
+Open [How Zoom AI features handle your data](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057861) and the whitepaper chapters linked above. The copies checked for this page were current as of September 2026.
+
+If you already have a local Zoom M4A, start with [transcribe a Zoom recording](/tools/transcribe-zoom-recording). If the next call should stay on the Mac, record from the menu bar instead of turning AI Companion on.

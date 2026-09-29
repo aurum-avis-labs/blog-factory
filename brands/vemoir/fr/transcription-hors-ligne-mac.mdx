@@ -1,0 +1,145 @@
+---
+title: "Transcription hors ligne sur Mac une fois le modèle là"
+description: "Transcription hors ligne sur Mac une fois le modèle vocal sur le disque : limites du navigateur, apps locales, et ce qui exige encore Internet."
+pubDate: 2026-10-10
+author: "Vemoir Team"
+tags: ["hors ligne", "transcription", "mac"]
+funnelStage: "interest"
+translationKey: "offline-transcription-mac"
+relatedPosts: ["transcrire-note-vocale-mac", "importer-fichier-audio-mac", "meilleure-transcription-hors-ligne-mac"]
+tool: "transcribe-recording"
+image: "@/assets/blog/offline-transcription-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/offline-transcription-mac/inline1.jpg';
+import inline2 from '@/assets/blog/offline-transcription-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@enchponnt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Thomas Chizzali</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+La **transcription hors ligne sur Mac** signifie que le modèle de parole est déjà sur la machine, et que le fichier audio n'a pas à la quitter pour l'étape texte. Cela ne signifie pas «&nbsp;jamais connecté&nbsp;». L'installation, le premier téléchargement de modèle, une connexion de compte et la plupart des preneurs de notes cloud ont besoin du réseau. Une fois les poids dans le cache du navigateur ou dans la bibliothèque de modèles d'une app Mac, vous pouvez transcrire le Wi-Fi coupé.
+
+Ce guide sépare trois cas honnêtes&nbsp;: les outils navigateur gratuits sur vemoir.ch, une app de réunion Mac après installation des modèles, et les services cloud qui transcrivent chez eux même si l'appel a commencé sur un Mac. Il dit aussi quand une app fichiers-only dans le Finder est le chemin hors ligne le plus court.
+
+## Ce que «&nbsp;transcription hors ligne sur Mac&nbsp;» veut dire
+
+Deux jobs se cachent derrière cette recherche&nbsp;:
+
+
+<Image src={inline1} alt="Portable ferme sur un bureau de campagne a la lumiere du jour" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@stev_tensai89?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Stefanus Stefanus</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. **Un fichier déjà sur le disque** (M4A Mémos vocaux, `audio_only.m4a` Zoom, WAV d'entretien). Vous voulez du texte sans envoi.
+2. **La prochaine réunion en direct.** Vous voulez capturer et transcrire sans bot et sans envoyer l'audio dans un cloud fournisseur.
+
+Le test commun&nbsp;: une fois le modèle présent, pouvez-vous couper le réseau et obtenir encore un transcript&nbsp;? Si chaque session exige un appel API, ce n'est pas de la transcription hors ligne. Des notes cloud en cache pour lecture, c'est de l'édition hors ligne, pas de la parole-vers-texte hors ligne.
+
+Le local demande tout de même du stockage et de la mémoire. L'app Mac Vemoir exige une puce Apple, macOS Sonoma 14.2 ou plus, au moins 8&nbsp;Go de mémoire et 10&nbsp;Go libres&nbsp;; 16&nbsp;Go ou plus sont raisonnables pour les longues réunions. Les Mac Intel ne sont pas pris en charge. Ce sont des limites matérielles, pas une promesse de confidentialité.
+
+## Outils navigateur&nbsp;: un téléchargement, puis des passages hors ligne
+
+Les outils gratuits sur vemoir.ch transcrivent un fichier que vous avez déjà **dans l'onglet**. L'audio **n'est pas envoyé à Vemoir**. Un Whisper public se télécharge une fois. Les passages suivants peuvent tourner hors réseau si le cache est encore là. L'onglet **Réseau** le montre (pas d'envoi multipart de votre fichier).
+
+
+<Image src={inline2} alt="Table de bureau rurale avec des notes papier pres d'une fenetre" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@istin?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Irvin Aloise</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+[/fr/outils/transcrire-audio](/fr/outils/transcrire-audio) pour un MP3, M4A, WAV ou MP4 générique. Zoom local&nbsp;: [/fr/outils/transcrire-enregistrement-zoom](/fr/outils/transcrire-enregistrement-zoom). Notes vocales&nbsp;: [/fr/outils/transcrire-note-vocale](/fr/outils/transcrire-note-vocale).
+
+Limites qui restent hors ligne&nbsp;:
+
+- **15&nbsp;minutes** par fichier.
+- **Trois passages réussis par semaine**.
+- **Pas d'étiquettes de locuteurs**.
+- **Pas de capture de réunion en direct** dans l'onglet. Pas d'extension, pas de bot, pas d'audio d'onglet.
+
+L'allemand suisse sort en général en **allemand standard**. C'est le comportement Whisper public, pas un modèle dialectal.
+
+Liste pour le premier passage&nbsp;:
+
+1. Restez en ligne jusqu'à la fin du téléchargement du modèle. Laissez l'onglet ouvert.
+2. Ouvrez **Outils de développement → Réseau** et lancez un fichier court.
+3. Voyez des poids ou des assets, pas votre audio vers un hôte distant.
+4. Option&nbsp;: coupez le Wi-Fi et relancez un second fichier court pour prouver le cache.
+
+Un cache vidé exige à nouveau le réseau. La navigation privée et les nettoyeurs agressifs de données de site annulent la partie hors ligne.
+
+## App Mac&nbsp;: installer les modèles une fois, puis le flux réunion peut rester hors ligne
+
+Vemoir pour Mac est conçu **local d'abord**. Micro et audio système partent en pistes locales séparées. Aucun bot n'entre dans l'appel. Vous démarrez et arrêtez depuis la barre de menus ([fonctionnement](/fr#how), [plateformes](/fr#platforms)).
+
+Une fois les modèles de transcription choisis téléchargés, **transcription et traitement des voix tournent toujours sur le Mac**. Résumés, actions, décisions, Ask Vemoir et documents sont locaux par défaut. Un modèle texte cloud (OpenAI ou Anthropic, votre clé) est optionnel et **texte seulement**. L'audio brut n'y va pas. Il n'y a pas de bascule cloud silencieuse si un modèle local échoue ([capture et modèles](/fr#capture)).
+
+Internet reste nécessaire pour&nbsp;:
+
+- le premier réglage et les **téléchargements de modèles** (progression visible et reprenable&nbsp;; Vemoir ne substitue pas un modèle en silence pendant un traitement)&nbsp;;
+- l'export optionnel vers Notes, si vous le choisissez&nbsp;;
+- la génération texte avec votre clé, si vous l'activez.
+
+Une fois les modèles choisis sur le disque, vous pouvez enregistrer Teams, Zoom, Meet ou un huddle Slack, transcrire et rédiger un procès-verbal **sans réseau**. L'import MP3, M4A, WAV, AIFF, CAF et FLAC utilise la même chaîne locale.
+
+C'est la différence avec un bloc-notes qui transcrit via Deepgram ou Assembly et stocke les notes sur AWS&nbsp;: l'absence de bot donne une impression locale, l'étape parole reste un appel cloud. Pour un exemple bot cloud documenté chez l'éditeur&nbsp;: [Otter.ai est-il sûr](/fr/blog/otter-ai-est-il-sur).
+
+Vous voulez transcrire le prochain appel sur le Mac une fois les modèles installés&nbsp;? [Enregistrez depuis la barre de menus](/fr#how) et gardez le fichier sur l'appareil jusqu'à un export volontaire.
+
+## Ce qui exige encore Internet (pour éviter la surprise)
+
+| Étape | Outil navigateur | App Mac Vemoir (modèles locaux) | Preneur de notes cloud typique |
+| --- | --- | --- | --- |
+| Premier modèle ou installation | Oui, télécharger les poids | Oui, télécharger les modèles | Compte et service |
+| Transcription suivante | Hors ligne possible si cache présent | Oui, hors ligne | Non&nbsp;: audio ou flux vers le fournisseur |
+| Capture en direct | Indisponible | Oui, sur le Mac | Bot ou envoi bureau |
+| Étiquettes de locuteurs | Non | Oui, sur le Mac | Fonction fournisseur, dans leur cloud |
+| Partage du transcript | Vous copiez le texte | Vous exportez ce que vous choisissez | Souvent stocké et partageable dans leur espace |
+
+Le mode avion après installation est un test juste pour les deux premières colonnes. Il ne l'est pas pour Otter, Fireflies et assimilés&nbsp;: ils tiennent une bibliothèque dans leur cloud.
+
+La FAQ sécurité de Granola (septembre 2026) indique que les notes sont mises en cache localement pour l'édition hors ligne, alors que **toutes les données sont sur AWS aux États-Unis**, et que la transcription bureau passe par des prestataires tiers. C'est un accès hors ligne *aux notes*, pas une parole-vers-texte hors ligne. Lisez leurs pages si le produit est en short-list.
+
+## Quand une app Finder uniquement convient mieux
+
+Si vous n'enregistrez jamais en direct et que vous ne déposez que des fichiers depuis le Finder, un transcripteur de fichiers local (par exemple MacWhisper) peut être plus court&nbsp;: choisir un build Whisper, pointer un dossier, rester hors ligne après le téléchargement du modèle. Vous n'y aurez ni procès-verbal de réunion, ni décisions, ni enregistreur dans la barre de menus.
+
+Vemoir convient quand le travail est **l'appel lui-même**&nbsp;: audio système plus micro, personne de plus dans la liste, puis un dossier cherchable et exportable ([compte rendu](/fr#record)). Il ne convient pas si vous avez besoin de Windows, d'une capture iPhone comme produit principal, ou d'une bibliothèque d'équipe chez un fournisseur.
+
+Les preneurs de notes cloud restent préférables quand le but est l'auto-join calendrier, le CRM et une archive d'organisation. Ce n'est pas de la transcription hors ligne. C'est une bibliothèque en ligne avec un client Mac.
+
+## Questions fréquentes
+
+### Peut-on faire de la transcription hors ligne sur Mac sans installer d'app&nbsp;?
+
+Oui, pour les fichiers courts. Utilisez [/fr/outils/transcrire-audio](/fr/outils/transcrire-audio) une fois Whisper en cache. Plafond&nbsp;: 15&nbsp;minutes et trois passages réussis par semaine. Pas d'étiquettes de locuteurs, pas de capture en direct.
+
+### «&nbsp;Local&nbsp;» veut-il toujours dire hors ligne&nbsp;?
+
+Non. Une app bureau peut encore envoyer l'audio à un prestataire de transcription. Vérifiez si la parole-vers-texte tourne sur l'appareil après un téléchargement unique, ou si chaque session a besoin de leur API.
+
+### Pourquoi Vemoir a-t-il besoin d'Internet&nbsp;?
+
+Installation et téléchargements de modèles. Les modèles texte avec votre clé et l'export Notes ont aussi besoin du réseau quand vous les utilisez. La transcription elle-même reste sur le Mac avec le modèle de parole local choisi.
+
+### Les outils navigateur peuvent-ils enregistrer une réunion hors ligne&nbsp;?
+
+Non. Ils ne transcrivent qu'un fichier déjà là. L'enregistrement en direct est le travail de l'app Mac.
+
+### Aura-t-on des noms de locuteurs hors ligne&nbsp;?
+
+Dans le navigateur, non. Dans l'app Mac, la séparation des voix est locale. «&nbsp;Se souvenir de ce locuteur&nbsp;» est optionnel, chiffré et supprimable. Les voix inconnues restent anonymes.
+
+### La transcription hors ligne gère-t-elle le dialecte suisse allemand&nbsp;?
+
+Ne comptez pas sur une graphie dialectale. Le Whisper public du navigateur et les modèles de parole Mac livrés écrivent de l'**allemand standard**. Cet article ne date pas de chemin dialectal.
+
+### Et si le fichier dépasse 15&nbsp;minutes&nbsp;?
+
+Importez-le dans l'app Mac, ou ne le découpez que si vous acceptez plusieurs passages navigateur et une ligne de temps cassée. Le quota navigateur est de trois jobs réussis par semaine.
+
+### Le mode avion est-il un bon test de confidentialité&nbsp;?
+
+Il montre que **ce passage** n'a pas eu besoin du réseau. Il ne prouve pas où sont allées d'anciennes copies, et il ne remplace ni le consentement ni les règles de conservation pour les voix d'autrui.
+
+## Étape suivante
+
+Pour un fichier déjà là, ouvrez [/fr/outils/transcrire-audio](/fr/outils/transcrire-audio), téléchargez le modèle une fois, puis tentez un passage réseau coupé. Pour la prochaine réunion en direct, installez les modèles dans l'[app Mac](https://apps.apple.com/app/id6794693630) et travaillez depuis [la capture](/fr#capture) sans envoyer l'audio dans un cloud de preneur de notes.

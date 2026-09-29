@@ -1,0 +1,172 @@
+---
+title: "Does Fireflies Train on Recordings? From Their Docs"
+description: "Does Fireflies train on recordings? What Fireflies' privacy policy, terms, and security pages say about training as of September 2026."
+pubDate: 2026-10-11
+author: "Vemoir Team"
+tags: ["fireflies.ai", "privacy", "training"]
+funnelStage: "interest"
+translationKey: "does-fireflies-train-on-recordings"
+relatedPosts: ["is-otter-ai-safe", "is-granola-private", "fireflies-alternative"]
+tool: "transcribe-recording"
+image: "@/assets/blog/does-fireflies-train-on-recordings/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/does-fireflies-train-on-recordings/inline1.jpg';
+import inline2 from '@/assets/blog/does-fireflies-train-on-recordings/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@tanyabarrow?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">T</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Does Fireflies train on recordings** is a narrower question than "is Fireflies safe." As of September 2026, Fireflies' public **Privacy Policy** (last updated 6 March 2026), **Terms of Service**, help article on keeping information safe, and [security](https://fireflies.ai/security) page all state that Fireflies does **not** use meeting content or personal information to train internal or external AI models, and that vendors are contractually barred from doing so. The same documents still describe a **cloud notetaker** that captures meetings, stores recordings and transcripts in Fireflies' service, and (on many setups) joins as a visible participant.
+
+This article quotes those vendor pages. It is not legal advice. It does not decide whether Fireflies fits a contract, the Swiss nLPD, or an IT ban on bots. Vemoir does not claim that Fireflies is certified, compliant, or approved for any sector.
+
+## Contents
+
+- [Facts at a glance (from Fireflies' pages)](#facts-at-a-glance-from-fireflies-pages)
+- [Does Fireflies train on recordings](#does-fireflies-train-on-recordings)
+- [What the Privacy Policy and Terms say](#what-the-privacy-policy-and-terms-say)
+- [Zero retention for vendors, not an empty Fireflies library](#zero-retention-for-vendors-not-an-empty-fireflies-library)
+- [Voice data and derived data](#voice-data-and-derived-data)
+- [The bot and where audio goes](#the-bot-and-where-audio-goes)
+- [What Fireflies publishes on security programs](#what-fireflies-publishes-on-security-programs)
+- [When Fireflies is often the better choice](#when-fireflies-is-often-the-better-choice)
+- [When a local Mac workflow fits better](#when-a-local-mac-workflow-fits-better)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## Facts at a glance (from Fireflies' pages)
+
+| Topic | What Fireflies documents (September 2026) |
+| --- | --- |
+| Model training on meeting content | Privacy Policy: does **not** use personal information for AI model training; vendors contractually prohibited ([privacy policy](https://fireflies.ai/privacy-policy)). Help: "No AI Training. Ever." for audio, video, transcripts, summaries ([keeping information safe](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe)). Policy-update FAQ: same "no" ([policy updates](https://guide.fireflies.ai/articles/6892479029-fireflies-ai-updates-to-our-privacy-policy-terms-of-service-data-processing-addendum)) |
+| Terms (User Content) | Fireflies "will not use your User Content to train, retrain, fine-tune or otherwise improve any generative artificial intelligence models" ([terms](https://fireflies.ai/terms-of-service)) |
+| Marketing phrasing | Security page: "We don't train on it **by default** unlike other AI companies" ([security](https://fireflies.ai/security)). Read that next to the Privacy Policy's flatter "we do not" |
+| Vendor retention | "Zero Data Retention" / "0-day" for **third-party vendors**: no store after processing, no later access, no vendor training ([privacy policy](https://fireflies.ai/privacy-policy), [keeping information safe](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe)) |
+| Fireflies' own store | Account personal information kept while the account is active; deleted within **30 days** after you close the account. Meeting recaps, recordings, and transcripts remain in the product until you or an admin delete them ([privacy policy](https://fireflies.ai/privacy-policy), [keeping information safe](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe)) |
+| Voice Data | Service providers may extract voice characteristics for speaker differentiation. Fireflies says it never receives that Voice Data on its own servers. Some US states treat this as biometric information ([privacy policy](https://fireflies.ai/privacy-policy)) |
+| Derived data | Privacy Policy: Fireflies may create de-identified and aggregate data. Terms: Fireflies may derive usage and statistical data from User Content to analyze and improve the Services ([privacy policy](https://fireflies.ai/privacy-policy), [terms](https://fireflies.ai/terms-of-service)) |
+| Subprocessors | Listed at [trust.fireflies.ai/subprocessors](https://trust.fireflies.ai/subprocessors) |
+
+
+<Image src={inline1} alt="A closed wooden filing cabinet in an office" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@___atmos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Caroline Badran</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Policies change. Open the links before you rely on them.
+
+## Does Fireflies train on recordings
+
+The search **does Fireflies train on recordings** usually mixes three layers:
+
+
+<Image src={inline2} alt="Stacks of paper records on a shelf, no screens" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@theotherworkspace?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">David Fintz</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. **Foundation-model training.** Does Fireflies feed your MP3 or transcript into GPT-class weights, or allow OpenAI / Anthropic to do that?
+2. **Product improvement.** Does Fireflies keep derived or de-identified signals to improve features?
+3. **Storage.** Even if nobody trains, does Fireflies **keep** the recording in a workspace you do not fully control?
+
+Fireflies' current public docs answer (1) with **no**. They answer (2) with **derived / de-identified / statistical** language that is not the same as "we train generative models on your calls." They answer (3) with **yes**: the product is a cloud library. Training policy and retention policy are different controls.
+
+Compare Otter, which documents proprietary training on de-identified audio and transcripts ([is Otter.ai safe](/blog/is-otter-ai-safe)). Do not copy Otter's training story onto Fireflies. Use each vendor's pages.
+
+## What the Privacy Policy and Terms say
+
+**Privacy Policy, Use of Information** (6 March 2026): Fireflies uses collected information to provide and improve the Services, including capturing recordings and generating transcripts and summaries. In the same paragraph: **"We do not use personal information for AI model training and we contractually prohibit our vendors from using this information for their own model training."**
+
+**Data Retention** in the same policy applies a **Zero Data Retention** rule to meeting content (audio, video, transcripts, summaries) **as it relates to third-party vendors**: not stored by the vendor after processing, not accessed after the service completes, not used to train internal or external AI models.
+
+**Help article** ([keeping information safe](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe), checked September 2026): heading **"No AI Training. Ever."** Names OpenAI and Anthropic among partners under "Zero Day Retention" vendor agreements. Internal Fireflies staff do not have default access to meeting content; support access needs explicit permission.
+
+**Terms of Service:** Fireflies will not use User Content to train, retrain, fine-tune, or otherwise improve **generative** AI models. You must have permission from other people on the recording. Inputs and outputs of AI features remain your User Content.
+
+**Security marketing page:** "You own your data. We don't train on it **by default** unlike other AI companies." That "by default" is softer than the Privacy Policy. If you are writing a vendor review, cite the **Privacy Policy and Terms**, not the slogan, and re-check the date.
+
+The Privacy Policy also says it **does not apply** to User Content processed **on behalf of business customers**; those deployments sit under the Terms, DPA, and the customer's agreement. Enterprise paperwork can add or change duties. Ask Fireflies or your admin for the DPA that actually applies.
+
+## Zero retention for vendors, not an empty Fireflies library
+
+"Zero Data Retention" in Fireflies' wording is about **vendors and partners** after they finish a processing job. It is not a promise that Fireflies itself discards the meeting when the transcript appears.
+
+Fireflies' product is built to keep recaps, recordings, and transcripts so you can search, share, and run conversation features later. Admins can set retention and access. Enterprise **Private Storage** is described as a locality option, not the default for every plan ([security](https://fireflies.ai/security), [keeping information safe](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe)).
+
+If you close your account, the Privacy Policy says personal information related to the account is deleted within **30 days**. If you only sat in someone else's recorded meeting, Fireflies tells you to ask the **host** to delete that recap.
+
+A "no training" clause does not remove the bot from the participant list, and it does not move the file onto your Mac.
+
+## Voice data and derived data
+
+The Privacy Policy describes **Voice Data**: service providers may use recordings to extract characteristics so speakers can be separated. Fireflies says providers do not use Voice Data to identify or authenticate people, and Fireflies **never receives or processes Voice Data on its own servers**. Illinois BIPA-style language appears in the same policy, with a retention-and-destruction schedule for that class of data.
+
+Separately, Fireflies may **create de-identified and aggregate data** that cannot reasonably be linked to you, and the Terms allow **usage, statistical, and other data derived from User Content** for internal business purposes, including analyzing and improving the Services.
+
+Plain-language read: Fireflies currently documents **no generative-model training on meeting content**, while still allowing **non-identifying derived analytics** and **vendor-side voice feature extraction** under those contracts. If your review forbids any secondary use, read the DPA and the subprocessor list; do not stop at the security headline.
+
+## The bot and where audio goes
+
+Fireflies is known for a notetaker (often **Fred** / Fireflies.ai Notetaker) that can auto-join calendar meetings on Zoom, Google Meet, Microsoft Teams, and other platforms. Desktop "Take Notes" without a bot is a different capture path Fireflies documents elsewhere; it is not the default story people mean when they ask about training.
+
+Audio and video of enabled meetings are **meeting and call information** in the Privacy Policy. They go to Fireflies' service and to vendors who analyze recordings. Encryption is described as **AES-256 at rest** and **TLS 1.2+ in transit** ([keeping information safe](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe)).
+
+A visible bot helps disclosure. Many client and IT policies still forbid the extra participant. See [meeting notes without a bot](/blog/meeting-notes-without-a-bot) and [Fireflies alternative](/blog/fireflies-alternative).
+
+## What Fireflies publishes on security programs
+
+Fireflies' security and help pages state **SOC 2 Type II**, **GDPR**, **HIPAA** (with BAA language), **FERPA** (with DSA language), Private Storage on Enterprise, SSO, and a bug-bounty program. Those are **Fireflies' statements**. This article does not certify them. Vemoir does not claim HIPAA, GDPR, nLPD, privileged, or certified status for Fireflies or for your recording.
+
+Consent and retention for other people's voices remain yours.
+
+## When Fireflies is often the better choice
+
+Stay on Fireflies when you **want** a shared cloud library, calendar join, CRM-oriented search, and admin retention rules, and your organization has already accepted a US-oriented SaaS notetaker (or paid for Private Storage). In that world, **does Fireflies train on recordings** is a settings-and-contract check, not a reason to rip out the workspace. Re-read the Privacy Policy date, the DPA, and auto-join rules.
+
+## When a local Mac workflow fits better
+
+Choose local capture when **keeping audio off vendor servers by default** matters more than a team archive:
+
+- **Vemoir for Mac** records system audio and microphone on the Mac, with no bot ([how it works](/#how)).
+- Transcription stays on-device. Cloud text models are opt-in, text-only, with your key ([capture](/#capture)).
+- For a file you already have, [/tools/transcribe-recording](/tools/transcribe-recording) runs in the browser without uploading to Vemoir (15 minutes, three runs per week, no speaker labels).
+
+Fireflies optimizes for conversation intelligence in a cloud workspace. Vemoir optimizes for local records and explicit export. Neither page makes the other "unsafe." They solve different constraints.
+
+If the next call cannot include a notetaker bot or a vendor copy of the audio, [record it on your Mac](/#how).
+
+## Frequently asked questions
+
+### Does Fireflies train on recordings today?
+
+According to the Privacy Policy (6 March 2026), Terms, and the September 2026 help article, Fireflies says **no** for meeting content and personal information used to train internal or external AI models. Re-check those URLs; policies move.
+
+### Why does the security page say "by default"?
+
+The marketing line is weaker than the Privacy Policy. For a review, quote the policy and Terms. If the two diverge after an update, ask Fireflies which document wins.
+
+### If Fireflies does not train, is my audio still stored?
+
+Yes, unless you delete it or an admin retention policy removes it. Zero retention in Fireflies' docs is about **vendors after processing**, not about an empty Fireflies account.
+
+### Can OpenAI or Anthropic train on my Fireflies meetings?
+
+Fireflies states vendor agreements and zero retention forbid that. You still send content through those vendors to produce features. That is processing, which Fireflies distinguishes from training.
+
+### Does Fireflies use voice biometrics?
+
+The Privacy Policy describes Voice Data extracted by **service providers** for speaker differentiation, not held on Fireflies' own servers, with extra language for certain US biometric laws. Read that section if your jurisdiction cares.
+
+### Does "no training" mean no bot?
+
+No. Training policy and participant visibility are separate. Many Fireflies setups still join as a guest.
+
+### Does this prove GDPR or nLPD compliance?
+
+No. Fireflies publishes GDPR and other program language. This article does not apply those programs to your processing, and Vemoir does not claim compliance for anyone.
+
+### What is a workflow with no vendor training surface and no upload?
+
+Keep the file on the Mac. Use [Vemoir](https://apps.apple.com/app/id6794693630) for live capture or import, or the [browser tool](/tools/transcribe-recording) for a short file. Browser limits: 15 minutes, three runs per week, no speaker labels.
+
+## Next step
+
+Read Fireflies' current [privacy policy](https://fireflies.ai/privacy-policy), [terms](https://fireflies.ai/terms-of-service), and [keeping information safe](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe) article before the next auto-join. If vendor copies are out of scope, use the [Mac app](https://apps.apple.com/app/id6794693630) or the [free tools](/tools).

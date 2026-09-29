@@ -1,0 +1,106 @@
+---
+title: "Fragen zum Meeting-Transkript lokal auf dem Mac stellen"
+description: "Fragen zum Meeting-Transkript stellst du auf dem Mac. Antworten zeigen auf die Zeile. Audio bleibt lokal, ausser du schaltest reinen Text ein."
+pubDate: 2026-11-03
+author: "Vemoir Team"
+tags: ["transkript", "fragen", "meeting"]
+funnelStage: "consideration"
+translationKey: "ask-questions-about-meeting-transcript"
+relatedPosts: ["eigenen-api-key-mitbringen", "beste-private-meeting-notizen", "kundengespraech-notizen-ohne-upload"]
+image: "@/assets/blog/ask-questions-about-meeting-transcript/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/ask-questions-about-meeting-transcript/inline1.jpg';
+import inline2 from '@/assets/blog/ask-questions-about-meeting-transcript/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@marissacristina?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">marissacristina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Fragen zum Meeting-Transkript** stellst du, sobald Vemoir eines auf dem Mac hat. Ask Vemoir antwortet aus einer Sitzung, einem Projekt oder der aktiven Bibliothek, und eine Antwort kann auf die Transkriptstelle zeigen. Aufnahme und Sprachmodell sind auf dem Gerät geblieben. Ein Cloud-Modell kommt nur dazu, wenn du einen eigenen Text-Schlüssel aktiviert hast, und auch dann geht Text, nicht Audio.
+
+Die App ist ein einmaliger Kauf. In der Schweiz kostet sie CHF 20. Den Preis in deinem Land zeigt der Mac App Store. Eine Frage kostet bei Vemoir nichts pro Sitzung. Einen API-Schlüssel, den du einschaltest, berechnet der Anbieter.
+
+## Was schon auf der Platte liegt
+
+Das Transkript ist da, weil Parakeet v3 oder ein Whisper-Modell nach dem Stopp lokal gelaufen ist. Ask hört den Call nicht noch einmal. Es arbeitet mit dem Text, deinen manuellen Notizen und den anderen Einträgen im gewählten Umfang. Manuelle Notizen behalten ihre eigene Herkunft. Sie werden nicht zitiert, als hätte das Mikrofon sie gesagt.
+
+
+<Image src={inline1} alt="Aufgeschlagene Seiten, Finger zeigt hin, Text nicht lesbar" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@lgnwvr?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">lgnwvr</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Ask aus einer Sitzung startet ein neues Gespräch für diese Sitzung. Ältere Chats bleiben in der Historie. Ask aus einem Projekt gilt für das Projekt. Eine Frage an die Bibliothek gilt für die aktive Bibliothek. Archivierte Sitzungen und Projekte fallen weg. Löschst du eine Sitzung, können spätere Fragen sie nicht mehr nutzen.
+
+Antworten können Nachweislinks zur Quellsitzung und einen Zeitstempel enthalten. Vemoir begrenzt, wie viele Stellen eine Antwort zitiert, damit du die stärksten Links siehst und nicht jede durchsuchte Zeile. Ein Link, den du öffnen kannst, ist der Punkt. Ein glatter Absatz ohne Zeile ist ein Entwurf, nicht die Aufnahme.
+
+## Fragen zum Meeting-Transkript im passenden Umfang
+
+1. Warte, bis die Verarbeitung fertig ist. Fragen an eine Live-Vorschau sind Fragen an eine Vorschau.
+2. Korrigiere Sprecherlabels, die du als falsch kennst, bevor du fragst, was Lena entschieden hat. Eine Umbenennung legt kein Stimmprofil an.
+3. Starte in der Sitzung, wenn die Frage diesen Call meint. Starte im Projekt, wenn es um den letzten Monat mit diesem Kunden geht.
+4. Lies die Nachweislinks. Fehlt ein Link, behandle den Satz nicht als Zitat.
+5. Speichere die Antwort als Dokument in der Sitzung oder im Projekt, wenn du sie ablegen willst. Speichern lädt das Audio nicht hoch.
+
+
+<Image src={inline2} alt="Zwei Personen gehen gemeinsam ein Dokument durch" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@shamalaa?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">shamalaa</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Ist die Antwort falsch, ist das Transkript noch da. Bearbeite das Dokument. Eine fehlgeschlagene oder abgebrochene Runde kannst du wiederholen. Eine Runde, die abbricht, weil die App beendet wird, kommt als abgebrochen zurück, nicht als fertige Tatsache.
+
+Ein Wechsel des Schreibmodells zwischen Qwen3 4B und gpt-oss-20b plant die nächste Runde neu. Er schreibt frühere Antworten nicht um. Diese Modelle transkribieren nicht. Aktivierst du einen OpenAI- oder Anthropic-Schlüssel, nutzt Ask diese Textquelle, bis du zurückschaltest. Scheitert der Schlüssel, gibt es keinen stillen Ersatz.
+
+## Wann Ask das falsche Werkzeug ist
+
+Fragen an das Transkript sind die bessere Wahl, wenn der Text schon lokal liegt und du eine gezielte Frage mit Weg zurück zur Zeile willst. Sie sind die schlechtere Wahl, wenn:
+
+- Noch kein Transkript da ist. Nimm auf oder importiere eine Datei (MP3, M4A, WAV, AIFF, CAF, FLAC) und lass das Sprachmodell fertig werden.
+- Du einen geteilten Chat wolltest, den das ganze Team im Browser abfragt. Ask liegt auf diesem Mac, in dieser Bibliothek.
+- Die Frage das Audio braucht, weil das Transkript unbrauchbar ist. Hör die behaltene Aufnahme, oder verarbeite neu. Ask hört kein Wort, das das Transkript verpasst hat.
+- Du nur eine Datei von zehn Minuten hast und keine App. Das Browser-Tool unter [/de/tools/audio-transkribieren](/de/tools/audio-transkribieren) macht aus dieser Datei Text, bis 15 Minuten, drei erfolgreiche Läufe pro Woche, ohne Sprechernamen. Das ist nicht Ask, und es nimmt den nächsten Call nicht auf.
+
+Die Suche im Projekt nach einem Stichwort reicht manchmal, ohne erzeugte Antwort. Such, wenn du das Wort kennst. Frag Ask, wenn der Entscheid in drei Formulierungen steckt und du sie in einem Satz brauchst, den du trotzdem prüfst.
+
+Der Einstieg ist [Ask](/de#chat).
+
+## Eine Frage, die eine Suche gewesen wäre
+
+«Wie hoch war die Budgetgrenze» ist eine gute Ask-Frage, wenn die Zahl einmal fiel, vergraben, und du die Zeile willst. «Budget» als einzelnes Wort ist eine gute Suche im Projekt, weil du den Treffer selbst erkennst. Nimm das kleinere Werkzeug zuerst, wenn du das Vokabular kennst. Nimm Ask, wenn der Entscheid dreifach anders formuliert ist und du ihn in einer Antwort brauchst, deren Links du öffnest.
+
+Bei einer Frage an die Bibliothek schliesst nichts aus, nur weil du es hoffst. Ist das Projekt vom letzten Jahr archiviert, erscheint es nicht. Hol es aus dem Archiv, wenn die Frage diese Arbeit meint, oder akzeptiere, dass die Antwort nur aktive Einträge deckt. Eine falsche Antwort, die eine echte Zeile zitiert, kannst du korrigieren. Eine falsche Antwort ohne Zeile ist ein Grund, den Satz zu ignorieren und das Transkript zu lesen. Der Preis der Mac-App ändert diese Disziplin nicht. CHF 20 in der Schweiz, und der lokale Preis im App Store, kaufen die App, nicht die Garantie, dass jeder erzeugte Satz das Gesagte ist. Öffnet der Nachweis die falsche Minute, ist die Antwort trotzdem falsch. Sag das im Dokument, das du speicherst, oder lösche den Satz, bevor ihn jemand sonst liest. Eine zweite Frage im selben Chat repariert die erste Antwort nicht. Korrigiere die erste Antwort, oder lösche sie, bevor du den Thread teilst.
+
+## Häufige Fragen
+
+### Zitieren Antworten das Meeting-Transkript?
+
+Sie können auf die Quellsitzung und einen Zeitstempel verlinken. Öffne den Link. Die Grenze, wie viele Stellen eine Antwort zitiert, hält die Antwort lesbar.
+
+### Lädt Ask das Audio hoch?
+
+Standardmässig nein. Die Sprache-zu-Text-Erkennung lief schon auf dem Mac. Ein optionaler API-Schlüssel sendet nur Text, nachdem du ihn aktivierst, und ein Fehler fällt nicht still auf ein anderes Backend.
+
+### Kann ich über mehrere Sitzungen fragen?
+
+Ja. Projektumfang oder die aktive Bibliothek. Archiviertes bleibt draussen. Eine gelöschte Sitzung fällt aus späteren Fragen.
+
+### Welches Modell schreibt die Antwort?
+
+Die aktive Textquelle: ein lokales Modell wie Qwen3 4B oder gpt-oss-20b, Apple Intelligence, wo der Mac sie für diesen Schreibweg hat, oder ein aktivierter OpenAI- oder Anthropic-Schlüssel. Das Sprachmodell ist eine andere Wahl.
+
+### Was, wenn die App mitten in der Antwort beendet wird?
+
+Die Runde kommt als abgebrochen zurück und lässt sich wiederholen. Sie wird nicht als fertige Antwort gespeichert.
+
+### Erfindet Ask Sprechernamen?
+
+Nein. Unbekannte Sprecher bleiben anonym, bis du sie benannt oder ein Profil eingeschaltet hast. Ask arbeitet mit den Labels im Protokoll.
+
+### Ist das im Einmalpreis enthalten?
+
+Ja, als Funktion der Mac-App. API-Kosten des Anbieters, falls du einen Schlüssel nutzt, kommen extra und sind kein Vemoir-Abo.
+
+### Kann ich in den kostenlosen Browser-Tools fragen?
+
+Die Tools transkribieren oder bereinigen eine Datei. Sie sind nicht das sitzungsbezogene Ask in der Mac-App. Lange Calls und Live-Aufnahme gehören auf den Mac.
+
+Frag aus der Sitzung, die du gerade beendet hast, öffne einen Nachweislink, und korrigiere den Satz, wenn der Link ihn nicht trägt. Wenn der Link die richtige Minute öffnet und der Satz trotzdem weiter geht als das Transkript, kürze den Satz auf das, was die Zeile hergibt. Eine Antwort ohne geöffneten Link bleibt ein Entwurf, auch wenn sie glatt klingt. Leg den korrigierten Satz ins Dokument der Sitzung, bevor du den Chat schliesst. Die Steuerung liegt unter [Ask](/de#chat).

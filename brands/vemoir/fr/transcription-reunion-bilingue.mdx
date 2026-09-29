@@ -1,0 +1,136 @@
+---
+title: "Transcription réunion bilingue : limites du mélange"
+description: "La transcription réunion bilingue casse souvent au changement de langue. Ce que les modèles locaux font en DE/EN/FR/IT, et quand un humain convient mieux."
+pubDate: 2026-10-22
+author: "Vemoir Team"
+tags: ["transcription", "langues", "réunions"]
+funnelStage: "interest"
+translationKey: "bilingual-meeting-transcription"
+relatedPosts: ["transcrire-reunion-en-allemand", "transcription-hors-ligne-mac", "parakeet-ou-whisper"]
+tool: "transcribe-recording"
+image: "@/assets/blog/bilingual-meeting-transcription/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/bilingual-meeting-transcription/inline1.jpg';
+import inline2 from '@/assets/blog/bilingual-meeting-transcription/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@jakubzerdzicki?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jakubzerdzicki</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+La **transcription réunion bilingue** est la recherche que vous lancez après un appel passé d’une langue à l’autre, souvent français et allemand, ou français et italien, parfois trois dans la même heure. La limite honnête est le changement de langue **dans** une réplique&nbsp;: des modèles solides en français, allemand, anglais ou italien écrivent encore un texte brouillon quand quelqu’un change de langue au milieu de la phrase, glisse un nom de produit anglais, puis termine en italien. Vous obtenez des notes utilisables quand une langue porte et que l’autre apparaît en emprunts courts. Vous n’obtenez pas un script bilingue en deux colonnes, opposable.
+
+Cette page parle de ce mélange, pas d’un dialecte. Elle ne revendique pas de sortie dialectale. Elle ne classe pas les modèles par pourcentages. Le traitement local (app Mac ou Whisper dans le navigateur) reste préférable si le fichier ne doit pas quitter la machine. Pour un court extrait, l’[outil transcrire audio](/fr/outils/transcrire-audio)&nbsp;: 15 minutes, 3 passages par semaine, pas d’étiquettes de locuteurs, pas de capture live.
+
+- [Ce qu’une transcription réunion bilingue peut raisonnablement faire](#ce-qu’une-transcription-réunion-bilingue-peut-raisonnablement-faire)
+- [Changement de langue contre deux fichiers monolingues](#changement-de-langue-contre-deux-fichiers-monolingues)
+- [App Mac&nbsp;: modèles, langue d’interface, glossaire](#app-mac-modèles-langue-d’interface-glossaire)
+- [Limites de l’outil navigateur sur un appel mêlé](#limites-de-l’outil-navigateur-sur-un-appel-mêlé)
+- [Quand une transcription humaine bilingue est meilleure](#quand-une-transcription-humaine-bilingue-est-meilleure)
+
+## Ce qu’une transcription réunion bilingue peut raisonnablement faire
+
+Les modèles de parole sont entraînés par langue (ou sur des données multilingues qui préfèrent encore une langue dominante par morceau). Dans un appel de travail suisse ou européen typique, vous obtenez&nbsp;:
+
+
+<Image src={inline1} alt="Deux personnes face a face, chacun avec un carnet" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@rundachoo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">rundachoo</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- de longs passages d’une langue assez propres pour être édités
+- des noms, des chiffres et des termes à corriger quand même
+- du chassé-croisé (la même phrase en deux langues) écrit dans une seule langue, en bouillie, ou comme une proposition tombée
+
+Cela suffit pour un compte rendu interne&nbsp;: qui doit quoi pour quand, dans la langue où la décision a été dite. Cela ne suffit pas si vous devez conserver chaque aparté français en français et chaque réponse allemande en allemand pour une publication ou un litige.
+
+La séparation des locuteurs (app Mac seulement) ne résout pas la langue. Elle dit qui a parlé, pas dans quelle langue. Le navigateur n’étiquette personne.
+
+## Changement de langue contre deux fichiers monolingues
+
+Si l’ordre du jour est «&nbsp;français jusqu’au point 3, puis anglais avec les collègues US&nbsp;», vous avez deux réunions collées. Le truc fiable est opérationnel&nbsp;:
+
+
+<Image src={inline2} alt="Deux stylos sur une table de reunion partagee" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@novaspark?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">novaspark</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. Enregistrer ou exporter un fichier.
+2. Couper au changement de langue (un simple cut dans QuickTime suffit).
+3. Transcrire chaque moitié en visant une langue.
+4. Fusionner les notes vous-même. Le compte rendu peut être bilingue même si chaque tranche audio a été traitée comme monolingue.
+
+Si les gens changent toutes les quelques secondes, couper ne vous sauvera pas. Vous acceptez alors une transcription bruitée et vous réécrivez les décisions à la main, ou vous prenez un preneur de notes bilingue pour cette heure.
+
+Ne faites pas voter trois modèles sur le même fichier mêlé. Vous passerez l’après-midi à réconcilier trois phrases fausses. Un modèle installé, lecture des passages de décision, version propre tapée.
+
+## App Mac&nbsp;: modèles, langue d’interface, glossaire
+
+L’interface Vemoir peut être en français, anglais, allemand, italien ou néerlandais. Ce réglage ne choisit pas la langue parlée. La transcription utilise le modèle de parole installé&nbsp;: Parakeet v3 (25 langues européennes) ou Whisper Turbo, Medium ou Large-v3, chacun avec sa couverture. Cette page ne dira pas lequel «&nbsp;gagne&nbsp;» sur du FR/DE mêlé.
+
+Ce que vous pouvez faire sur le Mac&nbsp;:
+
+- Enregistrer micro et audio système en local, sans bot ([capture](/fr#capture), [langues](/fr#languages)).
+- Importer MP3, M4A, WAV, AIFF, CAF ou FLAC et lancer la même chaîne locale.
+- Tenir un glossaire de projet (graphies et alias) pour que les notes générées orthographient le produit comme votre équipe. La transcription originale reste la preuve.
+- Renommer les locuteurs après coup. Les profils vocaux sont opt-in et chiffrés.
+
+Les modèles texte cloud avec votre clé API (OpenAI ou Anthropic) peuvent aider à réécrire un compte rendu **à partir du texte** si vous activez cela explicitement. Ils ne transcrivent pas l’audio et ne sont pas une bascule silencieuse. L’audio brut reste sur le Mac pour la reconnaissance.
+
+Une fois les modèles téléchargés, le flux peut tourner hors ligne. Les Mac Intel ne sont pas pris en charge.
+
+Si le fichier bilingue est un entretien qui ne doit pas être envoyé&nbsp;: [transcrire un entretien sans l’envoyer](/fr/blog/transcrire-entretien-sans-envoi).
+
+## Limites de l’outil navigateur sur un appel mêlé
+
+L’outil gratuit vient après l’appel. Vous déposez un fichier. Whisper public dans l’onglet. Rien n’est envoyé à Vemoir. L’onglet Réseau pour le montrer.
+
+Il ne va pas&nbsp;:
+
+- enregistrer la réunion bilingue en direct
+- marquer qui a parlé
+- promettre une langue par phrase
+- prendre des fichiers de plus de 15 minutes (3 passages réussis par semaine)
+
+Mélange léger et extrait court&nbsp;: essayez. Mélange dense&nbsp;: l’onglet ne devient pas une cabine d’interprète.
+
+Un court fichier mêlé sans envoi chez un prestataire&nbsp;? [Outil transcrire audio](/fr/outils/transcrire-audio).
+
+## Quand une transcription humaine bilingue est meilleure
+
+Payez une personne, ou prenez des notes en direct dans les deux langues, lorsque&nbsp;:
+
+- vous citerez des gens dans les deux langues dans un texte publié
+- la réunion est une négociation où un «&nbsp;en revanche&nbsp;» manqué dans la seconde langue change l’accord
+- l’éthique ou le client interdit tout traitement machine, local ou non
+- vous avez besoin d’un verbatim attribué, bilingue, sur lequel vous vous engagez
+
+La transcription machine locale convient quand vous voulez une ébauche privée des décisions après une séance de travail, que le Mac a joué l’appel, et que vous éditerez. Les bots cloud conviennent quand toute l’entreprise vit déjà dans un preneur de notes et qu’un participant extra est autorisé. Ce sont des choix d’exploitation, pas de magie de modèle.
+
+Le consentement reste le vôtre. Une transcription bilingue reste une donnée personnelle. Cette page n’appelle pas la sortie certifiée, privilégiée ou certifiée RGPD. En Suisse, le cadre est la **nLPD**.
+
+## Questions fréquentes
+
+### La transcription réunion bilingue veut-elle dire que l’app détecte chaque changement&nbsp;?
+
+Non. La détection, quand un modèle l’offre, est grossière. Les changements en milieu de phrase sont le cas d’échec. Prévoyez une langue dominante par fichier, ou coupez l’enregistrement.
+
+### Puis-je mettre l’interface en français et la transcription en anglais&nbsp;?
+
+L’interface et le modèle de parole sont indépendants. Interface dans la langue que vous lisez. Modèle de parole qui couvre les langues réellement parlées. Pas de tableau de précision ici.
+
+### L’outil navigateur marque-t-il la langue de chaque phrase&nbsp;?
+
+Non. Un seul flux de texte, pas d’étiquettes de locuteurs, pas de balises de langue par ligne.
+
+### Parakeet v3 rend-il parfaites les réunions suisses mêlées&nbsp;?
+
+Parakeet v3 couvre 25 langues européennes. La couverture n’est pas une promesse que le chassé-croisé sera joli. Langues standard seulement&nbsp;; pas de revendication dialectale.
+
+### Faut-il inviter un preneur de notes cloud parce qu’il «&nbsp;prend en charge 30 langues&nbsp;»&nbsp;?
+
+La liste de langues d’un prestataire ne règle ni où va l’audio, ni si un bot peut entrer. Si la contrainte est pas de participant extra et pas d’envoi, un bot cloud multilingue est le mauvais outil même si la brochure cite les deux langues. Si la contrainte est une bibliothèque d’équipe partagée, le bot peut être le bon choix indépendamment du mélange.
+
+### Puis-je transcrire en direct dans le navigateur pendant que les gens changent de langue&nbsp;?
+
+Non. La capture live n’est pas dans le navigateur. Le changement de langue ne change pas cela.
+
+Étape suivante&nbsp;: couper un fichier court si vous le pouvez, puis lancer l’[outil transcrire audio](/fr/outils/transcrire-audio), ou garder toute la réunion sur le Mac et lire [langues](/fr#languages).

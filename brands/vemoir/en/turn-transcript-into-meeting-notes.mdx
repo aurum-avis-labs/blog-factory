@@ -1,0 +1,139 @@
+---
+title: "Turn a Transcript Into Meeting Notes Worth Sending"
+description: "Turn a transcript into meeting notes by pulling decisions, owners, and dates out of the text. The transcript stays the evidence, not the mail."
+pubDate: 2026-10-16
+author: "Vemoir Team"
+tags: ["meeting notes", "transcript", "minutes"]
+funnelStage: "interest"
+translationKey: "turn-transcript-into-meeting-notes"
+relatedPosts: ["messy-meeting-transcript", "how-to-take-meeting-minutes", "meeting-minutes-template"]
+tool: "meeting-notes-from-transcript"
+image: "@/assets/blog/turn-transcript-into-meeting-notes/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/turn-transcript-into-meeting-notes/inline1.jpg';
+import inline2 from '@/assets/blog/turn-transcript-into-meeting-notes/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+You turn a transcript into meeting notes when the words already exist and the reader needs the outcome. The notes are a short page: what was decided, what is still open, and which actions have one owner and a date. The transcript stays in the folder as the evidence. Sending the transcript and calling it notes wastes the reader's time. Asking a model to "make it nice" without reading the result invents owners.
+
+This path starts from text. If you only have audio, transcribe first. A local Zoom file with no VTT is described in [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording). The blank protocol, if you would rather type it yourself, is the [meeting minutes template](/blog/meeting-minutes-template).
+
+## Contents
+
+- [Turn a transcript into meeting notes](#turn-a-transcript-into-meeting-notes)
+- [Clean the file before you ask for notes](#clean-the-file-before-you-ask-for-notes)
+- [What the notes page is allowed to draft](#what-the-notes-page-is-allowed-to-draft)
+- [Read the draft against the lines](#read-the-draft-against-the-lines)
+- [Put the keepers on a minutes sheet](#put-the-keepers-on-a-minutes-sheet)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## Turn a transcript into meeting notes
+
+[Meeting notes from a transcript](/tools/meeting-notes-from-transcript) takes a paste or a file that is already words: a Zoom VTT, a Teams export, an SRT, or a plain dump. It does not listen to a live call. It does not join Zoom. You are past the meeting.
+
+
+<Image src={inline1} alt="A highlighter and a short summary card on a desk" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@cherrydeck?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Cherrydeck</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+The notes pass uses a model, so a successful run counts toward the three runs a week shared by the transcription tools. Cleaning a VTT does not. Filling the minutes sheet does not. If you have a weekly budget of three, do not spend one on a file you have not even skimmed.
+
+Limits that still apply elsewhere: audio transcription in the browser stops at 15 minutes. A long transcript you already exported is not that audio cap. A very large paste can still be truncated. If the page says the text was cut, do not trust a draft that never saw the last third of the call. Split the paste by agenda item and read each draft, or move the long recording to the Mac, where the meeting library is built for full calls.
+
+There is no account. The work stays in the tab.
+
+## Clean the file before you ask for notes
+
+Cue numbers and timestamps confuse a notes draft and they confuse you. Drop a VTT or SRT on the [transcript cleaner](/tools/transcript-cleaner) first. You get `Name: text` where a name existed. You get bare sentences where it did not. The cleaner will not invent speakers.
+
+
+<Image src={inline2} alt="Someone rewriting notes from a stack of pages" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Then delete, by hand, the parts that are not the meeting: a caption test, hold music noted as words, or the rolling line that repeated. Leave disagreements and conditions. Those are the lines a summary is most likely to sand away, and you want them visible when you review.
+
+If the file has no names, the notes may still describe topics. They should not attribute quotes. Speaker separation on a mixed audio file is a Mac job, described from the other side in the unlabeled-export problem. Do not expect this page to label a nameless paste.
+
+## What the notes page is allowed to draft
+
+The tool drafts a recap with decisions and actions, and it can offer a follow-up email. That is a draft with a shape, not a signed protocol.
+
+A useful draft has:
+
+- A short recap of the outcome, not a retelling of every topic that lasted two minutes.
+- Decisions written as decisions. If the room said "only if legal agrees," the condition stays.
+- Actions with a verb and, when the text supports it, a person and a time.
+- Open points left open.
+
+A weak draft has a new owner, a date nobody said, or two speakers merged because they were both polite. That happens when the model completes the pattern of a meeting instead of quoting the meeting. Your job is to delete those lines.
+
+On the Mac the same idea is stricter: actions have a description, an owner, a due date, and a done state. Decisions have wording, a responsible person, and a date. Generated lines can point back at the transcript passage. The browser draft does not replace that record. It is how you get a first page from an export you already hold. See [how the Mac record is structured](/#record) if the next step is the app rather than a one-off paste.
+
+## Read the draft against the lines
+
+Read in this order, with the cleaned transcript beside the draft.
+
+1. **Decisions.** For each one, find the sentence that supports it. If you cannot, cut it or move it to open questions.
+2. **Conditions.** Search the transcript for "if", "unless", "not until", and "once they". Put any that the draft dropped back in.
+3. **Owners.** Keep a name only if that person accepted the work or clearly assigned it. "Someone should" is not a name.
+4. **Dates.** Keep a date only if it was said or clearly implied ("by Thursday" on a known day). Write the calendar date when you leave, so "Thursday" does not drift.
+5. **The follow-up email.** It should contain the keepers only. It should not attach the recording unless the reader is allowed to have it and asked for it.
+
+If the draft is mostly wrong, do not regenerate blindly. The model saw the same text. Fix the input (cut the small talk, fix a repeated caption) or write the five lines yourself. Five accurate lines beat a page of fluent error.
+
+## Put the keepers on a minutes sheet
+
+The draft is not the archive. Move the keepers onto the [minutes sheet](/tools/minutes-sheet): date, attendees, agenda, decisions, actions with owner and due date, open questions. That page does not run a model. You can start from a team sync, a client call, or a board sitting and download Markdown.
+
+Suggested split:
+
+| Put it in the notes you send | Leave it in the transcript |
+| --- | --- |
+| The decision, in one sentence | The argument that led there |
+| The action, owner, date | The "I'll try" that was not accepted |
+| The open question | Every "yeah" |
+| A number you are willing to stand behind | The first, wrong number someone corrected |
+
+Share the notes. Keep the transcript with the people who may need to check a line. Consent and retention are still yours. A tidy email does not make the original recording lawful.
+
+If this meeting repeats, the one-off browser pass will feel thin: no project, no speaker memory, no offline library. That is the point where the Mac app is the better tool, recording the next call from the menu bar without a bot, or importing MP3, M4A, WAV, AIFF, CAF, or FLAC you already have. The browser remains the right tool for a single export under the weekly limit.
+
+## Frequently asked questions
+
+### Do I have to transcribe again if I already have a VTT?
+
+No. Meeting notes from a transcript skip the speech model. You paste words. You still spend a weekly run, because the notes themselves call a model. Cleaning the VTT first does not spend a run.
+
+### What if the transcript is longer than 15 minutes of talk?
+
+The 15-minute cap is on audio files in the transcription tools. A text export can be longer, and it can also be truncated if it does not fit the notes pass. If the page marks the text as cut, treat the draft as partial.
+
+### Will the notes name speakers the file did not name?
+
+They should not. If they do, delete the name. The cleaner and the talk-share tool refuse to invent labels. A draft that guesses is still a draft.
+
+### Can I get a follow-up email without the whole transcript in the body?
+
+Yes. That is the point of the email draft. Send the short version. Do not paste the VTT under it "for context" unless the recipient needs the evidence.
+
+### Is this the same as the minutes template?
+
+No. The template is a blank record you fill. This tool drafts from text you already have. You still move the accurate lines onto a minutes sheet before you file them.
+
+### What if I only have audio?
+
+Transcribe it first. In the browser that means 15 minutes, three successful runs a week, no speaker labels, file not uploaded: [transcribe a recording](/tools/transcribe-recording). Longer audio and live capture are the Mac app.
+
+### Should I edit the transcript to match the notes?
+
+No. Correct misheard names and product terms if you are sure. Do not delete a condition so the transcript supports the mail you want to send.
+
+### Does the page upload my transcript?
+
+The notes run in the tab after the model it needs is available there. Do not put a transcript in a tool you are not allowed to use. Keep the original file on your machine. This is not a statement that any vendor is certified for your industry.
+
+Next step: clean the export if it is still a VTT, then open [meeting notes from a transcript](/tools/meeting-notes-from-transcript) and keep only the lines you can point to in the text.

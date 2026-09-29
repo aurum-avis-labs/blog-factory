@@ -1,0 +1,128 @@
+---
+title: "Ein Teams-Transkript nach dem Meeting sicher exportieren"
+description: "Ein Teams-Transkript exportierst du aus Recap als .vtt oder .docx, wenn du darfst. Danach wird der Text lesbar, ohne erfundene Sprecher."
+pubDate: 2026-10-17
+author: "Vemoir Team"
+tags: ["teams", "transkript", "export"]
+funnelStage: "interest"
+translationKey: "export-teams-transcript"
+relatedPosts: ["unordentliches-meeting-transkript", "zoom-vtt-in-text", "teams-transkript-nicht-sichtbar"]
+tool: "transcript-cleaner"
+image: "@/assets/blog/export-teams-transcript/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/export-teams-transcript/inline1.jpg';
+import inline2 from '@/assets/blog/export-teams-transcript/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Ein Teams-Transkript exportierst du nach dem Meeting aus dem Recap des Meeting-Chats, wenn die Transkription lief und deine Rolle den Download erlaubt. Die Support-Seite von Microsoft sagt, dass Organisatorinnen und Co-Organisatorinnen es standardmässig als `.docx` oder `.vtt` herunterladen können, und dass andere es oft nur ansehen dürfen, ausser eine Admin-Richtlinie sagt etwas anderes. Die Datei ist keine Bildschirmaufnahme, und sie existiert nicht, wenn niemand die Transkription eingeschaltet hat.
+
+Die Menünamen wandern. Die Schritte unten folgen dem Microsoft-Support, Stand September 2026: [Transkript herunterladen](https://support.microsoft.com/en-au/teams/meetings/start-stop-and-download-live-transcripts-in-microsoft-teams-meetings). Sieht dein Mandant anders aus, gelten die Bezeichnungen in deinem Teams, und du fragst die organisierende Person, bevor du in OneDrive suchst.
+
+## Prüfen, ob ein Transkript existiert
+
+Teams kann ein Meeting nur transkribieren, wenn die Transkription gelaufen ist. Eine Aufnahme einzuschalten heisst nicht immer, dass danach ein Transkript zum Download daliegt. War der Knopf nie da, hat eine Administration die Transkription vielleicht gesperrt, oder der Meeting-Typ unterstützt sie nicht. Gäste und Leute ausserhalb der Organisation des Organisators können oft nicht herunterladen, auch wenn sie Untertitel auf dem Bildschirm gesehen haben.
+
+
+<Image src={inline1} alt="Externe Festplatte neben einem Papierordner" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@carlosgil83?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Carlos Gil</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Live-Untertitel während des Gesprächs sind nicht dieselbe Datei. Untertitel laufen vorbei. Das Transkript, wenn es existiert, bleibt beim Meeting. Microsoft sagt, Transkripte von Meetings mit Aufnahme oder Transkription liegen im OneDrive for Business der organisierenden Person, und man erreicht sie über den Meeting-Chat und den Recap, bis diese Person sie löscht.
+
+Bevor du einer Fünf-Schritte-Anleitung folgst, öffne das vergangene Meeting und sieh, ob Recap überhaupt ein Transkript zeigt. Wenn nicht, erzeugt kein Exportverfahren eines aus dem Gedächtnis.
+
+## Ein Teams-Transkript aus Recap exportieren
+
+In Teams am Desktop dokumentiert Microsoft diesen Weg:
+
+
+<Image src={inline2} alt="Jemand uebergibt ein gedrucktes Dokument, keinen Laptop" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@creatopy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Creatopy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. Wähle **Chat**.
+2. Öffne den Chat des vergangenen Meetings.
+3. Wähle **Recap**.
+4. Wähle **Transkript**.
+5. Öffne das Menü neben **Herunterladen** und wähle den Dateityp, typisch `.docx` oder `.vtt`.
+
+Du kannst auch vom Kalendereintrag dieses Meetings ausgehen und nach Aufnahmen und Transkripten suchen, je nach Version. Rathäuser und manche webinarartigen Meetings nutzen eine andere Aufnahmeansicht. Fehlt Herunterladen, bist du wahrscheinlich nicht Organisator oder Co-Organisator, oder die Richtlinie sperrt Downloads für Teilnehmende auch innerhalb des Mandanten.
+
+Die Teams-App auf dem Handy kann ein Transkript nach dem Meeting aus dem Chat zeigen. Microsoft merkt an, dass der Download eine Desktop-Sache ist. Erwarte vom Telefon kein VTT.
+
+Speichere die Datei an einem Ort, den du kontrollierst. Der Name, den Teams wählt, verwechselt sich leicht mit dem Video. Leg das Transkript neben eine Notiz mit dem Meeting-Datum, und wirf die einzige Kopie nicht in einen Chat mit der ganzen Firma, «damit alle sie haben», ausser das war der Sinn.
+
+## Was der Download wirklich enthält
+
+Eine `.vtt` ist eine Untertiteldatei. Sie beginnt mit `WEBVTT`, dann Cue-Zeiten, dann Zeilen gesprochener Sprache. Ist eine Sprecherzuordnung da, sieht eine Zeile oft aus wie `<v Name>was gesagt wurde</v>`. Dieser Name ist, was Teams gespeichert hat. Er kann ein Anzeigename, ein Raum oder ein Telefon sein. Er ist keine bereinigte Anwesenheitsliste.
+
+Eine `.docx` ist dasselbe Gespräch als Dokument, leichter weiterzugeben, schlechter zu zerlegen, wenn du die Zeiten noch brauchst. Manche Mandanten und ältere Dokumentation sind sich beim Word-Download uneinig. Siehst du nur ein Format, nimm dieses Format. Installiere keinen zufälligen «Teams-Transkript-Konverter», um das andere zu erzwingen.
+
+Keine der beiden Dateien ist das Meeting-Video. Die Aufnahme, wenn es eine gibt, ist ein eigener Download und liegt im OneDrive der organisierenden Person. Das Transkript zu teilen ist nicht dasselbe wie das Video zu teilen, und beides kann mehr sein, als die Teilnehmenden zugestimmt haben. Dieser Artikel ist keine Rechtsberatung.
+
+Brauchtest du ein Transkript und das Meeting wurde nicht transkribiert, rekonstruiert Teams es nicht aus dem Video über den Recap-Knopf. Manchmal entstehen später Untertitel in Stream zu einer Aufnahme. Das ist eine andere Microsoft-Funktion, mit eigener Verzögerung und eigenen Rechten. Es ist kein Versprechen, dass der gestrige untranskribierte Call jetzt ein VTT hat.
+
+## Aus dem Export lesbaren Text machen
+
+Das VTT ist die richtige Eingabe für eine Formatbereinigung, nicht für eine zweite Transkription. Leg es auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Cue-Nummern und Zeitstempel fallen weg. Namen bleiben, wenn sie in der Datei standen, inklusive `<v Name>`-Tags. Waren keine Namen da, sagt die Seite das und erfindet keine Sprecher. Diese Bereinigung verbraucht keinen der drei Wochenläufe.
+
+Danach:
+
+- Überflieg Zahlen, Daten und Produktnamen.
+- Schick den bereinigten Text an [Notizen aus einem Transkript](/de/tools/notizen-aus-transkript) nur, wenn du einen Recap-Entwurf willst. Dieser Entwurf verbraucht einen Wochenlauf. Prüf jede Person.
+- Kopiere Entscheide und Massnahmen aufs [Sitzungsprotokoll](/de/tools/sitzungsprotokoll), wenn du ein Protokoll ablegen willst. Dieses Blatt transkribiert nicht und rät keine Namen.
+
+Füg das rohe VTT nicht in die Folge-Mail. Die Cues sind Lärm. Füg auch keinen Modell-Recap ein, ohne den Satz, der jeden Entscheid trägt.
+
+Eine `.docx`, die schon Fliesstext ist, braucht den Bereiniger vielleicht nicht. Kopiere den Text heraus, achte auf Kopfzeilen, die Teams eingefügt hat, und behandle «Conference Room» trotzdem nicht als Person.
+
+## Wenn du nicht exportieren kannst
+
+Der Recap-Weg scheitert aus langweiligen Gründen: du warst Gast, die Transkription war aus, die organisierende Person hat die Datei gelöscht, oder die Administration erlaubt das Ansehen, aber nicht den Download. Keines davon behebt ein erneutes Laden des Chats.
+
+Für das nächste Gespräch entscheidest du vorher.
+
+- Wird die organisierende Person transkribieren und bist du Co-Organisator, nutze Teams und exportiere danach. Den Weg kennst du.
+- Bekommst du die Datei vielleicht nicht, nimm auf dem Mac aus der Menüleiste auf, während du im Meeting bist, und sag es den Leuten. Vemoir nimmt Mikrofon und Systemaudio auf. Kein Bot kommt in die Teams-Liste. Die macOS-Berechtigung für den Ton anderer Apps ist die **Systemaudioaufnahme**, nur Audio, keine Bildschirmaufnahme. Die Live-Seite beschreibt [Teams-Meeting auf dem Mac aufnehmen](/de/blog/teams-meeting-aufnehmen-mac).
+- Hat dir jemand schon eine Audiodatei von 15 Minuten oder weniger gegeben, läuft [Audio transkribieren](/de/tools/audio-transkribieren) im Browser und lädt die Datei nicht hoch. Sprecher beschriftet es nicht. Längere Dateien gehören auf den Mac: importiere MP3, M4A, WAV, AIFF, CAF oder FLAC.
+
+Eine lokale Aufnahme ist deine Datei. Ein Teams-Transkript ist die Datei der organisierenden Person in deren OneDrive, bis sie sie löscht. Nimm die, die du wirklich behalten darfst.
+
+## Häufige Fragen
+
+### Wer darf ein Teams-Transkript exportieren?
+
+Standardmässig die organisierende Person und Co-Organisatorinnen, laut Microsoft-Support. Andere in der Organisation können es in Recap oft ansehen und haben trotzdem keinen Download. Gäste sehen weniger. Admin-Richtlinien überschreiben den Standard.
+
+### Welche Datei, VTT oder Word?
+
+Wähle `.vtt`, wenn du Zeitstempel streichen und Sprechertags in einer vorhersagbaren Textform behalten willst. Wähle `.docx`, wenn jemand es sofort in Word lesen muss. Ein VTT kannst du bereinigen, ohne einen Transkriptionslauf zu verbrauchen.
+
+### Der Download-Knopf fehlt. Ist das Transkript gescheitert?
+
+Nicht immer. Die Transkription kann gelaufen sein, und dein Konto darf nur ansehen. Bitte die organisierende Person um den Download oder darum, wer darf. Hat Recap keinen Transkript-Tab, war die Transkription wahrscheinlich aus, oder die Datei wurde gelöscht.
+
+### Kann ich vom Teams-Handy exportieren?
+
+Dort kannst du es nach dem Meeting ansehen. Plane den Desktop für die Datei. Microsoft dokumentiert den Download über Chat, Recap und die Download-Steuerung am Desktop.
+
+### Enthält der Export Sprechernamen?
+
+Oft, als Stimm-Tags im VTT, wenn der Mandant die Sprecherzuordnung noch erlaubt. Fehlen die Tags, setzt kein Bereiniger sie zurück. Der Browser trennt keine Sprecher aus Audio, und dieser Download ist schon Text.
+
+### Wo liegt die Datei?
+
+Microsoft sagt, sie liegt im OneDrive for Business der organisierenden Person und wird über Meeting-Chat und Recap geöffnet, bis diese Person sie löscht. Nimm nicht an, eine Kopie liege auf deinem Laptop, ausser du hast sie heruntergeladen.
+
+### Bekomme ich ein Transkript, wenn wir nur Video aufgenommen haben?
+
+Nicht über die Transkript-Steuerung in Recap, wenn die Transkription nie lief. Eine Aufnahme kann ein anderes Objekt sein als ein Transkript. Sieh in Stream nur nach, wenn dein Mandant dort wirklich Untertitel erzeugt, und versprich keine Datei, die du nicht gesehen hast.
+
+### Ist ein Teams-Transkript dasselbe wie ein Protokoll?
+
+Nein. Es ist, was gesagt wurde, plus Zeitstempel und die Namen, die Teams gespeichert hat. Ein Protokoll sind die Entscheide und die Massnahmen. Bereinige den Export, dann schreib die kurze Seite.
+
+Nächster Schritt: hat Recap dir ein VTT gegeben, öffne den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Gibt dir der nächste Teams-Call keinen Download, lies [Teams-Meeting auf dem Mac aufnehmen](/de/blog/teams-meeting-aufnehmen-mac), bevor du dich auf das OneDrive der organisierenden Person verlässt.

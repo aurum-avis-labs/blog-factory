@@ -1,0 +1,176 @@
+---
+title: "Granola è privato? Audio, note e training dei modelli"
+description: "Granola è privato per le note di riunione? Cosa dicono i documenti Granola su audio, cloud USA e training, settembre 2026."
+pubDate: 2026-10-11
+author: "Vemoir Team"
+tags: ["granola", "privacy", "riunioni"]
+funnelStage: "interest"
+translationKey: "is-granola-private"
+relatedPosts: ["otter-ai-e-sicuro", "fireflies-addestra-sulle-registrazioni", "alternativa-a-granola"]
+tool: "transcribe-recording"
+image: "@/assets/blog/is-granola-private/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/is-granola-private/inline1.jpg';
+import inline2 from '@/assets/blog/is-granola-private/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@chelaxydp?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Chelaxy Designs</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Granola è privato** dipende da quale strato intendi: niente bot in call, niente file audio tenuto a lungo, o niente cloud vendor per la trascrizione. Le pagine Granola, rilette a settembre 2026, dicono che l'app desktop cattura microfono e audio di sistema senza entrare come partecipante, cancella l'audio dopo la trascrizione e conserva **note e transcript su AWS negli Stati Uniti**. Granola documenta anche **il proprio training su dati anonimizzati / de-identificati** sui piani Free e Business, salvo opt-out. Terze parti come OpenAI e Anthropic sono, secondo Granola, contrattualmente bloccate dal trainare sui tuoi dati personali.
+
+Questo articolo riassume quei documenti vendor. Non è consulenza legale. Non decide se Granola sta in un contratto cliente, nella **nLPD** svizzera o in una review di security interna. Vemoir non afferma che Granola (o un altro tool) sia certificato, conforme o approvato per un settore.
+
+## Indice
+
+- [Fatti in sintesi (da Granola)](#fatti-in-sintesi-da-granola)
+- [Granola è privato](#granola-è-privato)
+- [Un bot entra in riunione?](#un-bot-entra-in-riunione)
+- [Che succede all'audio](#che-succede-allaudio)
+- [Dove stanno note e transcript](#dove-stanno-note-e-transcript)
+- [Granola addestra sui tuoi meeting?](#granola-addestra-sui-tuoi-meeting)
+- [Condivisione, conservazione, cancellazione](#condivisione-conservazione-cancellazione)
+- [Cosa pubblica Granola sui programmi di security](#cosa-pubblica-granola-sui-programmi-di-security)
+- [Quando Granola resta spesso la scelta migliore](#quando-granola-resta-spesso-la-scelta-migliore)
+- [Quando sta meglio un flusso Mac locale](#quando-sta-meglio-un-flusso-mac-locale)
+- [Domande frequenti](#domande-frequenti)
+
+## Fatti in sintesi (da Granola)
+
+| Tema | Cosa documenta Granola (settembre 2026) |
+| --- | --- |
+| Bot | Nessun partecipante in più. Il desktop cattura mic e audio di sistema ([security](https://www.granola.ai/security), [FAQ privacy](https://docs.granola.ai/help-center/consent-security-privacy/security-privacy-data-faqs)) |
+| Conservazione audio | Non conservato dopo la trascrizione. Cache temporanea, poi cancellazione da Granola e dai terzi ([FAQ](https://docs.granola.ai/help-center/consent-security-privacy/security-privacy-data-faqs), [privacy policy](https://docs.granola.ai/help-center/policies/privacy-policy)) |
+| Dove stanno le note | **AWS negli Stati Uniti**, cifratura a riposo e in transito. Cache locale per edit veloce / offline ([FAQ](https://docs.granola.ai/help-center/consent-security-privacy/security-privacy-data-faqs)) |
+| Fornitori voce e sintesi | Deepgram, Assembly, OpenAI, Anthropic citati ([security](https://www.granola.ai/security)) |
+| Training di terzi | Granola dice che OpenAI o Anthropic **non** trainano sui tuoi dati personali ([policy](https://docs.granola.ai/help-center/policies/privacy-policy), [models and training](https://docs.granola.ai/help-center/consent-security-privacy/model-training)) |
+| Training Granola | Dati anonimizzati / de-identificati possibili di default su **Free e Business**. Opt-out: **Settings → Preferences → Data and sharing**, spegni «Use my data to improve models for everyone». **Enterprise** spento di default ([FAQ](https://docs.granola.ai/help-center/consent-security-privacy/security-privacy-data-faqs)) |
+| Residenza UE / UK / CH | Granola dice di **non** offrire oggi residenza UE, UK o altra ([FAQ](https://docs.granola.ai/help-center/consent-security-privacy/security-privacy-data-faqs)) |
+| Consenso | Il consenso dei partecipanti è tuo ([getting consent](https://docs.granola.ai/help-center/consent-security-privacy/getting-consent)) |
+
+
+<Image src={inline1} alt="Ufficio quieto con tapparelle abbassate e taccuino" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@sirole?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Kirsten Miles</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Le policy cambiano. Apri i link prima di fidartene.
+
+## Granola è privato
+
+Quattro domande dietro **Granola è privato**:
+
+
+<Image src={inline2} alt="Qualcuno scrive su carta, nessuno schermo visibile" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@mok4?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Mohamed Kerroudj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. **Visibilità.** I clienti vedranno un ospite IA?
+2. **File audio.** Resta una registrazione sul disco del vendor dopo la call?
+3. **Luogo del transcript.** Solo sul Mac, o in un cloud USA?
+4. **Riuso.** Granola o un fornitore può addestrare modelli sulla riunione?
+
+Risposte documentate: niente bot, niente audio tenuto, **sì** un magazzino note USA, e **sì** training lato Granola su dati de-identificati finché tu (o i default Enterprise) non lo spegni. Può andare se un partecipante Fireflies o Otter è vietato, ma le note cloud passano. Non va se la regola è «il transcript non lascia questo Mac».
+
+Per il quadro bot / locale: [note riunione senza bot](/it/blog/note-riunione-senza-bot). Altra lettura da docs vendor: [Otter.ai è sicuro](/it/blog/otter-ai-e-sicuro).
+
+## Un bot entra in riunione?
+
+No, secondo Granola. La [pagina security](https://www.granola.ai/security) parla di avvio manuale. Niente auto-join. Il desktop gira con Zoom, Meet, Teams e altre app che riproducono audio sul computer. Il mobile è per i colloqui di persona.
+
+Granola raccomanda comunque di dire che stai prendendo note assistite da IA e offre modi nel prodotto per renderlo visibile ([consenso](https://docs.granola.ai/help-center/consent-security-privacy/getting-consent)). L'assenza di bot non è un consenso. Diritto di registrare e trascrivere resta tuo.
+
+Se qualcuno dimentica End, la FAQ dice che la trascrizione può continuare. Fermare è un gesto voluto.
+
+## Che succede all'audio
+
+La privacy policy: le registrazioni servono **solo** a produrre una trascrizione; Granola **non le conserva una volta creata la trascrizione**. La FAQ aggiunge cache temporanea, poi cancellazione da Granola **e dai servizi terzi**.
+
+Desktop (macOS / Windows): trascrizione in tempo reale, niente audio tenuto. iPhone: cache temporanea durante il meeting, poi cancellazione ([consenso](https://docs.granola.ai/help-center/consent-security-privacy/getting-consent)).
+
+È una differenza vera rispetto ai notetaker che tengono MP4 o M4A in una libreria cloud. Non è «l'audio non ha mai lasciato il dispositivo». Il parlato passa dai fornitori di trascrizione scelti da Granola durante la call.
+
+## Dove stanno note e transcript
+
+Dopo il passo audio l'oggetto duraturo è **nota e transcript**. Granola li tiene su **server AWS negli Stati Uniti**, in una VPC, **cifrati a riposo e in transito**, con backup quotidiani ([security](https://www.granola.ai/security), [policy](https://docs.granola.ai/help-center/policies/privacy-policy), [FAQ](https://docs.granola.ai/help-center/consent-security-privacy/security-privacy-data-faqs)).
+
+Le note sono **private di default**. Livelli di condivisione: solo tu, persone con la mail aziendale, o chiunque abbia il link. Granola dice che gli admin non leggono le tue note private; gli admin Enterprise possono limitare la condivisione (per esempio bloccare i link pubblici).
+
+Una cache locale permette di aprire e modificare senza rete. Il sistema di record che Granola documenta resta AWS USA. Granola dice di **non offrire** per ora residenza UE, UK, Canada o Australia. I team svizzeri che vogliono uno store in Paese o in UE non lo trovano su queste pagine a settembre 2026. La **nLPD** non sparisce perché l'audio è stato cancellato: il testo della riunione è ancora un dato.
+
+## Granola addestra sui tuoi meeting?
+
+Due strati.
+
+**Fornitori.** La policy: Granola non consente a terzi come OpenAI o Anthropic di usare i tuoi dati personali per addestrare modelli. La pagina [models and training](https://docs.granola.ai/help-center/consent-security-privacy/model-training) ripete accordi enterprise che bloccano il training lato fornitore.
+
+**Granola stesso.** La stessa policy: Granola può creare **dati de-identificati** e usarli per analizzare, costruire e migliorare i servizi, **incluso addestrare modelli**, con opt-out in account. La FAQ: su **Free e Business** i dati anonimizzati possono servire di default; spegni **Use my data to improve models for everyone** sotto **Settings → Preferences → Data and sharing**. **Enterprise** è spento di default; gli admin lo impostano sotto **Settings → Workspace → General → Data security**. I dati già usati prima dell'opt-out **non sono garantiti inutilizzati**.
+
+Se l'asticella è «nessun training vendor, neanche i modelli del blocco note», ti serve quell'opt-out (o i default Enterprise) più una lettura aggiornata. Se l'asticella è «nessun transcript su un server USA», gli interruttori di training non bastano. Serve un flusso locale.
+
+## Condivisione, conservazione, cancellazione
+
+Granola indica conservazione **indefinita** di note e transcript, salvo policy di retention. La cancellazione automatica configurabile è descritta come capacità **Enterprise**. Cancellazione account: **Settings → Profile → Delete Account**, o `hey@granola.so` se l'app non c'è più. Un export CSV è documentato per la portabilità.
+
+Una nota cancellata in Granola non toglie una copia incollata in Slack o in una mail. La condivisione resta tua.
+
+## Cosa pubblica Granola sui programmi di security
+
+La [pagina security](https://www.granola.ai/security) e la FAQ citano **SOC 2 Type II**, un Trust Center, un DPA con clausole contrattuali tipo UE e UK, e un linguaggio GDPR / UK GDPR. La FAQ afferma **HIPAA** per **Enterprise** con BAA, non su Free, Personal o Business, BAA limitata alle app desktop. Granola dice di **non** essere FERPA al momento e di **non** avere il NHS DSP Toolkit. Niente 2FA integrato: l'auth passa da Google, Microsoft o SSO.
+
+Sono **dichiarazioni Granola**. Questo articolo non le certifica. Vemoir non afferma HIPAA, GDPR, nLPD o un'altra conformità per Granola o per la tua registrazione. Le regole di settore restano al tuo legale e alla vendor review.
+
+## Quando Granola resta spesso la scelta migliore
+
+Resta su Granola se vuoi un **blocco note IA live senza ospite in elenco**, accetti note ospitate negli USA e gestisci l'interruttore di training (o i default Enterprise). Sync tra dispositivi e cattura mobile sul posto fanno parte del prodotto. I team che hanno già approvato il pacchetto Trust Center fanno meglio a stringere le impostazioni che a cambiare per principio.
+
+Confronto con altri tool: [alternativa a Granola](/it/blog/alternativa-a-granola).
+
+## Quando sta meglio un flusso Mac locale
+
+Scegli la cattura locale se il transcript deve **restare sul Mac** salvo export:
+
+- **Vemoir per Mac** registra microfono e audio di sistema dalla barra dei menu, senza bot ([come funziona](/it#how)).
+- Trascrizione e voci restano sul dispositivo. I modelli testo cloud sono opt-in, con la tua chiave, senza audio grezzo ([cattura](/it#capture)).
+- Per un file che hai già, [trascrivere audio](/it/strumenti/trascrivere-audio) nella scheda, senza upload a Vemoir (15 minuti, tre giri a settimana, niente etichette parlanti).
+
+Granola ottimizza un blocco note cloud senza bot. Vemoir ottimizza record locali ed export esplicito.
+
+Se la prossima call non può mandare il parlato a un fornitore di trascrizione, [registrala sul Mac](/it#how) invece di avviare Granola.
+
+## Domande frequenti
+
+### Granola è privato per call clienti riservate?
+
+Granola documenta niente bot e niente audio tenuto, più storage **AWS USA** per note e transcript, e **training dei propri modelli** su dati de-identificati salvo opt-out. Se combacia con una clausola cliente lo decide la tua organizzazione. Questa pagina non è un via libera.
+
+### Granola conserva le mie registrazioni?
+
+Policy e FAQ: l'audio serve a trascrivere, poi viene cancellato da Granola e dai terzi. Restano note e transcript.
+
+### Dove sono i dati Granola?
+
+**Amazon Web Services negli Stati Uniti**, cifrati a riposo e in transito. Niente residenza UE o altra a settembre 2026 ([FAQ](https://docs.granola.ai/help-center/consent-security-privacy/security-privacy-data-faqs)).
+
+### Granola usa i meeting per addestrare l'IA?
+
+Fornitori terzi: Granola dice no. Modelli Granola: **sì, su dati anonimizzati / de-identificati**, acceso di default su Free e Business, spento su Enterprise. Opt-out in **Data and sharing**. L'uso precedente all'opt-out non è garantito inutilizzato.
+
+### Un admin può leggere le mie note Granola?
+
+Granola dice no, salvo condivisione tua. Gli admin Enterprise possono limitare i livelli di condivisione. Non sono descritti come lettori silenziosi delle note private.
+
+### Granola è certificato GDPR o HIPAA?
+
+Granola pubblica linguaggio GDPR, un DPA, SOC 2 Type II e affermazioni HIPAA Enterprise. Questo articolo non le certifica e non le applica ai tuoi fatti.
+
+### Questo testo prova la conformità nLPD?
+
+No. La protezione dei dati svizzera resta tua. Lo store documentato da Granola è negli USA.
+
+### Quale alternativa locale senza mandare il parlato a un fornitore?
+
+**Vemoir per Mac** tiene la trascrizione sul dispositivo. Per un file corto: [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) nel browser, senza upload audio a Vemoir.
+
+## Passo successivo
+
+Leggi la [pagina security](https://www.granola.ai/security), la [privacy policy](https://docs.granola.ai/help-center/policies/privacy-policy) e la [FAQ sul training](https://docs.granola.ai/help-center/consent-security-privacy/model-training) attuali prima della prossima call registrata. Se note cloud USA o training Granola escono dal perimetro, usa l'[app Mac](https://apps.apple.com/app/id6794693630) o gli [strumenti gratuiti](/it/strumenti).

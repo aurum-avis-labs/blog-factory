@@ -1,0 +1,106 @@
+---
+title: "A Meeting Longer Than 15 Minutes Will Not Fit the Trial"
+description: "A meeting longer than 15 minutes is outside the free browser trial. What the cap covers, what still works on text, and where the Mac app starts."
+pubDate: 2026-10-19
+author: "Vemoir Team"
+tags: ["transcription", "meetings", "mac"]
+funnelStage: "interest"
+translationKey: "meeting-longer-than-15-minutes"
+relatedPosts: ["offline-transcription-mac", "import-audio-file-mac", "best-free-transcription-tools"]
+image: "@/assets/blog/meeting-longer-than-15-minutes/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/meeting-longer-than-15-minutes/inline1.jpg';
+import inline2 from '@/assets/blog/meeting-longer-than-15-minutes/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+A meeting longer than 15 minutes will not transcribe in the free browser tools. The trial accepts an audio or video file up to 15 minutes: MP3, M4A, WAV, or MP4. Past that, the page refuses the file before the model runs. That limit is the trial, not a statement about how long a person can talk. A one-hour client call, a workshop, or a board sitting belongs on the Mac app, which is built for a full meeting on the machine.
+
+Splitting the hour into four clips does not make it a free unlimited pipeline. Each successful transcription spends one of three weekly runs, shared across the transcription tools. Four chunks can burn the week and still leave you with four texts to stitch by hand.
+
+## A meeting longer than 15 minutes, in the browser
+
+It stops speech-to-text on a file, and the chained "recording to notes" pass that transcribes and then drafts notes in one use. You drop the file, the page checks type, size, and length, and a file over 15 minutes is rejected. There is also a size ceiling on the trial (80 MB). A short file can still be too big if it is an uncompressed video. Prefer the audio track when you have one, such as Zoom's `audio_only.m4a`, and only if that audio is itself under 15 minutes.
+
+
+<Image src={inline1} alt="Afternoon light on a long meeting table and empty cups" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@leshatuman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">leshatuman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+The weekly counter is three successful model runs in this browser, not an account. Samples do not count. A failed run that never succeeds should not be your planning assumption. Plan as if three real files a week is the budget. The counter lives in the browser. Another browser, or a cleared site storage, is not a second subscription you are entitled to treat as a workaround for a team.
+
+These pages do not record the live call. They do not join Zoom or Teams. They do not read tab audio. You already have a file, or you do not.
+
+## What you can still do with a long meeting's text
+
+The cap is on audio in the browser. It is not a cap on every page.
+
+
+<Image src={inline2} alt="A long wooden table with many chairs in late daylight" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- Cleaning a VTT, SRT, or similar export does not spend a run and does not care that the meeting was two hours. Timestamps come off. Names stay if they were in the file. The [transcript cleaner](/tools/transcript-cleaner) will not invent speakers.
+- [Meeting notes from a transcript](/tools/meeting-notes-from-transcript) drafts from text you paste. That draft does spend a run, because it calls a model. A very long paste can be truncated. If the page says the text was cut, the draft did not see the end of the call.
+- The [minutes sheet](/tools/minutes-sheet) and [who held the floor](/tools/who-held-the-floor) do not spend a run. Talk share still needs names already in the text. A long nameless transcript will not grow labels because it is long.
+
+So a two-hour Teams or Zoom cloud transcript you were allowed to download can be cleaned and, if it fits, drafted from text. A two-hour M4A you recorded locally cannot take the browser transcription path. Do not chop it into 14-minute pieces and call that the product. You will spend runs, lose speaker continuity, and still have no diarization.
+
+## Where the Mac app takes the long meeting
+
+Vemoir on the Mac records from the menu bar for the length of the call you start and stop. It imports MP3, M4A, WAV, AIFF, CAF, and FLAC and runs them through the same local pipeline. Opus and Ogg are not imported. Transcription and speaker separation stay on the Mac. Summaries, decisions, actions, and questions you ask about the meeting run on the Mac by default. A cloud language model is optional, text only, with your own key, and there is no silent fallback. Once the models you chose are downloaded, the workflow can run offline.
+
+The app needs Apple silicon, macOS Sonoma 14.2 or later, and enough disk for the models. It does not run on Windows or on Intel Macs. It does not put a bot in the meeting. System audio uses the System Audio Recording permission, which is audio only. It does not record the screen.
+
+You get a meeting record: minutes, decisions, action items, a follow-up draft, and a transcript you can check. Labels start anonymous. You rename them. Remembering a voice is opt-in. That is the point of moving a long meeting off the trial: one sitting, one file, speakers you can review, notes that are not a 15-minute slice.
+
+Install it from the [Mac App Store](https://apps.apple.com/app/id6794693630). How a full meeting is stored is on [the record](/#record). How capture works is on [capture](/#capture).
+
+## A practical split
+
+| You have | Use |
+| --- | --- |
+| Audio under 15 minutes, and a run left this week | [Transcribe a recording](/tools/transcribe-recording) in the browser. No upload. No speaker labels. |
+| A VTT or other transcript, any length you can paste | Clean it, then draft notes if you want a first recap. Watch truncation. |
+| Audio over 15 minutes, or the next live call | The Mac app. Do not slice the file to dodge the cap. |
+| Only a need for a blank protocol | The [minutes sheet](/tools/minutes-sheet). No model, no audio. |
+
+If the long file is a local Zoom recording, the folder layout is in [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording). The 15-minute trial is the same ceiling there. The cloud VTT, if you have one, is already text and skips the audio cap.
+
+## Frequently asked questions
+
+### Why 15 minutes?
+
+The browser trial holds the recording in the tab and runs a public speech model there. Fifteen minutes is the limit of that trial. It is not a claim about accuracy, and it is not the length of meetings the Mac app is for.
+
+### If I cut a 60-minute file into four parts, is that allowed?
+
+The page will accept each part that is under 15 minutes and in a supported type. Each successful part spends a weekly run. You still do the stitching, and you still get no speaker separation. For a real meeting, use the Mac app instead of spending the week on slices.
+
+### Does the weekly limit reset per tool?
+
+No. Three successful model runs a week are shared across the transcription tools in this browser. Cleaning a VTT, the minutes sheet, talk share, and the meeting cost line do not spend a run.
+
+### Can I record a long meeting in the browser if I stop at 15 minutes?
+
+No. The browser tools do not record live calls at any length. They read a file you already have, or text you paste. Live capture is the Mac app, for the whole call, not a 15-minute slice of it.
+
+### Will a long cloud transcript from Zoom or Teams work?
+
+Yes, as text. Export the transcript if you are allowed to, clean the VTT, and draft notes from the words. You are not transcribing audio in that path. You still cannot invent speaker names the export lacked.
+
+### Is the Mac app another 15-minute cap?
+
+No. The 15-minute line is the browser trial. The Mac app is the local meeting workflow: record or import, transcribe on the machine, keep minutes and a transcript. Hardware and disk limits still exist. The clock in the trial does not.
+
+### What if my short file is rejected anyway?
+
+Check the type (MP3, M4A, WAV, MP4), the length, and whether the browser could read the audio. A silent file or a file with no speech will also stop. WAV is the usual fallback if a browser cannot decode the original.
+
+### Do I need an account for the trial?
+
+No. The weekly count is stored in the browser. The Mac app is a separate install from the App Store, not a login that raises the 15-minute line.
+
+Next step: if the file is short, use [transcribe a recording](/tools/transcribe-recording). If the meeting is longer than 15 minutes, install Vemoir from the [Mac App Store](https://apps.apple.com/app/id6794693630) and keep the whole call on the Mac.

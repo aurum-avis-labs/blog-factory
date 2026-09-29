@@ -1,0 +1,125 @@
+---
+title: "Discord-Anruf auf dem Mac lokal über Systemaudio aufnehmen"
+description: "Einen Discord-Anruf auf dem Mac nimmst du über Systemaudio und das Mikrofon auf. Kein Bot im Channel. Transkript bleibt auf dem Gerät."
+pubDate: 2026-10-26
+author: "Vemoir Team"
+tags: ["discord", "mac", "aufnahme"]
+funnelStage: "consideration"
+translationKey: "record-discord-call-mac"
+relatedPosts: ["slack-huddle-aufnehmen-mac", "zoom-meeting-aufnehmen-mac", "google-meet-aufnehmen-mac"]
+image: "@/assets/blog/record-discord-call-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/record-discord-call-mac/inline1.jpg';
+import inline2 from '@/assets/blog/record-discord-call-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Einen **Discord-Anruf auf dem Mac aufnehmen** heisst, den Ton zu erfassen, den Discord schon abspielt, plus dein Mikrofon, auf dem Computer vor dir. Discord gibt dir nach einem Sprachkanal keinen Zoom-Ordner mit lokalen Aufnahmedateien. Brauchst du ein Transkript, gehst du mit einer Datei, die du selbst aufgenommen hast, oder du akzeptierst, dass der Anruf nur Live-Ton war. Vemoir ist die Menüleisten-Aufnahme für diese Datei. Die App tritt dem Channel nicht als Bot bei.
+
+Die Mac-App ist ein Einmalkauf. In der Schweiz kostet sie **CHF 20**. Der App Store zeigt den lokalen Preis in deinem Land. Kein Abo und keine Gebühr pro Anruf.
+
+## Inhalt
+
+- [Was Discord speichert und was nicht](#was-discord-speichert-und-was-nicht)
+- [Discord-Anruf auf dem Mac aus der Menüleiste](#discord-anruf-auf-dem-mac-aus-der-menüleiste)
+- [Kopfhörer, Stream-Audio, leise Spuren](#kopfhörer-stream-audio-leise-spuren)
+- [Wann ein anderes Werkzeug die bessere Aufnahme ist](#wann-ein-anderes-werkzeug-die-bessere-aufnahme-ist)
+- [Häufige Fragen](#häufige-fragen)
+
+## Was Discord speichert und was nicht
+
+Ein Sprach- oder Videoanruf auf Discord ist live. Wenn er endet, bleiben die Nachrichten im Channel. Die Sprache wird kein ladbares Transkript, ausser jemand hat aufgenommen oder ein eigener Bot auf dem Server hat diese Arbeit gemacht. Server-Bots, die aufnehmen oder transkribieren, sind für die Leute sichtbar, die den Server betreiben, und sie sind ein anderes Produkt als eine App auf deinem Mac. Verbieten die Serverregeln Bots, füg keinen hinzu, nur um ein Transkript zu bekommen.
+
+
+<Image src={inline1} alt="Nachts im Homeoffice, Headset und zugeklappter Laptop" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Bühnen, Bildschirmfreigaben und Go-Live-Streams sind immer noch Ton, manchmal auch Bild, der aus der Discord-App auf deinem Mac kommt. Eine Systemaudio-Aufnahme hört, was der Mac hört. Sie lädt Discords Server nicht herunter und erreicht niemanden, dessen Client nie auf deiner Maschine gespielt hat. War jemand am Sprechen und du hattest die Person stumm, fehlt sie. Die Aufnahme entspricht deinen Ohren.
+
+Du bist dafür da, es dem Channel zu sagen. Eine lokale App schreibt keine Meldung «Aufnahme gestartet» in Discord. An vielen Orten ist Einwilligung Pflicht. Ein Transkript erzeugt sie nicht nachträglich.
+
+## Discord-Anruf auf dem Mac aus der Menüleiste
+
+1. Der Mac braucht Apple Silicon (M1 oder neuer) und macOS Sonoma 14.2 oder neuer, mindestens 8 GB Arbeitsspeicher und 10 GB frei. 16 GB sind die Empfehlung für lange Anrufe. Intel-Macs werden nicht unterstützt. Es gibt keine Windows- oder Telefonversion als Ausweg.
+2. Installiere aus dem [Mac App Store](https://apps.apple.com/app/id6794693630). In der Schweiz CHF 20. Der Store zeigt den lokalen Preis.
+3. Erlaube **Mikrofon** und **System Audio Recording**. Systemaudio ist nur Ton. Der Bildschirm wird nicht aufgenommen. Beide Schalter liegen unter Systemeinstellungen, Datenschutz und Sicherheit. Erklärt auf [Aufnahme](/de#capture).
+4. Lade das Sprachmodell, das du nutzt. Parakeet v3 deckt 25 europäische Sprachen ab. Whisper Turbo, Medium oder Large-v3 sind die anderen lokalen Sprachmodelle. Der erste Download braucht Netz. Danach kann der Ablauf offline laufen. Die App tauscht das Modell nicht, während du im Channel bist.
+5. Tritt dem Discord-Anruf in der Desktop-App bei und hör die anderen über den Mac, nicht nur über ein Telefon daneben. Telefon-Audio geht nicht durch den Systemaudio-Abgriff des Macs.
+6. Starte die Menüleisten-Aufnahme. Gehört der Anruf zu einem Kunden oder Projekt, wähl das Projekt vorher, damit die Datei kein loses Meeting ist. Sag im Channel, dass du aufnimmst.
+7. Stopp, wenn der Anruf endet. Das Transkript wird aus dem fertigen Audio auf dem Mac neu gebaut. Die Vorschau während des Gesprächs ist ein Hinweis, nicht die Akte.
+
+
+<Image src={inline2} alt="Gemuetlicher Abendtisch mit Kopfhoerern und Tasse" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Discord steht bei den anderen Meeting-Apps unter [Plattformen](/de#platforms). Dasselbe lokale Muster ohne Bot beschreibt [Meeting-Notizen ohne Bot](/de/blog/meeting-notizen-ohne-bot).
+
+Danach hast du Protokoll, Entscheide, Aufgaben und einen Nachfassentwurf. Sprecher werden auf dem Mac getrennt, in Etiketten, die du umbenennen kannst. Ein Stimmprofil merken ist optional, verschlüsselt und löschbar. Personen, bei denen das Modell unsicher ist, bleiben anonym. Behandle ein Etikett nicht als Identifikation in einem Streit. Hör das Audio, wenn der Satz zählt.
+
+Import geht, wenn du schon eine Datei hast: MP3, M4A, WAV, AIFF, CAF oder FLAC. Einen kurzen Clip in MP3, M4A, WAV oder MP4 kannst du über [Audio transkribieren](/de/tools/audio-transkribieren) laufen lassen, höchstens 15 Minuten und 3 erfolgreiche Läufe pro Woche, ohne Sprechernamen. Ein Discord-Anruf von einer Stunde ist die Mac-App, nicht der Browser.
+
+## Kopfhörer, Stream-Audio, leise Spuren
+
+Systemaudio ist «was der Mac abgespielt hat». Manche Setups machen das leiser, als deine Ohren meinten.
+
+**USB- oder Bluetooth-Headset als Ausgabe.** Solange macOS Discord an dieses Gerät schickt und Systemaudio erlaubt ist, sollte der Anruf auf der Systemspur liegen. Steckst du Kopfhörer erst nach dem Start ein, pausier und prüf ein paar Sekunden Aufnahme, bevor das eigentliche Gespräch kommt. Eine tote Spur fällt beim Abspielen auf und tut weh, wenn du sie eine Stunde später entdeckst.
+
+**Du bist auf Discord am Telefon, am Mac läuft nichts.** Dann gibt es kein Systemaudio. Tritt über die Desktop-App bei, oder nimm den Raum nur mit dem Mikrofon auf und akzeptier, dass die Lautsprecherqualität des Telefons die Transkriptqualität ist.
+
+**Stream und Stimme zusammen.** Ein lauter Stream unter einer leisen Stimme dominiert. Gehörschutz für dich ist kein Gehörschutz für die Aufnahme. Mach den Stream leiser oder akzeptier ein schlechteres Transkript. Die Rauschunterdrückung des Mikrofons (Aus, Ausgeglichen oder Stark) gilt für den Mikrofonweg, auf dem Mac, und ist für gleichmässiges Rauschen wie einen Lüfter gedacht. Sie ist kein Versprechen, dass ein Spielsoundtrack verschwindet.
+
+**Du brauchst ein Videofile vom Gameplay, keine Notizen.** Ein Werkzeug für Bild und Ton, gebaut für Clips, ist der bessere Rekorder. Vemoir nimmt den Bildschirm nicht auf. Es liefert keine Montage. Es liefert ein Transkript des Tons.
+
+## Wann ein anderes Werkzeug die bessere Aufnahme ist
+
+Nutze einen Bot, dem der Server schon vertraut, wenn die Community ein öffentliches Log in Discord erwartet und die Regeln diesen Bot erlauben. Eine lokale Datei auf dem Laptop ist das falsche Archiv für ein Moderationsteam, das das Log im Channel braucht.
+
+Nutze Videoaufnahme, wenn das Ergebnis Footage ist. Ein Sitzungsprotokoll ist das falsche Ergebnis für einen Highlight-Reel.
+
+Schreib von Hand, wenn du keine Einwilligung bekommst. Die Ansage weglassen und trotzdem aufnehmen ist keine Lücke, die Software schliesst.
+
+Nutze die lokale Mac-App, wenn du im Anruf bist, die anderen zugestimmt haben, du Text und Aufgaben willst und keinen neuen Bot-Nutzer in der Mitgliederliste. Das ist der gewöhnliche Beratungs- oder Projektanruf, der zufällig auf Discord statt auf Zoom läuft.
+
+Teilen ist manuell. Vemoir postet das Transkript nicht in den Channel. Kopier den Teil, den du zeigen willst. Der Rest bleibt auf dem Mac, ausser du exportierst ihn oder schaltest ein Cloud-Textmodell mit deinem eigenen Schlüssel ein. Audio und Sprechertrennung gehen nicht an dieses Cloud-Modell. Scheitert das Modell, gibt es keinen stillen Ersatz.
+
+## Häufige Fragen
+
+### Tritt Vemoir dem Discord-Channel bei?
+
+Nein. Die App nimmt Audio auf deinem Mac auf. Die Channelliste bekommt keinen Vemoir-Nutzer.
+
+### Warum liegt nach dem Auflegen keine Aufnahme in Discord?
+
+Ein normaler Sprachanruf hinterlässt keine lokale Datei im Zoom-Stil. Hast du ihn nicht erfasst, ist die Sprache weg.
+
+### Was kostet die App?
+
+In der Schweiz CHF 20. Der App Store zeigt den lokalen Preis. Einmalig, im [Mac App Store](https://apps.apple.com/app/id6794693630). Kein Abo.
+
+### Welche macOS-Freigabe?
+
+System Audio Recording für Discords Wiedergabe, und Mikrofon für dich. Keine Bildschirmaufnahme.
+
+### Geht das auf Windows?
+
+Nein. Die App ist für Apple-Silicon-Macs mit macOS Sonoma 14.2 oder neuer.
+
+### Passen die Sprechernamen zu Discord-Nicknames?
+
+Nur wenn du die Etiketten umbenennst oder ein Stimmprofil aktivierst, das sicher trifft. Sonst bleiben anonyme Etiketten.
+
+### Geht ein Clip von 10 Minuten ohne Kauf der App?
+
+Ja. Exportier oder schneid auf MP3, M4A, WAV oder MP4 unter 15 Minuten und nutze [Audio transkribieren](/de/tools/audio-transkribieren). Drei erfolgreiche Läufe pro Woche. Keine Sprechernamen.
+
+### Schickt die Rauschunterdrückung Audio an einen Server?
+
+Nein. Die Mikrofonmodi laufen auf dem Mac.
+
+## Nächster Schritt
+
+Installiere aus dem [Mac App Store](https://apps.apple.com/app/id6794693630), wenn der nächste Discord-Anruf auf diesem Mac zum Protokoll werden soll. Hast du nur schon eine kurze Datei, nutze [Audio transkribieren](/de/tools/audio-transkribieren) und bleib unter der Grenze von 15 Minuten.

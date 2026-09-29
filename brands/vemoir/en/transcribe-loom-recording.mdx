@@ -1,0 +1,119 @@
+---
+title: "Transcribe a Loom Recording from a File You Already Have"
+description: "Transcribe a Loom recording you already downloaded. A short file in the browser, a longer one in the Mac app, with no speaker names in the tool."
+pubDate: 2026-11-15
+author: "Vemoir Team"
+tags: ["Loom", "transcription", "files"]
+funnelStage: "interest"
+translationKey: "transcribe-loom-recording"
+tool: "transcribe-recording"
+relatedPosts: ["import-audio-file-mac", "transcribe-voice-memo-mac", "transcribe-zoom-local-recording"]
+image: "@/assets/blog/transcribe-loom-recording/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/transcribe-loom-recording/inline1.jpg';
+import inline2 from '@/assets/blog/transcribe-loom-recording/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@collab_media?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">collab_media</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+You **transcribe a Loom recording** from a file you already have, not by sitting a bot inside a Loom you are still watching. Download or export the video you are allowed to keep, then run speech to text on that file. A clip of 15 minutes or less can go through the browser. A longer walkthrough belongs on the Mac.
+
+Loom's own download menus change, and this page does not invent a click path. If you cannot get a file you own, you cannot transcribe it here. Watching a private Loom in the browser and hoping a recorder hears it is a different job, covered only if the audio is already playing on your Mac.
+
+## What you have after the download
+
+A typical Loom file is video, often MP4, with one mixed audio track. The presenter and the screen share are in the picture. The words are in the soundtrack. Transcription only needs the soundtrack.
+
+
+<Image src={inline1} alt="A small camera next to a notebook after a recording" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@tombyrom?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">tombyrom</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+The browser tool accepts MP3, M4A, WAV, and MP4. It does not record the tab while you watch. It does not label speakers. The model downloads once to your browser. The file is not uploaded to Vemoir. Three successful runs a week. Fifteen minutes per file. Swiss German in that public model usually comes out as Standard German. The same limit applies to the Mac app: there is no dialect mode.
+
+If the Loom is longer than 15 minutes, do not split it into secret extra runs to dodge the cap and then lose the middle. Use the Mac app, or trim to the part you actually need.
+
+Notion's help, checked September 2026, says Loom files are not supported for upload into Notion AI meeting notes, along with MOV and MP4. Extracting audio to WAV or MP3 is Notion's path if the page must live there. It is not required just to get a transcript on your machine. [Notion's page](https://www.notion.com/help/ai-meeting-notes) is the source for that upload list.
+
+## Transcribe a Loom recording that is 15 minutes or less
+
+1. Confirm you may keep and transcribe the recording. A Loom shared with you is not automatically yours to copy.
+2. Save the file locally. The browser tool reads a file from your computer. A link in a tab is not a file.
+3. Open [transcribe recording](/tools/transcribe-recording).
+4. Pick the MP4, or an MP3 or M4A or WAV if you already converted.
+5. Wait for the model if this is the first run on this browser.
+6. Read the transcript. Copy the text you will use. There are no speaker names and no meeting library.
+
+
+<Image src={inline2} alt="An SD card beside a closed laptop" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@sinasalehian?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sinasalehian</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+If the file is over 15 minutes, the tool will not take the whole thing. Cut the section you need, or move to the Mac.
+
+The transcript is words over time, not minutes. A product walkthrough still needs you to mark the decision, the bug, and the request. The tool will not write the follow-up.
+
+## A longer Loom on the Mac
+
+Vemoir for Mac imports local audio and runs the same on-device pipeline as a live meeting: transcript, speaker separation from the audio it has, then summary, decisions, and actions if you want them. Audio stays on the Mac unless you export text or turn on your own text API key. That key never receives the recording.
+
+Import formats are MP3, M4A, WAV, AIFF, CAF, and FLAC. An MP4 from Loom is video. Convert it to one of those audio formats first, with whatever converter you already trust. Do not re-record the Loom by playing it through speakers into the microphone. That copy is worse: room noise, two clocks, a lower voice.
+
+Apple silicon, macOS Sonoma 14.2 or later. Intel Macs and Windows are not supported. The app is on the [Mac App Store](https://apps.apple.com/app/id6794693630).
+
+Assign the file to a project if this Loom belongs to one client. After processing, speaker labels on a single mixed track will often be one or two voices, and they will be weaker than a live call where your mic and the system audio were separate tracks. Rename a speaker if you know who it is. "Remember this speaker" is optional, encrypted, and deletable. Unknown voices stay unnamed.
+
+Manual notes you type are folded into the minutes with a mark that they are yours. They are not shown as verbatim evidence from the tape.
+
+## When you should not transcribe the file at all
+
+If the only goal is a two-line summary you can see inside Loom, use whatever Loom already shows the owner, and check Loom's own help for how long that stays. This page is for a transcript you keep on your side.
+
+If the Loom includes other people's screens, customer data, or a meeting you were not meant to copy, stop. A local transcript is still a copy.
+
+If you need the slides and the pointer, a transcript will not replace the video. Keep the file, and use the text as an index.
+
+If the audio is music under a silent screen recording, there is nothing to transcribe. Do not run a model on it hoping for the on-screen words. This is speech to text, not a reader of pixels.
+
+## After the text exists
+
+Paste the lines you will send. A product Loom often hides the real request in the second half. Read that part before you quote the opening.
+
+If you turned the file into a meeting record on the Mac, decisions and actions are separate rows. A decision needs wording, a person, and a date. An action needs a description, an owner, a due date, and a status. If the Loom never said who owns it, leave the owner blank. Do not invent a name from the Loom title.
+
+Clipboard copy covers the summary, the actions, the decisions, and the transcript. You can also write an Apple Note in a folder you picked. There is no PDF or DOCX export.
+
+Delete the meeting if the transcript should not remain. Deleting removes the transcript, the generated record, the actions and decisions attached to that meeting, and the recording folder. A file you still have in Downloads is not deleted by that action. Clean the original yourself.
+
+## Frequently asked questions
+
+### Can I transcribe a Loom recording while it plays?
+
+Not with the browser tool. It takes a file. A Mac menu-bar recorder can hear whatever audio is playing, including a Loom in a browser, if you start it and you are allowed to keep the copy. That is a new recording of the playback, not a transcript of the original file. Prefer the file.
+
+### Does the browser upload the MP4?
+
+No. The model runs locally after it has downloaded. The file stays on your machine. The limit is 15 minutes and three successful runs a week, with no speaker labels.
+
+### Loom is a video. Do I send the video to the Mac app?
+
+Convert it to MP3, M4A, WAV, AIFF, CAF, or FLAC first. The Mac import is audio. The browser tool is the one that accepts an MP4, up to 15 minutes.
+
+### Will I get the presenter's name?
+
+Not from the browser tool. On the Mac, a single mixed track may get rough labels. Rename them. A Loom title is not a speaker list.
+
+### Can I drop the Loom into Notion instead?
+
+Notion's help says Loom, MOV, and MP4 are not supported uploads for AI meeting notes. Supported types there are AAC, M4A, MP3, and WAV. That is a Notion limit, not a reason to skip a local transcript.
+
+### What if the Loom is in French or Italian?
+
+Parakeet v3 on the Mac covers 25 European languages, standard speech. The interface itself is English, German, French, Italian, and Dutch. Do not expect a dialect transcript.
+
+### Is there a per-file fee?
+
+The browser tool is the free limit above. The Mac app is a one-time App Store purchase, separate from Loom. This page does not set the price because the next step for a file under 15 minutes is the tool, not the store.
+
+Start with the file you already downloaded. Short clips go through [transcribe recording](/tools/transcribe-recording). Longer ones belong on the Mac, after you have audio rather than a video container.

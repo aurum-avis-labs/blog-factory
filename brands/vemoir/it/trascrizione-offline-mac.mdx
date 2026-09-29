@@ -1,0 +1,145 @@
+---
+title: "Trascrizione offline su Mac dopo il download del modello"
+description: "Trascrizione offline su Mac quando il modello vocale è già sul disco: limiti del browser, app locali e cosa richiede ancora Internet."
+pubDate: 2026-10-10
+author: "Vemoir Team"
+tags: ["offline", "trascrizione", "mac"]
+funnelStage: "interest"
+translationKey: "offline-transcription-mac"
+relatedPosts: ["trascrivere-nota-vocale-mac", "importare-file-audio-mac", "migliore-trascrizione-offline-mac"]
+tool: "transcribe-recording"
+image: "@/assets/blog/offline-transcription-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/offline-transcription-mac/inline1.jpg';
+import inline2 from '@/assets/blog/offline-transcription-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@enchponnt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Thomas Chizzali</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+La **trascrizione offline su Mac** significa che il modello vocale è già sulla macchina e il file audio non deve lasciarla per il passaggio testo. Non significa «non sei mai andato online». Setup, primo download del modello, login e la maggior parte dei notetaker cloud hanno bisogno di rete. Quando i pesi stanno nella cache del browser o nella libreria modelli di un'app Mac, puoi trascrivere con il Wi-Fi spento.
+
+Questa guida separa tre casi onesti: gli strumenti browser gratuiti su vemoir.ch, un'app riunioni Mac dopo l'installazione dei modelli, e i servizi cloud che trascrivono sui loro server anche se la call è partita su un Mac. Dice anche quando un'app solo-file nel Finder è il percorso offline più corto.
+
+## Cosa significa davvero trascrizione offline su Mac
+
+Dietro la ricerca ci sono due lavori:
+
+
+<Image src={inline1} alt="Portatile chiuso su una scrivania di campagna in luce diurna" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@stev_tensai89?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Stefanus Stefanus</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. **Un file già sul disco** (M4A di Memo Vocali, `audio_only.m4a` Zoom, WAV di intervista). Vuoi testo senza upload.
+2. **La prossima riunione live.** Vuoi cattura e trascrizione senza bot e senza mandare l'audio in un cloud vendor.
+
+Test comune: col modello presente, puoi staccare la rete e avere ancora un transcript? Se ogni sessione chiede una chiamata API, non è trascrizione offline. Note cloud in cache per leggerle sono modifica offline, non parlato-in-testo offline.
+
+Il locale chiede comunque spazio e RAM. L'app Mac Vemoir vuole Apple silicon, macOS Sonoma 14.2 o successivo, almeno 8 GB di memoria e 10 GB liberi; 16 GB o più sono ragionevoli per le riunioni lunghe. I Mac Intel non sono supportati. Sono limiti hardware, non una promessa di privacy.
+
+## Strumenti browser: un download, poi giri offline
+
+Gli strumenti gratuiti su vemoir.ch trascrivono un file che hai già **nella scheda**. L'audio **non viene caricato su Vemoir**. Un Whisper pubblico si scarica una volta. I giri successivi possono funzionare a rete spenta se la cache c'è ancora. Lo vedi nella scheda **Rete** (niente upload multipart del file).
+
+
+<Image src={inline2} alt="Tavolo rurale con note su carta vicino a una finestra" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@istin?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Irvin Aloise</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+[/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) per un MP3, M4A, WAV o MP4 generico. Zoom locale: [/it/strumenti/trascrivere-registrazione-zoom](/it/strumenti/trascrivere-registrazione-zoom). Note vocali: [/it/strumenti/trascrivere-nota-vocale](/it/strumenti/trascrivere-nota-vocale).
+
+Limiti che restano offline:
+
+- **15 minuti** per file.
+- **Tre esecuzioni riuscite a settimana**.
+- **Niente etichette dei parlanti**.
+- **Niente cattura live** nella scheda. Niente estensione, bot o audio da tab.
+
+Lo svizzero tedesco esce di solito come **tedesco standard**. È il comportamento Whisper pubblico, non un modello dialettale.
+
+Lista per il primo giro:
+
+1. Resta online finché il download del modello finisce. Lascia la scheda aperta.
+2. Apri **Strumenti per sviluppatori → Rete** e lancia un file corto.
+3. Vedi pesi o asset, non il tuo audio verso un host remoto.
+4. Opzionale: spegni il Wi-Fi e rilancia un secondo file corto per provare la cache.
+
+Cache svuotata significa di nuovo rete. Navigazione privata e pulitori aggressivi dei dati sito annullano la parte offline.
+
+## App Mac: installa i modelli una volta, poi il flusso riunione può restare offline
+
+Vemoir per Mac è pensato **locale prima**. Microfono e audio di sistema partono come tracce locali separate. Nessun bot entra in call. Avvii e fermi dalla barra dei menu ([come funziona](/it#how), [piattaforme](/it#platforms)).
+
+Dopo il download dei modelli di trascrizione scelti, **trascrizione e trattamento delle voci girano sempre sul Mac**. Riassunti, azioni, decisioni, Ask Vemoir e documenti sono locali di default. Un modello testo cloud (OpenAI o Anthropic, tua chiave) è opt-in e **solo testo**. L'audio grezzo non ci va. Non c'è un fallback cloud silenzioso se un modello locale fallisce ([cattura e modelli](/it#capture)).
+
+Internet serve ancora per:
+
+- il primo setup e i **download dei modelli** (progresso visibile e riprendibile; Vemoir non sostituisce un modello in silenzio a metà elaborazione);
+- l'export opzionale verso Note, se lo scegli;
+- la generazione testo con la tua chiave, se la attivi.
+
+Con i modelli scelti sul disco puoi registrare Teams, Zoom, Meet o un huddle Slack, trascrivere e abbozzare un verbale **senza rete**. L'import di MP3, M4A, WAV, AIFF, CAF e FLAC usa la stessa pipeline locale.
+
+È la differenza rispetto a un blocco note che trascrive via Deepgram o Assembly e tiene le note su AWS: niente bot dà una sensazione locale, il passo voce è comunque una chiamata cloud. Esempio bot cloud dalle pagine vendor: [Otter.ai è sicuro](/it/blog/otter-ai-e-sicuro).
+
+Vuoi trascrivere la prossima call sul Mac a modelli installati? [Registra dalla barra dei menu](/it#how) e tieni il file sul dispositivo finché non esporti.
+
+## Cosa richiede ancora Internet (così non ti sorprende)
+
+| Passo | Strumento browser | App Mac Vemoir (modelli locali) | Notetaker cloud tipico |
+| --- | --- | --- | --- |
+| Primo modello o setup | Sì, scaricare i pesi | Sì, scaricare i modelli | Account e servizio |
+| Trascrizione successiva | Offline possibile se c'è cache | Sì, offline | No: audio o stream verso il vendor |
+| Cattura live | Non disponibile | Sì, sul Mac | Bot o upload desktop |
+| Etichette parlanti | No | Sì, sul Mac | Funzione vendor, nel loro cloud |
+| Condivisione transcript | Copi tu il testo | Esporti quello che scegli | Spesso salvato e condivisibile nel loro spazio |
+
+La modalità aereo dopo il setup è un test onesto per le prime due colonne. Non lo è per Otter, Fireflies e simili: tengono una libreria nel loro cloud.
+
+La FAQ sicurezza di Granola (settembre 2026) dice che le note sono in cache locale per modificarle offline, mentre **tutti i dati stanno su AWS negli Stati Uniti**, e la trascrizione desktop passa da fornitori terzi. È accesso offline *alle note*, non parlato-in-testo offline. Leggi le loro pagine se il prodotto è in short list.
+
+## Quando un'app solo Finder sta meglio
+
+Se non registri mai live e tiri solo file dal Finder, un trascrittore locale di file (per esempio MacWhisper) può essere più corto: scegli un build Whisper, punti una cartella, resti offline dopo il download del modello. Da quella classe di tool non ottieni verbale di riunione, decisioni o un registratore in barra menu.
+
+Vemoir sta bene quando il lavoro è **la call stessa**: audio di sistema più microfono, nessuno in più in elenco, poi un record da cercare ed esportare ([verbale](/it#record)). Non sta bene se ti serve Windows, la cattura iPhone come prodotto principale, o una libreria di team nello spazio di un vendor.
+
+I notetaker cloud restano meglio quando il punto è auto-join calendario, CRM e un archivio organizzativo. Quello non è trascrizione offline. È una libreria online con un client Mac.
+
+## Domande frequenti
+
+### Posso fare trascrizione offline su Mac senza installare un'app?
+
+Sì, per file corti. Usa [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) a Whisper già in cache. Tetto: 15 minuti e tre esecuzioni riuscite a settimana. Niente etichette parlanti, niente cattura live.
+
+### «Locale» vuol dire sempre offline?
+
+No. Un'app desktop può comunque mandare l'audio a un vendor di trascrizione. Controlla se il parlato-in-testo gira sul dispositivo dopo un download unico, o se ogni sessione serve la loro API.
+
+### A cosa serve Internet a Vemoir?
+
+Setup e download dei modelli. I modelli testo con la tua chiave e l'export verso Note servono rete quando li usi. La trascrizione resta sul Mac con il modello vocale locale scelto.
+
+### Gli strumenti browser possono registrare una riunione offline?
+
+No. Trascrivono solo un file che hai già. La registrazione live è lavoro dell'app Mac.
+
+### Avrò i nomi dei parlanti offline?
+
+Nel browser no. Nell'app Mac la separazione delle voci è locale. «Ricorda questo parlante» è opt-in, cifrato e cancellabile. Le voci sconosciute restano anonime.
+
+### La trascrizione offline supporta il dialetto svizzero tedesco?
+
+Non contarci. Il Whisper pubblico del browser e i modelli vocali Mac spediti scrivono **tedesco standard**. Questo articolo non data un percorso dialettale.
+
+### E se il file supera i 15 minuti?
+
+Importalo nell'app Mac, o spezzalo solo se accetti più giri browser e una timeline rotta. Il quota browser è tre job riusciti a settimana.
+
+### La modalità aereo è un buon test di privacy?
+
+Mostra che **quel giro** non ha avuto bisogno di rete. Non prova dove sono finite copie precedenti, e non sostituisce consenso o regole di conservazione per le voci altrui.
+
+## Passo successivo
+
+Per un file che hai già, apri [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio), scarica il modello una volta, poi prova un giro a rete spenta. Per la prossima riunione live, installa i modelli nell'[app Mac](https://apps.apple.com/app/id6794693630) e lavora da [cattura](/it#capture) senza mandare audio in un cloud notetaker.

@@ -1,0 +1,137 @@
+---
+title: "Rechercher des réunions passées, transcriptions et décisions"
+description: "Rechercher des réunions passées sur votre Mac : transcriptions, actions et décisions. L’archivé et le supprimé restent hors des résultats."
+pubDate: 2026-11-10
+author: "Vemoir Team"
+tags: ["recherche", "transcription", "Mac"]
+funnelStage: "interest"
+translationKey: "search-past-meetings"
+relatedPosts: ["supprimer-enregistrement-reunion", "relance-depuis-notes-reunion", "questions-sur-transcription-reunion"]
+image: "@/assets/blog/search-past-meetings/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/search-past-meetings/inline1.jpg';
+import inline2 from '@/assets/blog/search-past-meetings/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@declansun?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">declansun</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Vous pouvez **rechercher des réunions passées** sur le Mac qui les a enregistrées : titres, transcriptions, artefacts, actions et décisions, sans envoyer la bibliothèque vers un index hébergé. La recherche de la bibliothèque et Ask Vemoir restent sur la machine, sauf si vous avez explicitement routé la génération de texte vers votre propre clé d’API.
+
+La recherche répond à « où avons-nous dit cela ». Ask répond à une question et peut pointer une ligne. Ce sont deux commandes. Cette page explique comment trouver la séance, puis poser une question dans un périmètre que vous choisissez.
+
+## Sommaire
+
+- [Où chercher les réunions passées](#où-chercher-les-réunions-passées)
+- [Trouver une séance au clavier](#trouver-une-séance-au-clavier)
+- [Demander dans une séance, un projet ou la bibliothèque](#demander-dans-une-séance-un-projet-ou-la-bibliothèque)
+- [Ce qui n’apparaît jamais](#ce-qui-napparaît-jamais)
+- [Quand une citation de transcription n’est pas le bon résultat](#quand-une-citation-de-transcription-nest-pas-le-bon-résultat)
+- [Questions fréquentes](#questions-fréquentes)
+
+## Où chercher les réunions passées
+
+La recherche de projet couvre les séances, les transcriptions, les artefacts, les actions et les décisions. Le tableau de bord du projet ajoute un récapitulatif, le travail ouvert, les décisions récentes, les documents épinglés et les séances récentes, avec un lien vers la fiche source.
+
+
+<Image src={inline1} alt="Quelqu'un fouille une boite de notes papier" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@artosuraj?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">artosuraj</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Cela suffit quand vous vous souvenez d’un client, d’une formule ou d’un nom. Ce n’est pas le bon outil si vous voulez une réponse composée (« qu’avons-nous promis à Acme sur la date de déploiement »). Pour cela, ouvrez Ask Vemoir et choisissez un périmètre.
+
+Les périmètres sont fixes :
+
+- une séance ;
+- un projet ;
+- la bibliothèque active.
+
+Ouvrir Ask depuis une séance ou un projet démarre une nouvelle conversation dans ce périmètre. Les fils plus anciens restent dans l’historique Ask, avec leur périmètre. Vous pouvez revenir à la question de la semaine dernière sans la mélanger à celle d’aujourd’hui.
+
+Les séances et projets archivés sont exclus. Les suppressions retirent les enregistrements de connaissance qui les pointaient. Si vous n’avez purgé que l’audio et gardé la séance, la recherche trouve encore la transcription et les notes. La lecture a disparu. Les mots, non.
+
+## Trouver une séance au clavier
+
+Les destinations de la bibliothèque utilisent Commande-1 à Commande-6. **Commande-F** place le focus sur la recherche de séances. Les flèches parcourent la barre latérale des projets et la liste des séances. Le glisser-déposer entre Enregistrements locaux et un projet fonctionne toujours. La recherche ne remplace pas le classement.
+
+
+<Image src={inline2} alt="Tiroir de catalogue en bois legerement ouvert" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@hayko_badalyan?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">hayko_badalyan</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Un ordre utile quand vous ne savez plus quel mardi c’était :
+
+1. Classez l’appel dans un projet avant d’enregistrer, avec le sélecteur de projet de la barre des menus. La recherche est plus rapide quand le client est déjà le dossier.
+2. Appuyez sur Commande-F et tapez un nom, un terme produit ou une formule de décision.
+3. Ouvrez la séance si la ligne est la bonne.
+4. S’il vous faut la ligne, passez à la transcription, ou demandez dans cette séance pour que la réponse puisse citer un passage.
+
+Un glossaire de projet (graphies préférées et alias) aide les notes suivantes à utiliser le bon nom. La recherche tombe toujours sur la transcription d’origine. Le libellé d’origine est la preuve. Le glossaire ne réécrit pas l’historique pour faire disparaître un ancien surnom de la bande.
+
+## Demander dans une séance, un projet ou la bibliothèque
+
+Ask Vemoir est une conversation avec une frontière. Les questions ordinaires sont resserrées avant que le modèle local n’écrive. Une demande qui couvre tout le périmètre fait un passage borné sur les séances de ce périmètre, et le reçu de contexte indique la couverture même si la réponse ne lie que ses sources les plus fortes.
+
+Les réponses peuvent inclure des liens de preuve : ouvrir la séance, atterrir sur la transcription et voir le passage cité. Le modèle est invité à citer les lignes les plus fortes, et l’app limite une réponse à 24 sources distinctes. Une longue question sur la bibliothèque n’attache pas chaque paragraphe consulté.
+
+Les réponses terminées indiquent quel modèle les a écrites. Si vous passez d’un modèle local installé à l’autre (Qwen3 4B sur la plupart des Mac, gpt-oss-20b sur les Mac à beaucoup de mémoire), le tour suivant est replanifié. Les messages antérieurs restent tels quels.
+
+La génération de texte peut utiliser Apple Intelligence là où le Mac l’a, ou un modèle local que vous avez téléchargé. Une clé OpenAI ou Anthropic est facultative, limitée au texte, et inactive tant que vous ne l’activez pas. La transcription de l’audio d’origine ne part pas vers ce fournisseur. Si le fournisseur échoue, le tour s’arrête. Il n’y a pas de bascule silencieuse vers un autre modèle.
+
+Rien de cela ne cherche une séance qui n’est jamais entrée dans la bibliothèque. Un événement de calendrier sans audio n’est pas un résultat.
+
+## Ce qui n’apparaît jamais
+
+La recherche et Ask lisent la bibliothèque active. Ils laissent de côté :
+
+- les séances et projets archivés ;
+- les séances que vous avez supprimées ;
+- le contenu d’un profil vocal (les signatures ne sont ni dans la recherche, ni dans les exports, ni dans les journaux ordinaires) ;
+- les clés de preuve internes, retirées de la réponse visible ;
+- une note saisie présentée comme une ligne verbatim (les notes manuelles gardent leur propre marque).
+
+La séance d’exemple guidée est visiblement marquée Exemple. Supprimez-la après la visite pour qu’elle ne siège pas à côté de vrais clients dans la recherche.
+
+Si Commande-F ne renvoie rien, les causes sont en général plates. Le mot n’a été que prononcé, et la transcription l’a écrit autrement. La séance est archivée. Elle vit dans un autre projet et vous cherchez dans un seul. Ou l’audio a été importé sous un nom de fichier que vous avez oublié, alors que la formule parlée aurait correspondu dans la transcription.
+
+## Quand une citation de transcription n’est pas le bon résultat
+
+Un résultat dans la transcription prouve que quelqu’un a dit les mots. Il ne prouve pas que la salle a accepté. Les décisions dans Vemoir sont des fiches à part : formulation, personne responsable et date, modifiables après l’appel. Les actions ont un responsable, une échéance et un statut. La recherche peut trouver ces lignes sans vous faire relire la bande.
+
+Quand il vous faut une ligne sur laquelle vous pouvez vous appuyer, demandez dans la séance et suivez le lien de preuve. Quand il vous faut l’engagement, ouvrez Décisions sur ce projet.
+
+La surface qui borne ces questions est décrite dans la section [Ask](/fr#chat). La façon dont la capture fait entrer l’audio dans la bibliothèque est sous [capture](/fr#capture).
+
+## Questions fréquentes
+
+### Rechercher des réunions passées envoie-t-il la bibliothèque ?
+
+Non. La recherche de séances tourne sur le Mac. Ask tourne en local par défaut. Un modèle de langue dans le nuage n’intervient que si vous activez votre propre clé pour le texte, et même alors l’audio reste sur la machine.
+
+### Puis-je chercher dans tous les clients à la fois ?
+
+Oui. Ask peut prendre la bibliothèque active comme périmètre. La recherche de projet est la vue d’un seul projet. L’archivé sort des deux.
+
+### Pourquoi une séance supprimée disparaît-elle des anciennes réponses ?
+
+Les suppressions retirent les enregistrements de connaissance. La bibliothèque ne garde pas une ombre pour la recherche.
+
+### Ask invente-t-il un nom de locuteur ?
+
+Les locuteurs inconnus restent anonymes. Une étiquette renommée s’applique à cette séance. Un profil mémorisé n’est utilisé que si vous l’avez approuvé et que la correspondance passe les contrôles de l’app.
+
+### Quel raccourci pour la recherche de séances ?
+
+Commande-F place le focus sur la recherche de séances. Commande-1 à Commande-6 saute entre les destinations de la bibliothèque.
+
+### Cela fonctionne-t-il hors ligne ?
+
+Une fois les modèles choisis téléchargés, la recherche et Ask n’ont pas besoin de réseau. Le premier téléchargement, si.
+
+### Puis-je chercher un fichier Loom ou Zoom que je n’ai pas importé ?
+
+Pas tant qu’il n’est pas dans la bibliothèque. Importez l’audio, ou enregistrez le prochain appel depuis la barre des menus, puis cherchez cette séance.
+
+Un alias de glossaire ne cache pas l’ancien libellé. Si la salle a dit « le portail » en mars et que le glossaire dit aujourd’hui « espace client », la transcription de mars dit encore portail. Cherchez les mots qui ont été dits, puis lisez la ligne de décision si le nom a été corrigé plus tard dans les notes.
+
+Utilisez [Ask Vemoir](/fr#chat) quand le mot-clé ne suffit pas et que vous voulez une réponse rattachée à une séance, un projet ou la bibliothèque active.

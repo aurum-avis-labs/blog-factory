@@ -1,0 +1,110 @@
+---
+title: "Scaricare un modello locale: cosa fa il primo download"
+description: "Scaricare un modello locale è l'installazione voluta di voce o note. L'avanzamento si riprende. Vemoir non sostituisce un altro modello in silenzio."
+pubDate: 2026-11-05
+author: "Vemoir Team"
+tags: ["modelli", "download", "mac"]
+funnelStage: "interest"
+translationKey: "local-model-download"
+relatedPosts: ["parakeet-o-whisper", "qwen-o-gpt-oss", "trascrizione-offline-mac"]
+image: "@/assets/blog/local-model-download/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/local-model-download/inline1.jpg';
+import inline2 from '@/assets/blog/local-model-download/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@sasun1990?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sasun1990</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Scaricare un modello locale** è l’installazione che avvii di proposito: il modello vocale che trascriverà, o il modello di lingua che scriverà note, documenti e risposte. L’app mostra dimensione dello scaricamento, spazio, a cosa serve il modello e se sta su questo Mac. L’avanzamento può riprendere dopo un errore o una chiusura. Vemoir non scarica, non seleziona e non sostituisce un modello in silenzio mentre registri o mentre una riunione viene elaborata.
+
+Questa non è una guida per lavorare senza rete. Quella è un’altra domanda. Qui il tema è lo scaricamento in sé: cosa arriva, come vedi che è finito, e cosa non viene sostituito alle tue spalle.
+
+## Cos’è il primo scaricamento di modello locale
+
+L’impostazione presenta l’elaborazione locale, poi chiede solo i permessi di cui ha bisogno la cattura. Poi ti chiede di scegliere la trascrizione e un modello di lingua locale. Sono file diversi. Parakeet v3 trascrive 25 lingue europee. Whisper Turbo, Medium e Large-v3 sono le altre scelte vocali, ciascuna con la propria copertura. Nessuno di quelli scrive il verbale. Qwen3 4B è il modello di lingua pensato per la maggior parte dei Mac. gpt-oss-20b è quello più grande, per i Mac con tanta memoria. Scrivono note, documenti e Ask. Non trascrivono l’audio.
+
+
+<Image src={inline1} alt="Pila di dischi rigidi senza marca su un tavolo" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@readysetfreddy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">readysetfreddy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Puoi saltare una chiave cloud in impostazione. Una chiave non serve per lo scaricamento. La rete serve per prendere i file. Dopo che i modelli scelti sono installati, una riunione successiva può girare senza rete. Quel passo dopo è il motivo per cui lo scaricamento conta. La schermata di scaricamento è dove lo vedi succedere.
+
+La libreria modelli è dove torni: scaricare, ispezionare, selezionare, togliere. Prontezza, spazio, compatibilità hardware e ciclo di vita restano visibili. Un passaggio di riunione usa esattamente il modello vocale e il modello di lingua selezionati per quel passaggio. Non sceglie un modello più piccolo a metà riunione perché il disco era stretto.
+
+## Ripresa, errore e chiusura
+
+Se lo scaricamento si ferma, hai un errore e un modo per recuperare. L’avanzamento sopravvive alla chiusura e alla riapertura dell’app. Permessi negati, rete caduta e scaricamento fallito sono stati che puoi lasciare e ritrovare. Puoi riaprire l’impostazione da Impostazioni e azzerarla.
+
+
+<Image src={inline2} alt="Scatola piccola accanto a un portatile chiuso" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@c1st?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">c1st</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Quello che non dovresti vedere è una riunione finita che ha usato un modello che non hai mai scelto. Se manca un file, l’elaborazione non ne prende un altro in silenzio e non continua come se nulla fosse. Sistema lo scaricamento, poi rilancia la riunione.
+
+Controlli di integrità e avvisi di licenza arrivano con i file dei modelli locali. Non devi incollare un URL. Ti serve spazio libero. Vemoir ha bisogno di 10 GB liberi come base, e le riunioni lunghe stanno meglio con 16 GB di memoria. La schermata modelli resta il posto che mostra la dimensione del file che stai per prendere. Non trattare un articolo di blog come indicatore di spazio.
+
+## Modello vocale e modello di scrittura sono entrambi scaricamenti
+
+| Scarichi | Fa | Non fa |
+| --- | --- | --- |
+| Parakeet v3 o una variante Whisper | Trascrivere l’audio sul Mac | Scrivere da solo il verbale |
+| Qwen3 4B o gpt-oss-20b | Scrivere note, documenti e Ask sul Mac | Trascrivere la registrazione |
+| Ancora niente | L’impostazione aspetta | Inventare un modello e registrare su quello |
+
+Apple Intelligence, dove il Mac la ha, può aiutare pulizia e artefatti senza essere il modello vocale. Non è uno scaricamento sostitutivo di Parakeet o Whisper. Se aggiungi anche una chiave OpenAI o Anthropic, quella chiave è solo testo, nel Portachiavi, e spenta finché non la attivi. Salvare una chiave non scarica un modello vocale e non diventa un backup silenzioso quando un file locale fallisce.
+
+## Quando è meglio saltare uno scaricamento
+
+Scaricare un modello locale è la scelta migliore quando questo Mac trascriverà e scriverà senza mandare via l’audio. È la scelta peggiore quando:
+
+- Hai solo un file breve e non vuoi installare nulla. Lo strumento nel browser su [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) gira nella scheda, fino a 15 minuti, tre esecuzioni riuscite a settimana, senza etichette speaker. Il modello di quello strumento si scarica nel browser, un’installazione diversa dalla libreria dell’app Mac.
+- Sei su un Mac Intel, Windows o un telefono. L’app è Apple silicon, macOS Sonoma 14.2 o successivo. Nessun percorso di scaricamento cambia questo.
+- Volevi il modello di scrittura più grande e questo Mac non è ad alta memoria. Scegli Qwen3 4B. Non avviare gpt-oss-20b sperando che l’app lo scambi con uno più leggero durante la riunione. Non lo farà.
+- Lo spazio su disco è già finito. Libera prima spazio. Uno scaricamento ripreso ha ancora bisogno di posto per finire.
+
+La separazione speaker non ha, su questa schermata, uno scaricamento da vetrina al posto del modello vocale. Gira sul Mac come parte dell’elaborazione. Gli speaker sconosciuti restano anonimi finché non acconsenti a un profilo.
+
+I controlli sono in [cattura](/it#capture).
+
+## Dopo uno scaricamento fallito in treno
+
+Hai avviato Parakeet v3 sul Wi-Fi dell’hotel e hai chiuso il coperchio. Riapri Vemoir sulla rete di cui ti fidi. L’avanzamento dovrebbe esserci ancora, non un file Whisper a sorpresa marcato pronto. Riprendi. Se l’errore è duro, usa lo stato di recupero invece di registrare «solo questa volta» nella speranza che una trascrizione cloud riempia il buco. Quel riempimento non esiste. Quando il modello vocale mostra pronto, scegli il modello di scrittura allo stesso modo. Sulla maggior parte dei Mac è Qwen3 4B. Su un Mac con tanta memoria può essere gpt-oss-20b. La libreria ti dice quale hai selezionato. Una riunione più tardi nello stesso giorno usa quelle selezioni, non quello che ha finito di scaricarsi in background.
+
+## Domande frequenti
+
+### Cos’è il primo scaricamento di modello locale?
+
+Il modello vocale e il modello di lingua che scegli in impostazione, con dimensione e adeguatezza mostrate prima che si installino. Uno trascrive. L’altro scrive.
+
+### Lo scaricamento può riprendere?
+
+Sì. Avanzamento, errore e recupero sono visibili. L’avanzamento dell’impostazione sopravvive a chiusura e riapertura.
+
+### Una riunione scambia i modelli se lo scaricamento è incompleto?
+
+No. Vemoir non scarica, non seleziona e non sostituisce un modello in silenzio durante la registrazione o l’elaborazione successiva.
+
+### Mi serve la rete per sempre?
+
+Ti serve per l’impostazione e per gli scaricamenti dei modelli. Dopo che i modelli scelti sono installati, il flusso della riunione può girare offline. Quell’uso offline è la conseguenza di uno scaricamento finito, non un altro prodotto.
+
+### Lo scaricamento include una chiave cloud?
+
+No. OpenAI o Anthropic è facoltativo, solo testo, e un’attivazione separata. I file modello per la voce e per la scrittura locale sono lo scaricamento.
+
+### Posso togliere un modello dopo?
+
+Sì. La libreria modelli permette di ispezionare, selezionare e togliere i modelli locali compatibili. Una riunione tiene le selezioni fissate per quel passaggio.
+
+### In cosa è diverso dalla prima visita dello strumento nel browser?
+
+Lo strumento nel browser prende un modello Whisper pubblico nella scheda per un file che hai già, con un tetto di 15 minuti. La libreria dell’app Mac è l’insieme di modelli per la cattura dal vivo, la separazione speaker e la scrittura sul dispositivo.
+
+### Cosa succede se nego l’accesso al microfono in impostazione?
+
+Puoi recuperare da Impostazioni. Un permesso negato non viene sostituito da un caricamento silenzioso. System Audio Recording è il permesso per la traccia della chiamata e non cattura lo schermo.
+
+Avvia lo scaricamento che intendi tenere, guardalo finire e registra quando i modelli selezionati mostrano pronto. Quello stato è in [cattura](/it#capture).

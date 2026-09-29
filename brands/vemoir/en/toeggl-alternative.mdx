@@ -1,0 +1,196 @@
+---
+title: "Töggl Alternative: Swiss Hosting vs Local Mac (2026)"
+description: "Töggl alternative compared: Swiss servers versus a recording file that is never uploaded. Seven paths, checked September 2026."
+pubDate: 2026-10-07
+author: "Vemoir Team"
+tags: ["töggl", "transcription", "privacy"]
+funnelStage: "consideration"
+translationKey: "toeggl-alternative"
+relatedPosts: ["plaud-alternative", "fathom-alternative", "otter-ai-alternative"]
+tool: "transcribe-recording"
+image: "@/assets/blog/toeggl-alternative/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/toeggl-alternative/inline1.jpg';
+import inline2 from '@/assets/blog/toeggl-alternative/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@ranurte?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Ranurte</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+A **Töggl alternative** is the right search when you want Swiss language coverage but cannot put the file on a server, or the reverse: you want a hosted service in Switzerland and you do not want a Mac doing the work locally. Töggl transcribes audio and video and says on its own site that storage and processing stay in Switzerland. Vemoir's browser tool never receives the file. Those are two answers to "where does the audio go," not a ranking.
+
+Facts below come from the vendors' own pages, checked in September 2026. Read the current page before you lock a tool into an internal rule.
+
+## Contents
+
+- [What Töggl says on its own site](#what-töggl-says-on-its-own-site)
+- [How to sort a Töggl alternative](#how-to-sort-a-töggl-alternative)
+- [Seven paths beside Töggl](#seven-paths-beside-töggl)
+- [Comparison table](#comparison-table)
+- [Where Töggl is the better fit](#where-töggl-is-the-better-fit)
+- [Limits to see before you commit](#limits-to-see-before-you-commit)
+- [A test on a real file](#a-test-on-a-real-file)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## What Töggl says on its own site
+
+[Töggl](https://xn--tggl-5qa.ch/) describes automatic transcription of audio and video. The site says Swiss languages and dialects are recognized, and data stay in Switzerland because work happens only on Swiss servers. For dialects, Töggl points to training material from Swiss Radio and Television. It says user recordings are not used for training.
+
+
+<Image src={inline1} alt="Mountain view from a wooden desk with coffee and paper" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@lisaanna195?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Lisa Anna</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+The FAQ adds that spoken Swiss German, Swiss High German, or German High German is written out as High German, with a timestamp per word. It says the service understands the national languages and their dialects, plus High German and English. For a meeting, Töggl suggests recording on a laptop and submitting the file afterward. You can delete your data yourself, according to the FAQ. Security detail is sent to Töggl's own privacy pages. Read the current text before you quote it in a policy.
+
+That is an upload service with a Swiss location. The file leaves your computer so Töggl can process it on its servers. "Hosted in Switzerland" and "the file was never sent" are different sentences. The first is Töggl's description. The second is what Vemoir's browser tools do.
+
+Töggl does not describe itself as a live notetaker that joins Zoom without a bot. The path on the site is: you already have a recording, you submit it, you get text. A call that is still running is a different product.
+
+## How to sort a Töggl alternative
+
+Nothing in this list is "better" as a single score. Three questions show which design matches the file in front of you.
+
+
+<Image src={inline2} alt="Quiet chalet desk with papers in natural light" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@lisaanna195?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Lisa Anna</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. **May the file sit on a server?** If yes, and the server should be in Switzerland, Töggl's own page is that case. If no, you need a path that never receives the file.
+2. **Is it dialect, or a file on a Mac?** Töggl says dialect is recognized and written as High German, trained on SRF material, not on your recordings. Public Whisper models in Vemoir's browser tools usually write Swiss German as Standard German. The Mac app does not claim dialect output. A glossary holds names and terms. That is not a dialect model.
+3. **Is the meeting over, or still running?** A finished file can go to Töggl, to a local file tool, or into the browser tool. A live call on a Mac is capture of the microphone and system audio, with no extra participant.
+
+The free tool [transcribe a recording](/tools/transcribe-recording) runs after the call in the tab. The file is not uploaded. You can check the browser Network tab: after the one-time model download, later runs can stay offline while the model is already local. Limits: 15 minutes, 3 successful runs a week, MP3, M4A, WAV, or MP4, no speaker labels. Longer files and live capture belong in the Mac app.
+
+## Seven paths beside Töggl
+
+### Vemoir in the browser
+
+**Fits when** you want a short file turned into text and nobody should receive that file.
+
+You open the tool, the model downloads once into the tab, and the recording stays with you. There is no account and no upload to a Vemoir server. Swiss German usually comes out as Standard German. Speakers are not separated. Three successful runs a week, 15 minutes at most. That is a check after the meeting. It is not a substitute for Töggl's dialect description, and it is not a substitute for a long recording.
+
+### Vemoir (Mac app)
+
+**Fits when** the next call will run on an Apple silicon Mac and audio, transcript, and the record should stay on the machine by default.
+
+The app is from Aurum Avis Labs GmbH in Oberägeri, Switzerland. You start and stop from the menu bar. Microphone and system audio are separate local tracks. No bot joins the call. Transcription and speaker separation run on the Mac. Minutes, decisions, tasks, and a follow-up are written locally unless you explicitly send text generation to OpenAI or Anthropic with your own key. There is no silent switch to the cloud. Audio does not travel on that text path. After the models are installed, the workflow can run offline.
+
+Imported files (MP3, M4A, WAV, AIFF, CAF, FLAC) use the same local pipeline. That is not a promise to treat dialect the way Töggl describes it. You can put names and terms in a project glossary. macOS asks for the microphone and System Audio Recording. The capture is audio, not the screen.
+
+Price on the Mac App Store, checked September 2026: CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the United States. One purchase. No per-meeting fee. See [pricing](/#pricing). Requirements: Apple silicon, macOS Sonoma 14.2 or later, 8 GB of memory, 10 GB free. 16 GB is the practical bar for long meetings. Intel Macs, Windows, and phones are not supported. Install from the [Mac App Store](https://apps.apple.com/app/id6794693630).
+
+### MacWhisper
+
+**Fits when** the file is already in Finder and you want local transcription without a meeting record.
+
+MacWhisper runs on the Mac by default. Cloud providers are used only if you turn them on ([Keeping transcriptions private](https://docs.macwhisper.com/article/52-keeping-transcriptions-private), July 27, 2025). The website lists Pro as a one-time license at €64 (September 2026). For "drop a file and get text," that is the stronger Finder path. A live meeting with minutes is a different shape. Automatic meeting detection is documented as a beta and is not in the Mac App Store build.
+
+### Jamie
+
+**Fits when** you want capture without a bot and a vendor that describes EU processing, on a subscription.
+
+Jamie writes about storage and processing in the EU, deletion of audio after the transcript, and no extra participant ([Jamie on data handling](https://www.meetjamie.ai/blog/llm-info), September 2026). That is not a Swiss-server promise and it is not "never uploaded." It is a European cloud step without a bot. Prices are on [Jamie pricing](https://meetjamie.ai/pricing).
+
+### tl;dv
+
+**Fits when** Zoom, Meet, and Teams should run as a team library and the vendor's EU hosting statement is enough.
+
+tl;dv's security page says customer data are not used for training, AI hosting can be Europe or the United States, and the data centers it names sit in Europe ([tl;dv security](https://tldv.io/features/security-commitment/), September 2026). The usual path is a notetaker in the call. That is neither Töggl's file upload into Switzerland nor a local Mac pipeline.
+
+### Fathom
+
+**Fits when** a call archive with a bot, or a documented bot-free Mac path for English, is the goal.
+
+The help article for version 3.0 describes bot-free Mac modes for English meetings ([Fathom 3.0](https://help.fathom.video/en/articles/11577345), September 2026). A file that must stay in Switzerland and contains dialect is not that use case. Prices are on [Fathom pricing](https://fathom.video/pricing).
+
+### Otter.ai and Fireflies
+
+**Fit when** a visible notetaker and a shared cloud library are acceptable.
+
+Otter joins meetings ([Otter pricing](https://otter.ai/pricing), September 2026) and documents the notetaker ([Otter help](https://help.otter.ai/hc/en-us/articles/39339238308503-Recording-Permissions-with-Otter)). Fireflies stores recordings in its cloud and says meeting content is not used for model training ([Fireflies privacy](https://fireflies.ai/privacy-policy), September 2026). Neither is a "Swiss servers only" description, and neither is a path where the file is never sent.
+
+For a file under 15 minutes that nobody should receive, [transcribe a recording](/tools/transcribe-recording) is the direct check.
+
+## Comparison table
+
+As of September 2026. The table sorts designs. It does not name a winner.
+
+| Path | File is uploaded | Where it is processed | Dialect, per the vendor | Live call without a bot | Price shape |
+| --- | --- | --- | --- | --- | --- |
+| Töggl | Yes, to the service | Swiss servers, per Töggl | Recognizes dialect, writes High German, no training on user recordings | Not the path the site describes | Web service, see töggl.ch |
+| Vemoir browser | No | In the tab, after the model download | No dialect claim; usually Standard German | No, file after the call only | Free, 15 minutes, 3 runs a week |
+| Vemoir Mac | No, by default | On the Mac | No dialect claim; glossary for terms | Yes, menu bar | One-time on the Mac App Store |
+| MacWhisper | No, by default | On the Mac | No dialect claim on the privacy article | Beta, not in the App Store build | Free plus a one-time license |
+| Jamie | Yes, for processing | EU per Jamie, audio deleted after | Not described as a dialect service | Yes, per the vendor | Subscription |
+| tl;dv | Yes | EU described, AI hosting selectable | Not the focus of the security page | Usually with a bot | Subscription |
+| Fathom | Yes | Fathom's cloud | Not described as Swiss dialect | Bot, or bot-free on Mac for English | Free plus subscription |
+| Otter / Fireflies | Yes | Their cloud | Not described as Swiss dialect | With a bot | Subscription |
+
+## Where Töggl is the better fit
+
+Töggl fits when you are allowed to submit a file and the Swiss location is the point the site itself states. You do not need an Apple silicon Mac. You work in the browser, you are told when the text is ready, and the FAQ says you can delete your data. If the recording contains dialect and you want High German with timestamps, that is the job Töggl describes on the homepage, with SRF material and without training on your files.
+
+Töggl also fits when several people should use the same web surface without an install, and the internal rule says "servers in Switzerland," not "nothing leaves the device." A local app meets the second rule. It does not meet the first, because there is no Swiss server holding the file: the file stays on the Mac or in the browser tab.
+
+If you have long interviews past 15 minutes and you will not use a Mac for the local pipeline, Vemoir's browser limit is the wrong comparison. The choice is Töggl's upload, or a local Mac tool that accepts long files. The length of the file tells you which limit applies. A score does not.
+
+## Limits to see before you commit
+
+Töggl's dialect description is a statement from Töggl. It is not a reason to assign dialect output to another product, and it is not a reason to file Töggl under local tools. Once the file is on the server, you have a processor in Switzerland. That can be exactly the requirement. It is not the same as a tab that never sends the bytes.
+
+The Vemoir Mac app does not transcribe "like Töggl, only offline." It records meetings, separates speakers locally, and writes a record. Parakeet v3 covers 25 European languages. Other models have their own coverage. Swiss German dialect output is not the current state. If you expect that from Töggl, test Töggl on a real dialect file, not on an English demo call.
+
+None of these descriptions makes a recording lawful. You tell the participants. Vemoir does not claim to be compliant or certified. Töggl's security page is not a legal opinion. This article is not legal advice.
+
+Intel Macs, Windows, and phones are outside the Vemoir app. Long meetings want 16 GB of memory. The browser tool does not label speakers and it stops at 15 minutes. MacWhisper remains the stronger path when you only want a file from Finder and you do not want meeting minutes.
+
+A team archive you can search across colleagues' calls is none of the local designs. The cloud notetakers in the table exist for that, with a bot or with the region their own page names. They are not a copy of Töggl and they are not a local copy.
+
+## A test on a real file
+
+Take a recording you are allowed to share, ideally one sentence of dialect and one sentence of High German, shorter than 15 minutes, plus a second file that is longer if you have one.
+
+Put the short file in the browser tool first and watch the Network tab to see whether the audio is uploaded after the model has downloaded. Then submit the same short file to Töggl if your rule allows the Swiss server, and compare three facts rather than a winner: is High German in front of you, are names right, and do you know where the file sits afterward. Leave the long file where the length limit allows it: on Töggl, in MacWhisper, or in the Mac app, not in the 15-minute tab.
+
+If the next appointment is a live call on the Mac and the file must not leave the machine, record from the menu bar ([how it works](/#how), [platforms](/#platforms)). That does not answer the dialect question. It answers whether a bot sits in the call.
+
+Write the result in three lines: server yes or no, dialect output yes or no based on what you see, live call yes or no. The line that matters for this one file is the choice. You do not need an overall ranking.
+
+If you must hand the finished record to someone else, use macOS sharing on the Mac. That does not send the original recording to a transcription service. With Töggl, sending the file is the normal path, and the recipient is a server in Switzerland. Note both in the minutes: who received the recording, and whether the text is High German written from dialect or a Standard German approximation from a local model. The next person who opens the same file should not have to guess which path already ran.
+
+## Frequently asked questions
+
+### Is a Töggl alternative automatically more local?
+
+No. Some alternatives upload somewhere else. The Vemoir browser never receives the file. The Mac app processes on the device by default. Töggl describes Swiss servers, which means an upload. Read the storage sentence on each tool, not the word "alternative."
+
+### Does Töggl keep my data in Switzerland?
+
+That is what Töggl writes on its own site: storage and processing on Swiss servers, recordings not used for training, deletion by you per the FAQ. Check the current privacy pages on [töggl.ch](https://xn--tggl-5qa.ch/), as of September 2026, before you quote that sentence internally.
+
+### Does Töggl write dialect out?
+
+Töggl says dialects are recognized and the written form is High German, using material from Swiss Radio and Television, not your recordings. The Vemoir tools do not claim that dialect output. In the browser, Swiss German usually becomes Standard German.
+
+### Can I test Töggl and the local path on the same file?
+
+Only if you are allowed to submit the file. If the rule is "never upload," the test stops before you send it. Then you have the browser tool, the Mac app, or MacWhisper.
+
+### What about a Teams or Zoom call that is still running?
+
+Töggl's described path is the file afterward. Capture without a bot during the call is the Mac app, or another desktop recorder you start yourself. The difference between a finished file and a live call is also the subject of [meeting notes without a bot](/blog/meeting-notes-without-a-bot).
+
+### What does the Mac app cost?
+
+One purchase on the Mac App Store: CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the United States (September 2026). No subscription. Read Töggl's price on Töggl's site. This article does not turn that into a score.
+
+### Are there speaker labels in the browser?
+
+No. Neither in the Vemoir browser, nor as a claim that Töggl's timestamps are the same thing. Speaker separation in the Mac app runs on the device after capture.
+
+### Who should stay with Töggl?
+
+Anyone who wants a file processed on Swiss servers, cannot assume an Apple silicon Mac, and wants to test the dialect description on Töggl's site against their own recording. Anyone who is not allowed to send the file should not take that path.
+
+For a short file with no upload, open [transcribe a recording](/tools/transcribe-recording). For the next call on a Mac, start at [capture and models](/#capture) or the [Mac App Store](https://apps.apple.com/app/id6794693630).

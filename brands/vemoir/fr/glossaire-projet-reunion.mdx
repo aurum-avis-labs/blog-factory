@@ -1,0 +1,116 @@
+---
+title: "Un glossaire de projet pour noms, produits et jargon"
+description: "Un glossaire de projet garde termes préférés et alias dans les notes. La transcription originale reste la preuve. Les indices restent sur le Mac."
+pubDate: 2026-11-07
+author: "Vemoir Team"
+tags: ["glossaire", "projets", "réunions"]
+funnelStage: "interest"
+translationKey: "project-glossary"
+relatedPosts: ["notes-pendant-enregistrement", "classer-reunions-par-projet", "transcrire-reunion-en-allemand"]
+image: "@/assets/blog/project-glossary/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/project-glossary/inline1.jpg';
+import inline2 from '@/assets/blog/project-glossary/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@dlxmedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dlxmedia</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Un **glossaire de projet** est la liste d’un client ou d’un dossier&nbsp;: les noms et les mots que les transcriptions écrivent souvent mal, et l’orthographe que vous voulez dans le compte rendu. Vemoir la stocke sur le Mac, dans ce projet. Vous pouvez la chercher, et vous pouvez créer, modifier ou supprimer des termes en local. Une entrée porte le terme préféré, des alias et une courte définition.
+
+La transcription originale reste la preuve. La normalisation des alias change l’entrée temporaire du modèle et le texte généré. Elle ne réécrit pas les lignes horodatées dans l’orthographe souhaitée pour ensuite faire comme si c’était ce qui avait été entendu.
+
+## À quoi sert un glossaire de projet
+
+Vous cherchez cela quand le compte rendu dit «&nbsp;Canton&nbsp;» et que le client dit «&nbsp;canton de Vaud&nbsp;», ou quand un nom de produit sort comme un mot courant. Le glossaire est l’endroit de cette préférence. Ce n’est pas un profil de locuteur et ce n’est pas une recherche sur toutes les réunions passées.
+
+
+<Image src={inline1} alt="Fiches vierges pour des termes sur une table" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@c1st?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">c1st</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+La transcription Whisper compatible reçoit les termes comme indices de prompt. Parakeet v3 est un autre modèle de parole, avec sa propre couverture de 25 langues européennes. Ne supposez pas qu’un indice de glossaire change Parakeet de la même façon. L’app montre le modèle de parole que vous avez choisi. La génération et la régénération d’artefacts reçoivent aussi la terminologie, comme contexte qui n’est pas une preuve.
+
+S’il faut seulement reformuler une réunion après coup, éditez le compte rendu. Prenez le glossaire quand les mêmes mots reviendront dans ce projet.
+
+## Des termes qui méritent leur place
+
+1. Ouvrez le projet, pas une réunion au hasard dans Enregistrements locaux. Le glossaire appartient au projet.
+2. D’abord l’orthographe préférée&nbsp;: produit, personne, raison sociale, sigle interne.
+3. Des alias pour les façons dont la parole vers texte le déforme d’habitude, et pour la forme courte parlée.
+4. Une définition seulement si le mot est ambigu. «&nbsp;Delta&nbsp;» comme nom de version et «&nbsp;delta&nbsp;» comme écart n’ont pas besoin d’un traité. Ils ont besoin de la forme préférée et, si utile, d’une ligne pour que les notes prennent le bon sens.
+5. Laissez de côté les mots que vous ne voudriez pas voir dans un résumé. Un terme de glossaire est un contexte pour la génération. Ne le chargez pas de secrets que vous ne voulez pas répéter.
+
+
+<Image src={inline2} alt="Ouvrage de reference ouvert a cote de notes de reunion" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@terracotta215?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">terracotta215</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Cherchez dans la liste avant d’ajouter un quasi-doublon. Deux alias pointant vers des termes préférés différents se battent.
+
+## Ce qui change, et ce qui reste transcription
+
+Quand un modèle prépare l’entrée, les alias peuvent être normalisés vers le terme préféré. Les comptes rendus, décisions et autres artefacts générés peuvent alors utiliser cette orthographe. La régénération reçoit à nouveau la même terminologie, toujours sans valeur de preuve.
+
+Ouvrez la transcription si vous voulez voir ce qui a été dit. Si l’enregistrement a capté «&nbsp;kay bé&nbsp;» et que le glossaire préfère «&nbsp;KB&nbsp;», la ligne de transcription reste la capture. Le résumé peut dire KB. Cette coupure est le point. Vous pouvez citer la ligne. Vous ne devriez pas dire au client que la transcription elle-même a été réécrite à l’orthographe de marque.
+
+Les notes manuelles que vous tapez sont aussi séparées. Elles gardent votre provenance. Un glossaire ne transforme pas votre phrase en citation de transcription.
+
+## Quand un glossaire est le mauvais outil
+
+Un glossaire de projet est le meilleur choix quand les mêmes noms propres reviennent et que vous voulez que les notes générées les écrivent comme vous le voulez, sans perdre les lignes d’origine. C’est le moins bon choix quand&nbsp;:
+
+- Le mot était faux une fois, dans une phrase que vous pouvez éditer. Éditez la phrase.
+- Le problème est qui a parlé, pas quel mot. Renommez l’étiquette de locuteur. Cela ne crée pas de profil vocal, sauf si vous choisissez `Remember this speaker`.
+- Vous espériez que le glossaire impose une orthographe dialectale, ou un dialecte que le modèle de parole n’émet pas. Il ne le fera pas. Un glossaire n’est pas un modèle de dialecte.
+- Une autre équipe a besoin d’une base de termes partagée dans un wiki avec des droits. Cette liste vit dans le projet sur ce Mac. Supprimer le projet emporte réunions, transcriptions, comptes rendus et le glossaire.
+
+Les outils navigateur de vemoir.ch n’ont pas cette liste. Ils transcrivent un fichier court que vous avez déjà, sans étiquettes de locuteurs. Les projets en direct et les glossaires sont dans l’app Mac.
+
+## Un glossaire court qui reste utilisable
+
+Gardez-le assez court pour le relire. Dix termes nets battent quatre-vingts termes vagues. Relisez-le quand un produit change de nom, qu’une personne change de rôle, ou que les notes générées «&nbsp;corrigent&nbsp;» un mot que vous n’utilisez plus. Supprimez cette entrée. Les anciennes lignes de transcription ne changent pas.
+
+Vous pouvez classer le prochain appel dans ce projet depuis la barre de menus avant d’enregistrer, pour que ce glossaire soit celui en vigueur. Si vous enregistrez d’abord dans Enregistrements locaux et que vous glissez la réunion plus tard dans le projet, vérifiez qu’une régénération qui vous importe a tourné après que la réunion était dans le projet.
+
+La liste est avec le reste du dossier projet. Le départ est [le compte rendu](/fr#record).
+
+## Un glossaire après trois appels
+
+Au premier appel, le compte rendu nomme le produit d’après une tentative phonétique. Vous entrez le nom souhaité et deux alias que Whisper a déjà produits. Vous ne supprimez pas les lignes de transcription qui contiennent la tentative. Au deuxième appel, avec un modèle Whisper compatible, l’indice est là parce que la réunion était classée dans ce projet avant l’enregistrement. Le résumé utilise l’orthographe préférée. La transcription montre toujours ce que l’audio a donné. Vous l’ouvrez si le client conteste un terme.
+
+Au troisième appel, quelqu’un utilise le sigle interne. Vous l’ajoutez comme alias, pas comme second terme préféré. Une ligne de définition empêche les notes d’étendre les lettres vers un autre produit qui les partage. Si une version plus tard renomme le produit, vous éditez le terme préféré. Les anciennes lignes de transcription restent telles qu’elles ont été captées. Vous régénérez le compte rendu seulement si vous voulez la nouvelle orthographe dans le texte généré. La régénération ne transforme pas le glossaire en preuve.
+
+Si la réunion a été importée d’un fichier plutôt qu’enregistrée en direct, le même contexte de glossaire peut encore atteindre la génération d’artefacts une fois le fichier dans le projet. L’import n’obtient pas de noms de locuteurs que le fichier n’avait jamais. Le glossaire concerne les mots, pas qui a parlé.
+
+## Questions fréquentes
+
+### Un glossaire de projet réécrit-il la transcription&nbsp;?
+
+Non. La transcription originale reste la preuve. Les alias concernent l’entrée temporaire du modèle et la sortie générée.
+
+### Quel modèle de parole reçoit des indices de glossaire&nbsp;?
+
+La transcription Whisper compatible reçoit des indices de prompt. Vérifiez le modèle de parole sélectionné. Les indices ne classent pas Parakeet contre Whisper et n’ajoutent pas de langues.
+
+### Puis-je mettre des définitions dans le glossaire&nbsp;?
+
+Oui. Les entrées ont un terme préféré, des alias et une définition. Vous pouvez les chercher, les créer, les modifier et les supprimer sur le Mac.
+
+### Les notes exportées montrent-elles l’orthographe préférée&nbsp;?
+
+Les artefacts générés le peuvent. Un export de transcription, si vous partagez cette vue, reflète encore les lignes captées. Vérifiez quelle vue vous copiez.
+
+### Que se passe-t-il si deux projets utilisent le même nom de client autrement&nbsp;?
+
+Chaque projet a son glossaire. Un terme dans l’un ne renomme pas en silence les mots dans l’autre.
+
+### Une clé API envoie-t-elle l’audio du glossaire&nbsp;?
+
+Il n’y a pas d’audio de glossaire. Une clé personnelle, si vous en activez une, est texte seulement. La transcription reste sur le Mac. Il n’y a pas de bascule silencieuse vers un autre backend.
+
+### Est-ce disponible dans les outils navigateur gratuits&nbsp;?
+
+Non. Ils tournent sur un fichier que vous avez déjà, jusqu’à 15 minutes, trois passages réussis par semaine, sans glossaire de projet.
+
+Si le prochain appel réutilisera ces noms, ajoutez les termes avant d’enregistrer et classez la réunion dans ce projet depuis [le compte rendu](/fr#record).

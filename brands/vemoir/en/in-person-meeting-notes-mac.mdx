@@ -1,0 +1,136 @@
+---
+title: "In-Person Meeting Notes on a Mac With the Room Mic"
+description: "In-person meeting notes on a Mac use the microphone you select in the room. One mic, weaker speaker names, and no separate in-person mode."
+pubDate: 2026-11-15
+author: "Vemoir Team"
+tags: ["meeting notes", "in person", "Mac"]
+funnelStage: "interest"
+translationKey: "in-person-meeting-notes-mac"
+relatedPosts: ["record-teams-meeting-mac", "system-audio-recording-mac", "notion-ai-meeting-notes"]
+image: "@/assets/blog/in-person-meeting-notes-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/in-person-meeting-notes-mac/inline1.jpg';
+import inline2 from '@/assets/blog/in-person-meeting-notes-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@carmelalustrephotography?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">carmelalustrephotography</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**In-person meeting notes** on a Mac are a recording from the microphone you select, sitting in the room with the people. There is no separate in-person product mode. The same menu-bar recorder you use for a video call takes that mic. System audio, the second track, stays quiet if nobody is on a call. Speaker names are weaker than on a call where your voice and the remote mix were captured apart.
+
+Tell the room before you start. A laptop on the table is easy to miss. Consent is yours to get. A local file does not make a recording lawful.
+
+## Contents
+
+- [What in-person meeting notes capture](#what-in-person-meeting-notes-capture)
+- [Noise suppression on that mic](#noise-suppression-on-that-mic)
+- [Why names are weaker in person](#why-names-are-weaker-in-person)
+- [A workable setup](#a-workable-setup)
+- [When a phone or a written minute is better](#when-a-phone-or-a-written-minute-is-better)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## What in-person meeting notes capture
+
+Vemoir records the selected microphone and macOS system audio as two local tracks. On a Zoom call those tracks split you from the other people. In a room they do not. Everyone who speaks near the laptop lands on the microphone track. System audio only adds sound the Mac is already playing: a video, hold music, a remote person if someone joins a call on speaker.
+
+
+<Image src={inline1} alt="An in-person meeting with notebooks and water glasses in daylight" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@prolabprints?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">prolabprints</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+You start and stop. If you pause for lunch and forget to stop, the tape includes lunch. If you start late, the opening decision is missing. The app does not detect a meeting in the room and start by itself.
+
+Transcription and speaker separation run on the Mac after you stop. The live view while you record is a preview, not the transcript you keep. Models need a download first. After that, the room does not need a network for processing. Interface languages are English, German, French, Italian, and Dutch. Parakeet v3 covers 25 European languages as standard speech. A room speaking Swiss German is not promised as dialect text.
+
+Manual notes you type during the meeting are merged into the minutes with a mark that they are yours. They are never treated as verbatim lines from the audio. If you write a name in the margin, evidence still points at speech, not at that note.
+
+Requirements match any other recording in the app: Apple silicon, macOS Sonoma 14.2 or later, 8 GB of memory, 10 GB free, 16 GB recommended when the meeting is long. The app is on the [Mac App Store](https://apps.apple.com/app/id6794693630). No Windows, no Intel Mac, no iPhone capture inside this app.
+
+## Noise suppression on that mic
+
+Optional noise suppression runs on the Mac, on the microphone path, not in a cloud. The modes are Off, Balanced, and Strong. They are meant for steady noise: keyboard, room hum, other non-speech interference. The chosen mode stays visible. If suppression cannot keep the speech, the app falls back to the ordinary microphone path.
+
+
+<Image src={inline2} alt="Six chairs around a wooden table with papers" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@marissacristina?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">marissacristina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Strong is not a way to record a person at the far end of a long table. If they are quiet in the raw mic, they are quiet in the transcript. Move the laptop, or ask them to speak up, or take a written note of their sentence and mark it as yours.
+
+A phone ringing, chairs, a café, or two people talking over each other will still be in the file. Suppression is not a second microphone.
+
+## Why names are weaker in person
+
+Speaker separation works better when two tracks exist: your close mic and the remote mix. One room mic gives the model a single blend. People who sound alike, people who interrupt, and people sitting at the same distance get mixed labels or none.
+
+You can rename a label after the fact without building a profile. "Remember this speaker" is opt-in, encrypted, and deletable in Privacy. It does not invent a name the audio never supported. Unknown speakers stay anonymous.
+
+Do not budget a clean "Alex / Sam / Jordan" list for a six-person standup around one MacBook. Budget a transcript you can search, plus your own notes for who said the contested line. If a later question needs the words, Ask can point at a passage inside the meeting, the project, or the active library. Archived and deleted meetings are left out. That citation is only as good as the audio. A mumbled agreement at the far seat will not become a crisp quote.
+
+The same limit shows up in other tools. Notion's help says its speaker labels are weak in person and for a group on one microphone. Switching apps does not add microphones you did not place.
+
+## A workable setup
+
+Place the Mac where the voices are similar in level. The built-in mic is fine for two or three people close to the keyboard. A single external mic pointed at the table is the same idea with a better capsule. Several lapel mics are a different recording setup this app does not mix for you.
+
+Pick the microphone in the app so you are not recording a Bluetooth headset in your bag. Glance at the level before the first real sentence. Then:
+
+1. Say, out loud, that you are recording on the laptop and where the notes will live.
+2. Start from the menu bar. Choose the project first if this meeting belongs to one.
+3. Leave noise suppression on Balanced unless the room is quiet enough for Off, or the hum is bad enough for Strong.
+4. Type the decisions you can see but the mic may miss: a whiteboard figure, a nod, a name spelled on paper.
+5. Stop when the meeting ends, before the side conversations.
+
+Read decisions and actions before you send them. A decision row needs wording, a responsible person, and a date. An action needs a description, an owner, a due date, and a status. If the room never named an owner, leave it blank.
+
+Keep or drop the audio in Storage. Retention is chosen per meeting at creation. You can purge retained audio later and keep the transcript, which means playback goes away. You can delete the meeting, which removes the transcript, the generated record, attached actions and decisions, and the recording folder. Apple Notes you already exported stay in Notes.
+
+Copy text to the clipboard, or write Markdown, or file an Apple Note. There is no PDF or DOCX from the app.
+
+A blank minutes sheet in the browser, with no model and no upload, still fits when you would rather type: [minutes sheet](/tools/minutes-sheet). The structured template for a written minute is [meeting minutes template](/blog/meeting-minutes-template).
+
+## When a phone or a written minute is better
+
+Use another path when the Mac on the table is the wrong object.
+
+People will not consent to a laptop recording, but they will accept notes. Write the minute. Do not hide a mic.
+
+You need a pocket recorder because you are walking a site, not sitting at a Mac. This app does not leave the machine. A hardware recorder is a different product, with its own account and its own cloud rules. Do not describe it as the same thing.
+
+The group is large, the room is loud, and you need named turns for a formal minute. Hire a note-taker or use a recorder with a mic per person, then import an audio file later (MP3, M4A, WAV, AIFF, CAF, or FLAC) into the same local pipeline. A file still has the one-track naming limit. It does not get a special in-person mode either.
+
+Someone remote is on speaker and the room is also talking. You will get both on different tracks only for the Mac's playback versus the room mic. Overlap will still be messy. Say that in the note instead of presenting a tidy speaker list.
+
+You wanted automatic start when you walk into a conference room. That does not exist here. You press record.
+
+## Frequently asked questions
+
+### Is there an in-person mode?
+
+No. You select the microphone and record. The product does not switch into a separate room mode, and it does not start because it noticed a meeting.
+
+### Will system audio help in the room?
+
+Only if the Mac is playing sound you need. A closed laptop with a silent meeting adds an empty track. The words are on the mic.
+
+### Can I improve names with noise suppression?
+
+Suppression reduces steady noise on the mic. It does not assign names. Names stay weak on one room microphone compared with a call that had mic plus system audio.
+
+### Does the audio leave the Mac?
+
+Transcription stays on the device. Summaries can stay on the device. An optional text API key, yours, sends text only if you turn it on, with no silent fallback and no audio. The default is local.
+
+### What gets deleted?
+
+Deleting the meeting removes the transcript, generated records, actions and decisions tied to it, and the recording folder. A speaker profile you saved is deleted separately under Privacy. An Apple Note already exported remains in Notes.
+
+### Can I do this on a Windows laptop in the room?
+
+Not with this app. Apple silicon only. A written minute works on any machine.
+
+### Should I use my iPhone mic instead?
+
+This Mac app does not capture through the phone. If the phone is the device in the room, use whatever you already trust on the phone, then import an audio file to the Mac if you want the local transcript and notes. Read that product's privacy terms before you assume the file stayed on the phone.
+
+For a room you are already in, put the Mac where people can see it, tell them, and record on the selected microphone. Capture is described on [the homepage](/#capture). The app is on the [Mac App Store](https://apps.apple.com/app/id6794693630).

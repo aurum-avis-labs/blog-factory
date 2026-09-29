@@ -1,0 +1,187 @@
+---
+title: "Best free transcription tools in 2026, with real limits"
+description: "Best free transcription tools in 2026 still cap minutes or history. Compare a browser tool, local Whisper, and vendor free plans."
+pubDate: 2026-10-25
+author: "Vemoir Team"
+tags: ["transcription", "free", "privacy"]
+funnelStage: "consideration"
+translationKey: "best-free-transcription-tools"
+relatedPosts: ["otter-ai-alternative", "best-ai-notetaker-without-bot", "best-offline-transcription-mac"]
+tool: "transcribe-recording"
+image: "@/assets/blog/best-free-transcription-tools/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/best-free-transcription-tools/inline1.jpg';
+import inline2 from '@/assets/blog/best-free-transcription-tools/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+The **best free transcription tools** in 2026 are free of a subscription and rarely free of a limit. One tool caps the file at 15 minutes and the week at three successful runs. Another is free forever if you can install a speech model yourself. A vendor’s free tier is free until the minute pool, the import count, or the history window runs out. Pick the limit you can live with. Do not pick a logo.
+
+This list states those limits where the vendor, or we, actually publish them. It does not rank word-error rates. No accuracy percentage in this article is a claim, because none is cited from a test you can rerun.
+
+## Contents
+
+- [What “free” is allowed to mean](#what-free-is-allowed-to-mean)
+- [Best free transcription tools when the file is short](#best-free-transcription-tools-when-the-file-is-short)
+- [OpenAI Whisper on your own machine](#openai-whisper-on-your-own-machine)
+- [Vendor free plans, as of September 2026](#vendor-free-plans-as-of-september-2026)
+- [Live calls are a different product](#live-calls-are-a-different-product)
+- [Where a paid seat or a one-time app is better](#where-a-paid-seat-or-a-one-time-app-is-better)
+- [A practical week, not a brand chart](#a-practical-week-not-a-brand-chart)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## What “free” is allowed to mean
+
+Three bills get confused.
+
+
+<Image src={inline1} alt="A shared coworking table with notebooks, no screens showing" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@beazy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">beazy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+**No charge.** You do not enter a card. The limit is time, features, or history.
+
+**No upload.** The audio stays in the browser tab or on the Mac. That is a privacy property, not a price. A free cloud plan can still upload the file.
+
+**No ongoing seat.** You might still pay once for an app that then runs without a renewal. That is not “free.” It is a purchase. The Mac app’s price is later in this article because this is a consideration piece. The free list itself is the section above that price.
+
+Swiss German speech is not a free feature you should expect as dialect text. Public Whisper models, including the ones in the browser tool, usually render dialect as Standard German. Do not promise a transcript in dialect to a client.
+
+## Best free transcription tools when the file is short
+
+The free [transcribe a recording](/tools/transcribe-recording) tool on vemoir.ch is the one we can describe exactly, because we ship it.
+
+
+<Image src={inline2} alt="An open notebook on a public wooden desk" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- You already have the file. The page does not join a meeting and it does not record the tab.
+- The file is not uploaded. The speech model downloads into the browser and later runs can work with the network off. You can watch that in the browser’s Network panel.
+- Formats: MP3, M4A, WAV, or MP4.
+- Length: **15 minutes**.
+- Pace: **3 successful runs per week**.
+- Speakers: not separated. You will not get Speaker 1 and Speaker 2 from this page.
+- Models: public Whisper models.
+
+That combination is the right free tool when the clip is a voice memo, a short interview slice, or a decision at the end of a longer call you trimmed yourself. It is the wrong tool for a 50-minute client meeting you refused to cut. The page will not quietly extend the cap.
+
+A file longer than 15 minutes needs either a local install of a speech model or the Mac app. Cutting the file into three 15-minute pieces also burns the weekly runs. Three successful runs is the week, not three per file.
+
+If the short file is an interview and you want the interview-specific page, use [transcribe an interview](/tools/transcribe-interview). Same limits. The [upload-free interview](/blog/transcribe-interview-without-upload) article is the longer privacy version of that workflow.
+
+## OpenAI Whisper on your own machine
+
+[OpenAI Whisper](https://github.com/openai/whisper) is published as open-source speech recognition. You can run it locally. There is no seat and no 15-minute product cap in the code repository itself. The limits you actually hit are your Mac’s memory, the model size you choose, and the time you are willing to spend on setup.
+
+This is the best free option when:
+
+- The recording is longer than 15 minutes.
+- You are comfortable with a terminal, or with a third-party app that wraps the same model.
+- You want the audio to stay on the computer you control.
+- You do not need minutes, decisions, and action items generated as a meeting record. Whisper gives you text. The notes around the text are your job, or another tool’s job.
+
+It is a poor fit when you wanted a button. Installing Python, accepting a model download, and pointing the command at a file is ordinary for some people and a week of friction for others. A Mac app that wraps Whisper and lets you drop a file in Finder is often the kinder path for that second group. MacWhisper is one of those file-first apps. It is the better choice when your only job is “transcribe this file,” you already live in Finder, and you do not need a menu-bar recorder or a minutes workflow. This article does not quote a price for MacWhisper. Read the developer’s page on the day you install it.
+
+Whisper does not join Zoom. It does not label speakers unless you add a separate diarization step you set up yourself. Do not describe a raw Whisper transcript as a finished protocol.
+
+Internet is required to download the model the first time, the same way any local tool needs the weights. After that, transcription can run offline if the weights are on disk.
+
+## Vendor free plans, as of September 2026
+
+These are cloud products with a $0 row. They are useful. They are not “nothing leaves the laptop.”
+
+**Otter.** The pricing page lists paid Pro at $16.99 per user per month with 1,200 in-app recording minutes and 10 monthly file imports, and Business at $30 per user per month ([Otter pricing](https://otter.ai/pricing), September 2026). A free Basic plan is on the same page. Treat its minute, meeting-length, and import caps as whatever the page says today, and click through before you archive client audio there. Otter’s product joins meetings. If a bot is forbidden, the free tier does not fix that. [Is Otter a fit for the file you hold](/blog/is-otter-ai-safe) is the privacy reading. This paragraph is only the price row.
+
+**Fireflies.** The billing article lists Free at $0, then paid seats starting at $10 per user per month on annual Pro billing or $18 month to month ([Fireflies billing terms](https://guide.fireflies.ai/articles/9606045468-fireflies-billing-terms), September 2026). Storage-minute figures in secondary reviews disagree, so this article does not repeat one. Read Fireflies’ current pricing page for the free cap. The paid product is a seat plus AI credits that do not roll over. The free row is a way to see the workspace, not a promise of unlimited private archive.
+
+**Granola.** Basic is $0 with limited meeting history. Business is $14 per user per month ([Granola pricing](https://www.granola.ai/pricing), September 2026). “Limited history” means the free plan is a poor system of record. The exact count belongs to Granola’s page, which in the text we used says limited rather than a number we will invent.
+
+Platform transcripts are adjacent, not the same list. A Zoom cloud VTT exists only when that Zoom account and recording mode produce one. That is Zoom’s documentation on [recording file formats](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394), not a free transcription product you can point at an arbitrary MP3.
+
+## Live calls are a different product
+
+Free file tools assume the audio already exists. A Slack huddle, a Teams call, or a Meet that nobody recorded is not a file. Browser pages cannot capture the live meeting, cannot install a bot, and cannot grab tab audio. If you need the live call, you either use the meeting product’s own recorder, a bot the participants can see, or a Mac recording of microphone plus system audio.
+
+Vemoir’s Mac app records from the menu bar without adding a participant. macOS permission is **System Audio Recording**, audio only, plus the microphone for your own track. Transcription stays on the Mac. That app is not free. On the Mac App Store it is **CHF 20** in Switzerland, **€24.99** in Germany, Austria, France, and Italy, and **$22.99** in the US, once, with no subscription and no per-meeting charge. Requirements are Apple silicon (M1 or newer), macOS Sonoma 14.2 or later, 8 GB of memory, and 10 GB of free storage. Intel Macs are not supported.
+
+Once models are downloaded, that workflow can run offline. The free browser tool can also run later passes offline after its model download, inside the 15-minute and weekly caps.
+
+The wider Mac comparison is [best meeting notes apps on Mac](/blog/best-meeting-notes-app-mac). Use this article when the constraint is the price of the trial, not the long-term library.
+
+If the clip is already under 15 minutes, open [transcribe a recording](/tools/transcribe-recording) and spend one of the three weekly runs. Keep the file local.
+
+## Where a paid seat or a one-time app is better
+
+Stay on a free tool when the recording is short, you can tolerate missing speaker labels, and you do not need a shared team archive.
+
+Move up when any of these are true:
+
+- The call is longer than 15 minutes and you will not trim it.
+- You need to know who said the sentence, and you will not label it by hand from memory.
+- Several colleagues must search the same notes without passing a file around.
+- You record live, several times a week, and three browser runs will be gone by Tuesday.
+
+The seat (Otter, Fireflies, Granola, and similar) is the better buy when the shared cloud workspace is the point. You are paying for admin, history, and a place everyone can log in. Read their pricing pages. The one-time Mac app is the better buy when the audio should stay on one computer and you do not want a renewal. The open-source Whisper install is the better buy when the deliverable is a text file and you already have someone who can run it.
+
+A free bot is still a bot. If the invite says no AI notetakers, the $0 plan does not make the extra participant acceptable. Capture locally or take notes by hand.
+
+## A practical week, not a brand chart
+
+Imagine a freelancer with four recordings in one week. Two are voice messages under five minutes. One is a 12-minute client confirmation. One is a 70-minute workshop. The free browser tool can take the three short files only if you stop at three successful runs, and the third might be the one you needed least. Run the confirmation first. Leave the voice messages for next week if they are not blocking a deliverable. The workshop is not a candidate for the browser at all. It goes to a local Whisper install or to the Mac app you already decided to buy.
+
+A small company with a shared Otter Basic or Fireflies free workspace has the opposite shape. Everyone can open the same link, and the audio is on that vendor's side. That is the right week when the team agreed to the vendor and the calls are internal. It is the wrong week when a customer said the recording stays with the person they met. Free does not change that promise.
+
+Disk and time are the other price of "free local." A Whisper model download is large. The first transcription on a modest Mac is not instant, and this article will not quote a speed. Plan the download before the morning you need the text. A tool you have not installed yet is not a backup for a meeting that starts in ten minutes.
+
+If you are choosing among these for a newsroom, a lab, or a law practice, the free tool's limit matters less than the sentence you already told the other person about where audio goes. Match the tool to that sentence. Then match it to the length of the file.
+
+One more split that saves a bad purchase: free file transcription and free live capture are not the same product. If the recording does not exist yet, no browser page on this list will create it. You either press record in the meeting product, with the storage that implies, or you record the Mac. Budget the tool for the state the audio is in, not for the brand you wish you had started with last year.
+
+If two tools are both free and both local, pick the one you will actually open. A command you dread will lose to a 15-minute browser run even when the browser is the worse archive. That is fine for a voice memo. It is not fine for the workshop. Decide before the file lands, and put the chosen tool in the note you already keep for how this client’s audio is handled.
+
+If the free plan’s history cap is the thing you will hit, export the notes you still need before the cap deletes them. Do that on a calendar reminder, not after a client asks for last quarter. A free tier that drops old meetings is a scratchpad. Treat it like one, and keep the decisions somewhere you control.
+
+Keep the export beside the engagement file, not only in the vendor’s archive.
+
+Do that before the week ends.
+
+## Frequently asked questions
+
+### What are the best free transcription tools if I refuse an upload?
+
+The browser tool on vemoir.ch, which does not upload the file, and a local Whisper install. Cloud free tiers upload to that vendor by design.
+
+### What is the 15-minute limit?
+
+On the vemoir.ch browser tools, each file can be up to 15 minutes. Longer audio needs a local model or the Mac app.
+
+### What is the three-runs limit?
+
+Three successful runs per week on those browser tools. A failed attempt is not the thing to gamble. Trim the file before you press the button.
+
+### Do the free browser tools name speakers?
+
+No. Speaker labels are a Mac app behavior. The browser page will not invent them.
+
+### Is Whisper actually free?
+
+The model and code OpenAI published under an open-source license are free to run locally ([repository](https://github.com/openai/whisper)). Your time and disk are the cost. Wrapper apps may charge. Check that developer’s price.
+
+### Is Otter’s free plan unlimited?
+
+No. Otter publishes caps. The paid Pro row we could quote from the September 2026 pricing page is 1,200 in-app minutes and 10 monthly imports at $16.99 per user per month. Read the Basic row on that same page for the current free cap.
+
+### Does “free” include Swiss German dialect output?
+
+No. Expect Standard German from public Whisper models. Do not advertise dialect transcription.
+
+### Should I buy the Mac app for one short memo?
+
+Probably not. Use the free tool. Buy the app when you record live calls or you outgrow 15 minutes and three runs a week. The store price is CHF 20, €24.99, or $22.99 depending on the storefront, one time.
+
+## Next step
+
+For a file you already have, start with [transcribe a recording](/tools/transcribe-recording) and stay inside 15 minutes and three runs a week. For the next live call on a Mac, the [App Store listing](https://apps.apple.com/app/id6794693630) is the one-time app, and [pricing](/#pricing) repeats the same store prices.

@@ -1,0 +1,122 @@
+---
+title: "Chi ha parlato di più in riunione, solo con nomi veri"
+description: "Chi ha parlato di più è una quota di parole, e solo se la trascrizione ha già i nomi. Senza nomi la pagina si ferma subito."
+pubDate: 2026-10-19
+author: "Vemoir Team"
+tags: ["riunione", "parlanti", "trascrizione"]
+funnelStage: "interest"
+translationKey: "who-spoke-most-in-meeting"
+relatedPosts: ["etichette-relatori-mancanti", "profili-speaker-su-mac", "correggere-nomi-speaker"]
+tool: "who-held-the-floor"
+image: "@/assets/blog/who-spoke-most-in-meeting/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/who-spoke-most-in-meeting/inline1.jpg';
+import inline2 from '@/assets/blog/who-spoke-most-in-meeting/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@creatopy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Creatopy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Chi ha parlato di più si può dire in modo difendibile solo se il testo indica già chi ha detto le parole. La pagina gratuita per questo conteggio è [tempo di parola](/it/strumenti/tempo-di-parola). Incolli una trascrizione con i nomi. Ottieni ogni nome e la sua quota di parole. Se i nomi non ci sono, la pagina si ferma. Il browser non separa le voci e non inventa «Parlante A» perché il grafico sembri completo.
+
+La quota di parole non sono minuti di parola. Chi parla in fretta può superare chi ha tenuto la stanza più a lungo con meno parole. Il numero descrive il testo che hai incollato, non un cronometro.
+
+## Che cosa ti serve prima di contare
+
+Ti serve una trascrizione in cui i parlanti sono già segnati in una forma che la pagina sa leggere:
+
+
+<Image src={inline1} alt="Riunione dall'alto, una persona gesticola mentre parla" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@clynt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">clynt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- `Nome: quello che ha detto`, su una riga propria
+- `Speaker 1:` o `SPEAKER_01:` se un altro strumento ha separato le voci e ha lasciato queste etichette
+- un tag vocale WebVTT, `<v Nome>testo</v>`, come lo scrivono Teams e alcuni file cloud di Zoom
+
+Una registrazione Zoom locale `audio_only.m4a` non ha queste righe. Nemmeno un file del solo microfono. La trascrizione nel browser non le aggiunge. Finché hai solo l'audio, il conteggio non esiste ancora. Separare i parlanti, creare etichette anonime e rinominarle è l'app per Mac, dopo una registrazione o un import. Come funziona la cattura è su [cattura](/it#capture). Questa pagina non fa quel passo.
+
+Togliere i timestamp è permesso e non consuma un passaggio settimanale. [Pulire la trascrizione](/it/strumenti/pulire-trascrizione) tiene i nomi che c'erano già e ti dice quando non c'erano. Se hai un VTT, pulisci prima, poi incolla il testo in tempo di parola. Anche la quota di parole non consuma un passaggio. Non scarica un modello di voce. Non registra la stanza.
+
+## Chi ha parlato di più, come quota di parole
+
+Ottieni un nome e una quota di parole. Leggila sulla riunione che hai davvero avuto.
+
+
+<Image src={inline2} alt="Due persone al tavolo, una parla chiaramente di piu" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- Una persona al sessanta percento in un aggiornamento di stato aveva spesso solo le slide. Non è automaticamente un problema.
+- Un laboratorio che voleva sentire tutti, e un nome con la maggior parte delle parole, è un fatto sulla conduzione. La lista non dice perché. Dice che il testo è sbilanciato.
+- `Speaker 2` non è un collega finché non lo associ. Puoi contare l'etichetta. «Speaker 2 ha dominato» non va in una mail come se fosse una persona.
+- `Conference Room` o `iPhone` è un nome di dispositivo che l'app di riunione ha salvato. Quella riga assorbe una quota che appartiene a più persone. Non è un carattere.
+- I sì brevi pesano poco. Un monologo lungo pesa molto. Lo strumento conta parole, quindi il monologo vince anche se le frasi corte erano le decisioni.
+
+Due grafie della stessa persona (`Jon` e `Jonathan`) non si uniscono. Correggi la copia, poi conta di nuovo. La pagina non conosce il tuo organigramma.
+
+## Quando il numero è la domanda sbagliata
+
+Un verbale non ha bisogno del tempo di parola. Ha bisogno di decisioni, responsabili e date. Chi ha parlato di più è un pessimo sostituto di chi ha deciso. La persona silenziosa può aver detto il no che ha chiuso un'opzione. Quello va nella riga di decisione del [modello di verbale](/it/strumenti/modello-verbale). La quota di parole la lasci fuori dal dossier del consiglio, a meno che la seduta non riguardasse proprio la partecipazione.
+
+Ricerca e interviste a volte tengono a chi ha tenuto la parola. Anche lì codifichi nomi di cui ti fidi. Un grafico da una trascrizione automatica senza nomi non è una codifica. È l'immagine di una voce mescolata, oppure niente, se lo strumento rifiuta come deve.
+
+Un modello di riassunto è il contatore sbagliato. Scriverà «Alex ha guidato la discussione» perché la prosa dava quella impressione. Quella frase non è una quota di parole. Se vuoi il conteggio, usa il conteggio. Se una bozza ha nominato qualcuno che il file non ha mai nominato, cancellalo.
+
+## Se il file non ha etichette
+
+Fermati. Non disegnare percentuali a memoria e non attribuirle a uno strumento. Tre strade oneste:
+
+1. Per una chiamata breve a cui c'eri, metti `Nome:` su una copia, solo dove sei sicuro. I buchi restano senza etichetta. Poi conti la copia, non l'export originale.
+2. Per una registrazione lunga o con più voci, registra o importa sul Mac. La diarizzazione produce etichette anonime. Le rinomini. «Ricorda questo parlante» è un passo separato, facoltativo, e non serve per contare una sola riunione. Gli sconosciuti restano anonimi.
+3. Lascia il grafico. Scrivi il verbale con ciò che puoi firmare. Un'attribuzione che non puoi sostenere non entra nelle note che condividi.
+
+Non spezzare un paragrafo senza nomi in turni finti perché lo strumento restituisca una torta. La torta sembrerà precisa. Sarà una tua finzione.
+
+## Una procedura breve
+
+1. Tieni intatta la trascrizione originale.
+2. Se è un VTT o un SRT, puliscila. Guarda se i nomi sono sopravvissuti.
+3. Uniforma le grafie su una copia.
+4. Incolla in [tempo di parola](/it/strumenti/tempo-di-parola).
+5. Se la pagina dice che non ci sono nomi, credile.
+6. Una frase che potresti dire ad alta voce: «In questo testo Jordan ha la quota di parole più alta.» Non trasformarla in «Jordan ha interrotto tutti» se non l'hai visto.
+7. Partecipazione e decisioni restano separate. Il [modello di verbale](/it/strumenti/modello-verbale) è per le decisioni.
+
+Chi registra dal vivo deve dirlo. Un grafico di partecipazione non cambia il consenso. Da solo non è una valutazione e non è un rapporto di conformità.
+
+## Domande frequenti
+
+### «Chi ha parlato di più» significa più minuti?
+
+Qui no. Lo strumento nel browser riporta la quota di parole di ogni nome nel testo incollato. Non misura i secondi di audio. Chi parla in fretta può stare sopra chi ha tenuto la parola più a lungo, ma più lentamente.
+
+### Perché la pagina rifiuta la mia trascrizione?
+
+Non ha trovato prefissi di parlante che riconosce. I timestamp da soli non sono nomi. Nemmeno la pulizia aggiunge nomi. Ti servono etichette già nel testo, una diarizzazione sul Mac, oppure un file che etichetti a mano.
+
+### Posso contare i parlanti in una registrazione Zoom locale?
+
+Solo quando è testo con nomi. `audio_only.m4a` è audio. Un VTT cloud a volte ha i nomi, l'audio locale no. Se ti servono ancora le parole, vedi [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom).
+
+### Consuma uno dei tre passaggi della settimana?
+
+No. La quota di parole non avvia il modello di voce. Pulire un VTT nemmeno. Trascrivere l'audio sì. Stendere note da una trascrizione sì.
+
+### E se qualcuno è entrato da una sala riunioni?
+
+L'export può etichettare ogni parola di quella sala come la sala. La quota allora non dice niente su una persona. Dividila a mano solo se conosci i turni. Altrimenti non riportarla.
+
+### Metto il grafico nelle note che mando?
+
+Solo se la partecipazione era il punto e i nomi sono veri. Altrimenti distrae da responsabili e date, e un'etichetta sbagliata diventa un fatto nella casella di qualcun altro.
+
+### L'app per Mac lo fa senza il browser?
+
+L'app per Mac separa i parlanti in etichette che puoi rinominare, sulla macchina. La pagina della quota è lo strumento nel browser per un testo che hai già. L'app ottiene le etichette. La pagina conta un incolla. Non aspettarti che il browser ascolti la chiamata.
+
+### Una quota alta è un problema?
+
+Solo in una riunione in cui volevi più voci. In un briefing una persona deve avere la maggior parte delle parole. Il numero non si interpreta da solo.
+
+Passo successivo: incolla una trascrizione con etichette in [tempo di parola](/it/strumenti/tempo-di-parola). Se i nomi mancano, sistema quello prima di contare qualsiasi cosa.

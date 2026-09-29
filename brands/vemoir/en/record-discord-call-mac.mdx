@@ -1,0 +1,125 @@
+---
+title: "Record a Discord call on Mac with local system audio"
+description: "Record a Discord call on Mac from system audio and your mic. No bot joins the channel. Transcription stays on the machine."
+pubDate: 2026-10-26
+author: "Vemoir Team"
+tags: ["discord", "mac", "recording"]
+funnelStage: "consideration"
+translationKey: "record-discord-call-mac"
+relatedPosts: ["record-slack-huddle-mac", "record-zoom-meeting-mac", "record-google-meet-mac"]
+image: "@/assets/blog/record-discord-call-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/record-discord-call-mac/inline1.jpg';
+import inline2 from '@/assets/blog/record-discord-call-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+You **record a Discord call on Mac** by capturing the audio Discord is already playing, plus your microphone, on the computer in front of you. Discord does not hand you a Zoom-style folder of local recording files when a voice channel ends. If you need a transcript, you either leave with a file you captured yourself or you accept that the call existed only as live sound. Vemoir is the menu-bar capture for that file. It does not join the channel as a bot.
+
+The app is **CHF 20** in Switzerland, **€24.99** in Germany, Austria, France, and Italy, and **$22.99** in the US, once, on the Mac App Store. No subscription and no per-call fee.
+
+## Contents
+
+- [What Discord does and does not save](#what-discord-does-and-does-not-save)
+- [Record a Discord call on Mac from the menu bar](#record-a-discord-call-on-mac-from-the-menu-bar)
+- [Headphones, stream audio, and quiet tracks](#headphones-stream-audio-and-quiet-tracks)
+- [Where another tool is the better recording](#where-another-tool-is-the-better-recording)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## What Discord does and does not save
+
+A Discord voice or video call is live. When it ends, the messages in the channel remain. The speech does not become a downloadable transcript unless someone recorded it or a separate bot the server installed did that job. Server bots that record or transcribe are visible to the people who run the server, and they are a different product from an app on your Mac. If the server rules ban bots, do not add one to get a transcript.
+
+
+<Image src={inline1} alt="Night home office, headset, and a closed laptop" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Stage channels, screen shares, and Go Live streams are still audio (and sometimes video) coming out of the Discord app on your Mac. A system-audio capture hears what the Mac hears. It does not download Discord’s servers, and it does not reach a participant whose client never played on your machine. If someone was speaking and you had them muted, they will be missing. That is the recording matching your ears.
+
+You are responsible for telling the channel. A local app does not post a “recording started” message into Discord. In many places, consent is not optional. A transcript does not create consent after the fact.
+
+## Record a Discord call on Mac from the menu bar
+
+1. Confirm the Mac is Apple silicon (M1 or newer) on macOS Sonoma 14.2 or later, with at least 8 GB of memory and 10 GB free. 16 GB is the recommendation for long calls. Intel Macs are not supported. There is no Windows or phone version to fall back to.
+2. Install from the [Mac App Store](https://apps.apple.com/app/id6794693630). The storefront shows CHF 20, €24.99, or $22.99.
+3. Grant **Microphone** and **System Audio Recording**. System audio is an audio-only tap. The screen is not captured. Both switches live under System Settings, Privacy & Security, and are explained on [capture](/#capture).
+4. Download the speech model you will use. Parakeet v3 covers 25 European languages. Whisper Turbo, Medium, or Large-v3 are the other local speech choices. The first download needs a network. Later, the meeting workflow can run offline. The app will not swap in a different model while you are in the channel.
+5. Join the Discord call in the desktop app and confirm you hear the others from the Mac, not only from a phone sitting beside it. Phone audio does not pass through the Mac’s system audio tap.
+6. Start the menu-bar recording. If the call belongs to a client or a project, select that project before you record so the file is not a loose meeting. Tell the channel you are recording.
+7. Stop when the call ends. The transcript is rebuilt from the finished audio on the Mac. The on-screen preview during the call is a hint, not the record.
+
+
+<Image src={inline2} alt="A cozy evening desk with headphones and a mug" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Discord is listed with the other meeting apps on [platforms](/#platforms). The same local pattern, without a bot, is the subject of [meeting notes without a bot](/blog/meeting-notes-without-a-bot).
+
+After processing you get minutes, decisions, action items, and a draft follow-up. Speakers are separated on the Mac into labels you can rename. A remembered voice profile is opt-in, encrypted, and deletable. People the model is unsure about stay anonymous. Do not treat a label as identification in a dispute. Listen to the audio if the sentence matters.
+
+Import is there if you already have a file: MP3, M4A, WAV, AIFF, CAF, or FLAC. A short clip in MP3, M4A, WAV, or MP4 can use the free browser tool at [transcribe a recording](/tools/transcribe-recording), capped at 15 minutes and 3 successful runs a week, without speaker labels. A Discord call that ran an hour is the Mac app, not the browser.
+
+## Headphones, stream audio, and quiet tracks
+
+System audio is “what the Mac played.” A few setups make that quieter than your ears suggested.
+
+**USB or Bluetooth headset as the output.** As long as macOS is sending Discord to that device and system-audio capture is allowed, the call should be on the system track. If you plug headphones in after the call has started, pause and check a few seconds of recording before the real conversation. A dead track is obvious in playback and painful to discover an hour later.
+
+**You are on Discord on a phone, watching nothing on the Mac.** There is no system audio to capture. Join from the desktop app, or record the room with the microphone only and accept that the phone’s speaker quality is the transcript quality.
+
+**Stream and voice together.** A loud stream under a quiet voice will dominate. Ear protection for you is not ear protection for the recording. Lower the stream, or accept a worse transcript. The app’s microphone noise suppression (Off, Balanced, or Strong) applies to the mic path, on the Mac, and is meant for steady noise such as a fan. It is not a promise that a game soundtrack will disappear.
+
+**You need a video file of the gameplay, not notes.** A screen-and-audio tool built for clips is the better recorder. Vemoir does not record the screen. It will not produce a montage. It will produce a transcript of the sound.
+
+## Where another tool is the better recording
+
+Use a bot the server already trusts when the community expects a public log inside Discord and the rules allow that bot. A local file on your laptop is the wrong archive for a moderator team that needs the log in the channel.
+
+Use a video capture tool when the deliverable is footage. Meeting minutes are the wrong deliverable for a highlight reel.
+
+Use hand notes when you cannot get consent. Skipping the announcement and recording anyway is not a feature gap to solve with software.
+
+Use the local Mac app when you are in the call, the others have agreed, you want text and action items, and you do not want a new bot user in the member list. That is the ordinary consulting or project call that happens to be on Discord instead of Zoom.
+
+Sharing is manual. Vemoir will not post the transcript into the channel. Copy the part you are willing to show. The rest stays on the Mac unless you export it or turn on a cloud text model with your own key. Audio and speaker separation do not go to that cloud model.
+
+## Frequently asked questions
+
+### Does Vemoir join the Discord channel?
+
+No. It records audio on your Mac. The channel list does not gain a Vemoir user.
+
+### Why is there no recording in Discord after we hang up?
+
+A normal voice call does not leave you a Zoom-style local file. If you did not capture it, the speech is gone.
+
+### What does it cost?
+
+CHF 20, €24.99, or $22.99 depending on the App Store storefront, paid once. No subscription. [Pricing](/#pricing) shows the same figures.
+
+### Which macOS permission?
+
+System Audio Recording for Discord’s playback, and Microphone for you. Not a screen recording.
+
+### Can I do this on Windows?
+
+No. The app is Apple silicon Macs on macOS Sonoma 14.2 or later.
+
+### Will speaker names match Discord nicknames?
+
+Only if you rename the labels, or if you opt into a voice profile that matches confidently. Otherwise the speakers stay anonymous labels.
+
+### Is a 10-minute clip possible without buying the app?
+
+Yes. Export or trim to MP3, M4A, WAV, or MP4 under 15 minutes and use [transcribe a recording](/tools/transcribe-recording). Three successful runs per week. No speaker names.
+
+### Does noise suppression send audio to a server?
+
+No. The mic suppression modes run on the Mac.
+
+## Next step
+
+Install from the [Mac App Store](https://apps.apple.com/app/id6794693630) if the next Discord call should become minutes on that Mac. If you only have a short file already, use [transcribe a recording](/tools/transcribe-recording) and stay inside the 15-minute cap.

@@ -1,0 +1,142 @@
+---
+title: "Microphone Noise Suppression: Off, Balanced, Strong"
+description: "Microphone noise suppression on a Mac offers Off, Balanced, or Strong. It runs on your mic, on the device, and sends no audio to a cloud."
+pubDate: 2026-11-09
+author: "Vemoir Team"
+tags: ["microphone", "noise", "mac"]
+funnelStage: "interest"
+translationKey: "microphone-noise-suppression"
+relatedPosts: ["system-audio-recording-mac", "meeting-recording-no-sound-mac", "export-to-apple-notes"]
+image: "@/assets/blog/microphone-noise-suppression/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/microphone-noise-suppression/inline1.jpg';
+import inline2 from '@/assets/blog/microphone-noise-suppression/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@sunx?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sunx</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Microphone noise suppression** in Vemoir is a setting on the microphone track. You choose Off, Balanced, or Strong. Processing stays on the Mac. The call audio from Teams, Zoom, Meet, or another app is a separate track and is not what this control cleans.
+
+If the room is already quiet, Off is often the better choice. Balanced and Strong are for steady background noise: keyboard, hum, a fan. They do not invent a cleaner voice when someone else is talking over you, and they do not replace a proper headset if the room is genuinely bad.
+
+## Contents
+
+- [What microphone noise suppression changes](#what-microphone-noise-suppression-changes)
+- [Off, Balanced, and Strong](#off-balanced-and-strong)
+- [What it does not do](#what-it-does-not-do)
+- [A practical way to choose before a call](#a-practical-way-to-choose-before-a-call)
+- [Where a different approach is better](#where-a-different-approach-is-better)
+- [Privacy and what stays on the device](#privacy-and-what-stays-on-the-device)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## What microphone noise suppression changes
+
+The control sits on the microphone you select for the recording. That is your side of the conversation. System audio, the people on the other end of the call, is captured as its own local track through macOS System Audio Recording. An audio-only Core Audio tap takes that sound. It does not record the screen.
+
+
+<Image src={inline1} alt="Close-up of an unbranded mic on a wooden table" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Noise suppression does not mix those two tracks into one "clean meeting." It tries to reduce non-speech interference on the mic path before that mic audio is finalized. Speaker separation still runs on the Mac afterward, on the local audio, and is a different step.
+
+The selected mode stays visible, so you can see whether the last meeting used Off, Balanced, or Strong. If suppression is unavailable, or the processed result is uncertain, Vemoir uses the ordinary microphone path. You still get a recording. You do not get a silent swap to a cloud speech service.
+
+## Off, Balanced, and Strong
+
+| Mode | When it fits |
+| --- | --- |
+| Off | A quiet room, a close mic, or any time you want the unprocessed microphone |
+| Balanced | Everyday desk noise: a fan, light typing, a room that is not silent |
+| Strong | Louder steady noise: a busy keyboard, HVAC, a cafe table with a steady hum |
+
+
+<Image src={inline2} alt="A quiet room with a microphone and a closed notebook" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@mitchel3uo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">mitchel3uo</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+These names describe intensity, not a quality ranking of transcription models. Off is not a failure state. It is the honest setting when the mic is already fine and you do not want the voice color changed by processing.
+
+Balanced is the practical middle. Use it when you can hear a hum on a voice memo of yourself and you still want to sound like you. Strong pushes harder on steady noise. It is the better choice when the keyboard is loud enough to compete with your voice. It is the worse choice when the room is quiet, because extra processing has less noise to remove and more of your voice to touch.
+
+Vemoir checks that speech is still there. That check is not a promise that every word will transcribe cleanly. A door slam, a person talking across the table, or two voices in the same mic are not "steady background noise."
+
+## What it does not do
+
+A few limits are worth naming before you rely on the setting in a client call.
+
+- It does not record the other party's audio. That is the system-audio track, covered in [mic and system audio](/blog/mic-and-system-audio).
+- It does not put a bot in the meeting. You start and stop from the menu bar.
+- It does not upload the microphone to a noise-removal service. The work is on the Mac.
+- It does not create a speaker profile. Remembering a voice is a separate, opt-in step.
+- It is not a room-recording mode for several people around one laptop. Vemoir's live capture today is microphone plus system audio for a call the Mac can hear.
+
+My Voice isolation is also separate. That feature uses a personal voice profile you record explicitly in Settings. While that profile exists, Vemoir can prioritize your voice locally and keep the ordinary microphone audio when it is not confident. Noise suppression and My Voice can both be relevant on a noisy desk. They are not the same switch.
+
+## A practical way to choose before a call
+
+1. Pick the microphone in the recording controls. The same mic you would use for the call, usually the headset, not a distant laptop mic unless that is all you have.
+2. Set microphone noise suppression to Off for a quiet room, Balanced for a normal office, Strong for steady noise you can already hear in the room.
+3. Start the recording from the menu bar only when you mean to. You can file the call under a project first if you work that way.
+4. After the meeting, play the retained mic track if you kept the audio. If your voice sounds scooped or thin, the next call should use a milder mode or Off.
+5. Leave system audio alone for this decision. The other people are not running through this control.
+
+Keep the recording if you need to compare. Storage settings decide whether future meetings retain audio. A meeting keeps the retention choice that was active when you created it. Failed or interrupted processing still keeps recovery audio, so a bad noise setting does not by itself throw the take away.
+
+## Where a different approach is better
+
+Noise suppression on the mic is the better choice when you want the meeting to stay on the Mac and the problem is steady noise on your side. It is the worse choice in these cases:
+
+- The other people are hard to hear. Turn up their app, check their own mic, or use a headset. Strong on your mic does not repair their audio.
+- Several people share one laptop in a room. One mic and one system-audio track do not label everyone at the table. A dedicated recorder, or a file you import later, may be clearer. Import formats include MP3, M4A, WAV, AIFF, CAF, and FLAC, processed on the Mac.
+- You need a cloud notetaker that everyone on a Windows team can start without a Mac. Vemoir is Apple silicon only, macOS Sonoma 14.2 or later. Intel Macs, Windows, iPhone, and iPad are not supported.
+- Your transcription problem is language or names, not noise. A glossary, a speaker rename, or a different local speech model is the next lever. This setting does not swap Parakeet or Whisper.
+
+Headphones with a boom mic still beat software when the room is loud. The Mac app can only work with the signal the microphone captures.
+
+## Privacy and what stays on the device
+
+Recordings, transcripts, and generated records stay on the Mac unless you export them or turn on an optional text model with your own key. Noise suppression does not change that. There is no path that sends the mic to a vendor because Strong failed.
+
+Transcription and speaker separation stay on the Mac even if you later activate a bring-your-own-key text model for notes, documents, or Ask. That activation is explicit, stored in the Keychain, and text-only. It is not triggered by this microphone setting.
+
+Consent is still yours. Cleaning your mic does not tell the other participants that you are recording. Tell them when the situation requires it. Vemoir does not make a recording lawful, and this page is not legal advice.
+
+Want the modes next to the capture setup? The [capture and models section](/#capture) is where microphone, system audio, and local speech models sit together.
+
+## Frequently asked questions
+
+### Does microphone noise suppression send audio to a cloud?
+
+No. Off, Balanced, and Strong run on the Mac, on the selected microphone. If processing is unavailable or the result is uncertain, Vemoir uses the ordinary microphone path on the device.
+
+### Does it clean the other people on the call?
+
+No. Their audio arrives as system audio, a second local track. This control is the mic: you.
+
+### Is Strong always better than Balanced?
+
+No. Strong is for louder steady noise. In a quiet room, Off or Balanced keeps more of the raw mic. Pick by what you hear, not by the strongest label.
+
+### Will this fix overlapping talkers?
+
+No. It targets steady non-speech interference such as hum and keyboard noise. Two people speaking at once is a different problem, and speaker labels are assigned later, on the Mac, as anonymous clusters you can rename.
+
+### Does turning it on create a voice profile?
+
+No. Remember this speaker is a separate opt-in. A personal My Voice profile, if you record one in Settings, is also separate and stays encrypted on the Mac until you delete it.
+
+### Can I change the mode halfway through a meeting?
+
+Set the mode you want before you start. The choice stays visible so you know what the recording used. If you need a different mode, stop, change it, and record the next segment under the new setting.
+
+### Does a free browser tool include this?
+
+No. The browser tools on vemoir.ch transcribe a file you already have, up to 15 minutes, with a cap of three successful runs a week. They do not record live, do not separate speakers, and do not offer Off, Balanced, and Strong. Live mic cleanup is in the Mac app.
+
+### What if suppression makes my voice worse?
+
+Use Off for the next meeting and, if you kept the audio, compare. A closer mic often helps more than Strong. The ordinary microphone path remains available whenever suppression is uncertain.
+
+If you want both tracks explained, read how [mic and system audio](/blog/mic-and-system-audio) are captured, and set the noise mode from [capture](/#capture) before the next call.

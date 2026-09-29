@@ -1,0 +1,160 @@
+---
+title: "Localisation des données Teams Copilot en Suisse, docs Microsoft"
+description: "Localisation des données Teams Copilot en Suisse : géographie du tenant et PDL. Ce que Microsoft écrit en septembre 2026."
+pubDate: 2026-10-12
+author: "Vemoir Team"
+tags: ["microsoft teams", "copilot", "suisse"]
+funnelStage: "interest"
+translationKey: "teams-copilot-data-location-switzerland"
+relatedPosts: ["otter-ai-est-il-sur", "transcription-teams-absente", "enregistrer-reunion-teams-sur-mac"]
+tool: "recording-to-notes"
+image: "@/assets/blog/teams-copilot-data-location-switzerland/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/teams-copilot-data-location-switzerland/inline1.jpg';
+import inline2 from '@/assets/blog/teams-copilot-data-location-switzerland/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@lofted_track?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Basit Abdul</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+La **localisation des données Teams Copilot en Suisse** n’est pas un tampon unique sur chaque fichier. Microsoft place les artefacts de réunion à des endroits différents&nbsp;: l’enregistrement cloud dans OneDrive ou SharePoint, les invites et réponses Copilot comme historique d’interaction, et le traitement LLM sur un trajet qui n’est pas toujours celui du stockage au repos. Cette page résume les articles Learn de Microsoft au mois de septembre 2026. Ce n’est pas un conseil juridique, et elle ne décide pas si Copilot convient à votre tenant ou à votre contrat client.
+
+Si votre exigence est «&nbsp;l’audio reste sur ce Mac tant que je ne l’exporte pas&nbsp;», Teams Copilot est une autre forme de produit. Il s’exécute dans Microsoft 365. Une capture locale sur le Mac est un second chemin. Les deux peuvent convenir lorsque l’organisation a lu les mêmes pages.
+
+## Sommaire
+
+- [Localisation des données Teams Copilot en Suisse](#localisation-des-données-teams-copilot-en-suisse)
+- [Ce que Microsoft stocke quand vous utilisez Copilot](#ce-que-microsoft-stocke-quand-vous-utilisez-copilot)
+- [Au repos versus là où le modèle s’exécute](#au-repos-versus-là-où-le-modèle-sexécute)
+- [Où vit l’enregistrement Teams lui-même](#où-vit-lenregistrement-teams-lui-même)
+- [Comment voir la localisation des données du tenant](#comment-voir-la-localisation-des-données-du-tenant)
+- [Entraînement, sous-traitants et phrases de Microsoft](#entraînement-sous-traitants-et-phrases-de-microsoft)
+- [Quand l’enregistrement local sur Mac convient mieux](#quand-lenregistrement-local-sur-mac-convient-mieux)
+- [Questions fréquentes](#questions-fréquentes)
+
+## Localisation des données Teams Copilot en Suisse
+
+Microsoft a ajouté Copilot comme charge de travail couverte dans les Product Terms de résidence des données le 1er mars 2024. L’article [Data, Privacy, and Security for Microsoft Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy) (vérifié en septembre 2026) indique que Copilot respecte les engagements de résidence des Product Terms et de l’addendum de protection des données. Advanced Data Residency et Multi-Geo incluent Copilot à la même date.
+
+
+<Image src={inline1} alt="Lumiere d'un lac sur des papiers, bureau en bois" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@thierry_biland?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Thierry Biland</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+La Suisse figure sur les listes Microsoft des pays où une résidence **local-region** peut s’appliquer aux services Microsoft 365 de base (Exchange Online, SharePoint Online, Teams) et, pour certains composants Copilot, au contenu d’interaction au repos. C’est une condition des Product Terms, pas une garantie que votre tenant a été provisionné en Suisse. Une société suisse inscrite sous un autre pays, ou qui n’a jamais défini de Preferred Data Location (PDL), peut encore avoir des données au repos hors de Suisse.
+
+La page [Data Residency for Microsoft Copilot and Copilot Chat](https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-service-copilot) renvoie aujourd’hui Copilot et Copilot Chat aux engagements de base («&nbsp;no modifications&nbsp;») et cite la Suisse parmi les géographies par défaut pour le contenu d’interaction Copilot Cowork. Lisez la page en ligne. Les tableaux changent.
+
+Deux autres phrases Microsoft comptent pour un lecteur suisse et se mélangent facilement&nbsp;:
+
+1. **Frontière des données de l’UE.** Pour les utilisateurs de l’Union européenne, Microsoft indique que le trafic UE reste dans l’EU Data Boundary. La Suisse n’est pas dans l’UE. Ne traitez pas «&nbsp;frontière UE&nbsp;» comme «&nbsp;frontière suisse&nbsp;».
+2. **Clients hors de l’UE.** Le même article indique que les clients hors de l’UE peuvent voir leurs requêtes traitées aux États-Unis, dans l’UE ou ailleurs. Stockage au repos et traitement LLM sont deux cartes.
+
+## Ce que Microsoft stocke quand vous utilisez Copilot
+
+Lorsqu’une personne utilise Copilot dans Word, Excel, PowerPoint, les réunions Teams et les autres applications listées, Microsoft stocke le **contenu des interactions**&nbsp;: l’invite, la réponse et les citations utilisées pour ancrer la réponse. Cet enregistrement est l’historique d’activité Copilot. Microsoft dit que cet historique alimente l’historique Copilot Chat **et les réunions dans Microsoft Teams**.
+
+
+<Image src={inline2} alt="Documents sur le bureau, ville alpine a la fenetre" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@vincent_61?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">VINCENZO INZONE</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Microsoft indique que ces données sont chiffrées au repos, traitées selon les mêmes engagements contractuels que le reste du contenu Microsoft 365, et **ne servent pas à entraîner les LLM de fondation**, y compris ceux utilisés par Copilot. Les invites, les réponses et les données lues via Microsoft Graph sont incluses dans cette phrase.
+
+Les admins peuvent trouver et conserver cet historique avec Content search et Microsoft Purview. Les utilisateurs peuvent supprimer leur propre historique Copilot depuis le portail Mon compte, selon le même article. Supprimer l’historique n’est pas supprimer un enregistrement Teams déjà dans OneDrive.
+
+Les réponses Copilot s’appuient sur le contenu Graph que l’utilisateur peut déjà voir. Les canaux partagés et les invités comptent&nbsp;: si une personne externe peut lire un fichier, Copilot peut l’utiliser pour cette personne. C’est une question d’autorisations dans le tenant, pas une question suisse.
+
+## Au repos versus là où le modèle s’exécute
+
+Les engagements de résidence décrivent les **données client au repos**. Microsoft est explicite&nbsp;: les appels Copilot vers le LLM sont acheminés vers les centres de données régionaux les plus proches, et peuvent aussi appeler d’autres régions en période de forte charge.
+
+Pour les utilisateurs de l’UE, des garanties supplémentaires d’EU Data Boundary s’appliquent, avec une exception documentée&nbsp;: les modèles fournis par Anthropic comme sous-traitant sont actuellement exclus de l’EU Data Boundary. Pour tous les autres, y compris un tenant suisse qui n’est pas un client UE, s’applique la phrase de traitement mondial de Microsoft.
+
+Une checklist suisse utile tient en trois questions, pas une&nbsp;:
+
+1. Quelle est la géographie principale provisionnée du tenant, et quelle PDL ont les personnes qui lancent Copilot dans la réunion&nbsp;?
+2. Où se trouve le fichier d’enregistrement (OneDrive ou SharePoint)&nbsp;?
+3. Où l’invite peut-elle être traitée, la Suisse étant hors de l’EU Data Boundary&nbsp;?
+
+Microsoft, pas cette page, répond à (1) et (2) pour votre tenant. (3) reste la phrase de traitement mondial jusqu’à ce que Microsoft écrive un engagement de traitement suisse plus étroit.
+
+L’article de résidence Copilot indique aussi que Multi-Geo utilise la PDL des utilisateurs et des groupes. Si la PDL manque ou est invalide, le contenu d’interaction est stocké dans la géographie principale du tenant. Dans les réunions Teams, lorsque des personnes d’autres régions posent des questions à Copilot, Microsoft indique que ces invites et réponses sont stockées à l’emplacement de la **personne qui a posé la question**, pas nécessairement de l’organisateur.
+
+## Où vit l’enregistrement Teams lui-même
+
+Les notes Copilot ne sont pas l’enregistrement. L’enregistrement est un fichier.
+
+La documentation d’enregistrement Teams (résumée dans [enregistrer une réunion Teams sur Mac](/fr/blog/enregistrer-reunion-teams-sur-mac) et dans [Teams cloud meeting recording](https://learn.microsoft.com/en-us/microsoftteams/cloud-recording)) place un enregistrement cloud dans le OneDrive de l’organisateur pour une réunion privée, ou dans la bibliothèque SharePoint du canal pour une réunion de canal. La lecture se fait dans Teams. Le téléchargement dépend de la stratégie d’administration.
+
+L’article [Data Residency for Microsoft Teams](https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-workload-teams) ajoute, pour Advanced Data Residency, que les enregistrements de réunion sur Stream (on SharePoint) sont stockés dans le OneDrive de la personne qui **démarre** l’enregistrement. Les notes de résidence Copilot disent la même chose&nbsp;: l’emplacement vidéo suit la PDL de la personne qui démarre, ou l’organisateur si l’enregistrement automatique est activé.
+
+Une transcription générée par Teams voyage avec cet enregistrement cloud. Ce n’est pas un `audio_only.m4a` local sur votre Mac. Si vous voulez le fichier sur le disque, c’est une autre capture.
+
+## Comment voir la localisation des données du tenant
+
+Microsoft indique aux admins d’ouvrir le centre d’administration Microsoft 365&nbsp;: **Settings → Org settings → Organization profile → Data location**. Cette carte montre la géographie à laquelle Microsoft s’engage pour les charges listées. C’est la page à capturer pour un questionnaire client, pas un blog.
+
+PowerShell `Get-MultiGeoRegion` peut afficher la région multi-geo Teams actuelle d’un utilisateur ou d’un groupe si Multi-Geo est en service. Si vous n’êtes pas admin, demandez à l’admin. Deviner «&nbsp;nous sommes une Sàrl suisse, donc Zurich&nbsp;» est la façon dont les mauvaises réponses entrent dans les formulaires de sécurité.
+
+Les licences comptent encore. L’enregistrement cloud et Copilot sont liés au plan et à la stratégie. Si le bouton Enregistrer ou Copilot manque, supposez une stratégie avant un bogue. Les étapes pour démarrer un enregistrement cloud Teams, et pour capturer l’appel en local, sont dans [enregistrer une réunion Teams sur Mac](/fr/blog/enregistrer-reunion-teams-sur-mac).
+
+Vous avez déjà un fichier audio court et voulez des notes sans ajouter une copie dans OneDrive&nbsp;? L’outil navigateur [enregistrement en notes](/fr/outils/enregistrement-en-notes) s’exécute dans l’onglet, jusqu’à 15&nbsp;minutes, trois exécutions réussies par semaine, sans envoyer le fichier à Vemoir. Il n’étiquette pas les locuteurs.
+
+## Entraînement, sous-traitants et phrases de Microsoft
+
+Gardez les phrases de Microsoft attachées à Microsoft.
+
+- **Entraînement&nbsp;:** les invites, réponses et données Graph ne servent pas à entraîner les LLM de fondation, selon l’article de confidentialité Copilot.
+- **Retour facultatif&nbsp;:** Microsoft peut utiliser les retours clients pour améliorer Copilot, et indique ne pas les utiliser pour entraîner les LLM de fondation. Les admins gèrent les retours.
+- **Recherche web&nbsp;:** si elle est activée, Copilot peut envoyer une requête dérivée à Bing. C’est un autre saut. Les admins peuvent désactiver les expériences connectées facultatives.
+- **Agents et connecteurs&nbsp;:** un agent tiers a sa propre déclaration de confidentialité. L’admin décide quels agents sont autorisés.
+- **Anthropic et OpenAI&nbsp;:** Microsoft les documente comme sous-traitants pour certaines expériences Copilot. Des conditions supplémentaires peuvent s’appliquer. Anthropic est aujourd’hui hors de l’EU Data Boundary.
+
+Le même article indique que Microsoft Copilot respecte les engagements existants de Microsoft envers les clients commerciaux Microsoft 365, et cite parmi les offres de Microsoft le RGPD, l’EU Data Boundary, HIPAA et plusieurs normes ISO. Ce sont les phrases de **Microsoft** sur Microsoft Copilot. Elles ne certifient pas votre usage de Copilot, et ce ne sont pas des affirmations sur Vemoir. Ce site ne présente pas Vemoir comme certifié HIPAA, certifié RGPD ou «&nbsp;conforme&nbsp;».
+
+## Quand l’enregistrement local sur Mac convient mieux
+
+Teams Copilot convient lorsque le tenant le paie déjà, que l’IT veut une bibliothèque Microsoft 365 unique et interrogeable, que la conservation Purview est le contrôle déjà en place, et que l’admin a confirmé la carte de localisation et la phrase de traitement ci-dessus.
+
+Un enregistrement local sur Mac convient lorsque l’audio ne doit pas devenir un autre élément OneDrive, lorsque vous n’avez pas le droit de démarrer un enregistrement cloud, ou lorsque Copilot dans la réunion est désactivé et que vous avez tout de même besoin d’un compte rendu. Vous démarrez et arrêtez depuis la barre de menus. Aucun bot n’entre dans la liste Teams. La transcription et la séparation des locuteurs restent sur le Mac. Le texte cloud optionnel est une clé que vous activez, texte seulement.
+
+Vemoir le fait sur Apple silicon, macOS Sonoma 14.2 ou plus récent. Cela ne remplace pas le centre d’administration Microsoft 365. Les collègues sous Windows n’auront pas la même app locale.
+
+Si vous n’aviez besoin que des pages Microsoft citées, arrêtez-vous là et vérifiez les dates. La lecture de septembre 2026 est celle de cet article.
+
+## Questions fréquentes
+
+### Les données Teams Copilot sont-elles stockées en Suisse&nbsp;?
+
+Seulement si la géographie provisionnée de votre tenant et la PDL pertinente placent cette classe de données en Suisse selon les Product Terms de Microsoft. Un nom d’entreprise suisse ne suffit pas. Consultez la carte Data location.
+
+### Un stockage en Suisse signifie-t-il que le traitement y reste&nbsp;?
+
+Pas automatiquement. Microsoft indique que les clients hors de l’UE peuvent voir les requêtes Copilot traitées aux États-Unis, dans l’UE ou ailleurs. La Suisse n’est pas dans l’EU Data Boundary.
+
+### Où se trouvent les enregistrements de réunion Teams&nbsp;?
+
+Dans OneDrive ou SharePoint, selon l’organisateur ou la personne qui démarre l’enregistrement, comme le décrivent les pages d’enregistrement et de résidence de Microsoft. Ce fichier est distinct de l’historique Copilot.
+
+### Les invites Copilot servent-elles à entraîner des modèles de fondation&nbsp;?
+
+Microsoft indique que les invites, réponses et données Graph ne servent pas à entraîner les LLM de fondation. Le retour facultatif est un autre chemin, contrôlé par l’admin.
+
+### Comment voir la localisation des données de mon tenant&nbsp;?
+
+Centre d’administration&nbsp;: Settings, Org settings, Organization profile, Data location. Demandez à votre admin si vous ne pouvez pas ouvrir cette page.
+
+### L’EU Data Boundary couvre-t-elle une entreprise suisse&nbsp;?
+
+Microsoft décrit l’EU Data Boundary pour les utilisateurs de l’UE. La Suisse n’est pas un État membre de l’UE. Ne copiez pas une réponse UE sur un tenant suisse sans lire les Product Terms en vigueur.
+
+### Que se passe-t-il si des collègues d’autres pays interrogent Copilot dans la même réunion&nbsp;?
+
+Microsoft indique que leurs invites et réponses sont stockées à l’emplacement de la personne qui a posé la question. Multi-Geo et PDL déterminent cet emplacement.
+
+### Puis-je garder l’audio de réunion hors du cloud Microsoft&nbsp;?
+
+Ne démarrez pas un enregistrement cloud Teams, et n’utilisez pas les fonctions Copilot qui doivent traiter la réunion. Capturez sur le Mac, et dites-le à la salle. Pour un fichier que vous avez déjà, utilisez [enregistrement en notes](/fr/outils/enregistrement-en-notes).
+
+Confirmez les pages Microsoft liées ci-dessus avant un questionnaire client. Si le prochain appel doit rester sur le Mac, enregistrez l’audio système et le microphone en local plutôt que d’attendre un lien OneDrive.
