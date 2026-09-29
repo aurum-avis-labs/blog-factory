@@ -1,4 +1,5 @@
 ---
+import { blogPostUrl } from "@/lib/brands";
 import { getReadingTime } from "@/lib/utils";
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
@@ -15,7 +16,7 @@ const { post, brand, lang } = Astro.props;
 // ID format: {brand}/{lang}/slug.mdx
 const parts = post.id.split("/");
 const slug = parts.slice(2).join("/").replace(/\.mdx?$/, "");
-const postUrl = `/${brand}/${lang}/blog/${slug}`;
+const postUrl = blogPostUrl(brand, lang, slug);
 
 const readTime = getReadingTime(post.body || "");
 
