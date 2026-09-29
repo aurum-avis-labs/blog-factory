@@ -1,0 +1,149 @@
+---
+title: "Speaker Labels Missing From Your Meeting Transcript"
+description: "Speaker labels missing from the export? The browser cannot invent them. Where names actually come from, and what to do with a nameless file."
+pubDate: 2026-10-16
+author: "Vemoir Team"
+tags: ["speakers", "transcript", "meetings"]
+funnelStage: "interest"
+translationKey: "speaker-labels-missing"
+relatedPosts: ["who-spoke-most-in-meeting", "fix-wrong-speaker-names", "speaker-profiles-mac"]
+tool: "who-held-the-floor"
+image: "@/assets/blog/speaker-labels-missing/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/speaker-labels-missing/inline1.jpg';
+import inline2 from '@/assets/blog/speaker-labels-missing/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Speaker labels missing from a transcript means the file has words and no reliable "who." You can still read it. You cannot honestly answer who agreed, who owned a task, or who spoke most. The fix is not a button that guesses. A browser page does not run a speaker-separation model. If the names were not in the export, they stay missing until a person or a local diarization pass adds them.
+
+This is the unlabeled-file problem. Renaming a label you already have is a different job, and it belongs on the Mac after a recording, not in a caption cleaner.
+
+## Contents
+
+- [Why speaker labels missing is normal](#why-speaker-labels-missing-is-normal)
+- [What the browser will and will not do](#what-the-browser-will-and-will-not-do)
+- [Shapes that already count as a name](#shapes-that-already-count-as-a-name)
+- [When you can add names by hand](#when-you-can-add-names-by-hand)
+- [When you need the Mac instead](#when-you-need-the-mac-instead)
+- [Talk time without labels is a dead end](#talk-time-without-labels-is-a-dead-end)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## Why speaker labels missing is normal
+
+Several normal exports are nameless. That is not a bug in your paste.
+
+
+<Image src={inline1} alt="Several chairs at a conference table without labels" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- A local Zoom recording is audio. `audio_only.m4a` has no speakers in it. Zoom's cloud VTT sometimes does, when cloud transcription was on and the account allows it. The local file does not inherit those names. See [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording).
+- A microphone recording of a room, a voice memo, or a single mixed track is one waveform. Speech-to-text can write the words. It does not know the faces.
+- Some Teams downloads are speaker-attributed VTT, with `<v Name>` tags. Others, and some admin settings, are text without those tags. If the tag is absent, no later cleaner can recover a name that was not stored.
+- Browser transcription uses a public speech model on a file you already have. It does not separate speakers. The output is timestamped text. Names appear only if they were already inside the media file in a form the page can read, which a plain M4A almost never has.
+
+If you needed names, the moment to get them was a source that had them, or a tool that diarizes the audio on the machine. Looking at a finished nameless text and hoping is too late for the browser.
+
+## What the browser will and will not do
+
+The [transcript cleaner](/tools/transcript-cleaner) removes timestamps and cue headers. It keeps a speaker only when it finds one. The patterns it understands include a WebVTT voice tag (`<v Jane>`), a line like `Jane: text`, `Speaker 1:`, or `SPEAKER_01:`. Anything else is treated as words without a person.
+
+
+<Image src={inline2} alt="A group conversation photographed from above, no screens" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@2hmedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">2H Media</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+When nothing matches, the page tells you the file had no speaker names. It still returns the text. It does not fill in "Speaker A" and "Speaker B" as a guess. Invented labels look like data, and they are not.
+
+[Who held the floor](/tools/who-held-the-floor) is the same rule, one step later. Paste a transcript that already has names, and it shows each name's share of the words. Paste a nameless block, and it stops. There is no chart of anonymous voices, because the browser cannot tell the voices apart.
+
+Neither of those pages spends a weekly model run. They also do not record the meeting, and they do not listen to the tab.
+
+A notes draft from [meeting notes from a transcript](/tools/meeting-notes-from-transcript) can still summarize a nameless file. It should not assign quotes to people who are not in the text. Read the draft. If it names someone the file never named, delete that line.
+
+## Shapes that already count as a name
+
+You may have labels and not recognize them.
+
+| In the file | What you get |
+| --- | --- |
+| `<v Lee Chen>text</v>` | `Lee Chen: text` |
+| `Lee Chen: text` | The name is kept |
+| `Speaker 2: text` | The placeholder is kept. It is not a person until you rename it |
+| `SPEAKER_00: text` | Same idea, a label without an identity |
+| Plain sentence, no prefix | No name. The page says so |
+
+`Speaker 2` is useful only as a thread. It means "this stretch is the same unknown voice as the other Speaker 2 lines," when the upstream tool actually diarized. It does not mean the browser discovered that. If your file has those prefixes, who-held-the-floor can count them. You still have to map Speaker 2 to a human if the name matters.
+
+A display name like "iPhone" or "Conference Room" is a label the meeting app stored. Keep it visible. Replace it only when you know who was in that room, and keep a note that you renamed it.
+
+## When you can add names by hand
+
+Hand labels are honest when the meeting was short and you were there.
+
+1. Keep the original file unchanged.
+2. Work on a copy.
+3. When you know a stretch, prefix it exactly as `Name: text` on its own line. Use the same spelling every time.
+4. If you are unsure, write `Unknown: ` or leave the line bare. A wrong name is worse than a gap.
+5. Paste the copy into who-held-the-floor only after the names are ones you stand behind.
+
+Do this for a 10-minute debrief. Do not do it for a 90-minute workshop with six voices. You will mis-assign the middle, and the chart will look precise.
+
+Also do not backfill names into the original VTT and then treat that VTT as the vendor's export. If you need to show what Teams or Zoom produced, show the original.
+
+## When you need the Mac instead
+
+Vemoir on the Mac separates remote participants into anonymous, reviewable speaker labels after the recording stops. The separation runs on the machine. You can rename a label without creating a voice profile. "Remember this speaker" is a separate, explicit step: it stores an encrypted profile only if you approve it. Unknown and ambiguous speakers stay anonymous. You can turn a profile off or delete it.
+
+That is how a mixed track gets names at all. The browser path will not grow that feature. Live capture, the microphone and system audio as separate tracks, and speaker separation are the app. macOS asks for the microphone and for System Audio Recording, which captures audio only. It does not record the screen.
+
+You still review the labels. Diarization can split one person or merge two people who sound alike. The raw transcript remains the evidence. A rename does not rewrite history into a fake identity.
+
+Import, if you already have the file: MP3, M4A, WAV, AIFF, CAF, or FLAC, into a project, through the same local pipeline as a live recording. Opus and Ogg are not in that list.
+
+## Talk time without labels is a dead end
+
+"Who spoke most" needs names or stable labels before the count. Word share is not a clock, either. A fast talker can have more words than the person who held the floor longer. The browser tool reports share of words, and only from prefixes it could read.
+
+If your real question is fairness in a workshop, start from audio that can be separated, then rename, then count. Starting from a nameless paste and expecting a fair pie chart will produce either nothing or a fiction.
+
+If your real question is the minutes, you may not need talk time. Attendees and owners are enough. Write those on the [minutes sheet](/tools/minutes-sheet) from what you know, and do not pretend the transcript proved the quotes.
+
+## Frequently asked questions
+
+### Why are speaker labels missing when I can hear two people?
+
+Hearing two people is not the same as a file that marks them. One mixed audio track does not contain printed names. A transcript of that track is nameless unless a diarization step ran.
+
+### Can I turn on speaker labels in the browser tool?
+
+No. The browser does not separate speakers. It preserves names that are already in the text or the caption file.
+
+### Does Zoom always include names in the VTT?
+
+No. A cloud transcript may include them when that feature is on for the account. A local recording is audio, not a VTT. Check the file you actually downloaded before you assume the names were dropped on the way.
+
+### What if Teams shows names on screen but my download does not?
+
+The on-screen transcript and the file you are allowed to download are not always the same shape. Organizer rights, admin policy, and the download format matter. If the file has no `<v>` tags and no `Name:` lines, the cleaner has nothing to keep.
+
+### Is "Speaker 1" good enough for minutes?
+
+It is good enough to keep stretches apart while you edit. It is not good enough to name an owner in a protocol you send out. Map it to a person first, or leave the owner blank.
+
+### Will a summary model infer the names from context?
+
+It might write a name that appeared once in the prose and attach it to the wrong line. Treat that as a draft error. The label tools refuse to invent names so you do not get a confident chart from a guess.
+
+### Can I fix one wrong name without building a voice profile?
+
+On the Mac, yes. Rename the label for that meeting. Remembering the voice is optional and separate. In the browser, edit the text. There is no profile to create.
+
+### Does a missing label mean the transcript is useless?
+
+No. It still shows what was said, in order. Use it for the content. Do not use it for attribution until the names are real.
+
+Next step: if the export already has names, open [who held the floor](/tools/who-held-the-floor) or the [transcript cleaner](/tools/transcript-cleaner). If the file is a mixed recording with no names, speaker separation is the [Mac capture path](/#capture), not the browser.

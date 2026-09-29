@@ -1,0 +1,144 @@
+---
+title: "Note della chiamata cliente senza upload, da file locale"
+description: "Le note della chiamata cliente senza upload nascono da audio che resta nel browser o sul Mac. Quindici minuti è il tetto del browser."
+pubDate: 2026-10-31
+author: "Vemoir Team"
+tags: ["clienti", "privacy", "note"]
+funnelStage: "consideration"
+translationKey: "client-call-notes-without-upload"
+relatedPosts: ["trascrivere-intervista-senza-caricarla", "registrare-riunione-teams-su-mac", "migliori-note-riunione-private"]
+tool: "recording-to-notes"
+image: "@/assets/blog/client-call-notes-without-upload/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/client-call-notes-without-upload/inline1.jpg';
+import inline2 from '@/assets/blog/client-call-notes-without-upload/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">charlesdeluvio</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Note della chiamata cliente senza upload** significa che il file audio non deve essere inviato a un server per diventare una nota. Sul sito apri un file che hai già e il modello gira nella scheda. Nell'app Mac la chiamata viene registrata e trascritta sulla macchina. Entrambi ti lasciano un testo che devi ancora rivedere prima che un cliente lo veda. Nessuno dei due rende lecita la registrazione. Lo dici comunque al cliente.
+
+Il percorso browser è [registrazione in note](/it/strumenti/registrazione-in-note). Tetto: **15 minuti**, **3 esecuzioni riuscite a settimana**, MP3, M4A, WAV o MP4, niente etichette speaker. L'app Mac è il percorso per una chiamata live o un file più lungo, acquisto unico: **CHF 20** in Svizzera. L'App Store mostra il prezzo locale. Niente abbonamento.
+
+## Indice
+
+- [Note della chiamata cliente senza upload, nel browser](#note-della-chiamata-cliente-senza-upload-nel-browser)
+- [Quando la chiamata dura più di quindici minuti](#quando-la-chiamata-dura-più-di-quindici-minuti)
+- [Cosa mandi al cliente](#cosa-mandi-al-cliente)
+- [Quando un cloud condiviso vince ancora](#quando-un-cloud-condiviso-vince-ancora)
+- [Domande frequenti](#domande-frequenti)
+
+## Note della chiamata cliente senza upload, nel browser
+
+Usalo quando la chiamata è finita e tieni un file breve.
+
+
+<Image src={inline1} alt="Cartella riservata e cuffie su una scrivania quieta" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. Esporta MP3, M4A, WAV o MP4. Se l'unica copia è una registrazione più lunga, taglia sulla parte di cui la nota ha bisogno prima di spendere un'esecuzione settimanale.
+2. Apri [registrazione in note](/it/strumenti/registrazione-in-note). Il modello vocale si scarica nella scheda. Le esecuzioni successive possono girare senza rete. Il file non viene caricato su Vemoir. Il pannello Network del browser è il controllo.
+3. Ottieni testo, poi una bozza a forma di note. Non ottieni nomi di speaker. Per una chiamata cliente a due di solito distingui le voci a mano. Scrivi i nomi. Non lasciare «il cliente ha detto» su una frase di cui non sei sicura.
+4. Rivedi decisioni e date. I modelli Whisper pubblici puntano lo svizzero tedesco sul tedesco standard. Le cifre hanno bisogno dei tuoi occhi.
+5. Tre esecuzioni riuscite a settimana è il tetto degli strumenti gratis insieme, non una quota per cliente. Una giornata di chiamate di fila non ci sta tutta.
+
+La versione intervista dello stesso limite è [trascrivere un'intervista senza caricarla](/it/blog/trascrivere-intervista-senza-caricarla). Usa la pagina registrazione in note quando l'output che vuoi è la nota, non solo la riga verbatim.
+
+Non c'è un'estensione browser, nessuna cattura di scheda e nessuna registrazione live di riunione sul sito. Se la chiamata è ancora in corso, il browser non la sente.
+
+## Quando la chiamata dura più di quindici minuti
+
+Smetti di svuotare un workshop cliente per soddisfare un tetto. Registra o importa sul Mac.
+
+
+<Image src={inline2} alt="Chiamata cliente privata: porta chiusa e taccuino" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@galen_crout?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">galen_crout</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Vemoir cattura microfono e audio di sistema come tracce locali separate dalla barra dei menu. Funziona con l'app di riunione che sta suonando, inclusi Zoom, Teams, Meet, Slack e altre elencate sotto [piattaforme](/it#platforms). Nessun bot entra. Tu avvii e fermi. Il permesso macOS per il lato remoto dell'audio è **System Audio Recording**. Quel tap è solo audio. Lo schermo non viene registrato. Permetti anche il microfono.
+
+Trascrizione e separazione speaker girano sul Mac. Verbale, decisioni, azioni e una bozza di follow-up vengono da quel trascritto locale. Fai una domanda dopo e la risposta può puntare alla riga. I modelli di testo in cloud restano spenti finché non ne attivi uno con la tua chiave, e non ricevono l'audio. Non c'è un passaggio silenzioso a un modello cloud se quello locale fallisce.
+
+Requisiti: Apple silicon, M1 o più recente, macOS Sonoma 14.2 o successivo, 8 GB di memoria, 10 GB liberi per i modelli. 16 GB sono consigliati per le riunioni lunghe. I Mac Intel non sono supportati. Una volta scaricati i modelli, il flusso può girare offline. Internet serve per setup e download.
+
+L'import di un file esistente sul Mac accetta MP3, M4A, WAV, AIFF, CAF e FLAC. Così una lunga registrazione cliente che hai già fatto diventa una nota locale senza tetto di 15 minuti.
+
+Il prezzo, di nuovo, perché questo è il passo di considerazione: CHF 20 in Svizzera, una tantum nel Mac App Store, ogni funzione inclusa, niente posto, niente tariffa per riunione. Lo Store mostra il prezzo locale. Le stesse indicazioni sono sotto [prezzi](/it#pricing). Installazione dall'[App Store](https://apps.apple.com/app/id6794693630).
+
+Dillo al cliente prima di registrare. Un bot assente non è una dichiarazione assente.
+
+## Cosa mandi al cliente
+
+Manda la nota. Tieni l'audio a meno che il contratto dica che ricevono le registrazioni. Gli [export](/it#exports) sono come condividi un pezzo scelto tramite macOS, non come l'intera libreria si pubblica da sola.
+
+Prima che esca:
+
+- Un nome progetto, una data, i partecipanti.
+- Decisioni in frasi.
+- Azioni con una persona e una data.
+- I tuoi tagli. Altri clienti, onorari interni e commenti laterali restano fuori.
+- Un controllo umano di ogni cifra.
+
+Il [modello di verbale](/it/strumenti/modello-verbale) c'è se vuoi una struttura vuota invece di una bozza generata. Il [modello di verbale di riunione](/it/blog/modello-verbale-riunione) è l'esposizione generale di cosa includere. Una nota cliente può essere più corta di un verbale formale. Non deve essere più vaga sulla decisione.
+
+Se tu e un collega avete entrambi preso appunti, mandate una versione. Due documenti creano due perimetri.
+
+Due file della stessa chiamata, uno dal tuo registratore e uno che il cliente manda dopo dal suo cloud Zoom, non coincideranno parola per parola. Usa uno come fonte della nota e di' quale. Citare entrambi nella stessa mail sembra due riunioni. Se una cifra differisce, ascolta prima di scegliere la frase fluida.
+
+Una settimana di viaggio è quando il percorso Mac offline vale l'acquisto. Scarica i modelli prima di partire. Il primo fetch del modello dello strumento browser vuole anche una rete. Un portale captive di hotel è un brutto momento per scoprirlo. Il tetto di 15 minuti vale ancora in viaggio. L'app Mac non aggiunge quel tetto. Richiede che i modelli siano presenti.
+
+## Quando un cloud condiviso vince ancora
+
+Un team che deve cercare ogni chiamata cliente in un solo login non lo ottiene da un singolo Mac. Uno spazio contrattuale, con il permesso del cliente e un fornitore che potete nominare nell'incarico, è il sistema migliore per quello studio. Un'app locale una tantum è il sistema migliore quando sei tu la persona in chiamata, il cliente non vuole un bot, e l'audio non deve essere la copia del fornitore.
+
+Gli appunti a mano vincono quando il cliente dice no alla registrazione. Non trascrivere «a memoria» e presentarlo come se esistesse un nastro.
+
+Un'esecuzione browser di 15 minuti vince quando ti serve una conferma dalla fine della chiamata e non vuoi installare niente. Perde appena il file è più lungo o ti servono speaker separati.
+
+Nessuna di queste opzioni è un certificato GDPR o una pretesa HIPAA. Consenso e conservazione restano a te. In Svizzera la gente intende la nLPD quando parla di doveri di protezione dei dati. Il prodotto non li assolve.
+
+Se hai tagliato una registrazione lunga a quindici minuti, di' nella nota che il testo copre quell'estratto, non tutta la chiamata. Un cliente che ricorda la prima metà penserà altrimenti che l'hai ignorata.
+
+Nomina nelle tue note il file che hai trascritto, così ritrovi l'audio se una cifra viene contestata.
+
+Quel nome file ti salva quando il cliente risponde due settimane dopo.
+
+## Domande frequenti
+
+### Le note della chiamata cliente senza upload hanno comunque bisogno di un file?
+
+Sì. Lo strumento browser trascrive un file che hai già. Non tira la chiamata dal cloud di Zoom per te.
+
+### Cosa è troppo lungo per lo strumento gratis?
+
+Oltre 15 minuti, o una quarta esecuzione riuscita nella stessa settimana. Usa l'app Mac per la registrazione più lunga.
+
+### Gli speaker sono nominati?
+
+Non nel browser. L'app Mac separa gli speaker in locale in etichette che puoi correggere. Gli speaker incerti restano anonimi.
+
+### Quanto costa l'app Mac?
+
+CHF 20 in Svizzera, una tantum. L'App Store mostra il prezzo locale. Niente abbonamento.
+
+### Audio di sistema significa registrare lo schermo?
+
+No. System Audio Recording sente le altre app. Lo schermo non fa parte della cattura.
+
+### Posso farlo girare offline?
+
+Lo strumento browser può, dopo che il modello è stato scaricato, nei limiti usuali. L'app Mac può, dopo che hai installato i modelli scelti.
+
+### E se il cliente vieta la registrazione?
+
+Non registrare. Prendi appunti. Lo strumento non è un workaround.
+
+### La nota si manderà da sola al cliente?
+
+No. Condividi quello che scegli. Controlla prima. Se il cliente risponde con una correzione, modifica la nota e manda la correzione nello stesso thread. Non aprire un secondo documento che contiene ancora la cifra sbagliata.
+
+## Prossimo passo
+
+Per un file breve, apri [registrazione in note](/it/strumenti/registrazione-in-note) e resta dentro 15 minuti e tre esecuzioni a settimana. Per la prossima chiamata cliente live su un Mac supportato, installa dall'[App Store](https://apps.apple.com/app/id6794693630) e leggi [prezzi](/it#pricing) se vuoi le cifre dello Store accanto al riassunto delle funzioni. Scarica il modello vocale prima della chiamata, non durante il giro di presentazioni.

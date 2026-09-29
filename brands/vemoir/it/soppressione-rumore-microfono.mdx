@@ -1,0 +1,140 @@
+---
+title: "Soppressione rumore microfono: Off, Balanced, Strong"
+description: "La soppressione rumore microfono su Mac offre Off, Balanced o Strong. Agisce sul microfono, sul dispositivo, senza mandare audio nel cloud."
+pubDate: 2026-11-09
+author: "Vemoir Team"
+tags: ["microfono", "rumore", "mac"]
+funnelStage: "interest"
+translationKey: "microphone-noise-suppression"
+relatedPosts: ["audio-di-sistema-mac", "registrazione-riunione-senza-audio-mac", "archiviare-riunioni-in-progetti"]
+image: "@/assets/blog/microphone-noise-suppression/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/microphone-noise-suppression/inline1.jpg';
+import inline2 from '@/assets/blog/microphone-noise-suppression/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@sunx?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sunx</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+La **soppressione rumore microfono** in Vemoir è un'impostazione della traccia microfono. Scegli Off, Balanced o Strong. L'elaborazione resta sul Mac. L'audio dell'altra persona, da Teams, Zoom, Meet o un'altra app, è una traccia a parte e non passa da questo controllo.
+
+Se la stanza è già silenziosa, Off è spesso la scelta migliore. Balanced e Strong servono per un rumore di fondo stabile: tastiera, ronzio, una ventola. Non inventano una voce pulita se qualcuno parla sopra di te, e non sostituiscono una cuffia se la stanza è davvero rumorosa.
+
+## Contenuti
+
+- [Cosa cambia la soppressione rumore microfono](#cosa-cambia-la-soppressione-rumore-microfono)
+- [Off, Balanced e Strong](#off-balanced-e-forte)
+- [Cosa non fa](#cosa-non-fa)
+- [Come scegli prima della call](#come-scegli-prima-della-call)
+- [Quando un'altra strada è migliore](#quando-unaltra-strada-è-migliore)
+- [Cosa resta sul dispositivo](#cosa-resta-sul-dispositivo)
+- [Domande frequenti](#domande-frequenti)
+
+
+<Image src={inline1} alt="Primo piano di un microfono senza marca su un tavolo di legno" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+## Cosa cambia la soppressione rumore microfono
+
+Il controllo sta sul microfono che selezioni per la registrazione. È il tuo lato della conversazione. L'audio di sistema, le persone dall'altra parte, viene catturato come traccia locale separata con il permesso macOS System Audio Recording. Un tap Core Audio solo audio prende quel suono. Lo schermo non viene registrato.
+
+
+<Image src={inline2} alt="Stanza quieta con microfono e taccuino chiuso" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@mitchel3uo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">mitchel3uo</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+La soppressione non mescola le due tracce in una «riunione pulita». Cerca di ridurre le interferenze stabili sul percorso del microfono prima che quella traccia sia finalizzata. La separazione dei parlanti gira dopo, sul Mac, sull'audio locale, ed è un altro passo.
+
+La modalità scelta resta visibile. Vedi se l'ultima riunione ha usato Off, Balanced o Strong. Se la soppressione non è disponibile, o se il risultato elaborato è incerto, Vemoir usa il percorso microfono normale. Hai comunque una registrazione. Non c'è un passaggio silenzioso a un servizio vocale nel cloud.
+
+## Off, Balanced e Strong
+
+| Modalità | Quando ha senso |
+| --- | --- |
+| Off | Stanza silenziosa, microfono vicino, o vuoi il segnale non trattato |
+| Balanced | Rumore da scrivania di tutti i giorni: ventola, digitazione leggera, stanza non muta |
+| Strong | Rumore stabile più forte: tastiera, climatizzazione, un ronzio continuo |
+
+I nomi descrivono l'intensità, non una classifica dei modelli di trascrizione. Off non è uno stato di errore. È l'impostazione onesta quando il microfono basta già e non vuoi cambiare il colore della voce.
+
+Balanced è il punto pratico. Usalo se una prova della tua voce lascia sentire un ronzio e vuoi ancora riconoscerti. Strong spinge di più sul rumore stabile. È la scelta migliore quando la tastiera compete con la voce. È la scelta peggiore in una stanza silenziosa, perché c'è meno rumore da togliere e più voce da toccare.
+
+Vemoir controlla che la voce ci sia ancora. Non è una promessa che ogni parola uscirà pulita. Una porta, una seconda persona al tavolo o due voci nello stesso microfono non sono «rumore di fondo stabile».
+
+## Cosa non fa
+
+- Non registra l'audio dell'altra parte. Quella è la traccia di sistema, descritta in [microfono e audio di sistema](/it/blog/microfono-e-audio-sistema).
+- Non mette un bot nella riunione. Avvii e fermi dalla barra dei menu.
+- Non carica il microfono su un servizio di denoise. Il lavoro resta sul Mac.
+- Non crea un profilo speaker. Ricordare una voce è un passo separato, e facoltativo.
+- Non è una modalità da stanza per più persone intorno a un laptop. La cattura live di oggi è microfono più audio di sistema per una call che il Mac sente.
+
+La mia voce è un'altra cosa. Quella funzione usa un profilo vocale personale che registri esplicitamente in Impostazioni. Finché il profilo esiste, Vemoir può dare priorità alla tua voce in locale e tenere il microfono normale quando l'identità non è abbastanza sicura. Soppressione del rumore e La mia voce possono servire entrambe su una scrivania rumorosa. Non è lo stesso interruttore.
+
+## Come scegli prima della call
+
+1. Scegli il microfono nei controlli di registrazione. Lo stesso microfono della call, di solito la cuffia, non il microfono lontano del laptop se hai scelta.
+2. Imposta la soppressione rumore microfono su Off in una stanza silenziosa, Balanced in ufficio, Strong per un rumore stabile che senti già.
+3. Avvia la registrazione dalla barra dei menu solo quando lo vuoi. Puoi archiviare la call in un progetto prima di partire.
+4. Dopo la riunione, ascolta la traccia microfono conservata se hai tenuto l'audio. Se la voce suona sottile, la call successiva dovrebbe usare una modalità più mite, o Off.
+5. Lascia fuori l'audio di sistema da questa decisione. Gli altri non passano da questo controllo.
+
+Tieni la registrazione se vuoi confrontare. Le impostazioni di archiviazione decidono se le riunioni future conservano l'audio. Una riunione tiene la scelta che era attiva quando l'hai creata. Un'elaborazione fallita o interrotta conserva un audio di recupero. Un'impostazione di rumore sbagliata non butta via la presa da sola.
+
+## Quando un'altra strada è migliore
+
+La soppressione sul microfono è la scelta migliore quando la riunione deve restare sul Mac e il problema è un rumore stabile dalla tua parte. È la scelta peggiore qui:
+
+- Gli altri si sentono male. Alza la loro app, controlla il loro microfono, o passa alla cuffia. Strong sul tuo microfono non ripara il loro audio.
+- Più persone condividono un laptop nella stanza. Una traccia microfono e una traccia di sistema non etichettano tutti al tavolo. Un registratore dedicato, o un file che importi dopo, può essere più chiaro. I formati di import sono MP3, M4A, WAV, AIFF, CAF e FLAC, elaborati sul Mac.
+- Un team su Windows deve avviare un notetaker cloud senza Mac. Vemoir richiede Apple silicon e macOS Sonoma 14.2 o successivo. Mac Intel, Windows, iPhone e iPad non sono supportati.
+- Il problema di trascrizione è la lingua o i nomi, non il rumore. Un glossario, una rinomina dello speaker o un altro modello vocale locale è la leva successiva. Questa impostazione non scambia Parakeet e Whisper.
+
+Una cuffia con microfono a braccio batte ancora il software quando la stanza è forte. L'app Mac può lavorare solo con il segnale che il microfono cattura.
+
+## Cosa resta sul dispositivo
+
+Registrazioni, trascrizioni e verbali generati restano sul Mac, a meno che tu non li esporti o attivi un modello di testo facoltativo con la tua chiave. La soppressione del rumore non cambia questo. Non esiste un percorso che manda il microfono a un fornitore perché Strong è fallito.
+
+Trascrizione e separazione dei parlanti restano sul Mac anche se più tardi attivi una chiave tua, solo testo, per note, documenti o domande. Quell'attivazione è esplicita, sta nel Portachiavi e non parte da questa impostazione del microfono.
+
+Il consenso resta tuo. Pulire il microfono non dice agli altri che stai registrando. Dillo quando la situazione lo richiede. Vemoir non rende lecita una registrazione, e questa pagina non è consulenza legale secondo la nLPD.
+
+Le modalità stanno accanto alla configurazione di cattura in [cattura e modelli](/it#capture).
+
+## Domande frequenti
+
+### La soppressione rumore microfono manda l'audio nel cloud?
+
+No. Off, Balanced e Strong girano sul Mac, sul microfono scelto. Se l'elaborazione non è disponibile o il risultato è incerto, Vemoir usa il percorso microfono normale sul dispositivo.
+
+### Pulisce le altre persone della call?
+
+No. Il loro audio arriva come audio di sistema, una seconda traccia locale. Questo controllo è il microfono: tu.
+
+### Strong è sempre meglio di Balanced?
+
+No. Strong è per un rumore stabile più forte. In una stanza silenziosa, Off o Balanced tengono più del microfono grezzo. Scegli in base a quello che senti, non all'etichetta più forte.
+
+### Sistema le voci che si sovrappongono?
+
+No. Il bersaglio è un'interferenza stabile non vocale, come ronzio e tastiera. Due persone insieme sono un altro problema. Le etichette speaker arrivano dopo, sul Mac, come gruppi anonimi che puoi rinominare.
+
+### Accenderla crea un profilo vocale?
+
+No. Ricorda questo parlante è un opt-in separato. Un profilo personale La mia voce, se ne registri uno in Impostazioni, è altrettanto separato e resta cifrato sul Mac finché non lo elimini.
+
+### Posso cambiare modalità a metà riunione?
+
+Imposta la modalità prima di partire. La scelta resta visibile così sai cosa ha usato la registrazione. Se ti serve un'altra modalità, ferma, cambiala, e registra il tratto successivo con la nuova impostazione.
+
+### Lo strumento gratuito nel browser ce l'ha?
+
+No. Gli strumenti nel browser su vemoir.ch trascrivono un file che hai già, fino a 15 minuti, con al massimo tre esecuzioni riuscite a settimana. Non registrano dal vivo, non separano i parlanti e non offrono Off, Balanced e Strong. La pulizia live del microfono sta nell'app Mac.
+
+### E se la soppressione peggiora la voce?
+
+Usa Off per la call successiva e confronta se hai tenuto l'audio. Un microfono più vicino aiuta spesso più di Strong. Il percorso microfono normale resta disponibile appena la soppressione è incerta.
+
+Le due tracce sono spiegate in [microfono e audio di sistema](/it/blog/microfono-e-audio-sistema). Imposta la modalità da [cattura](/it#capture) prima della prossima call.

@@ -1,0 +1,116 @@
+---
+title: "Set a Project Glossary for Names, Products, Jargon"
+description: "A project glossary keeps preferred terms and aliases in meeting notes. The original transcript stays the evidence. Hints stay on your Mac."
+pubDate: 2026-11-07
+author: "Vemoir Team"
+tags: ["glossary", "projects", "meetings"]
+funnelStage: "interest"
+translationKey: "project-glossary"
+relatedPosts: ["notes-while-recording", "meeting-projects", "transcribe-german-meeting"]
+image: "@/assets/blog/project-glossary/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/project-glossary/inline1.jpg';
+import inline2 from '@/assets/blog/project-glossary/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@dlxmedia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">dlxmedia</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+A **project glossary** is a list you keep for one client or one piece of work: the names and words that transcripts usually get wrong, and the spelling you want in the minutes. Vemoir stores it on the Mac, in that project. You can search it, and you can add, edit, or delete terms locally. Each entry can hold a preferred term, aliases, and a short definition.
+
+The original transcript stays the evidence. Alias normalization changes temporary model input and the generated text. It does not rewrite the timestamped lines into the preferred spelling and then pretend that was what was heard.
+
+## What a project glossary is for
+
+People search this when the minutes say "Canton" and the client says "Kanton," or when a product name comes out as a common word. The glossary is the place for that preference. It is not a speaker profile and it is not a search of every past meeting.
+
+
+<Image src={inline1} alt="Blank index cards for terms on a table" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@c1st?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">c1st</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Compatible Whisper transcription receives the terms as prompt hints. Parakeet v3 is a separate speech model with its own coverage of 25 European languages. Do not assume a glossary hint changes Parakeet the same way. The app shows which speech model you selected. Artifact generation and regeneration also receive the terminology, as context that is not evidence.
+
+If you only need one meeting's wording fixed after the fact, edit the minutes. Use the glossary when the same words will come up again on this project.
+
+## How to add terms that earn their place
+
+1. Open the project, not a random meeting in Local Recordings. The glossary belongs to the project.
+2. Add the preferred spelling first: the product, the person, the legal name, the internal acronym.
+3. Add aliases for the ways speech-to-text usually mangles it, and for the spoken short form.
+4. Write a definition only when the word is ambiguous. "Delta" as a release name and "delta" as a difference do not need a paragraph. They need the preferred form and, if useful, a one-line definition so the notes pick the right sense.
+5. Leave out words you would not want copied into a summary. A glossary term is context for generation. Do not stuff it with secrets you do not want echoed.
+
+
+<Image src={inline2} alt="An open reference book beside meeting notes" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@terracotta215?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">terracotta215</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Search the list before you add a near-duplicate. Two aliases pointing at different preferred terms will fight.
+
+## What changes, and what stays the transcript
+
+When a model prepares input, aliases can be normalized toward the preferred term. Generated minutes, decisions, and other artifacts can then use that spelling. Regeneration gets the same terminology again, still as non-evidence context.
+
+Open the transcript if you need to see what was said. If the recording captured "kay bee" and the glossary prefers "KB," the transcript line remains the capture. The summary may say KB. That split is the point. You can cite the line. You should not tell a client the transcript itself was rewritten to the brand spelling.
+
+Manual notes you type are also separate. They keep user-authored provenance. A glossary does not turn your typed sentence into a transcript quote.
+
+## Where a glossary is the wrong tool
+
+A project glossary is the better choice when the same proper nouns repeat and you want generated notes to spell them your way, without losing the original lines. It is the worse choice when:
+
+- The word was wrong once, in one sentence you can edit. Edit the sentence.
+- The problem is who spoke, not which word. Rename the speaker label. That does not create a voice profile unless you choose `Remember this speaker`.
+- You hoped the glossary would force Swiss German dialect spelling, or any dialect the speech model does not output. It will not. Do not treat a glossary as a dialect model.
+- Another team needs a shared terminology database in a wiki with permissions. This list lives in the project on this Mac. Deleting the project removes meetings, transcripts, records, and the glossary with them.
+
+Browser tools on vemoir.ch do not offer this list. They transcribe a short file you already have, with no speaker labels. Live projects and glossaries are in the Mac app.
+
+## A small glossary that stays usable
+
+Keep it short enough to review. Ten sharp terms beat eighty casual ones. Review it when a product renames, when a person changes role, or when generated notes start "correcting" a word you no longer use. Delete that entry. The old transcript lines do not change.
+
+You can file the next call into this project from the menu bar before you record, so the glossary is the one in scope. If you record into Local Recordings and drag the meeting into the project later, check that a regeneration you care about ran after the meeting sat in the project, so the terms were actually in context.
+
+The list sits with the rest of the project record. Start from [the record](/#record).
+
+## One client's glossary after three calls
+
+On the first call the minutes call the product by a phonetic guess. You add the preferred name and two aliases that Whisper has already produced. You do not delete the transcript lines that contain the guess. On the second call, with a compatible Whisper model selected, the hint is available because the meeting was filed in that project before you recorded. The summary uses the preferred spelling. The transcript still shows what the audio produced, which you can open if the client disputes a term.
+
+On the third call someone uses the internal acronym. You add that acronym as an alias rather than as a second preferred term. A definition of one line stops the notes from expanding the acronym into a different product that shares the letters. If a later release renames the product, you edit the preferred term. Old transcript lines stay as they were captured. You regenerate the minutes only if you want the new spelling in the generated text. Regeneration does not promote the glossary into evidence.
+
+If the meeting was imported from a file instead of recorded live, the same glossary context can still reach artifact generation once the file sits in the project. The import does not gain speaker names the file never had. The glossary is about words, not about who spoke.
+
+## Frequently asked questions
+
+### Does a project glossary rewrite the transcript?
+
+No. The original transcript stays the evidence. Aliases affect temporary model input and generated output.
+
+### Which speech model gets glossary hints?
+
+Compatible Whisper transcription receives prompt hints. Confirm the speech model you selected. Hints are not a ranking of Parakeet against Whisper, and they do not add languages.
+
+### Can I put definitions in the glossary?
+
+Yes. Entries support a preferred term, aliases, and a definition. You can search, create, edit, and delete them on the Mac.
+
+### Will exported notes show the preferred spelling?
+
+Generated artifacts can. The transcript export, if you share that view, still reflects the captured lines. Check which view you copy.
+
+### What if two projects use the same client name differently?
+
+Each project has its own glossary. A term in one does not silently rename words in the other.
+
+### Does an API key upload the glossary audio?
+
+There is no glossary audio. A bring-your-own key, if you activate one, is text only. Transcription stays on the Mac. There is no silent fallback to another backend.
+
+### Is this available in the free browser tools?
+
+No. Those tools run on a file you already have, up to 15 minutes, three successful runs a week, without a project glossary.
+
+If the next call will reuse these names, add the terms before you record and file the meeting in that project from [the record](/#record).

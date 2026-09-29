@@ -1,0 +1,116 @@
+---
+title: "How to Transcribe a German Meeting (Standard German)"
+description: "Transcribe a German meeting into Standard German text on a Mac or in the browser: steps, file formats, limits, and no dialect claims."
+pubDate: 2026-10-22
+author: "Vemoir Team"
+tags: ["transcription", "german", "meetings"]
+funnelStage: "interest"
+translationKey: "transcribe-german-meeting"
+relatedPosts: ["bilingual-meeting-transcription", "offline-transcription-mac", "toeggl-alternative"]
+tool: "transcribe-recording"
+image: "@/assets/blog/transcribe-german-meeting/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/transcribe-german-meeting/inline1.jpg';
+import inline2 from '@/assets/blog/transcribe-german-meeting/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@bchild311?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">bchild311</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+To **transcribe a German meeting** is to get Standard German on the page: readable Hochdeutsch, not a dialect script and not a certified verbatim. You either already hold a file (export, local Zoom audio, recorder) or you will capture the next Sitzung on this Mac. Public speech models write Standard German. Vemoir does not claim dialect output. If the room speaks strongly in dialect, expect Standard German spelling, gaps, or both, not a dialect transcript.
+
+The practical path is local: import the file or record from the menu bar, and run the model on the Mac. For a short clip with no install, use the free [transcribe recording tool](/tools/transcribe-recording). The file is not uploaded to Vemoir. Limits: 15 minutes, 3 successful runs per week, no speaker labels, no live capture in the tab.
+
+## What "transcribe a German meeting" means here
+
+Standard German is the written form you expect in DE, AT, and in formal Swiss minutes: standard spelling, ordinary technical terms, names you will still fix. It is not:
+
+
+<Image src={inline1} alt="Two people talking over coffee at a cafe table with a notebook" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@productschool?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">productschool</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- a certified transcript
+- a forensic word-for-word record
+- a promise to render dialect faithfully
+
+The app UI can be German while the speech model transcribes German. Those settings are independent. Vemoir's interface exists in English, German, French, Italian, and Dutch. Which spoken languages a model covers depends on the model you installed. Parakeet v3 covers 25 European languages. Whisper Turbo, Medium, and Large-v3 have their own coverage. This page does not rank them on accuracy.
+
+Proper names, product codes, and internal jargon are the usual cleanup. A project glossary on the Mac (preferred spellings and aliases) helps generated notes. The original transcript remains the evidence; the glossary does not rewrite the recording.
+
+## You already have a file
+
+1. Put the audio on the Mac. Vemoir imports MP3, M4A, WAV, AIFF, CAF, and FLAC. The browser tool accepts MP3, M4A, WAV, or MP4.
+2. Play ten seconds. If the file is silent, you have a capture problem, not a German problem.
+3. Under 15 minutes: choose the file in the [transcribe recording tool](/tools/transcribe-recording). The model downloads once; later runs can work with the network off. The Network tab should show that the audio was not posted to Vemoir.
+4. Longer meetings: import into the Mac app (picker or drag and drop), optionally into a project. Transcription and speaker separation run on the device.
+
+
+<Image src={inline2} alt="A European office meeting table with notebooks in daylight" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@wesleyphotography?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">wesleyphotography</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Local Zoom recordings are often `audio_only.m4a`, not a ready transcript. See [how to transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording). Interviews that must not go to a cloud vendor are covered in [transcribe an interview without uploading](/blog/transcribe-interview-without-upload).
+
+## Record the next German meeting on the Mac
+
+If the meeting is still ahead and this Mac will play the call:
+
+1. Allow the microphone and **System Audio Recording** (audio only, not the screen). Vemoir taps system audio without Screen Recording and without a bot in the participant list.
+2. Start from the menu bar once Zoom, Teams, Meet, or another app is playing sound on the Mac. Any meeting app that plays audio works; see [platforms](/#platforms).
+3. After you stop, the transcript is built from the finished local audio, not from the live preview.
+4. Rename speakers, edit minutes and decisions on the Mac. Share only what you deliberately export.
+
+Intel Macs are not supported. Apple silicon, macOS Sonoma 14.2 or later. Internet for setup and model download; afterward the workflow can run offline.
+
+Want to test a short German clip without an upload? [Open the transcribe recording tool](/tools/transcribe-recording).
+
+## Where the text breaks even when everyone spoke Standard German
+
+Overlapping talk, weak speakers, hold music, acronyms the model has never seen: that is audio quality, not "German failed." Whispered remarks in a large room will come out patchy.
+
+Mixed-language turns (a German sentence, then English) are a different job. This article assumes the meeting is Standard German.
+
+Cloud notetakers with a bot in the room are the better path when the company mandates one shared archive and the extra participant is allowed. Local is the better path when the file should not land on someone else's disk and nobody should see a bot. Pattern comparison: [meeting notes without a bot](/blog/meeting-notes-without-a-bot).
+
+## What you still do after the transcript exists
+
+Read the passages you will quote. Lock names and numbers. A generated protocol is not a board resolution just because it is in German. Consent and retention stay with you. This page does not say "GDPR-certified" or "nDSG-compliant."
+
+Speaker labels exist in the Mac app, not in the browser. The browser does not separate speakers. Long files belong in the app, not in three 15-minute tabs, if you want one continuous record.
+
+## A concrete German call, start to notes
+
+Imagine a 40-minute vendor review in Standard German: three people on Teams, this Mac playing the call, you taking the record. You start Vemoir from the menu bar after Teams already has sound. You stop when the last person leaves. On the Mac you get a transcript in Standard German, speaker labels you rename (Einkauf, Lieferant, Projekt), and a draft of decisions you edit. Names like "Maier" vs "Meyer" and product codes still need a pass. That pass is normal. It is not a dialect problem.
+
+If the same review was recorded only as a Teams cloud file in SharePoint, you already have the platform's German transcript (when the tenant allows it). Importing a personal download of that meeting is optional, and it does not replace the official tenant copy.
+
+If someone hands you a 12-minute extract as M4A, skip the Mac app for a first look: drop it on the browser tool, copy the text, and clean the names. Stay inside 15 minutes and the weekly cap. Do not expect speaker labels from the tab.
+
+## Frequently asked questions
+
+### Can I transcribe a German meeting without uploading the file?
+
+Yes. In the browser the file stays in the tab (15 minutes, 3 runs per week). In the Mac app, transcription runs on the device. Neither path sends the recording to Vemoir. Export, or an API key for text models, is a later explicit step and does not transcribe the audio in the cloud.
+
+### Does Vemoir write Swiss German dialect?
+
+No. This article does not claim dialect output. The target is Standard German.
+
+### Which model should I pick for German?
+
+Pick an installed model that covers German. Parakeet v3 includes 25 European languages. Whisper Turbo, Medium, and Large-v3 each have their own coverage. There is no accuracy ranking here.
+
+### Does the browser handle speaker changes in German?
+
+No. Browser tools do not add speaker labels and they do not record live. Speaker separation is the Mac app.
+
+### Is a Teams cloud transcript enough if the meeting was in German?
+
+That transcript already ran on the vendor's side. Local means you hold the audio and run the model yourself. Both can write German. They are not the same processing location.
+
+### Does the Mac app run on Windows?
+
+No. Apple silicon only. For a short clip, the browser tool runs in a tab on whatever OS hosts the browser.
+
+Next step: try a short file in the [transcribe recording tool](/tools/transcribe-recording), or keep the meeting on the Mac and read [capture](/#capture). UI language options are under [languages](/#languages).

@@ -1,0 +1,172 @@
+---
+title: "Best Private Meeting Notes: Mac Apps Compared (2026)"
+description: "Best private meeting notes on a Mac, compared as of September 2026: where audio goes, whether a bot joins, and what stays on the machine."
+pubDate: 2026-11-01
+author: "Vemoir Team"
+tags: ["privacy", "meeting notes", "mac"]
+funnelStage: "consideration"
+translationKey: "best-private-meeting-notes"
+relatedPosts: ["best-meeting-notes-app-mac", "best-ai-notetaker-without-bot", "granola-alternative"]
+image: "@/assets/blog/best-private-meeting-notes/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/best-private-meeting-notes/inline1.jpg';
+import inline2 from '@/assets/blog/best-private-meeting-notes/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@amyhirschi?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">amyhirschi</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+The **best private meeting notes** tool is the one that matches the risk you are actually trying to cut. For some people that means no bot in the participant list. For others it means the audio file never sits on a vendor's servers. Those are different products, and a fair list says so.
+
+This comparison uses vendor pages checked in September 2026, plus what the Vemoir Mac app ships: menu-bar recording, transcription on the Mac, no bot, and a one-time App Store price of CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, or $22.99 in the US. It is not a ranking of transcription accuracy. It is not legal advice.
+
+## Contents
+
+- [What private usually means](#what-private-usually-means)
+- [Vemoir](#vemoir)
+- [MacWhisper](#macwhisper)
+- [Granola](#granola)
+- [Otter and Fireflies](#otter-and-fireflies)
+- [Fathom](#fathom)
+- [Where the best private meeting notes still live in the cloud](#where-the-best-private-meeting-notes-still-live-in-the-cloud)
+- [How to choose](#how-to-choose)
+- [A consultant call, walked through](#a-consultant-call-walked-through)
+- [Limits that stay true whichever row you pick](#limits-that-stay-true-whichever-row-you-pick)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## What private usually means
+
+Ask four questions before the brand name:
+
+
+<Image src={inline1} alt="A locked desk drawer and a closed notebook" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@silverkblack?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silverkblack</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. Does another person appear in the meeting?
+2. Does the audio leave the Mac?
+3. Can the vendor use the content to train models?
+4. Can you delete it, and from where?
+
+A tool can pass one and fail another. Granola does not add a bot and also says it does not store meeting audio long term, while notes and transcripts sit in its US cloud. Otter's notetaker joins as a visible participant and stores content with AWS in the United States. Vemoir keeps the recording on the Mac unless you export it or turn on a text-only key. MacWhisper is aimed at local transcription on macOS, including file transcription, which is a different job from a shared team library.
+
+None of these answers replace consent. Recording people is still your responsibility.
+
+## Vemoir
+
+Vemoir is a Mac app from Aurum Avis Labs GmbH in Oberägeri. It records the microphone and system audio as two local tracks. You start and stop from the menu bar. No bot joins Teams, Zoom, Meet, Slack, Discord, or any other app that plays sound on the Mac. The call track uses System Audio Recording, an audio-only Core Audio tap. It does not record the screen.
+
+
+<Image src={inline2} alt="Cream cards on a desk set back from the windows" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@wocintechchat?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">wocintechchat</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Speech-to-text runs on the Mac with the model you install: Parakeet v3 (25 European languages) or Whisper Turbo, Medium, or Large-v3. Notes, documents, and Ask use a local language model, Qwen3 4B on most Macs or gpt-oss-20b on high-memory Macs, or Apple Intelligence where the Mac has it, or an OpenAI or Anthropic key you store in the Keychain and activate yourself. That key is text only. Audio and speaker separation stay on the Mac. There is no silent fallback to a cloud transcriber.
+
+Speaker names start anonymous. You can rename a label without creating a profile. Remember this speaker is opt-in, encrypted, and deletable. A project glossary keeps preferred spellings. The original transcript stays the evidence.
+
+Requirements: Apple silicon, macOS Sonoma 14.2 or later, 8 GB of memory, 10 GB free, 16 GB recommended for long meetings. Intel Macs are not supported. If you only have a short file, [transcribe a recording](/tools/transcribe-recording) runs in the browser, up to 15 minutes, three successful runs a week, no speaker labels, file not uploaded. That trial is not the live app.
+
+A longer map of capture without a bot is in [meeting notes without a bot](/blog/meeting-notes-without-a-bot).
+
+## MacWhisper
+
+MacWhisper transcribes on the Mac and can record online meetings without a bot, using local models by default ([MacWhisper](https://www.macwhisper.com/), checked September 2026). Pro was listed as a one-time license at €64 on that site in September 2026. Summaries can use local or connected AI that you configure.
+
+MacWhisper is the better choice when the job is files in Finder: drop a recording, get a transcript, and you do not need minutes, decisions, action items, projects, and Ask as a single meeting record. It is the worse choice when you want that structured record from a live call with optional on-device writing models chosen in the same app as the capture. Vemoir is built around the meeting record. MacWhisper is built around transcription. Use the one that matches the hour you are trying to save.
+
+Do not treat a Pro price on a vendor site as the App Store price. Buy from the channel you mean to use.
+
+## Granola
+
+Granola is an AI notepad for desktop and mobile. You start it yourself. It does not auto-join as a bot. On the desktop it uses your microphone and the meeting audio, and it sends that through transcription providers such as Deepgram and Assembly and AI providers such as OpenAI and Anthropic ([Granola security](https://www.granola.ai/security), checked September 2026). The same page says Granola does not store meeting audio long term, and that notes and transcripts are stored in a US-hosted AWS environment, encrypted at rest and in transit. Granola trains on anonymized data so it can improve the product. You can opt out in Settings. Enterprise users have training off by default. Third parties such as OpenAI or Anthropic are not allowed to train on your data, according to that page.
+
+Granola is the better choice when you want a bot-free notepad that also runs on Windows and on phones, and you accept cloud transcripts. It is the worse choice when "private" means the audio and the transcript stay on the Mac. Mobile capture for in-person conversations is their feature. Vemoir's live capture today is the mic plus system audio of a call the Mac plays, not a separate room mode.
+
+## Otter and Fireflies
+
+Otter is a cloud notetaker. Its privacy policy describes storage with Amazon Web Services in the United States, and a visible notetaker that cannot join anonymously. The privacy documents also describe training proprietary models on de-identified audio and transcripts. A fuller reading is in [is Otter.ai safe](/blog/is-otter-ai-safe), with the links checked in September 2026. Otter is strong when a shared transcript and a calendar bot are what the team wants.
+
+Fireflies stores data in its cloud in the United States by default (AWS and Google Cloud), with private storage options described for Enterprise ([data storage](https://guide.fireflies.ai/articles/9596505232-learn-about-data-storage-and-transfer), [security](https://fireflies.ai/security), checked September 2026). Its privacy policy says it does not use personal information for AI model training and that it contractually prohibits vendors from using that information for their own training. A notetaker can join the call. That is convenient for a team library and the wrong shape when nobody may see an extra participant. See [Fireflies alternatives](/blog/fireflies-alternative) if you are choosing a bot-free path.
+
+Both can be "private" inside a company that has accepted US cloud processing and has admin controls. They are not private in the sense of audio that never uploads.
+
+## Fathom
+
+Fathom's help article [Is Fathom secure?](https://help.fathom.video/en/articles/296512) (checked September 2026) says all Fathom data is stored in the United States, that named AI subprocessors are not permitted to train their models on user data, and that Fathom uses de-identified customer data for its own models unless you opt out. Admins can force a notetaker bot even when a bot-free mode exists. The longer citation is for a later page. For this list, treat Fathom as a cloud product with a generous free tier for individuals, not as an on-Mac archive.
+
+Fathom is the better choice when you want a shared library and their storage terms are acceptable. It is the worse choice when the file must not leave the laptop.
+
+## Where the best private meeting notes still live in the cloud
+
+The best private meeting notes on a Mac are a poor fit for a sales floor that lives in a CRM. Fireflies, Fathom, and similar tools are built for seats, shared search, and admin retention. If twenty people must open the same call on Windows, a local Mac app will frustrate them. Pay for the cloud product and spend the privacy review on its data processing terms, not on pretending a menu-bar recorder is a team console.
+
+Cloud tools are also better when you refuse to press record. A calendar bot that joins on its own removes that step. It adds a visible participant and a vendor copy. If that trade is fine, take it. If the client bans bots, read [meeting notes without a bot](/blog/meeting-notes-without-a-bot) and pick a local capture.
+
+MacWhisper remains better for a stack of files and no meeting structure. Granola remains better if you need Windows and phone capture and you accept their cloud. Otter remains better for a polished bot workflow on plans you already pay for. The comparison in [Otter alternatives](/blog/otter-ai-alternative) and [the Mac apps roundup](/blog/best-meeting-notes-app-mac) goes wider on price and platforms. This page stays on where the audio goes.
+
+## How to choose
+
+| If you need | Look at |
+| --- | --- |
+| Audio stays on the Mac unless you export | Vemoir or MacWhisper |
+| A transcript of files, not a meeting system | MacWhisper |
+| No bot, and cloud transcripts are acceptable | Granola, or Fathom's bot-free mode if an admin allows it |
+| A shared team library and a bot is fine | Otter, Fireflies, Fathom |
+| One short file, no install | [Browser transcription](/tools/transcribe-recording) |
+
+Then check the vendor page again. September 2026 is the date of the links above. Plans and training toggles move.
+
+## A consultant call, walked through
+
+You have a client in Zurich who banned notetaker bots in the invite, and a second call in the afternoon with your own team who already pay for a cloud seat. The morning call is the private case. You record it on the Mac, tell them you are recording, and you leave any API key deactivated so the transcript is not sent out for rewriting. Minutes, decisions, and the notes you typed stay on the machine until you export a text summary, without the audio, into the folder they asked for. If a name is wrong you rename the label. You do not have to remember the voice.
+
+The afternoon call can stay on the cloud tool the team already accepted. Putting both calls in one vendor because it is tidier mixes two policies. The best private meeting notes setup is allowed to be two tools. The cost of the local app is the one-time store price, not a second seat on the afternoon product. The cost of the afternoon product is whatever seat they already pay. Do not cancel it for the morning's constraint.
+
+If the morning file is only twelve minutes and you do not want to open the app, the browser tool still fits, with the 15-minute cap and without speaker names. A client who asks who said the sentence will not get that from the browser. They will get it, as anonymous clusters you then name, from the Mac app.
+
+## Limits that stay true whichever row you pick
+
+No product on this list makes the recording lawful. No product here is a certified transcript for a court or a regulator because a marketing page said compliant. Fathom, Fireflies, and others publish their own certification statements. Those statements are about them. They are not inherited by a local recording.
+
+Dialect speech is a separate honesty problem. Do not expect Swiss German dialect spelling from the models named here. Standard German text from a public Whisper run in the browser is a common outcome, and it is not a dialect model. If the quote must preserve dialect, you are outside what this comparison can promise.
+
+Intel Macs, Windows, iPhone, and iPad are outside Vemoir. If that is the fleet, the best private option on a Mac is irrelevant and you should be reading the cloud vendors' retention pages instead. 8 GB of memory is the floor for the Mac app. Long meetings are more comfortable with 16 GB. A download of a speech model is not optional if you want local transcription. Until it finishes, you do not have local transcription, and nothing silently substitutes a cloud engine. Free space matters too. The app asks for 10 GB free as a baseline, and a speech model plus a writing model can use a visible slice of that. The model screen shows the size before the download. If the disk is full, local notes are not available yet, and a cloud notetaker is honestly the tool that works today. Measure the folder after the first model install so the second meeting is not the one that fills the disk.
+
+For the next live call on Apple silicon, the capture controls are in [capture](/#capture), and the [App Store listing](https://apps.apple.com/app/id6794693630) is the install. The price is the one-time figure at the top of this article, shown in local currency by the store.
+
+## Frequently asked questions
+
+### What are the best private meeting notes if audio cannot leave the Mac?
+
+A local app. Vemoir and MacWhisper both transcribe on the Mac by default. Cloud notetakers store content on their infrastructure even when they skip a bot.
+
+### Does private mean no bot?
+
+Not by itself. Granola and a local recorder can both skip the bot. Only the local recorder keeps the default copy on the machine.
+
+### Is there an accuracy ranking?
+
+No. This article does not score Parakeet against Whisper or any vendor's speech engine.
+
+### What does Vemoir cost?
+
+A one-time Mac App Store purchase: CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the US, as listed for this app. No per-meeting fee from Vemoir. An optional API key is billed by that provider.
+
+### Do I still have to tell people I am recording?
+
+Yes. Local processing does not replace consent. This page is not legal advice.
+
+### Can I test with a file before buying?
+
+Yes. [Transcribe a recording](/tools/transcribe-recording) in the browser, up to 15 minutes, three successful runs a week, no speaker labels, no upload of the file.
+
+### Which cloud tool should I pick if local is impossible?
+
+Pick the one whose own pages match your storage and training rules. Otter, Fireflies, Fathom, and Granola do not describe the same training practice. Read the links in this article.
+
+### Does the Mac app record the screen?
+
+No. System Audio Recording captures meeting audio only.
+
+If the constraint is the laptop, start with [how capture works](/#capture) or the [App Store](https://apps.apple.com/app/id6794693630). If the constraint is a shared cloud library, use the vendor page that matches that library and accept the hosting it describes.

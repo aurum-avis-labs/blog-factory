@@ -1,0 +1,136 @@
+---
+title: "Bilingual Meeting Transcription: Language Switching Limits"
+description: "Bilingual meeting transcription often breaks at language switching. What local models do on mixed DE/EN/FR/IT calls, and when a person is the better fit."
+pubDate: 2026-10-22
+author: "Vemoir Team"
+tags: ["transcription", "languages", "meetings"]
+funnelStage: "interest"
+translationKey: "bilingual-meeting-transcription"
+relatedPosts: ["transcribe-german-meeting", "offline-transcription-mac", "parakeet-vs-whisper"]
+tool: "transcribe-recording"
+image: "@/assets/blog/bilingual-meeting-transcription/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/bilingual-meeting-transcription/inline1.jpg';
+import inline2 from '@/assets/blog/bilingual-meeting-transcription/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@jakubzerdzicki?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jakubzerdzicki</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Bilingual meeting transcription** is the search you run after a call that moved between two languages, often English and German, or French and Italian, sometimes three in the same hour. The honest limit is language switching inside a turn: models that are strong on Standard German, English, French, or Italian still write messy text when a speaker changes language mid-sentence, drops in an English product name, then finishes in French. You get usable notes when one language dominates and the other appears as short loans. You do not get a court-ready, two-column script.
+
+This page is about that mix, not about dialect. It does not claim Swiss German dialect output. It does not rank models with accuracy percentages. Local processing (Mac app or in-browser Whisper) still beats an upload if the file must not leave the machine. For a short clip, use the [transcribe recording tool](/tools/transcribe-recording): 15 minutes, 3 runs per week, no speaker labels, no live capture.
+
+- [What bilingual meeting transcription can reasonably do](#what-bilingual-meeting-transcription-can-reasonably-do)
+- [Language switching vs two monolingual files](#language-switching-vs-two-monolingual-files)
+- [Mac app: models, app language, glossary](#mac-app-models-app-language-glossary)
+- [Browser tool limits for mixed calls](#browser-tool-limits-for-mixed-calls)
+- [When a human bilingual transcript is better](#when-a-human-bilingual-transcript-is-better)
+
+## What bilingual meeting transcription can reasonably do
+
+Speech models are trained per language (or on multilingual data that still prefers a dominant language per chunk). In a typical Swiss or EU working call you get:
+
+
+<Image src={inline1} alt="Two people across a table, each with a notebook" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@rundachoo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">rundachoo</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+- Long stretches of one language written cleanly enough to edit.
+- Names, numbers, and terms you will still correct.
+- Code-switching (the same sentence in two languages) written as one language, as a mash, or as a dropped clause.
+
+That is enough for internal minutes: who owed what by when, in whichever language the decision was spoken. It is not enough if you need every French aside preserved as French and every German reply as German for publication or for a dispute.
+
+Speaker separation (Mac app only) does not solve language. It tells you who talked, not which language they used. The browser does not label speakers at all.
+
+## Language switching vs two monolingual files
+
+If the agenda is "German until item 3, then English with the US colleagues," you have two meetings glued together. The reliable trick is operational, not magical:
+
+
+<Image src={inline2} alt="Two pens on a shared meeting table" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@novaspark?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">novaspark</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. Record or export one file.
+2. Split at the language change (a simple cut in QuickTime or any editor is enough).
+3. Transcribe each half with the expectation of one language.
+4. Merge the notes yourself. The minutes can be bilingual even when each audio slice was treated as monolingual.
+
+If people switch every few seconds, splitting will not save you. Then you either accept a noisy transcript and rewrite the decisions by hand, or you hire a bilingual notetaker for that hour.
+
+Do not run the same mixed file through three models "to vote." You will spend the afternoon reconciling three wrong sentences. Pick one installed model, read the decision passages, type the clean version.
+
+## Mac app: models, app language, glossary
+
+Vemoir's interface can be English, German, French, Italian, or Dutch. That setting does not pick the speech language. Transcription uses the speech model you installed: Parakeet v3 (25 European languages) or Whisper Turbo, Medium, or Large-v3, each with its own coverage. This page will not tell you which one "wins" on mixed DE/EN.
+
+What you can do on the Mac:
+
+- Record microphone and system audio locally, no bot in the call ([capture](/#capture), [languages](/#languages)).
+- Import MP3, M4A, WAV, AIFF, CAF, or FLAC and run the same local pipeline.
+- Keep a project glossary of preferred terms and aliases so generated notes spell the product the way your team spells it. The original transcript stays the evidence.
+- Rename speakers after the fact. Voice profiles are opt-in and encrypted.
+
+Cloud text models with your own API key (OpenAI or Anthropic) can help you rewrite minutes **from text** if you explicitly turn that on. They do not transcribe the audio, and they are not a silent fallback. Raw audio stays on the Mac for speech-to-text.
+
+Once models are downloaded, the workflow can run offline. Intel Macs are not supported.
+
+If the bilingual file is an interview that must not be uploaded, the consent-oriented walkthrough is [transcribe an interview without uploading](/blog/transcribe-interview-without-upload).
+
+## Browser tool limits for mixed calls
+
+The free tool is after the call. You drop a file. Public Whisper runs in the tab. Nothing is uploaded to Vemoir. You can show that in the Network tab.
+
+It will not:
+
+- Record the live bilingual meeting
+- Label who spoke
+- Promise a language per sentence
+- Take files over 15 minutes (3 successful runs per week)
+
+If the mix is mild and the clip is short, try it. If the mix is dense, the tab will not become a booth interpreter.
+
+Want a short mixed file transcribed without a vendor upload? [Use the transcribe recording tool](/tools/transcribe-recording).
+
+## When a human bilingual transcript is better
+
+Pay a person, or take notes live in both languages, when:
+
+- You will quote people in both languages in a published piece.
+- The meeting is a negotiation where a missed "on the other hand" in the second language changes the deal.
+- Ethics or a client forbids machine processing of any kind, local or not.
+- You need speaker-attributed, two-language verbatim that you will swear to.
+
+Local machine transcription is the better fit when you need a private draft of decisions after a working session, the Mac is the machine that played the call, and you will edit. Cloud bots are the better fit when the whole company already lives in one notetaker and a visible extra participant is allowed. Those are operations choices, not language-model magic.
+
+Consent still sits with you. A bilingual transcript is still personal data. This page does not call the output certified, privileged, or GDPR-certified.
+
+## Frequently asked questions
+
+### Does bilingual meeting transcription mean the app auto-detects every switch?
+
+No. Detection, when a model offers it, is coarse. Mid-sentence switches are the failure mode. Plan for one dominant language per file, or split the recording.
+
+### Can I set German for the UI and English for the transcript?
+
+The UI language and the speech model are independent. Set the interface to whatever you read. Choose a speech model that covers the languages actually spoken. There is no accuracy table here.
+
+### Will the browser tool mark which language each sentence is in?
+
+No. You get a single text stream, no speaker labels, no language tags per line.
+
+### Does Parakeet v3 make mixed Swiss meetings perfect?
+
+Parakeet v3 covers 25 European languages. Coverage is not a promise that code-switching will be pretty. Standard languages only; no dialect claim.
+
+### Should I invite a cloud notetaker because it "supports 30 languages"?
+
+A vendor's language list does not settle where the audio goes or whether a bot may join. If the constraint is no extra participant and no upload, a multilingual cloud bot is the wrong tool even if the brochure lists both languages. If the constraint is a shared team library, the bot may be right regardless of mix.
+
+### Can I transcribe live in the browser while people switch languages?
+
+No. Live capture is not in the browser. Language switching does not change that.
+
+Next step: split a short file if you can, then run the [transcribe recording tool](/tools/transcribe-recording), or keep the whole meeting on the Mac and read [languages](/#languages).

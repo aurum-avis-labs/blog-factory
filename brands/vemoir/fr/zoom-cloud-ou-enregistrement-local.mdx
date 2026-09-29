@@ -1,0 +1,136 @@
+---
+title: "Zoom cloud ou enregistrement local : où reste le fichier audio"
+description: "Zoom cloud ou enregistrement local décide qui stocke le fichier. Le cloud peut ajouter un VTT. Le local garde le M4A sur ce Mac."
+pubDate: 2026-10-27
+author: "Vemoir Team"
+tags: ["zoom", "enregistrement", "transcription"]
+funnelStage: "interest"
+translationKey: "zoom-cloud-vs-local-recording"
+relatedPosts: ["transcrire-enregistrement-zoom", "enregistrer-reunion-zoom-mac", "vtt-zoom-en-texte"]
+tool: "transcribe-zoom-recording"
+image: "@/assets/blog/zoom-cloud-vs-local-recording/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/zoom-cloud-vs-local-recording/inline1.jpg';
+import inline2 from '@/assets/blog/zoom-cloud-vs-local-recording/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@seffen99?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">seffen99</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Zoom cloud ou enregistrement local**, c'est un choix de stockage avec une transcription attachée. L'enregistrement cloud vit chez Zoom et, sur les comptes que Zoom traite comme éligibles, peut inclure une transcription VTT après traitement. L'enregistrement local vit sur l'ordinateur qui a cliqué sur Enregistrer et vous donne de l'audio, en général un M4A, sans ce VTT. Si vous avez enregistré en local et que vous attendiez un e-mail de transcription, l'article sur les formats de fichiers est l'explication, pas un bug.
+
+La note de Zoom sur les [formats de fichiers d'enregistrement](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394) est la source de quels fichiers apparaissent. Lisez-la quand votre version nomme un fichier un peu autrement qu'une capture dans un blog.
+
+## Sommaire
+
+- [Zoom cloud ou enregistrement local dans une même séance](#zoom-cloud-ou-enregistrement-local-dans-une-même-séance)
+- [Où sont vraiment les fichiers locaux](#où-sont-vraiment-les-fichiers-locaux)
+- [Transformer un fichier Zoom local en texte](#transformer-un-fichier-zoom-local-en-texte)
+- [Quand l'enregistrement cloud est le meilleur choix](#quand-lenregistrement-cloud-est-le-meilleur-choix)
+- [Questions fréquentes](#questions-fréquentes)
+
+## Zoom cloud ou enregistrement local dans une même séance
+
+**Cloud.** L'hôte enregistre vers le cloud Zoom. Le traitement a lieu après la réunion. L'hôte, et les personnes que l'hôte ou l'admin autorisent, ouvrent l'enregistrement depuis le portail web Zoom. Sur les forfaits éligibles, Zoom peut produire une transcription en **VTT** à côté de la vidéo. Cette éligibilité est une question de compte et de réglages. Un hôte gratuit qui n'a jamais activé l'enregistrement cloud n'obtiendra pas un VTT en le souhaitant. Les admins peuvent couper l'enregistrement cloud pour tout le compte. Si Enregistrer dans le cloud manque, supposez une politique avant de supposer un bug.
+
+
+<Image src={inline1} alt="Disque dur local sur une table en bois, nuages dehors" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@leowieling?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">leowieling</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Le cloud est aussi l'endroit où s'appliquent la conservation et le partage de Zoom. Un lien peut quitter l'entreprise plus vite qu'un fichier sur un portable, et il peut être révoqué dans le portail, ce qu'un M4A copié dans le dossier Téléchargements de quelqu'un d'autre ne peut pas. Si votre revue de sécurité a déjà approuvé Zoom comme lieu des enregistrements, rester dans ce système est plus simple qu'inventer une deuxième archive.
+
+**Local.** L'hôte, ou un participant que l'hôte a autorisé, enregistre sur le disque. La documentation des formats de Zoom décrit la vidéo locale en MP4 et l'audio seul local en M4A. Vous n'obtenez pas le pipeline de transcription cloud de Zoom depuis un fichier local. L'audio est sur ce Mac, ou ce PC Windows. Zoom n'en garde pas de copie sur ses serveurs. Supprimez le dossier et l'enregistrement a disparu.
+
+Le local est le meilleur défaut quand le but d'enregistrer était d'éviter une copie de plus dans un portail cloud. C'est un moins bon défaut quand le portable de l'hôte se met en veille, que le disque est plein, ou que la personne qui a appuyé sur Enregistrer est la seule qui retrouvera jamais le dossier.
+
+Vous pouvez aussi ignorer l'enregistreur de Zoom et capturer la réunion depuis le Mac pendant que Zoom joue. Ce chemin ne dépend pas de l'autorisation de l'hôte à lancer un enregistrement Zoom. Il dépend du consentement. Dites que vous enregistrez. Une app de barre de menus n'apparaît pas dans la liste des participants Zoom comme le fait un preneur de notes cloud. [Notes de réunion sans bot](/fr/blog/notes-reunion-sans-bot) couvre cette distinction. Cet article reste sur le commutateur cloud contre local de Zoom.
+
+## Où sont vraiment les fichiers locaux
+
+Après un enregistrement local, Zoom écrit un dossier. L'emplacement est celui que l'app de bureau Zoom a sous Réglages, Enregistrement, Enregistrement local. Les gens laissent souvent le défaut, qui place le dossier de réunion sous Documents, dans un répertoire Zoom, nommé avec la date et le sujet.
+
+
+<Image src={inline2} alt="Tiroir de dossiers et fenetre ouverte dans la meme piece" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@ejmerrell?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">ejmerrell</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Dans ce dossier, cherchez le fichier audio seul. La documentation Zoom parle d'un fichier audio local nommé dans le genre `audio` plus un numéro, avec une extension `.m4a`. Beaucoup d'installations montrent aussi `audio_only.m4a`. Utilisez ce fichier pour la transcription. Il est plus petit que le MP4 et c'est la parole sans décodage vidéo. Gardez tout le dossier jusqu'à ce que vous fassiez confiance au texte. Le fichier de chat, s'il est là, est un canal latéral et pas un substitut de ce qui a été dit à voix haute.
+
+Si deux personnes ont enregistré en local, vous avez deux dossiers sur deux ordinateurs. Ils ne fusionneront pas tout seuls. Convenez avant qui enregistre, sinon vous transcrirez le moins bon des deux micros.
+
+Un enregistrement cloud n'apparaît pas dans ce dossier. Il apparaît dans la liste web des enregistrements Zoom pour l'hôte. Le télécharger est un clic séparé, et l'admin peut avoir désactivé le téléchargement. S'il vous faut le texte et que le téléchargement est coupé, vous travaillez avec le lecteur Zoom, pas avec un fichier que l'outil du navigateur peut ouvrir.
+
+## Transformer un fichier Zoom local en texte
+
+Pour un fichier que vous détenez déjà&nbsp;:
+
+1. Trouvez `audio_only.m4a` ou l'autre M4A local dans le dossier de la réunion.
+2. S'il fait **15 minutes ou moins**, ouvrez [transcrire un enregistrement Zoom](/fr/outils/transcrire-enregistrement-zoom). Le fichier reste dans le navigateur. Le modèle se télécharge une fois. Vous obtenez du texte, pas de noms de voix. Trois exécutions réussies par semaine, c'est le plafond des outils gratuits.
+3. S'il est plus long, ne le découpez pas en trois passages hebdomadaires sauf si un seul extrait vous intéresse. Importez l'audio sur le Mac dans un flux local, ou coupez à la décision dont vous avez vraiment besoin et transcrivez cet extrait.
+4. Relisez le texte contre l'audio pour les noms et les chiffres. Le premier jet est un brouillon. Le suisse allemand dans la réunion tend à sortir en allemand standard. C'est le modèle, pas Zoom.
+
+Le pas à pas du dossier lui-même est [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom). Utilisez cet article quand vous cherchez le chemin. Utilisez celui-ci quand vous choisissez encore cloud ou local avant d'appuyer sur Enregistrer.
+
+Une capture en direct pendant l'appel, depuis le Mac, est une troisième option quand l'hôte ne veut pas activer l'enregistrement Zoom du tout. Audio système plus micro, audio seulement, pas de capture d'écran. Cet enregistrement est le vôtre sur le Mac. Ce n'est pas un actif cloud Zoom et il n'apparaîtra pas dans la liste d'enregistrements de l'hôte. Dites-le, pour que personne n'attende un lien qui n'arrivera jamais.
+
+Mac à puce Apple, macOS Sonoma 14.2 ou ultérieur, 8&nbsp;Go de mémoire, 10&nbsp;Go libres, 16&nbsp;Go plus confortables pour les longues réunions. Les Mac Intel ne sont pas pris en charge. L'autorisation macOS pour le son des autres apps s'appelle System Audio Recording. Elle ne capture pas l'écran. Téléchargez les modèles d'abord&nbsp;; ensuite le flux peut tourner hors ligne. L'app ne change pas de modèle de parole en silence. Un modèle de texte cloud est facultatif, avec votre clé, texte seulement, et sans repli silencieux s'il échoue. Cet article ne cite pas le prix de l'app.
+
+## Quand l'enregistrement cloud est le meilleur choix
+
+Le cloud gagne quand&nbsp;:
+
+- L'organisation paie déjà un forfait Zoom qui l'inclut, et l'admin l'a activé.
+- Plusieurs personnes ont besoin du même lien de lecture, et des fichiers locaux laisseraient l'enregistrement sur un seul portable.
+- Vous voulez le VTT de Zoom sans une deuxième étape de transcription, et le compte est éligible.
+- La conservation est définie dans les réglages Zoom et le juridique ou l'IT préfère un seul système d'enregistrement.
+
+Le local gagne quand&nbsp;:
+
+- L'enregistrement cloud est désactivé, ou le forfait de l'hôte ne l'offre pas.
+- La conversation ne doit pas rester dans un portail partageable, même si Zoom est approuvé pour les réunions.
+- Vous avez déjà l'habitude de transcrire le M4A vous-même et vous n'avez pas besoin du lecteur Zoom.
+
+Un bot preneur de notes visible est un troisième endroit où l'audio peut aller, et souvent le pire des deux pour un client qui a interdit les participants supplémentaires. Ne «&nbsp;résolvez&nbsp;» pas un enregistrement cloud désactivé en invitant un bot que le client peut voir. Prenez un enregistrement Zoom local que l'hôte contrôle, ou prenez des notes.
+
+Ni Zoom ni un outil de transcription ne décident du consentement. Si le droit ou le client exige une annonce, faites l'annonce. Un VTT ne répare pas un enregistrement qui n'aurait pas dû avoir lieu.
+
+Vérifiez avant la réunion qui ouvrira le dossier ensuite. Si l'enregistrement ne vit que sur le portable de quelqu'un qui part en congé demain, le cloud est plus honnête, même si vous préférez personnellement le fichier local. À l'inverse, si le client a dit que rien ne doit aller dans le portail, le M4A local est le fichier qui correspond à cette phrase. Le choix est le stockage, pas un badge de qualité.
+
+## Questions fréquentes
+
+### Pourquoi l'enregistrement local ne m'a-t-il pas envoyé une transcription&nbsp;?
+
+Le pipeline cloud de Zoom produit le VTT sur les comptes éligibles. Un M4A local est de l'audio sur l'ordinateur. L'étape texte est à vous. Les formats sont décrits dans [l'article Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394).
+
+### Quel fichier transcrire&nbsp;?
+
+Le M4A audio seul, souvent `audio_only.m4a`, dans le dossier local de la réunion. Utilisez le MP4 seulement si le M4A manque.
+
+### L'outil du navigateur accepte-t-il un fichier local de deux heures&nbsp;?
+
+Non. La page de transcription Zoom accepte jusqu'à 15 minutes, avec 3 exécutions réussies par semaine, et elle ne nomme pas les voix.
+
+### L'enregistrement cloud inclut-il toujours une transcription&nbsp;?
+
+Non. Cela dépend du compte et des réglages. Consultez l'aide actuelle de Zoom si Enregistrer dans le cloud manque ou si le VTT n'apparaît jamais.
+
+### Où est stocké un enregistrement local&nbsp;?
+
+Sur l'ordinateur qui a enregistré, dans le dossier que les réglages de l'app Zoom nomment pour les enregistrements locaux. Zoom ne garde pas de copie serveur de ce fichier local.
+
+### Puis-je enregistrer sans être l'hôte Zoom&nbsp;?
+
+Seulement si l'hôte a autorisé l'enregistrement local pour les participants, ou si vous enregistrez le Mac pendant que Zoom joue, et que vous le dites. Un enregistreur de barre de menus n'est pas dans la liste des participants.
+
+### Un fichier local peut-il passer par iCloud sans le vouloir&nbsp;?
+
+Oui, si le dossier d'enregistrement est dans un dossier synchronisé. Placez le chemin, dans les réglages Zoom, sur un emplacement que vous ne partagez pas, si le fichier doit rester sur ce Mac.
+
+### Une option est-elle plus privée par magie&nbsp;?
+
+Non. Le cloud, c'est un portail, un lien et une révocation. Le local, c'est un disque et la personne qui retrouve le dossier. Les deux demandent une annonce et une règle de conservation que vous tenez vous-même.
+
+## Étape suivante
+
+Choisissez le stockage avant que quelqu'un appuie sur Enregistrer. Si le M4A est déjà là et assez court, ouvrez [transcrire un enregistrement Zoom](/fr/outils/transcrire-enregistrement-zoom). Le dossier lui-même se trouve via [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom).

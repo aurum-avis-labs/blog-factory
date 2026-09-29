@@ -1,0 +1,104 @@
+---
+title: "Record a Google Meet Live on Your Mac During the Call"
+description: "Record a Google Meet on Mac during the call from the menu bar. Workspace recording stays edition-gated and lands in Drive."
+pubDate: 2026-10-09
+author: "Vemoir Team"
+tags: ["google meet", "recording", "mac"]
+funnelStage: "consideration"
+translationKey: "record-google-meet-mac"
+relatedPosts: ["record-teams-meeting-mac", "record-zoom-meeting-mac", "best-ai-notetaker-without-bot"]
+tool: "recording-to-notes"
+image: "@/assets/blog/record-google-meet-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/record-google-meet-mac/inline1.jpg';
+import inline2 from '@/assets/blog/record-google-meet-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@microsoftcopilot?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Microsoft Copilot</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+To **record a Google Meet on Mac** while the call is running, you either use Meet's own recording, which Google limits by Workspace edition and stores in Drive, or you capture the audio on the Mac from the menu bar. The second path does not ask Google for a recording license and does not add a bot to the Meet. This page is about the call that is open now. It is not a tour of every Workspace SKU.
+
+## Contents
+
+- [What Google Meet records, and who can start it](#what-google-meet-records-and-who-can-start-it)
+- [Record a Google Meet on Mac from the menu bar](#record-a-google-meet-on-mac-from-the-menu-bar)
+- [When the call is over and you only have a file](#when-the-call-is-over-and-you-only-have-a-file)
+- [What to say in the Meet](#what-to-say-in-the-meet)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## What Google Meet records, and who can start it
+
+Google's own recording is tied to the account that owns the meeting and to the Workspace edition on that account. On plans where recording is included, someone with permission, often the organizer, starts it from the Meet controls. The file lands in the organizer's Google Drive, typically in a Meet Recordings folder, and a link is posted in the chat. People outside that organization do not automatically receive a copy on their disk. Confirm the current editions and the exact control labels in [Google's Meet recording help](https://support.google.com/meet/answer/9308681) before you tell a customer which button exists on their tenant. The page moves, and editions move with it. Checked as a public help URL in September 2026. If your Meet has no record control, the usual reason is the edition or the role, not a bug in the browser.
+
+
+<Image src={inline1} alt="Wooden desk, mug, and a laptop seen from behind" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@storybyphil?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Phil Desforges</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+A consumer Gmail account and many starter Workspace plans do not show that control at all. You can still hear the meeting on a Mac. Hearing it is not the same as Google's Drive file.
+
+Meet's recording also announces itself inside the meeting. That announcement is Google's, for Google's recorder. It does not cover a separate app on your computer.
+
+## Record a Google Meet on Mac from the menu bar
+
+Open the Meet in Chrome, Safari, or whichever browser you already use. The tab has to be playing audio. The Mac app, from Aurum Avis Labs GmbH in Oberägeri, records from the menu bar: microphone on one local track, system audio on another. You start when the discussion should be kept, and you stop when it should not. The app does not join the Meet as a participant, does not change the tile count, and does not require a Workspace edition.
+
+
+<Image src={inline2} alt="A quiet video call with no screen contents visible" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@huyphan2602?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Huy Phan</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+macOS asks for Microphone and System Audio Recording the first time. The permission name is system audio, not screen recording. You are not capturing the Meet window as video. You are capturing the sound.
+
+When the models are on the Mac, transcription and speaker separation run there. Notes, decisions, and tasks stay on the machine unless you explicitly send the text-only step to OpenAI or Anthropic with your own key. Audio does not travel on that path, and there is no silent switch. After the models are installed, the workflow can run offline. Setup and model downloads still need the network once.
+
+Parakeet v3 covers 25 European languages. Other installed models have their own lists. The menus can be English, German, French, Italian, or Dutch, which does not pick the transcript language. Do not expect Swiss German dialect as a separate written form. A glossary is for names and product terms.
+
+On the Mac App Store, checked September 2026, the price is CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, and $22.99 in the United States. One purchase, no per-meeting charge ([pricing](/#pricing)). Requirements: Apple silicon (M1 or later), macOS Sonoma 14.2 or later, 8 GB of memory, 10 GB free. Use 16 GB if the meetings are long. No Intel Mac, no Windows, no iPhone or iPad. Install from the [Mac App Store](https://apps.apple.com/app/id6794693630).
+
+If the organizer is also recording to Drive, you now have two copies. Tell the room which one is the record you will keep. Delete the extra if you only started it to see whether the menu bar worked.
+
+## When the call is over and you only have a file
+
+A file you exported, downloaded from Drive, or saved another way can go to [recording to notes](/tools/recording-to-notes) if it is short. The tool runs in the browser after the call. The file is not uploaded. The model downloads once, then later runs can be offline, which you can check in the Network tab. Limits: 15 minutes, 3 successful runs a week, MP3, M4A, WAV, or MP4, and no speaker labels. A full Meet does not fit. The menu-bar capture during the call is what covers the whole conversation, with speakers separated on the Mac.
+
+This is not the Teams recap path and not Zoom's local `audio_only.m4a` path. Those files have their own folders. A Meet file from Drive is whatever Google put in the organizer's account. If you never started Google's recorder, that Drive folder stays empty, even when your Mac has a full audio file.
+
+Typed notes from the meeting can be folded into the Mac record. Sharing uses the macOS share sheet. There is no shared team workspace in the app and no CRM export.
+
+## What to say in the Meet
+
+Google's recording notice appears only when Google is recording. A local capture does not trigger it. Say, at the start, that you are recording the audio on your Mac and that no extra notetaker has joined. If someone says no, stop the menu bar. "There is no bot in the participant list" is true and incomplete. The recording can still be happening on the host's computer.
+
+If the customer contract allows only the Workspace recording in their Drive, do not add a personal copy. Two lawful notices are still two files, and the second one has its own retention.
+
+The browser tool is the smaller after-the-fact step when the file is already under 15 minutes. Open [recording to notes](/tools/recording-to-notes). For the next Meet on an Apple silicon Mac, start from the menu bar, with the permission prompts already accepted, and say what you are doing before the agenda starts.
+
+## Frequently asked questions
+
+### Can I record a Google Meet on Mac without a Workspace plan?
+
+Google's recorder may be missing on your edition. A menu-bar capture of system audio does not use that control and does not store the file in Drive. You still need the other people to agree. Check [Google's help](https://support.google.com/meet/answer/9308681) for which editions include Meet recording (September 2026).
+
+### Does the Mac app join the Meet as a bot?
+
+No. It records microphone and system audio locally. The participant list does not gain a tile. You announce the recording yourself.
+
+### Where does Google put its own recording?
+
+In the organizer's Drive when that account is allowed to record, with a link in the chat. Guests do not get a local copy just by being in the call. Confirm the folder name on Google's current help if you are writing an internal runbook.
+
+### Will the browser turn a Meet file into notes?
+
+Yes, if the file is MP3, M4A, WAV, or MP4, at most 15 minutes, and you stay inside 3 successful runs a week. [Recording to notes](/tools/recording-to-notes) does not upload the file and does not label speakers.
+
+### What does the app cost?
+
+CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the United States, once, on the Mac App Store (September 2026). The App Store shows the price for your storefront.
+
+### Does this capture the Meet window?
+
+No. System Audio Recording is the sound, not a screen capture. If you need the slides as video, that is Google's recorder or a separate screen tool, and it is a different permission and a different file.
+
+Start the menu-bar recording on the next Meet you are allowed to keep, or open [recording to notes](/tools/recording-to-notes) for a short file you already exported.

@@ -1,0 +1,158 @@
+---
+title: "Trascrizione riunione cloud vs locale: le differenze"
+description: "Trascrizione riunione cloud vs locale: l’audio si elabora dal fornitore o sul Mac. Bot, upload e modello nel browser, a confronto, senza percentuali."
+pubDate: 2026-10-20
+author: "Vemoir Team"
+tags: ["trascrizione", "privacy", "riunioni"]
+funnelStage: "awareness"
+translationKey: "cloud-vs-local-meeting-transcription"
+relatedPosts: ["audio-di-sistema-mac", "dove-vanno-dati-riunioni-aziende-svizzere", "trascrizione-offline-mac"]
+tool: "transcribe-recording"
+image: "@/assets/blog/cloud-vs-local-meeting-transcription/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline1.jpg';
+import inline2 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+La **trascrizione riunione cloud vs locale** è una scelta su dove si elabora l’audio, non tra «note IA» e verbale scritto a mano. Nel percorso cloud un fornitore riceve la riunione (bot in call, file caricato, o registrazione già sui suoi server) e restituisce testo da quella infrastruttura. Nel percorso locale il riconoscimento vocale gira sul computer che ha già l’audio. Il testo può somigliarsi. Cambiano il responsabile del trattamento, la lista partecipanti e la copia che non richiami più da un disco di terzi.
+
+Questo articolo colloca i due schemi, compreso il percorso più stretto nel browser per un file che hai già. Non è consulenza legale e non è una classifica di accuratezza. Per un clip breve senza invio, lo [strumento trascrivere audio](/it/strumenti/trascrivere-audio) gira nella scheda dopo il download del modello.
+
+- [Cosa fa davvero una trascrizione cloud](#cosa-fa-davvero-una-trascrizione-cloud)
+- [Cosa fa davvero una trascrizione locale](#cosa-fa-davvero-una-trascrizione-locale)
+- [Il browser non è né un bot né l’app Mac](#il-browser-non-è-né-un-bot-né-l’app-mac)
+- [Trascrizione riunione cloud vs locale, a confronto](#trascrizione-riunione-cloud-vs-locale-a-confronto)
+- [Quando il cloud è la scelta migliore](#quando-il-cloud-è-la-scelta-migliore)
+- [Quando il locale è la scelta migliore](#quando-il-locale-è-la-scelta-migliore)
+- [Cosa nessun percorso decide al posto tuo](#cosa-nessun-percorso-decide-al-posto-tuo)
+
+## Cosa fa davvero una trascrizione cloud
+
+Notetaker cloud e trascrizioni delle app di riunione seguono lo stesso schema: l’audio lascia la stanza (o il portatile) e viene elaborato su altri computer.
+
+
+<Image src={inline1} alt="Fogli locali su un tavolo di legno, cielo alla finestra" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Gli assistenti legati al calendario entrano in Zoom, Teams, Meet e app simili come partecipante nominato. Tutti vedono l’ospite in più. Serve alla trasparenza, ed è anche il motivo per cui molti team clienti vietano i bot. Per come avviene l’ingresso: [note riunione senza bot](/it/blog/note-riunione-senza-bot). Per il testo di un fornitore: [Otter.ai è sicuro](/it/blog/otter-ai-e-sicuro). Le policy cambiano; leggi la pagina il giorno in cui decidi.
+
+Le piattaforme trascrivono in cloud se usi la loro registrazione integrata. La trascrizione Zoom appartiene alla registrazione cloud sui piani a pagamento, non al `audio_only.m4a` locale. Teams mette le registrazioni cloud in OneDrive o SharePoint se il tenant lo consente. La trascrizione vive con l’account della piattaforma, con la sua conservazione e le regole admin.
+
+I siti di upload stanno in mezzo: nessuno entra in diretta, ma il file parte lo stesso. Se il consenso o il contratto cliente dice che la registrazione resta sul tuo dispositivo, un upload è una copia nuova, anche se la pagina marketing scrive «crittografato».
+
+Il cloud non è automaticamente sciatto. Molte organizzazioni scelgono un fornitore, firmano un contratto di trattamento e vogliono una libreria condivisa. Il costo è un responsabile, una sede e (con i bot) un partecipante visibile in più.
+
+## Cosa fa davvero una trascrizione locale
+
+Locale significa che il modello gira sulla macchina che ha già l’audio. Non obbliga a un marchio. Puoi lanciare Whisper da terminale. Un’app Mac può registrare microfono e audio di sistema, poi trascrivere sullo stesso computer.
+
+
+<Image src={inline2} alt="Portatile chiuso dentro, nubi da temporale fuori" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Cosa il locale **non** significa:
+
+- La registrazione non diventa lecita per questo. Consenso e conservazione restano tuoi.
+- Non è una trascrizione certificata.
+- Non sostituisce un archivio di team se cinque persone domani devono cercare lo stesso fascicolo.
+
+Cosa cambia: nessun bot in lista quando catturi dal Mac. L’app di riunione può essere Teams, Zoom, Meet, Slack, Discord o qualsiasi altra che riproduca suono sul computer. Dopo lo stop, la trascrizione si costruisce dall’audio locale finito. I riassunti possono restare sul Mac finché non esporti, o finché non invii di proposito **testo** a un modello con la tua chiave API. Quella via è opt-in, senza fallback silenzioso, e non trascrive l’audio in cloud.
+
+Vemoir è un’app Mac di questa famiglia: barra dei menu, modelli locali di default, [come funziona la cattura](/it#capture). Apple silicon, macOS Sonoma 14.2 o successivo. I Mac Intel non sono supportati. Con i modelli installati il flusso può girare offline. La rete serve a setup e download.
+
+Il locale fallisce in modo banale se dimentichi Record. I bot cloud falliscono in modo banale se l’IT blocca l’ingresso o il cliente chiede chi è l’ospite extra.
+
+## Il browser non è né un bot né l’app Mac
+
+Nei risultati di ricerca «nel browser» sembra presto cloud.
+
+Gli strumenti gratuiti su vemoir.ch trascrivono un file che hai già. MP3, M4A, WAV o MP4. L’elaborazione gira nella scheda con un modello Whisper pubblico. **Il file non viene inviato a Vemoir.** I pesi del modello si scaricano una volta; le esecuzioni successive possono andare senza rete. Nella scheda Rete non dovresti vedere l’audio inviato a un server Vemoir.
+
+Limiti a settembre 2026: file fino a **15 minuti**, **tre esecuzioni andate a buon fine a settimana**, **niente etichette speaker**, **niente registrazione live** nella scheda. Niente estensione, niente bot, niente cattura della scheda. Nessun output in dialetto. Live, separazione speaker e riunioni lunghe stanno in un’app Mac, non nella scheda.
+
+Usa questo percorso quando la call è finita e il clip è breve. Interviste e consenso: [trascrivere un’intervista senza caricarla](/it/blog/trascrivere-intervista-senza-caricarla).
+
+## Trascrizione riunione cloud vs locale, a confronto
+
+I numeri dei fornitori nominati stanno sulle loro pagine. Le righe sotto descrivono lo **schema**, in base al comportamento pubblico dei prodotti a settembre 2026.
+
+| Schema | Entra in diretta? | Dove gira il riconoscimento | Libreria tipica | Live nella scheda? |
+| --- | --- | --- | --- | --- |
+| Bot da calendario | Sì, partecipante visibile se attivo | Cloud del fornitore | Workspace condiviso | No; il bot sta nell’app di meeting |
+| Registrazione cloud della piattaforma | Nessun bot extra; registra la piattaforma | Cloud (Zoom, Teams, Meet e simili) | Drive o chat della piattaforma | No |
+| Sito di upload | No | Cloud del fornitore | Ciò che il sito conserva | No |
+| Cattura locale Mac | Nessun bot | Sul Mac | Su quel Mac finché non esporti | No |
+| Strumento browser Vemoir | No | Nella scheda; file non inviato a Vemoir | Copi il testo | No; solo file, 15 min, 3 volte/settimana |
+
+«Locale» significa elaborazione sul dispositivo. Non significa «nascosto ai partecipanti». Se registri, lo dici.
+
+## Quando il cloud è la scelta migliore
+
+Resta su un notetaker cloud o su una trascrizione di piattaforma se vale la maggior parte di questi punti:
+
+- L’azienda si è allineata su un fornitore e tutti cercano nello stesso spazio.
+- I contratti ammettono quel responsabile, e il partecipante extra è accettabile sulle call che contano.
+- Le riunioni ricorrenti devono partire senza che qualcuno prema Record.
+- Coaching CRM, analytics di team o retention admin esistono solo in quel prodotto.
+- Il file ufficiale deve vivere in Teams o Zoom, perché lì guardano legale o cliente.
+
+Lottare contro il bot su quelle call, e restare senza l’archivio che usa il resto dell’azienda, raddoppia l’attrito. Una cattura locale non sostituisce una registrazione Teams obbligatoria in SharePoint.
+
+## Quando il locale è la scelta migliore
+
+Preferisci il locale se vale la maggior parte di questi punti:
+
+- Un bot in lista è vietato, o non vuoi spiegare un ospite extra su una call cliente.
+- L’audio non deve diventare un file sul disco di un fornitore, nemmeno per un upload unico.
+- Sei su Mac e puoi avviare e fermare tu.
+- L’offline dopo il download dei modelli conta (treno, aereo, rete chiusa).
+- Hai già un file e ti serve testo da un clip breve: è lo strumento browser, non un nuovo account fornitore.
+
+Il locale è debole se dieci persone servono lo stesso stato e non toccano mai il tuo portatile. Esporta le note che vuoi condividere. Il Mac non è un archivio aziendale.
+
+Per la prossima call catturata sul Mac senza bot: [come registra Vemoir](/it#capture). File già lì: [trascrivi nel browser](/it/strumenti/trascrivere-audio).
+
+## Cosa nessun percorso decide al posto tuo
+
+La trascrizione non risolve consenso, conservazione né destinatario. Un file locale parte per email all’indirizzo sbagliato. Un workspace cloud può essere configurato male. In Svizzera la legge riveduta sulla protezione dei dati è la **nLPD**. La voce è un dato personale. Nominare un responsabile, una finalità e una regola di cancellazione è lavoro tuo, che il modello sia corso in Virginia o sulla scrivania.
+
+Un riassunto generato non è un verbale di consiglio. Un output del browser non è una trascrizione certificata. «Locale» non vuole dire «conforme». Questa pagina non usa quelle parole.
+
+Se registri Microsoft Teams sul Mac e la domanda è la call in diretta, non la filosofia dei responsabili: [registrare una riunione Teams su Mac](/it/blog/registrare-riunione-teams-su-mac).
+
+## Domande frequenti
+
+### La trascrizione riunione cloud vs locale riguarda solo la privacy?
+
+No. La privacy è il motivo di ricerca più comune. In pratica cambiano anche la lista partecipanti (bot o no), chi possiede la libreria, se puoi lavorare offline, e chi preme Record. Un team che vuole ogni stand-up nello stesso spazio sceglie il cloud per operare, non per uno slogan.
+
+### Locale significa che il file non lascia mai il Mac?
+
+Di default sì, finché non esporti, copi, o invii di proposito **testo** a un modello terzo con la tua chiave. La trascrizione dell’audio resta sul Mac nella configurazione predefinita di Vemoir. Condividere un riassunto è un’altra azione. Puoi comunque allegare un file locale alla mail sbagliata.
+
+### Trascrivere nel browser è ancora locale?
+
+Per gli strumenti Vemoir l’audio non va a Vemoir e il modello gira nella scheda. È locale al browser, con 15 minuti e 3 esecuzioni a settimana, senza etichette speaker né cattura live. Non è la registrazione dalla barra dei menu di una call in diretta.
+
+### I bot cloud addestrano sempre sulle mie riunioni?
+
+Da un articolo non si risponde. Leggi le pagine privacy attuali del fornitore. Alcuni descrivono training, altri default enterprise. Nella tua review collega il documento su cui ti appoggi. Questa pagina non inventa una policy di training.
+
+### Quale percorso gira su Windows o iPhone?
+
+Non l’app Mac Vemoir. Notetaker cloud e registrazioni di piattaforma spesso sì. Se il parco macchine è misto, uno strumento solo Mac non è lo standard aziendale.
+
+### La trascrizione locale funziona senza internet?
+
+Dopo l’installazione dei modelli il flusso Vemoir può girare offline. Setup e download servono la rete. Gli strumenti browser servono un primo download del modello; poi la scheda può lavorare senza rete. Gli strumenti cloud devono raggiungere il fornitore.
+
+### Un VTT Zoom o Teams scaricato è «locale»?
+
+No. Il riconoscimento è già corso dal fornitore. Il download è una copia di quel risultato.
+
+Passo successivo: file sotto i 15 minuti nello [strumento trascrivere audio](/it/strumenti/trascrivere-audio). Prossima riunione sul Mac: [cattura](/it#capture).

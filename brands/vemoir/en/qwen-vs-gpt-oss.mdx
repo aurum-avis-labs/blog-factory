@@ -1,0 +1,115 @@
+---
+title: "Qwen vs gpt-oss: Local Models for Meeting Notes on Mac"
+description: "Qwen vs gpt-oss is a choice of local writing models: Qwen3 4B on most Macs, gpt-oss-20b when memory is high. Neither one transcribes audio."
+pubDate: 2026-11-04
+author: "Vemoir Team"
+tags: ["qwen", "models", "notes"]
+funnelStage: "interest"
+translationKey: "qwen-vs-gpt-oss"
+relatedPosts: ["parakeet-vs-whisper", "bring-your-own-api-key", "apple-intelligence-meeting-notes"]
+image: "@/assets/blog/qwen-vs-gpt-oss/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/qwen-vs-gpt-oss/inline1.jpg';
+import inline2 from '@/assets/blog/qwen-vs-gpt-oss/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@solomin_d?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">solomin_d</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Qwen vs gpt-oss** in Vemoir is a choice between two local language models that write. Qwen3 4B is the one for most Macs. gpt-oss-20b is the one for high-memory Macs. Both can produce notes, documents, and Ask Vemoir answers. Neither transcribes the recording. Speech stays with Parakeet v3 or a Whisper model you downloaded. There is no accuracy ranking here, because these models are not the transcribers, and this page does not score which one writes "better."
+
+The app shows storage, hardware fit, and which model is selected. A meeting uses the selection captured for that run. It does not swap Qwen for gpt-oss, or the reverse, halfway through because one of them struggled.
+
+## What Qwen vs gpt-oss actually decides
+
+| | Qwen3 4B | gpt-oss-20b |
+| --- | --- | --- |
+| Where it fits | Most Macs | High-memory Macs |
+| Job | Notes, documents, Ask | Notes, documents, Ask |
+| Audio | Does not transcribe | Does not transcribe |
+| License of weights | Apache 2.0, via the pinned local runtime, with bundled attribution | Apache 2.0, same idea |
+| If it is missing | Download it on purpose, or processing cannot pretend it is there | Same. No silent substitute |
+
+
+<Image src={inline1} alt="Two workstations side by side with closed laptops" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@jorienloman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jorienloman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Both run on the Mac. Internet is for the download, not for each sentence of a finished meeting once the model is installed. You can remove either from the model library. You can inspect readiness and storage there.
+
+Ask, documents, meeting artifacts, and custom artifacts share one active text source. Selecting the local model, Qwen or gpt-oss, keeps that source on the device. If you had activated a bring-your-own key, switching back to the local model routes those four back on-device. A failure does not quietly pick the other local model or the cloud key.
+
+## Where Qwen is the better choice
+
+Qwen3 4B is the better choice on a Mac that is not high-memory, when you want the writing model that the setup presents for most machines, and when you would rather spend disk and memory on the speech model and the recording than on the largest writing file. It is also the better choice if you are unsure, because forcing gpt-oss-20b onto a Mac that does not fit it is not a quality upgrade the app will paper over. The device-fit guidance is there so you do not guess.
+
+
+<Image src={inline2} alt="Two people at neighboring desks writing notes" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@wasil_ahammed?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">wasil_ahammed</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+You still pick the speech model separately. A fluent Qwen summary of a bad transcript is still a summary of a bad transcript. Fix the speech model, the mic, or the glossary if the words are wrong. Changing from Qwen to gpt-oss does not relabel speakers and does not apply glossary hints to the audio.
+
+## Where gpt-oss is the better choice
+
+gpt-oss-20b is the better choice when the Mac has the memory for it and you want that larger local model available for notes, documents, and Ask. The reason is capacity of the machine, not a published score. If the model screen says this Mac is a fit and you have the storage, you can select it. If a long Ask session is the work you do every day, the high-memory path is the one the app reserves for that model.
+
+It is the worse choice when the Mac is tight. Do not start the larger download hoping for an automatic reduction to Qwen. Downloads are explicit. A failed download stays failed until you resume or remove it.
+
+Switching between the installed models for the next Ask turn replans that turn. It does not rewrite the messages already in the conversation. Completed answers keep showing which model produced them.
+
+## What neither model will do
+
+- Transcribe microphone or system audio.
+- Separate speakers. That stays a local processing step. Unknown speakers stay anonymous until you opt in.
+- Become Apple Intelligence. Where the Mac has Apple Intelligence, cleanup and artifacts can use that instead of, or as the on-device writing option the Mac offers. Transcription is still the speech model.
+- Send audio to OpenAI or Anthropic. A key, if you activate one, is text only, in the Keychain, with no silent fallback.
+- Rank Parakeet against Whisper. Those are speech models. This page is not about them beyond the split: speech models hear, these two write.
+
+A project glossary can still steer terminology in generated text, as context, not as evidence. The transcript remains what the speech model produced. Manual notes remain what you typed.
+
+Browser tools do not offer Qwen or gpt-oss. [/tools/transcribe-recording](/tools/transcribe-recording) is a short file in the tab, public Whisper, no live capture.
+
+See both writing models next to the speech models in [capture](/#capture).
+
+## One Mac, one afternoon, two writing jobs
+
+A 40-minute call finishes on Parakeet or Whisper. You are not choosing Qwen against gpt-oss for that pass. You open the summary. If this is a typical 16 GB MacBook and setup pointed you at Qwen3 4B, leave it there and read the minutes. If you are on a high-memory Mac and you installed gpt-oss-20b, the same reading applies: check names, check numbers, open the transcript where a sentence feels too smooth. Neither model stored a new fact that was not in the transcript, your manual notes, or the project context.
+
+Later you ask a question about the project. The answer uses whichever writing model is active, and it can link back to the transcript. Switching to the other installed model for a second question replans that question. It does not rewrite the first answer. If you then activate an API key, you have left this comparison. The key is a different text source. Come back to Qwen or gpt-oss by selecting the local model when you want the writing on the Mac again.
+
+## Frequently asked questions
+
+### Does Qwen or gpt-oss transcribe my meeting?
+
+No. They write notes, documents, and Ask answers. Parakeet v3 or Whisper transcribes.
+
+### Which one should most Macs use?
+
+Qwen3 4B. gpt-oss-20b is for high-memory Macs. The model screen shows fit and storage. This is not a quality ranking.
+
+### Can I switch later?
+
+Yes. Install the one that fits, select it, and later runs use that selection. Switching the next Ask turn does not rewrite earlier messages.
+
+### What if the larger model fails to download?
+
+Resume or recover from the download state. The app will not silently install the other model and continue the meeting on it.
+
+### Do they need a subscription?
+
+The writing models are local files you download. A cloud key is optional and separate. This page does not set a price on the models themselves.
+
+### Will Ask use both at once?
+
+No. One active text source at a time. Local selection keeps Ask, documents, and artifacts on that local model.
+
+### Is Apple Intelligence the same as Qwen?
+
+No. Apple Intelligence is optional where the Mac has it, for cleanup and artifacts. Qwen and gpt-oss are the downloadable local language models.
+
+### Can the free browser tools run these models?
+
+No. The browser path is a limited file transcription. Live notes models are in the Mac app.
+
+Pick the writing model the Mac can hold, keep the speech model as its own download, and check the fit in [capture](/#capture) before a long meeting.

@@ -1,0 +1,172 @@
+---
+title: "Fireflies entraîne-t-il sur les enregistrements ? Docs"
+description: "Fireflies entraîne-t-il sur les enregistrements ? Ce que disent politique, CGU et pages sécurité de Fireflies, septembre 2026."
+pubDate: 2026-10-11
+author: "Vemoir Team"
+tags: ["fireflies.ai", "confidentialité", "entraînement"]
+funnelStage: "interest"
+translationKey: "does-fireflies-train-on-recordings"
+relatedPosts: ["otter-ai-est-il-sur", "granola-est-il-prive", "alternative-a-fireflies"]
+tool: "transcribe-recording"
+image: "@/assets/blog/does-fireflies-train-on-recordings/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/does-fireflies-train-on-recordings/inline1.jpg';
+import inline2 from '@/assets/blog/does-fireflies-train-on-recordings/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@tanyabarrow?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">T</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Fireflies entraîne-t-il sur les enregistrements** est plus étroit que «&nbsp;Fireflies est-il sûr&nbsp;». En septembre 2026, la **politique de confidentialité** publique (mise à jour le 6 mars 2026), les **conditions d'utilisation**, l'article d'aide sur la protection des informations et la [page sécurité](https://fireflies.ai/security) affirment que Fireflies **n'utilise pas** le contenu des réunions ni les données personnelles pour entraîner des modèles d'IA internes ou externes, et que les prestataires en sont contractuellement exclus. Les mêmes textes décrivent pourtant un **preneur de notes cloud** qui capture les réunions, stocke enregistrements et transcriptions dans le service Fireflies, et (dans beaucoup de configurations) rejoint comme participant visible.
+
+Cet article cite ces pages fournisseur. Ce n'est pas un conseil juridique. Il ne tranche pas si Fireflies convient à un contrat, à la **nLPD** ou à une interdiction IT des bots. Vemoir n'affirme pas que Fireflies soit certifié, conforme ou approuvé pour un secteur.
+
+## Sommaire
+
+- [Faits en bref (d'après Fireflies)](#faits-en-bref-daprès-fireflies)
+- [Fireflies entraîne-t-il sur les enregistrements](#fireflies-entraîne-t-il-sur-les-enregistrements)
+- [Ce que disent la politique et les CGU](#ce-que-disent-la-politique-et-les-cgu)
+- [Rétention zéro chez les prestataires, pas une bibliothèque Fireflies vide](#rétention-zéro-chez-les-prestataires-pas-une-bibliothèque-fireflies-vide)
+- [Données vocales et données dérivées](#données-vocales-et-données-dérivées)
+- [Le bot et où va l'audio](#le-bot-et-où-va-laudio)
+- [Ce que Fireflies publie sur ses programmes de sécurité](#ce-que-fireflies-publie-sur-ses-programmes-de-sécurité)
+- [Quand Fireflies reste souvent le meilleur choix](#quand-fireflies-reste-souvent-le-meilleur-choix)
+- [Quand un flux Mac local convient mieux](#quand-un-flux-mac-local-convient-mieux)
+- [Questions fréquentes](#questions-fréquentes)
+
+## Faits en bref (d'après Fireflies)
+
+| Sujet | Ce que Fireflies documente (septembre 2026) |
+| --- | --- |
+| Entraînement sur le contenu des réunions | Politique&nbsp;: **pas** d'entraînement IA sur les données personnelles&nbsp;; prestataires interdits par contrat ([politique](https://fireflies.ai/privacy-policy)). Aide&nbsp;: «&nbsp;No AI Training. Ever.&nbsp;» pour audio, vidéo, transcriptions, synthèses ([keeping information safe](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe)). FAQ de mise à jour&nbsp;: même non ([mises à jour](https://guide.fireflies.ai/articles/6892479029-fireflies-ai-updates-to-our-privacy-policy-terms-of-service-data-processing-addendum)) |
+| CGU (User Content) | Fireflies «&nbsp;will not use your User Content to train, retrain, fine-tune or otherwise improve any generative artificial intelligence models&nbsp;» ([CGU](https://fireflies.ai/terms-of-service)) |
+| Phrase marketing | Page sécurité&nbsp;: «&nbsp;We don't train on it **by default** unlike other AI companies&nbsp;» ([sécurité](https://fireflies.ai/security)). À lire à côté du «&nbsp;we do not&nbsp;» plus plat de la politique |
+| Rétention prestataires | «&nbsp;Zero Data Retention&nbsp;» / «&nbsp;0-day&nbsp;» pour les **tiers**&nbsp;: pas de stockage après traitement, pas d'accès ensuite, pas d'entraînement prestataire ([politique](https://fireflies.ai/privacy-policy), [aide](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe)) |
+| Stockage Fireflies | Données de compte tant que le compte est actif&nbsp;; suppression sous **30&nbsp;jours** après clôture. Recaps, enregistrements et transcriptions restent dans le produit jusqu'à suppression par vous ou un admin ([politique](https://fireflies.ai/privacy-policy), [aide](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe)) |
+| Voice Data | Des prestataires peuvent extraire des caractéristiques vocales pour séparer les locuteurs. Fireflies dit ne jamais recevoir ces Voice Data sur ses propres serveurs. Certains États US les traitent comme données biométriques ([politique](https://fireflies.ai/privacy-policy)) |
+| Données dérivées | Politique&nbsp;: données dé-identifiées et agrégées. CGU&nbsp;: données d'usage et statistiques dérivées du User Content pour analyser et améliorer les services ([politique](https://fireflies.ai/privacy-policy), [CGU](https://fireflies.ai/terms-of-service)) |
+| Sous-traitants | [trust.fireflies.ai/subprocessors](https://trust.fireflies.ai/subprocessors) |
+
+
+<Image src={inline1} alt="Classeur en bois ferme dans un bureau" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@___atmos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Caroline Badran</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Les politiques bougent. Ouvrez les liens avant de vous y fier.
+
+## Fireflies entraîne-t-il sur les enregistrements
+
+La requête mélange trois couches&nbsp;:
+
+
+<Image src={inline2} alt="Piles de dossiers papier sur une etagere, sans ecrans" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@theotherworkspace?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">David Fintz</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. **Entraînement de modèles de fondation.** Fireflies envoie-t-il votre MP3 ou votre transcription dans des poids de type GPT, ou le permet-il à OpenAI / Anthropic&nbsp;?
+2. **Amélioration produit.** Fireflies garde-t-il des signaux dérivés ou dé-identifiés pour améliorer des fonctions&nbsp;?
+3. **Stockage.** Même sans entraînement, Fireflies **conserve**-t-il l'enregistrement dans un espace que vous ne contrôlez pas seul&nbsp;?
+
+Les docs publics actuels répondent (1) par **non**. (2) par un langage **dérivé / dé-identifié / statistique**, ce qui n'est pas «&nbsp;nous entraînons des modèles génératifs sur vos appels&nbsp;». (3) par **oui**&nbsp;: le produit est une bibliothèque cloud. Politique d'entraînement et politique de conservation sont des leviers distincts.
+
+Otter documente un entraînement propriétaire sur audio et transcriptions dé-identifiés ([Otter.ai est-il sûr](/fr/blog/otter-ai-est-il-sur)). Ne recopiez pas cette histoire sur Fireflies. Lisez chaque éditeur.
+
+## Ce que disent la politique et les CGU
+
+**Politique, Use of Information** (6 mars 2026)&nbsp;: Fireflies utilise les informations collectées pour fournir et améliorer les services, y compris capturer des enregistrements et produire transcriptions et synthèses. Dans le même paragraphe&nbsp;: **«&nbsp;We do not use personal information for AI model training and we contractually prohibit our vendors from using this information for their own model training.&nbsp;»**
+
+**Data Retention** dans la même politique applique une **rétention zéro** au contenu de réunion (audio, vidéo, transcriptions, synthèses) **côté prestataires tiers**&nbsp;: pas de stockage après traitement, pas d'accès une fois le service fini, pas d'entraînement de modèles internes ou externes.
+
+**Article d'aide** ([keeping information safe](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe), septembre 2026)&nbsp;: titre **«&nbsp;No AI Training. Ever.&nbsp;»** Cite OpenAI et Anthropic parmi les partenaires sous accords «&nbsp;Zero Day Retention&nbsp;». Les équipes internes n'ont pas d'accès par défaut au contenu des réunions&nbsp;; le support exige une permission explicite.
+
+**Conditions d'utilisation&nbsp;:** Fireflies n'utilisera pas le User Content pour entraîner, réentraîner, affiner ou autrement améliorer des modèles d'IA **générative**. Vous devez avoir l'autorisation des autres personnes sur l'enregistrement. Entrées et sorties des fonctions IA restent votre User Content.
+
+**Page sécurité marketing&nbsp;:** «&nbsp;You own your data. We don't train on it **by default** unlike other AI companies.&nbsp;» Ce «&nbsp;by default&nbsp;» est plus faible que la politique. Pour une revue fournisseur, citez la **politique et les CGU**, pas le slogan, et revérifiez la date.
+
+La politique précise qu'elle **ne s'applique pas** au User Content traité **pour le compte de clients professionnels**&nbsp;; ces déploiements relèvent des CGU, du DPA et de l'accord client. Le papier Enterprise peut ajouter ou changer des devoirs. Demandez à Fireflies ou à votre admin le DPA réellement applicable.
+
+## Rétention zéro chez les prestataires, pas une bibliothèque Fireflies vide
+
+«&nbsp;Zero Data Retention&nbsp;» dans le vocabulaire Fireflies vise les **prestataires et partenaires après le job de traitement**. Ce n'est pas la promesse que Fireflies jette la réunion dès que la transcription apparaît.
+
+Le produit est fait pour garder recaps, enregistrements et transcriptions, afin de chercher, partager et lancer des fonctions conversationnelles plus tard. Les admins règlent conservation et accès. Le **Private Storage** Enterprise est décrit comme une option de localité, pas le défaut de chaque offre ([sécurité](https://fireflies.ai/security), [aide](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe)).
+
+Si vous fermez le compte, la politique indique une suppression des données personnelles liées au compte sous **30&nbsp;jours**. Si vous n'étiez qu'invité d'une réunion enregistrée par quelqu'un d'autre, Fireflies vous renvoie vers l'**hôte** pour demander la suppression du recap.
+
+Une clause «&nbsp;pas d'entraînement&nbsp;» n'enlève pas le bot de la liste des participants et ne pose pas le fichier sur votre Mac.
+
+## Données vocales et données dérivées
+
+La politique décrit des **Voice Data**&nbsp;: des prestataires peuvent extraire des caractéristiques pour séparer les locuteurs. Fireflies indique que ces prestataires ne s'en servent pas pour identifier ou authentifier, et que Fireflies **ne reçoit ni ne traite ces Voice Data sur ses propres serveurs**. Un passage proche du BIPA de l'Illinois figure dans la même politique, avec un calendrier de destruction.
+
+À part, Fireflies peut **créer des données dé-identifiées et agrégées** qui ne peuvent pas raisonnablement vous être rattachées. Les CGU autorisent des **données d'usage, statistiques et autres dérivées du User Content** à des fins internes, y compris analyser et améliorer les services.
+
+Lecture simple&nbsp;: Fireflies documente aujourd'hui **pas d'entraînement de modèles génératifs sur le contenu des réunions**, tout en autorisant des **analyses dérivées non identifiantes** et une **extraction vocale chez des prestataires** sous ces contrats. Si votre revue interdit tout usage secondaire, lisez le DPA et la liste des sous-traitants&nbsp;; ne vous arrêtez pas au titre sécurité.
+
+## Le bot et où va l'audio
+
+Fireflies est connu pour un preneur de notes (souvent **Fred** / Fireflies.ai Notetaker) qui peut rejoindre automatiquement les réunions calendrier sur Zoom, Google Meet, Microsoft Teams et d'autres plateformes. Le mode bureau «&nbsp;Take Notes&nbsp;» sans bot est un autre chemin, documenté ailleurs chez Fireflies&nbsp;; ce n'est pas l'histoire par défaut derrière la question d'entraînement.
+
+Audio et vidéo des réunions activées sont des **Meeting and Call Information** dans la politique. Ils vont vers le service Fireflies et vers des prestataires qui analysent les enregistrements. Chiffrement décrit&nbsp;: **AES-256 au repos**, **TLS 1.2+ en transit** ([aide](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe)).
+
+Un bot visible aide à l'information. Beaucoup de politiques clients et IT interdisent quand même le participant en plus. Voir [notes de réunion sans bot](/fr/blog/notes-reunion-sans-bot) et [alternative à Fireflies](/fr/blog/alternative-a-fireflies).
+
+## Ce que Fireflies publie sur ses programmes de sécurité
+
+Les pages sécurité et aide mentionnent **SOC 2 Type II**, **GDPR**, **HIPAA** (langage BAA), **FERPA** (langage DSA), Private Storage Enterprise, SSO et un programme de bug bounty. Ce sont des **déclarations Fireflies**. Cet article ne les certifie pas. Vemoir n'affirme ni HIPAA, ni GDPR, ni nLPD, ni un statut privilégié ou certifié pour Fireflies ou pour votre enregistrement.
+
+Consentement et conservation des voix d'autrui restent les vôtres.
+
+## Quand Fireflies reste souvent le meilleur choix
+
+Restez sur Fireflies si vous voulez une **bibliothèque cloud partagée**, un join calendrier, une recherche orientée CRM et des règles de rétention admin, et si l'organisation a déjà accepté un preneur de notes SaaS plutôt US (ou payé Private Storage). Dans ce cadre, **Fireflies entraîne-t-il sur les enregistrements** est une vérif contrat et réglages, pas une raison de vider l'espace par principe. Relisez la date de la politique, le DPA et l'auto-join.
+
+## Quand un flux Mac local convient mieux
+
+Choisissez la capture locale si **garder l'audio hors des serveurs fournisseur par défaut** compte plus qu'une archive d'équipe&nbsp;:
+
+- **Vemoir pour Mac** enregistre audio système et micro sur le Mac, sans bot ([fonctionnement](/fr#how)).
+- La transcription reste sur l'appareil. Les modèles texte cloud sont optionnels, texte seulement, avec votre clé ([capture](/fr#capture)).
+- Pour un fichier déjà là, [/fr/outils/transcrire-audio](/fr/outils/transcrire-audio) dans le navigateur, sans envoi à Vemoir (15&nbsp;minutes, trois passages par semaine, pas d'étiquettes de locuteurs).
+
+Fireflies optimise l'intelligence conversationnelle dans un espace cloud. Vemoir optimise des dossiers locaux et un export explicite. Aucune page ne rend l'autre «&nbsp;dangereux&nbsp;». Elles répondent à d'autres contraintes.
+
+Si le prochain appel ne peut pas inclure un bot preneur de notes ni une copie fournisseur de l'audio, [enregistrez-le sur le Mac](/fr#how).
+
+## Questions fréquentes
+
+### Fireflies entraîne-t-il aujourd'hui sur les enregistrements&nbsp;?
+
+Selon la politique (6 mars 2026), les CGU et l'article d'aide de septembre 2026, Fireflies dit **non** pour le contenu des réunions et les données personnelles utilisés à entraîner des modèles internes ou externes. Revérifiez les URL&nbsp;; les politiques bougent.
+
+### Pourquoi la page sécurité dit-elle «&nbsp;by default&nbsp;»&nbsp;?
+
+La phrase marketing est plus faible que la politique. Pour une revue, citez politique et CGU. Si les deux divergent après une mise à jour, demandez à Fireflies quel document prime.
+
+### Si Fireflies n'entraîne pas, mon audio est-il quand même stocké&nbsp;?
+
+Oui, jusqu'à suppression ou politique admin. La rétention zéro des docs vise les **prestataires après traitement**, pas un compte Fireflies vide.
+
+### OpenAI ou Anthropic peuvent-ils entraîner sur mes réunions Fireflies&nbsp;?
+
+Fireflies invoque des accords prestataires et une rétention zéro qui l'interdisent. Le contenu passe quand même chez ces prestataires pour produire des fonctions. Fireflies distingue ce traitement de l'entraînement.
+
+### Fireflies utilise-t-il de la biométrie vocale&nbsp;?
+
+La politique décrit des Voice Data extraites par des **prestataires** pour séparer les locuteurs, non détenues sur les serveurs Fireflies, avec un langage supplémentaire pour certaines lois biométriques US. Lisez ce passage si votre juridiction s'en soucie.
+
+### «&nbsp;Pas d'entraînement&nbsp;» veut-il dire «&nbsp;pas de bot&nbsp;»&nbsp;?
+
+Non. Politique d'entraînement et visibilité dans la liste sont séparées. Beaucoup de configurations Fireflies rejoignent encore comme invité.
+
+### Cela prouve-t-il une conformité GDPR ou nLPD&nbsp;?
+
+Non. Fireflies publie un langage GDPR et d'autres programmes. Cet article ne les applique pas à votre traitement, et Vemoir n'affirme de conformité pour personne.
+
+### Quel flux sans surface d'entraînement fournisseur et sans envoi&nbsp;?
+
+Gardez le fichier sur le Mac. [Vemoir](https://apps.apple.com/app/id6794693630) pour la capture ou l'import en direct, ou l'[outil navigateur](/fr/outils/transcrire-audio) pour un fichier court. Limites navigateur&nbsp;: 15&nbsp;minutes, trois passages par semaine, pas d'étiquettes de locuteurs.
+
+## Étape suivante
+
+Lisez la [politique](https://fireflies.ai/privacy-policy), les [CGU](https://fireflies.ai/terms-of-service) et l'article [keeping information safe](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe) actuels avant le prochain auto-join. Si les copies fournisseur sortent du cadre, utilisez l'[app Mac](https://apps.apple.com/app/id6794693630) ou les [outils gratuits](/fr/outils).

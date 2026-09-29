@@ -1,0 +1,120 @@
+---
+title: "Enregistrement réunion pas de son sur Mac, deux pistes"
+description: "Enregistrement réunion pas de son sur Mac : en général le micro seul, ou l’audio système refusé. Vérifiez les deux pistes avant de recapturer l’appel."
+pubDate: 2026-10-20
+author: "Vemoir Team"
+tags: ["mac", "dépannage", "enregistrement"]
+funnelStage: "interest"
+translationKey: "meeting-recording-no-sound-mac"
+relatedPosts: ["audio-systeme-mac", "enregistrer-reunion-teams-sur-mac", "transcription-reunion-bilingue"]
+image: "@/assets/blog/meeting-recording-no-sound-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/meeting-recording-no-sound-mac/inline1.jpg';
+import inline2 from '@/assets/blog/meeting-recording-no-sound-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Un **enregistrement réunion pas de son sur Mac** veut rarement dire que Zoom ou Teams «&nbsp;n’a pas enregistré&nbsp;». En général vous avez capturé une piste et pas l’autre. Le microphone est votre voix dans la pièce. L’audio système est ce que Zoom, Teams, Meet, Slack ou Discord joue via le Mac. Sans audio système, le fichier vous montre en train de parler dans le vide. Sans micro, le fichier est l’appel sans vous. Sans les deux, vous avez un fichier qui a l’air complet et ne contient rien d’utile.
+
+Réglez l’autorisation et le périphérique de sortie avant de recapturer. Vemoir enregistre ces deux sources séparément depuis la barre de menus. Aucun bot ne rejoint l’appel. Pour le côté distant, il faut **System Audio Recording** (audio seulement). L’écran n’est pas filmé. Les guides anciens qui envoient vers la case Enregistrement de l’écran pour cette app sont périmés. Partez de [comment fonctionne la capture](/fr#capture).
+
+## Enregistrement réunion pas de son sur Mac&nbsp;: deux pistes
+
+Un fichier muet est une liste de deux questions, pas une app de réunion cassée.
+
+
+<Image src={inline1} alt="Casque debranche a cote d'un portable ferme" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@niko_nguyen_10?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">niko_nguyen_10</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. **Est-ce que je m’entends à la lecture&nbsp;?** Oui&nbsp;: le chemin micro a fonctionné. Non&nbsp;: micro coupé, refusé, ou mauvaise entrée.
+2. **Est-ce que j’entends les autres&nbsp;?** Non&nbsp;: l’audio système manque. Causes habituelles&nbsp;: **System Audio Recording** refusé, app de réunion sans sortie, ou son dirigé ailleurs (Bluetooth confus, téléphone à l’oreille).
+
+Vemoir garde cela en pistes locales séparées. Après l’arrêt, la transcription vient de l’audio terminé sur le Mac. La ligne live pendant l’appel est un aperçu, pas la preuve que les deux pistes étaient armées.
+
+L’app de réunion peut être n’importe quelle app qui joue du son sur le Mac. Voir [plateformes](/fr#platforms). Pas de plugin Teams, pas de bot Zoom. Pour Teams en direct&nbsp;: [enregistrer une réunion Teams sur Mac](/fr/blog/enregistrer-reunion-teams-sur-mac).
+
+## Diagnostiquer quel côté est silencieux
+
+Lisez l’enregistrement et nommez la panne en une phrase. La réparation change.
+
+
+<Image src={inline2} alt="Table silencieuse, tasses et carnets, aucun casque porte" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@greaterbythehour2020?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">greaterbythehour2020</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+**Seulement votre voix.** L’audio système n’est jamais entré dans le fichier. Réglages Système, Confidentialité et sécurité. Apple regroupe la liste sous **Enregistrement de l’écran et de l’audio système**. Pour Vemoir, autorisez **l’audio seulement**, pas une capture d’écran. Quittez Vemoir et rouvrez. macOS applique souvent l’autorisation après un relancement. Apple documente la page dans [Contrôler l’accès à l’enregistrement de l’écran et de l’audio système](https://support.apple.com/guide/mac-help/control-access-screen-system-audio-recording-mchld6aa7d23/mac).
+
+**Seulement les autres.** Le micro n’est pas dans le fichier. Confidentialité et sécurité, **Microphone**, activer Vemoir. Dans Son, vérifier l’entrée&nbsp;: micro intégré, perche de casque ou USB, pas un agrégat mort d’un vieil installateur Zoom. Dans Vemoir, vérifier que vous n’avez pas armé seulement l’audio système.
+
+**Aucun côté.** Enregistreur lancé avant que l’app de réunion joue du son, arrêté avant la première phrase. Ou un autre périphérique de sortie que celui que vous écoutiez. Ou Enregistrement de l’écran accordé à un autre outil, en croyant que cela couvrait Vemoir. Ce n’est pas le cas.
+
+**Fichier long, transcription quand même vide.** D’abord la lecture. Si vous entendez l’audio, la capture a marché&nbsp;; ensuite c’est le modèle (mauvaise langue, voix minuscules, musique). Si la lecture est muette, restez sur cette page. Un modèle plus gros ne répare pas une autorisation.
+
+## Réparer l’audio système quand l’appel est absent du fichier
+
+1. Dans l’app de réunion, confirmer que la sortie arrive bien **sur ce Mac** (dans Zoom, «&nbsp;quitter l’audio de l’ordinateur&nbsp;» rend le fichier sourd même si vous écoutez sur un téléphone).
+2. Dans Son, régler **Sortie** sur le périphérique réellement utilisé. AirPods connectés mais sortie encore «&nbsp;Haut-parleurs du MacBook&nbsp;»&nbsp;: vous écoutez ici, vous enregistrez là.
+3. Autoriser Vemoir sous **System Audio Recording** (audio seulement). Une capture d’écran «&nbsp;au cas où&nbsp;» n’arme pas la piste d’audio système.
+4. Relancer Vemoir. Démarrer depuis la barre de menus **après** que l’app de réunion joue déjà du son.
+5. Une phrase test de vous, une phrase de quelqu’un d’autre, arrêter, écouter les deux pistes si l’app les montre séparément.
+
+Vemoir utilise une prise Core Audio audio seulement et s’exclut elle-même. Elle ne stocke pas d’images d’écran. Si l’invite demande seulement System Audio Recording, c’est celle à accepter.
+
+## Réparer le micro quand vous manquez dans le fichier
+
+1. Réactiver le son dans l’app de réunion. Vérifier l’interrupteur matériel du casque.
+2. Autoriser Vemoir dans **Microphone**, relancer l’app.
+3. Dans Son, **Entrée**, regarder le vu-mètre en parlant. S’il ne bouge pas, le système ne vous a pas entendus. Choisir une autre entrée.
+4. La réduction de bruit optionnelle dans Vemoir (Désactivée, Équilibrée, Forte) est sur le chemin micro, en local. Si la voix est écrasée dans une pièce calme, tester une minute sur Désactivée.
+5. Un téléphone en haut-parleur dans la pièce fuit dans le micro. C’est du son de pièce, pas de l’audio système. Cela ne remplace pas une autorisation système refusée.
+
+## Casques, Bluetooth, «&nbsp;je l’entendais, pas le fichier&nbsp;»
+
+Si vous avez entendu l’appel, le Mac jouait quelque chose. La prise enregistre l’audio système que le Mac joue, pas un canal Bluetooth privé qui n’entre jamais dans le mixage.
+
+- Casque filaire et Bluetooth ordinaire listé comme sortie dans Son&nbsp;: cas normal.
+- Téléphone à l’oreille, ou second ordinateur qui porte l’appel&nbsp;: le Mac n’y a pas accès.
+- De vieux câbles virtuels peuvent voler la sortie. Retirer les périphériques inconnus dans Son.
+
+QuickTime ou la barre de capture d’écran peuvent emporter de l’audio comme effet secondaire d’un film de l’affichage. C’est la manière lourde d’obtenir du son, et vous n’avez toujours pas de compte rendu tant que quelque chose n’a pas transcrit le film. Ce n’est pas ainsi que Vemoir capture un appel. Activer l’enregistrement d’écran n’arme pas la piste d’audio système de Vemoir.
+
+## Après l’appel&nbsp;: vous avez déjà un fichier
+
+Si quelqu’un d’autre a enregistré, ou si Zoom a posé `audio_only.m4a`, vous n’êtes plus dans un problème de capture live. Transcrivez le fichier. L’[outil transcrire audio](/fr/outils/transcrire-audio) accepte MP3, M4A, WAV ou MP4 jusqu’à **15 minutes**, **trois passages réussis par semaine**, dans le navigateur, sans envoi à Vemoir. Pas d’étiquettes de locuteurs, pas de capture live dans l’onglet. Pour Zoom en local&nbsp;: [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom).
+
+Pour la prochaine tentative avec vous et l’appel&nbsp;: micro et System Audio Recording avant de rejoindre, puis [capture](/fr#capture).
+
+## Questions fréquentes
+
+### Pourquoi l’enregistrement réunion n’a-t-il pas de son sur Mac alors que j’entendais l’appel&nbsp;?
+
+Vous avez entendu l’appel par un chemin que l’enregistreur n’a pas capturé. Le raté habituel est l’audio système&nbsp;: autorisation coupée, ou sortie qui n’est pas ce Mac. Entendre n’est pas armer la prise.
+
+### Vemoir a-t-il besoin de l’enregistrement d’écran pour entendre Teams ou Zoom&nbsp;?
+
+Non. L’app demande System Audio Recording et s’en sert pour l’audio seulement. Elle n’enregistre pas l’écran. L’enregistrement d’écran pour une autre app n’a pas de lien.
+
+### Puis-je rattraper un fichier muet après la réunion&nbsp;?
+
+Si le fichier est muet, il n’y a rien à transcrire. S’il a du son, transcrivez-le. L’outil navigateur sert à un fichier court déjà en main. Il ne reconstruit pas une piste jamais enregistrée.
+
+### J’ai autorisé l’enregistrement d’écran et le côté distant reste silencieux. Et maintenant&nbsp;?
+
+System Audio Recording (audio seulement) pour Vemoir, puis relancer. Vérifier que l’app de réunion joue sur ce Mac et que vous avez démarré la barre de menus pendant qu’elle jouait.
+
+### Le navigateur enregistre-t-il l’audio système si l’onglet reste ouvert pendant l’appel&nbsp;?
+
+Non. Les outils transcrivent un fichier après l’appel. Pas d’audio système en direct, pas d’étiquettes de locuteurs, pas d’extension.
+
+### Cela marche-t-il si je suis dans la réunion sur iPhone et que je prends des notes sur le Mac&nbsp;?
+
+Pas pour l’audio système. Le Mac doit être la machine qui joue l’appel. Le chemin iPhone n’atteint pas la prise. Le micro du Mac peut capter un haut-parleur bruyant. C’est un mauvais substitut.
+
+### Dois-je encore dire que j’enregistre une fois que le son fonctionne&nbsp;?
+
+Oui. Une autorisation qui marche ne remplace pas le consentement.
+
+Étape suivante&nbsp;: activer System Audio Recording (audio seulement) et le microphone, relancer, lire [la capture](/fr#capture) avant le prochain appel.

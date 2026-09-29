@@ -1,0 +1,125 @@
+---
+title: "Record a Slack huddle on Mac without a meeting bot"
+description: "Record a Slack huddle on Mac from system audio when Slack AI notes cannot run. No bot joins, and the audio file stays local."
+pubDate: 2026-10-25
+author: "Vemoir Team"
+tags: ["slack", "mac", "recording"]
+funnelStage: "consideration"
+translationKey: "record-slack-huddle-mac"
+relatedPosts: ["record-zoom-meeting-mac", "record-teams-meeting-mac", "record-discord-call-mac"]
+image: "@/assets/blog/record-slack-huddle-mac/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/record-slack-huddle-mac/inline1.jpg';
+import inline2 from '@/assets/blog/record-slack-huddle-mac/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+You can **record a Slack huddle on Mac** by capturing the huddle’s audio as it plays on the computer, without inviting a bot into the huddle. Slack’s own AI notes are the better path when your plan includes them and nobody external is in the room. When those notes are unavailable, a local recording is the practical fallback. Vemoir does that recording from the menu bar.
+
+The Mac app is a one-time purchase: **CHF 20** in Switzerland, **€24.99** in Germany, Austria, France, and Italy, and **$22.99** in the US. No subscription. Tell people you are recording. The app does not notify the huddle for you.
+
+## Contents
+
+- [When Slack already writes the huddle notes](#when-slack-already-writes-the-huddle-notes)
+- [Record a Slack huddle on Mac with system audio](#record-a-slack-huddle-on-mac-with-system-audio)
+- [What you get after you press stop](#what-you-get-after-you-press-stop)
+- [Where Slack’s canvas is the better record](#where-slacks-canvas-is-the-better-record)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## When Slack already writes the huddle notes
+
+Slack documents **AI huddle notes** on paid plans ([Slack help](https://slack.com/help/articles/31377193680019-Use-AI-to-take-huddle-notes-in-Slack), as of September 2026). Someone in the huddle turns notes on, unless a member has set a channel to start them automatically. Everyone in the huddle is notified when notes start, stop, or are cancelled. After the huddle, Slack shares a canvas in the huddle thread with people, topics, and action items. Transcripts sit in that canvas and, on Slack’s own description, do not show up in search results. Anyone in the channel or DM where the huddle happened can view the notes.
+
+
+<Image src={inline1} alt="A small standing meeting at a high table with notebooks" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@potokvarte?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">potokvarte</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Slack also says it is **not possible** to use AI notes in huddles with external people or guests. Guests cannot use the feature. If your huddle is a customer, a candidate, or anyone outside the workspace, the canvas path is closed even when the plan is paid.
+
+That is the honest fork. Internal huddle, paid Slack, no guests: start with Slack’s notes. External person, free plan, or you need the audio file itself: record on the Mac.
+
+Huddle audio is not the same thing as a Slack clip. Clips are messages you record on purpose. A huddle is the live conversation. Do not expect a Zoom-style folder of MP4 and M4A to appear when the huddle ends.
+
+## Record a Slack huddle on Mac with system audio
+
+Vemoir records the microphone and macOS system audio as two local tracks. Slack counts as “any app that plays audio on the Mac.” No extra participant appears in the huddle. You start and stop. The steps:
+
+
+<Image src={inline2} alt="An informal huddle in an office corridor with notebooks" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@anniespratt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">anniespratt</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+1. Use a Mac with Apple silicon (M1 or newer) and macOS Sonoma 14.2 or later. Plan on 8 GB of memory and 10 GB free for models. 16 GB is more comfortable for long huddles. Intel Macs are not supported.
+2. Install Vemoir from the [Mac App Store](https://apps.apple.com/app/id6794693630). Price on that storefront: CHF 20, €24.99, or $22.99 as above.
+3. Allow the **microphone** and **System Audio Recording**. The system-audio permission is how macOS lets an app hear other apps. It does not record the screen. You can review both under System Settings, Privacy & Security. More on the permission is under [capture](/#capture).
+4. Download a local speech model before the huddle if you have not already. Parakeet v3 covers 25 European languages. Other Whisper models have their own coverage. The app does not silently swap models. Internet is needed for the download. After that, the workflow can run offline.
+5. Open Slack and join the huddle so you can hear the others through the Mac. A headset that bypasses the Mac’s output can leave system audio thin. If you hear them in the room and the Mac does not, the recording will match the Mac.
+6. In the menu bar, start recording when you are ready. Optional: pick a project first if this huddle belongs to a client. Say in the huddle that you are recording. Slack will not add a recording banner for a local app.
+7. Stop when the huddle ends. Vemoir rebuilds the transcript from the finished local audio. A live preview during the call is not the transcript you keep.
+
+[Meeting app support](/#platforms) lists Slack huddles next to Teams, Zoom, Meet, and Discord. The pattern is the same: audio on the Mac, no bot.
+
+The same menu-bar approach for Microsoft Teams is written up in [record a Teams meeting on Mac](/blog/record-teams-meeting-mac). Teams has its own cloud recording rules. Huddles do not. Do not copy a Teams admin setting onto Slack and hope it appears.
+
+## What you get after you press stop
+
+On the Mac you get a transcript, minutes, decisions, action items, and a follow-up draft. Speaker separation runs locally. You can rename a label without building a voice profile. “Remember this speaker” is a separate, explicit choice and the profile is encrypted and deletable. Unknown speakers stay anonymous.
+
+Ask a question about the huddle afterward and the answer can point at a line in the transcript. Notes you typed during the huddle are folded into the minutes and keep their own origin, so a sentence you wrote is not disguised as something Slack’s audio proved.
+
+Nothing is uploaded unless you export it or you opt into a cloud text model with your own API key. That option is text only. The audio stays on the Mac. There is no silent fallback if a cloud model fails. Leave the option off if the huddle should not leave the machine at all.
+
+You share through the macOS share sheet, and only the parts you choose. The whole channel will not see the note the way a Slack canvas is visible to the channel. That is a feature when the huddle included a client and a flaw when you wanted the team to find the note inside Slack. If the team needs the note in the huddle thread, paste a summary you are allowed to share. Do not assume Vemoir posts back into Slack. It does not.
+
+A short excerpt you already exported as MP3, M4A, WAV, or MP4 can go through the free [transcribe recording](/tools/transcribe-recording) tool: 15 minutes, 3 successful runs a week, no speaker labels. The live huddle itself is the Mac app.
+
+## Where Slack’s canvas is the better record
+
+Use Slack AI notes when all of these hold: paid plan, members only, no guests, and a canvas in the thread is the record the team will actually open. Slack notifies the huddle when notes start. A local recorder does not. If your standard is “everyone saw that notes were on,” Slack’s feature matches that standard and a menu-bar app does not, unless you say so out loud.
+
+Slack’s notes also stay in the workspace where the conversation happened. A local file on one laptop is invisible to a colleague who was in the same huddle and does not have your export. For an internal standup, that shared canvas wins.
+
+Use the Mac recording when an external person is in the huddle, when you are not on a paid plan, when you need the audio file, or when the notes should not live in a channel that the whole workspace can open. [Meeting notes without a bot](/blog/meeting-notes-without-a-bot) is the general version of that choice. Huddles are just the Slack-shaped case.
+
+Consent and retention are yours. Vemoir is not a statement that recording this huddle was allowed. If the workspace rules ban local recorders, Slack’s own notes are the path that stays inside the product, or you take notes by hand.
+
+## Frequently asked questions
+
+### Can I record a Slack huddle on Mac if AI notes are off?
+
+Yes, by recording system audio and your microphone locally. Slack will not produce the canvas for you in that case.
+
+### Does a bot join the huddle?
+
+Not with Vemoir. You record the Mac. No extra tile appears because of the app.
+
+### Will Slack tell the others I am recording?
+
+Slack’s help says people are notified when **Slack AI notes** start or stop. A local app is outside that notice. Tell them yourself.
+
+### Why is there no recording file in Slack after the huddle?
+
+Slack’s documented output for AI notes is a canvas, not a Zoom-style audio folder. If notes were never turned on, there may be no transcript at all.
+
+### What does the app cost?
+
+CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the US, one time, on the [Mac App Store](https://apps.apple.com/app/id6794693630). No subscription.
+
+### Which permission does macOS ask for?
+
+System Audio Recording for other apps’ sound, and Microphone for your voice. The screen is not recorded.
+
+### Can I transcribe a huddle in the browser?
+
+Only if you already have a file of 15 minutes or less. The browser tools do not join huddles and do not capture live audio.
+
+### What about guests and Connect channels?
+
+Slack says AI notes cannot be used in huddles with external people or guests. That is when a local recording, with consent, is the remaining option if policy allows it.
+
+## Next step
+
+If the huddle is internal and your plan includes AI notes, follow [Slack’s help article](https://slack.com/help/articles/31377193680019-Use-AI-to-take-huddle-notes-in-Slack). If you need the audio on the Mac instead, install from the [App Store](https://apps.apple.com/app/id6794693630) and read [how capture works](/#capture) before the next huddle.

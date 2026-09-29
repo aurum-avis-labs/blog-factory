@@ -1,0 +1,110 @@
+---
+title: "Apporter sa clé API pour les notes, dans le Trousseau"
+description: "Apporter sa clé API pour OpenAI ou Anthropic, texte seulement. Elle reste dans le Trousseau, s'active quand vous le confirmez, sans recevoir l'audio."
+pubDate: 2026-11-04
+author: "Vemoir Team"
+tags: ["clé api", "confidentialité", "notes"]
+funnelStage: "consideration"
+translationKey: "bring-your-own-api-key"
+relatedPosts: ["questions-sur-transcription-reunion", "app-notes-reunion-achat-unique", "meilleures-notes-reunion-privees"]
+image: "@/assets/blog/bring-your-own-api-key/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/bring-your-own-api-key/inline1.jpg';
+import inline2 from '@/assets/blog/bring-your-own-api-key/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@zoshuacolah?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zoshuacolah</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Apporter sa clé API** quand vous voulez qu’OpenAI ou Anthropic écrive du texte pour vous, et que ce choix soit énoncé. Vemoir stocke l’identifiant dans le Trousseau de protection des données de macOS. Enregistrer ou vérifier une clé ne l’allume pas. Vous confirmez une activation qui oriente Ask Vemoir, les documents, les artefacts de réunion et les artefacts personnalisés vers ce seul prestataire. L’audio et la séparation des locuteurs restent sur le Mac. Si la clé manque, le point de terminaison a changé, le prestataire est indisponible ou l’appel échoue, l’opération s’arrête. Rien ne choisit en silence un autre backend.
+
+L’app Mac elle-même est un achat unique sur l’App Store&nbsp;: CHF 20 en Suisse. L’App Store affiche le prix local, environ 24,99&nbsp;€ en Allemagne, Autriche, France et Italie, 22,99&nbsp;$ aux États-Unis. Le prestataire facture ce que son API demande pour le texte que vous envoyez. Ces tarifs sont les siens, et ils bougent. Vérifiez chez le prestataire. Vemoir peut garder un reçu sans contenu, avec prestataire, modèle, horodatage, résultat, usage et une estimation de coût datée lorsque des prix compatibles existent. Le reçu ne contient ni l’invite, ni la transcription, ni les noms, ni la clé.
+
+## Ce que la clé API apportée a le droit de voir
+
+La génération externe est du texte seulement. L’audio brut, les fichiers, les images et les URL distantes ne font pas partie de la requête. Le texte de transcription et les notes déjà sur le Mac peuvent être ce que vous choisissez de traiter comme texte, parce que c’est ainsi qu’un résumé s’écrit. L’enregistrement lui-même ne part pas pour de la parole vers texte. Parakeet ou Whisper l’ont déjà fait en local, ou ils le feront. La séparation des locuteurs ne bascule pas chez le prestataire.
+
+
+<Image src={inline1} alt="Cles de maison a cote d'un carnet, sans ecrans" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@jaye_haych?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jaye_haych</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Une source active à la fois. Activer la clé envoie Ask, documents, artefacts de réunion et artefacts personnalisés vers elle. Sélectionner un modèle de langue local, Qwen3 4B ou gpt-oss-20b, ramène les quatre sur le Mac. Vous n’obtenez pas un mélange où Ask utilise Anthropic et le compte rendu utilise Qwen, sauf si vous changez la source active entre les deux.
+
+L’installation peut ignorer complètement le prestataire. Les modèles locaux restent le chemin par défaut.
+
+## L’allumer sans vous surprendre
+
+1. Ouvrez Réglages, IA. Le même flux existe dans l’installation avancée, et vous pouvez le refuser là.
+2. Choisissez OpenAI ou Anthropic. Entrez la clé. Elle va dans le Trousseau. Le reste de la configuration n’est pas le secret.
+3. Vérifiez si vous voulez savoir que la clé fonctionne. La vérification n’est pas l’activation.
+4. Lisez l’avis d’activation et confirmez-le. Cette confirmation est le moment où le texte de réunion sélectionné peut partir chez le prestataire.
+5. Après une réunion, cherchez la marque visible de traitement externe sur la sortie qui a utilisé la clé. Un résumé local ne porte pas cette marque.
+
+
+<Image src={inline2} alt="Petite cle metallique a cote de cartes de papier creme" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@silas_crioco?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">silas_crioco</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Retirer la clé arrête les nouvelles requêtes et annule le travail enregistré pour ce prestataire. Cela ne supprime pas le texte déjà généré. Les reçus s’exportent ou se suppriment dans Confidentialité et données. Ils sont sans contenu exprès.
+
+Il n’y a pas de feuille par requête qui interrompt l’enregistrement pour que vous lisiez la charge utile. L’activation est la décision, en amont. Si c’est trop large pour un client, n’activez pas la clé pour ce travail. Utilisez le modèle local.
+
+## Quand un modèle local est le meilleur choix
+
+Une clé personnelle est le meilleur choix quand vous payez déjà un prestataire, que vous voulez ce modèle pour écrire, et que vous acceptez que le texte de réunion quitte le Mac sous un choix que vous avez confirmé. Le modèle local est le meilleur choix quand&nbsp;:
+
+- L’audio ou la transcription ne doivent aller chez aucun tiers. Laissez la clé éteinte. Qwen ou gpt-oss locaux écrivent sur le Mac. Apple Intelligence, là où le Mac l’a, peut nettoyer des artefacts sans clé de prestataire.
+- Vous ne voulez pas une facture API qui suit l’usage. L’achat de l’app ne plafonne pas le prestataire. Sa facture, si.
+- Le prestataire échoue au milieu d’un résumé. Vous voulez que le travail s’arrête, pas qu’il glisse vers une autre société. C’est ce qui se passe. Reprenez quand la clé fonctionne, ou passez vous-même la source active au modèle local.
+- Vous n’aviez besoin que de la parole vers texte. La clé ne transcrit pas. Télécharger Parakeet ou Whisper est l’étape de parole.
+
+Un coffre d’équipe partagé, un SSO pour toute l’entreprise et un hôte de modèle privé ne sont pas cette fonction. C’est votre clé, dans votre Trousseau, sur ce Mac.
+
+Les outils navigateur gratuits ne sont pas non plus un emplacement de clé. [/fr/outils/transcrire-audio](/fr/outils/transcrire-audio) exécute un modèle Whisper public dans l’onglet sur un fichier que vous avez déjà, jusqu’à 15 minutes, trois passages réussis par semaine. Il ne prend pas votre clé OpenAI et n’étiquette pas les locuteurs.
+
+Prérequis de l’app&nbsp;: Apple silicon, macOS Sonoma 14.2 ou plus récent, 8 Go de mémoire, 10 Go libres, 16 Go recommandés pour les longues réunions.
+
+Le réglage se trouve avec les autres choix de modèles dans [la capture](/fr#capture).
+
+## Un client qui interdit le texte dans le cloud
+
+Vous avez enregistré l’appel en local. La transcription est sur le Mac. L’accord dit que le contenu de réunion n’allait pas chez un fournisseur de modèles. Vous ne collez pas la clé, vous n’«&nbsp;essayez&nbsp;» pas l’activation juste pour voir l’avis. L’avis est le point où le texte peut partir. Laissez l’activation éteinte et laissez Qwen ou gpt-oss, ou Apple Intelligence là où le Mac l’a, écrire le brouillon. Si un paragraphe est faible, éditez-le. C’est plus lent qu’un modèle de frontière et cela correspond à l’accord.
+
+Sur un autre mandat, l’accord autorise la clé API de votre société. Vous activez, générez la relance, exportez le texte, puis retirez la clé ou revenez au modèle local avant le client suivant qui ne l’autorise pas. Les reçus montrent qu’une requête a eu lieu, sans stocker la transcription dans le reçu. Gardez ou supprimez ces reçus dans les réglages de confidentialité. C’est une trace du choix, pas une seconde copie de la réunion.
+
+## Questions fréquentes
+
+### Apporter sa clé API envoie-t-il l’enregistrement&nbsp;?
+
+Non. Les requêtes sont du texte seulement. La transcription et la séparation des locuteurs restent sur le Mac.
+
+### Quels prestataires puis-je connecter&nbsp;?
+
+OpenAI ou Anthropic. Vous activez une source de texte à la fois.
+
+### Enregistrer la clé l’allume-t-il&nbsp;?
+
+Non. Vous vérifiez si vous voulez, puis vous confirmez l’activation à part. Jusque-là, l’écriture reste sur le chemin local.
+
+### Que se passe-t-il si le prestataire renvoie une erreur&nbsp;?
+
+L’opération s’arrête. Il n’y a pas de bascule silencieuse vers un autre prestataire ni vers un modèle local que vous n’avez pas choisi.
+
+### Où le secret est-il stocké&nbsp;?
+
+Dans le Trousseau de protection des données de macOS. Retirer la clé bloque les nouvelles requêtes. Le texte déjà généré reste jusqu’à ce que vous le supprimiez vous-même.
+
+### Verrai-je qu’une note a utilisé le cloud&nbsp;?
+
+Oui. La sortie externe garde une marque visible de traitement externe, plus la provenance prestataire et modèle. Les reçus dans Confidentialité sont sans contenu et peuvent être supprimés.
+
+### Cela change-t-il le prix de l’App Store&nbsp;?
+
+L’app est un achat unique au prix ci-dessus. L’usage API est facturé par OpenAI ou Anthropic selon leurs conditions, pas comme un siège Vemoir.
+
+### Puis-je garder l’audio en local et n’envoyer qu’une question difficile dans le cloud&nbsp;?
+
+Oui, si vous activez la clé, posez la question, puis ramenez la source active au modèle local une fois terminé. Tant que la clé est active, Ask, documents et artefacts l’utilisent, pas un mélange.
+
+Activez la clé seulement pour le texte que vous acceptez d’envoyer, et laissez-la éteinte quand le modèle local suffit. Le commutateur est dans [la capture](/fr#capture).

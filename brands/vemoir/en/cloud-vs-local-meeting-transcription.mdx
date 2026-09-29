@@ -1,0 +1,158 @@
+---
+title: "Cloud vs Local Meeting Transcription: What Changes"
+description: "Cloud vs local meeting transcription is a choice about where audio is processed: a vendor's servers, or your Mac. Compare bots, upload, and on-device text."
+pubDate: 2026-10-20
+author: "Vemoir Team"
+tags: ["transcription", "privacy", "meetings"]
+funnelStage: "awareness"
+translationKey: "cloud-vs-local-meeting-transcription"
+relatedPosts: ["system-audio-recording-mac", "where-swiss-companies-meeting-data-goes", "offline-transcription-mac"]
+tool: "transcribe-recording"
+image: "@/assets/blog/cloud-vs-local-meeting-transcription/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline1.jpg';
+import inline2 from '@/assets/blog/cloud-vs-local-meeting-transcription/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Cloud vs local meeting transcription** is a choice about where the audio is processed, not a choice between "AI notes" and handwritten minutes. In the cloud path, a vendor receives the meeting (a bot in the call, a file you upload, or a recording the meeting app already stored on its servers) and returns text from that infrastructure. In the local path, speech-to-text runs on the computer that already has the audio. The written record can look similar in both cases. The processor, the participant list, and the copy you cannot recall from a vendor's disk differ.
+
+This article maps the two approaches, including the narrower in-browser path for a file you already hold. It is not legal advice, and it does not rank vendors on accuracy. If you only need a short clip turned into text without sending it anywhere, the free [transcribe recording tool](/tools/transcribe-recording) runs in your tab after a model download.
+
+- [What cloud meeting transcription actually does](#what-cloud-meeting-transcription-actually-does)
+- [What local meeting transcription actually does](#what-local-meeting-transcription-actually-does)
+- [The in-browser path is neither a bot nor a Mac app](#the-in-browser-path-is-neither-a-bot-nor-a-mac-app)
+- [Cloud vs local meeting transcription, side by side](#cloud-vs-local-meeting-transcription-side-by-side)
+- [When the cloud path is the better fit](#when-the-cloud-path-is-the-better-fit)
+- [When the local path is the better fit](#when-the-local-path-is-the-better-fit)
+- [What neither path decides for you](#what-neither-path-decides-for-you)
+
+## What cloud meeting transcription actually does
+
+Cloud notetakers and meeting-app transcripts share a pattern: audio leaves the room (or the laptop) and is processed on someone else's computers.
+
+
+<Image src={inline1} alt="Local papers on a wood table with sky in the window" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@juliolopez?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">juliolopez</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Calendar-linked assistants join Zoom, Microsoft Teams, Google Meet, and similar apps as a named participant. Everyone can see the extra guest. That visibility is useful for disclosure, and it is also why many client-facing teams ban bots. For how that join looks in practice, see [meeting notes without a bot](/blog/meeting-notes-without-a-bot). For one vendor's own privacy wording, see [is Otter.ai safe](/blog/is-otter-ai-safe). Policies change; read the vendor page dated on the day you decide.
+
+Meeting platforms also transcribe in the cloud when you use their built-in recording. Zoom's transcript is a cloud-recording feature on paid plans, not a file that appears next to a local `audio_only.m4a`. Teams stores cloud recordings in OneDrive or SharePoint when your tenant allows it. Those transcripts live with the platform account, under that vendor's retention and admin controls.
+
+Upload tools sit in the middle: nobody joins the live call, but you still send the file. That is the usual path for "drop an MP3, get a transcript" websites. The processor is still a remote service. If a consent form or a client contract says the recording stays on your device, an upload is a new copy, even when the marketing page says "encrypted."
+
+Cloud is not automatically careless. Plenty of organizations pick one vendor, sign a processing agreement, and want a shared library every host can search. The cost is a processor, a location, and (for bots) a visible extra participant.
+
+## What local meeting transcription actually does
+
+Local transcription means the speech model runs on the machine that already holds the audio. Nothing in that sentence requires a particular brand. A researcher can run Whisper in a terminal. A Mac app can record the microphone and system audio, then transcribe on the same computer.
+
+
+<Image src={inline2} alt="Closed laptop indoors and storm clouds outdoors" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@matgocman?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">matgocman</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+What local does **not** mean:
+
+- It does not make the recording lawful. Consent and retention stay with you.
+- It does not create a certified transcript for court.
+- It does not replace a shared team workspace if five people need the same searchable archive tomorrow.
+
+What it does change: there is no bot in the participant list when you capture from the Mac. The meeting app can be Teams, Zoom, Meet, Slack, Discord, or anything else that plays sound on the computer. After you stop, the transcript is built from the finished local audio. Summaries and action items can stay on the Mac as well, unless you later export them or you deliberately send **text** to a model with your own API key. That key path is opt-in. It is not a silent fallback, and it still does not upload the audio for transcription.
+
+Vemoir is one Mac app in that category: menu-bar capture, local models by default, [how capture works](/#capture). It needs Apple silicon and macOS Sonoma 14.2 or later. Intel Macs are not supported. Once the chosen models are installed, the meeting workflow can run offline. Internet is for setup and downloads.
+
+Local capture fails in a boring way when you forget to press Record. Cloud bots fail in a different boring way when IT blocks the joiner or a client asks who the extra guest is.
+
+## The in-browser path is neither a bot nor a Mac app
+
+A third pattern shows up in search results and is easy to misread as "the cloud."
+
+The free tools on vemoir.ch transcribe a file you already have. You pick MP3, M4A, WAV, or MP4. Processing runs in the browser tab with a public Whisper model. **The file is not uploaded to Vemoir.** The model weights download once; later runs can work with the network off. You can confirm that in the browser's Network tab: you should not see the audio posted to a Vemoir server.
+
+Limits as of September 2026: files up to **15 minutes**, **three successful runs per week**, **no speaker labels**, and **no live recording** in the tab. There is no browser extension, no bot, and no tab-audio capture. Swiss German dialect output is not something these tools claim. If you need live capture, speaker separation, or a meeting longer than the browser cap, that work sits in a Mac app, not in the tab.
+
+Use this path when the call is already over and the clip is short. Use [transcribe an interview without uploading](/blog/transcribe-interview-without-upload) if the file is an interview and the consent paperwork is the reason you will not send it out.
+
+## Cloud vs local meeting transcription, side by side
+
+Figures about named vendors belong on those vendors' pages. The rows below are about the **pattern**, checked against public product behavior as of September 2026.
+
+| Pattern | Joins the live call? | Where speech-to-text runs | Typical library | Live capture in a browser tab? |
+| --- | --- | --- | --- | --- |
+| Calendar notetaker bot | Yes, as a visible participant when enabled | Vendor cloud | Shared workspace across hosts | No; the bot is in the meeting app |
+| Meeting-app cloud recording | No extra bot; the platform records | Vendor cloud (Zoom, Teams, Meet, and similar) | The platform's drive or chat | No |
+| File upload website | No | Vendor cloud | Whatever that site stores | No |
+| Mac local capture | No bot | On the Mac | On that Mac until you export | No |
+| Vemoir browser tool | No | In your tab; file not sent to Vemoir | You copy the text out | No; file only, 15 minutes, 3 runs per week |
+
+"Local" in the table means on-device processing. It does not mean "hidden from participants." If you record, you still tell people.
+
+## When the cloud path is the better fit
+
+Stay on a cloud notetaker or a platform transcript when most of these are true:
+
+- The company already standardized on one vendor and everyone searches the same workspace.
+- Contracts allow that vendor as a processor, and the extra participant is acceptable on the calls you care about.
+- You want capture on recurring meetings without someone at a keyboard pressing Record.
+- You need CRM coaching, team analytics, or admin retention that only exists in that product.
+- The official file must live in Teams or Zoom because that is where legal or the client will look.
+
+Fighting the bot on those calls adds friction and still leaves you without the shared archive the rest of the company uses. Local capture is a poor substitute for a mandated Teams recording in SharePoint.
+
+## When the local path is the better fit
+
+Prefer local processing when most of these are true:
+
+- A bot in the roster is banned, or you do not want to explain an extra guest on a client call.
+- The audio should not become a file on a vendor's disk, including for a one-off upload.
+- You are on a Mac and can start and stop recording yourself.
+- Offline work after the models are installed matters (train, plane, locked-down network).
+- You already have a file and only need text from a short clip, which is the browser tool, not a new vendor account.
+
+Local is weaker when the record must be identical for ten people who never touch your laptop. Export and share the notes you choose; do not pretend the Mac is a company archive.
+
+Want the next call captured on the Mac without a bot in the list? See [how Vemoir records](/#capture). For a file you already have, [transcribe it in the browser](/tools/transcribe-recording).
+
+## What neither path decides for you
+
+Transcription does not settle consent, retention, or who may see the notes. A local file can still be emailed to the wrong person. A cloud workspace can still be configured badly. Swiss and EU data-protection rules (in Switzerland the revised act is the nDSG; French and Italian texts use nLPD) treat voice as personal data. Naming a processor, a purpose, and a deletion rule is your work, whether the model ran in Virginia or on your desk.
+
+Do not treat a generated summary as the legal minutes of a board meeting. Do not treat browser output as a certified transcript. Do not assume "local" equals "compliant." Those words are not claims this page will make.
+
+If you record Microsoft Teams on a Mac and the question is the live call rather than the philosophy of processors, use the how-to [record a Teams meeting on Mac](/blog/record-teams-meeting-mac).
+
+## Frequently asked questions
+
+### Is cloud vs local meeting transcription only about privacy?
+
+No. Privacy is the usual reason people search the phrase. The practical differences are also the participant list (bot or not), who owns the library, whether you can work offline, and who presses Record. A team that wants every standup in one workspace will pick cloud for operations, not for a slogan.
+
+### Does local transcription mean the file never leaves the Mac?
+
+By default, yes, until you export, copy, or opt into sending **text** to a third-party model with your own key. Transcription of the audio stays on the Mac in Vemoir's default setup. Sharing a summary is a separate action. You can still leak a local file by attaching it to the wrong email.
+
+### Can I transcribe in the browser and still call it local?
+
+For the Vemoir tools, the audio is not uploaded to Vemoir, and the model runs in the tab. That is local to your browser, with the 15-minute and 3-runs-per-week limits, and without speaker labels or live capture. It is not the same as menu-bar recording of a live call.
+
+### Do cloud bots always train on my meetings?
+
+You cannot answer that from a blog post. Read the vendor's current privacy and security pages. Some vendors describe training; some describe enterprise controls that change the default. Link the document you relied on in your own review. This page will not invent a training policy.
+
+### Which path works on Windows or iPhone?
+
+Vemoir's Mac app does not. Cloud notetakers and meeting-app recordings often do. If your fleet is mixed, a single Mac-local tool is not the company standard. Pick the processor the whole team can use, or accept that Mac-local is a personal or small-team path.
+
+### Does local transcription work without the internet?
+
+After the models are installed, Vemoir's meeting workflow can run offline. Setup and model downloads need a network. Browser tools need a first model download; later runs can work with the network off. Cloud tools need to reach the vendor.
+
+### Is a Zoom or Teams cloud transcript "local" if I download the VTT?
+
+No. The speech-to-text already ran on the vendor's side. The download is a copy of that result. Local transcription would start from audio you hold and a model you run.
+
+Next step: if the file is already on disk and under 15 minutes, open the [transcribe recording tool](/tools/transcribe-recording). If the next meeting should stay on the Mac, read [capture](/#capture).

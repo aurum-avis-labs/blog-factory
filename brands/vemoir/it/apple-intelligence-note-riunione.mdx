@@ -1,0 +1,112 @@
+---
+title: "Apple Intelligence per le note di riunione sul Mac"
+description: "Apple Intelligence per le note di riunione è facoltativa dove il Mac la ha. Solo pulizia e artefatti. La trascrizione resta sul modello vocale."
+pubDate: 2026-11-05
+author: "Vemoir Team"
+tags: ["apple intelligence", "note", "mac"]
+funnelStage: "interest"
+translationKey: "apple-intelligence-meeting-notes"
+relatedPosts: ["scaricare-modello-locale", "qwen-o-gpt-oss", "parakeet-o-whisper"]
+image: "@/assets/blog/apple-intelligence-meeting-notes/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/apple-intelligence-meeting-notes/inline1.jpg';
+import inline2 from '@/assets/blog/apple-intelligence-meeting-notes/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@andrewilliam?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">andrewilliam</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Apple Intelligence per le note di riunione** in Vemoir è facoltativa, e solo dove il Mac ha davvero Apple Intelligence. Può entrare nella pulizia e negli artefatti generati. Non trascrive la riunione. Le parole arrivano dal modello vocale locale che hai scelto: Parakeet v3, oppure Whisper Turbo, Medium o Large-v3.
+
+Se questo Mac non offre Apple Intelligence, la riunione gira lo stesso. Pulizia e artefatti usano allora un modello di lingua locale scaricato: Qwen3 4B sulla maggior parte dei Mac, o gpt-oss-20b sui Mac con tanta memoria. Quei modelli scrivono. Non sostituiscono nemmeno il modello vocale.
+
+## Cosa Apple Intelligence può toccare
+
+Dopo lo stop, l’app ricostruisce la trascrizione dall’audio finalizzato sul Mac. Quel passo è parlato-in-testo. Apple Intelligence non c’è in quel passo.
+
+
+<Image src={inline1} alt="Taccuini chiusi e bicchieri d'acqua vuoti dopo la chiamata" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@allysphotos?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">allysphotos</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Dove può aiutare, su un Mac che la ha, è la scrittura dopo: pulire la prosa generata e produrre artefatti come il riassunto e i documenti collegati. Vedi comunque una trascrizione che puoi aprire. Le note manuali che hai digitato tengono la loro provenienza e non vengono trattate come battute parlate. I link di prova, quando un riassunto li ha, puntano a passaggi della trascrizione, non a una frase levigata senza fonte.
+
+La scelta è visibile con le altre scelte di modello. Vemoir non scarica in silenzio un altro modello vocale perché manca Apple Intelligence, e non manda in silenzio l’audio a un modello cloud perché Apple Intelligence è fallita. Il testo cloud, se lo vuoi, è un’attivazione separata con la tua chiave. Audio e separazione speaker restano sul Mac.
+
+## Quando c’è, e quando no
+
+Apple Intelligence dipende dal Mac e da macOS, non da un interruttore in una riunione. Se il sistema non la offre, il modello di lingua locale di Vemoir è il percorso per pulizia e artefatti. Leggi la schermata modelli per adeguatezza, spazio e quale modello è selezionato. Non dare per scontato che un Mac mini nuovo e un portatile base si comportino uguale. L’app dichiara l’adeguatezza. Questa pagina non classifica la qualità di scrittura tra Apple Intelligence, Qwen3 4B e gpt-oss-20b.
+
+
+<Image src={inline2} alt="Pila di fogli ordinata e portatile chiuso a fine chiamata" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@sql?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sql</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+La lingua dell’interfaccia è a parte. L’app può girare in inglese, tedesco, francese, italiano o olandese. Questo non sceglie il modello vocale e non accende Apple Intelligence.
+
+## Una riunione con e senza
+
+1. Seleziona il modello vocale prima di affidarti a una chiamata. Quello scaricamento è esplicito, con un avanzamento che puoi riprendere.
+2. Seleziona il percorso di scrittura: Apple Intelligence dove il Mac la ha, o un modello di lingua locale che hai scaricato.
+3. Registra dalla barra menu. Microfono e audio di sistema restano locali. Nessun bot entra.
+4. Ferma. Leggi la trascrizione se un nome sembra sbagliato. Correggi l’etichetta senza creare un profilo vocale, a meno che tu scelga anche `Remember this speaker`.
+5. Leggi il riassunto. Se la pulizia ha lisciato un numero che avevi digitato nelle note manuali, fidati della provenienza della nota e modifica la riga generata.
+
+Su un Mac senza Apple Intelligence, il passo 2 è solo il modello di lingua locale. Il passo di trascrizione non cambia.
+
+## Quando un altro percorso è migliore
+
+Apple Intelligence per la pulizia è la scelta migliore quando il Mac la ha, vuoi un aiuto di scrittura sul dispositivo e ti sta bene quella funzione di sistema. È la scelta peggiore quando:
+
+- Ti serve la trascrizione in sé. Usa il modello vocale. La pulizia non inventa l’audio mancante.
+- Vuoi un modello di lingua locale preciso che puoi togliere dalla libreria, anche sui Mac senza Apple Intelligence. Scarica Qwen3 4B o, su un Mac con tanta memoria, gpt-oss-20b.
+- Vuoi un fornitore che paghi già, OpenAI o Anthropic, solo per testo. È una chiave nel Portachiavi e un’attivazione esplicita, non Apple Intelligence, e comunque non riceve l’audio.
+- Il Mac è gestito e Apple Intelligence è spenta da policy. Usa il modello locale. Non cercare un fallback nascosto.
+
+Niente di questo rende lecita una registrazione. Dillo alle persone quando registri. Questa pagina non è una consulenza legale.
+
+Gli strumenti nel browser non usano Apple Intelligence. [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) trascrive un file che hai già, fino a 15 minuti, tre esecuzioni riuscite a settimana, con Whisper pubblico nella scheda e senza etichette speaker.
+
+La scelta del modello sta in [cattura](/it#capture).
+
+## La pulizia accanto a un numero che hai digitato
+
+Digiti «consegna venerdì, non giovedì» nelle note manuali mentre la chiamata è confusa. La trascrizione è poco chiara sul giorno. Un passaggio di pulizia, sia Apple Intelligence sia un modello di lingua locale, può scrivere una frase liscia che sceglie un giorno. Apri la nota prima di fidarti della frase liscia. La provenienza della nota mostra che sei tu, non l’audio, ad aver indicato venerdì. Modifica l’artefatto se la pulizia ha indovinato. La rigenerazione deve tenere la tua nota. Non deve rietichettare la nota come citazione della trascrizione.
+
+Se Apple Intelligence non è disponibile su questo Mac, lo stesso controllo vale per l’output di Qwen3 o gpt-oss. Il modo in cui fallisce è una frase fluente, non un file mancante. Il modello vocale non ha mai rivendicato il giorno. Il passo di scrittura l’ha fatto. Per questo la trascrizione resta a un clic dal riassunto, e un riassunto che non può puntare a una riga non va trattato come la registrazione.
+
+## Domande frequenti
+
+### Apple Intelligence trascrive la riunione?
+
+No. La trascrizione usa il modello vocale locale che hai scelto. Apple Intelligence, dove il Mac la ha, è per pulizia e artefatti.
+
+### E se il mio Mac non ha Apple Intelligence?
+
+Usa un modello di lingua locale scaricato per note e artefatti. La trascrizione arriva comunque da Parakeet o Whisper sul Mac.
+
+### Vemoir cambierà modello se la pulizia fallisce?
+
+No. Non sostituisce in silenzio un modello vocale o un backend cloud. Un percorso mancante o fallito ferma quell’operazione invece di sceglierne un altro di nascosto.
+
+### Questo carica l’audio?
+
+No. Parlato-in-testo e separazione speaker restano sul Mac. Il testo cloud facoltativo è una scelta separata, esplicita, e solo testo.
+
+### Posso usare Apple Intelligence e la mia chiave API insieme come due redattori?
+
+Ask, documenti, artefatti di riunione e artefatti personalizzati usano una fonte di testo attiva alla volta. Attivare la tua chiave li indirizza a quel fornitore. Selezionare un modello locale, o il percorso sul dispositivo, li riporta indietro. Apple Intelligence è l’opzione di pulizia sul dispositivo dove il Mac la ha, non un secondo redattore silenzioso accanto a una chiave cloud.
+
+### I nomi degli speaker arrivano da Apple Intelligence?
+
+No. La separazione gira sul Mac. Rinomini le etichette tu. `Remember this speaker` è facoltativo, cifrato e cancellabile.
+
+### C’è negli strumenti gratuiti nel browser?
+
+No. Quegli strumenti trascrivono un file breve nel browser. Non registrano dal vivo e non chiamano Apple Intelligence.
+
+### Quali Mac possono eseguire Vemoir?
+
+Apple silicon, macOS Sonoma 14.2 o successivo, almeno 8 GB di memoria e 10 GB di spazio libero. 16 GB sono consigliati per le riunioni lunghe. I Mac Intel non sono supportati. Apple Intelligence ha i propri requisiti Apple in più.
+
+Scegli prima il modello vocale, poi il percorso di scrittura che questo Mac ha davvero. Entrambi sono in [cattura](/it#capture).

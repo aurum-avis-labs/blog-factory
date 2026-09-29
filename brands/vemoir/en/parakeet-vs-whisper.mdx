@@ -1,0 +1,121 @@
+---
+title: "Parakeet vs Whisper for Local Meeting Transcription"
+description: "Parakeet vs Whisper on a Mac is a speech-model choice: Parakeet v3 for 25 European languages, or Whisper Turbo, Medium, or Large-v3. No accuracy ranking."
+pubDate: 2026-11-03
+author: "Vemoir Team"
+tags: ["parakeet", "whisper", "transcription"]
+funnelStage: "interest"
+translationKey: "parakeet-vs-whisper"
+relatedPosts: ["local-model-download", "qwen-vs-gpt-oss", "offline-transcription-mac"]
+image: "@/assets/blog/parakeet-vs-whisper/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/parakeet-vs-whisper/inline1.jpg';
+import inline2 from '@/assets/blog/parakeet-vs-whisper/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@towfiqu999999?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">towfiqu999999</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Parakeet vs Whisper** in Vemoir is a choice of local speech models, not a scoreboard. Parakeet v3 transcribes 25 European languages. Whisper is the other family you can download: Turbo, Medium, or Large-v3, each with its own coverage. You pick one, you see the download size and whether it fits this Mac, and the meeting uses that selection. This article does not rank them for accuracy. Nobody should quote a percentage from a blog post when the app does not publish one.
+
+Neither model writes the minutes. Notes, documents, and Ask use a language model: Qwen3 4B on most Macs, gpt-oss-20b on high-memory Macs, Apple Intelligence where the Mac has it, or a text-only key you activate yourself. The speech model only turns audio into text.
+
+## What Parakeet vs Whisper changes
+
+| | Parakeet v3 | Whisper Turbo, Medium, Large-v3 |
+| --- | --- | --- |
+| Role | Transcribe on the Mac | Transcribe on the Mac |
+| Languages | 25 European languages | Each variant has its own coverage, shown with the model, not a promise of every language you might speak |
+| Glossary hints | Do not assume the same prompt hints as Whisper | Compatible Whisper transcription can receive project glossary hints |
+| Writes the minutes | No | No |
+| Download | Explicit, resumable, no silent swap | Same |
+
+
+<Image src={inline1} alt="European language books stacked next to headphones" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@altumcode?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">altumcode</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+The model library shows readiness, storage, and hardware fit. You can remove a model you no longer want. A later meeting does not substitute the other family because you were offline or the file was missing. Fix the download, then process.
+
+The app interface language (English, German, French, Italian, Dutch) is not the transcription language. Set them separately.
+
+## Where Parakeet is the better choice
+
+Parakeet v3 is the better choice when the meetings you care about sit inside those 25 European languages and you want that model as the one speech download. It is the straightforward pick when you do not need Whisper-specific glossary prompt hints, because those hints are documented for compatible Whisper transcription. The glossary still does not rewrite the transcript. It can steer generated text. The original lines stay the evidence.
+
+
+<Image src={inline2} alt="Two similar recorders side by side on a table" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@zachccamp?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zachccamp</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+It is the worse choice if you already standardized your other tools on a Whisper variant and you want the same family here, or if a glossary hint on the speech pass is the feature you came for. Then pick Whisper and accept its coverage, not a story about which one "wins" on accents.
+
+Swiss German dialect is not a claim for either model in this app. Do not expect dialect spelling. Standard German is a different thing from a dialect model, and a dialect path is not something to schedule from a blog.
+
+## Where Whisper is the better choice
+
+Whisper Turbo, Medium, or Large-v3 is the better choice when you want a Whisper speech model specifically, including the glossary hints that compatible Whisper transcription receives. Turbo, Medium, and Large-v3 are different downloads. The model screen is where size and fit appear. This page will not tell you Large-v3 is more accurate than Turbo. Pick from storage, the machine in front of you, and the coverage you need, then listen to a retained recording if you kept the audio.
+
+Whisper is the worse choice when you only wanted the 25-language European model and you do not want a second speech stack. Download Parakeet and leave the Whisper variants uninstalled. Unused models are optional weight on the disk.
+
+The browser tools use public Whisper in the tab for a file you already have. That is not the Mac app's Parakeet install, and it is not Large-v3 by another name. Cap: 15 minutes, three successful runs a week, no speaker labels. The page is [/tools/transcribe-recording](/tools/transcribe-recording).
+
+## After the speech model finishes
+
+The transcript is rebuilt from finalized local audio after you stop. A live preview is not the record. Speaker separation runs on the Mac and starts anonymous. You can rename a label without a voice profile. `Remember this speaker` is a separate opt-in, encrypted and deletable.
+
+Then a writing model drafts minutes. If a name is wrong, the speech model is one place to look (the wrong model for the language, a noisy mic) and the writing model is another (a smooth sentence that was not in the audio). Change the thing that failed. Do not swap Parakeet and Whisper as a guess and expect a published accuracy jump.
+
+Noise suppression, Off, Balanced, or Strong, sits on the mic before this choice. It does not pick the speech model.
+
+Both families are in [capture](/#capture).
+
+## A practical way to choose without a bake-off
+
+1. List the languages you actually record. If they sit in Parakeet v3's 25 European languages and you have no Whisper habit, start there.
+2. If your project glossary is the thing you cannot live without on the speech pass, start with a Whisper variant and read the size before you download the largest file.
+3. Download one speech model, not all of them, until you know you need another. Progress resumes. Quitting the app does not authorize a different model to finish the job.
+4. Record a call you can check. If you kept the audio, listen to one muddy minute and read the line. If it is usable, keep the model. If the language was outside that model's coverage, switch on purpose and reprocess. That is a coverage decision, not a ranking.
+5. Leave the writing model on Qwen3 4B unless this Mac is high-memory and you chose gpt-oss-20b. That choice does not reopen Parakeet vs Whisper.
+
+## Storage before you install both
+
+A speech model is a large file. Installing Parakeet and every Whisper variant on the same disk is allowed, and it is often unnecessary. Check free space against the size the model screen shows before you queue three downloads. The baseline for the app is 10 GB free, which is not a promise that three speech models plus a writing model will fit inside that margin. If a download fails for space, free space and resume. Do not treat the browser tool as a silent stand-in for a meeting that was supposed to stay in the app. The browser tool is a different path with a 15-minute cap.
+
+When both a Parakeet file and a Whisper file are ready, select one for the next meeting and leave it. Mid-meeting substitution is not a feature. If a bilingual call mixes two languages, expect the limits of whichever model you selected. If the result is unusable, that is a reason to try the other family on purpose and compare with your ears, still without a numeric ranking. Keep the recording if Storage still has it, so the second pass is the same audio and not a new call with new noise. One file, two models, your ears. That is the whole method this page will stand behind. Write down which model you selected and the date, in the project notes if you have them, so a later disagreement is about the audio and not about a forgotten setting. The model library is the record of what was installed. Your note is the record of what you chose for that meeting. If a colleague asks which model "won," the answer is the one you could check against the audio you kept. A number from a benchmark would not help them rerun your call.
+
+## Frequently asked questions
+
+### Which is more accurate, Parakeet or Whisper?
+
+This page does not rank them. Choose by language coverage, glossary hints, download size, and whether the model fits the Mac. Then listen.
+
+### Does Parakeet v3 cover every language I speak?
+
+It covers 25 European languages. Other speech models have their own coverage. The model screen is the list that matches the build you have, not a guess from memory.
+
+### Do Whisper Turbo, Medium, and Large-v3 all get glossary hints?
+
+Compatible Whisper transcription receives project glossary hints. Hints affect generation context and, for that path, the speech prompt. They do not replace the original transcript as evidence.
+
+### Can both be installed?
+
+Yes. You select the one a meeting uses. The run stores that selection. There is no silent swap.
+
+### Do these models write the summary?
+
+No. Qwen3 4B, gpt-oss-20b, Apple Intelligence where available, or an activated text-only key writes. Speech models transcribe.
+
+### Does the free browser tool use Parakeet?
+
+No. It uses public Whisper in the tab, with a 15-minute limit and no speaker labels.
+
+### Will a local model download resume if I close the lid?
+
+Setup and the model library keep progress, failure, and recovery. Reopen and resume. Do not expect a different model to have taken its place.
+
+### What Mac do I need?
+
+Apple silicon, macOS Sonoma 14.2 or later, at least 8 GB of memory and 10 GB free. 16 GB is recommended for long meetings.
+
+Pick one speech model for the languages you record, download it on purpose, and keep the writing model as a second choice in [capture](/#capture).

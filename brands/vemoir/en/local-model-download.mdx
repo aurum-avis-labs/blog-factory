@@ -1,0 +1,110 @@
+---
+title: "What the First Local Model Download Does on Your Mac"
+description: "A local model download is the explicit install of the speech or notes model you pick. Progress can resume. Vemoir does not swap in a different model."
+pubDate: 2026-11-05
+author: "Vemoir Team"
+tags: ["models", "download", "mac"]
+funnelStage: "interest"
+translationKey: "local-model-download"
+relatedPosts: ["parakeet-vs-whisper", "qwen-vs-gpt-oss", "offline-transcription-mac"]
+image: "@/assets/blog/local-model-download/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/local-model-download/inline1.jpg';
+import inline2 from '@/assets/blog/local-model-download/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@sasun1990?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sasun1990</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+A **local model download** is the install you start on purpose: the speech model that will transcribe, or the language model that will write notes, documents, and answers. The app shows download size, storage, what the model is for, and whether it fits this Mac. Progress can resume after a failure or a quit. Vemoir does not silently download, select, or substitute a model while you are recording or while a meeting is processing.
+
+This is not a guide to working with the network off. That is a different question. Here the subject is the download itself: what arrives, how you see it finish, and what does not get replaced behind your back.
+
+## What the first local model download is
+
+Setup introduces local processing, then asks only for the permissions the capture setup needs. It then asks you to choose transcription and a local language model. Those are different files. Parakeet v3 transcribes 25 European languages. Whisper Turbo, Medium, and Large-v3 are the other speech choices, each with their own coverage. None of those write the minutes. Qwen3 4B is the language model aimed at most Macs. gpt-oss-20b is the larger one for high-memory Macs. They write notes, documents, and Ask. They do not transcribe audio.
+
+
+<Image src={inline1} alt="A stack of unbranded hard drives on a table" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@readysetfreddy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">readysetfreddy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+You can skip a cloud key in onboarding. A key is not required for the download. Internet is required to fetch the files. After the models you chose are installed, a later meeting can run without the network. That later step is why the download matters. The download screen is where you see it happen.
+
+The model library is where you return: download, inspect, select, remove. Readiness, storage, hardware compatibility, and lifecycle stay visible. A meeting run uses the exact speech model and language model selected for that run. It does not pick a smaller model mid-meeting because the disk was tight.
+
+## Resume, failure, and quitting
+
+If the download stops, you get a failure and a way to recover. Progress survives quitting and relaunching the app. Denied permissions, a network drop, and a failed download are states you can leave and come back to. You can reopen setup from Settings, and you can reset it.
+
+
+<Image src={inline2} alt="A small box set down next to a closed laptop" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@c1st?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">c1st</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+What you should not see is a completed meeting that used a model you never chose. If a file is missing, processing does not quietly fetch a different one and continue as if nothing changed. Fix the download, then run the meeting again.
+
+Integrity checks and license notices ship with the local model files. You do not need to paste a URL. You do need free space. Vemoir needs 10 GB of free storage as a baseline, and long meetings are more comfortable with 16 GB of memory. The model screen is still the place that shows the size of the file you are about to fetch. Do not treat a blog post as the storage gauge.
+
+## Speech model and writing model are both downloads
+
+| You download | It does | It does not |
+| --- | --- | --- |
+| Parakeet v3 or a Whisper variant | Transcribe audio on the Mac | Write the minutes by itself |
+| Qwen3 4B or gpt-oss-20b | Write notes, documents, and Ask on the Mac | Transcribe the recording |
+| Nothing yet | Setup waits | Invent a model and start recording on it |
+
+Apple Intelligence, where the Mac has it, can help cleanup and artifacts without being the speech model. It is not a substitute download for Parakeet or Whisper. If you also add an OpenAI or Anthropic key, that key is text only, stored in the Keychain, and off until you activate it. Saving a key does not download a speech model, and it does not become a silent backup when a local file fails.
+
+## Where skipping a download is better
+
+The local model download is the better choice when this Mac will transcribe and write without sending audio away. It is the worse choice when:
+
+- You only have one short file and you do not want to install anything. The browser tool at [/tools/transcribe-recording](/tools/transcribe-recording) runs in the tab, up to 15 minutes, three successful runs a week, with no speaker labels. The model for that tool downloads into the browser, which is a different install from the Mac app's library.
+- You are on an Intel Mac, Windows, or a phone. The app is Apple silicon, macOS Sonoma 14.2 or later. No download path changes that.
+- You wanted the larger writing model and this Mac is not high-memory. Choose Qwen3 4B. Do not start gpt-oss-20b and hope the app swaps it for a lighter one during the meeting. It will not.
+- Disk space is already gone. Free space first. A resumed download still needs room to finish.
+
+Speaker separation does not have a separate consumer download you shop for in this screen in place of the speech model. It runs on the Mac as part of processing. Unknown speakers stay anonymous until you opt in to a profile.
+
+The controls are in [capture](/#capture).
+
+## After a failed download on a train
+
+You started Parakeet v3 on hotel Wi-Fi and closed the lid. Reopen Vemoir on the network you trust. The progress should still be there, not a surprise Whisper file marked ready. Resume. If the failure is hard, use the recovery state rather than recording "just this once" in the hope that a cloud transcript will fill the gap. There is no such fill. When the speech model shows ready, choose the writing model the same way. On most Macs that is Qwen3 4B. On a high-memory Mac it can be gpt-oss-20b. The library tells you which you selected. A meeting later in the day uses those selections, not whatever finished downloading last in the background.
+
+## Frequently asked questions
+
+### What is the first local model download?
+
+The speech model and the language model you choose in setup, with size and device fit shown before they install. One transcribes. The other writes.
+
+### Can the download resume?
+
+Yes. Progress, failure, and recovery are visible. Setup progress survives quit and relaunch.
+
+### Will a meeting swap models if the download is incomplete?
+
+No. Vemoir does not silently download, select, or substitute a model during recording or post-processing.
+
+### Do I need the network forever?
+
+You need it for setup and for model downloads. After the models you chose are installed, the meeting workflow can run offline. That offline use is a consequence of a finished download, not a different product.
+
+### Does the download include a cloud key?
+
+No. OpenAI or Anthropic is optional, text only, and a separate activation. The model files for speech and for local writing are the download.
+
+### Can I remove a model later?
+
+Yes. The model library lets you inspect, select, and remove compatible local models. A meeting keeps the selections captured for that run.
+
+### How is this different from the browser tool's first visit?
+
+The browser tool fetches a public Whisper model into the tab for a file you already have, with a 15-minute cap. The Mac app's library is the set of models for live capture, speaker separation, and on-device writing.
+
+### What if I deny microphone access during setup?
+
+You can recover from Settings. A denied permission is not replaced by a silent upload. System Audio Recording is the permission for the call track, and it does not capture the screen.
+
+Start the download you mean to keep, watch it finish, and record after the selected models show ready. That status is in [capture](/#capture).

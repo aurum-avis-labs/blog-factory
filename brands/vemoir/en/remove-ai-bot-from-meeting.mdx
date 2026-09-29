@@ -1,0 +1,108 @@
+---
+title: "Remove an AI Bot From the Meeting You Did Not Start"
+description: "Remove an AI bot from a meeting on Zoom, Meet, or Teams, then stop it from rejoining. A local capture has no participant to kick."
+pubDate: 2026-10-08
+author: "Vemoir Team"
+tags: ["meetings", "notetaker", "privacy"]
+funnelStage: "interest"
+translationKey: "remove-ai-bot-from-meeting"
+relatedPosts: ["record-teams-meeting-mac", "is-otter-ai-safe", "best-ai-notetaker-without-bot"]
+tool: "transcribe-recording"
+image: "@/assets/blog/remove-ai-bot-from-meeting/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/remove-ai-bot-from-meeting/inline1.jpg';
+import inline2 from '@/assets/blog/remove-ai-bot-from-meeting/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@bruskrd?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Brusk Dede</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+To **remove an AI bot from a meeting**, you treat it as a participant: the host or co-host removes it from the call, and the person who added it turns off auto-join so it does not walk back in. A bot is not a setting buried in your own microphone. It is an account or app that joined the participant list. If you did not add it, you need the host, or you need whoever connected the notetaker to their calendar.
+
+This is the in-call fix. Why bots show up, and what a meeting without one looks like, is the subject of [meeting notes without a bot](/blog/meeting-notes-without-a-bot). The steps here assume the bot is already in the room.
+
+## Contents
+
+- [Remove an AI bot from a meeting that is running](#remove-an-ai-bot-from-a-meeting-that-is-running)
+- [Stop the same bot from joining the next call](#stop-the-same-bot-from-joining-the-next-call)
+- [What a local recording does instead](#what-a-local-recording-does-instead)
+- [What you tell the people still in the room](#what-you-tell-the-people-still-in-the-room)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## Remove an AI bot from a meeting that is running
+
+Look at the participant list before you change anything. The bot usually has a name you can say out loud: Otter, Fireflies, Fathom, tl;dv, a company's "notetaker," or a person's name plus "AI." Read that name once so everyone knows which participant you mean.
+
+
+<Image src={inline1} alt="Four chairs around a table with one pushed back" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@michaelfousert?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Michael Fousert</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+On Zoom, the host or a co-host opens Participants and removes that entry. On Google Meet, the host removes the participant from the same panel. On Microsoft Teams, a meeting organizer or presenter who is allowed to manage the lobby can remove a participant. The exact menu label is "Remove" or "Remove from meeting." If you are a guest and the control is missing, ask the host to do it. You cannot remove a bot from a meeting you do not control.
+
+Removing the participant stops it for this call. It does not delete the audio the bot already uploaded. Otter's help describes recording permissions and the notetaker that joins ([Otter recording permissions](https://help.otter.ai/hc/en-us/articles/39339238308503-Recording-Permissions-with-Otter), September 2026). Whatever that product stored before you clicked Remove stays in that product's account until someone deletes it there. Ask the person who owns the account to turn recording off and to delete the meeting in that product, if your meeting rules require that.
+
+Do not invent a tenant-wide Teams block in this moment. Whether an admin has disabled certain apps is a policy on that company's tenant. It is not a button on the participant tile.
+
+## Stop the same bot from joining the next call
+
+The rejoin happens because someone, sometimes you, connected a notetaker to the calendar or turned on "join every meeting." Removing it once does not clear that setting.
+
+
+<Image src={inline2} alt="A small meeting table with water glasses and an unused seat" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@heyquilia?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Quilia</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Find the account that owns the bot:
+
+- Otter, Fireflies, Fathom, and tl;dv all document a bot or notetaker that enters the meeting when the connected calendar has a link. Open that product, turn off automatic join, and disconnect the calendar if you do not want it on the next invite.
+- Fathom's help for version 3.0 also describes bot-free modes on a Mac for English meetings ([Fathom 3.0](https://help.fathom.video/en/articles/11577345), September 2026). If your team uses that mode, the participant list is the wrong place to look. If a Fathom bot is still in the list, auto-join is still on for that user.
+- A teammate's personal account can admit a bot to your external meeting. You see it. They turn it off. You cannot change their setting from the guest view.
+
+After you turn auto-join off, start a short test meeting with the same account and confirm the extra participant does not appear. That test is more reliable than a support chat that says the setting is "off" while the calendar connection is still live.
+
+## What a local recording does instead
+
+A capture that never joins the meeting has no tile to remove. The Mac app from Aurum Avis Labs GmbH (Oberägeri) records the microphone and system audio from the menu bar. You start and stop it. It does not enter Zoom, Meet, or Teams as a participant. macOS asks for Microphone and System Audio Recording. The capture is the sound leaving the speakers and the mic, not a screen recording, and not a bot.
+
+Zoom's own recording indicator is tied to Zoom's recorder. A third-party app that taps system audio does not flip that banner for you. You still tell people you are recording. The app does not announce itself in the chat.
+
+After the call, a short file can go through [transcribe a recording](/tools/transcribe-recording). The file stays in the browser tab. It is not uploaded. Limits: 15 minutes, 3 successful runs a week, MP3, M4A, WAV, or MP4, no speaker labels. Check the Network tab if you want to see that the audio is not posted. A full meeting belongs in the Mac app, where transcription and speaker separation run on the machine after you stop.
+
+That path does not delete a bot someone else already sent. It is the way to take notes on the next call without adding a name to the participant list.
+
+## What you tell the people still in the room
+
+Say the name of the bot, say you are removing it, and say whether anyone is still recording on their own computer. "No bots" is not the same sentence as "nobody is writing this down." A local capture is invisible in the participant list. The honest line is: the bot is gone, and the host is recording the audio on the Mac.
+
+If the meeting was with a customer who forbade recording, stop the local capture too. Removing the bot does not make a personal recorder allowed. Your job is the consent. The app does not ask the other side.
+
+If you only need a written record of a file you already have, and the bot is already gone, the browser tool is the smaller step. Open [transcribe a recording](/tools/transcribe-recording) with a clip under 15 minutes. For the next call, start the capture before people join, and name it out loud when they do.
+
+## Frequently asked questions
+
+### Who can remove an AI bot from a meeting?
+
+The host or co-host on Zoom, the host on Google Meet, and on Teams an organizer or a presenter who is allowed to remove participants. A guest sees the bot and asks the host.
+
+### Does Remove delete the recording the bot already made?
+
+No. It disconnects the participant from this call. The copy in that product's account remains until the account owner deletes it there. Otter documents this class of notetaker in its [recording permissions](https://help.otter.ai/hc/en-us/articles/39339238308503-Recording-Permissions-with-Otter) article (September 2026).
+
+### Why did the bot come back five minutes later?
+
+Auto-join or a calendar connection is still on. The person who connected the tool has to turn that off. A second Remove does not change their account.
+
+### Will Zoom show a recording banner for a Mac app?
+
+Zoom's banner tracks Zoom's own recording. A menu-bar app that captures system audio does not add a participant and does not trigger that banner. You tell the room yourself.
+
+### Can I block every AI bot for my company?
+
+Only an admin of the tenant or the product can set that, and only for tools they control. This article does not describe a Microsoft switch that removes every vendor's bot. Remove the one you can see, then turn off the account that invited it.
+
+### Is there a free way to get text without inviting a bot?
+
+For a file under 15 minutes, yes: [transcribe a recording](/tools/transcribe-recording) runs in the tab and does not receive an upload. It does not label speakers, and it allows 3 successful runs a week. Live capture of the whole meeting is the Mac app, not that limit.
+
+The next time a bot appears, read the name, have the host remove it, and have the owner switch off auto-join before the following meeting.

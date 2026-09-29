@@ -1,0 +1,144 @@
+---
+title: "Portare un VTT Zoom in testo chiaro che puoi leggere"
+description: "Un VTT Zoom in testo toglie i tempi delle cue e tiene i nomi già scritti nel file. Una registrazione Zoom locale non è un VTT."
+pubDate: 2026-10-17
+author: "Vemoir Team"
+tags: ["zoom", "vtt", "trascrizione"]
+funnelStage: "interest"
+translationKey: "zoom-vtt-to-plain-text"
+relatedPosts: ["esportare-trascrizione-teams", "trascrizione-riunione-disordinata", "trascrivere-registrazione-zoom"]
+tool: "transcript-cleaner"
+image: "@/assets/blog/zoom-vtt-to-plain-text/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/zoom-vtt-to-plain-text/inline1.jpg';
+import inline2 from '@/assets/blog/zoom-vtt-to-plain-text/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@diana_pole?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Diana Polekhina</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+Un VTT Zoom in testo è un passo di formattazione. La trascrizione audio di una registrazione cloud è un file `.vtt`: un'intestazione `WEBVTT`, tempi di cue e le parole. Il testo semplice sono quelle parole, con un nome solo se Zoom ne ha già salvato uno. Se hai `audio_only.m4a` da una registrazione locale, non hai un VTT. Quel file è audio. Farne testo è una trascrizione, ed è un altro articolo: [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom).
+
+Zoom separa i formati nella pagina sui formati di file (settembre 2026): [recording file formats](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394). Il VTT è la trascrizione audio di una registrazione cloud. I sottotitoli possono essere un `cc.vtt` a parte. Le registrazioni locali sono MP4 e M4A, non una trascrizione.
+
+## Quale file Zoom hai davvero
+
+Su un Mac, una registrazione locale finisce in una cartella con la data, spesso sotto `Documents/Zoom`. Il file audio utile è `audio_only.m4a`. C'è anche un MP4 video se hai registrato il video. Zoom non scrive una trascrizione in quella cartella locale solo perché hai premuto Registra. La trascrizione audio cloud è una funzione dell'account per le registrazioni cloud, non per i file che Zoom ha salvato sul computer.
+
+
+<Image src={inline1} alt="Pagine semplici accanto a un portatile chiuso" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@kate_gliz?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Kateryna Hliznitsova</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Nel portale cloud, una trascrizione elaborata compare come VTT accanto alla registrazione quando «crea trascrizione audio» (o la trascrizione più recente del riassunto riunione, secondo l'account) è attiva. Chi ospita la scarica dalla pagina della registrazione: passa su **Audio transcript** e usa il download, come Zoom lo descrive per le registrazioni cloud. Admin e host vedono anche trascrizioni sotto Recordings and Transcripts quando la conservazione del riassunto è attiva. Le etichette cambiano secondo il prodotto. Se non vedi un VTT, non rinominare l'M4A sperando.
+
+La copertura delle lingue non è «qualunque cosa sia stata detta». Una documentazione Zoom più vecchia sulla trascrizione audio cloud indicava l'inglese. I prodotti più recenti di riassunto e trascrizione elencano le loro lingue negli articoli attuali di Zoom. Controlla la pagina della funzione che hai davvero acceso prima di promettere un VTT tedesco da un'impostazione che copriva solo l'inglese.
+
+## Da dove arriva un VTT cloud
+
+Una trascrizione audio tipica ha questa forma:
+
+
+<Image src={inline2} alt="Carta a righe accanto a una stampa semplice" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@karepesinde?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Cht Gsml</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+```text
+WEBVTT
+
+1
+00:00:04.000 --> 00:00:07.500
+Jane Doe: Mandiamo le note, non la registrazione.
+
+2
+00:00:07.500 --> 00:00:09.200
+Jane Doe: Le mando oggi.
+```
+
+A volte il nome è un tag vocale, `<v Jane Doe>testo</v>`, la stessa idea di un export Teams. A volte un'etichetta di macchina compare come `Speaker 1`. A volte non c'è un nome, solo la frase sotto la riga del tempo.
+
+Intestazione, numero di cue e la riga `-->` non sono parlato. Dicono a un player quando mostrare la riga. Una persona che legge la riunione non li vuole. Nemmeno una ricerca della decisione.
+
+`cc.vtt` è il testo dei sottotitoli. Può essere più corto o cadenzato diversamente dal VTT della trascrizione audio. Pulisci il file che intendevi. Non unire i due e chiamarlo una conversazione.
+
+## Un VTT Zoom in testo
+
+Usa [pulire la trascrizione](/it/strumenti/pulire-trascrizione). Lascia il `.vtt` o incollalo.
+
+Che cosa cambia:
+
+- `WEBVTT` sparisce.
+- I numeri di cue spariscono.
+- Le righe dei tempi spariscono.
+- Un nome che c'era già resta, come `Nome: testo`.
+- Le cue di seguito dello stesso parlante si uniscono.
+
+Che cosa non cambia:
+
+- Le parole. I riempitivi restano. Un nome sbagliato scritto da Zoom resta finché non lo cambi.
+- I nomi mancanti restano mancanti. La pagina te lo dice quando non ne ha trovati. Non inventa `Speaker 1` perché il file sembri strutturato.
+- La lingua. Niente viene tradotto.
+
+Questa pulizia non spende un passaggio settimanale. I tre passaggi sono per la voce-in-testo e per le note che chiamano un modello. Puoi sistemare un VTT anche se hai già usato i passaggi di trascrizione della settimana.
+
+Tieni il VTT originale. Il testo semplice serve a leggere e a scrivere note. Il VTT è il confronto se conta un tempo o una cue, ed è ciò che Zoom ti ha dato se qualcuno chiede l'export.
+
+## Che cosa il testo semplice deve ancora contenere
+
+Leggilo una volta prima di inoltrarlo.
+
+**Nomi di cui ti fidi.** `Jane Doe:` di un partecipante collegato è usabile. `Speaker 1:` vuol dire solo «la stessa etichetta delle altre righe Speaker 1», e solo se Zoom ha davvero separato. Associalo prima di mettere quell'etichetta in una mail come una persona.
+
+**Le correzioni.** Se qualcuno ha detto una data e poi l'ha corretta, entrambe le righe devono restare nel testo. Non cancellare la prima data solo perché la seconda ti piace di più. Il verbale può tenere solo la data corretta. La trascrizione deve lasciare visibile la correzione.
+
+**La chat.** `chat.txt` in una cartella Zoom locale è la chat della riunione, non la trascrizione audio. Non mescolarla all'uscita del VTT. La gente scrive cose che non ha detto ad alta voce.
+
+**Un M4A locale di cui avresti voluto un VTT.** Fermati. Il testo semplice non esiste ancora. Un file di 15 minuti o meno può passare da [trascrivere una registrazione Zoom](/it/strumenti/trascrivere-registrazione-zoom) nel browser. Il file non viene caricato. Non ci sono nomi di parlanti. Le riunioni più lunghe sono l'app per Mac: importa l'M4A, oppure registra la prossima chiamata dalla barra dei menu. L'audio di sistema usa il permesso di registrazione dell'audio di sistema, solo audio.
+
+## Dal testo semplice alle note
+
+Il testo semplice è ancora una trascrizione. È solo leggibile. Le note di riunione sono più corte.
+
+1. Scorri il testo per le decisioni e per «io» più un nome.
+2. Se vuoi una bozza, apri [note da una trascrizione](/it/strumenti/note-da-trascrizione) e incolla il testo semplice. Quel passo spende un passaggio settimanale. Taglia ogni responsabile che la bozza ha aggiunto senza appoggio.
+3. Metti le righe che restano sul [modello di verbale](/it/strumenti/modello-verbale): decisioni, azioni con una persona e una data, domande aperte.
+
+Non mandare il VTT, il testo semplice e un recap del modello come tre allegati che si contraddicono. Manda le note. Tieni il VTT per chi può verificare una frase.
+
+La copia Zoom della trascrizione resta nel cloud Zoom secondo le impostazioni di conservazione dell'account. Scaricare un VTT non cancella la copia di Zoom. Se la registrazione non deve stare lì, è un'impostazione admin di Zoom, non una funzione del pulitore.
+
+## Domande frequenti
+
+### Ogni registrazione Zoom è un VTT?
+
+No. Le registrazioni locali sono file audio e video. Un VTT è la trascrizione audio cloud, o un file di sottotitoli, quando quella funzione ne ha prodotto uno. `audio_only.m4a` ha bisogno di una trascrizione, non di un pulitore di testo.
+
+### Serve un piano Zoom a pagamento per un VTT?
+
+Registrazione cloud e trascrizione audio dipendono dall'account. Gli articoli Zoom descrivono piani con registrazione cloud, più un'impostazione admin per creare la trascrizione. Una registrazione locale gratuita non include quel VTT. Conferma il requisito attuale sul sito di Zoom. I piani cambiano.
+
+### Il testo semplice aggiunge nomi che Zoom ha omesso?
+
+No. I nomi restano se il VTT li aveva. Altrimenti ottieni frasi, e il pulitore dice che i nomi non c'erano.
+
+### Convertire un VTT in testo usa uno dei miei tre passaggi?
+
+No. La pulizia no. Trascrivere un M4A sì. Stendere note dal testo sì.
+
+### Qual è la differenza tra VTT e CC.VTT?
+
+Zoom descrive il VTT come la trascrizione audio e CC.VTT come i sottotitoli della registrazione cloud. Possono esistere entrambi. Pulisci quello che corrisponde alle parole che ti servono.
+
+### Posso farlo anche con un VTT di Teams?
+
+Sì. Lo stesso pulitore prende un export Teams o un SRT. I passi di download cambiano. Il problema di formato è lo stesso: intestazione, tempi, poi parole.
+
+### Devo cancellare il VTT quando ho il testo semplice?
+
+Tienilo finché non sei sicuro di non aver più bisogno dei tempi di cue né di un nuovo download da Zoom. Il testo semplice si legge meglio e prova meno bene che cosa conteneva l'export.
+
+### Il VTT è nella lingua sbagliata. Il pulitore può tradurre?
+
+No. Toglie solo l'impalcatura dei sottotitoli. La traduzione è una decisione a parte, e un modello di voce impostato sulla lingua sbagliata non si ripara cancellando i timestamp.
+
+Passo successivo: se il file inizia con `WEBVTT`, apri [pulire la trascrizione](/it/strumenti/pulire-trascrizione). Se il file è `audio_only.m4a`, usa [trascrivere una registrazione Zoom](/it/strumenti/trascrivere-registrazione-zoom) solo se dura 15 minuti o meno.

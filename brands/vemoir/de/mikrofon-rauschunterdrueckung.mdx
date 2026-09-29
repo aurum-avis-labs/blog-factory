@@ -1,0 +1,140 @@
+---
+title: "Mikrofon-Rauschunterdrückung: Off, Balanced, Strong"
+description: "Mikrofon-Rauschunterdrückung auf dem Mac: Off, Balanced oder Strong. Sie läuft am Mikrofon, auf dem Gerät, ohne Audio in die Cloud."
+pubDate: 2026-11-09
+author: "Vemoir Team"
+tags: ["mikrofon", "geräusch", "mac"]
+funnelStage: "interest"
+translationKey: "microphone-noise-suppression"
+relatedPosts: ["systemaudio-aufnehmen-mac", "meeting-aufnahme-kein-ton-mac", "export-nach-apple-notizen"]
+image: "@/assets/blog/microphone-noise-suppression/hero.jpg"
+draft: false
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/microphone-noise-suppression/inline1.jpg';
+import inline2 from '@/assets/blog/microphone-noise-suppression/inline2.jpg';
+
+<p><em>Hero photo by <a href="https://unsplash.com/@sunx?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sunx</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+**Mikrofon-Rauschunterdrückung** in Vemoir ist eine Einstellung an der Mikrofonspur. Du wählst Off, Balanced oder Strong. Die Verarbeitung bleibt auf dem Mac. Der Ton der anderen Person aus Teams, Zoom, Meet oder einer anderen App ist eine eigene Spur und läuft nicht durch diesen Regler.
+
+Ist der Raum schon ruhig, ist Off oft die bessere Wahl. Balanced und Strong sind für gleichbleibendes Hintergrundrauschen: Tastatur, Brummen, ein Lüfter. Sie erfinden keine saubere Stimme, wenn jemand anders dazwischenredet, und sie ersetzen kein Headset, wenn der Raum wirklich laut ist.
+
+## Inhalt
+
+- [Was die Mikrofon-Rauschunterdrückung ändert](#was-die-mikrofon-rauschunterdrückung-ändert)
+- [Off, Balanced und Strong](#off-balanced-und-strong)
+- [Was sie nicht tut](#was-sie-nicht-tut)
+- [So wählst du vor der Sitzung](#so-wählst-du-vor-der-sitzung)
+- [Wann ein anderer Weg besser ist](#wann-ein-anderer-weg-besser-ist)
+- [Was auf dem Gerät bleibt](#was-auf-dem-gerät-bleibt)
+- [Häufige Fragen](#häufige-fragen)
+
+## Was die Mikrofon-Rauschunterdrückung ändert
+
+Der Regler sitzt am Mikrofon, das du für die Aufnahme wählst. Das ist deine Seite des Gesprächs. Der Systemton, also die Leute am anderen Ende, wird als eigene lokale Spur über die macOS-Berechtigung System Audio Recording mitgeschnitten. Ein Audio-Tap nur für Ton holt diesen Klang. Der Bildschirm wird nicht aufgezeichnet.
+
+
+<Image src={inline1} alt="Nahaufnahme eines unmarkierten Mikrofons auf einem Holztisch" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">kellysikkema</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Die Rauschunterdrückung mischt die beiden Spuren nicht zu einem «sauberen Meeting». Sie versucht, gleichbleibende Störgeräusche auf dem Mikrofonweg zu senken, bevor diese Mikrofonspur festgeschrieben wird. Die Sprechertrennung läuft danach weiter auf dem Mac, auf dem lokalen Audio, und ist ein anderer Schritt.
+
+Der gewählte Modus bleibt sichtbar. Du siehst, ob die letzte Sitzung Off, Balanced oder Strong genutzt hat. Ist die Unterdrückung nicht verfügbar, oder ist das Ergebnis unsicher, nimmt Vemoir den normalen Mikrofonweg. Du hast trotzdem eine Aufnahme. Es gibt keinen stillen Wechsel zu einem Cloud-Spracherkenner.
+
+## Off, Balanced und Strong
+
+| Modus | Wann er passt |
+| --- | --- |
+| Off | Ruhiger Raum, nahes Mikrofon, oder du willst das unbearbeitete Signal |
+| Balanced | Alltägliches Schreibtischgeräusch: Lüfter, leichtes Tippen, kein stiller Raum |
+| Strong | Lauteres, gleichbleibendes Geräusch: Tastatur, Lüftung, ein stetiges Brummen |
+
+
+<Image src={inline2} alt="Ruhiger Raum mit Mikrofon und geschlossenem Notizbuch" width={700} quality={80} class="w-full" />
+
+<p><em>Photo by <a href="https://unsplash.com/@mitchel3uo?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">mitchel3uo</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
+Die Namen beschreiben die Stärke, keine Rangfolge der Transkriptionsmodelle. Off ist kein Fehlerzustand. Es ist die ehrliche Einstellung, wenn das Mikrofon schon reicht und du die Klangfarbe nicht verändern willst.
+
+Balanced ist die praktische Mitte. Nimm den Modus, wenn du auf einer Probe deiner eigenen Stimme ein Brummen hörst und trotzdem noch wie du klingen willst. Strong geht härter gegen gleichbleibendes Rauschen. Das ist die bessere Wahl, wenn die Tastatur laut genug ist, um mit der Stimme zu konkurrieren. Es ist die schlechtere Wahl in einem ruhigen Raum, weil dann weniger Störung da ist und mehr von deiner Stimme angefasst wird.
+
+Vemoir prüft, dass Sprache noch da ist. Das ist keine Zusage, dass jedes Wort sauber transkribiert wird. Eine Tür, eine zweite Person am Tisch oder zwei Stimmen im selben Mikrofon sind kein «gleichbleibendes Hintergrundrauschen».
+
+## Was sie nicht tut
+
+- Sie nimmt den Ton der anderen Seite nicht auf. Das ist die Systemtonspur, beschrieben unter [Mikrofon und Systemton](/de/blog/mikrofon-und-systemton).
+- Sie setzt keinen Bot in die Sitzung. Du startest und stoppst in der Menüleiste.
+- Sie lädt das Mikrofon nicht zu einem Entrauschungsdienst hoch. Die Arbeit passiert auf dem Mac.
+- Sie legt kein Sprecherprofil an. Eine Stimme merken ist ein eigener, freiwilliger Schritt.
+- Sie ist kein Raummodus für mehrere Personen an einem Laptop. Die Live-Aufnahme heute ist Mikrofon plus Systemton für einen Call, den der Mac hört.
+
+Meine Stimme ist ebenfalls getrennt. Diese Funktion nutzt ein persönliches Stimmprofil, das du ausdrücklich in den Einstellungen aufnimmst. Solange das Profil existiert, kann Vemoir deine Stimme lokal bevorzugen und das normale Mikrofon behalten, wenn die Zuordnung unsicher ist. Rauschunterdrückung und Meine Stimme können am lauten Schreibtisch beide sinnvoll sein. Es ist nicht derselbe Schalter.
+
+## So wählst du vor der Sitzung
+
+1. Wähle das Mikrofon in den Aufnahme-Steuerungen. Dasselbe Mikrofon wie für den Call, meist das Headset, nicht das entfernte Laptop-Mikrofon, wenn du eine Wahl hast.
+2. Stelle die Mikrofon-Rauschunterdrückung auf Off im ruhigen Raum, auf Balanced im normalen Büro, auf Strong bei gleichbleibendem Lärm, den du schon hörst.
+3. Starte die Aufnahme in der Menüleiste erst, wenn du sie willst. Du kannst den Call vorher einem Projekt zuordnen.
+4. Spiel nach der Sitzung die behaltene Mikrofonspur ab, wenn du das Audio behalten hast. Klingt die Stimme dünn, nimm beim nächsten Call einen milderen Modus oder Off.
+5. Lass den Systemton bei dieser Entscheidung in Ruhe. Die anderen laufen nicht durch diesen Regler.
+
+Behalte die Aufnahme, wenn du vergleichen willst. In den Speicher-Einstellungen legst du fest, ob künftige Sitzungen Audio behalten. Eine Sitzung behält die Wahl, die beim Anlegen galt. Fehlgeschlagene oder unterbrochene Verarbeitung behält Wiederherstellungs-Audio. Eine ungünstige Rauscheinstellung wirft die Aufnahme nicht von allein weg.
+
+## Wann ein anderer Weg besser ist
+
+Die Unterdrückung am Mikrofon ist die bessere Wahl, wenn die Sitzung auf dem Mac bleiben soll und das Problem gleichbleibendes Rauschen auf deiner Seite ist. Sie ist die schlechtere Wahl hier:
+
+- Die anderen sind schwer zu verstehen. Dreh ihre App lauter, prüfe ihr Mikrofon, oder nimm ein Headset. Strong an deinem Mikrofon repariert ihren Ton nicht.
+- Mehrere Personen teilen sich ein Laptop im Raum. Eine Mikrofonspur und eine Systemtonspur beschriften nicht alle am Tisch. Ein eigenes Aufnahmegerät oder eine Datei, die du später importierst, kann klarer sein. Importformate sind MP3, M4A, WAV, AIFF, CAF und FLAC, verarbeitet auf dem Mac.
+- Das Team auf Windows soll einen Cloud-Notetaker starten, ohne Mac. Vemoir braucht Apple Silicon, macOS Sonoma 14.2 oder neuer. Intel-Macs, Windows, iPhone und iPad sind nicht unterstützt.
+- Das Transkriptionsproblem sind Sprache oder Namen, nicht Rauschen. Ein Glossar, eine Sprecherumbenennung oder ein anderes lokales Sprachmodell ist der nächste Hebel. Diese Einstellung tauscht Parakeet oder Whisper nicht aus.
+
+Ein Headset mit Bügelmikrofon schlägt Software, wenn der Raum laut ist. Die Mac-App kann nur mit dem Signal arbeiten, das das Mikrofon liefert.
+
+## Was auf dem Gerät bleibt
+
+Aufnahmen, Transkripte und erzeugte Protokolle bleiben auf dem Mac, bis du sie exportierst oder ein optionales Textmodell mit eigenem Schlüssel einschaltest. Die Rauschunterdrückung ändert daran nichts. Es gibt keinen Weg, der das Mikrofon an einen Anbieter schickt, weil Strong fehlgeschlagen ist.
+
+Transkription und Sprechertrennung bleiben auf dem Mac, auch wenn du später ein Bring-your-own-Key-Textmodell für Notizen, Dokumente oder Fragen aktivierst. Diese Aktivierung ist ausdrücklich, liegt im Schlüsselbund und gilt nur für Text. Sie wird nicht von dieser Mikrofoneinstellung ausgelöst.
+
+Die Einwilligung bleibt deine Sache. Ein saubereres Mikrofon sagt den anderen nicht, dass du aufnimmst. Sag es, wenn die Situation es verlangt. Vemoir macht eine Aufnahme nicht rechtmässig, und diese Seite ist keine Rechtsberatung.
+
+Die Modi sitzen neben der Aufnahme-Einrichtung im Abschnitt [Aufnahme und Modelle](/de#capture).
+
+## Häufige Fragen
+
+### Schickt die Mikrofon-Rauschunterdrückung Audio in die Cloud?
+
+Nein. Off, Balanced und Strong laufen auf dem Mac, am gewählten Mikrofon. Ist die Verarbeitung nicht da oder das Ergebnis unsicher, nimmt Vemoir den normalen Mikrofonweg auf dem Gerät.
+
+### Reinigt sie die anderen in der Sitzung?
+
+Nein. Deren Audio kommt als Systemton, eine zweite lokale Spur. Dieser Regler ist das Mikrofon: du.
+
+### Ist Strong immer besser als Balanced?
+
+Nein. Strong ist für lauteres, gleichbleibendes Rauschen. In einem ruhigen Raum behalten Off oder Balanced mehr vom rohen Mikrofon. Wähle nach dem, was du hörst, nicht nach dem stärksten Namen.
+
+### Repariert das überlappende Rede?
+
+Nein. Es zielt auf gleichbleibende Nicht-Sprache wie Brummen und Tastatur. Zwei Leute gleichzeitig sind ein anderes Problem. Sprecherlabels kommen später auf dem Mac, als anonyme Gruppen, die du umbenennen kannst.
+
+### Legt das Einschalten ein Stimmprofil an?
+
+Nein. Diesen Sprecher merken ist ein eigener Opt-in. Ein persönliches Profil für Meine Stimme, falls du eines in den Einstellungen aufnimmst, ist ebenfalls getrennt und bleibt verschlüsselt auf dem Mac, bis du es löschst.
+
+### Kann ich den Modus mitten in der Sitzung wechseln?
+
+Stell den Modus ein, bevor du startest. Die Wahl bleibt sichtbar, damit du weisst, was die Aufnahme genutzt hat. Brauchst du einen anderen Modus, stoppe, ändere ihn, und nimm den nächsten Abschnitt mit der neuen Einstellung auf.
+
+### Hat das kostenlose Browser-Tool das auch?
+
+Nein. Die Browser-Tools auf vemoir.ch transkribieren eine Datei, die du schon hast, bis 15 Minuten, mit höchstens drei erfolgreichen Läufen pro Woche. Sie nehmen nicht live auf, trennen keine Sprecher und bieten nicht Off, Balanced und Strong. Live-Mikrofon liegt in der Mac-App.
+
+### Was, wenn die Stimme schlechter klingt?
+
+Nimm beim nächsten Call Off und vergleiche, wenn du das Audio behalten hast. Ein näheres Mikrofon hilft oft mehr als Strong. Der normale Mikrofonweg bleibt verfügbar, sobald die Unterdrückung unsicher ist.
+
+Wie beide Spuren entstehen, steht unter [Mikrofon und Systemton](/de/blog/mikrofon-und-systemton). Den Modus setzt du unter [Aufnahme](/de#capture), bevor der nächste Call startet.
