@@ -1,9 +1,9 @@
 # Aurum Company-Blog — Publishing-Gate
 
 **Stand:** 2026-09-29  
-**Prinzip:** Qualität und Roberts Nod vor jedem Write und vor jedem Merge. **Keine** Autopilot-Massenpublikation, kein ungefragtes Batch von 16 Posts.
+**Ship-Modell:** Ein PR mit dem ganzen Prozess-Check-Cluster. Jedes Topic hat ein zukünftiges `pubDate` (ungerader Kalendertag, Europe/Zurich). Merge nach Roberts Nod. Die Live-Site filtert mit `isLivePost`; der Cron (`15 5 */2 * *`) baut Aurum neu, wenn ein Datum fällig ist.
 
-Company-Aurum ist nicht Postology-Autopilot. Ein Topic pro Woche, DE + EN im **selben PR**, nachdem der Topic genickt ist.
+Kein zweites SEO-Programm auf EN. DE + EN desselben Topics: gleiches `pubDate`, gleicher `translationKey` (EN-Slug).
 
 ---
 
@@ -11,92 +11,70 @@ Company-Aurum ist nicht Postology-Autopilot. Ein Topic pro Woche, DE + EN im **s
 
 | | |
 |---|---|
-| Rhythmus | 1 Artikel-Konzept / Woche |
-| Locales | `brands/aurum/de/{slug}.mdx` + `brands/aurum/en/{en-slug}.mdx` zusammen |
-| Bilder | `brands/aurum/images/{slug}/` · Guide: [`../context-files/aurum_avis_labs_blogpost_image_instructions.md`](../context-files/aurum_avis_labs_blogpost_image_instructions.md) |
-| Preview | `npm run preview` im blog-factory, Brand Aurum, DE- und EN-Pfad prüfen |
-| Merge | nur nach Roberts PR-Nod → auto-publish wie üblich |
-
-Kein zweites SEO-Programm auf EN: gleiche Argumente, gleiche `funnelStage`, lokalisierter Slug.
+| Rhythmus | 1 Topic / Woche auf der Live-Site (nicht 16 URLs am Merge-Tag) |
+| Locales | `brands/aurum/de/{slug}.mdx` + `brands/aurum/en/{en-slug}.mdx` im selben PR |
+| Bilder | `brands/aurum/images/{en-slug}/` · Guide: [`../context-files/aurum_avis_labs_blogpost_image_instructions.md`](../context-files/aurum_avis_labs_blogpost_image_instructions.md) |
+| Preview | `npm run preview`, Brand Aurum. Preview zeigt auch zukünftige `pubDate`. |
+| Merge | ein PR, Nod Robert. Kein `npm version` in blog-factory. |
 
 ---
 
-## Gate (unverhandelbar)
+## Kalender (ungerade Tage)
 
-```
-Dienstag  Topic-Ping (nächster Eintrag laut Reihenfolge unten)
-    ↓
-Robert nodet  — oder tauscht Priority / streicht / ersetzt Title
-    ↓
-Writer schreibt  DE + EN + Bilder + relatedPosts gemäss STRATEGY
-    ↓
-PR  (ein Topic, beide Sprachen)
-    ↓
-Robert nodet den PR
-    ↓
-Merge
-```
+Odd-day Cron: ein Dienstag auf einem geraden Datum wartet bis zum nächsten ungeraden Rebuild. Deshalb liegen die Daten auf ungeraden `YYYY-MM-DD`.
 
-- Ohne Dienstag-Nod: **nicht** schreiben.
-- Ohne PR-Nod: **nicht** mergen.
-- Writer eröffnet nicht von sich aus die ganze Queue.
-- `draft: true` nur wenn Robert das explizit will; Default der Queue ist publish-ready nach Nod.
+| pubDate | ID | Slug DE | Slug EN / image folder |
+|---------|-----|---------|------------------------|
+| 2026-10-07 | T02 | `welchen-ablauf-zuerst-automatisieren` | `which-process-to-automate-first` |
+| 2026-10-13 | T04 | `was-der-prozess-check-ist` | `what-the-process-check-is` |
+| 2026-10-21 | T01 | `ki-im-betrieb-nichts-greifbares` | `ai-in-operations-nothing-tangible` |
+| 2026-10-27 | T03 | `drei-ablaeufe-die-sich-lohnen` | `three-workflows-worth-automating` |
+| 2026-11-03 | T12 | `workshop-oder-umsetzung` | `workshop-or-implementation` |
+| 2026-11-11 | T05 | `chatgpt-kundendaten-dsg-schweiz` | `chatgpt-customer-data-swiss-dsg` |
+| 2026-11-17 | T06 | `schatten-ki-im-buero` | `shadow-ai-in-the-office` |
+| 2026-11-23 | T07 | `belege-erfassen-was-software-nicht-uebernimmt` | `invoice-capture-what-software-misses` |
+| 2026-12-01 | T08 | `reporting-aus-fuenf-quellen` | `reporting-from-five-sources` |
+| 2026-12-07 | T09 | `nachfassen-angebote-follow-ups` | `quote-follow-ups` |
+| 2026-12-15 | T10 | `excel-als-schatten-system` | `excel-as-shadow-system` |
+| 2026-12-21 | T11 | `copilot-oder-einen-ablauf-bauen` | `copilot-or-build-a-workflow` |
+| 2026-12-29 | T13 | `was-automatisierung-kostet-schweiz` | `what-automation-costs-switzerland` |
+| 2027-01-05 | T14 | `wann-ki-den-ablauf-schlechter-macht` | `when-ai-makes-the-process-worse` |
+| 2027-01-11 | T15 | `make-n8n-power-automate` | `make-n8n-power-automate` |
+| 2027-01-19 | T16 | `eu-ai-act-schweizer-kmu` | `eu-ai-act-swiss-smes` |
 
-Dienstag-Ping (kurz, an Robert), Vorlage:
-
-> Nächste Woche, Prozess-Check-Cluster: **{Working title DE}** (`{slug}`, {TOFU/MOFU/BOFU}, CTA {Angebot/Buchen/Fork/Workshop}). Outline steht in TOPIC-QUEUE {ID}. Nod, tauschen oder skip?
-
----
-
-## Reihenfolge Wochen 1–4 (P0)
-
-Nicht die T-Nummer, diese Reihenfolge — damit der BOFU-Post existiert, bevor alle Spokes darauf zeigen.
-
-| Woche | ID | Slug DE | Warum zuerst |
-|-------|-----|---------|----------------|
-| 1 | T02 | `welchen-ablauf-zuerst-automatisieren` | Pillar: Filter, intern später Ziel aller MOFU-Links |
-| 2 | T04 | `was-der-prozess-check-ist` | BOFU live, CTA buchen, relatedPosts-Ziel |
-| 3 | T01 | `ki-im-betrieb-nichts-greifbares` | USP-Essay, kann auf T02 + T04 zeigen |
-| 4 | T03 | `drei-ablaeufe-die-sich-lohnen` | Spokes vorbereiten; T07–T09 noch nicht nötig |
-
-Ab Woche 5: nächstes **P1** nach Roberts Nod. Vorschlag, wenn er nicht umpriorisiert: T12 (Fork, entlastet CTA-Verwirrung) → T05 oder T07 (Datenschutz vs. Belege, je nach Outreach) → restliche P1 → P2 nur wenn P0 intern verlinkt sind.
-
-T16 skippen, wenn der Entwurf zum Rechtskommentar wird ([`TOPIC-QUEUE.md`](./TOPIC-QUEUE.md) T16).
+T16 nur wenn der Text praktisch bleibt. `draft: false` auf allem, das im PR landet.
 
 ---
 
-## relatedPosts beim Wachsen
+## relatedPosts
 
-| Nach Merge von | relatedPosts in älteren Posts nachziehen |
-|----------------|------------------------------------------|
-| Woche 1 (nur T02) | `relatedPosts: []` erlaubt (einziges Cluster-Peer) |
-| Woche 2 (T04) | T02 → T04; T04 → T02 (interest, solange keine zweite consideration) |
-| Woche 3+ | Matrix in TOPIC-QUEUE; **keine** MVP-Slugs |
+Im selben PR die Matrix aus [`TOPIC-QUEUE.md`](./TOPIC-QUEUE.md) setzen. Die Live-Site zeigt nur Posts mit erreichtem `pubDate`. Kein Follow-up-MR nötig. Keine MVP-Slugs.
 
 ---
 
-## Definition of done (pro Topic)
+## Definition of done (Cluster-PR)
 
-- [ ] Robert hat den Topic am Dienstag genickt
-- [ ] Frontmatter komplett (`title`, `description` unter 160 Zeichen, `pubDate`, `funnelStage`, `relatedPosts`, `tags`)
-- [ ] CTA entspricht Queue-Zeile (MOFU/BOFU → Prozess-Check oder dokumentierte Ausnahme)
-- [ ] Live-Pfade: `/de/prozess-check` bzw. `/de/prozess-check/buchen`, nicht `/de/buchen`
+- [ ] 16 Topics (oder 15 ohne T16) je DE + EN
+- [ ] gleiches `pubDate` und `translationKey` pro Paar
+- [ ] Frontmatter komplett, `description` unter 160 Zeichen
+- [ ] CTA laut Queue
+- [ ] Live-Pfade: `/de/prozess-check`, `/de/prozess-check/buchen` (EN ohne `/de`)
 - [ ] Preise nur Onepager ([`STRATEGY.md`](./STRATEGY.md) Abschnitt 2)
-- [ ] EN-Zwilling gleiche `funnelStage`, lokalisierter Slug
-- [ ] Preview DE + EN
-- [ ] PR-Nod Robert
+- [ ] ein Hero pro Topic unter `brands/aurum/images/{en-slug}/`
+- [ ] Preview mindestens P0 DE + EN
+- [ ] PR-Titel mit Datumsrange, Merge nur nach Nod
 
 ---
 
-## Geplantes pubDate
+## Geplantes pubDate (Technik)
 
-Ein zukünftiges `pubDate` darf gemerged werden. Der Post bleibt von der Live-Site weg, bis ein Landing-Page-Build an oder nach diesem Kalendertag (Europe/Zurich) läuft. Der Cron an ungeraden Tagen (`15 5 */2 * *`) baut nur die Marken neu, die einen solchen Post haben.
+Ein zukünftiges `pubDate` darf gemerged werden. Der Post bleibt von der Live-Site weg, bis ein Landing-Page-Build an oder nach diesem Kalendertag (Europe/Zurich) läuft. Der Cron an ungeraden Tagen (`15 5 */2 * *`) dispatcht nur Marken mit einem fälligen Post.
 
 ---
 
-## Out of scope dieses Gates
+## Out of scope
 
 - Nav oder Angebotsseite ändern
 - MVP-Cluster umschreiben
 - Product-Blogs
-- Mehr als ein neues Topic ohne Nod
+- `isLivePost` oder den Cron ändern
