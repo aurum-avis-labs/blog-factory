@@ -1,9 +1,9 @@
 # Aurum — Topic-Queue (KMU / Prozess-Check)
 
-**Stand:** 2026-09-30 · **16 Topics (Welle 1)**, Welle 2 separat · Locales: **de + en im selben Cluster-PR**.  
+**Stand:** 2026-09-30 · **16 Topics (Welle 1)**, Welle 2 und 3 im selben Wochenkalender · Locales: **de + en**.  
 SEO-Arbeit und Working Titles sind **de-CH**. EN ist hreflang-Zwilling, kein zweites Keyword-Programm.
 
-**Lesen zuerst:** [`STRATEGY.md`](./STRATEGY.md) (URLs, Preise, CTA-Regeln, Cluster-Split). Ship-Kalender: [`PUBLISHING.md`](./PUBLISHING.md).
+**Lesen zuerst:** [`STRATEGY.md`](./STRATEGY.md) (URLs, Preise, CTA-Regeln, Cluster-Split). Ship-Regeln: [`PUBLISHING.md`](./PUBLISHING.md).
 
 **Legende**
 
@@ -16,9 +16,9 @@ SEO-Arbeit und Working Titles sind **de-CH**. EN ist hreflang-Zwilling, kein zwe
 
 `relatedPosts`: nur Cluster-Slugs **derselben Sprache**. Im Cluster-PR die Matrix unten setzen; Live zeigt nur fällige `pubDate`. Alignment: [`AGENTS.md`](../../../AGENTS.md).
 
-## pubDate (ungerade Tage)
+## pubDate
 
-Die Daten wurden am 2026-09-30 in Q4 verdichtet und mit Welle 2 (N01–N32) verzahnt. Massgebend ist der Kalender in [`PUBLISHING.md`](./PUBLISHING.md). Die Topics T01–T16 unten bleiben gültig. Welle 2 steht in [`../batches/2026-09-30-sme-cluster-wave-2.md`](../batches/2026-09-30-sme-cluster-wave-2.md).
+Ein Post pro Wochentag, 1. Oktober 2026 bis 22. Februar 2027, Feiertage inklusive. Massgebend ist [`../batches/2026-09-30-wave-3/CALENDAR.md`](../batches/2026-09-30-wave-3/CALENDAR.md). Die Topics T01–T16 unten bleiben inhaltlich gültig. Welle 2: [`../batches/2026-09-30-sme-cluster-wave-2.md`](../batches/2026-09-30-sme-cluster-wave-2.md).
 
 ---
 

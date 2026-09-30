@@ -4,8 +4,8 @@ Audience: Geschäftsleitung, Büro-, Ops- und Finanzleitung in Schweizer KMU (5�
 Offer URLs: `/de/prozess-check`, `/de/prozess-check/buchen`, `/de/services/ai-in-business`, `/de/services/ai-implementation-consulting`, `/de/portfolio/kitchencrew` (EN ohne `/de`).  
 Languages: de (SEO-Ziel, Anrede Sie), en (hreflang-Zwilling, volle Länge).  
 Mix: 9 awareness / 18 interest / 5 consideration (28 / 56 / 16). MOFU-lastig wie Welle 1, weil ehrliche BOFU-Queries rar sind.  
-Ship: ein PR zusammen mit Welle 1, `draft: false`, zukünftige `pubDate`, alle 48 Topics zwischen 2026-10-05 und 2026-12-31 (Kalender in `company-blog-strategy/PUBLISHING.md`).  
-Heroes: noch keine. Prompts in [`2026-09-30-sme-cluster-wave-2-hero-prompts.txt`](./2026-09-30-sme-cluster-wave-2-hero-prompts.txt). Die MDX haben bewusst keine `image`-Zeile, bis `hero.jpg` existiert (sonst bricht der Astro-Build).
+Ship: `draft: false`. Erscheinungsdaten stehen nur in [`2026-09-30-wave-3/CALENDAR.md`](./2026-09-30-wave-3/CALENDAR.md) (Wochentage ab 2026-10-01, Feiertage inklusive). Die `pubDate`-Spalte in der Tabelle unten ist überholt.  
+Heroes: liegen unter `brands/aurum/images/{en-slug}/hero.jpg`. Prompts: [`2026-09-30-sme-cluster-wave-2-hero-prompts.txt`](./2026-09-30-sme-cluster-wave-2-hero-prompts.txt).
 
 | ID | pubDate | Type | funnelStage | CTA | Title DE | EN slug | DE slug | Floor | Words EN / DE | Status |
 |----|---------|------|-------------|-----|----------|---------|---------|-------|---------------|--------|
