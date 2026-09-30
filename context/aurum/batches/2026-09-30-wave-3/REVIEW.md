@@ -28,7 +28,7 @@ Merged to main from `aurum/w3-writer-f`. 16 files, 0 validator errors.
 | W3-I17 | ai-for-course-providers | 1192 / 1110 | 0 | No eduQua and no named course-software features. Office work, not teaching. |
 | W3-I18 | course-registration-to-invoice | 1605 / 1534 | 1 | SIX page states both 22 November 2025 and November 2026 for the structured address. The post reports both and does not pick one. |
 | W3-I19 | ai-for-real-estate-agents | 1184 / 1101 | 2 | Brokerage, not property management. Encrypted seeker mail and messenger-only replies left out. |
-| W3-I20 | property-enquiries-viewings | 1484 / 1439 | 1 | Body links the web-form post (seq 96), still with Writer C. That post publishes before this one. |
+| W3-I20 | property-enquiries-viewings | 1484 / 1439 | 1 | Body links the web-form post (seq 96), now on main. It publishes before this one. |
 | W3-I21 | ai-for-manufacturing-smes | 1120 / 1082 | 0 | No EDI or ISO claims. Body links email-order capture (Writer B, seq 51, 10 Dec 2026). |
 | W3-I22 | delivery-date-updates-customers | 1434 / 1403 | 0 | Starts after the order exists. Same email-order link as manufacturing. That target is now on main. |
 
@@ -58,5 +58,36 @@ Merged to main from `aurum/w3-writer-e`. 16 files, 0 validator errors. Recruitme
 | W3-I14 | project-hours-fee-invoice | 1390 / 1319 | 0 | No new rates. Distinguished from a trades daywork sheet. |
 | W3-I15 | ai-for-logistics-transport | 943 / 883 | 0 | Shortest awareness post in this set, still above the 700-word floor. LSVA, customs, CMR and ADR left out. |
 | W3-I16 | delivery-notes-proof-of-delivery | 1394 / 1355 | 0 | A photographed signature is not called conclusive. Links the purchasing-side match, already on main. |
+
+## Writer C (office, HR, data)
+
+Merged to main from `aurum/w3-writer-c`. 18 files, 0 validator errors. Leave requests sit just over the 1,600-word ceiling and under the warning line.
+
+| ID | Key | EN / DE | Sources | Risk |
+|---|---|---|---|---|
+| W3-D2 | contract-deadlines | 1379 / 1228 | 2 | OR 266–266d and a SharePoint calendar only. Insurance, leasing and maintenance periods left out. |
+| W3-D1 | leave-requests | 1624 / 1558 | 9 | OR 329a, 329c, 329d. No canton calendars, no GAV carry-over formula, no bexio or Abacus module. |
+| W3-D8 | analyse-survey-free-text | 1451 / 1321 | 3 | No anonymity threshold and no promise that answers stay anonymous. |
+| W3-D3 | digitise-paper-mail | 1223 / 1111 | 3 | Does not say every letter may be shredded. |
+| W3-D5 | screen-job-applications-ai | 1453 / 1341 | 5 | No bias percentage and no claim that AI screening is banned. Art. 21 is not applied to a score that was not checked. |
+| W3-D6 | data-subject-access-requests | 1435 / 1322 | 2 | No passport-scan rule and no franc threshold for disproportionate effort. |
+| W3-D4 | auto-file-documents | 1230 / 1171 | 4 | No claim that a tool files any PDF by itself. |
+| W3-D7 | web-form-to-crm | 1237 / 1150 | 1 | DSG Art. 19 only. The two-working-day reminder is labelled a house rule. No CRM product features. |
+| W3-D9 | ai-phone-assistant | 1723 / 1631 | 3 | Follows the EDÖB's narrow reading of mass business, not a looser reading of the statute. Not a claim that Aurum built a phone bot. Website chatbot stays the written cousin. |
+
+## Writer D (hospitality, garages, law, insurance)
+
+Merged to main from `aurum/w3-writer-d`. 16 files, 0 validator errors. Hospitality and garages sit just over the 1,200-word ceiling and under the warning line.
+
+| ID | Key | EN / DE | Sources | Risk |
+|---|---|---|---|---|
+| W3-I1 | ai-in-hospitality | 1316 / 1213 | 4 | KitchenCrew is linked, not retold. No Gastro-GAV and no vendor time-saved figures. |
+| W3-I2 | group-event-enquiries | 1521 / 1402 | 0 | No deposit percentage and no cancellation rule. |
+| W3-I3 | ai-for-car-garages | 1318 / 1186 | 5 | Intake, wholesaler parts, MFK reminder. No other DMS products. |
+| W3-I4 | service-appointment-requests-garage | 1430 / 1351 | 1 | Ramp and courtesy car. Paid booking is the contrast, not the method. |
+| W3-I5 | ai-for-law-firms | 1171 / 1089 | 6 | StGB Art. 321 is cited from the Federal Gazette reprint because the consolidated fedlex page did not render the article. Not a product claim of "secrecy-compliant" software. |
+| W3-I6 | law-firm-deadlines-incoming-mail | 1280 / 1227 | 2 | No ZPO day counts. The lawyer confirms the date. Contract notice periods point at Writer C's post, now on main. |
+| W3-I7 | ai-for-insurance-brokers | 972 / 900 | 2 | Tied vs untied follows FINMA. No commission rates and no CHF 475 levy. |
+| W3-I8 | broker-quote-requests | 1226 / 1185 | 1 | One fact sheet to several insurers. Not a purchasing RFQ. |
 | W3-O6 | maintenance-service-reminders | 1330 / 1228 | 1 | No legal annual heating service. VKF Art. 20 only. Daily dispatch is not linked in the body. |
 | W3-O7 | technician-dispatch-planning | 1448 / 1397 | 0 | No named field-service product and no GPS or route-saving figures. Says when a dedicated product is the better buy. |
