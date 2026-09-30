@@ -30,6 +30,7 @@ draft: true
 | `relatedPosts` | 1–3 slugs that exist in **this language**. Same or higher intent: `awareness` < `interest` < `consideration`. `interest` never links to `awareness`. `consideration` links to `consideration`, or to `interest` only when no other `consideration` post exists in that language. `[]` only when that language has no eligible peer yet. |
 | `image` | `@/assets/blog/{translationKey}/hero.jpg`. Omit the line when there is no hero. Every locale points at the same file. |
 | `draft` | `true` until this wave is approved to schedule. |
+| `site` | Aurum only. `studio` or `ki`. Same value on every locale. Planned hosts `workshops`, `web`, `security` are reserved and not used yet. |
 
 `funnelStage` maps to the landing-page funnel: `awareness` (top), `interest` (middle), `consideration` (bottom). No other values.
 

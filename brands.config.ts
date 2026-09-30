@@ -16,6 +16,15 @@ export interface BrandConfig {
   languages: string[];
   /** Default language (determines URL prefix behavior) */
   defaultLanguage: string;
+  /**
+   * Extra hosts for one brand. Landing builds pass SITE_ID and only fetch posts
+   * whose frontmatter `site` matches. Planned hosts are registered, not built.
+   */
+  sites?: Array<{
+    id: string;
+    domain: string;
+    status: "live" | "planned";
+  }>;
 }
 
 export const brands: BrandConfig[] = [
@@ -26,6 +35,13 @@ export const brands: BrandConfig[] = [
     domain: "https://aurum-avis-labs.ch",
     languages: ["en", "de"],
     defaultLanguage: "en",
+    sites: [
+      { id: "studio", domain: "https://aurum-avis-labs.ch", status: "live" },
+      { id: "ki", domain: "https://ki.aurum-avis-labs.ch", status: "live" },
+      { id: "workshops", domain: "https://workshops.aurum-avis-labs.ch", status: "planned" },
+      { id: "web", domain: "https://web.aurum-avis-labs.ch", status: "planned" },
+      { id: "security", domain: "https://security.aurum-avis-labs.ch", status: "planned" },
+    ],
   },
   {
     id: "do-for-me",
