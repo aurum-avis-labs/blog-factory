@@ -272,13 +272,23 @@
 }
 
 .prose-editorial .blog-faq summary,
-.prose-editorial .blog-faq-q {
+.prose-editorial .blog-faq-q,
+.prose-editorial .blog-faq h3 {
   display: block;
   margin: 0;
+  font-size: 1.05rem;
   font-weight: 600;
+  padding-left: 0;
   cursor: default;
-  pointer-events: none;
   list-style: none;
+}
+
+.prose-editorial .blog-faq summary {
+  pointer-events: none;
+}
+
+.prose-editorial .blog-faq h3::before {
+  display: none;
 }
 
 .prose-editorial .blog-faq summary::-webkit-details-marker,

@@ -129,14 +129,16 @@ Use a markdown table. Keep the same columns for every row. Yes or no cells are f
 
 ### FAQ
 
-Render the question and answer in full. Do not use `<details>` or any other collapse.
+Render the question and answer in full. The question is an `h3`, so it stays in the heading outline. Do not use `<details>` or any other collapse. The landing page turns each `div.blog-faq` into FAQ schema.
 
 ```html
 <div class="blog-faq">
-  <p class="blog-faq-q">Can Fathom record an in-person meeting?</p>
+  <h3>Can Fathom record an in-person meeting?</h3>
   <p>No. It needs a meeting link on a computer. There is no microphone-only mode.</p>
 </div>
 ```
+
+A brand context may instead require a localized H2 (`Frequently asked questions`, `Häufige Fragen`, `Questions fréquentes`, `Domande frequenti`) and each question as a markdown `###`. That form is also read as FAQ schema. Do not mix both in one article.
 
 ## Rules
 
