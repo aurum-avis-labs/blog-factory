@@ -1,0 +1,80 @@
+---
+title: "From course registration to invoice"
+description: "How a course registration becomes a confirmation or a waiting-list place, then a QR-bill to the right payer, a reminder and a certificate."
+pubDate: 2027-02-08
+author: "Aurum Avis Labs"
+tags: ["course registration", "invoicing", "waiting list"]
+funnelStage: interest
+translationKey: course-registration-to-invoice
+relatedPosts: ["web-form-to-crm", "generate-documents-from-templates", "what-the-process-check-is"]
+draft: false
+---
+
+## From course registration to the invoice
+
+A course registration becomes an invoice in one chain: the form splits the participant from the payer, a place check confirms a free seat or writes a waiting-list line, the confirmation goes out, the QR-bill goes to whoever pays, a reminder follows your own rule if it stays unpaid, and after the course a person marks attendance so a certificate can be filled from a template. The course software stays the place where the catalogue lives. This chain is the work beside it.
+
+The picture of which jobs in a course office are worth looking at is in [AI for course providers](/blog/ai-for-course-providers). This page walks one of them, the path from the form to the bill. It is for a small provider or private school that still copies names between a form, a spreadsheet and the accounting program.
+
+## Split the participant from the payer on the form
+
+The form fails when it has one "name" and one "email". On a company-funded course the person in the room and the company on the invoice are different. On a children's course the child and the parent are different. Ask for both, in separate fields: who attends (name, the course code, the date), and who pays (name or company, billing address, email, and a reference such as a cost centre if they need one on the bill).
+
+If the payer's email is empty, do not invent it from the participant's address. Hold the registration and ask. A bill to the wrong company is a harder repair than a one-day delay.
+
+Do not collect health details, a school report or a copy of an identity document "just in case". If a course genuinely needs a medical note, that field stays in the system you already use for pupil files, not in a general web form that also feeds marketing. When you are unsure, ask your data-protection adviser. This is a working rule, not legal advice.
+
+## Check the seat before you confirm
+
+The place check is a number you already keep: seats on this course, minus confirmed registrations that are not cancelled. The form does not decide the number. It reads it.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Match the course</h3><p>Course code and date must exist. An unknown code stops, with a short note to the office. No nearest-match guess.</p></li>
+  <li data-step="2"><h3>Count free seats</h3><p>Confirmed and not cancelled. A waiting-list name is not a seat.</p></li>
+  <li data-step="3"><h3>Confirm or wait</h3><p>A free seat gets a confirmation: course, time, place, what to bring, and that the invoice follows to the payer. A full course gets a waiting-list position and nothing that sounds like a booking.</p></li>
+  <li data-step="4"><h3>Release a seat only by your rule</h3><p>If someone cancels, the next waiting-list line is offered, not silently enrolled. The person confirms before you take the seat.</p></li>
+</ol>
+
+Write the cancellation rule in one sentence the mail can quote. "Unpaid seven days before the start, the seat is released" is a rule you chose. The flow only applies it. It does not invent a legal claim about whether the course fee is still owed. That sentence is yours, or your adviser's.
+
+## The QR-bill goes to the payer
+
+In Switzerland the written invoice is a QR-bill. [SIX](https://www.six-group.com/en/products-services/banking-services/payment-standardization/standards/qr-bill.html) states that it has been in circulation since June 2020 and that it replaced the old payment slips on 1 October 2022. It can be printed or sent as a digital file. It has a payment section and a receipt. The Swiss QR code carries the payment data, and the same data appear in plain text so the person paying can check them before they approve.
+
+On the address inside that code, the same SIX page (read on 30 September 2026) says two things. A notice at the top says the introduction of the structured address, type S, remains scheduled for November 2026. A later section says that with guidelines version 2.3, in force on 22 November 2025, only the structured address is permitted. We will not pick one date when the page states both. Read the current page, and ask the vendor of the program that creates your bills which address form that version emits. A street and a town stored as separate fields can feed either form. A single free-text line cannot be split later without someone checking it. A free generator on a website is a workaround for someone without software. SIX lists such tools and says it does not warrant them. A school that invoices every week should let the program that keeps the debtor do the QR-bill.
+
+What that program offers as an interface, you settle when you look at the real file, not from a brochure. We have not built a connector to a named accounting package as a standing product. The practical aim is smaller: the registration already holds the payer, the amount, the course reference and the address in the structured fields the QR-bill needs, so nobody retypes them into the invoice.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Who is billed</span><strong>The payer</strong><p>Employer or parent, not automatically the person in the room.</p></li>
+  <li><span class="blog-kicker">What the code needs</span><strong>Separate address fields</strong><p>SIX states two dates for the structured address. Store street and town apart, and check your program.</p></li>
+  <li><span class="blog-kicker">What you still read</span><strong>Amount and course</strong><p>A person checks the draft if the price is not a fixed course fee.</p></li>
+</ul>
+
+The reference on the bill should let the office match the payment back to the course and the participant without opening the email thread. The course code plus the participant's name is usually enough. Put the company's own purchase reference in the field they asked for, not instead of yours.
+
+## Reminder, attendance, certificate
+
+A reminder is a second mail to the payer, on a date you set, quoting the invoice and the consequence you already wrote (the seat is held, or it is released). It is not a debt-collection step. If the payment arrives, the reminder stops. If the amount is disputed, a person takes it. Do not let a model rewrite the fee in the reminder.
+
+On the day, the teacher or the office marks who attended. That mark is the source for the certificate, not the original registration. Someone who paid and did not attend does not get a certificate because the invoice was paid. Someone who attended and whose employer pays later does get it, if that is your rule. Write the rule down so the template does not guess.
+
+The certificate is a document from a template: name, course, dates, and a line you approved. How templates stay a fixed path, with a person releasing them, is in [generate documents from templates](/blog/generate-documents-from-templates). Send it to the participant, and send a copy to the payer only if they asked for proof of attendance. Two different recipients, two different purposes.
+
+## A made-up example
+
+A made-up example: an evening language course, 14 seats, a fixed fee of CHF 890. By Wednesday, 11 seats are confirmed. Three registrations arrive. Two name the participant as the payer. The third names the participant and, in the payer fields, an employer with a cost centre. The place check confirms all three, because 11 plus 3 is still within 14. Confirmations go to the participants. Two QR-bills go to the participants. One goes to the employer, with the cost centre in the reference and the participant's name on the attendance line. The address fields are separate, street and town apart, so the program that prints the QR-bill can follow whichever address form the current SIX page requires. Someone checked that program's release note. The example does not decide the date for you.
+
+The next morning a fourteenth registration arrives, and a fifteenth. The fourteenth is confirmed. The fifteenth is told they are first on the waiting list, with no sentence that sounds like a place. Four days before the start, one confirmed participant cancels. The office offers the seat to the waiting-list person and waits for a yes before the invoice is created. After the last evening the teacher marks 13 present. Thirteen certificates go out from the template. The person who cancelled does not get one. The employer's bill is already paid. Nothing in this paragraph is a client. The numbers are only there so the rules are visible.
+
+## When you should not build this
+
+Skip it when the course system already takes the enrolment, the payment and the certificate, and your staff actually use it. A second path will drift. Skip it when you run a handful of courses a year and the same person holds the list in her head without errors you care about. Skip the model entirely when every fee is negotiated. A fixed course price can be a field. A negotiated price is a draft a person confirms before the QR-bill exists.
+
+If the only pain is "emails from the website form sit in the inbox", that is a narrower job than a course. Do not buy a waiting list for a problem that is only a missing acknowledgement.
+
+## When a Prozess-Check fits
+
+The [Prozess-Check](/prozess-check) fits when this chain is one recurring task: the same form, the same seat count, the same split between participant and payer, several times a week. It is 60 minutes on Microsoft Teams, for CHF 99. You describe the form and where the invoice is created today. You do not need to bring a real participant's data.
+
+You leave with where to start, whether it pays off, a price range and a rough duration, and a short written summary. The hour does not commit you to a build. If nothing in the hour is worth doing, the fee comes back, provided the appointment took place.
