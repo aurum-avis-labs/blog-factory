@@ -1,0 +1,86 @@
+---
+title: "Freitext-Antworten mit KI auswerten"
+description: "Freitext-Antworten mit KI auswerten: Themen gruppieren, eine Stichprobe prüfen, Namen vorher streichen. Mitarbeitende und Kundschaft bleiben getrennt."
+pubDate: 2026-12-25
+author: "Aurum Avis Labs"
+tags: ["umfragen", "freitext", "datenschutz"]
+funnelStage: interest
+translationKey: analyse-survey-free-text
+relatedPosts: ["mehrsprachige-kundenkommunikation", "ki-agent-oder-workflow", "was-der-prozess-check-ist"]
+draft: false
+---
+
+## Freitext-Antworten mit KI auswerten
+
+Freitext-Antworten mit KI auswerten heisst: Kommentare zu einer kurzen Themenliste machen und danach eine Stichprobe der Originaltexte dagegen lesen. Das Modell sortiert. Es veröffentlicht kein Ergebnis, bewertet niemanden und antwortet keiner Kundin und keinem Kunden. Namen, Rollen, die nur eine Person trägt, und Details zu einem einzelnen Vorfall nehmen Sie heraus, bevor die Datei ein Modell zu sehen bekommt.
+
+Der Beitrag ist für Inhaberinnen, Inhaber und Büroleitungen, die ein- oder zweimal im Jahr eine Tabelle mit Kommentaren bekommen, von Kundschaft oder von Mitarbeitenden, und die Spalte sonst ausdrucken und von Hand markieren. Antworten in der Sprache der Kundschaft sind eine andere Arbeit, beschrieben in [mehrsprachige Kundenkommunikation](/de/blog/mehrsprachige-kundenkommunikation). Ein festes Sortieren mit menschlicher Kontrolle ist ein Ablauf. Ein System, das danach selbst handelt, ist etwas anderes, erklärt in [KI-Agent oder Workflow](/de/blog/ki-agent-oder-workflow).
+
+<ol class="blog-flow">
+  <li><strong>Export</strong><p>Nur die Kommentare, plus die Frage. Kein Schlüssel zur Person, wenn die Umfrage anonym sein sollte.</p></li>
+  <li><strong>Streichen</strong><p>Namen, einmalige Rollen, Auftragsnummern und Falldetails weg, die eine Kollegin erkennt.</p></li>
+  <li><strong>Gruppieren</strong><p>Das Modell schlägt Themen und Zahlen vor. Es zitiert keine Zeile, die noch jemanden kenntlich macht.</p></li>
+  <li><strong>Stichprobe</strong><p>Eine Person liest einen Ausschnitt der Originale und trennt Themen, die zwei Probleme in eines ziehen.</p></li>
+  <li><strong>Abschliessen</strong><p>Die Themenliste bleibt. Die Rohdatei wird gelöscht oder anonymisiert, sobald der Bericht sie nicht mehr braucht.</p></li>
+</ol>
+
+## Was eine Zeile zur Person macht
+
+Personendaten sind Angaben, die sich auf eine bestimmte oder bestimmbare natürliche Person beziehen ([Art. 5 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de)). Der Satz «der Techniker vom Donnerstag in Zug war unfreundlich» kann in einem kleinen Betrieb genügen. Gesundheit, politische oder gewerkschaftliche Ansichten und Ähnliches sind nach demselben Artikel besonders schützenswert. Ein Freitextfeld sammelt das unbeabsichtigt, wenn jemand über Krankheit, eine Entlassung oder die Haltung einer Kollegin schreibt.
+
+Die Bearbeitung muss verhältnismässig sein und einem Zweck dienen, den die betroffene Person erkennen kann ([Art. 6 Abs. 2 und 3 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de)). Der EDÖB hält fest, dass das Datenschutzgesetz technologieneutral ist und auf KI direkt anwendbar ist. Zweck, Funktionsweise und Datenquellen müssen klar sein ([EDÖB](https://www.edoeb.admin.ch/de/update-geltendes-datenschutzgesetz-ist-auf-ki-direkt-anwendbar)). «Wir haben ein Tool benutzt» ist diese Erklärung nicht.
+
+<ul class="blog-checklist">
+  <li>Name, E-Mail, Personalnummer, Kundennummer und IP-Adresse aus der Datei nehmen, die das Modell sieht</li>
+  <li>Eine einmalige Funktion («die einzige Buchhaltung») durch eine allgemeine Rolle ersetzen oder die Zeile aus der Modelldatei lassen</li>
+  <li>Auftragsnummern, Fallnamen und Daten streichen, die einen Vorfall herauspicken</li>
+  <li>Kommentare zu Gesundheit oder zu einem Konflikt mit einer genannten Person nur von einem Menschen lesen lassen</li>
+  <li>Die Datei nicht in ein privates Chatkonto laden, dessen Trainingsregeln Sie nicht gelesen haben</li>
+</ul>
+
+Im Schweizer Gesetz steht keine Zahl, ab der «fünf Antworten eine Gruppe anonym machen». Seiten für deutsche Betriebe nennen solche Schwellen oft. Das ist keine Schweizer Regel. In einem Team von acht kann auch ein vorsichtiges Thema auf eine Person zeigen. Wenn Sie die Anonymität nicht halten können, versprechen Sie sie nicht. Sagen Sie, dass Kommentare zusammengefasst gelesen werden und eine Formulierung trotzdem erkennbar bleiben kann.
+
+## Mitarbeitendenbefragung und Kundenkommentare
+
+Kommentare von Mitarbeitenden stehen in einem Arbeitsverhältnis. Der Arbeitgeber darf Daten bearbeiten, welche die Eignung für die Stelle betreffen oder für die Durchführung des Arbeitsvertrags nötig sind ([Art. 328b OR](https://www.edoeb.admin.ch/de/datenbearbeitung-durch-den-arbeitgeber), so erklärt es der EDÖB). Eine Stimmungsumfrage ist oft breiter. Dieselbe Seite hält fest, dass eine Einwilligung von jemandem in abhängiger Stellung selten frei ist, weil ein Nein teuer werden kann. «Abgeschickt» ist keine unterschriebene Erlaubnis, den Text durch ein beliebiges Werkzeug zu schicken.
+
+Ein Kundenkommentar betrifft meist Lieferung, Rechnung oder Besuch. «Verspätete Lieferung» und «unklare Rechnung» zu gruppieren ist normale Qualitätsarbeit, bleibt aber Personendaten, solange die Zeile einem Kunden zugeordnet werden kann. Nutzen Sie das, um den Ablauf zu verbessern. Setzen Sie ein Zitat nicht in ein Verkaufsgespräch, wenn das Zitat das Konto kenntlich macht, ausser das Konto weiss, dass Sie die Worte so verwenden.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Freitext von Mitarbeitenden dient nicht dazu, jemanden zu rangieren, zu verwarnen oder herauszugreifen. Die Stichprobe korrigiert Themen. Sie ist keine Suchliste. Schildert ein Kommentar einen Schaden, liest eine vorgesetzte Person diese Zeile als Meldung, ausserhalb der Gruppierung.</p>
+</aside>
+
+Sagen Sie vor dem Schreiben, was geschieht: wer Themen sieht, ob Rohtext gelesen wird, wie lange er bleibt, und dass ein Modell Formulierungen gruppiert. Das ist die praktische Seite der Informationspflicht. Den genauen Text für Ihren Fall klärt die Datenschutzberatung, wenn die Umfrage heikel oder verpflichtend ist. Diese Seite ist diese Beratung nicht.
+
+## Wozu die Stichprobe da ist
+
+Nehmen Sie einen Ausschnitt, kein Gefühl. Bei weniger als etwa vierzig Kommentaren lesen Sie jede Zeile. Darüber lesen Sie mindestens jede fünfte, verteilt auf die vorgeschlagenen Themen, plus jede Zeile, die das Modell als unsicher markiert. Sie suchen drei Fehler:
+
+- Zwei Probleme wurden zusammengezogen, weil sie ein Wort teilen. «Warten» kann die Telefonschlange oder eine offene Rechnung sein.
+- Ein Thema entstand aus drei wütenden Zeilen und sieht jetzt aus wie die halbe Datei.
+- Ein Zitat, das das Modell in den Bericht setzen will, nennt noch Team, Ort oder Schicht.
+
+Korrigieren Sie die Themenliste. Passen Sie nicht die Originale an die Themen an. Zahlen sind Zahlen von Kommentaren, nicht von Personen, ausser Sie wissen, dass jede Person einmal geschrieben hat. Schreiben Sie das in den Bericht.
+
+Wenn der Bericht steht, sind die Daten zu vernichten oder zu anonymisieren, sobald sie für den Zweck nicht mehr nötig sind (Art. 6 Abs. 4 DSG). Die Zusammenfassung der Themen bleibt. Den erkennbaren Export löschen Sie im Werkzeug und in Postfächern, die ihn nur für diese Auswertung hatten. Brauchen Sie ein paar Zeilen als Hinweis auf einen Produktfehler, liegen diese Zeilen in der Fallakte, nicht die ganze Umfrage im Chatverlauf.
+
+## Wann das Modell wegfallen kann
+
+Lassen Sie es weg, wenn es nur eine Handvoll Kommentare sind und dieselbe Person sie ohnehin alle liest. Markieren von Hand ist schneller und vermeidet eine Kopie in einem dritten System.
+
+Lassen Sie es weg, wenn die Umfrage strenge Anonymität versprochen hat und Sie Kennungen nicht entfernen können, weil die nützlichen Kommentare genau Standort und Person nennen. Dann ändern Sie das Versprechen für das nächste Mal, oder Sie lesen die Texte im geschlossenen Kreis ohne Modell.
+
+Gruppieren Sie nicht, um aus privaten Reklamationen Werbesätze zu machen. Der genannte Zweck war eine Umfrage, kein Slogan. Eine spätere Antwort an die Kundschaft ist ein eigener Entwurf, und eine Person schickt sie ab.
+
+## Ein erfundenes Beispiel: 120 Kommentare nach einem vollen Monat
+
+Ein erfundenes Beispiel: ein Servicebetrieb mit 30 Personen, kein Kunde. Nach einem vollen Monat exportieren sie 120 Kundenkommentare aus einem Formular. Die Rohdatei enthält Name, Postleitzahl und den Kommentar. Das Büro kopiert nur die Kommentarspalte in eine zweite Tabelle und sucht dann nach Namen von Mitarbeitenden und nach Ortsnamen, die nur einmal vorkommen. Acht Zeilen nennen eine bestimmte Technikerin beim Namen. Diese acht bleiben bei der Geschäftsleitung und gehen nie ins Modell. Der Rest wird gruppiert. Das Modell schlägt sechs Themen vor. Die Büroleitung liest 25 Kommentare, fünf aus jedem grösseren Thema. «Unfreundlich am Telefon» und «niemand hat zurückgerufen» waren ein Thema. Die Leitung trennt die beiden, weil das eine der Ton ist und das andere ein verpasster Rückruf. Der Bericht für die Montagssitzung hat sechs Themen, Zahlen und keine Zitate. Der Export im KI-Werkzeug wird in derselben Woche gelöscht. Die acht genannten Zeilen werden als einzelne Nachfassungen behandelt, nicht als Note.
+
+Eine Zeitersparnis steht hier nicht. Nützlich ist die Trennung: zusammengefasste Themen für die Sitzung, namentliche Reklamationen als normale Fallarbeit.
+
+## Wann der Prozess-Check passt
+
+Der Prozess-Check passt, wenn dieser Export wiederkehrende Handarbeit ist: ein paar Mal im Jahr liest jemand eine lange Kommentarspalte und baut dieselben Kategorien mit dem Marker. In 60 Minuten per Microsoft Teams schauen wir nur diese Arbeit an. Sie gehen mit einem Fall, einer Einschätzung, ob es sich lohnt, einer Preisspanne und einer ungefähren Dauer hinaus, kurz schriftlich. Die Stunde kostet CHF 99 per Karte und verpflichtet Sie zu nichts. Findet sie nichts, das sich zu automatisieren lohnt, kommt der Betrag zurück, sofern der Termin stattgefunden hat.
+
+Bringen Sie einen leeren Export der Spalten mit, keine echten Kommentare. Das Angebot steht auf der Seite [Prozess-Check](/de/prozess-check). Wofür die Stunde da ist, steht in [Was der Prozess-Check ist](/de/blog/was-der-prozess-check-ist).
