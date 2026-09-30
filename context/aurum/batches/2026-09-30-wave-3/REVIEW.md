@@ -16,3 +16,18 @@ Merged to main from `aurum/w3-writer-a`. 16 files, 0 validator errors.
 | W3-F3 | delivery-note-invoice-matching | 1149 / 1108 | 0 | No named ERP feature and no legal tolerance. Body links `capture-email-orders` (seq 51), which is not on main until Writer B is merged. That post publishes 10 Dec 2026, before this one (22 Jan 2027). |
 | W3-F5 | vat-return-preparation | 1067 / 1014 | 3 | Quarter table and a 240-day figure were left out. Uses the 60-day rule and ESTV's own Q1 example. |
 | W3-F4 | ebill-for-businesses | 1385 / 1312 | 2 | No bank or accounting-software list. 730-day archive line not used as a rule for the receiver. |
+
+## Writer F (data location, chatbot, courses, property, manufacturing)
+
+Merged to main from `aurum/w3-writer-f`. 16 files, 0 validator errors.
+
+| ID | Key | EN / DE | Sources | Risk |
+|---|---|---|---|---|
+| W3-X3 | ai-data-location-switzerland | 1211 / 1184 | 5 | Says the DSG does not require a Swiss server. OpenAI "Europe (EEA + Switzerland)" is not treated as a Zurich data centre. Microsoft cited for storage at rest only. Not legal advice. |
+| W3-X4 | website-chatbot-sme | 1810 / 1702 | 3 | No conversion rates or widget prices. Points at the data-location post for hosting claims. |
+| W3-I17 | ai-for-course-providers | 1192 / 1110 | 0 | No eduQua and no named course-software features. Office work, not teaching. |
+| W3-I18 | course-registration-to-invoice | 1605 / 1534 | 1 | SIX page states both 22 November 2025 and November 2026 for the structured address. The post reports both and does not pick one. |
+| W3-I19 | ai-for-real-estate-agents | 1184 / 1101 | 2 | Brokerage, not property management. Encrypted seeker mail and messenger-only replies left out. |
+| W3-I20 | property-enquiries-viewings | 1484 / 1439 | 1 | Body links the web-form post (seq 96), still with Writer C. That post publishes before this one. |
+| W3-I21 | ai-for-manufacturing-smes | 1120 / 1082 | 0 | No EDI or ISO claims. Body links email-order capture (Writer B, seq 51, 10 Dec 2026). |
+| W3-I22 | delivery-date-updates-customers | 1434 / 1403 | 0 | Starts after the order exists. Same email-order link as manufacturing. |
