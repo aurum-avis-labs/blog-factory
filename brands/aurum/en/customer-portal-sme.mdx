@@ -1,0 +1,73 @@
+---
+title: "When a small firm needs a customer portal"
+description: "When a customer portal is worth it for a small firm: repeated status questions, clean data, a real login, and the support you take on."
+pubDate: 2027-02-22
+author: "Aurum Avis Labs"
+tags: ["customer portal", "self-service", "accounts"]
+funnelStage: consideration
+translationKey: customer-portal-sme
+relatedPosts: ["build-an-api-integration-cost", "replace-access-database", "who-runs-the-automation"]
+draft: false
+---
+
+## When a customer portal is worth it
+
+A customer portal is worth it when the same customers keep asking for a status or a document you already hold, the answer is the same six or so fields every time, and those fields are right often enough that you would show them without a person checking first. It is not worth it when the questions change, you only get a few of them a week, or the record would embarrass you if the customer saw it unedited. A login does not create trust. It displays whatever is in the system.
+
+Email and a phone call remain the right tool for a small office that still answers odd questions. A portal is a narrow window onto one record, not a new way of working with customers.
+
+## What they should see, and what a link is not
+
+Each customer sees their own rows: the open job, the date you are willing to promise, the documents you already send. They do not see another customer's rows, your internal notes, or a price you have not agreed. One shared password on a webpage is not an account. You cannot revoke it for one firm without locking everyone out, and you cannot tell who looked.
+
+If the rows live in a single Access file on a shared drive, the portal has nothing reliable to read. Settle [whether to replace that database](/blog/replace-access-database) before you draw a login screen. If the rows live in a system that already has an interface, the missing piece is the pipe, priced as in [what it costs to have an API built](/blog/build-an-api-integration-cost). A portal that a colleague still fills in by hand is a second place to type.
+
+Someone has to notice when the pipe fails, and when a customer cannot get in. That ongoing work is described in [who runs the automation afterwards](/blog/who-runs-the-automation). If we host the small app, hosting is CHF 50–150 a month, plus whatever the platform or the model actually uses, and you can cancel it.
+
+<div class="blog-pair">
+  <div>
+    <span class="blog-kicker">Build a portal</span>
+    <p>The same status question repeats. The fields are already correct. Each customer can have an account you can close.</p>
+  </div>
+  <div>
+    <span class="blog-kicker">Stay with email</span>
+    <p>The questions vary, the volume is small, or a person still has to fix the number before it can be shown.</p>
+  </div>
+</div>
+
+## The support you are taking on
+
+A portal adds a helpdesk, even a small one. People forget passwords. They write to say the date on the screen is not the date they were told. They try from a phone on a site. If nobody in the office owns those messages, the portal becomes a complaint about you, written by your own customers.
+
+Count that before you count the calls you hope to avoid. If fifteen calls a week become ten calls plus five "I cannot log in" mails, you have moved the work, not removed it. It pays when the avoided calls are the repetitive ones and the new mails are rare because the data matches what you would have said on the phone.
+
+Also decide what happens when the status is wrong. The customer should not be the first person to discover a slip. A wrong date on a screen feels more final than a wrong date in a conversation. If your process still corrects the record the morning the job leaves, do not display that record the night before.
+
+## The right of access is a different job
+
+Under the Swiss Data Protection Act, any person may ask whether you process personal data about them. The federal data protection authority describes that right of access, including that the person has to exercise it themselves, on its [page on the right of access](https://www.edoeb.admin.ch/de/auskunftsrecht). A portal does not fulfil that request, and the law does not require you to build one. Answering a request is a procedure of its own, covered in [how to answer a data subject access request](/blog/data-subject-access-requests). Keep the two apart. A login that shows an order status is a convenience. An access request is a reply you still have to write.
+
+## A made-up example
+
+A made-up example: a metal workshop with 12 people and about 40 trade customers. The office takes roughly 15 calls a week that are only "where is my order". The answer is six fields in the job system: order number, part, promised date, whether it has shipped, the carrier, the document. The owner pulls ten recent jobs and compares the screen with what the office would have said. Eight match. Two have a date the coordinator changed by phone and did not type back.
+
+They should not open a portal this month. They should close that gap, for a few weeks, until a fresh sample matches. Then a portal that shows those six fields, one account per customer, is a sensible small build, fed from the job system rather than typed again. If the two mismatches were the normal case, the portal would publish the confusion. Email stays until the record is the same story the phone tells.
+
+The firm, the counts and the eight-out-of-ten are invented. Your sample decides.
+
+## Who looks after it
+
+Write down who creates an account, who closes it when the customer leaves, and who answers "the date is wrong" before you accept a price. Those three tasks are the operation. The screen is the smaller part.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Show only what you would still say if the customer rang. A portal that displays a draft, an internal note or another customer's document is worse than no portal.</p>
+</aside>
+
+We have not built a ready-made customer login on top of bexio, Abacus or a trade package. If one of those already offers its own portal, use that and skip a second one. A second login for the same status is how offices end up maintaining two answers.
+
+## When this is an integration
+
+A portal that reads one system you already pay for, and shows a logged-in customer their own status, is the kind of case on the [AI integration](/services/ai-implementation-consulting) page. The size follows the feed and the accounts, not a wish to "be digital".
+
+One concrete task inside that picture, such as the status mail someone still sends by hand, is a [Prozess-Check](/prozess-check): one hour on that task, and you leave with whether to start and a price range. If the hour shows the record is not fit to display, the honest result is to fix the record and leave the portal unbuilt.
