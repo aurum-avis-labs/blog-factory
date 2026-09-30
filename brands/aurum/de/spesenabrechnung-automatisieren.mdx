@@ -1,0 +1,79 @@
+---
+title: "Spesenabrechnung automatisieren"
+description: "Belegfoto, Kartenzeile, Freigabe, dann ein abgeschlossenes Bündel für Lohn oder Buchhaltung. Was der Lohnausweis trotzdem braucht."
+pubDate: 2027-01-14
+author: "Aurum Avis Labs"
+tags: ["spesen", "lohn", "belege"]
+funnelStage: interest
+translationKey: expense-claims
+relatedPosts: ["rechnungsfreigabe-automatisieren", "belege-erfassen-was-software-nicht-uebernimmt", "lohnvorbereitung-automatisieren"]
+draft: false
+---
+
+## Spesenabrechnung automatisieren, die Regeln des Lohnausweises lassen
+
+Die Spesenabrechnung automatisieren Sie, indem der Beleg am selben Tag fotografiert wird, die Kartenzeile dazukommt, wenn die Firma gezahlt hat, eine Person freigibt, und Lohn oder Buchhaltung eine abgeschlossene Liste erhält. Der Lohnausweis muss trotzdem zeigen, was die Wegleitung des Bundes verlangt. Ein Scanner entscheidet das nicht.
+
+Der Beitrag ist für das Büro, das Auslagen zurückzahlt oder eine Firmenkarte abgleicht, in einem Schweizer Betrieb. Lieferantenrechnungen sind ein anderer Stapel. Was die Buchhaltung schon liest und wo die Lücke bleibt, steht in [Belege erfassen](/de/blog/belege-erfassen-was-software-nicht-uebernimmt). Diese Lieferantenrechnungen freizugeben steht in der [Rechnungsfreigabe](/de/blog/rechnungsfreigabe-automatisieren). Eine Spese ist Geld, das eine Person für die Firma ausgegeben hat, keine Lieferantenrechnung an die Firma.
+
+Was der Lohnlauf von diesem Ablauf braucht, ist nur die abgeschlossene Liste. Wie diese Liste neben Stunden und Absenzen liegt, steht in der [Lohnvorbereitung](/de/blog/lohnvorbereitung-automatisieren).
+
+## Was jede Zeile braucht
+
+Eine Zeile, die das Programm weitergeben kann, hat jedes Mal dieselben Felder. Fehlt eines, wartet die Zeile. Geraten wird sie nicht.
+
+<ul class="blog-checklist">
+  <li>Datum, Betrag, Währung und was gekauft wurde, in einem kurzen Satz</li>
+  <li>Wer ausgegeben hat, und ob die Person oder die Firma gezahlt hat</li>
+  <li>Das Belegbild, lesbar, mit Lieferant und Total</li>
+  <li>Die Kartenzeile, wenn eine Firmenkarte gezahlt hat, mit demselben Betrag</li>
+  <li>Eine Art, die Ihre Regeln schon kennen: Reise, Verpflegung, Übernachtung, Kleinspesen, Kundeneinladung</li>
+  <li>Name der vorgesetzten Person, die freigegeben hat, und das Datum</li>
+</ul>
+
+Das Foto entsteht am selben Tag. Ein Monat zerknittertes Papier im Handschuhfach kommt nach dem Stichtag des Lohns an und verzögert den Lohn oder wird zu spät bezahlt. Ein Weg: das Formular auf dem Handy, oder das Foto an eine feste Adresse, die die Zeile anlegt. Ein zweiter Weg im Chat heisst, das Büro legt den Beleg zweimal ab oder gar nicht.
+
+## Firmenkarte und eigenes Geld sind nicht derselbe Export
+
+Hat die Person selbst gezahlt, ist die abgeschlossene Zeile eine Rückerstattung. Die Zeile geht an den Lohn oder an einen Zahlungslauf und kann auf den Lohnausweis gehören. Hat die Firma mit Karte gezahlt, ist das Geld schon von der Bank weg. Die Zeile braucht trotzdem Beleg und Freigabe, weil die Buchhaltung die Kostenart braucht und weil die Regeln zum Ausweis Kartenausgaben nicht ausblenden.
+
+Die Wegleitung der Eidgenössischen Steuerverwaltung zum Lohnausweis sagt, dass effektive Spesenvergütungen zu deklarieren sind, einschliesslich Auslagen über eine Unternehmenskreditkarte. Es gibt einen engen Fall, in dem ein Kreuz in Ziffer 13.1.1 genügt und der Betrag nicht auf dem Formular steht. Jede Bedingung muss gelten, nicht eine Auswahl. Dazu gehören: Übernachtung gegen Beleg; eine effektive Vergütung für eine Hauptmahlzeit in der Regel von höchstens CHF 35, oder eine Pauschale von höchstens CHF 30; Kundeneinladungen gegen Originalquittung; öffentliche Verkehrsmittel gegen Beleg; das Privatfahrzeug geschäftlich mit höchstens 75 Rappen pro Kilometer; Kleinspesen gegen Beleg oder als Tagespauschale von höchstens CHF 20. Diese Einzelfallpauschalen darf man nicht auf die Arbeitstage hochrechnen. Es braucht eine tatsächliche Reisetätigkeit. Die Quelle ist die [Wegleitung 2026 der ESTV](https://www.estv.admin.ch/dam/de/sd-web/afP1GDFr8gE3/dbst-form-lohna-wegleitung-2026-de.pdf).
+
+Scheitert eine dieser Vorgaben, oder liegt kein genehmigtes Spesenreglement vor, gehören die effektiven Reise-, Verpflegungs- und Übernachtungsspesen als Betrag auf den Ausweis. Dieser Beitrag ist keine Steuerberatung. Ihre Treuhand wendet die Wegleitung auf Ihren Fall an.
+
+## Pauschalen und ein genehmigtes Reglement
+
+Eine Pauschale ausserhalb dieser engen Liste ist etwas anderes. Die Wegleitung sagt, Arbeitgeber, die nicht nur nach diesem effektiven Muster vergüten, können bei der Steuerbehörde des Sitzkantons ein Spesenreglement zur Genehmigung einreichen. Die Mustervorlagen der Schweizerischen Steuerkonferenz sind die Form, die sie empfiehlt. Mit einer Genehmigung stehen die Pauschalen in Franken in Ziffer 13.2, und Ziffer 15 nennt den Kanton und das Datum der Genehmigung. Das Kreuz in Ziffer 13.1.1 setzt man dann nicht. Andere Kantone anerkennen diese Genehmigung, wenn die Vorlagen vom 1. Februar 2024, gültig ab 1. Mai 2024, eingehalten sind. Pauschalen müssen ungefähr den wirklichen Auslagen entsprechen.
+
+Ein Ablauf kann «Reglement genehmigt, Kanton, Datum» als ein Feld zur Firma speichern, damit die Lohndatei im Januar nicht aus dem Gedächtnis entsteht. Genehmigen kann er das Reglement nicht. Dieses Gesuch ist ein Schreiben an die kantonale Steuerbehörde, meist mit der Treuhand. Zahlen Sie jeden Monat eine Vertretungspauschale und haben das Gesuch nie gestellt, klären Sie das, bevor Sie Fotos automatisieren. Eine Pauschale zu automatisieren, die der Ausweis nicht tragen kann, macht aus dem Januar eine Korrektur.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Der Ablauf sammelt und gibt frei. Er entscheidet nicht, was steuerfrei ist, und er füllt den Lohnausweis nicht aus. Beträge, das Kreuz in Ziffer 13.1.1 und ein genehmigtes Reglement setzt, wer den Ausweis erstellt. Die Wegleitung oben ist die Quelle. Das ist keine Steuerberatung.</p>
+</aside>
+
+## Fremdwährung
+
+Schreiben Sie den Kurs auf die Zeile, und nehmen Sie eine Quelle. Zeigt die Kartenabrechnung schon Franken, ist dieser Frankenbetrag die Zeile. Hat die Person in Euro gezahlt und Sie erstatten Franken, nehmen Sie den Kurs, den die Bücher schon verwenden, den Kurs der Karte oder den Kurs, den die Treuhand genannt hat, und schreiben Sie, welcher es ist. Lassen Sie nicht jede Person einen Kurs von einer anderen Website wählen. Erfinden Sie im Ablauf keinen Kurs, wenn die Abrechnung noch nicht da ist. Die Zeile wartet.
+
+## Freigabe und das abgeschlossene Bündel
+
+Die vorgesetzte Person gibt den geschäftlichen Zweck frei, nicht die steuerliche Behandlung. Ein fehlender Beleg, eine Mahlzeit, die privat wirkt, oder ein Wochenende ohne Auftrag im Kalender geht an die Person zurück. Ein Ablauf kann diese Frage weiterleiten. Er soll nicht durch Schweigen freigeben.
+
+Ist eine Periode geschlossen, erhält der Lohn die Rückerstattungen und die Buchhaltung die Kartenzeilen, die schon bezahlt sind. Offene Zeilen sind als verschoben benannt, nicht verloren. Derselbe Stichtag wie beim Lohnpaket verhindert, dass sich die beiden über einen Beleg streiten, der am Morgen des Laufs ankam.
+
+Private Posten auf der Firmenkarte sind als privat markiert und werden zurückgefordert. Sie bleiben nicht in den Reisekosten, weil der Beleg schwer zu lesen war.
+
+## Ein erfundenes Beispiel
+
+Ein erfundenes Beispiel: Eine Servicetechnikerin in einem Monat mit drei Kosten. Ein Mittagessen von CHF 28, von ihr bezahlt. Ein Billett von CHF 64, mit der Firmenkarte bezahlt. Vierzig Kilometer mit dem Privatwagen, zum Kurs, den die Firma schon verwendet, unter den 75 Rappen aus der Wegleitung. Die Technikerin fotografiert den Beleg zum Essen am selben Abend und trägt 40 Kilometer im Formular ein. Die Kartenzeile für die Bahn passt zum Bild des Billetts. Die vorgesetzte Person gibt alle drei am nächsten Morgen frei. Der Lohn erhält eine Rückerstattung für das Essen und eine für die Kilometer. Die Bahn wird nicht nochmals bezahlt. Die Buchhaltung erhält die Bahn als Reise, schon bezahlt. Auf dem Formular steht nicht, der Betrag sei steuerfrei. Wer den Lohn führt, entscheidet mit der Regel der Treuhand für diese Firma, ob der Ausweis einen Betrag braucht oder nur das Kreuz.
+
+## Wer einen eigenen Ablauf weglassen sollte
+
+Lassen Sie ihn weg, wenn Reisen selten sind und das Lohnprogramm, das Sie schon bezahlen, ein Belegfeld hat, das die Leute wirklich nutzen. Eine zweite App, die in die erste exportiert, ist Doppelerfassung. Lassen Sie ihn weg, wenn zwei Personen im Jahr eine Handvoll Belege einreichen und das Büro ihnen nicht nachrennen muss. Lassen Sie ihn weg, wenn das eigentliche Problem eine monatliche Pauschale ohne Genehmigung ist. Der Foto-Ablauf macht diese Pauschale nicht korrekt.
+
+Die wiederkehrende Arbeit, die sich zu beschreiben lohnt, ist das Nachfassen und der Abgleich: Belege ohne Kartenzeile, Kartenzeilen ohne Beleg, und ein Bündel, das noch offen ist, wenn der Lohn danach fragt.
+
+## Wann der Prozess-Check passt
+
+Ein [Prozess-Check](/de/prozess-check) passt, wenn dieses Nachfassen monatlich die Arbeit ist: dieselben Kartenzeilen ohne Foto, dieselben Abrechnungen nach dem Stichtag, dieselbe Frage, was auf den Ausweis darf. Sie bringen diese eine wiederkehrende Arbeit mit. Der Termin dauert 60 Minuten per Microsoft Teams. Danach haben Sie einen konkreten Fall, ob er sich lohnt, eine Preisspanne und eine ungefähre Dauer. Die Stunde verpflichtet Sie zu nichts.

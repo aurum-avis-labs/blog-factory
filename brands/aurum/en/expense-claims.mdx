@@ -1,0 +1,79 @@
+---
+title: "Automate employee expense claims in Switzerland"
+description: "Receipt, card line, manager approval, then a closed batch for payroll or the books. What the Swiss salary certificate still needs."
+pubDate: 2027-01-14
+author: "Aurum Avis Labs"
+tags: ["expenses", "payroll", "receipts"]
+funnelStage: interest
+translationKey: expense-claims
+relatedPosts: ["invoice-approval-workflow", "invoice-capture-what-software-misses", "payroll-preparation"]
+draft: false
+---
+
+## Automate the expense claim, and leave the certificate rules intact
+
+Automate employee expense claims by taking a photo of the receipt the same day, matching it to the card line when the firm paid, getting one approval, and handing payroll or the accounts a closed list. The salary certificate still has to show what the federal guide requires. A scanner does not decide that.
+
+This is for the office that pays back staff, or that reconciles a company card, in a Swiss firm. Supplier invoices are a different pile: what accounting software already reads, and where the gap is, is in [invoice capture](/blog/invoice-capture-what-software-misses). Approving those supplier bills is in [invoice approval](/blog/invoice-approval-workflow). An expense is money spent by a person for the firm, not a vendor invoice addressed to the company.
+
+What the payroll run needs from this workflow is only the closed list. How that list sits among hours and absences is in [preparing payroll inputs](/blog/payroll-preparation).
+
+## What every line needs
+
+A claim line the program can pass on has the same fields every time. If one is missing, the line waits. It does not get guessed.
+
+<ul class="blog-checklist">
+  <li>Date, amount, currency and what was bought, in a short plain phrase</li>
+  <li>Who spent it, and whether the employee or the firm paid</li>
+  <li>The receipt image, readable, including the supplier and the total</li>
+  <li>The card line, when a company card paid, with the same amount</li>
+  <li>A type your rules already use: travel, meal, overnight, minor, client</li>
+  <li>The name of the manager who approved, and the date</li>
+</ul>
+
+The photo is taken the same day. A month of crumpled paper in a glovebox arrives after the payroll cut-off and either delays the wage or gets paid late. One path: the form on the phone, or the photo to a fixed address that creates the line. A second path in a chat means the office files it twice or not at all.
+
+## Company card and employee money are not the same export
+
+If the employee paid, the closed line is a reimbursement. It goes to payroll or to a payment run, and it may belong on the salary certificate. If the firm paid by card, the money has already left the bank. The line still needs a receipt and an approval, because the books need the cost type, and because the certificate rules do not ignore card spending.
+
+The federal guide to the salary certificate says effective expense reimbursements have to be declared, including amounts paid with a company credit card. There is a narrow case where a cross in field 13.1.1 is enough and the amount stays off the form. Every condition has to hold, not a subset. Among them: overnight costs against a receipt; a meal reimbursed at generally no more than CHF 35, or a flat main meal of no more than CHF 30; client invitations against the original receipt; public transport against a receipt; a private car at no more than 75 rappen per kilometre; minor costs against a receipt or a daily flat of no more than CHF 20. Those per-case flats may not be scaled up to a year's working days. There has to be real travel. The guide is the [2026 Wegleitung of the federal tax administration](https://www.estv.admin.ch/dam/de/sd-web/afP1GDFr8gE3/dbst-form-lohna-wegleitung-2026-de.pdf).
+
+If any of that fails, or there is no approved expense regulation, the effective travel, meal and overnight amounts go on the certificate as figures. This page is not tax advice. Your fiduciary applies the guide to your case.
+
+## Flat amounts and an approved regulation
+
+A flat amount that does not follow that narrow list is a different thing. The guide says employers who pay other than that effective pattern can ask the tax authority of the canton where the company is seated to approve an expense regulation. The Swiss Tax Conference templates are the shape it recommends. With an approval, the certificate shows the flat amounts in francs in field 13.2, and field 15 states which canton approved the regulation and on what date. The cross in field 13.1.1 is then not used. Other cantons recognise that approval when the templates of 1 February 2024, in force from 1 May 2024, are followed. Flats still have to sit near the real outlay.
+
+A workflow can store "regulation approved, canton, date" as one field on the company, so the payroll file is not assembled from memory in January. It cannot approve the regulation. That request is a letter to the cantonal tax authority, usually prepared with the fiduciary. If you pay monthly representation flats and you have never sent that request, fix that before you automate the photos. Automating a flat that the certificate cannot carry is how January becomes a correction.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>The workflow collects and approves. It does not decide what is tax-free, and it does not fill the salary certificate. Amounts, the cross in field 13.1.1 and an approved regulation are applied by whoever prepares the certificate. The guide above is the source. This is not tax advice.</p>
+</aside>
+
+## Foreign currency
+
+Write the rate on the line, and use one source. If the card statement already shows Swiss francs, that franc amount is the line. If the employee paid in euros and you reimburse francs, use the rate your books already use, the card rate or the rate your fiduciary named, and write which one. Do not let each claimant pick a rate from a different website. Do not invent a rate in the workflow when the statement has not arrived. The line waits.
+
+## Approval and the closed batch
+
+The line manager approves the business purpose, not the tax treatment. A missing receipt, a meal that looks private, or a weekend with no job in the calendar comes back to the employee. A workflow can route that question. It should not approve by silence.
+
+Once a period is closed, payroll gets the reimbursements and the accounts get the card lines that are already paid. Open lines are named as deferred, not dropped. The same cut-off as the payroll pack keeps the two from arguing about a receipt that arrived on the morning of the run.
+
+Private items on a company card are marked private and recovered. They do not sit in travel costs because the receipt was hard to read.
+
+## A made-up example
+
+A made-up example: one field technician in a month with three costs. A lunch of CHF 28, paid by the technician. A train ticket of CHF 64, paid with the company card. Forty kilometres in a private car, at the rate the firm already uses, under the 75 rappen figure in the guide. The technician photographs the lunch receipt the same evening and types 40 kilometres in the form. The card line for the train matches the ticket image. The manager approves all three the next morning. Payroll receives one reimbursement line for the lunch and one for the kilometres. The train does not get paid again. The accounts receive the train as travel, already paid. Nothing on the form says the amount is free of tax. The person who runs payroll, with the fiduciary's rule for this firm, decides whether the certificate needs a figure or only the cross.
+
+## Who should skip a separate workflow
+
+Skip it if travel is rare and the payroll program you already pay for has a receipt field people actually use. A second app that exports into the first one is double entry. Skip it if two people submit a handful of receipts a year and the office is not chasing them. Skip it if the real problem is an unapproved flat paid every month. The photo workflow will not make that flat correct.
+
+The recurring task worth describing is the chase and the match: receipts without a card line, card lines without a receipt, and a batch that is still open when payroll asks for it.
+
+## When a Prozess-Check fits
+
+A [Prozess-Check](/prozess-check) fits when that chase is monthly: the same card lines without photos, the same claims after the cut-off, the same question about what may go on the certificate. You bring this one recurring task. The meeting is 60 minutes on Microsoft Teams. You leave with a concrete case, whether it pays off, a price range and a rough duration. The hour does not commit you to a project.
