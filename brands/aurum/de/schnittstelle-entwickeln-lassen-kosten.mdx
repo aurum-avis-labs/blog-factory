@@ -1,0 +1,70 @@
+---
+title: "Schnittstelle entwickeln lassen: Kosten"
+description: "Schnittstelle entwickeln lassen, was es kostet: wann ein Connector reicht, und welche Tagespakete zu einer Integration passen."
+pubDate: 2027-02-12
+author: "Aurum Avis Labs"
+tags: ["schnittstelle", "projektkosten", "anbindung"]
+funnelStage: consideration
+translationKey: build-an-api-integration-cost
+relatedPosts: ["was-automatisierung-kostet-schweiz", "automatisierungspartner-auswaehlen", "access-datenbank-abloesen"]
+draft: false
+---
+
+## Was es kostet, eine Schnittstelle entwickeln zu lassen
+
+Eine gebaute Schnittstelle liegt bei uns in diesen Paketen: Small, 2–3 Tage, CHF 3'200–4'800. Medium, etwa 7 Tage, rund CHF 14'000. Large, etwa 10 Tage, rund CHF 20'000. Max ab 12 Tagen, ab CHF 25'000. Das Band hängt davon ab, wie viele Felder wandern, ob beide Systeme schon eine Schnittstelle haben, und was passieren muss, wenn die andere Seite ausfällt. Es hängt nicht am Wort «API». Das Hosting danach kostet CHF 50–150 im Monat, plus die KI- oder Plattformnutzung, die der Vorgang wirklich braucht. Sie können es jederzeit kündigen.
+
+Der längere Text dazu, was ein Projekt enthält, Anzahlung und der Rest, steht in [Was Automatisierung in der Schweiz ungefähr kostet](/de/blog/was-automatisierung-kostet-schweiz). Hier geht es nur um die Schnittstelle: ein System übergibt etwas an ein anderes.
+
+| Paket | Zeit | Richtpreis |
+| --- | --- | --- |
+| Small | 2–3 Tage | CHF 3'200–4'800 |
+| Medium | etwa 7 Tage | rund CHF 14'000 |
+| Large | etwa 10 Tage | rund CHF 20'000 |
+| Max | ab 12 Tagen | ab CHF 25'000 |
+
+Eine Richtung, wenige Felder, zwischen Systemen, die wir schon anbinden, und eine Mail, wenn es scheitert: das ist die Form von Small. Zwei Richtungen, mehr Felder, und eine echte Antwort, wenn das andere System nicht rechtzeitig antwortet: das ist die Form von Medium. Mehrere Systeme, oder Regeln, die das Produkt sind und nicht nur eine Übergabe: Large oder Max. Können Sie die beiden Systeme noch nicht benennen, sind Sie in keinem Band. Sie sind in einem Gespräch.
+
+## Wann ein Connector reicht
+
+Ein Connector reicht, wenn beide Seiten schon in einem Produkt stecken, das eine fertige Verbindung hat, und die Arbeit lautet «wenn das passiert, schreibe diese Felder dorthin». Microsoft beschreibt über 1'000 Connectors in Logic Apps, Power Automate, Power Apps und Copilot Studio, für Microsoft-Dienste und geprüfte andere. Sie zahlen für die Einrichtung und dafür, dass jemand die Fehler besitzt, nicht für ein neues Programm.
+
+Ein Custom Connector ist bei Microsoft eine Hülle um eine REST- oder SOAP-Schnittstelle, für einen Dienst, der nicht in dieser Liste steht. Sie brauchen trotzdem ein Konto, das sich anmelden darf, und eine Beschreibung der Operationen. Das ist weniger Arbeit als ein Programm, das Sie selbst betreiben, und mehr Arbeit als ein fertiger Connector. Es ist immer noch kein Grund, die Frage zu überspringen, wer hinschaut, wenn ein Lauf scheitert.
+
+Beauftragen Sie eine Umsetzung, wenn das andere System keinen Connector hat, den Sie nutzen dürfen, die Regeln mehr sind als ein Kopieren von Feldern, oder die Daten nicht durch einen allgemeinen Automations-Mandanten dürfen. Wir haben Microsoft 365 angebunden (Graph, Outlook, Bookings, Teams), Google Workspace und Stripe. Eine fertige Verbindung zu bexio, Abacus oder einem Branchenpaket haben wir nicht gebaut. Hat eines davon eine Schnittstelle, steht das bei denen, und sie muss an Ihrem Konto geprüft werden, nicht angenommen werden.
+
+Ist das «System» eine einzelne Access-Datei auf einem gemeinsamen Laufwerk, gibt es vielleicht nichts aufzurufen. Beginnen Sie bei [ob Sie diese Access-Datenbank ablösen](/de/blog/access-datenbank-abloesen). Eine Datei wird nicht zur Schnittstelle, weil jemand das wünscht.
+
+## Worauf die Tage gehen
+
+Die Tage sind keine leere Schachtel um «Entwicklung».
+
+<ol class="blog-steps">
+  <li>Benennen Sie die Arbeit. Eine Übergabe, die Felder, die wandern, und welches System gilt, wenn beide einen Wert haben.</li>
+  <li>Prüfen Sie, ob die andere Seite Sie hineinlässt: eine dokumentierte Schnittstelle, ein Testkonto, und eine Berechtigung, die nicht das geteilte Admin-Passwort aus einer Schublade ist.</li>
+  <li>Machen Sie den Weg, der funktioniert. Ein Datensatz geht hinüber. Sie können in beiden Systemen darauf zeigen.</li>
+  <li>Machen Sie die Wege, die scheitern. Dublette, fehlendes Feld, keine Antwort, ein Wert länger als die andere Seite annimmt. Jeder hat ein aufgeschriebenes Ergebnis.</li>
+  <li>Sagen Sie, wer Bescheid erhält, und wo ein gescheiterter Datensatz wartet, damit er nicht still verschwindet.</li>
+</ol>
+
+Small sind diese fünf Punkte bei einer engen Übergabe. Der Preis bewegt sich, wenn Punkt 2 eine Woche Warten auf einen Hersteller ist, oder Punkt 4 ein Dutzend verschiedene Fehler hat, weil die Daten unordentlich sind. Warten ist Kalenderzeit. Das ist nicht dasselbe wie Tage der Umsetzung, und ein Angebot, das das Warten versteckt, wirkt günstig und wird spät fertig.
+
+Woran Sie erkennen, ob die Person am Tisch das kann und danach noch antwortet, steht in [einen Automatisierungspartner auswählen](/de/blog/automatisierungspartner-auswaehlen).
+
+## Ein erfundenes Beispiel
+
+Ein erfundenes Beispiel: ein Gebäudetechnik-Betrieb mit 20 Personen schliesst einen Auftrag in einem Planungswerkzeug ab, und eine Kollegin tippt acht Felder ins Rechnungswerkzeug. Etwa zwölfmal die Woche, etwa zehn Minuten, und das Servicedatum ist oft genug falsch, dass die Rechnung zurückgeht. Beide Werkzeuge sind Cloud-Produkte mit einer dokumentierten Schnittstelle und einem Testkonto, das das Büro öffnen kann. Sonst muss nichts wandern. Fehler sollen als Mail an eine Person gehen, mit der Auftragsnummer.
+
+Diese Form ist Small: 2–3 Tage, CHF 3'200–4'800, wenn das Testkonto in der ersten Sitzung funktioniert und die acht Felder auf beiden Seiten existieren, unter Namen, die ein Mensch zuordnen kann. Es wird Medium, wenn das Rechnungswerkzeug einen Auftrag ablehnt, solange nicht drei verknüpfte Datensätze zuerst entstehen, und eine dieser Zuordnungen eine Liste ist, die das Planungswerkzeug als freien Text speichert. Es ist gar kein Projekt, wenn das Rechnungs-«Werkzeug» eine Access-Datei ohne Schnittstelle ist. Der Betrieb, die wöchentliche Zahl und die zehn Minuten sind erfunden, damit das Band eine Form hat. Ihre Felder entscheiden.
+
+## Was nicht in denselben Preis gehört
+
+Packen Sie kein neues Login für Kundinnen, keinen neu gezeichneten Statusablauf und nicht «solange Sie da sind, die Berichte» in einen Schnittstellenpreis. Jedes davon ist etwas anderes, das das Büro beschreiben muss. Die Schnittstelle ist die Leitung. Ein Portal, ein neues Statusmodell und ein Monatsbericht sind Nachbararbeiten. Preisen Sie sie, wenn sie aufgeschrieben sind, nicht als Adjektive zu dieser einen.
+
+Lassen Sie auch das Versprechen weg, die Schnittstelle des Herstellers bleibe stehen. Hersteller ändern Felder. Die Umsetzung soll laut scheitern, wenn ein Feld verschwindet. Das ist Punkt 4, keine ewige Garantie im Tagessatz.
+
+## Wer den Termin buchen sollte, und wer nicht
+
+Buchen Sie den [Prozess-Check](/de/prozess-check/buchen), wenn Sie zwei Systeme benennen können, die Sie schon nutzen, eine wiederkehrende Übergabe, und die Felder, die jemand abtippt. Die Stunde kostet CHF 99 pauschal, über Microsoft Teams. Wir sind nicht MWST-pflichtig, also kommt keine MWST dazu. Sie beschreiben die Arbeit. Sie bringen keine Kundendaten mit. Sie gehen mit dem, wo Sie anfangen, ob es sich lohnt, einer Preisspanne und einer groben Dauer. Findet die Stunde nichts, das sich umzusetzen lohnt, erhalten Sie das Entgelt zurück, sofern der Termin stattgefunden hat. Die CHF 99 werden angerechnet, wenn Sie weitermachen. Die Stunde selbst verpflichtet Sie zu nichts.
+
+Buchen Sie nicht, wenn Sie die Systeme nicht benennen können, wenn Sie ein neues Buchhaltungsprogramm wollen statt einer Übergabe, oder wenn Sie hoffen, drei unverbundene Projekte in sechzig Minuten zu bepreisen. Solche Stunden werden vage, und eine vage Stunde ist ein schlechter Gebrauch des Entgelts, auch wenn es zurückkommt. Das Angebot selbst, inklusive was Sie mitbringen, steht auf der [Prozess-Check-Seite](/de/prozess-check).

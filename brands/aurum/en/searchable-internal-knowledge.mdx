@@ -1,0 +1,99 @@
+---
+title: "Make internal knowledge searchable with AI"
+description: "Make internal knowledge searchable with AI: retrieval from your files, Microsoft 365 and Google permissions, and what to clean up first."
+pubDate: 2027-01-15
+author: "Aurum Avis Labs"
+tags: ["internal knowledge", "document search", "permissions"]
+funnelStage: interest
+translationKey: searchable-internal-knowledge
+relatedPosts: ["website-chatbot-sme", "approve-ai-tools-allow-list", "automate-microsoft-365"]
+draft: false
+---
+
+## Make internal knowledge searchable with AI
+
+You make internal knowledge searchable by pointing a model at the files the company already has, and asking it to answer from those files rather than from memory. The useful name for that is retrieval: the system finds passages, then writes an answer from them. People also call the setup RAG. It does not learn the company. If the passage is old, wrong, or visible to the wrong person, the answer is too.
+
+That is a different job from a chat box on the public website, which is [whether a website chatbot is worth it](/blog/website-chatbot-sme). Which products are even allowed in the office is the [allow-list](/blog/approve-ai-tools-allow-list). Connecting a repeatable Microsoft 365 flow is [automating Microsoft 365](/blog/automate-microsoft-365). This page is the files themselves.
+
+## What "answers from your documents" actually does
+
+The model does not contain your handbook. At question time it searches a set of files, pulls the passages that look relevant, and writes from those passages. A good result names the file. You open the file and check the sentence. If it cannot point at a file, you do not use the answer.
+
+Old versions count, if they are still in the set and still open to the person asking. Duplicate handbooks are the usual failure, not a mysterious model error. So are files that were never written down: a search cannot retrieve a rule that lives only in one person's head.
+
+## Built-in tools, or a set of files you choose
+
+Both Microsoft and Google can search what the signed-in person may already open. A custom set is a smaller pile you choose and keep current. Start with the suite you already pay for, on one question, before you commission a separate search.
+
+<div class="blog-pair">
+  <div>
+    <h3>Already in the suite</h3>
+    <ul>
+      <li>Microsoft 365 Copilot retrieves through Microsoft Graph and respects existing permissions, sharing settings and policies, as Microsoft's preparation guide states.</li>
+      <li>Gemini in Google Workspace has the same access as the user: Drive files shared with them, calendars they can view. An admin can block Workspace data from Gemini entirely.</li>
+    </ul>
+  </div>
+  <div>
+    <h3>A set you choose</h3>
+    <ul>
+      <li>You name the folders that are allowed to answer, and you leave the rest out.</li>
+      <li>Worth it when the files are not in SharePoint or Drive, or when the built-in search mixes too many sites for one narrow question.</li>
+    </ul>
+  </div>
+</div>
+
+Google adds a practical limit on Drive. If the owner has turned off download, copy and print, Gemini cannot use that file even though it is shared with you. A PDF has to be in Drive before it can be a source. Delegated access to someone else's Gmail does not give Gemini that inbox. Those limits are on [Google's own help page](https://support.google.com/a/users/answer/17010577?hl=en).
+
+A chosen set still needs someone to add the new version and retire the old one. If nobody owns that, the built-in tool over a tidy folder is the better arrangement. Whether your other software even offers an interface for a custom set is a question for the files you have, not a feature we claim in advance. We have not built a ready-made link to bexio, Abacus or a trade-specific program.
+
+## Permissions, and why oversharing becomes an answer
+
+The search does not create a new wall. It reads what this person can already open.
+
+Microsoft says SharePoint sharing is, by default, the most permissive option. An "Anyone" link, or a file shared with the whole organisation, is then a file Copilot may use for anyone who can open it. Restricted Content Discovery can keep a high-risk site out of Copilot and out of organisation-wide search while you review it. Microsoft is explicit that this leaves the permissions unchanged. People who already have the file can still use it, including an open document. The fix for the wrong audience is the permission, not a discovery switch.
+
+Restricted SharePoint Search is the older temporary list of sites. Microsoft says new enablement is blocked from 31 July 2026, it is not a security boundary, and it does not change who can open a file. Recently used sites, and sites shared in Teams or Outlook, can still appear. Do not treat that switch as the cleanup.
+
+On the Google side the same rule holds in one sentence from Google: Gemini has the same access as you do. A file shared too widely is a file Gemini can use for everyone it was shared with.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Search follows access. It does not repair it. If the wrong people can open the folder today, they can get answers from it tomorrow.</p>
+</aside>
+
+## Clean the files before you switch the search on
+
+Do this for one question, not for the whole company archive.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Name the question</h3><p>One question people already ask, such as the current handover rule or the current price list.</p></li>
+  <li data-step="2"><h3>Name the source</h3><p>The folder or file that is allowed to answer. If two copies disagree, pick one and say so in the filename or the folder name.</p></li>
+  <li data-step="3"><h3>Retire the old copy</h3><p>Move it out, or stop the wide link. An archived site in Microsoft 365 cannot be opened until it is brought back, so it drops out of what Copilot can retrieve.</p></li>
+  <li data-step="4"><h3>Match the audience</h3><p>The people who may read the answer must be the people who may open the file. Check "Anyone" links and company-wide shares on that folder.</p></li>
+  <li data-step="5"><h3>Ask once, and open the file</h3><p>Ask the built-in tool. Open every file it cites. If the citation is the old copy, the cleanup is not finished.</p></li>
+</ol>
+
+Only after that test should you talk about a separate search over a chosen set. If the built-in tool, on a tidy folder, answers with the right file, you do not need another system.
+
+## A made-up example
+
+A made-up example: an office of about 20 people keeps the staff handbook in SharePoint. The current file is "Handbook 2026". A file from 2022 is still in the same library, shared with the whole organisation, because someone sent a link years ago and nobody closed it. A new hire asks the Copilot in Microsoft 365 how many weeks of holiday the handbook states. Both files are visible to that person, so either can be retrieved. The 2022 file is not a secret. It is just wrong for today.
+
+The cleanup is small. Move the 2022 file out of the library the search uses, or remove the company-wide link so only the people who still need the archive can open it. Ask the same question again. The citation should be the 2026 file. If it is not, another copy is still open somewhere, often in someone's OneDrive or in an email attachment that was saved back to a site.
+
+The same shape applies in Google Drive. Gemini can use the 2022 file for anyone it is shared with. Turning off download, copy and print would also stop Gemini from using it, but that is a blunt tool: people who should still read the current file need to be able to open it. Prefer a share that matches the audience.
+
+Nothing in the example is a customer, and the holiday number is deliberately not filled in. Your handbook, and the legal minimum, are your own text.
+
+## Who should not start with a search
+
+Do not start if the answers were never written down. Retrieval cannot invent a procedure from chat history in people's heads. Write the one-page source first.
+
+Do not start if every file sits in private mailboxes with no shared folder. The built-in tools will only see what each person can already open, which is a different pile for every employee. A shared folder with an owner is the prerequisite.
+
+Do not start if the question is a judgement: a contract interpretation, a dismissal, a medical note. A search can surface the document. A person still decides. And do not point an internal search at customers' messages unless the [allow-list](/blog/approve-ai-tools-allow-list) already says that data may go into the tool you chose.
+
+## When a chosen set is an integration
+
+If the right answer needs a fixed list of files, kept current, and the suites you already have still mix in the rest of the tenant, that work sits on the [AI integration](/services/ai-implementation-consulting) page: a search over your files, connected where the system actually offers an interface. A single concrete task, one question and one folder, is a case for the [Prozess-Check](/prozess-check) instead. One hour, one recurring job, and you leave with whether it is worth doing and a price range. You do not need a search project to find out that the 2022 handbook should simply be moved.

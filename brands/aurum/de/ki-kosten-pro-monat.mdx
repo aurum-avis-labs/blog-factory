@@ -1,0 +1,84 @@
+---
+title: "Was KI im Betrieb pro Monat kostet"
+description: "Was KI im Betrieb pro Monat kostet: Tokenpreise vom 30. September 2026, Hosting, Obergrenzen und ein Rechenbeispiel."
+pubDate: 2027-01-05
+author: "Aurum Avis Labs"
+tags: ["betriebskosten", "ki-kosten", "nutzung"]
+funnelStage: interest
+translationKey: ai-running-costs-per-month
+relatedPosts: ["automatisierung-betrieb-wartung", "was-automatisierung-kostet-schweiz"]
+draft: false
+---
+
+## Was KI im Betrieb pro Monat kostet
+
+KI im Betrieb hat zwei monatliche Zeilen, und es sind nicht dieselbe Rechnung. Hosting, wenn wir die Automatisierung betreiben, ist als Richtwert CHF 50–150, jederzeit kündbar. Die Modellrechnung liegt obendrauf und läuft nach Nutzung: so viele Token hinein, so viele hinaus, zum Preis dieses Modells in diesem Monat. Bei kleinem Volumen ist die Modellzeile oft die kleinere. Sie hört auf, klein zu sein, wenn jeder Durchlauf ein langes Dokument schickt, die Antwort lang ist, oder eine Schleife dieselbe Datei immer wieder sendet.
+
+[Wer die Automatisierung danach betreibt](/de/blog/automatisierung-betrieb-wartung) behandelt Hosting, Überwachung und Übergabe. Hier geht es nur um die Nutzungsrechnung. Die Umsetzung selbst steht in [Was Automatisierung in der Schweiz ungefähr kostet](/de/blog/was-automatisierung-kostet-schweiz). Die Preise unten haben wir am 30. September 2026 gelesen. Sie stehen in US-Dollar, wie die Anbieter fakturieren. Die Karte rechnet um. Einen Franken-Kurs setzen wir nicht an.
+
+Ein Chat-Abonnement für eine Person ist eine andere Rechnung als die Schnittstelle, die eine Automatisierung aufruft. Planen Sie die zweite nicht aus der ersten.
+
+## Was ein Token in einfachen Worten ist
+
+Ein Token ist ein Stück Text, oft kürzer als ein Wort. Abgerechnet wird nicht pro Dokument und nicht pro Klick. Abgerechnet werden die Stücke, die Sie schicken, und die Stücke, die das Modell zurückschickt.
+
+OpenAI schreibt in seinem Leitfaden für den Betrieb, die Preise gälten pro 1'000 Token, grob 750 Wörtern. Das ist ihre Faustregel, kein Schweizer Standard, und sie gilt nicht bei jedem Anbieter. Anthropic schreibt, Claude 4.7 und neuere Modelle, also auch Sonnet 5, erzeugten mit ihrem Zähler etwa 30 Prozent mehr Token für denselben Text. Wie viel mehr, hängt vom Inhalt ab. Zählen Sie mit dem Zähler des Anbieters. Die Antwort der Schnittstelle enthält die Zahl. Ein Schätzer eines anderen Anbieters verschätzt die Rechnung.
+
+## Was die Monatssumme bewegt
+
+Vier Dinge bewegen sie. Die Preisliste allein nicht.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Wie oft es läuft</h3><p>Eine Zusammenfassung pro Woche und jedes eingehende PDF sind verschiedene Grössenordnungen. Wiederholungen nach einem Fehler zählen als weitere Durchläufe.</p></li>
+  <li data-step="2"><h3>Wie lang die Eingabe ist</h3><p>Anweisung, Dokument und frühere Runden zählen mit. Den ganzen Ordner zu schicken, wenn eine Seite reicht, vervielfacht die Rechnung.</p></li>
+  <li data-step="3"><h3>Wie lang die Ausgabe ist</h3><p>Eine kurze Bezeichnung ist günstig. Ein umgeschriebenes Dokument nicht. Bei Gemini 3.8 Flash gelten Denk-Token als Ausgabe.</p></li>
+  <li data-step="4"><h3>Welches Modell Sie aufrufen</h3><p>Dieselben Tokenzahlen zu zwei Listenpreisen sind zwei Rechnungen. Ein kleineres Modell ist die erste Ersparnis, sobald die Antwort genügt.</p></li>
+</ol>
+
+Wenn dieselben Anweisungen noch einmal geschickt werden, sind Cache-Treffer günstiger. Auf der Preisliste von Anthropic kostet ein Cache-Treffer bei Sonnet 5 USD 0.20 pro Million Token, gegen USD 2 für eine neue Eingabe. Werkzeuge wie die Websuche können eine Gebühr dazulegen, die nicht im Tokenpreis steckt. Lassen Sie sie aus der Schätzung, bis Sie wissen, dass der Durchlauf sie braucht.
+
+## Listenpreise am 30. September 2026
+
+Das sind die Standardsätze auf den Seiten der Anbieter an diesem Tag, pro Million Token. Keine Empfehlung, und sie werden sich bewegen.
+
+| Modell | Eingabe | Ausgabe | Hinweis |
+| --- | --- | --- | --- |
+| Claude Haiku 4.5 | USD 1 | USD 5 | Preisliste Anthropic |
+| Claude Sonnet 5 | USD 2 | USD 10 | Inzwischen der Standardsatz. Eine Erhöhung auf USD 3 / USD 15 am 1. September 2026 ist abgesagt |
+| Gemini 3.8 Flash | USD 0.75, ab 1. Januar 2027 USD 1.50 | USD 3.75, ab 1. Januar 2027 USD 7.50, Denken inklusive | Preisliste der Gemini API |
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Das sind Listenpreise für einen einfachen Textaufruf. Cache, regionale Verarbeitung, Stapelaufträge und Werkzeugaufrufe sind andere Zeilen. Steht eine Zahl am Tag, an dem Sie nachlesen, nicht mehr auf der Seite des Anbieters, lassen Sie die Tabelle stehen.</p>
+</aside>
+
+## Ein erfundenes Beispiel
+
+Ein erfundenes Beispiel: ein Büro lässt eine Dokumentarbeit 600-mal im Monat laufen. Im kurzen Fall hat jeder Durchlauf 3'000 Eingabe-Token und 400 Ausgabe-Token. Im langen Fall hängt jemand eine viel grössere Datei an: 20'000 Eingabe-Token und 1'500 Ausgabe-Token. Beide Zählungen sind erfunden. Ersetzen Sie sie durch eine Zählung einer echten Datei bei diesem Anbieter. Der kurze Fall sind 1,8 Millionen Eingabe-Token und 0,24 Millionen Ausgabe-Token. Der lange Fall sind 12 Millionen und 0,9 Millionen.
+
+| Fall | Haiku 4.5 | Sonnet 5 | Gemini 3.8 Flash bis 31. Dezember 2026 |
+| --- | --- | --- | --- |
+| Kurz | USD 3.00 | USD 6.00 | USD 2.25 |
+| Lang | USD 16.50 | USD 33.00 | USD 12.375 |
+
+Ab dem 1. Januar 2027 kosten dieselben Gemini-Volumen USD 4.50 und USD 24.75, weil die Eingabe USD 1.50 und die Ausgabe USD 7.50 kostet. Verbraucht Gemini Token für das Denken, kommen sie zur Ausgabe dazu, und das Beispiel liegt zu tief. Macht der Zähler von Sonnet 5 aus einer Datei von 3'000 Token etwa 30 Prozent mehr, steigt die Eingabezeile mit.
+
+Stellen Sie die Modellrechnung neben das Hosting von CHF 50–150. Im kurzen Fall sind es ein paar Dollar, und das Hosting ist die grössere Zeile. Im langen Fall auf Sonnet 5 liegt die Nutzung schon in der Nähe des unteren Hostings, und eine Wiederholungsschleife würde darüber gehen. Eingesparte Arbeitszeit ist eine andere Rechnung. Diese Stunden bewerten Sie mit [dem internen Stundensatz](/de/blog/stundensatz-berechnen-schweiz), nicht mit dieser Tabelle.
+
+## Obergrenzen und Hinweise, vor dem ersten Monat
+
+Eine Schätzung ist keine Decke. Ein Fehler, der dieselbe Datei neu schickt, kann das Monatsbudget an einem Nachmittag verbrauchen.
+
+OpenAI trennt zwei Steuerungen. Ein Hinweis schickt eine Meldung, der Verkehr läuft weiter. Eine harte Ausgabengrenze lässt die betroffenen Aufrufe scheitern. Die Durchsetzung ist nicht sofort, die verbuchte Summe kann also knapp über dem Betrag liegen, den Sie eingetragen haben. Eine Grenze der Organisation und eine des Projekts können beide greifen. OpenAI setzt zusätzlich eine eigene Grenze nach Nutzungsstufe, getrennt von Ihrer.
+
+Auf der Seite von Anthropic zu den Grenzen, wie wir sie gelesen haben, gilt eine monatliche Ausgabenobergrenze nach Stufe: USD 500 bei Start, USD 1'000 bei Build, USD 200'000 bei Scale. Die Stufe Custom hat keine solche Decke. Die Obergrenze sehen Sie, und eine eigene setzen Sie, auf der Abrechnungsseite. An der Decke pausiert die Nutzung bis 00:00 UTC am ersten Tag des nächsten Monats, ausser eine höhere Grenze wird früher gewährt, und die Aufrufe scheitern. Grenzen für einen Arbeitsbereich können Sie zusätzlich setzen.
+
+Setzen Sie den Hinweis unter die Summe, die Sie noch zahlen würden, und den harten Stopp auf die Summe, die Sie nicht zahlen würden. Vergleichen Sie die erste echte Woche mit dem Beispiel. Liegt die Tokenzahl pro Durchlauf weit von der Schätzung weg, ist die Wahl des Modells oder die Dokumentlänge die Korrektur, nicht eine höhere Decke.
+
+## Wann diese Rechnung die falsche Sorge ist
+
+Läuft die Arbeit nur ein paar Mal im Monat, entscheidet die Modellzeile den Fall nicht. Hosting und die Zeit, die Arbeit zu erklären, wiegen mehr. Ist die Arbeit selten oder jedes Mal anders, automatisieren Sie sie nicht wegen ein paar Token. Der Stundensatz und die Nutzenrechnung sind für diesen Entscheid. Diese Seite verhindert nur, dass die Nutzungsrechnung überrascht.
+
+## Wann eine Monatszahl in den Prozess-Check gehört
+
+Bringen Sie eine wiederkehrende Arbeit mit, mit einer groben Zahl, wie oft sie läuft und wie lang ein typisches Dokument ist. Das genügt für den [Prozess-Check](/de/prozess-check): 60 Minuten über Microsoft Teams, CHF 99, zahlbar mit Karte bei der Buchung. Es kommt keine MWST dazu. Sie gehen mit einem Ausgangspunkt, einer Einschätzung, ob es sich lohnt, einer Preisspanne, einer groben Dauer und einer kurzen Zusammenfassung. Beschreiben genügt. Findet die Stunde nichts, was sich zu automatisieren lohnt, und hat der Termin stattgefunden, kommt das Honorar zurück. Die Stunde verpflichtet zu nichts. Richtpreise für eine spätere Umsetzung und das Hosting stehen in [Was Automatisierung in der Schweiz ungefähr kostet](/de/blog/was-automatisierung-kostet-schweiz).

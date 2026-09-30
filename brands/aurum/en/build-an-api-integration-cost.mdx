@@ -1,0 +1,70 @@
+---
+title: "What it costs to have an API built"
+description: "What it costs to have an API built in Switzerland: when a connector is enough, and how our day bands map to one integration."
+pubDate: 2027-02-12
+author: "Aurum Avis Labs"
+tags: ["api integration", "project cost", "connectors"]
+funnelStage: consideration
+translationKey: build-an-api-integration-cost
+relatedPosts: ["what-automation-costs-switzerland", "choosing-an-automation-partner", "replace-access-database"]
+draft: false
+---
+
+## What it costs to have an API built
+
+A built interface, in our packages, is Small at 2–3 days for CHF 3'200–4'800, Medium at about 7 days for about CHF 14'000, Large at about 10 days for about CHF 20'000, or Max from 12 days, from CHF 25'000. The band is set by how many fields move, whether both systems already have an interface, and what must happen when the other side is down. It is not set by the word "API". Hosting afterwards is CHF 50–150 a month, plus the AI or platform use the job actually consumes, and you can cancel it.
+
+The longer account of what a project contains, deposit and the rest, is in [what automation costs in Switzerland](/blog/what-automation-costs-switzerland). This page is only the interface: one system hands something to another.
+
+| Package | Time | Guide price |
+| --- | --- | --- |
+| Small | 2–3 days | CHF 3'200–4'800 |
+| Medium | about 7 days | about CHF 14'000 |
+| Large | about 10 days | about CHF 20'000 |
+| Max | from 12 days | from CHF 25'000 |
+
+A one-way move of a few fields, between systems we already connect, with a mail when it fails, is the shape of Small. Two directions, more fields, and a real answer when the other system times out, is the shape of Medium. Several systems, or rules that are the product rather than a handoff, is Large or Max. If you cannot yet name the two systems, you are not in a band. You are in a conversation.
+
+## When a connector is enough
+
+A connector is enough when both sides already sit in a product that has a ready link, and the job is "when this happens, write these fields there". Microsoft describes more than 1,000 connectors in Logic Apps, Power Automate, Power Apps and Copilot Studio, for Microsoft services and verified ones. You pay for configuration and for someone to own the failures, not for a new program.
+
+A custom connector, in Microsoft's wording, is a wrapper around a REST or SOAP API for a service that is not in that list. You still need an account that can sign in, and a description of the operations. That is less work than a program you host yourself, and more work than ticking a prebuilt connector. It is still not a reason to skip the question of who looks when a run fails.
+
+Order a build when the other system has no connector you are allowed to use, the rules are more than a field copy, or the data must not pass through a general automation tenant. We have connected Microsoft 365 (Graph, Outlook, Bookings, Teams), Google Workspace and Stripe. We have not built a ready link to bexio, Abacus or a trade package. If one of those has an interface, that is written on their side, and it still has to be checked against your account, not assumed.
+
+If the "system" is a single Access file on a shared drive, there may be no interface to call. Start with [whether to replace that Access database](/blog/replace-access-database). A file is not an API because a developer wishes it were.
+
+## What the days are spent on
+
+The days are not a blank box around "development".
+
+<ol class="blog-steps">
+  <li>Name the task. One handoff, the fields that move, and which system is allowed to win if both have a value.</li>
+  <li>Confirm the other side will actually let you in: a documented interface, a test account, and the permission that is not an admin login shared from a drawer.</li>
+  <li>Do the path that works. One record goes across. You can point at it in both systems.</li>
+  <li>Do the paths that fail. Duplicate, missing field, timeout, a value longer than the other side accepts. Each one has a written result.</li>
+  <li>Say who is told, and where a failed record waits so it is not silent.</li>
+</ol>
+
+Small is those five points on a narrow handoff. The price moves when step 2 takes a week of waiting for a vendor, or step 4 has a dozen different failures because the data is dirty. Waiting is calendar time. It is not the same thing as days of building, and a quote that hides the wait will look cheap and finish late.
+
+How to tell whether the person across the table can do this, and will still answer afterwards, is in [choosing an automation partner](/blog/choosing-an-automation-partner).
+
+## A made-up example
+
+A made-up example: a facilities firm of 20 people finishes a job in a planning tool and a colleague retypes eight fields into the invoicing tool. About twelve times a week, about ten minutes each, and the service date is wrong often enough that the invoice goes back. Both tools are cloud products with a documented interface and a test account the office can open. Nothing else needs to move. Failures should land as a mail to one person, with the job number.
+
+That shape is Small: 2–3 days, CHF 3'200–4'800, if the test account works in the first sitting and the eight fields exist on both sides under names a human can match. It becomes Medium if the invoicing tool rejects a job unless three related records are created first, and one of those lookups is a list the planning tool stores as free text. It is not a project at all if the invoicing "tool" is an Access file with no interface. The firm, the weekly count and the ten minutes are invented so the band has a shape. Your fields decide.
+
+## What should not be in the same price
+
+Do not fold a new login for customers, a redesigned status process, and "while you are there, the reports" into one interface price. Each of those is a different thing the office has to specify. The interface is the pipe. A portal, a new status model, and a monthly report are neighbouring jobs. Price them when they are written down, not as adjectives on this one.
+
+Also leave out a promise that the vendor's interface will stay still. Vendors change fields. The build should fail loudly when a field disappears, which is step 4, not a forever guarantee included in the day rate.
+
+## Who should book the hour, and who should not
+
+Book the [Prozess-Check](/prozess-check/buchen) when you can name two systems you already use, one recurring handoff, and the fields a colleague retypes. The hour is CHF 99, flat, on Microsoft Teams. We are not VAT-registered, so there is no VAT on it. You describe the task. You do not bring customer data. You leave with where to start, whether it is worth it, a price range and a rough duration. If the hour finds nothing worth building, you get the fee back, provided the appointment took place. The CHF 99 is credited if you go ahead. The hour itself commits you to nothing.
+
+Do not book if you cannot name the systems, if you want a new accounting program rather than a handoff, or if you hope to price three unrelated projects in sixty minutes. Those hours go vague, and a vague hour is a poor use of the fee even when it is refunded. The offer itself, including what to bring, is on the [Prozess-Check page](/prozess-check).

@@ -1,0 +1,80 @@
+---
+title: "Measure whether an automation works"
+description: "Measure whether an automation works: write a baseline, then compare time, errors, lead time and cases handled. Logins are not the result."
+pubDate: 2027-01-26
+author: "Aurum Avis Labs"
+tags: ["measurement", "automation", "baseline"]
+funnelStage: interest
+translationKey: measure-automation-success
+relatedPosts: ["calculate-automation-benefit", "who-runs-the-automation", "what-automation-costs-switzerland"]
+draft: false
+---
+
+## Measure whether an automation works
+
+You measure whether an automation works by writing four numbers before it goes live, then counting the same four again after people have used it for a few weeks. The four are time per case, errors, lead time, and the share of cases the automation actually finishes. If those four did not move the way the decision said they would, the automation has not worked yet, however often people open it.
+
+The sheet you fill in before you spend anything is [how to calculate the benefit of an automation](/blog/calculate-automation-benefit). This page is the count afterwards. A run that fails overnight is an operations problem, covered in [who runs the automation afterwards](/blog/who-runs-the-automation). What a rebuild would cost is in [what automation costs in Switzerland](/blog/what-automation-costs-switzerland).
+
+## Usage is not the result
+
+Logins, prompts and tokens tell you that the tool was touched. They do not tell you that the work got shorter or cleaner.
+
+<div class="blog-stat">
+  <strong>45%</strong>
+  <p>adesso, GenAI Impact Report Switzerland 2026: share of Swiss companies that measure GenAI success by usage rate. In the same survey, 47% name process efficiency. Their survey of executives, not ours. The shares add up past 100%, so firms could name more than one measure.</p>
+</div>
+
+That report, from adesso Schweiz, is a February 2026 survey by HEUTE UND MORGEN of 100 Swiss executives (a separate chapter covers 750 end customers). adesso's own comment on the figures is the useful line: the usage measures show whether employees use GenAI, not whether it works. After usage rate (45%) and usage frequency (40%) come cost (32%), customer satisfaction (28%), revenue growth (27%) and fewer complaints (18%). Five percent do not measure at all. Read those as adesso's findings. They are a reason to pick a measure that can move, not a target for your firm.
+
+## What to write down before go-live
+
+Count a real stretch, ideally the last four weeks, with the same definitions you will use later. Memory of "it takes ages" will not compare.
+
+<ul class="blog-checklist">
+  <li>Time per case: minutes from the moment someone starts the case until it is done, including corrections and questions. Time three cases, not one.</li>
+  <li>Errors: how many cases last month had to be redone, and what "redone" means. A typo fixed in passing is not the same as a credit note.</li>
+  <li>Lead time: how long the customer or the next colleague waits, from the request to the result leaving. This is calendar time, not the minutes of typing.</li>
+  <li>Share handled: of all cases in the period, how many left on the new path without a person rebuilding them. The rest are still manual.</li>
+  <li>Who still uses the old path: names or roles, not a percentage of licences. Adoption is the condition for the four numbers. It is not itself the result.</li>
+</ul>
+
+Write the numbers where the date is visible: a spreadsheet row, a notebook line, an email to yourself. If you only start counting after go-live, mark the earlier figure as reconstructed from date stamps, and treat it as weaker.
+
+## A made-up example
+
+A made-up example: a small wholesaler confirms orders by copying lines into a mail. Before go-live they counted four weeks. About 40 confirmations a week. Twelve minutes each, including the check. Six confirmations a month went out wrong and needed a correction. The mail left, on average, two days after the order. They wrote that down.
+
+Six weeks after go-live the volume is still about 40 a week. A person checks a draft for four minutes. Two corrections in the last month. Same-day sending on the cases that stay on the new path. Of 40 orders in a sample week, 32 left without anyone rebuilding the mail. Eight were still pasted into the old template by two people who did not trust the draft.
+
+| | Before | After six weeks |
+| --- | --- | --- |
+| Confirmations a week | about 40 | about 40 |
+| Minutes of staff time per confirmation | 12 | 4 on the new path |
+| Corrections in a month | 6 | 2 |
+| Days from order to confirmation | 2 | same day, on the new path |
+| Share that left without a rebuild | none, it was all manual | 32 of 40 |
+
+The login report would have looked healthy in week one and in week six. It would not have shown that 8 of 40 never took the new path. Those eight are the next conversation, not a reason to declare the automation finished. The minutes saved are only real on the 32. Price them with the benefit sheet if you need francs. Do not invent a customer satisfaction score you did not collect.
+
+All of the figures in the table are invented for the arithmetic. Your counts replace them.
+
+## When a number did not move
+
+If time per case barely fell, the automation is doing less than the decision assumed. Look at what the person still types. Often the "check" has become a full redo. That is a design problem, not a reason to cheer the licence.
+
+If errors did not fall, stop adding features and read the two that remain. A wrong product code from the source list will survive any new prompt. Fix the source, then count again. [Who runs the automation](/blog/who-runs-the-automation) is about failures of the run itself. This count is about the cases that completed and were still wrong.
+
+If lead time did not fall, the wait was never the typing. It was a missing approval, a daily batch, or a person who looks at the queue on Fridays. Automating the typing leaves that wait in place.
+
+If the share handled stays low, you do not have a measurement problem. People are voting with the old path. Ask those eight, in the example, what they do not trust. Until that is fixed, do not scale the same pattern to a second task.
+
+## What not to add
+
+Do not add a dashboard for five cases a month. The checklist above is the whole system. Do not convert a feeling into a percentage. Do not treat a vendor's "hours saved" estimate as your after figure. And do not average the new path with the old path and call it the result. Report the share, then the minutes on each path.
+
+A one-off project has no weekly baseline. Judge it once, against the acceptance points you wrote before the build, and stop. This page is for a task that repeats.
+
+## When the count shows the next task
+
+When one step is still manual, and it repeats, that step is a case for the [Prozess-Check](/prozess-check). You bring that one task. Sixty minutes on Microsoft Teams, CHF 99, paid by card when you book. No VAT is added. You leave with where to start, whether it pays off, a price range, a rough duration and a short written summary. Describing it is enough. If the hour finds nothing worth automating, and the appointment took place, the fee comes back. The hour does not commit you to a build. If the first automation already did what the four numbers required, you do not need a second project to celebrate it.

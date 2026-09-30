@@ -1,0 +1,84 @@
+---
+title: "What AI costs per month in operation"
+description: "What AI costs per month in operation: dated token prices, hosting of CHF 50 to 150, spend caps, and a worked example."
+pubDate: 2027-01-05
+author: "Aurum Avis Labs"
+tags: ["running costs", "ai usage", "tokens"]
+funnelStage: interest
+translationKey: ai-running-costs-per-month
+relatedPosts: ["who-runs-the-automation", "what-automation-costs-switzerland"]
+draft: false
+---
+
+## What AI costs per month in operation
+
+AI in operation has two monthly lines, and they are not the same bill. Hosting, when we run the automation, is a guide of CHF 50–150, cancellable at any time. The model bill sits on top and is paid by usage: so many tokens in, so many tokens out, at that model's price that month. At a small volume the model line is often the smaller one. It stops being small when every run sends a long document, when the reply is long, or when a loop sends the same file again and again.
+
+[Who runs the automation afterwards](/blog/who-runs-the-automation) covers hosting, monitoring and handover. This page is only the usage bill. The build itself is in [what automation costs in Switzerland](/blog/what-automation-costs-switzerland). Prices below were read on 30 September 2026. They are in US dollars, as the providers invoice them. Your card converts them. We do not publish a franc rate.
+
+A chat subscription for a person is a different invoice from the API an automation calls. Do not plan the second from the first.
+
+## What a token is, in plain words
+
+A token is a piece of text, often shorter than a word. You are not billed per document or per click. You are billed for the pieces you send in and the pieces the model sends back.
+
+OpenAI's production guide says its prices are per 1,000 tokens, roughly equal to 750 words. That is their rule of thumb, not a Swiss standard, and not true of every provider. Anthropic says Claude 4.7 and later models, which includes Sonnet 5, use a tokenizer that produces about 30 percent more tokens for the same text. The exact increase depends on the content. Count tokens with the provider's own counter. The API response includes the count. A page from another vendor's estimator will mis-state the bill.
+
+## What moves the monthly total
+
+Four things move it. The price list does not.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>How often it runs</h3><p>One summary a week and every incoming PDF are different orders of size. Retries count as extra runs.</p></li>
+  <li data-step="2"><h3>How long the input is</h3><p>The instruction, the document, and any earlier turns all count. Sending the whole folder when the task needs one page multiplies the bill.</p></li>
+  <li data-step="3"><h3>How long the output is</h3><p>A short label is cheap. A rewritten document is not. On Gemini 3.8 Flash, thinking tokens are billed as output.</p></li>
+  <li data-step="4"><h3>Which model you call</h3><p>The same token counts at two list prices are two different invoices. A smaller model is the first saving, once the answer is good enough.</p></li>
+</ol>
+
+Cache reads are cheaper when the same instructions are sent again. On the Anthropic price list, a Sonnet 5 cache hit is USD 0.20 per million tokens, against USD 2 for a fresh input. Tools such as web search can add a charge that is not in the token price. Leave them out of the estimate until you know the run uses them.
+
+## List prices on 30 September 2026
+
+These are the standard rates on the providers' own pages that day, per million tokens. They are not a recommendation, and they will move.
+
+| Model | Input | Output | Source note |
+| --- | --- | --- | --- |
+| Claude Haiku 4.5 | USD 1 | USD 5 | Anthropic price list |
+| Claude Sonnet 5 | USD 2 | USD 10 | Now the standard price. A rise to USD 3 / USD 15 on 1 September 2026 was cancelled |
+| Gemini 3.8 Flash | USD 0.75, then USD 1.50 from 1 January 2027 | USD 3.75, then USD 7.50 from 1 January 2027, thinking included | Google's Gemini API pricing |
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>These figures are list prices for a plain text call. Cached input, regional processing, batch jobs and tool calls are other lines. If a number is not on the provider's page the day you read it, do not use the table above.</p>
+</aside>
+
+## A made-up example
+
+A made-up example: an office runs one document task 600 times a month. In the short case each run is 3,000 input tokens and 400 output tokens. In the long case someone attaches a much larger file: 20,000 input tokens and 1,500 output tokens. Both counts are invented. Replace them with a count from a real file on that provider. The short case is 1.8 million input tokens and 0.24 million output tokens. The long case is 12 million and 0.9 million.
+
+| Case | Haiku 4.5 | Sonnet 5 | Gemini 3.8 Flash through 31 Dec 2026 |
+| --- | --- | --- | --- |
+| Short | USD 3.00 | USD 6.00 | USD 2.25 |
+| Long | USD 16.50 | USD 33.00 | USD 12.375 |
+
+From 1 January 2027 the same Gemini volumes are USD 4.50 and USD 24.75, because input becomes USD 1.50 and output USD 7.50. If Gemini spends tokens on thinking, they add to the output line and the example understates it. If Sonnet 5's tokenizer turns a 3,000-token file into about 30 percent more, the input line rises with it.
+
+Set the model bill next to hosting of CHF 50–150. In the short case the usage is a few dollars and hosting is the larger line. In the long case on Sonnet 5 the usage is already in the same range as the low end of hosting, and a retry loop would pass it. Staff time saved is a different calculation. Price those hours with [the internal hourly cost](/blog/internal-hourly-rate-switzerland), not with this table.
+
+## Caps and alerts, before the first month
+
+An estimate is not a ceiling. A fault that resends the same file can spend the month's budget in an afternoon.
+
+OpenAI distinguishes the two controls. A spend alert sends a notice and traffic continues. A hard spend limit makes the affected requests fail. Enforcement is not instant, so the recorded spend can sit a little over the amount you typed. An organisation limit and a project limit can both apply. OpenAI also sets its own usage-tier limit, separate from yours.
+
+Anthropic's rate-limits page, as we read it, sets a monthly spend cap by tier: USD 500 on Start, USD 1,000 on Build, USD 200,000 on Scale. The Custom tier has no cap of that kind. You can see the cap and set your own on the Billing page. At the cap, API use pauses until 00:00 UTC on the first day of the next month, unless a higher limit is granted sooner, and requests fail. You can also set limits on a workspace.
+
+Put the alert under the number you would still be willing to pay, and the hard stop at the number you would not. Check the first real week against the example. If the token count per run is far from the guess, the model choice or the document length is the fix, not a larger cap.
+
+## When this bill is the wrong worry
+
+If the task runs a handful of times a month, the model line will not decide the case. Hosting and the time to explain the task matter more. If the task is rare or different every time, do not automate it for a token saving. The hourly-cost page and the benefit page are for that decision. This one only stops the usage invoice being a surprise.
+
+## When a monthly figure belongs in a Prozess-Check
+
+Bring one recurring task, with a rough count of how often it runs and how long a typical document is. That is enough for the [Prozess-Check](/prozess-check): 60 minutes on Microsoft Teams, CHF 99, paid by card when you book. No VAT is added. You leave with where to start, whether it pays off, a price range and a rough duration, and a short written summary. Describing the task is enough. If the hour finds nothing worth automating, and the appointment took place, the fee comes back. The hour commits you to nothing. Guide prices for a later build, and the hosting band, are in [what automation costs in Switzerland](/blog/what-automation-costs-switzerland).

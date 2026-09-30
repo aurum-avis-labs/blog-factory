@@ -1,0 +1,82 @@
+---
+title: "Access-Datenbank ablösen"
+description: "Access-Datenbank ablösen oder behalten: Support-Daten, Listen, Dataverse, Standardprogramm oder kleine App, und was die Migration nicht mitnimmt."
+pubDate: 2027-02-04
+author: "Aurum Avis Labs"
+tags: ["access", "ablösung", "datenmigration"]
+funnelStage: consideration
+translationKey: replace-access-database
+relatedPosts: ["schnittstelle-entwickeln-lassen-kosten", "automatisierungspartner-auswaehlen", "automatisierung-betrieb-wartung"]
+draft: false
+---
+
+## Access-Datenbank ablösen, oder behalten
+
+Lösen Sie eine Access-Datenbank ab, wenn mehr als ein, zwei Personen von einer einzigen Datei abhängen, die einzige Person, die sie ändern kann, geht, oder die Ausgabe, die Sie betreiben, keine Sicherheitsupdates mehr bekommt. Behalten Sie sie, wenn wenige Personen eine Datei nutzen, diese Ausgabe noch unterstützt ist, eine Kopie existiert, die nicht die einzige ist, und ein neues System mehr kostet als das Risiko, das Sie benennen können. Das Datum im Oktober 2026 ist kein Befehl zum Neubau. Es ist ein Grund nachzusehen, welches Access Sie wirklich haben.
+
+Eine Excel-Datei, die heimlich das eigentliche System geworden ist, ist ein anderes Problem. Das steht in [Excel als Schattensystem](/de/blog/excel-als-schatten-system). Hier geht es um die Access-Datei: Tabellen, Formulare, und meist eine Person, die weiss, wie sie zusammenhängen.
+
+## Welches Datum für Ihre Ausgabe gilt
+
+Die Liste von Microsoft zu Produkten, deren Support 2026 endet, nennt Access 2021 und Access LTSC 2021 für den 13. Oktober 2026. Auf dieser Liste heisst Support-Ende: keine neuen Sicherheitsupdates, keine sonstigen Updates, kein kostenloser oder kostenpflichtiger Assistenz-Support, und keine Aktualisierung der technischen Online-Inhalte. Die Produktseite zu Access 2021 zeigt einen Zeitpunkt am 14. Oktober 2026, 6:59:59 Uhr pazifischer Zeit. Schlagen Sie die Ausgabe nach, die auf dem Gerät installiert ist, nicht eine Zusammenfassung von «Access».
+
+Access 2024 ist ein anderes Produkt. Die Lifecycle-Seite nennt als Ende den 9. Oktober 2029. Desktop-Dateien (.accdb) wurden nicht abgeschaltet, als die Access-Web-Apps SharePoint Online verlassen haben. Microsoft hat neue Access-Web-Apps im Juni 2017 gestoppt und die verbleibenden bis April 2018 abgeschaltet, und geschrieben, man investiere weiter in Access-Desktop-Datenbanken. Eine Datei auf einem PC ist nicht diese eingestellte Web-Funktion.
+
+Steht in der Titelleiste Microsoft 365, unterstellen Sie nicht das Datum von 2021. Schlagen Sie die Ausgabe nach. Ein Programm ohne Support kann weiterlaufen. Es bekommt nur keine Korrekturen mehr.
+
+## Fünf Wege weg von der Datei, und wann Sie bleiben
+
+| Weg | Passt, wenn | Lassen Sie es, wenn |
+| --- | --- | --- |
+| Access behalten | Wenige Personen, eine Datei, Ausgabe noch unterstützt, eine zweite Kopie existiert | Mehrere Personen teilen eine Datei auf einem Laufwerk, oder die einzige Person, die ein Formular ändern kann, geht bald |
+| SharePoint-Listen | Eine Liste von Zeilen, einfache Spalten, das Team arbeitet schon in Microsoft 365 | Viele verknüpfte Tabellen, Formulare und Berichte, die erhalten bleiben müssen |
+| Dataverse, mit oder ohne Access davor | Die Tabellen sollen in Microsofts Cloud-Datenplattform, und Access kann vorerst der Bildschirm bleiben | Jeder Spaltentyp muss unverändert mit, oder niemand will die Plattform danach bezahlen |
+| Ein Programm, das die Arbeit schon kann | Die Datei ist in Wahrheit Rechnung, Lager oder CRM, und ein Produkt verkauft das bereits | Die Schritte sind so, wie dieses Büro arbeitet, und ein Standardpaket hiesse, die Arbeit dem Produkt anzupassen |
+| Eine kleine App | Die Schritte sind speziell, die Daten gehören Ihnen, und die anderen Zeilen passen nicht | Sie haben noch nicht aufgeschrieben, was die Formulare tun |
+
+Das aktuelle Migrationsdokument von Microsoft handelt von Dataverse, nicht davon, Listen zum Nachfolger jeder Datenbank zu erklären. Access kann Daten nach Dataverse oder Dataverse for Teams exportieren. Nicht jeder Access-Datentyp wird unterstützt, und manche Grenzen sind anders. Danach, schreibt Microsoft, können die Leute den Access-Desktop weiter nutzen, die Tabellen liegen dann ausserhalb der Datei. Das ist ein Umzug der Daten, nicht eine automatische Kopie jedes Formulars, Berichts und Makros. Testen Sie an einer Kopie. Vergleichen Sie die Zeilenzahlen. Was das Werkzeug ablehnt, bleibt in Access.
+
+Listen sind das richtige Gespräch, wenn die «Datenbank» eine Tabelle ist, die das Team pflegt, etwa ein Geräteverzeichnis. Sie sind das falsche Gespräch, wenn der Wert in den Beziehungen zwischen fünf Tabellen steckt und in einem Formular, an dem jemand Jahre justiert hat.
+
+Ein Standardprogramm gewinnt, wenn Sie Rechnungs- oder Lager-Software nachbauen würden, die es schon gibt. Eine kleine App gewinnt, wenn das Formular einen Ablauf enthält, den dieses Büro erfunden hat und kein Paket trifft. Wie Sie einen Partner für diesen Schritt beurteilen, steht in [einen Automatisierungspartner auswählen](/de/blog/automatisierungspartner-auswaehlen). Wer die Sache danach betreibt, steht in [wer die Automatisierung danach betreibt](/de/blog/automatisierung-betrieb-wartung).
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Die Tabellen umziehen heisst nicht, das Wissen umziehen. Stecken die Regeln nur in einem Formular oder nur in einem Kopf, hat der neue Speicher sie nicht, bis jemand sie aufschreibt.</p>
+</aside>
+
+## Das Risiko, das schon in der Datei steckt
+
+Das übliche Access-Risiko ist nicht eine fehlende Lizenz. Es ist eine Datei.
+
+Mehrere Personen öffnen dieselbe .accdb auf einem gemeinsamen Laufwerk. Access sperrt Datensätze, die Datei wächst, und eine Kopie namens «final» liegt neben «final2». Die Person, die die Formulare gebaut hat, ist die einzige, die ein Feld ergänzen kann. Ist sie krank, tippt das Büro in ein Werkzeug, das sonst niemand reparieren kann. Wer den Ordner öffnen kann, kann die ganze Datenbank, Kundinnen inklusive, auf einen Stick kopieren. Eine Server-Datenbank mit Konten verhält sich nicht so. Eine Datei schon.
+
+Eine Sicherung, die nie geöffnet wurde, ist keine Sicherung. Bevor Sie über Plattformen streiten, stellen Sie die Kopie von gestern auf einem anderen PC wieder her und schauen Sie, ob das Formular aufgeht. Dieser Test ist günstiger als eine Migration.
+
+Das Support-Ende ist ein zweites Risiko nur für die Ausgaben auf der Liste von 2026. Die Datei geht weiter auf. Neu gefundene Probleme in dieser Ausgabe werden nicht mehr behoben. Ist der PC sonst aktuell und verlässt die Datei das Büro nie, nehmen manche Betriebe das eine Weile hin. Schreiben Sie das hin. Entdecken Sie es nicht, wenn der eine PC ausfällt.
+
+## Ein erfundenes Beispiel
+
+Ein erfundenes Beispiel: ein Installationsbetrieb mit 15 Personen führt Serviceaufträge seit 2014 in Access. Eine Koordinatorin hat die Formulare gebaut. Vier Personen im Büro erfassen Aufträge. Die Datei liegt auf einem gemeinsamen Laufwerk. In der Titelleiste steht Access 2021. Auf dem Laptop der Koordinatorin liegt eine Kopie vom März, nie geöffnet.
+
+Sie sollten nicht damit anfangen, eine App in Auftrag zu geben. Sie sollten die Märzkopie auf einem anderen Gerät öffnen und prüfen, ob die Aufträge da sind. Dann sollten sie zählen, was die Datei wirklich ist. Sind es Aufträge, Teile und Rechnungen ineinander, kann ein Lagerprogramm die Teile decken und eine kleine App den Auftragsbogen, und das sind zwei Entscheide. Ist es eine Liste offener Aufträge mit wenigen Spalten, sind Listen ein Kandidat, und Dataverse ist mehr Plattform, als sie brauchen. Bleibt die Koordinatorin, ist die Ausgabe das eigentliche Datum, und vier Personen sind noch tragbar, können sie auf Access bleiben, bis die Ausgabe geplant gewechselt ist oder die Rolle wechselt.
+
+Was sie nicht tun sollten: jemanden die Tabellen über ein Wochenende importieren lassen und die Formulare für erledigt erklären. Das Formular verbirgt, welche Felder Pflicht sind und welche Statusnamen gelten. Diese Regeln gehören neben die Tabelle, bevor jemand das Büro von der Datei nimmt.
+
+Der Betrieb, das Jahr und die Zahl der Personen sind erfunden. Ihre Datei entscheidet die Zeile in der Tabelle.
+
+## Was ein Umzug enthalten muss
+
+Wer die Arbeit macht, die Liste ist dieselbe.
+
+Benennen Sie die Tabellen, die leben, und die, die Geschichte sind. Exportieren Sie von der Kopie eine Zeilenzahl pro Tabelle, und einigen Sie sich, dass der neue Speicher diese Zahlen trifft. Notieren Sie die Spalten, die das Migrationswerkzeug nicht mitnimmt, anhand der Typ-Hinweise von Microsoft, bevor Sie ein Datum versprechen. Entscheiden Sie, ob Access eine Weile der Bildschirm bleibt. Der Weg von Microsoft erlaubt das. Es ist eine Brücke, kein Ort zum Bleiben, wenn der Grund des Umzugs war, dass nur eine Person den Bildschirm ändern konnte.
+
+Dann entscheiden Sie, wer welche Zeilen sehen darf. Eine Datei hat keine Konten. Der neue Speicher sollte nicht jeder Person die ganze Geschichte geben, nur weil das gemeinsame Laufwerk so funktionierte.
+
+Richtpreise für eine begrenzte Umsetzung, falls es dazu kommt, stehen in [Was Automatisierung in der Schweiz ungefähr kostet](/de/blog/was-automatisierung-kostet-schweiz). Sie sind kein Angebot für «Access ablösen» als Slogan. Die Grösse ist der Ablauf, auf den Sie zeigen können, nachdem die Formulare beschrieben sind.
+
+## Wann das eine Integration ist, und wann es eine Stunde ist
+
+Eine Datenbank, die eine kleine App werden soll, oder eine Verbindung der Tabellen in ein Programm, das Sie schon zahlen, ist die Art Fall auf der Seite [KI-Integration](/de/services/ai-implementation-consulting). Eine fertige Verbindung zu bexio, Abacus oder einem Branchenpaket haben wir nicht gebaut. Ob diese Programme eine Schnittstelle bieten, ist eine Tatsache über sie, auf ihren Seiten oder in der Stunde geklärt, nicht hier vorausgesetzt.
+
+Eine einzige konkrete Arbeit in der Datei, etwa ein Formular, das das Büro jeden Tag braucht, ist ein [Prozess-Check](/de/prozess-check), kein Ablöseprojekt. Eine Stunde, eine Beschreibung dieser Arbeit, und Sie gehen mit der Einschätzung, ob Sie anfangen, und einer Preisspanne. Ist das ehrliche Ergebnis der Stunde «Access behalten, sichern, und von der Ausgabe 2021 weg», ist das eine gelungene Stunde.

@@ -1,0 +1,99 @@
+---
+title: "Internes Wissen mit KI durchsuchbar machen"
+description: "Internes Wissen mit KI durchsuchbar machen: Antworten aus Ihren Dateien, Freigaben in Microsoft 365 und Google, und was Sie zuerst aufräumen."
+pubDate: 2027-01-15
+author: "Aurum Avis Labs"
+tags: ["internes wissen", "dokumentensuche", "freigaben"]
+funnelStage: interest
+translationKey: searchable-internal-knowledge
+relatedPosts: ["chatbot-website-kmu", "ki-tools-freigeben-positivliste", "microsoft-365-automatisieren"]
+draft: false
+---
+
+## Internes Wissen mit KI durchsuchbar machen
+
+Internes Wissen machen Sie durchsuchbar, indem Sie ein Modell auf die Dateien des Betriebs richten und es aus diesen Dateien antworten lassen, nicht aus dem Gedächtnis. Dafür gibt es ein nüchternes Wort: Suche mit Beleg. Das System sucht Textstellen und formuliert die Antwort daraus. Manche nennen das RAG. Der Betrieb wird dabei nicht «gelernt». Ist die Stelle alt, falsch oder für die falsche Person sichtbar, ist die Antwort es auch.
+
+Das ist eine andere Arbeit als ein Chat auf der öffentlichen Website, also [ob ein Chatbot auf der Website etwas taugt](/de/blog/chatbot-website-kmu). Welche Produkte im Büro überhaupt erlaubt sind, steht auf der [Positivliste](/de/blog/ki-tools-freigeben-positivliste). Einen wiederkehrenden Ablauf in Microsoft 365 zu verbinden ist [Microsoft 365 automatisieren](/de/blog/microsoft-365-automatisieren). Hier geht es um die Dateien.
+
+## Was «Antworten aus Ihren Dokumenten» tut
+
+Das Modell enthält Ihr Handbuch nicht. Zur Frage sucht es in einem Satz Dateien, holt Stellen, die passen könnten, und schreibt daraus. Ein brauchbares Ergebnis nennt die Datei. Sie öffnen sie und prüfen den Satz. Kann es keine Datei zeigen, verwenden Sie die Antwort nicht.
+
+Alte Fassungen zählen mit, wenn sie noch im Satz liegen und die fragende Person sie öffnen kann. Zwei Handbücher nebeneinander sind der übliche Fehler, kein rätselhaftes Modell. Dasselbe gilt für Regeln, die nie aufgeschrieben wurden: suchen lässt sich nur, was in einer Datei steht.
+
+## Werkzeug der Suite, oder ein Satz Dateien, den Sie wählen
+
+Microsoft und Google können durchsuchen, was die angemeldete Person schon öffnen darf. Ein selbst gewählter Satz ist ein kleiner Stapel, den Sie bestimmen und aktuell halten. Fangen Sie mit der Suite an, die Sie schon zahlen, an einer einzigen Frage, bevor Sie eine eigene Suche in Auftrag geben.
+
+<div class="blog-pair">
+  <div>
+    <h3>Schon in der Suite</h3>
+    <ul>
+      <li>Microsoft 365 Copilot holt Daten über Microsoft Graph und achtet auf bestehende Berechtigungen, Freigaben und Richtlinien. So steht es in der Vorbereitungshilfe von Microsoft.</li>
+      <li>Gemini in Google Workspace hat denselben Zugriff wie die Person: Drive-Dateien, die für sie freigegeben sind, Kalender, die sie sehen kann. Eine Administration kann Workspace-Daten für Gemini ganz sperren.</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Ein Satz, den Sie wählen</h3>
+    <ul>
+      <li>Sie benennen die Ordner, die antworten dürfen, und lassen den Rest weg.</li>
+      <li>Das lohnt sich, wenn die Dateien nicht in SharePoint oder Drive liegen, oder wenn die eingebaute Suche für eine enge Frage zu viele Sites mischt.</li>
+    </ul>
+  </div>
+</div>
+
+Google setzt eine praktische Grenze auf Drive. Hat die besitzende Person Download, Kopieren und Drucken ausgeschaltet, kann Gemini die Datei nicht nutzen, auch wenn sie freigegeben ist. Ein PDF muss in Drive liegen, bevor es eine Quelle sein kann. Zugriff auf ein fremdes Gmail im Auftrag gibt Gemini diesen Posteingang nicht. Das steht auf der [Hilfeseite von Google](https://support.google.com/a/users/answer/17010577?hl=en).
+
+Ein gewählter Satz braucht jemanden, der die neue Fassung ablegt und die alte wegnimmt. Gibt es diese Person nicht, ist das Werkzeug der Suite über einem aufgeräumten Ordner die bessere Ordnung. Ob Ihr anderes Programm überhaupt eine Schnittstelle für so einen Satz bietet, klärt sich an Ihren Dateien, nicht als Versprechen im Voraus. Eine fertige Anbindung an bexio, Abacus oder eine Branchensoftware haben wir nicht gebaut.
+
+## Freigaben, und warum zu weites Teilen zur Antwort wird
+
+Die Suche baut keine neue Mauer. Sie liest, was diese Person schon öffnen kann.
+
+Microsoft schreibt, die Freigaben in SharePoint stünden standardmässig auf der weitesten Stufe. Ein Link «Jeder», oder eine Datei für die ganze Organisation, ist dann eine Datei, die Copilot für alle nutzen kann, die sie öffnen dürfen. Mit Restricted Content Discovery halten Sie eine heikle Site aus Copilot und aus der organisationsweiten Suche, während Sie prüfen. Microsoft sagt ausdrücklich, dass die Berechtigungen dabei gleich bleiben. Wer die Datei schon hat, kann sie weiter nutzen, auch ein geöffnetes Dokument. Die Korrektur für das falsche Publikum ist die Berechtigung, nicht der Schalter für die Auffindbarkeit.
+
+Restricted SharePoint Search ist die ältere, vorläufige Liste von Sites. Microsoft schreibt, neue Aktivierung sei ab dem 31. Juli 2026 gesperrt, es sei keine Sicherheitsgrenze, und es ändere nicht, wer eine Datei öffnen kann. Kürzlich genutzte Sites und Sites, die in Teams oder Outlook geteilt wurden, können trotzdem erscheinen. Behandeln Sie diesen Schalter nicht als Aufräumen.
+
+Auf der Seite von Google gilt dieselbe Regel in einem Satz von Google: Gemini hat denselben Zugriff wie Sie. Eine zu weit geteilte Datei kann Gemini für alle nutzen, für die sie freigegeben ist.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Die Suche folgt dem Zugriff. Sie repariert ihn nicht. Können heute die falschen Personen den Ordner öffnen, bekommen sie morgen Antworten daraus.</p>
+</aside>
+
+## Dateien aufräumen, bevor Sie die Suche einschalten
+
+Tun Sie das für eine Frage, nicht für das ganze Archiv.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Die Frage benennen</h3><p>Eine Frage, die schon gestellt wird, etwa die aktuelle Übergaberegel oder die aktuelle Preisliste.</p></li>
+  <li data-step="2"><h3>Die Quelle benennen</h3><p>Der Ordner oder die Datei, die antworten darf. Widersprechen sich zwei Fassungen, wählen Sie eine und sagen Sie das im Datei- oder Ordnernamen.</p></li>
+  <li data-step="3"><h3>Die alte Fassung wegnehmen</h3><p>Verschieben, oder den weiten Link schliessen. Eine archivierte Site in Microsoft 365 lässt sich erst wieder öffnen, wenn sie zurückgeholt wird, und fällt damit aus dem, was Copilot suchen kann.</p></li>
+  <li data-step="4"><h3>Das Publikum angleichen</h3><p>Wer die Antwort lesen darf, muss die Datei öffnen dürfen. Prüfen Sie Links «Jeder» und Freigaben an die ganze Organisation auf diesem Ordner.</p></li>
+  <li data-step="5"><h3>Einmal fragen und die Datei öffnen</h3><p>Fragen Sie das Werkzeug der Suite. Öffnen Sie jede Datei, die es nennt. Ist der Beleg die alte Fassung, ist das Aufräumen nicht fertig.</p></li>
+</ol>
+
+Erst nach diesem Test reden Sie über eine eigene Suche über einen gewählten Satz. Antwortet das Werkzeug auf einem aufgeräumten Ordner mit der richtigen Datei, brauchen Sie kein zweites System.
+
+## Ein erfundenes Beispiel
+
+Ein erfundenes Beispiel: ein Büro mit etwa 20 Personen hält das Personalhandbuch in SharePoint. Die aktuelle Datei heisst sinngemäss Handbuch 2026. Eine Datei von 2022 liegt noch in derselben Bibliothek, geteilt mit der ganzen Organisation, weil vor Jahren jemand einen Link geschickt hat und niemand ihn geschlossen hat. Eine neue Person fragt den Copilot in Microsoft 365, wie viele Ferienwochen das Handbuch nennt. Beide Dateien sind für diese Person sichtbar, also kann jede gefunden werden. Die Datei von 2022 ist kein Geheimnis. Sie ist nur nicht mehr die heutige.
+
+Das Aufräumen ist klein. Die Datei von 2022 aus der Bibliothek nehmen, die die Suche nutzt, oder die Freigabe an die ganze Organisation entfernen, sodass nur noch öffnen kann, wer das Archiv wirklich braucht. Dieselbe Frage noch einmal stellen. Der Beleg sollte die Datei von 2026 sein. Ist er es nicht, liegt eine weitere Kopie offen, oft in einem persönlichen OneDrive oder in einem Mailanhang, der wieder auf einer Site gelandet ist.
+
+Dieselbe Form gilt in Google Drive. Gemini kann die Datei von 2022 für alle nutzen, für die sie freigegeben ist. Download, Kopieren und Drucken auszuschalten würde Gemini ebenfalls stoppen, ist aber ein grobes Mittel: wer die aktuelle Datei lesen soll, muss sie öffnen können. Besser ist eine Freigabe, die zum Publikum passt.
+
+Nichts daran ist ein Kunde, und die Ferienzahl bleibt absichtlich leer. Ihr Handbuch und das gesetzliche Minimum sind Ihr Text.
+
+## Wer mit einer Suche nicht anfangen sollte
+
+Fangen Sie nicht an, wenn die Antworten nie aufgeschrieben wurden. Eine Suche erfindet kein Vorgehen aus dem, was nur in Köpfen steckt. Schreiben Sie zuerst die Quelle auf einer Seite.
+
+Fangen Sie nicht an, wenn jede Datei in privaten Postfächern liegt und kein gemeinsamer Ordner existiert. Die Werkzeuge der Suite sehen nur, was die jeweilige Person schon öffnen kann, also einen anderen Stapel für jede Person. Ein gemeinsamer Ordner mit einer zuständigen Person ist die Voraussetzung.
+
+Fangen Sie nicht an, wenn die Frage ein Urteil ist: eine Vertragsauslegung, eine Kündigung, eine medizinische Notiz. Die Suche kann das Dokument vorlegen. Entscheiden muss eine Person. Und richten Sie eine interne Suche nicht auf Kundennachrichten, solange die [Positivliste](/de/blog/ki-tools-freigeben-positivliste) nicht sagt, dass diese Daten in das gewählte Werkzeug dürfen.
+
+## Wann ein gewählter Satz eine Integration ist
+
+Braucht die richtige Antwort eine feste Liste von Dateien, die aktuell bleibt, und mischen die Suites, die Sie schon haben, den Rest des Mandanten weiter hinein, liegt diese Arbeit auf der Seite [KI-Integration](/de/services/ai-implementation-consulting): eine Suche über Ihre Dateien, verbunden dort, wo das Programm tatsächlich eine Schnittstelle bietet. Eine einzige konkrete Arbeit, eine Frage und ein Ordner, ist dagegen ein Fall für den [Prozess-Check](/de/prozess-check). Eine Stunde, eine wiederkehrende Aufgabe, und Sie gehen mit der Einschätzung, ob es sich lohnt, und einer Preisspanne. Sie brauchen kein Suchprojekt, um festzustellen, dass das Handbuch von 2022 einfach verschoben werden sollte.
