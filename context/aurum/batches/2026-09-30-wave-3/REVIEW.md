@@ -30,4 +30,18 @@ Merged to main from `aurum/w3-writer-f`. 16 files, 0 validator errors.
 | W3-I19 | ai-for-real-estate-agents | 1184 / 1101 | 2 | Brokerage, not property management. Encrypted seeker mail and messenger-only replies left out. |
 | W3-I20 | property-enquiries-viewings | 1484 / 1439 | 1 | Body links the web-form post (seq 96), still with Writer C. That post publishes before this one. |
 | W3-I21 | ai-for-manufacturing-smes | 1120 / 1082 | 0 | No EDI or ISO claims. Body links email-order capture (Writer B, seq 51, 10 Dec 2026). |
-| W3-I22 | delivery-date-updates-customers | 1434 / 1403 | 0 | Starts after the order exists. Same email-order link as manufacturing. |
+| W3-I22 | delivery-date-updates-customers | 1434 / 1403 | 0 | Starts after the order exists. Same email-order link as manufacturing. That target is now on main. |
+
+## Writer B (operations)
+
+Merged to main from `aurum/w3-writer-b`. 14 files, 0 validator errors. Email orders, minimum stock and complaints sit a little over the 1,600-word ceiling and under the validator warning line.
+
+| ID | Key | EN / DE | Sources | Risk |
+|---|---|---|---|---|
+| W3-O1 | capture-email-orders | 1618 / 1490 | 4 | No vendor savings claims and no named ERP order interface. EDI is only the large-customer path. |
+| W3-O2 | reorder-at-minimum-stock | 1609 / 1499 | 3 | No Proffix, bexio or KitchenCrew figures. KitchenCrew is linked as the gastro case. |
+| W3-O3 | supplier-price-lists | 1406 / 1289 | 1 | ELDANORM, ZVEHNORM and BMEcat left out. A quote award is not written back as the new list price. |
+| W3-O4 | compare-supplier-quotes | 1434 / 1344 | 0 | No public-procurement duty and no rule that three quotes are required. |
+| W3-O5 | complaints-warranty-claims | 1640 / 1525 | 2 | OR Arts. 197, 201, 210, 367, 371 from fedlex. Flags that ch.ch's one-year used-goods line and the ban on shortening apply only when all three consumer conditions in Art. 210 para. 4 are met. Not legal advice. Body links shop returns (Writer E, seq 78), which publishes first. |
+| W3-O6 | maintenance-service-reminders | 1330 / 1228 | 1 | No legal annual heating service. VKF Art. 20 only. Daily dispatch is not linked in the body. |
+| W3-O7 | technician-dispatch-planning | 1448 / 1397 | 0 | No named field-service product and no GPS or route-saving figures. Says when a dedicated product is the better buy. |
