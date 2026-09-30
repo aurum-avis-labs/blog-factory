@@ -1,0 +1,80 @@
+---
+title: "AI for manufacturing SMEs: the office"
+description: "AI in a small plant belongs in the office: orders, confirmations, delivery dates, supplier chasing and quality papers. Not the machines."
+pubDate: 2027-02-17
+author: "Aurum Avis Labs"
+tags: ["manufacturing", "orders", "office work"]
+funnelStage: awareness
+translationKey: ai-for-manufacturing-smes
+relatedPosts: ["delivery-date-updates-customers", "capture-email-orders", "which-process-to-automate-first"]
+draft: false
+---
+
+## AI for a manufacturing SME: the office, not the machines
+
+In a small manufacturing firm, AI is worth a look in the office that sits between the customer mail and the order in your system. That is order intake from email, the confirmation, the delivery date you tell the customer, the chase when a supplier is late, the quality document that has to travel with the batch, and the quote for a part you do not yet make. It is not a camera on the machine, and it is not a model that reschedules the shop floor. If a large customer already sends orders in the electronic channel your system accepts, leave that channel alone. The work is the rest.
+
+This page is for the owner or the office lead of a Swiss plant with a few dozen people: machining, sheet metal, plastics, assembly, a specialist supplier. Production planning stays with the people who know the machines. The office is where dates, article numbers and PDFs still get copied.
+
+## What the plant office actually repeats
+
+A customer sends an order as a PDF, a spreadsheet or a few lines of text, often against a frame agreement, sometimes as a one-off. Someone matches the article number, the drawing revision and the quantity, and types an order. Then someone sends a confirmation with a date. Later the date moves because material is late, and someone has to tell the customer before the customer asks. A supplier promised bar, sheet or components for Thursday and has gone quiet. And with the delivery, the customer wants the certificate for that batch, not a generic PDF from last year.
+
+None of that is a cycle time. It is the same files, with numbers that have to match. A wrong revision on a confirmation is a part you will make and then discuss. A certificate for the wrong batch is a delivery the customer cannot book in.
+
+## Start from the system you already run
+
+Your order system, whatever its name, is where the order, the date and the stock live. If it already imports the big customer's orders and prints the confirmation, do not build a second path for that customer. Use it. The gap is the order that arrives where the import does not: the email from a smaller customer, the call-off in a spreadsheet, the change of quantity in a reply to an old thread.
+
+How to read those emails, match an article number, and leave an unclear line for a person is a job of its own, in [capture customer orders from email](/blog/capture-email-orders). This page only says where that job sits. It does not walk the fields again. What your program offers as an interface, you settle against the real file. A brochure that says the system is "open" is not a connector.
+
+<div class="blog-pair">
+  <div>
+    <h3>Leave with production</h3>
+    <ul>
+      <li>Which machine runs the job, and in which order</li>
+      <li>A measurement on the part</li>
+      <li>Whether a batch is released</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Look at in the office</h3>
+    <ul>
+      <li>Orders that still arrive as mail, not in the channel you already import</li>
+      <li>Confirmations and dates that a person still retypes</li>
+      <li>Supplier mails you send because a promise slipped</li>
+      <li>The certificate that belongs to this batch, found by hand</li>
+    </ul>
+  </div>
+</div>
+
+## Five office jobs, each with a stop
+
+Order intake, for the customers who do not use your electronic channel. A draft in the system, a person on any line the article number or the revision did not match. EDI, or whatever structured message the large customer already requires, stays the better answer for that customer. Email capture is for the long tail, not a replacement for a channel that works.
+
+The confirmation. Once the order is accepted, the confirmation quotes the article, the quantity, the price you agreed and the date that is actually in the system. It does not improve the date to sound helpful. A person sends it, or a rule sends it only when every line matched.
+
+The delivery date, when it moves. Customers would rather hear it from you than discover it on the day. That message is a draft from the date in the system, not a new date a model invents. It is frequent enough to be its own sequence. Here it is only named, so it is not confused with taking the order in.
+
+The supplier chase. A missing delivery has an order number, a promised day and a person at the supplier. The mail asks for a new day. It does not replan your workshop. If the new day changes a customer date, that is the delivery-date job, after a person accepts the new day.
+
+Quality papers. The customer asks for the document that belongs to the heat, the batch or the lot on the delivery note. The office looks it up and attaches it. A model can match a batch number on a PDF to the delivery, and a person checks the match when the numbers are dirty. It does not write a certificate the lab did not issue.
+
+Quotes for a part you have not made. The first quote is engineering and a price someone stands behind. The later "did you see our quote" is a different, smaller loop, already described in [quote follow-ups](/blog/quote-follow-ups). Do not fold that chase into a production scheduler.
+
+Which of the five to do first is a count of how often it happens and how expensive a wrong number is. The questions for that choice are in [which process to automate first](/blog/which-process-to-automate-first).
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Nothing on this page releases a batch, changes a drawing, or moves a job on the machine. The office sends what production and quality have already decided. If the date in the system is a guess, fix the date before you automate the mail about it.</p>
+</aside>
+
+## Who should wait
+
+Wait if article numbers and drawing revisions are not stable. Matching mail to a moving catalogue creates confident wrong orders. Wait if one person already keeps the small-customer orders without errors you feel, and the large customers are on the electronic channel. Wait on anything sold as intelligence for the spindle, the press or the line. That is a different purchase, with a different person in the room, and it does not empty the order mailbox.
+
+A plant that ships the same repeat order to three customers on a portal, with no email and no certificates, may have nothing here to build. The test is the pile on the office desk, not the noise of the hall.
+
+## A light next step
+
+If one of these jobs is the pile, the [Prozess-Check](/prozess-check) is an hour on that single task. You describe how an order or a certificate moves today. You do not need to bring a customer's drawing.
