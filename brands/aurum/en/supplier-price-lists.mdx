@@ -1,0 +1,84 @@
+---
+title: "Import supplier price lists into your system"
+description: "Import a supplier price list without silent overwrites: map the file, log changes, check margin, and hold open quotes."
+pubDate: 2027-01-08
+author: "Aurum Avis Labs"
+tags: ["prices", "suppliers", "process automation"]
+funnelStage: interest
+translationKey: supplier-price-lists
+relatedPosts: ["stop-double-data-entry", "excel-as-shadow-system", "what-the-process-check-is"]
+draft: false
+---
+
+## Import supplier price lists into your system
+
+You import a supplier price list by mapping the file onto the articles you already hold, writing down what changed, checking the margin, and leaving open quotes untouched until a person decides. The file may be Excel, a PDF, or a trade format such as DATANORM. The risky step is not the reading. It is a silent overwrite of prices that quotes, orders and the margin still depend on.
+
+This is for buyers and office leads in a Swiss SME who receive new prices from a handful of suppliers, often around the start of the year, and who type them in, or paste them into a sheet that the calculation then ignores. The general case of a sheet that sits between two programs is in [Excel as a shadow system](/blog/excel-as-shadow-system). Typing the same price into a second program is the pattern in [stop double data entry](/blog/stop-double-data-entry).
+
+<ol class="blog-flow">
+  <li><strong>File</strong><p>Excel, PDF or a trade format, kept as the source.</p></li>
+  <li><strong>Map</strong><p>Supplier article, unit and net price land on your article.</p></li>
+  <li><strong>Log</strong><p>Old price, new price, date and file name, before anything is stored.</p></li>
+  <li><strong>Margin</strong><p>Lines that fall under your own limit are held.</p></li>
+  <li><strong>Quotes</strong><p>Open quotes stay as sent. A person chooses what to reissue.</p></li>
+</ol>
+
+## What actually arrives, and when
+
+A common moment is January, when suppliers send the year's list. Some send it in December and date it from 1 January. Some send a single article by email in March and call that a list. Treat those as the same job with a smaller file, not as a special case someone remembers.
+
+Excel is the file you can map, if the columns stay put. Watch the decimal sign. A Swiss sheet may show 1.25 or 1,25, and a thousands separator can look like a decimal. One wrong guess multiplies a price by a hundred. PDF is a price list to read, not a table, until you have checked a sample of lines against the original page. A photo of a page is the same as a PDF, only less reliable.
+
+In the building trades, some suppliers send [DATANORM](https://www.datanorm.de/DATANORM/WasIstDATANORM). The DATANORM working group describes it as a standard procedure for article and master data between manufacturers, specialist dealers and trades in the building industry. The site is explicit: it is a product-data exchange format, not a piece of software. If your calculation program already imports that format, use that import and do not rebuild it. If the file is a one-off Excel, map the Excel. Do not rename it and hope the DATANORM import accepts it.
+
+Whether your program has that import, or any price interface, is a question about the product you run. We clarify that in the Check. This page does not claim an import for a named accounting system.
+
+## Map the article, the unit and the net price
+
+Three mappings break lists more often than the reading does.
+
+The supplier's article number is not yours. Keep a cross-reference, one row per supplier and supplier article, pointing at your article. New numbers wait in a list. They are not created as new articles just because the file contains them.
+
+The unit may be per piece, per metre, per hundred or per pack. A price of 4.80 per 100, stored as 4.80 per piece, wrecks the next quote. Write the unit on the map. If the file has no unit, the line waits.
+
+The price you store is the net price you will pay, in CHF, after the discount that actually applies to you. A list price plus a column of "discount 2" is not yet a net price. If several discount columns stack, write the rule once, in the order the supplier's letter states. A missing discount is a held line, not a zero discount.
+
+Currency stays as sent until you convert it with a rate you name and date. Do not let a euro price land in a CHF field because the column was called "price".
+
+## Log the change, then check the margin
+
+Store the new price only after a log line exists: your article, the supplier, the old net price, the new net price, the date the price applies, the file name, and the person who released it. You will need that the week a customer asks why the quote from December no longer matches, and the week you undo a bad file.
+
+Then apply a margin rule you choose, not one copied from a blog. For each changed article, compare the new purchase price with the selling price you currently use. If the margin would fall under the limit you set, hold the line. Someone either raises the selling price, accepts the thinner margin, or asks the supplier. Lines inside the limit can update the purchase price. The selling price does not move unless a person says so.
+
+A reorder draft that uses the last purchase price will pick up the new one after this step. How that draft is built is in [automatic reordering at minimum stock](/blog/reorder-at-minimum-stock). Do not let the price import send a supplier order on its own.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Nothing is overwritten before the log line exists. Open customer quotes keep the prices you already sent. The import does not "correct" them in the background.</p>
+</aside>
+
+## What happens to quotes you have already sent
+
+An open quote was calculated with the old cost. Changing the article price underneath it changes a document the customer has, and you do not. Leave the quote as sent.
+
+Produce a short list instead: quotes that are still open, that contain an article whose purchase price changed, with the old margin and the new one. A person decides. Reissue the quote, hold it until the customer answers, or leave it and accept the margin. The decision is not the same for a quote that went out yesterday and one that has sat for three months. Your follow-up rhythm, if you have one, tells you which quotes are still alive. The import only hands you the list.
+
+Quotes that are already an order are not open quotes. Do not rewrite them. The order keeps the price you confirmed. The new purchase price applies to the next calculation, not to a job you already sold.
+
+## A made-up example
+
+A made-up example: an electrical contractor, fifteen people, three wholesalers. In the first week of January two of them send Excel. Columns differ. One has a net price. One has a gross price and a discount column. The third sends a DATANORM file, and the calculation program the firm already uses has an import for that format. The office uses that import for the third file and a mapped read for the other two.
+
+The cross-reference matches most articles. Forty supplier numbers are new and wait. Three lines are priced per hundred and would have been stored per piece. The log shows 180 articles with a higher net price. Twelve of those would drop the firm's own margin, which they have set as a floor, below that floor if the selling price stayed. Those twelve wait. A list of nine open quotes names the articles that changed. The project lead reissues two of them and leaves the rest. The counts are invented. The firm is not a client.
+
+## What to leave alone
+
+Leave it alone when one supplier sends a handful of prices once a year and you can see the whole file in an afternoon. The log can be a sheet. You do not need a flow. Leave it alone when you have no cross-reference and no one will maintain one. Mapping a list without that table creates duplicate articles, which is worse than a week of typing. If the trade program already imports the format and the staff trust that import, do not put a second path beside it.
+
+## When a Prozess-Check fits
+
+A Prozess-Check fits when the January list is one recurring task and you want to know whether a mapped import, a log and a held-line list are worth building before you start. It is 60 minutes on Microsoft Teams, CHF 99, paid by card when you book. Describing the task is enough. You do not bring the supplier file.
+
+You leave with a written case, whether it pays off, and a price range. The hour does not commit you. If nothing is worth automating, the fee comes back. Details are on the [Prozess-Check](/prozess-check) page.
