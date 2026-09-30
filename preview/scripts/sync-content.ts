@@ -35,6 +35,9 @@ function copyDirRecursive(src: string, dest: string): number {
       count += copyDirRecursive(srcPath, destPath);
     } else {
       fs.copyFileSync(srcPath, destPath);
+      // Source posts are sometimes mode 0444. copyFile keeps that mode, and the
+      // later image-path rewrite then fails with EACCES.
+      fs.chmodSync(destPath, 0o644);
       count++;
     }
   }
