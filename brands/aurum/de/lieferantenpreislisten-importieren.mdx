@@ -1,0 +1,84 @@
+---
+title: "Lieferantenpreislisten importieren"
+description: "Lieferantenpreislisten importieren ohne stilles Überschreiben: zuordnen, Änderungen protokollieren, Marge prüfen, offene Offerten halten."
+pubDate: 2027-01-08
+author: "Aurum Avis Labs"
+tags: ["preise", "lieferanten", "ablauf"]
+funnelStage: interest
+translationKey: supplier-price-lists
+relatedPosts: ["doppelerfassung-vermeiden", "excel-als-schatten-system", "was-der-prozess-check-ist"]
+draft: false
+---
+
+## Lieferantenpreislisten importieren
+
+Lieferantenpreislisten importieren Sie, indem Sie die Datei auf die Artikel legen, die Sie schon führen, jede Änderung notieren, die Marge prüfen und offene Offerten unangetastet lassen, bis eine Person entscheidet. Die Datei kann Excel, ein PDF oder ein Branchenformat wie DATANORM sein. Riskant ist nicht das Lesen. Riskant ist ein stilles Überschreiben von Preisen, an denen Offerten, Bestellungen und die Marge hängen.
+
+Das gilt für Einkauf und Büroleitung in einem Schweizer KMU, das von wenigen Lieferanten neue Preise erhält, oft um den Jahreswechsel, und sie abtippt oder in ein Blatt legt, das die Kalkulation danach nicht kennt. Der allgemeinere Fall, ein Blatt zwischen zwei Programmen, steht in [Excel als Schattensystem](/de/blog/excel-als-schatten-system). Denselben Preis in ein zweites Programm zu tippen ist das Muster in [Doppelerfassung vermeiden](/de/blog/doppelerfassung-vermeiden).
+
+<ol class="blog-flow">
+  <li><strong>Datei</strong><p>Excel, PDF oder ein Branchenformat, als Quelle aufbewahrt.</p></li>
+  <li><strong>Zuordnung</strong><p>Lieferantenartikel, Einheit und Nettopreis landen auf Ihrem Artikel.</p></li>
+  <li><strong>Protokoll</strong><p>Alter Preis, neuer Preis, Datum und Dateiname, bevor etwas gespeichert wird.</p></li>
+  <li><strong>Marge</strong><p>Zeilen unter Ihrer eigenen Grenze werden zurückgehalten.</p></li>
+  <li><strong>Offerten</strong><p>Versendete Offerten bleiben. Eine Person entscheidet, was neu rausgeht.</p></li>
+</ol>
+
+## Was ankommt, und wann
+
+Ein häufiger Zeitpunkt ist der Januar. Lieferanten schicken die Liste fürs Jahr. Manche schicken sie im Dezember und datieren sie auf den 1. Januar. Manche schicken im März eine einzelne Artikelmail und nennen das eine Liste. Behandeln Sie das als dieselbe Arbeit mit einer kleineren Datei, nicht als Sonderfall, an den sich jemand erinnern muss.
+
+Excel können Sie zuordnen, wenn die Spalten stabil bleiben. Achten Sie auf das Dezimalzeichen. Ein Schweizer Blatt zeigt 1.25 oder 1,25, und ein Tausenderzeichen kann wie ein Dezimalzeichen aussehen. Eine falsche Annahme multipliziert einen Preis mit hundert. Ein PDF ist eine Preisliste zum Lesen, keine Tabelle, bis Sie eine Stichprobe der Zeilen mit der Originalseite verglichen haben. Ein Foto einer Seite ist dasselbe, nur weniger zuverlässig.
+
+Im Baugewerbe schicken manche Lieferanten [DATANORM](https://www.datanorm.de/DATANORM/WasIstDATANORM). Der DATANORM-Arbeitskreis beschreibt das als Standardverfahren für Artikel- und Stammdaten zwischen Herstellern, Fachhändlern und dem Handwerk in der Baubranche. Die Seite sagt ausdrücklich: es ist ein Produktdaten-Austauschformat, keine Software. Wenn Ihr Kalkulationsprogramm dieses Format schon importiert, nutzen Sie diesen Import und setzen Sie ihn nicht noch einmal um. Ist die Datei ein einzelnes Excel, ordnen Sie das Excel zu. Benennen Sie es nicht um und hoffen Sie nicht, dass der DATANORM-Import es nimmt.
+
+Ob Ihr Programm diesen Import hat, oder überhaupt eine Preisschnittstelle, hängt vom Produkt ab, das Sie einsetzen. Das klären wir im Check. Diese Seite behauptet keinen Import für ein bestimmtes Buchhaltungsprogramm.
+
+## Artikel, Einheit und Nettopreis zuordnen
+
+Drei Zuordnungen verderben Listen häufiger als das Lesen.
+
+Die Artikelnummer des Lieferanten ist nicht Ihre. Führen Sie eine Gegenliste, eine Zeile pro Lieferant und Lieferantenartikel, mit Verweis auf Ihren Artikel. Neue Nummern warten in einer Liste. Sie werden nicht zu neuen Artikeln, nur weil die Datei sie enthält.
+
+Die Einheit kann Stück, Meter, Hundert oder Gebinde sein. Ein Preis von 4.80 je 100, gespeichert als 4.80 je Stück, verdirbt die nächste Offerte. Schreiben Sie die Einheit in die Zuordnung. Fehlt die Einheit in der Datei, wartet die Zeile.
+
+Der Preis, den Sie speichern, ist der Nettopreis, den Sie zahlen, in CHF, nach dem Rabatt, der für Sie gilt. Ein Listenpreis plus eine Spalte «Rabatt 2» ist noch kein Nettopreis. Stapeln sich mehrere Rabattspalten, schreiben Sie die Regel einmal auf, in der Reihenfolge, die das Schreiben des Lieferanten nennt. Ein fehlender Rabatt ist eine gehaltene Zeile, nicht ein Rabatt von null.
+
+Die Währung bleibt, wie sie ankam, bis Sie sie mit einem Kurs umrechnen, den Sie benennen und datieren. Ein Euro-Preis darf nicht in einem CHF-Feld landen, nur weil die Spalte «Preis» heisst.
+
+## Die Änderung protokollieren, dann die Marge prüfen
+
+Speichern Sie den neuen Preis erst, wenn eine Protokollzeile existiert: Ihr Artikel, der Lieferant, der alte Nettopreis, der neue Nettopreis, das Datum, ab dem der Preis gilt, der Dateiname und die Person, die freigegeben hat. Die brauchen Sie in der Woche, in der ein Kunde fragt, warum die Offerte vom Dezember nicht mehr passt, und in der Woche, in der Sie eine schlechte Datei zurücknehmen.
+
+Dann gilt eine Margenregel, die Sie festlegen, keine aus einem Blog. Vergleichen Sie bei jedem geänderten Artikel den neuen Einkaufspreis mit dem Verkaufspreis, den Sie heute verwenden. Fiele die Marge unter die Grenze, die Sie gesetzt haben, halten Sie die Zeile. Jemand hebt den Verkaufspreis an, akzeptiert die dünnere Marge oder fragt den Lieferanten. Zeilen innerhalb der Grenze dürfen den Einkaufspreis aktualisieren. Der Verkaufspreis bewegt sich nicht, solange keine Person das sagt.
+
+Ein Nachbestellungsentwurf, der den letzten Einkaufspreis nutzt, übernimmt danach den neuen. Wie dieser Entwurf entsteht, steht in [Nachbestellung bei Mindestbestand](/de/blog/nachbestellung-mindestbestand). Der Preisimport darf keine Lieferantenbestellung von selbst auslösen.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Nichts wird überschrieben, bevor die Protokollzeile existiert. Offene Kundenofferten behalten die Preise, die Sie schon verschickt haben. Der Import «korrigiert» sie nicht im Hintergrund.</p>
+</aside>
+
+## Was mit Offerten geschieht, die schon raus sind
+
+Eine offene Offerte ist mit den alten Kosten gerechnet. Den Artikelpreis darunter zu ändern, ändert ein Dokument, das der Kunde hat und Sie in dieser Form nicht mehr. Lassen Sie die Offerte so, wie sie verschickt wurde.
+
+Erstellen Sie stattdessen eine kurze Liste: Offerten, die noch offen sind und einen Artikel enthalten, dessen Einkaufspreis sich geändert hat, mit der alten und der neuen Marge. Eine Person entscheidet. Die Offerte neu ausstellen, sie halten, bis der Kunde antwortet, oder sie stehen lassen und die Marge tragen. Die Entscheidung ist nicht dieselbe für eine Offerte von gestern und eine, die seit drei Monaten liegt. Ihr Nachfassrhythmus, wenn Sie einen haben, sagt, welche Offerten noch leben. Der Import liefert nur die Liste.
+
+Offerten, die schon ein Auftrag sind, sind keine offenen Offerten. Schreiben Sie die nicht um. Der Auftrag behält den Preis, den Sie bestätigt haben. Der neue Einkaufspreis gilt für die nächste Kalkulation, nicht für eine Arbeit, die Sie schon verkauft haben.
+
+## Ein erfundenes Beispiel
+
+Ein erfundenes Beispiel: ein Elektroinstallationsbetrieb, fünfzehn Personen, drei Grossisten. In der ersten Januarwoche schicken zwei Excel. Die Spalten unterscheiden sich. Einer hat einen Nettopreis. Einer hat einen Bruttopreis und eine Rabattspalte. Der dritte schickt eine DATANORM-Datei, und das Kalkulationsprogramm, das die Firma schon nutzt, hat dafür einen Import. Das Büro nutzt diesen Import für die dritte Datei und eine zugeordnete Lesung für die beiden anderen.
+
+Die Gegenliste trifft die meisten Artikel. Vierzig Lieferantennummern sind neu und warten. Drei Zeilen sind je Hundert kalkuliert und wären je Stück gelandet. Das Protokoll zeigt 180 Artikel mit höherem Nettopreis. Zwölf davon würden die eigene Margengrenze der Firma unterschreiten, wenn der Verkaufspreis bliebe. Diese zwölf warten. Eine Liste von neun offenen Offerten nennt die geänderten Artikel. Die Projektleitung stellt zwei neu aus und lässt den Rest. Die Zahlen sind erfunden. Die Firma ist kein Kunde von uns.
+
+## Was Sie liegen lassen sollten
+
+Lassen Sie es liegen, wenn ein Lieferant einmal im Jahr eine Handvoll Preise schickt und Sie die Datei an einem Nachmittag überblicken. Das Protokoll kann ein Blatt sein. Einen Ablauf brauchen Sie nicht. Lassen Sie es liegen, wenn es keine Gegenliste gibt und niemand sie pflegen will. Eine Liste ohne diese Tabelle erzeugt doppelte Artikel. Das ist schlimmer als eine Woche Tippen. Wenn das Branchenprogramm das Format schon importiert und die Mitarbeitenden diesem Import trauen, legen Sie keinen zweiten Weg daneben.
+
+## Wann ein Prozess-Check passt
+
+Ein Prozess-Check passt, wenn die Januarliste eine wiederkehrende Arbeit ist und Sie wissen wollen, ob Zuordnung, Protokoll und eine Liste gehaltener Zeilen sich lohnen, bevor Sie anfangen. Es sind 60 Minuten über Microsoft Teams, pauschal CHF 99, Zahlung per Karte bei der Buchung. Beschreiben genügt. Die Lieferantendatei bringen Sie nicht mit.
+
+Sie gehen mit einem schriftlichen Fall, einer Einschätzung, ob es sich lohnt, und einer Preisspanne. Die Stunde verpflichtet zu nichts. Lohnt sich nichts zu automatisieren, kommt das Geld zurück. Die Bedingungen stehen auf der Seite zum [Prozess-Check](/de/prozess-check).
