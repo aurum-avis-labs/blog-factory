@@ -39,7 +39,7 @@ Im selben PR die Matrix aus [`TOPIC-QUEUE.md`](./TOPIC-QUEUE.md) setzen. Die Liv
 - [ ] CTA laut Queue
 - [ ] Live-Pfade: `/de/prozess-check`, `/de/prozess-check/buchen` (EN ohne `/de`)
 - [ ] Preise nur Onepager ([`STRATEGY.md`](./STRATEGY.md) Abschnitt 2)
-- [ ] ein Hero pro Topic unter `brands/aurum/images/{en-slug}/` (Welle 1 und 2 liegen, Welle 3 noch ohne Bild)
+- [x] ein Hero pro Topic unter `brands/aurum/images/{en-slug}/` (Wellen 1–3)
 - [x] Texte auf `main`, 206 Dateien ohne Validator-Fehler geprüft, bevor der Planordner entfernt wurde
 
 ---
