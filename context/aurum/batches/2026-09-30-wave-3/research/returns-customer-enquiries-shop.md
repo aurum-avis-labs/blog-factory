@@ -1,0 +1,9 @@
+# returns-customer-enquiries-shop
+Primary query DE / EN: Retouren und Kundenanfragen im Onlineshop / handle returns and customer enquiries in an online shop
+SERP (top results seen, what they cover, the gap we fill): ch.ch states there is no general right of return in Switzerland. Shop-system pages describe notifications. The gap is the office procedure: classify where-is-my-order, return, refund status and exchange, draft from the order, and route the rest. Defect and warranty handling is the later complaints post. The industry overview is ai-for-retail-ecommerce.
+Verified facts (one per line, each with URL and access date):
+- ch.ch: no statutory right to return or exchange goods in Switzerland, in store or online; each shop sets its own rules; some shops voluntarily allow a change of mind within 14 days or more; online trading follows the same rules as a shop purchase. Door-to-door sales and telephone contracts can be cancelled within 14 days if the goods are worth more than CHF 100. https://www.ch.ch/en/safety-and-justice/returning-or-exchanging-goods access 2026-09-30. German ch.ch URLs for this topic returned 404 on that date.
+- Same page also describes a warranty against defects (two years for new goods, one year for used, notice as soon as possible, seller options). Left out of this post on purpose: that is the complaints and warranty article, not the returns inbox.
+Vendor / product features used (URL each): none new. Order email and language behaviour stays in the retail overview, which cites Shopify help.
+Not verifiable, therefore left out: any shop's returns-portal feature, carrier label APIs, refund timing of card schemes, EU withdrawal rights for sales to EU consumers.
+Internal links planned (seq-checked): shared-inbox-sort-emails (seq 16), ai-for-retail-ecommerce (seq 75). complaints-warranty-claims is seq 86, relatedPosts only.
