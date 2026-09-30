@@ -9,7 +9,7 @@ translationKey: automate-employee-onboarding
 relatedPosts: ["automate-microsoft-365", "generate-documents-from-templates", "what-the-process-check-is"]
 image: "@/assets/blog/automate-employee-onboarding/hero.jpg"
 draft: false
-site: ki
+site: prozess-check
 ---
 
 ## How to automate employee onboarding
@@ -38,7 +38,7 @@ Use this as it is, or copy it into the list you already keep. Each line becomes 
 
 The account, the licence and the group memberships can be created from the entry by a script, with the admin or IT partner approving the run. In Microsoft 365, Microsoft Graph offers the calls for each step: [create a user](https://learn.microsoft.com/en-us/graph/api/user-post-users?view=graph-rest-1.0), [assign a licence](https://learn.microsoft.com/en-us/graph/api/user-assignlicense?view=graph-rest-1.0) and [add a member to a team](https://learn.microsoft.com/en-us/graph/api/team-post-members?view=graph-rest-1.0). In Google Workspace, the Admin SDK Directory API [creates the user](https://developers.google.com/workspace/admin/directory/reference/rest/v1/users/insert).
 
-Microsoft also has a ready-made option: lifecycle workflows handle joiner, mover and leaver tasks, such as emailing the manager before the hire date or removing accounts at the exit. They require a Microsoft Entra ID Governance or Microsoft Entra Suite licence ([Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/what-are-lifecycle-workflows)). Without that licence, the same steps run as a small automation on the licences you already have. What you can do with the tools already in your subscription is in [automating Microsoft 365](/blog/automate-microsoft-365).
+Microsoft also has a ready-made option: lifecycle workflows handle joiner, mover and leaver tasks, such as emailing the manager before the hire date or removing accounts at the exit. They require a Microsoft Entra ID Governance or Microsoft Entra Suite licence ([Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/what-are-lifecycle-workflows)). Without that licence, the same steps run as a small automation on the licences you already have. What you can do with the tools already in your subscription is in [automating Microsoft 365](/prozess-check/blog/automate-microsoft-365).
 
 The part that makes this work is a role table, not the script. Write down, per role, which groups, channels, mailboxes and folders belong to it. "Accounting" gets the finance channel, the invoices mailbox and read-write access to the finance folder. The script only reads that table. Without it, every onboarding starts with "give her the same as Anna", and Anna's access has grown for years.
 
@@ -52,7 +52,7 @@ Folder access follows the role table. If access to a folder is granted by group,
 
 The contract, the written information and the internal forms fill from the same entry, and a person checks them before anything is signed. In Switzerland, [Art. 330b of the Code of Obligations](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/en#art_330_b) requires the employer to inform the employee in writing, within one month of the start, about the names of the parties, the start date, the function, the salary and any additional benefits, and the weekly working hours, if the employment is for an indefinite period or longer than a month. A written contract usually covers this. If someone starts on a handshake, the automation should remind you.
 
-How to generate letters and contracts from templates in general is in [generating documents from templates](/blog/generate-documents-from-templates). For onboarding, one rule matters: the contract contains the salary. It goes to a folder only HR and management can open, not to the team channel.
+How to generate letters and contracts from templates in general is in [generating documents from templates](/prozess-check/blog/generate-documents-from-templates). For onboarding, one rule matters: the contract contains the salary. It goes to a folder only HR and management can open, not to the team channel.
 
 ## Day-one plan and reminders for the first weeks
 
@@ -83,7 +83,7 @@ The automated version: the office manager fills in one entry in a Microsoft List
 
 ## When a checklist is enough
 
-If you hire once or twice a year, a good checklist in a shared document is enough. Automate when hires come often enough that the list is rebuilt each time, or when access is forgotten regularly. Wait if every role is different and nobody has written the role table yet, and if nobody owns the list. First [document the process as it runs today](/blog/document-processes-before-automating), then automate.
+If you hire once or twice a year, a good checklist in a shared document is enough. Automate when hires come often enough that the list is rebuilt each time, or when access is forgotten regularly. Wait if every role is different and nobody has written the role table yet, and if nobody owns the list. First [document the process as it runs today](/prozess-check/blog/document-processes-before-automating), then automate.
 
 ## Bring your onboarding to the Process Check
 

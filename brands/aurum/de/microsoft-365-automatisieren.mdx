@@ -9,14 +9,14 @@ translationKey: automate-microsoft-365
 relatedPosts: ["copilot-oder-einen-ablauf-bauen", "sammelpostfach-e-mails-zuordnen", "make-n8n-power-automate"]
 image: "@/assets/blog/automate-microsoft-365/hero.jpg"
 draft: false
-site: ki
+site: prozess-check
 ---
 
 ## Microsoft 365 automatisieren mit Bordmitteln
 
 Wer Microsoft 365 automatisieren will, kann mit dem Abo, das die Firma schon bezahlt, einen guten Teil der Büroarbeit abdecken, ohne etwas dazuzukaufen. Forms nimmt Anfragen in immer gleicher Form entgegen, Lists führt das Register, Outlook-Regeln sortieren die Post, die App «Genehmigungen» in Teams holt ein Ja oder Nein ein, Bookings nimmt Termine an, und Power Automate verbindet die Teile über Standardkonnektoren. Die enthaltenen Rechte enden bei Premium- und eigenen Konnektoren, bei der Desktopautomatisierung und in der Praxis dort, wo jeder Ablauf am Konto einer einzelnen Person hängt.
 
-Der Beitrag richtet sich an Geschäftsleitungen sowie Büro- und Finanzverantwortliche in Schweizer KMU, die schon mit Outlook, Teams und SharePoint arbeiten und wissen wollen, was sie selbst einrichten können, bevor sie etwas in Auftrag geben. Falls Ihre eigentliche Frage ist, ob Copilot das übernimmt: Das ist ein anderer Kauf. Copilot hilft einer Person beim Formulieren in den Apps. Ein Flow bewegt Daten, wenn niemand tippt. Diese Weggabelung steht in [Copilot-Lizenz, oder einen Ablauf umsetzen?](/de/blog/copilot-oder-einen-ablauf-bauen).
+Der Beitrag richtet sich an Geschäftsleitungen sowie Büro- und Finanzverantwortliche in Schweizer KMU, die schon mit Outlook, Teams und SharePoint arbeiten und wissen wollen, was sie selbst einrichten können, bevor sie etwas in Auftrag geben. Falls Ihre eigentliche Frage ist, ob Copilot das übernimmt: Das ist ein anderer Kauf. Copilot hilft einer Person beim Formulieren in den Apps. Ein Flow bewegt Daten, wenn niemand tippt. Diese Weggabelung steht in [Copilot-Lizenz, oder einen Ablauf umsetzen?](/de/prozess-check/blog/copilot-oder-einen-ablauf-bauen).
 
 ## Was Ihr Microsoft-365-Abo schon enthält
 
@@ -70,7 +70,7 @@ Die andere Grenze ist komplexe Logik. Einen Flow mit einer Handvoll Schritten ka
 
 ## Was wir selbst auf Microsoft 365 umgesetzt haben
 
-Aurum Avis Labs arbeitet selbst mit Microsoft 365, und unsere Buchung für den Prozess-Check ist darauf umgesetzt. Die Seite liest freie Termine aus Microsoft Bookings über Microsoft Graph und schickt Besuchende zu Stripe Checkout. Erst nach der Zahlung legt ein Stripe-Webhook den Bookings-Termin mit Teams-Link an. Die öffentliche Bookings-Seite bleibt ungenutzt, weil sie die Zahlung überspringen würde. Den ganzen Ablauf beschreibt [Terminbuchung mit Zahlung automatisieren](/de/blog/terminbuchung-mit-zahlung-automatisieren).
+Aurum Avis Labs arbeitet selbst mit Microsoft 365, und unsere Buchung für den Prozess-Check ist darauf umgesetzt. Die Seite liest freie Termine aus Microsoft Bookings über Microsoft Graph und schickt Besuchende zu Stripe Checkout. Erst nach der Zahlung legt ein Stripe-Webhook den Bookings-Termin mit Teams-Link an. Die öffentliche Bookings-Seite bleibt ungenutzt, weil sie die Zahlung überspringen würde. Den ganzen Ablauf beschreibt [Terminbuchung mit Zahlung automatisieren](/de/prozess-check/blog/terminbuchung-mit-zahlung-automatisieren).
 
 Das ist die Weggabelung, um die es hier geht. Bookings, Teams und Outlook erledigen das meiste. Was Bookings nicht kann, nämlich zuerst kassieren, brauchte Code, der direkt mit Microsoft Graph spricht. Und solcher Code will gepflegt sein: Das Geheimnis, mit dem sich eine App bei Graph anmeldet, gilt laut Microsoft [höchstens 24 Monate](https://learn.microsoft.com/de-de/graph/auth-register-app-v2), und jemand muss es rechtzeitig erneuern.
 
@@ -78,7 +78,7 @@ Das ist die Weggabelung, um die es hier geht. Bookings, Teams und Outlook erledi
 
 Sie reichen, wenn alle beteiligten Systeme in Microsoft 365 liegen, die Regeln auf eine Seite passen und jemand intern den Flow betreut und eine Stellvertretung hat. Ferienanträge, ein Register für eingehende Bestellungen, eine Erinnerung, wenn ein Listeneintrag zu lange wartet, eine Bookings-Bestätigung, die zusätzlich in einem Teams-Kanal erscheint: All das können Sie selbst einrichten.
 
-Holen Sie Hilfe, wenn die Daten in ein System müssen, für das es keinen Standardkonnektor gibt, wenn die Logik mehr Ausnahmen hat als Regeln oder wenn intern niemand den Flow betreuen kann. Ein typisches Beispiel ist ein Sammelpostfach, das nach Kunde oder Fall sortiert werden soll. Outlook-Regeln folgen festen Bedingungen, etwa Wörtern im Betreff. Sie lesen keine Mail und beurteilen, wohin sie gehört. Diesen Fall behandelt [E-Mails im Sammelpostfach automatisch zuordnen](/de/blog/sammelpostfach-e-mails-zuordnen).
+Holen Sie Hilfe, wenn die Daten in ein System müssen, für das es keinen Standardkonnektor gibt, wenn die Logik mehr Ausnahmen hat als Regeln oder wenn intern niemand den Flow betreuen kann. Ein typisches Beispiel ist ein Sammelpostfach, das nach Kunde oder Fall sortiert werden soll. Outlook-Regeln folgen festen Bedingungen, etwa Wörtern im Betreff. Sie lesen keine Mail und beurteilen, wohin sie gehört. Diesen Fall behandelt [E-Mails im Sammelpostfach automatisch zuordnen](/de/prozess-check/blog/sammelpostfach-e-mails-zuordnen).
 
 ## Wann der Prozess-Check passt
 

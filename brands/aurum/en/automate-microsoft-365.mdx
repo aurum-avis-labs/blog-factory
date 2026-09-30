@@ -9,14 +9,14 @@ translationKey: automate-microsoft-365
 relatedPosts: ["copilot-or-build-a-workflow", "shared-inbox-sort-emails", "make-n8n-power-automate"]
 image: "@/assets/blog/automate-microsoft-365/hero.jpg"
 draft: false
-site: ki
+site: prozess-check
 ---
 
 ## Automate Microsoft 365 with what you already have
 
 If your firm pays for a Microsoft 365 business plan, you can automate a fair share of office work with what you already have, without buying anything else. Forms collects requests in a fixed shape, Lists keeps the register, Outlook rules sort mail, the Approvals app in Teams asks for a yes or no, Bookings takes appointments, and Power Automate connects them with standard connectors. The included rights stop at premium and custom connectors, at desktop automation, and in practice at the point where every flow depends on one person's account.
 
-This is for owners, office and finance leads in Swiss SMEs that already work in Outlook, Teams and SharePoint and want to know what they can set up themselves before they commission anything. If your question is really whether Copilot will do it, that is a different purchase. Copilot helps a person draft inside the apps. A flow moves data when nobody is typing. That fork is in [a Copilot licence or a built workflow](/blog/copilot-or-build-a-workflow).
+This is for owners, office and finance leads in Swiss SMEs that already work in Outlook, Teams and SharePoint and want to know what they can set up themselves before they commission anything. If your question is really whether Copilot will do it, that is a different purchase. Copilot helps a person draft inside the apps. A flow moves data when nobody is typing. That fork is in [a Copilot licence or a built workflow](/prozess-check/blog/copilot-or-build-a-workflow).
 
 ## What your Microsoft 365 plan already includes
 
@@ -68,7 +68,7 @@ Complex logic is the other limit. A flow with a handful of steps can be read by 
 
 ## What we built on Microsoft 365 ourselves
 
-Aurum Avis Labs runs on Microsoft 365, and our own booking for the Process Check is built on it. The page reads free slots from Microsoft Bookings through Microsoft Graph and sends the visitor to Stripe Checkout. Only after payment does a Stripe webhook create the Bookings appointment with a Teams link. The public Bookings page stays unused, because it would skip the payment. The full flow is in [automating appointment booking with payment](/blog/booking-with-payment-case).
+Aurum Avis Labs runs on Microsoft 365, and our own booking for the Process Check is built on it. The page reads free slots from Microsoft Bookings through Microsoft Graph and sends the visitor to Stripe Checkout. Only after payment does a Stripe webhook create the Bookings appointment with a Teams link. The public Bookings page stays unused, because it would skip the payment. The full flow is in [automating appointment booking with payment](/prozess-check/blog/booking-with-payment-case).
 
 That is the fork this article is about. Bookings, Teams and Outlook do most of the work. The part Bookings cannot do, taking payment first, needed code that talks to Microsoft Graph directly. And that kind of code has its own upkeep: the secret an app uses to reach Graph lasts [24 months at most](https://learn.microsoft.com/en-us/graph/auth-register-app-v2), according to Microsoft, and someone has to renew it in time.
 
@@ -76,7 +76,7 @@ That is the fork this article is about. Bookings, Teams and Outlook do most of t
 
 They are enough when every system involved sits inside Microsoft 365, the rules fit on one page, and someone internal owns the flow and has a deputy. Holiday requests, a register of incoming orders, a reminder when a list entry has waited too long, a Bookings confirmation that also posts to a Teams channel: all of that is do-it-yourself territory.
 
-Get help when the data has to reach a system with no standard connector, when the logic has more exceptions than rules, or when nobody internal can look after it. Sorting a shared inbox by customer or case is a typical example. Outlook rules follow fixed conditions, such as words in the subject line. They do not read a mail and judge where it belongs. That case is in [sorting emails in a shared inbox](/blog/shared-inbox-sort-emails).
+Get help when the data has to reach a system with no standard connector, when the logic has more exceptions than rules, or when nobody internal can look after it. Sorting a shared inbox by customer or case is a typical example. Outlook rules follow fixed conditions, such as words in the subject line. They do not read a mail and judge where it belongs. That case is in [sorting emails in a shared inbox](/prozess-check/blog/shared-inbox-sort-emails).
 
 ## When the Process Check fits
 
