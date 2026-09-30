@@ -1,0 +1,90 @@
+---
+title: "Automate payment reminders in a Swiss SME"
+description: "When the accounting program's dunning levels are enough, and what still needs a person: key accounts, disputes and Betreibung."
+pubDate: 2026-12-17
+author: "Aurum Avis Labs"
+tags: ["invoices", "payments", "credit control"]
+funnelStage: interest
+translationKey: dunning-payment-reminders
+relatedPosts: ["quote-follow-ups", "invoice-approval-workflow", "what-the-process-check-is"]
+draft: false
+---
+
+## Automate payment reminders around the levels you already have
+
+Automate payment reminders by letting the accounting program send its ordinary dunning levels, and by keeping a short list of invoices that must not ride those levels. A note before the due date, a personal line for a key account, a disputed invoice and a call list are that gap. Debt enforcement, Betreibung, is a legal step at the debt-collection office. It stays manual.
+
+This is for the person who watches open customer invoices in a Swiss firm, often the office lead or the owner. Chasing quotes before a sale is a different rhythm, described in [quote follow-ups](/blog/quote-follow-ups). Approving supplier bills you received is another, described in [invoice approval](/blog/invoice-approval-workflow). This page is only about money your customers still owe you.
+
+## When the program's dunning is enough
+
+It is enough when most invoices are alike, the customer is not arguing, and a plain reminder will not damage the relationship. In that case you do not need a second tool that sends the same letter.
+
+In bexio you can turn on email per dunning level. The first automatic mail goes out on the due date plus the days you set for the payment reminder, and each level's payment term is the gap until the next level. You can also set or switch that on a single invoice. A dunning run lists invoices that have passed the current term and lets you move the ones you pick to the next level, then send or export them. That is [bexio's own description](https://help.bexio.com/s/article/000001705?language=de) of the automation, and the [dunning run](https://help.bexio.com/s/article/000001718?language=de) sits beside it.
+
+In Abacus the debtor ledger marks invoices as open, sent or do not dun. You can run a batch or pick single documents, build a collective reminder, and release before anything goes out. The vendor states that the Business Process Engine can send the run without someone starting it by hand. See [Abacus on dunning](https://www.abacus.ch/mahnwesen).
+
+If your program is neither of those, assume nothing about menus. What matters is the same shape: levels, an exclusion flag, and a person who releases the batch. Whether your program offers that, you can settle in a check. We have not built a connector into these products. The levels are theirs.
+
+<div class="blog-pair">
+  <div>
+    <h3>Leave on the automatic level</h3>
+    <ul>
+      <li>An ordinary invoice, past due, no dispute and no payment promise</li>
+      <li>A customer who already receives standard reminders</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Take off the automatic level</h3>
+    <ul>
+      <li>A dispute, a written payment plan, or a key account</li>
+      <li>Anything one step from Betreibung</li>
+    </ul>
+  </div>
+</div>
+
+## One note before the due date
+
+A reminder before the due date is not a dunning level. It is one short mail, a few days prior, for invoices you actually want paid on time: larger amounts, new customers, customers who often pay a week late. It says the due date, the amount and how to pay. It does not threaten. It does not go to every invoice, or it becomes noise and people stop reading the real reminder.
+
+The program may already have a "payment reminder" as level one, sent after the due date. Use that for the overdue book. Use the earlier note only where a late payment costs you, and keep a record that it went out, so the later level does not pretend nobody wrote.
+
+## Key accounts and disputed invoices
+
+A key account gets a sentence a person would sign. The name on the mail is the person who sold the work, or the owner, not a no-reply address. The text can still be prepared by the workflow. The send waits until that person has seen it, at least for the first months, until the wording has settled.
+
+A disputed invoice does not climb levels. "Do not dun" in the program, or the equivalent flag, and a task to the person who sold it: what the customer objected to, which delivery or hour, and a date to resolve it. If the dispute is real, the next automatic letter makes it worse. If the dispute is a delay tactic, a person can put the invoice back on the ordinary path after a written note. The workflow must not decide that.
+
+## A call list for what is still open
+
+After the last ordinary level, the useful output is a list, not another template. Customer, invoice number, amount, due date, what was already sent, and who should phone. One morning a week is enough in a small firm. The person calls. The workflow does not dial, and it does not write "we have passed this to our lawyer" unless someone has.
+
+Tick three outcomes only: paid, promised by a date, or still open. A promise becomes a date in the system, and the invoice stays off the automatic levels until that date. If the date passes, it returns to the list, not silently to level one.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Before the due date</h3><p>One plain note for the invoices you chose. Everyone else is quiet.</p></li>
+  <li data-step="2"><h3>After the due date</h3><p>The program's levels, for invoices with no dispute and no promise.</p></li>
+  <li data-step="3"><h3>Exceptions</h3><p>Key accounts, disputes and payment plans go to a named person.</p></li>
+  <li data-step="4"><h3>Still open</h3><p>A call list. A person phones. The list records paid, promised or open.</p></li>
+  <li data-step="5"><h3>Legal step</h3><p>Betreibung starts only when someone files a request at the debt-collection office.</p></li>
+</ol>
+
+## Betreibung is not a dunning level
+
+Betreibung is how a monetary claim is enforced under the Federal Debt Enforcement and Bankruptcy Act. The creditor files a request, a Betreibungsbegehren, with the competent debt-collection office. The Federal Office of Justice states that the form is optional, and that you can fill a request and find the office on betreibungsschalter.ch. That filing is a decision. A workflow may prepare the invoice number, the amount and the address. It does not submit the request, and it does not tell the customer that enforcement has started.
+
+This page is not legal advice. Whether a claim is due, whether a contract requires a reminder, and whether to proceed, is a question for the person responsible, and where the amount matters, for an adviser.
+
+## A made-up example
+
+A made-up example: an office has 70 open customer invoices in the accounting program. Sixty have no note on the customer record. Those follow the program's levels, and someone glances at the run before it sends. Six belong to customers the owner still calls personally. A week before the due date they get a short mail in the owner's name, and they stay off the automatic levels. Four invoices are marked disputed because the customer rejected part of a delivery. Those go to the person who issued the quote, with the invoice and the customer's sentence attached. The remaining invoices that are still open after the last level appear on a Tuesday list of eight lines. The office lead phones them and writes paid, promised or open. No row on that list files a Betreibungsbegehren.
+
+## Who should skip this
+
+Skip a new workflow if you send a handful of invoices a month and you already know who is late. A shared list and the program's own button are enough. Skip it if a lawyer or a collection agency already owns the overdue book. Two senders will cross. Skip it if the open items are wrong in the system, because reminders on a bad ledger create disputes you then have to unwind.
+
+The work that is worth describing is the weekly sort: which invoices may go out alone, which need a person, and which must never be threatened with a legal step by a template.
+
+## When a Prozess-Check fits
+
+A [Prozess-Check](/prozess-check) fits when that weekly sort is still a person's memory: levels firing on disputed invoices, or key accounts getting the same letter as everyone else. You bring this one recurring task. The meeting is 60 minutes on Microsoft Teams. You leave with a concrete case, whether it pays off, a price range and a rough duration. The hour does not commit you to build anything.
