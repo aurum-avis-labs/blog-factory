@@ -40,7 +40,7 @@ export const brands: BrandConfig[] = [
       { id: "studio", path: "/", blog: "/blog", status: "live" },
       { id: "prozess-check", path: "/prozess-check", blog: "/prozess-check/blog", status: "live" },
       { id: "workshops", path: "/workshops", blog: "/workshops/blog", status: "planned" },
-      { id: "security", path: "/security", blog: "/security/blog", status: "planned" },
+      { id: "security", path: "/security", blog: "/security/blog", status: "live" },
     ],
   },
   {
