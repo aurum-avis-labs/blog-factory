@@ -1,0 +1,79 @@
+---
+title: "Match delivery notes to supplier invoices"
+description: "Order, delivery note and invoice: match quantity and price, pass partial deliveries, and send only the exceptions to a person."
+pubDate: 2027-01-22
+author: "Aurum Avis Labs"
+tags: ["purchasing", "invoices", "delivery notes"]
+funnelStage: interest
+translationKey: delivery-note-invoice-matching
+relatedPosts: ["invoice-approval-workflow", "invoice-capture-what-software-misses", "capture-email-orders"]
+draft: false
+---
+
+## Match the delivery note to the order and the invoice
+
+Match a supplier invoice to the purchase order and to the delivery note before anyone approves payment. Quantity and price that sit inside a tolerance you have written down can move on. A short delivery, a price that is not on the order, and a missing delivery note go to a named person. Paying the PDF because it looks familiar is how you pay for goods that never arrived.
+
+This is purchasing. Customer orders that arrive by email and become your own sales orders are a different document, described in [capturing orders from email](/blog/capture-email-orders). Reading a supplier invoice that accounting software already picks up is in [invoice capture](/blog/invoice-capture-what-software-misses). Releasing the bill once the match is done is in [invoice approval](/blog/invoice-approval-workflow). If you are the carrier and you invoice your customer from your own proof of delivery, that is another job. This page is the goods you bought.
+
+No product menu is described here. Whether your program already matches, you see in that program. If it does, and people use it, stay there. The usual gap is the paper or PDF delivery note that never meets the order.
+
+## Three documents, one line
+
+A line can be matched when the same article, the same unit and a quantity appear on the order and on the receipt, and the invoice does not ask for more than was received, at a price the order allows. Two-way match, order against invoice, is what you have when nobody records a receipt. It misses the case where the invoice copies the order and the goods are still on the truck. Three-way match adds the delivery note or the goods receipt.
+
+<ol class="blog-flow">
+  <li><strong>Order</strong><p>Article, quantity, unit, price, supplier. Without this, there is nothing to match to.</p></li>
+  <li><strong>Receipt</strong><p>What arrived, counted the day it arrived, against that order.</p></li>
+  <li><strong>Invoice</strong><p>What the supplier asks to be paid. Compared with both, not with memory.</p></li>
+  <li><strong>Exception</strong><p>Outside the tolerance, a person decides. Inside it, the line can go to approval.</p></li>
+</ol>
+
+The receipt is written when the goods arrive, not when the invoice arrives three weeks later. By then the pallet is on the shelf, opened, and nobody can count it back. A signature on the carrier's paper is useful. It is not a quantity in the order unless someone types or reads that quantity onto the order line the same day.
+
+If the delivery note is a PDF in a mailbox, the workflow's job is to put article, quantity and order number into the receipt. What it cannot read stays blank and goes to a person. A guessed quantity that "looks like" the order will match perfectly and still be wrong.
+
+## Tolerances and partial deliveries
+
+Write the tolerance down before you automate. A quantity tolerance and a price tolerance, in units or in francs, small enough that you would not call purchasing for them. A rounding difference of a few rappen is not a project. A price that moved without a new order is. There is no universal legal percentage for "close enough". If a contract states one, use that. Otherwise the person who may accept a difference sets the number. The workflow does not invent one.
+
+A partial delivery stays open. You received 80 of 100. The invoice for 80 can match. The remaining 20 stay on the order until they arrive or someone cancels them. An invoice for 100 against a receipt of 80 does not get "rounded up". It is an exception: pay the 80, ask about the 20, or reject the invoice. Closing the order because the invoice says complete hides the shortage until stocktaking.
+
+Extra lines on the invoice, freight, a surcharge, a minimum-order fee, match only if the order or the contract allows them. Otherwise they are an exception with the invoice attached, not a quiet booking to "other costs".
+
+<div class="blog-pair">
+  <div>
+    <h3>The program already does this</h3>
+    <ul>
+      <li>Orders, receipts and invoices live in one system and staff enter the receipt there</li>
+      <li>Your job is to use that match and to clear its exception list</li>
+    </ul>
+  </div>
+  <div>
+    <h3>The paper note is the gap</h3>
+    <ul>
+      <li>The invoice is in the accounts, the delivery note is in a tray or a mailbox</li>
+      <li>A workflow can read the note onto the order. It does not replace the order</li>
+    </ul>
+  </div>
+</div>
+
+## Who decides the exception
+
+Inside the tolerance, the matched invoice can enter the approval you already use. Outside it, one person in purchasing, or the person who placed the order, sees the three quantities: ordered, received, invoiced, and the two prices. They accept, accept in part, or send the invoice back. The workflow records that decision next to the invoice. It does not email the supplier a complaint in the company's name unless that person has sent it.
+
+A repeated exception on the same article is worth a note on the supplier, not a wider tolerance. Widening the tolerance until the list is empty is how overbilling becomes normal.
+
+## A made-up example
+
+A made-up example: an order for 100 boxes of the same article at CHF 4.20. The delivery note on Tuesday says 80 boxes. Someone enters 80 against the order that afternoon. The invoice on the following Monday asks for 100 boxes at CHF 4.35. The match shows a quantity gap of 20 and a price gap of 15 rappen per box. Both sit outside the tolerance the office wrote down, which was a few rappen and zero unordered boxes. Purchasing pays nothing automatically. They accept 80 boxes at the order price, ask the supplier for a corrected invoice, and leave 20 open on the order. The approval step sees only the agreed 80, after that correction. The original invoice is kept with the note, not deleted.
+
+## Who should skip this
+
+Skip a new workflow if the program you already pay for matches order, receipt and invoice, and the receipt is entered on the day. Turning on a second matcher doubles the exceptions. Skip it if you place a handful of orders a month and one person opens every box. Skip it if you have no purchase orders. Matching needs a reference. Write the order first, even a short one with article, quantity and price. Skip it if the pain is customer orders coming in by email. That is the other document.
+
+The recurring task worth describing is the note that never meets the invoice: a tray of delivery papers, or a PDF the warehouse signed and the accounts never saw.
+
+## When a Prozess-Check fits
+
+A [Prozess-Check](/prozess-check) fits when that gap is every week: invoices waiting because the delivery note is in a van, or a person retyping quantities from paper into the order. You bring this one recurring task. The meeting is 60 minutes on Microsoft Teams. You leave with a concrete case, whether it pays off, a price range and a rough duration. The hour does not commit you to a project.
