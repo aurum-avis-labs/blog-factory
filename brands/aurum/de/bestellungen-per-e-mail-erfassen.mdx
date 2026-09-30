@@ -1,0 +1,93 @@
+---
+title: "Bestellungen per E-Mail automatisch erfassen"
+description: "PDF-, Excel- und Freitext-Bestellungen werden zum Entwurf. Unklare Zeilen bleiben bei einer Person. Wann EDI besser passt."
+pubDate: 2026-12-10
+author: "Aurum Avis Labs"
+tags: ["bestellungen", "e-mail", "ablauf"]
+funnelStage: interest
+translationKey: capture-email-orders
+relatedPosts: ["doppelerfassung-vermeiden", "sammelpostfach-e-mails-zuordnen", "was-der-prozess-check-ist"]
+draft: false
+---
+
+## Bestellungen per E-Mail automatisch erfassen
+
+Bestellungen per E-Mail erfassen Sie automatisch, indem die Nachricht und die Datei gelesen werden, Kunde und Artikelnummer abgeglichen werden und im Programm, das Sie schon nutzen, ein Auftragssentwurf entsteht. Die Bestätigung geht erst raus, wenn eine Person die Zeilen freigegeben hat, die nicht eindeutig waren. PDF, Excel und kurzer Freitext brauchen dieselben Felder. Das Abtippen ist der Teil, der sich automatisieren lässt. Was nicht sauber passt, bleibt bei einer Person.
+
+Das gilt für Verkaufsinnendienst und Auftragsbüro in Schweizer B2B-Firmen, deren Kundschaft noch eine Datei schickt und nicht über einen Shop bestellt. Es ist der Bestellfall eines bekannteren Musters, dieselben Angaben zweimal zu tippen. Das steht in [Doppelerfassung vermeiden](/de/blog/doppelerfassung-vermeiden). Welche Mails überhaupt Bestellungen sind, klärt sich einen Schritt früher, beim [Sammelpostfach](/de/blog/sammelpostfach-e-mails-zuordnen).
+
+<ol class="blog-flow">
+  <li><strong>Posteingang</strong><p>Das Bestellpostfach wird gelesen, inklusive Anhang.</p></li>
+  <li><strong>Zeilen</strong><p>Kunde, Artikel, Mengen und die Kundenreferenz werden herausgezogen.</p></li>
+  <li><strong>Abgleich</strong><p>Jede Zeile wird mit Ihren Kunden- und Artikeldaten verglichen.</p></li>
+  <li><strong>Entwurf</strong><p>Ein Auftragssentwurf liegt im bestehenden Programm. Unklare Zeilen warten.</p></li>
+  <li><strong>Bestätigung</strong><p>Eine Person gibt den Entwurf frei. Dann kann die Bestätigung raus.</p></li>
+</ol>
+
+## Was in jeder Bestellmail stehen muss
+
+Jede Bestellung, egal welches Dateiformat, muss dieselben Felder liefern, bevor ein Entwurf sich lohnt. Legen Sie die Liste einmal fest, anhand der Bestellungen, die wirklich reinkommen, und schreiben Sie sie auf. Der Lesevorgang sucht genau diese Felder.
+
+- Kunde, abgeglichen mit einer Nummer, die Sie schon führen, nicht nur mit dem Namen in der Signatur.
+- Lieferadresse oder Baustelle, wenn sie nicht die Standardadresse im Kundenstamm ist.
+- Die eigene Bestellreferenz der Kundschaft, damit Bestätigung und später die Rechnung sie nennen können.
+- Artikelnummer, wie die Kundschaft sie geschrieben hat, und Ihre Artikelnummer, sobald sie passt.
+- Menge und Einheit. Eine Menge ohne Einheit ist keine vollständige Zeile.
+- Wunschtermin, wenn einer genannt ist. Fehlt er, gilt Ihre übliche Frist, und der Entwurf sagt das.
+
+Excel ist von den dreien am ruhigsten, wenn die Kundschaft das Blatt verwendet, das Sie selbst verschickt haben, mit festen Spalten. Ein PDF des eigenen Formulars der Kundschaft lässt sich lesen, aber das Layout ist je Kunde anders. Die ersten Wochen dienen dazu, diese Layouts kennenzulernen, nicht einem perfekten Lesen am ersten Tag. Freitext, die Mail mit drei Zeilen, geht, wenn die Artikelnummern im Text stehen. Er taugt nicht, wenn dort «wie immer» oder «gleich wie letzten Monat» steht. Solche Mails gehen an eine Person, mit der letzten Bestellung daneben.
+
+## Wie der Entwurf ins Programm kommt, das Sie schon nutzen
+
+Der Entwurf gehört ins Auftragsprogramm, in dem der Innendienst heute arbeitet. Die Umsetzung ersetzt dieses Programm nicht. Sie füllt einen Entwurf so, wie eine sorgfältige Person es täte, und sie hält an, wo diese Person auch nachfragen würde.
+
+Liegt das Postfach in Microsoft 365, kann [Microsoft Graph](https://learn.microsoft.com/en-us/graph/api/message-list-attachments?view=graph-rest-1.0) die Anhänge einer Nachricht auflisten. Die kleinste Berechtigung, die Microsoft dort nennt, ist Mail.Read. Liegt das Postfach in Google Workspace, kann die [Gmail-Schnittstelle](https://developers.google.com/gmail/api/reference/rest/v1/users.messages.attachments/get) einen bestimmten Anhang holen. Unter den genannten Berechtigungen ist ein reines Leserecht für die Mail. In beiden Fällen lesen Sie Post, die das Büro ohnehin erhält. Die Kundschaft muss ihre Bestellart nicht ändern.
+
+Was danach passiert, hängt davon ab, was Ihr Auftragsprogramm annimmt. Manche Programme nehmen einen Dateiimport. Manche bieten eine Schnittstelle. Manche haben nur die Maske. Was Ihr Programm an Schnittstellen bietet, klären wir im Check, am Produkt, das Sie wirklich einsetzen. Wir nehmen nicht an, dass ein bestimmtes Buchhaltungs- oder ERP-Programm eine Auftragsschnittstelle hat, solange das die eigene Seite des Herstellers nicht sagt.
+
+Gleichen Sie Kunde und Artikel mit Ihren Stammdaten ab, nicht mit der Schreibweise in der Mail. Ein Kunde kann mit dem Markennamen signieren und unter dem Firmennamen bestellen. Führen Sie eine kleine Tabelle der Namen und Artikelcodes, die diese Kundschaft verwendet. Der Innendienst pflegt sie. Der Abgleich benutzt zuerst diese Tabelle. Neue Schreibweisen fallen an die Person. Ein bestätigter Treffer kann in die Tabelle, damit die nächste Bestellung ruhiger ist.
+
+Preise auf dem Kundenbeleg sind eine Kontrolle, nicht der Preis, den Sie ungeprüft übernehmen. Steht im PDF ein Stückpreis und in der Vereinbarung ein anderer, wird die Zeile markiert. Der Entwurf behält Ihren Preis. Die Notiz zeigt beide Zahlen. Die Differenz soll nicht erst auf der Rechnung auffallen.
+
+## Unklare Zeilen bleiben bei einer Person
+
+Eine unklare Zeile ist kein Fehler des Werkzeugs. Genau deshalb sitzt noch jemand am Pult. Die Zeile geht an diese Person. Artikel, Einheit oder Kunde werden nicht geraten.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Ist der Abgleich unsicher, erfindet der Entwurf keinen Artikel, keine Einheit und keinen Kunden. Die Zeile wartet. Der Rest der Bestellung kann trotzdem vorbereitet werden, wenn Sie diese Regel aufgeschrieben haben.</p>
+</aside>
+
+Typische Wartefälle: keine Artikelnummer und ein Text, der auf zwei Artikel passt, eine Menge ohne Einheit, zwei Kunden mit demselben Namen, eine Lieferadresse, die Sie noch nie verwendet haben, oder ein Preis, der nicht zur Vereinbarung passt. Schreiben Sie pro Fall einen Satz, was der Innendienst tut. Die Zeile korrigieren und den Entwurf freigeben. Die Kundschaft fragen und den Auftrag halten. Die sicheren Zeilen in einen Entwurf legen und den Rest parken. Die Regel muss montags und freitags dieselbe sein, sonst widersprechen Ablauf und Person einander.
+
+Die Bestätigung geht erst raus, wenn der Entwurf freigegeben ist. Eine Bestätigung mit einem geratenen Artikel ist schlimmer als eine kurze Verzögerung. Kundenreferenz und Originaldatei bleiben am Entwurf, damit niemand das Postfach durchsuchen muss.
+
+Bestellungen enthalten Kunden- und Geschäftsdaten. Das Postfach hat sie schon. Legen Sie das PDF nicht in ein kostenloses Chat-Werkzeug, «nur zum Lesen». Was in welches Werkzeug darf, steht in [ChatGPT und Kundendaten nach DSG](/de/blog/chatgpt-kundendaten-dsg-schweiz).
+
+## Ein erfundenes Beispiel
+
+Ein erfundenes Beispiel: ein kleiner Grosshandel für Installationsteile, acht Personen, keine eigene IT. Bestellungen kommen an bestellung@ von rund vierzig Handwerkskunden. Ein Dutzend schickt ein PDF des eigenen Formulars. Die meisten anderen schicken das Excel-Blatt, das das Büro letztes Jahr herausgegeben hat, mit Spalten für Artikel, Menge und Kommissionsnummer. Zwei oder drei Mails pro Woche sind Freitext von der Baustelle.
+
+Jeden Morgen liest der Ablauf das Postfach. Excel-Zeilen mit bekanntem Artikel und einer Einheit werden zu Entwurfszeilen. PDF-Zeilen landen in denselben Feldern. Wo der Artikeltext «Bogen 90» ist und zwei Artikel passen, wird die Zeile markiert und der Entwurf gehalten. Die Freitext-Mail «gleich wie Dienstag, plus sechs der üblichen Schellen» wird nicht als Bestellung gelesen. Sie liegt in einem Ordner für den Innendienst, mit der Bestellung vom Dienstag dazu.
+
+Die Person am Pult öffnet die gehaltenen Entwürfe, nicht jede Mail. Der Bogen wird korrigiert, der Entwurf freigegeben, und die Bestätigung geht mit der Kommissionsnummer raus. Das Original-PDF bleibt am Auftrag. Nichts davon ist ein Kunde von uns, und es ist keine Aussage, wie viele Minuten Sie sparen.
+
+## Wann EDI mit den grossen Kunden die bessere Antwort ist
+
+EDI ist die bessere Antwort, wenn wenige grosse Kunden die Bestellung schon als strukturierte Meldung schicken oder das verlangen. [GS1 Switzerland](https://www.gs1.ch/en/barcodes-standards/gs1-standards/share) beschreibt den elektronischen Datenaustausch als Weg, Geschäftsvorfälle wie Bestellungen, Auftragsbestätigungen, Lieferscheine und Rechnungen in einem einheitlichen Format zu übermitteln. EANCOM wird dort als Format für elektronische Bestellungen genannt. Für die Schweiz nennt GS1 Switzerland eine weiter reduzierte Teilmenge, die IDEAL-Meldungen.
+
+Die Ideal-Meldung von GS1 Switzerland für Bestellungen, veröffentlicht im Dezember 2022, ist für den täglichen Bestellverkehr gedacht. Die empfohlene Praxis dort: eine Bestellung für eine Lieferung, an einen Ort, zu einem Zeitpunkt. Das ist eine andere Arbeit als ein PDF zu lesen. Beide Seiten brauchen die Kennungen, die die Meldung erwartet, etwa Standort- und Artikelnummern, und einen Weg, der dieses Format schon spricht.
+
+Nutzen Sie EDI für diese Kunden und den E-Mail-Weg für alle anderen. Tippen Sie EDI-Bestellungen nicht zusätzlich in den Mail-Ablauf, sonst entstehen zwei Entwürfe. Warten Sie nicht, bis jede kleine Kundschaft auf EDI wechselt. Die meisten schicken weiter eine Datei. Der E-Mail-Ablauf ist für diese lange Reihe. Ein Kunde, der zweimal im Jahr bestellt, ist kein EDI-Projekt.
+
+## Was Sie liegen lassen sollten
+
+Lassen Sie es liegen, wenn pro Woche nur eine Handvoll Bestellungen kommt und Sie jede davon kennen. Eine gemeinsame Liste und eine sorgfältige Person sind dann besser als ein Ablauf, dem niemand traut. Lassen Sie es liegen, wenn das Auftragsprogramm weder Import noch Schnittstelle hat und niemand aus einer vorbereiteten Maske tippen will. Das Lesen hilft dann trotzdem, aber jemand erfasst den Entwurf noch von Hand. Das sollten Sie wissen, bevor Sie anfangen.
+
+Sortieren Sie in diesem Ablauf auch nicht das ganze Firmenpostfach. Reklamationen, Rechnungen und Offerten haben eigene Zuständige. Diese Seite beginnt, wenn die Nachricht schon eine Bestellung ist.
+
+## Wann ein Prozess-Check passt
+
+Ein Prozess-Check passt, wenn das Bestellpostfach eine wiederkehrende Arbeit ist, jede Woche dieselbe, und Sie wissen wollen, ob ein Entwurfsablauf sich lohnt, bevor ein Werkzeug gekauft wird. Es sind 60 Minuten über Microsoft Teams, pauschal CHF 99, Zahlung per Karte bei der Buchung. Sie bringen diese eine Arbeit mit. Beschreiben genügt. Kundendateien brauchen Sie nicht.
+
+Sie gehen mit einem schriftlichen Fall, einer Einschätzung, ob es sich lohnt, und einer Preisspanne für die Umsetzung. Die Stunde verpflichtet zu nichts. Findet sich in der stattgefundenen Stunde nichts, das sich zu automatisieren lohnt, kommt das Geld zurück. Die Bedingungen stehen auf der Seite zum [Prozess-Check](/de/prozess-check).
