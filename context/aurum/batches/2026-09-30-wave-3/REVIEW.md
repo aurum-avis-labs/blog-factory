@@ -42,6 +42,21 @@ Merged to main from `aurum/w3-writer-b`. 14 files, 0 validator errors. Email ord
 | W3-O2 | reorder-at-minimum-stock | 1609 / 1499 | 3 | No Proffix, bexio or KitchenCrew figures. KitchenCrew is linked as the gastro case. |
 | W3-O3 | supplier-price-lists | 1406 / 1289 | 1 | ELDANORM, ZVEHNORM and BMEcat left out. A quote award is not written back as the new list price. |
 | W3-O4 | compare-supplier-quotes | 1434 / 1344 | 0 | No public-procurement duty and no rule that three quotes are required. |
-| W3-O5 | complaints-warranty-claims | 1640 / 1525 | 2 | OR Arts. 197, 201, 210, 367, 371 from fedlex. Flags that ch.ch's one-year used-goods line and the ban on shortening apply only when all three consumer conditions in Art. 210 para. 4 are met. Not legal advice. Body links shop returns (Writer E, seq 78), which publishes first. |
+| W3-O5 | complaints-warranty-claims | 1640 / 1525 | 2 | OR Arts. 197, 201, 210, 367, 371 from fedlex. Flags that ch.ch's one-year used-goods line and the ban on shortening apply only when all three consumer conditions in Art. 210 para. 4 are met. Not legal advice. Body links shop returns (seq 78), now on main. |
+
+## Writer E (recruitment, retail, architects, logistics)
+
+Merged to main from `aurum/w3-writer-e`. 16 files, 0 validator errors. Recruitment and retail sit just over their 1,200-word ceiling and under the warning line. Timesheets sit just over 1,600.
+
+| ID | Key | EN / DE | Sources | Risk |
+|---|---|---|---|---|
+| W3-I9 | ai-for-recruitment-agencies | 1316 / 1304 | 2 | AVG and SECO only. The 2018 "6,000 firms" line was dropped; SECO now says over 7,400 and that figure was not used either. Deposit and licence fees left out. In-house screening is a different job and is not repeated. |
+| W3-I10 | temp-staff-timesheets | 1644 / 1593 | 2 | No collective-agreement percentages. Five-year retention left out because it was only in a PDF highlight. Links payroll preparation, which is already on main. |
+| W3-I11 | ai-for-retail-ecommerce | 1223 / 1176 | 4 | Shopify Help for notifications and languages only. No EU withdrawal right. |
+| W3-I12 | returns-customer-enquiries-shop | 1587 / 1515 | 1 | Warranty clock stays in the complaints post. This page is "where is my order" and returns. |
+| W3-I13 | ai-for-architects-engineers | 1036 / 984 | 2 | SIA 102 and 103 product pages from 2020 only. No phase percentages or recommended hourly rates. |
+| W3-I14 | project-hours-fee-invoice | 1390 / 1319 | 0 | No new rates. Distinguished from a trades daywork sheet. |
+| W3-I15 | ai-for-logistics-transport | 943 / 883 | 0 | Shortest awareness post in this set, still above the 700-word floor. LSVA, customs, CMR and ADR left out. |
+| W3-I16 | delivery-notes-proof-of-delivery | 1394 / 1355 | 0 | A photographed signature is not called conclusive. Links the purchasing-side match, already on main. |
 | W3-O6 | maintenance-service-reminders | 1330 / 1228 | 1 | No legal annual heating service. VKF Art. 20 only. Daily dispatch is not linked in the body. |
 | W3-O7 | technician-dispatch-planning | 1448 / 1397 | 0 | No named field-service product and no GPS or route-saving figures. Says when a dedicated product is the better buy. |
