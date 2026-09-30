@@ -231,8 +231,8 @@ Bestehende DE-MVP-Slugs (nicht als `relatedPosts` in neuen Posts):
 |-------|--------|
 | Diese `STRATEGY.md` | ICP, Funnel, CTAs, Research, Anti-Patterns |
 | [`TOPIC-QUEUE.md`](./TOPIC-QUEUE.md) | Welle 1: 16 Topics mit Outline, Priority, Links |
-| [`../batches/2026-09-30-sme-cluster-wave-2.md`](../batches/2026-09-30-sme-cluster-wave-2.md) | Welle 2: 32 Topics (Branchen, Systeme, Workshop-Funnel, Cases) |
-| [`PUBLISHING.md`](./PUBLISHING.md) | Kalender aller 48 Topics, Reihenfolge, keine Autopilot-Masse |
+| [`PUBLISHING.md`](./PUBLISHING.md) | Wochenrhythmus, 1. Oktober 2026 bis 22. Februar 2027, ein Post pro Werktag |
+| `brands/aurum/{de,en}/` | Die 103 veröffentlichten Posts (Welle 1–3) |
 | [`HANDOFF-TO-BLOG-WRITER.md`](./HANDOFF-TO-BLOG-WRITER.md) | Kurzbrief, erste P0s |
 | [`../../../AGENTS.md`](../../../AGENTS.md) | Frontmatter, `relatedPosts`, `funnelStage` |
 | [`../../../brands.config.ts`](../../../brands.config.ts) | `aurum`: Sprachen `en`, `de` |

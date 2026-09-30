@@ -18,7 +18,7 @@ SEO-Arbeit und Working Titles sind **de-CH**. EN ist hreflang-Zwilling, kein zwe
 
 ## pubDate
 
-Ein Post pro Wochentag, 1. Oktober 2026 bis 22. Februar 2027, Feiertage inklusive. Massgebend ist [`../batches/2026-09-30-wave-3/CALENDAR.md`](../batches/2026-09-30-wave-3/CALENDAR.md). Die Topics T01–T16 unten bleiben inhaltlich gültig. Welle 2: [`../batches/2026-09-30-sme-cluster-wave-2.md`](../batches/2026-09-30-sme-cluster-wave-2.md).
+Ein Post pro Wochentag, 1. Oktober 2026 bis 22. Februar 2027, Feiertage inklusive. Massgebend ist das `pubDate` im jeweiligen Post unter `brands/aurum/`. Die Topics T01–T16 unten bleiben inhaltlich gültig. Welle 2 und 3 liegen als Posts im selben Ordner.
 
 ---
 

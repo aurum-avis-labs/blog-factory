@@ -1,9 +1,0 @@
-# supplier-price-lists
-Primary query DE / EN: Lieferantenpreislisten importieren / import supplier price lists into your system
-SERP: not a full result set captured. Product and trade-software pages commonly explain a vendor import button. The gap is the office work around the file: mapping, a change log, a margin check, and open quotes that must not be rewritten in silence. January timing is the brief's scheduling angle, not a measured share of suppliers.
-Verified facts (one per line, each with URL and access date):
-- DATANORM, published by the DATANORM-Arbeitskreis Datenaustausch, is a standard procedure for exchanging article and master data between manufacturers, specialist dealers and trades in the building industry. The site states it is a product-data exchange format, not software. First published in 1986 as a handbook (version 3). Development inside the working group ended with version 5 in 1999. https://www.datanorm.de/DATANORM/WasIstDATANORM accessed 2026-09-30.
-- The page also mentions a 2015 note about a possible international iDATANORM version. That is an invitation to a working group, not a released format. Left out of the post.
-Vendor / product features used (URL each): DATANORM format description only. No trade-software import feature claimed, because those differ by product and were not checked supplier by supplier.
-Not verifiable, therefore left out: ELDANORM and ZVEHNORM (documented by German electrical associations on volie.de, not verified as the Swiss trade format). BMEcat. Any share of Swiss suppliers who send lists in January. Any claim that a named Swiss calculation program imports DATANORM, unless the reader's own product documents it in the Check. Margin percentages.
-Internal links planned (seq-checked): excel-as-shadow-system (seq 31), stop-double-data-entry (seq 29), reorder-at-minimum-stock (seq 66), /prozess-check. relatedPosts also include what-the-process-check-is (seq 4).

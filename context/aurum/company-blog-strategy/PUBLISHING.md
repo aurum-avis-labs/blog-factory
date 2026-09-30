@@ -15,13 +15,13 @@ Kein zweites SEO-Programm auf EN. DE + EN desselben Topics: gleiches `pubDate`, 
 | Locales | `brands/aurum/de/{slug}.mdx` + `brands/aurum/en/{en-slug}.mdx` |
 | Bilder | `brands/aurum/images/{en-slug}/` · Guide: [`../context-files/aurum_avis_labs_blogpost_image_instructions.md`](../context-files/aurum_avis_labs_blogpost_image_instructions.md) |
 | Preview | `npm run preview`, Brand Aurum. Preview zeigt auch zukünftige `pubDate`. |
-| Merge | Nach `main`, wenn `validate.py` 0 Fehler hat. Kein `npm version` in blog-factory. |
+| Merge | Der Cluster liegt auf `main`. Kein `npm version` in blog-factory. |
 
 ---
 
 ## Kalender
 
-Massgebend ist [`../batches/2026-09-30-wave-3/CALENDAR.md`](../batches/2026-09-30-wave-3/CALENDAR.md) (`seq` 1–103). Erzeugt mit `tools/reschedule.py --start 2026-10-01`. Body-Links nur auf Posts mit kleinerem `seq`. Welle 1 und 2 sind geschrieben (seq 1–48, live ab 1. Oktober). Welle 3 (seq 49–103) startet am 8. Dezember 2026. `draft: false` auf allem, das auf `main` liegt.
+Massgebend ist das `pubDate` in jedem Post unter `brands/aurum/`. Ein Topic pro Wochentag, 1. Oktober 2026 bis 22. Februar 2027, Feiertage inklusive. Welle 3 startet am 8. Dezember 2026. `draft: false` auf allem, das auf `main` liegt. Body-Links zeigen nur auf Posts mit früherem `pubDate`.
 
 ---
 
@@ -33,14 +33,14 @@ Im selben PR die Matrix aus [`TOPIC-QUEUE.md`](./TOPIC-QUEUE.md) setzen. Die Liv
 
 ## Definition of done (Cluster-PR)
 
-- [ ] 103 Topics je DE + EN, Daten wie in CALENDAR.md
+- [ ] 103 Topics je DE + EN, `pubDate` wie oben
 - [ ] gleiches `pubDate` und `translationKey` pro Paar
 - [ ] Frontmatter komplett, `description` unter 160 Zeichen
 - [ ] CTA laut Queue
 - [ ] Live-Pfade: `/de/prozess-check`, `/de/prozess-check/buchen` (EN ohne `/de`)
 - [ ] Preise nur Onepager ([`STRATEGY.md`](./STRATEGY.md) Abschnitt 2)
-- [ ] ein Hero pro Topic unter `brands/aurum/images/{en-slug}/`
-- [ ] Validator 0 Fehler, dann Merge nach `main`
+- [ ] ein Hero pro Topic unter `brands/aurum/images/{en-slug}/` (Welle 1 und 2 liegen, Welle 3 noch ohne Bild)
+- [x] Texte auf `main`, 206 Dateien ohne Validator-Fehler geprüft, bevor der Planordner entfernt wurde
 
 ---
 
