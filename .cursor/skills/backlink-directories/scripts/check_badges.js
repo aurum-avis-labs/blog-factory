@@ -2,6 +2,7 @@
 // while the tab is on the page you want to audit (homepage; for a product that can only carry badges on a
 // subpage, e.g. /help, open that page). Edit the two CONFIG lines first.
 //
+// Open the page as URL?cb=<timestamp> first so the tab is not served from the HTTP cache.
 // It compares what the directories see (raw server HTML) with what visitors see (DOM after the client loaded).
 // Output uses ':' instead of '=' / '?' / '&' because the tool can block URL-like output.
 
@@ -14,6 +15,8 @@ const DIRECTORY_HOSTS = [            // every directory whose badge we may have 
 const EXPECTED = ['dailypings.com', 'findly.tools'];   // CONFIG: hosts that MUST be present (have a listing)
 
 const html = await (await fetch(location.href, { cache: 'no-store' })).text();
+const nav = performance.getEntriesByType('navigation')[0];
+const staleNav = !!nav && nav.transferSize === 0;   // tab came from the HTTP cache: the DOM may be an older deploy
 const domLinks = [...document.querySelectorAll('a[href^="http"]')].map(a => a.href);
 const count = (host, text) => text.split(host).length - 1;
 
@@ -27,8 +30,8 @@ const problems = [];
 for (const h of EXPECTED) {
   const r = rows.find(x => x.host === h);
   if (!r || r.raw === 0) problems.push(h + ' missing in raw HTML (directory verification will fail)');
-  else if (r.dom === 0) problems.push(h + ' in raw HTML but gone after client load (visitors do not see it)');
+  else if (r.dom === 0) problems.push(h + (staleNav ? ' in raw HTML but not in the DOM; the tab came from cache, reload as URL?cb=<timestamp> and run again' : ' in raw HTML but gone after client load (visitors do not see it)'));
   else if (r.dom > 1) problems.push(h + ' appears ' + r.dom + 'x in the DOM (duplicate)');
 }
 (location.pathname + ' | ' + rows.map(r => r.host + ' raw:' + r.raw + ' dom:' + r.dom).join(' ; ') +
-  ' || PROBLEMS: ' + (problems.join(' ; ') || 'none')).replace(/[?&=]/g, '~');
+  ' || stale-nav: ' + staleNav + ' || PROBLEMS: ' + (problems.join(' ; ') || 'none')).replace(/[?&=]/g, '~');

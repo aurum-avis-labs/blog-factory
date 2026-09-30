@@ -9,13 +9,17 @@ Many free plans only list a product (or only give a dofollow link) if the platfo
 3. The platform's own verify step passes and the public listing opens.
 4. The register row says `live` with `Badge on site = yes`.
 
-If (1) fails, verification will fail; do not keep clicking Verify. If (1) passes and (2) fails, verification works today, but visitors and JS-rendering crawlers do not see the badge and a browser-based daily re-check may fail; put it on the dev list.
+If (1) fails, verification will fail; do not keep clicking Verify. If (1) passes and (2) fails on a cache-busted load, verification works today, but visitors and JS-rendering crawlers do not see the badge and a browser-based daily re-check may fail; put it on the dev list.
 
 ## Audit script
 
 `scripts/check_badges.js` compares raw HTML with the DOM for one page and prints `host raw:N dom:N` for every known directory host plus a PROBLEMS list for the hosts you expect. Paste it into the javascript tool on the product's tab (one run per site; for a product whose badges live on a subpage, open that subpage). Output avoids `?`, `&`, `=` because URL-like output can be blocked by the tool.
 
-What the audit found in practice: a footer that renders only the first ~10 badges after hydration (newest badges vanished), badges added only client-side, badges present on `/en` but missing on the German root, a CSP that blocked the badge image host, a static-HTML verifier that ignored anything inside `#root`.
+What the audit found in practice: badges added only client-side, a CSP that blocked the badge image host, a static-HTML verifier that ignored anything inside `#root`, and one false alarm (see Cache trap below).
+
+## Cache trap (false "vanishing badge" alarm)
+
+The audit compares a fresh `fetch(..., {cache: 'no-store'})` of the raw HTML with the DOM of the tab. If the tab itself was opened from the browser's HTTP cache, the DOM belongs to an older deploy and the newest badges look as if they vanished after hydration. This happened on 2026-09-30 (Do4Me German root): the DOM had the first 10 badges, the raw HTML 14; `performance.getEntriesByType('navigation')[0]` showed `transferSize` 0 and a smaller document. Open the page as `URL?cb=<timestamp>` before auditing (the script prints `stale-nav: true` when `transferSize` is 0), and only hand a "vanishes after load" issue to the dev if the cache-busted load still misses the badge.
 
 ## Orphan badges
 

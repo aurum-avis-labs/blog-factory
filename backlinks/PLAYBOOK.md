@@ -45,7 +45,7 @@ State at the last check (2026-09-30): 78 rows live, 42 scheduled, 67 in review, 
 ## Lessons learned (short)
 
 1. **Raw HTML is what verifiers read.** Badges added client-side, inside a JS-rendered root, or only after hydration fail verification or vanish for visitors. Always compare raw HTML with the DOM (`scripts/check_badges.js`).
-2. **Footers can silently cap the list.** One footer rendered only the first ~10 badges after load; the newest vanished. A pre-rendered page that differs from the client bundle is the usual cause.
+2. **Compare against a fresh page load.** Three sites looked as if their newest badges vanished after client load (the DOM showed only the first 10 badges, the raw HTML all of them) and went onto the dev list. It was a stale cached copy of the page in the audit browser (navigation `transferSize` 0, an older document than the server sent). Loading the page as `URL?cb=<timestamp>` showed every badge. Only report "vanishes after hydration" to the dev after it reproduces on a cache-busted load; a footer that really caps its list is possible but was not observed.
 3. **Duplicates are the main way to break a listing.** Sumodir, SaaSBison, Neeed, Web Review and Turbo0 all refused or created duplicates. Open the profile/dashboard before submitting; never submit twice.
 4. **"Try again later" errors are often real limits.** An HTTP 500/503 on aat.ee was a fully booked launch date; Navs upload errors were a signed-out session or the 5-images-per-24-h quota.
 5. **Drafts carry over.** Forms restore the previous product's categories, tags, pricing and date. Overwrite everything and read the review step.
@@ -67,5 +67,5 @@ Say: "New product X, list it on the free directories." The skill takes it from t
 
 - Navs.site: six products to submit once the image quota resets (two per day).
 - Firsto: re-check for free dates.
-- Dev: footers on a few sites still lose the newest badges after client load (Do4Me German root, KitchenCrew, Postology).
+- Dev: nothing open. All nine sites audited clean on 2026-09-30 (raw HTML and DOM agree on cache-busted loads).
 - Optional: English version of the German-only site (Fazier requires it), cover images for two Findly listings, a StartupBase badge for the priority queue.

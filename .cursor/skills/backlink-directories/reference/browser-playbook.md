@@ -29,6 +29,7 @@ Hard-won notes from ~280 register rows of form filling. Read once per session.
 - Native `<select>` that `form_input` cannot set: use the prototype setter and dispatch events:
   `Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,'value').set.call(sel, value); sel.dispatchEvent(new Event('input',{bubbles:true})); sel.dispatchEvent(new Event('change',{bubbles:true}));`
 - Rich-text editors: focus the editor through JS, then use the `type` action; select-all with `cmd+a` before retyping when a draft was restored.
+- **Audit on a cache-busted load.** Open the page as `URL?cb=<timestamp>` before comparing raw HTML with the DOM. A tab served from the HTTP cache (`performance.getEntriesByType('navigation')[0].transferSize === 0`) shows an older deploy and fakes "badge vanished after load" (see `reference/badges-and-dev-handoff.md`, Cache trap).
 
 ## Forms
 
