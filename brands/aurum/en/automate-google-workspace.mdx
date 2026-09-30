@@ -1,0 +1,105 @@
+---
+title: "Automate Google Workspace with Apps Script, AppSheet and Gemini"
+description: "What an SME can automate in Google Workspace with Apps Script, AppSheet and Gemini, what the quotas allow, and who ends up owning the scripts."
+pubDate: 2026-12-09
+author: "Aurum Avis Labs"
+tags: ["google workspace", "apps script", "process automation"]
+funnelStage: interest
+translationKey: automate-google-workspace
+relatedPosts: ["automate-microsoft-365", "make-n8n-power-automate", "what-the-process-check-is"]
+draft: false
+---
+
+## Automate Google Workspace with Apps Script, AppSheet and Gemini
+
+To automate Google Workspace, an SME uses three tools that do different jobs. Apps Script is JavaScript that runs on Google's servers and works with Sheets, Gmail, Drive, Calendar and Forms, so it is the tool that moves data when nobody is typing. AppSheet builds small apps without code. Gemini helps a person write, summarise and search, but it does not run a process by itself. The limits are daily quotas, scripts that belong to one person's account, and the fact that someone has to read the code later.
+
+This is for owners, office and finance leads in Swiss SMEs that already work in Gmail, Drive and Sheets. If your firm runs on Microsoft 365, the counterpart is [automating Microsoft 365 with what you already have](/blog/automate-microsoft-365). Whether an assistant such as Gemini is the right purchase is a separate question. [A Copilot licence or a built workflow](/blog/copilot-or-build-a-workflow) is about Copilot, but the fork is the same: an assistant helps a person draft, a workflow moves data when nobody is typing.
+
+## What Apps Script can do
+
+Apps Script reacts to an event or a clock and then reads or writes your Sheets, sends mail and works with files in Drive. Google describes it as a [platform for business applications that integrate with Google Workspace](https://developers.google.com/apps-script/overview): you write modern JavaScript in a browser editor, and the scripts are saved to Drive and run on Google's servers. Four starting points cover most office jobs.
+
+- **A clock.** A [time-driven trigger](https://developers.google.com/apps-script/guides/triggers/installable) runs a script at a set time or interval, as often as every minute and as rarely as once a month. The time can be slightly randomised: a trigger set for 9 o'clock runs at some point between 9 and 10.
+- **A form answer.** A form submit trigger runs when someone answers a Google Form.
+- **A change in a Sheet.** An edit trigger runs when a user changes a value in a spreadsheet, a change trigger when its structure changes.
+- **A web request.** A script with a `doGet` or `doPost` function can be [published as a web app](https://developers.google.com/apps-script/guides/web) that answers requests from outside, such as a form on your website.
+
+## AppSheet and Gemini: what your edition includes
+
+As Google's pages read at the time of writing, AppSheet Core is included in Business Starter, Standard and Plus, and Gemini reaches Docs and Sheets from Business Standard. AppSheet Core needs a verified domain.
+
+| | Business Starter | Business Standard | Business Plus |
+| --- | --- | --- | --- |
+| AppSheet Core | Included | Included | Included |
+| Gemini in Gmail | Included | Included | Included |
+| Gemini in Docs, Sheets, Meet, Chat | Not included | Included | Included |
+| Gemini app | Basic access | Expanded access | Expanded access |
+
+The rows come from Google's [Business edition comparison](https://knowledge.workspace.google.com/admin/getting-started/editions/compare-business-editions), its [AppSheet subscription page](https://support.google.com/appsheet/answer/10105400) and its [Workspace pricing page](https://workspace.google.com/pricing). Editions change, so check before you buy.
+
+According to the AppSheet page, Gemini in AppSheet, optical character recognition and advanced data integrations such as BigQuery or Salesforce need AppSheet Enterprise Plus.
+
+On data, Google states in its [privacy hub](https://knowledge.workspace.google.com/admin/generative-ai/generative-ai-in-google-workspace-privacy-hub) that content is not used for generative AI model training outside your domain without permission, and that Gemini only retrieves content the user can already access. That is Google's statement, not a review of your setup. With customer data, ask your data protection adviser.
+
+## A worked example: our own case-study download gate
+
+On our website, a visitor can download a case study as a PDF after leaving an email address. Apps Script holds that chain together.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>A form on the website</h3><p>The visitor enters an email address and ticks a reCAPTCHA box. The page posts the data to an Apps Script web app.</p></li>
+  <li data-step="2"><h3>A check</h3><p>The script asks Google's reCAPTCHA service whether the answer is genuine. A cooldown allows one request per email address and case study every ten minutes.</p></li>
+  <li data-step="3"><h3>A log in a Sheet</h3><p>The script writes a row: time, email address, case study, language, whether marketing contact was allowed, and the status.</p></li>
+  <li data-step="4"><h3>The PDF from a private Drive folder</h3><p>The script finds the file by its exact name. Replacing a PDF means uploading a new file with the same name. The script stays untouched.</p></li>
+  <li data-step="5"><h3>An email through Microsoft Graph</h3><p>The script sends the mail with the PDF attached and writes the result, delivered or failed with the error text, back into the same row.</p></li>
+</ol>
+
+The mail leaves from our Outlook mailbox through [Microsoft Graph](https://learn.microsoft.com/en-us/graph/api/user-sendmail) instead of Gmail, because the company runs on Microsoft 365. Graph accepts the attachment in the same call. That needs an app registration in our Microsoft tenant with the Mail.Send application permission and an administrator's consent. Apps Script stays the glue and can call anything that has an API.
+
+It is lead gating, not copy protection: once someone has the PDF, they can forward it. The address of the web app is public, so reCAPTCHA and the cooldown reduce abuse but do not end it.
+
+## Where the quotas stop you
+
+Google's [quota page](https://developers.google.com/apps-script/guides/services/quotas) sets daily limits per user, so measure your volume against them before you plan a job. The values for a Workspace account, with a personal gmail.com account in brackets:
+
+- Email recipients per day: 1,500 (100)
+- Outgoing requests (URL Fetch calls) per day: 100,000 (20,000)
+- Total runtime of all triggers per day: 6 hours (90 minutes)
+- Runtime of one execution: 6 minutes on both
+- Simultaneous executions: 30 per user. Triggers: 20 per user per script
+
+Quotas are per user and reset 24 hours after the first request. Google adds that all quotas can be reduced or changed without notice. Keep business scripts on a Workspace account, not a personal one.
+
+In our download gate, each request costs a handful of outgoing requests: the reCAPTCHA check and the calls to Microsoft. The 100,000 limit is far away, and the mail limit does not apply because we do not send through Gmail.
+
+The limit to plan around is the six minutes. A job that reads a large Sheet row by row can run out of time. Google's [best practices](https://developers.google.com/apps-script/guides/support/best-practices) advise reading all data into an array with one command and writing it back with one command, and give an example that drops from about 70 seconds to about 1 second.
+
+## Who owns the scripts
+
+The account that creates a trigger or deploys a web app is the account the script runs as. Google says [installable triggers always run under the account of the person who created them](https://developers.google.com/apps-script/guides/triggers/installable). A web app set to "execute as me" runs as its owner, [whoever opens it](https://developers.google.com/apps-script/guides/web).
+
+That is a risk when one person owns everything. Google's [collaboration guide](https://developers.google.com/apps-script/guides/collaborating) puts it plainly: "If someone leaves your organization and their account is removed, access to scripts without other owners is lost." Standalone projects appear in Drive as files, container-bound ones do not, so know which kind you have.
+
+Three habits cover most of it. Share ownership of every script the business relies on. Keep one page listing each script: what it does, what starts it, which account it runs as and where its secrets are kept. And run business scripts from an account the company controls. We run ours from a shared operations account with two-factor authentication, not a personal one, and only the people who manage the leads can edit the Sheet.
+
+A script that talks to another system also holds credentials. Ours sit in the script properties, not in the code. The Microsoft secret expires after [24 months at most](https://learn.microsoft.com/en-us/graph/auth-register-app-v2), so someone has to renew it.
+
+## When something fails
+
+A script that fails quietly is worse than the manual job it replaced. The [Apps Script dashboard](https://developers.google.com/apps-script/guides/dashboard) lists recent executions with their status and shows an error rate, but only someone who looks will see it.
+
+Our gate writes the outcome of every attempt into the same Sheet row: submission status, delivery status and the error text Microsoft returned. Once a week someone filters for failed deliveries, finds the cause and resends by hand. A row without a delivered PDF is a person waiting for a file. The causes we have written down for ourselves are dull: a wrong or expired secret, a missing permission, a misspelt file name.
+
+One more trap. Editing the code does not change the live web app until you deploy a new version.
+
+## When Google's own tools are enough
+
+They are enough when the data already lives in Sheets, Gmail and Drive, the rules fit on one page, someone internal can read the script and two people own it. A morning digest of open rows, a form that fills a register and notifies the owner: that is in-house work.
+
+Get help when the chain has to reach a system without a Google connection, when the logic has more exceptions than rules, when the volume nears the quotas, or when nobody inside can look after the code.
+
+## When the Process Check fits
+
+The [Process Check](/prozess-check) fits when you have one recurring task that is still done by hand and want to know whether Apps Script or AppSheet covers it or whether it needs an implementation. Sixty minutes on Microsoft Teams, CHF 99. It works with any program that has an API, and what your programs offer is settled in the hour. You leave knowing where to start, whether it pays off, and with a price range for the implementation, plus a short written summary. The answer may well be "do this yourself in Apps Script". Then that is in the summary.
+
+If you already know which task it is: [book the Process Check](/prozess-check/buchen).

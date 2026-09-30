@@ -1,0 +1,68 @@
+---
+title: "What is an AI agent? A plain answer for the SME office"
+description: "An AI agent is a language model with tools and a goal, working in steps. What it can do in an SME office, and what it should never do unchecked."
+pubDate: 2026-10-09
+author: "Aurum Avis Labs"
+tags: ["ai agent", "ai sme", "office automation"]
+funnelStage: awareness
+translationKey: what-is-an-ai-agent
+relatedPosts: ["digitalisation-automation-ai-difference", "which-process-to-automate-first", "ai-agent-or-workflow-automation"]
+draft: false
+---
+
+## What is an AI agent?
+
+An AI agent is a language model that has been given tools and a goal, and works towards that goal in steps. It decides what to look up or do next, uses a tool, reads the result and carries on until the goal is met or it gets stuck. A chatbot answers a question. An agent acts inside the systems it has access to. In a small business office that can mean sorting an inbox, preparing a reply or finding an answer spread across three systems.
+
+[Anthropic](https://www.anthropic.com/engineering/building-effective-agents), which builds such models, draws the line this way: workflows are systems where models and tools run "through predefined code paths", while agents "dynamically direct their own processes and tool usage". In short: in a workflow you fix the path in advance. In an agent the model chooses it.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Model</span><strong>Reads and writes</strong><p>Understands the email, the note, the question in plain language.</p></li>
+  <li><span class="blog-kicker">Tools</span><strong>What it may touch</strong><p>Read the mailbox, search the customer list, create a draft.</p></li>
+  <li><span class="blog-kicker">Goal</span><strong>When it is done</strong><p>For example: every new request sorted and a draft prepared.</p></li>
+</ul>
+
+## What an AI agent can do in an SME office
+
+An agent is useful where the next step depends on what the previous one found. Three jobs fit that description in many offices.
+
+Triage: the agent reads new mail in the shared info mailbox, decides whether it is an order, a complaint or a question, and assigns it to the right person with a one-line summary. Drafting: for a customer question it looks up the last order and the price list and prepares a reply that someone reads before it goes out. Looking things up across systems: "Where is the delivery for this customer?" means checking the order list, the shipping confirmation in the mailbox and a note in the CRM. The agent collects the three answers and writes one.
+
+In all three the path changes from case to case. That is where a model choosing its own steps earns its cost.
+
+## What an AI agent should not do unattended
+
+An agent should not make payments, send binding replies, delete data or take any action that no person checks. Binding means anything a customer can hold you to: a price, a delivery date, an acceptance of terms.
+
+The [OWASP list of risks for language-model applications](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) calls this "excessive agency": damaging actions that follow from unexpected, ambiguous or manipulated model output. It names too many functions, too many permissions and too much autonomy as the causes, and recommends that a human approves high-impact actions. There is also a specific risk for agents that read mail: text inside an email or a file can carry instructions the model then follows. OWASP lists this as [indirect prompt injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/).
+
+<div class="blog-pair">
+  <div>
+    <h3>Can run on its own</h3>
+    <ul>
+      <li>Sorting and summarising incoming requests</li>
+      <li>Preparing drafts that a person sends</li>
+      <li>Collecting information from systems it may read</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Needs a person first</h3>
+    <ul>
+      <li>Payments and bookings</li>
+      <li>Replies that commit the company</li>
+      <li>Deleting or changing records</li>
+    </ul>
+  </div>
+</div>
+
+## The mistake: an agent for a job a fixed rule does reliably
+
+The most common mistake is using an agent where a fixed rule already does the job every time. "Every PDF from this supplier goes into this folder and to this approver" has one correct path. A rule follows it at almost no cost per run, and you can see afterwards why it did what it did. An agent adds variation exactly where you want none, and it costs more for each run.
+
+The difference between a rule and a model is explained with a supplier invoice in [digitalisation, automation and AI](/blog/digitalisation-automation-ai-difference). Which process deserves attention first, agent or not, is the subject of [which process to automate first](/blog/which-process-to-automate-first).
+
+## If your team wants to work with agents
+
+If the team first needs to understand what agents can do, try them on real tasks and agree on rules for their use, the [AI in Business workshop](/services/ai-in-business) is the format for that, including how to chain several tools into agentic workflows. It is a half or full day for up to 20 people.
+
+If you already have one specific task in mind, such as the inbox that gets sorted by hand every morning, the workshop is the wrong format. That one task is what the [Process Check](/prozess-check) is for.

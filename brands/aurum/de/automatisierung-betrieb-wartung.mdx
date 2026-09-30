@@ -1,0 +1,110 @@
+---
+title: "Betrieb und Wartung: wer die Automatisierung danach betreut"
+description: "Wer eine Automatisierung nach dem Start betreibt: Hosting, KI-Kosten, Überwachung, was typisch kaputtgeht, Übergabe, Ausstieg und Betrieb im Haus."
+pubDate: 2026-12-23
+author: "Aurum Avis Labs"
+tags: ["betrieb", "wartung", "automatisierung"]
+funnelStage: consideration
+translationKey: who-runs-the-automation
+relatedPosts: ["was-automatisierung-kostet-schweiz", "nach-dem-prozess-check"]
+draft: false
+---
+
+## Wer betreibt die Automatisierung danach?
+
+Eine Automatisierung, die läuft, braucht jemanden, der sie betreibt: entweder den Anbieter, der sie umgesetzt hat, gegen eine monatliche Gebühr, oder Ihr eigenes Team nach einer sauberen Übergabe. Bei uns ist das Erste der Normalfall. Robert Schlittler entwickelt die Automatisierungen selbst und betreibt sie danach auch, für CHF 50–150 pro Monat je nach Lösung. Dazu kommen die Kosten der KI-Dienste nach Nutzung, die Sie bezahlen. Den Betrieb können Sie jederzeit kündigen. Soll Ihr Team selbst betreiben, gehören im Large-Package Dokumentation und Übergabe dazu.
+
+Dieser Artikel ist für Geschäftsleitung, Büroleitung und Finanzen, die eine Automatisierung einkaufen wollen und wissen möchten, was im dritten Monat passiert, nicht nur am ersten Tag. Er zeigt, was Betrieb heisst, was typischerweise kaputtgeht, welche Fragen Sie jedem Anbieter stellen sollten und wann der Betrieb im eigenen Haus besser ist. Was die Umsetzung vorab kostet, steht in [was Automatisierung in der Schweiz kostet](/de/blog/was-automatisierung-kostet-schweiz).
+
+## Was zum Betrieb gehört
+
+Betrieb heisst vier Arbeiten, die niemand sieht, solange alles läuft.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Hosting und Betrieb</span><strong>CHF 50–150</strong><p>Pro Monat, je nach Lösung, wenn wir betreiben.</p></li>
+  <li><span class="blog-kicker">KI-Dienste</span><strong>Nach Nutzung</strong><p>Zusätzlich zum Hosting, bezahlt von Ihnen.</p></li>
+  <li><span class="blog-kicker">Kündigung</span><strong>Jederzeit</strong><p>Den Betrieb können Sie jederzeit kündigen.</p></li>
+  <li><span class="blog-kicker">Übergabe</span><strong>Large</strong><p>Dokumentation und Übergabe an Ihr Team gehören zum Large-Package.</p></li>
+</ul>
+
+**Hosting.** Die Automatisierung läuft auf einem Server oder einem Cloud-Dienst, nicht auf einem Laptop, der am Freitag zugeklappt wird.
+
+**Zugangsdaten.** Sie meldet sich mit eigenen Schlüsseln oder Konten bei Ihren Systemen an, und die laufen irgendwann ab.
+
+**Überwachung.** Jemand merkt, wenn ein Lauf fehlschlägt, bevor es eine Kundin oder ein Kollege merkt.
+
+**Kleine Anpassungen.** Ändert sich etwas rund um die Automatisierung, muss sie nachgezogen werden.
+
+Die Kosten der KI-Dienste hängen davon ab, wie oft die Automatisierung läuft und wie viel sie pro Lauf an den KI-Dienst schickt. Ein Ablauf, der jeden Tag jedes eingehende Dokument liest, braucht mehr als eine wöchentliche Zusammenfassung einer Tabelle. Lassen Sie sich diese Schätzung vor der Umsetzung geben, nicht erst nach der ersten Rechnung.
+
+## Was typischerweise kaputtgeht
+
+Automatisierungen gehen selten von selbst kaputt. Sie gehen kaputt, weil sich rundherum etwas geändert hat. Vier Ursachen sind in einem kleinen Büro typisch.
+
+### Ein Formular oder ein Export hat sich geändert
+
+Eine Spalte heisst plötzlich anders, im Webformular gibt es ein neues Feld, der Export schreibt das Datum in einem anderen Format. Die Automatisierung liest dort, wo sie lesen soll, und dort steht jetzt etwas anderes. Das ist der gewöhnlichste Fall und meist schnell behoben, sofern es jemand merkt.
+
+### Ein Passwort oder ein Schlüssel ist abgelaufen
+
+Automatisierungen melden sich mit eigenen Zugangsdaten an, und die laufen ab. Microsoft zum Beispiel begrenzt den geheimen Clientschlüssel, mit dem eine Anwendung über Graph auf Microsoft 365 zugreift, auf [höchstens 24 Monate und empfiehlt weniger als 12](https://learn.microsoft.com/de-de/graph/auth-register-app-v2). Steht dieses Datum in keinem Kalender, bleibt die Automatisierung an genau diesem Tag stehen. Ein geändertes Passwort bei einem Postfach, das die Automatisierung nutzt, hat dieselbe Wirkung.
+
+### Ein Anbieter hat seine Schnittstelle geändert
+
+Softwareanbieter ändern ihre Schnittstellen. Für Microsoft Graph kündigt Microsoft eine API in Version 1.0 [mindestens 24 Monate im Voraus als veraltet an](https://learn.microsoft.com/de-de/graph/versioning-and-support), bevor sie entfernt wird. Die Beta-Version kann sich dagegen ohne Ankündigung ändern und ist für Anwendungen im Betrieb nicht unterstützt. Fragen Sie jeden Anbieter, ob Ihre Automatisierung Beta-Schnittstellen nutzt. Andere Anbieter haben eigene Regeln, und die gehören in die Dokumentation.
+
+### Eine neue Person macht es anders
+
+Die neue Kollegin legt das PDF in einem anderen Ordner ab, schreibt die Auftragsnummer in den Betreff statt in den Text oder leitet Fotos weiter statt Anhänge. Die Automatisierung wurde darauf ausgelegt, wie die Arbeit bisher lief. Technisch ist nichts kaputt, aber die Eingabe hat sich geändert. Deshalb braucht es die Ansprechperson auch nach dem Start: Jemand muss neuen Leuten zeigen, wie die Arbeit jetzt läuft.
+
+## Überwachung: Niemand sollte es von der Kundschaft erfahren
+
+Ein fehlgeschlagener Lauf muss eine Meldung an eine bestimmte Person auslösen. Der schlimmste Fehler ist der stille: Die Automatisierung steht, niemand merkt es, und zwei Wochen später fehlt eine Rechnung oder eine Kundin ruft verärgert an.
+
+Unsere eigene Buchung zeigt, wo das zählt. Bezahlt jemand einen Prozess-Check, legt ein Webhook von Stripe den Termin an. Schlägt dieser Schritt fehl, versucht Stripe die Zustellung laut seiner [Webhook-Dokumentation](https://docs.stripe.com/webhooks) im Livebetrieb bis zu drei Tage lang erneut. Bis dahin ist die Zahlung da, der Termin aber nicht. Genau diese Lücke muss eine Überwachung abdecken. Den ganzen Ablauf beschreibt [Terminbuchung mit Zahlung automatisieren](/de/blog/terminbuchung-mit-zahlung-automatisieren).
+
+Fragen Sie jeden Anbieter, auch uns: Wer bekommt die Meldung, auf welchem Weg, und was passiert dann? «Wir schauen ab und zu in die Logs» ist keine Antwort.
+
+## Übergabe und Dokumentation
+
+Soll Ihr Team die Automatisierung betreiben, muss es das nach der Übergabe auch können. Im Large-Package gehören Dokumentation und Übergabe an Ihr Team zum Umfang. Wollen Sie einen kleineren Ablauf selbst betreiben, sprechen Sie das an, bevor der Festpreis steht. Dann steht es im schriftlichen Umfang. Wie dieser Schritt läuft, steht in [nach dem Prozess-Check](/de/blog/nach-dem-prozess-check).
+
+Eine brauchbare Dokumentation beantwortet fünf Fragen:
+
+<ul class="blog-checklist">
+  <li>Was läuft wo, und auf wessen Konto</li>
+  <li>Welche Zugangsdaten verwendet werden, und wann jede abläuft</li>
+  <li>Was als Eingabe erwartet wird und was herauskommt</li>
+  <li>Was zu tun ist, wenn ein Lauf fehlschlägt, und wen man anruft</li>
+  <li>Wie man die Automatisierung abschaltet, ohne laufende Arbeit zu verlieren</li>
+</ul>
+
+Ein Dokument, das diese fünf Fragen nicht beantwortet, ist eine Beschreibung, keine Übergabe.
+
+## Ausstieg und Eigentum: Fragen an jeden Anbieter
+
+Stellen Sie diese Fragen vor der Unterschrift, egal bei welchem Anbieter, uns eingeschlossen. Die Antworten müssen nicht lang sein. Sie müssen aber schriftlich vorliegen.
+
+- Auf wessen Konten läuft es: auf Ihrem Microsoft-365-Mandanten, Ihrem Zahlungskonto, Ihrem Konto beim KI-Dienst, oder auf denen des Anbieters?
+- Wer hat die Zugangsdaten, und können Sie sie selbst sperren?
+- Was bekommen Sie, wenn Sie den Betrieb kündigen: den Code, die Konfiguration, die Dokumentation?
+- Was passiert am Tag der Kündigung? Bleibt die Automatisierung stehen, oder kann sie zu jemand anderem umziehen?
+- Wer springt ein, wenn die Person, die sie umgesetzt hat, weg ist?
+- Wo werden Daten während der Läufe bearbeitet und gespeichert? Sind Personendaten dabei, fragen Sie Ihre Datenschutzberatung, welchen Vertrag Sie mit dem Anbieter brauchen.
+
+## Wann Sie den Betrieb besser selbst übernehmen
+
+In manchen Firmen ist der eigene Betrieb die bessere Wahl. Dann sollten Sie ihn weder bei uns noch bei jemand anderem einkaufen.
+
+- Sie haben eine IT-Person oder eine Administratorin für Microsoft 365, die Zeit dafür hat.
+- Die Automatisierung läuft in Ihrem eigenen Mandanten, etwa als Power-Automate-Flows, und jemand betreut diese schon. Die Werkzeugfrage behandelt [Make, n8n oder Power Automate](/de/blog/make-n8n-power-automate).
+- Bei Ihnen gilt die Regel, dass nichts ausserhalb der eigenen Systeme läuft.
+- Sie werden viele kleine Automatisierungen haben, und eine interne Person kostet weniger als mehrere Monatsgebühren.
+
+Planen Sie in diesem Fall die Übergabe als Teil der Umsetzung ein, und bestimmen Sie die interne Person, bevor es losgeht. Können Sie niemanden nennen, kaufen Sie besser den Betrieb ein.
+
+## Eine grössere Umsetzung mit Blick auf den Betrieb planen
+
+Für eine grössere Umsetzung oder mehrere verbundene Abläufe, bei denen Betrieb und Übergabe von Anfang an mitgeplant werden müssen, ist die [KI-Integration](/de/services/ai-implementation-consulting) der richtige Weg. Die Seite beschreibt den Ablauf bis zur Umsetzung oder zur sauberen Übergabe an Ihr Team, und Sie entscheiden, was davon passt.
+
+Geht es um eine einzelne wiederkehrende Arbeit, ist der [Prozess-Check](/de/prozess-check) der kleine Einstieg: 60 Minuten, ein schriftlicher Case und eine Preisspanne.

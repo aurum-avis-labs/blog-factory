@@ -1,0 +1,92 @@
+---
+title: "Automate supplier invoice approval: routing, deputies, audit trail"
+description: "How to automate supplier invoice approval: routing by supplier, cost centre or amount, approval in Outlook or Teams, deputies and an audit trail."
+pubDate: 2026-11-15
+author: "Aurum Avis Labs"
+tags: ["invoice approval", "accounts payable", "microsoft 365"]
+funnelStage: interest
+translationKey: invoice-approval-workflow
+relatedPosts: ["invoice-capture-what-software-misses", "fiduciary-client-inbox-missing-receipts", "what-the-process-check-is"]
+draft: false
+---
+
+## How to automate supplier invoice approval after capture
+
+To automate supplier invoice approval, you need five things once the invoice is captured: a routing rule that sends each invoice to the right person by supplier, cost centre or amount; an approval that person can give in Outlook or Teams without logging into the accounting software; a deputy for holidays; a record of who approved what and when; and a clean handover to accounting and the payment run. If your accounting program already has an approval feature and everyone who approves works in it, use that first. A build around it is worth it when approvers live in Outlook and Teams and the rules need data from outside the program.
+
+This is for the finance lead or office manager in an SME where invoices are approved by initials on a printout, by a reply to a forwarded mail, or by a thumbs-up in a chat. How invoices get captured in the first place is a separate step, covered in [invoice capture: what accounting software misses](/blog/invoice-capture-what-software-misses). This article starts where that one stops.
+
+<ol class="blog-flow">
+  <li><strong>Captured</strong><p>The invoice sits in the accounting tool or a review queue, fields read.</p></li>
+  <li><strong>Routed</strong><p>A rule picks the approver.</p></li>
+  <li><strong>Approved</strong><p>One click in Outlook or Teams, or a rejection with a reason.</p></li>
+  <li><strong>Booked</strong><p>Accounting sees the status and books.</p></li>
+  <li><strong>Paid</strong><p>Only approved invoices reach the payment run.</p></li>
+</ol>
+
+## When the approval in your accounting program is enough
+
+Many accounting programs have their own approval, and often that is enough. Abacus, for example, lists in its [accounts payable flyer](https://www.abacus.ch/fileadmin/ablage/02_dokumente/01_flyer/de/flyer_abacus_kreditorenbuchhaltung_de.pdf) approval of documents with one click in MyAbacus and customisable, dynamic approval processes. If every person who approves already has a login, and your rules are as simple as "project managers approve their projects, the managing director approves above a set amount", configure that and stop there. A second approval system next to the first means two places to look.
+
+Build around it when the approvers are not users of the accounting program, for example site managers or department heads without a licence. Or when approval has to happen where people already work, in Outlook or Teams. Or when the routing needs data that lives elsewhere, such as the project list with its managers in a SharePoint list or an ERP. What your program offers in approvals and interfaces, we clarify in the Check.
+
+## Step 1: write the routing rules down
+
+Routing is a table, not a feeling. Before anything is automated, write down who approves what. Three keys cover most SMEs: supplier, cost centre or project, and amount. The values below are examples, not recommendations.
+
+| Rule | Approver | Deputy |
+| --- | --- | --- |
+| Framework supplier, under CHF 500 | Office lead | Finance lead |
+| Invoice with a project number | Manager of that project | Their department head |
+| Cost centre without a project | Cost centre owner | Managing director |
+| Above CHF 5'000 | Additionally the managing director | Second authorised signatory |
+| Unknown supplier | Finance lead checks first | Managing director |
+
+Two rules make the table work. Every invoice has exactly one first approver, because "the team" is not an approver. And an invoice that matches no rule does not wait silently: it goes to the finance lead.
+
+## Step 2: approval in Outlook or Teams
+
+Approval happens where the approver already works. In Microsoft 365, Power Automate has a [Start and wait for an approval](https://learn.microsoft.com/en-us/power-automate/get-started-approvals) action. The approver can respond directly from an Outlook email, from a Teams adaptive card, or in the Power Automate action centre. Microsoft lists several types: first to respond, everyone must approve, custom responses, and sequential approval, where each approver responds in a set order. Sequential fits the rule "project manager first, then the managing director above CHF 5'000".
+
+In Teams, requests appear in the [Approvals app](https://learn.microsoft.com/en-us/microsoftteams/approval-admin). Microsoft describes it as bringing auditing, compliance, accountability and workflows to approvals in Teams. It needs a Power Automate, Microsoft 365 or Dynamics 365 licence, and it stores approval data in Microsoft Dataverse.
+
+What the approver sees: supplier, amount, due date, cost centre or project, the PDF, and two buttons. A rejection needs a reason, which goes back to the office. Nothing more. If people have to open three systems to decide, they will keep approving by reply mail.
+
+## Step 3: deputies during holidays
+
+Deputies belong in the rule table, not in an afterthought. Three mechanisms cover it, in this order.
+
+- **Before sending**, the flow checks whether the approver has automatic replies switched on. The Outlook connector has an action to [get mail tips for a mailbox](https://learn.microsoft.com/en-us/connectors/office365/), which includes automatic replies. If they are on, the request goes straight to the deputy from the table.
+- **While it is open**, an approver can [reassign](https://learn.microsoft.com/en-us/power-automate/approvals-howto) a request to someone else in Power Automate. The requester cannot; they can only cancel it and start again.
+- **Before the due date**, for example three working days ahead, a request that is still open goes to the deputy, and the office gets a note.
+
+## Step 4: audit trail and handover to accounting and payment
+
+Every decision needs a record: which invoice, which amount, who approved, when, with which comment, and whether a deputy stepped in. The Teams Approvals app logs events such as created, approved, rejected and reassigned in the Microsoft Purview portal. For day-to-day use, the flow also writes one line per decision into a list next to the invoice, so that accounting and the auditor can see it without admin rights.
+
+Keep that record with the invoice. Accounting records must be kept for ten years, and according to [kmu.admin.ch](https://www.kmu.admin.ch/en/electronic-bookkeeping) electronic records have to be stored so that they cannot be changed or deleted without the change being detectable; protocols and log files must be kept as well. Ask your fiduciary or auditor how they want to see the approval before you build it, not after.
+
+The handover is a status, not a payment. Once approved, the invoice gets the status "approved" in the accounting program or in the review list, and accounting books it. The payment run is still created in the accounting program or in e-banking. In Switzerland, the payment order to the bank uses the ISO 20022 message pain.001, specified in the [Swiss Payment Standards](https://www.six-group.com/dam/download/banking-services/standardization/sps/ig-credit-transfer-sps-2026-en.pdf) that SIX publishes on behalf of the Payments Committee Switzerland. Abacus lists pain.001 among its payment formats. The approval flow does not need to produce that file, and it should not. Its job is to make sure only approved invoices reach the run.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>The approval flow does not pay. It sets a status. The payment stays in the accounting program or in e-banking, with the signatures your bank requires.</p>
+</aside>
+
+## An example: about 200 invoices a month
+
+A hypothetical picture, not a client case. A building-services company with about 45 people, about 200 supplier invoices a month and a dozen active projects. Invoices are captured in the accounting program. Approval happens on paper: the office prints each invoice, puts it in the project manager's tray and waits. Site managers are rarely in the office, so invoices wait a week, sometimes until the reminder arrives.
+
+The rule table has five lines. An invoice with a project number goes to the project manager. Material from the framework supplier under CHF 1'000 goes to the office lead. Above CHF 10'000 the managing director approves as well. Anything without a project number or from an unknown supplier goes to the finance lead. The project list with its managers sits in a SharePoint list, and the approval runs in Power Automate. Site managers approve on their phone in Outlook or Teams. Before sending, the flow checks for automatic replies, and after three days an open request goes to the deputy. Every decision lands in a list with the invoice number, which accounting filters by "approved" before the payment run.
+
+What stays manual: invoices without a project number, which the finance lead assigns; rejections, which the office clarifies with the supplier; and the payment run itself. With several steps and two systems, this shape sits closer to the Medium package than to Small. The Check sets the size.
+
+## When to leave it
+
+Leave it when a handful of invoices a month are approved by the one person who also pays them. Leave it when your accounting program's own approval already reaches everyone who approves. And leave it when the rules are not clear. If nobody can say who approves an invoice without a project number, write that down first. Automating an unclear rule only makes the waiting faster.
+
+If the bigger problem is upstream, in a mailbox where invoices and documents arrive unsorted, the same logic is described in [sorting the client inbox and chasing missing receipts](/blog/fiduciary-client-inbox-missing-receipts).
+
+## Bring your approval path to the Process Check
+
+If invoices in your company wait on paper, in forwarded mails or in a chat, and you can name who should approve what, that is one recurring task, and the [Process Check](/prozess-check) is built for exactly that. In 60 minutes we look at how invoices arrive, who approves, and where the project list lives. Describing it is enough. You leave with where to start, whether it pays off, a price range and a rough duration for implementation, and a short written summary. You can [book the hour online](/prozess-check/buchen) for CHF 99.

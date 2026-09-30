@@ -1,6 +1,6 @@
 # Aurum Avis Labs — Company-Blog-Strategie (Prozess-Check-Cluster)
 
-**Stand:** 2026-09-29  
+**Stand:** 2026-09-30 (Preis CHF 99 pauschal, Anrede Sie, KI-Integration als dritter CTA, Welle 2)  
 **Scope:** nur Company-Site [aurum-avis-labs.ch](https://aurum-avis-labs.ch) · Brand `aurum` in blog-factory  
 **Nicht:** Product-Blogs (Postology, Inklets, Holist-IQ, CitySage, Vemoir, Kitchen/Gold, …)  
 **Nicht in diesem Cluster:** die bestehenden Startup-/MVP-Artikel (siehe unten)
@@ -65,7 +65,7 @@ Zahlen und Bedingungen **nur** aus dem Prozess-Check-Onepager, nicht aus `src/da
 - 60 Min online · Slot → Stripe → Termin bestätigt
 - Ein wiederkehrender manueller Prozess
 - Ergebnis: greifbarer Automatisierungs-Case + empfohlene Package-Grösse (Small–Max)
-- Launch: **CHF 49** (erste 10 Calls), danach **CHF 99**
+- Preis: **CHF 99** pauschal (seit 28.09.2026; kein Launch-Preis mehr)
 - Check-Preis wird bei Buchung eines Umsetzungs-Packages **vollständig angerechnet**
 - Geld-zurück, wenn im stattgefundenen Call **kein** greifbarer Case entsteht
 
@@ -90,6 +90,14 @@ Betrieb danach: Token-Kosten beim Kunden, Hosting-Richtwert CHF 50–150/Monat, 
 **Workshop**, wenn das Job «gemeinsame Sprache, Guardrails, Team nutzt Tools kontrolliert» ist — nicht «diesen einen Ablauf automatisieren».
 
 **Agentic Coding**, nur wenn der Leser ein Engineering-Team ist. In diesem Cluster selten.
+
+### KI-Integration (Tertiär, grössere oder verbundene Umsetzungen)
+
+| Format | URL DE | URL EN |
+|--------|--------|--------|
+| KI-Integration | https://aurum-avis-labs.ch/de/services/ai-implementation-consulting | https://aurum-avis-labs.ch/services/ai-implementation-consulting |
+
+**KI-Integration**, wenn der Leser schon weiss, was er umsetzen will, oder mehrere Abläufe beziehungsweise KI im eigenen Produkt plant (Cases wie KitchenCrew, Betrieb und Wartung). Immer mit einem Satz, dass der Prozess-Check der kleine Einstieg für eine einzelne Arbeit ist. Portfolio-Link für den KitchenCrew-Case: `/de/portfolio/kitchencrew`, EN `/portfolio/kitchencrew`.
 
 ### Scoping / PVP
 
@@ -176,15 +184,16 @@ Verwandte Posts: nur **dieser Cluster**, 1–3 `relatedPosts`, gleiche Sprache, 
 
 ## 5. Writer-Regeln
 
-- **de-CH:** ss statt ß, «KMU», «Ablauf», «Betrieb». EN-Zwilling: klares Business-Englisch, Schweizer «CHF», gleiche `funnelStage`.
+- **de-CH:** ss statt ß, «KMU», «Ablauf», «Betrieb». **Anrede Sie** (wie die Prozess-Check-Seite; du/ihr von Fremden wirkt in der Schweiz unhöflich). «Umsetzung» statt «Bau», «Termin» statt «Call». EN-Zwilling: klares Business-Englisch (britische Schreibweise), Schweizer «CHF», gleiche `funnelStage`.
+- **Body-Links nur auf Posts, die am eigenen `pubDate` schon live sind.** Zukünftige Posts liefern bis dahin 404. `relatedPosts` dürfen später live gehen (die Seite blendet sie aus).
 - Ein h1 = Title. Body ab h2. Semantische Hierarchie, keine h1 im Body.
 - `description` unter 160 Zeichen.
-- Tags: 2–3, thematisch (z. B. `ki kmu`, `prozessautomatisierung`, `prozess-check`) — keine Product-Brand-Tags.
+- Tags: 3, thematisch (z. B. `ki kmu`, `prozessautomatisierung`, `prozess-check`) — keine Product-Brand-Tags.
 - `author`: weglassen oder konsistent mit bestehenden Aurum-Posts; nicht erfinden.
 - Bilder: [`../context-files/aurum_avis_labs_blogpost_image_instructions.md`](../context-files/aurum_avis_labs_blogpost_image_instructions.md). Pfade `@/assets/blog/{slug}/…`, Dateien unter `brands/aurum/images/{slug}/`.
 - Ton: konkret, ohne Buzzword-Opener («Game-Changer», «revolutioniert», «AI-first»). Priestley-nah: Frustration und Klarheit, nicht US-Hype.
 - Rechtliches (nDSG, AI Act): praktisch, mit Link auf EDÖB / etablierte Erklärer. **Kein Anwaltston, keine Rechtsberatung.**
-- Preise: nur Onepager-Zahlen. Launch vs. Standard nicht durcheinanderwerfen.
+- Preise: nur Onepager-Zahlen. Prozess-Check CHF 99 pauschal, kein Launch-Preis mehr.
 - Qualität vor Länge: den Query fertig beantworten, nicht mit Tool-Logos auffüllen. Unter der Floor-Länge in `.cursor/skills/seo-blog/query-map.md` ist der Post nicht fertig. Das gilt für EN und DE.
 
 ---
@@ -221,8 +230,9 @@ Bestehende DE-MVP-Slugs (nicht als `relatedPosts` in neuen Posts):
 | Datei | Rolle |
 |-------|--------|
 | Diese `STRATEGY.md` | ICP, Funnel, CTAs, Research, Anti-Patterns |
-| [`TOPIC-QUEUE.md`](./TOPIC-QUEUE.md) | 16 Topics mit Outline, Priority, Links |
-| [`PUBLISHING.md`](./PUBLISHING.md) | Dienstag-Gate, Reihenfolge, keine Autopilot-Masse |
+| [`TOPIC-QUEUE.md`](./TOPIC-QUEUE.md) | Welle 1: 16 Topics mit Outline, Priority, Links |
+| [`../batches/2026-09-30-sme-cluster-wave-2.md`](../batches/2026-09-30-sme-cluster-wave-2.md) | Welle 2: 32 Topics (Branchen, Systeme, Workshop-Funnel, Cases) |
+| [`PUBLISHING.md`](./PUBLISHING.md) | Kalender aller 48 Topics, Reihenfolge, keine Autopilot-Masse |
 | [`HANDOFF-TO-BLOG-WRITER.md`](./HANDOFF-TO-BLOG-WRITER.md) | Kurzbrief, erste P0s |
 | [`../../../AGENTS.md`](../../../AGENTS.md) | Frontmatter, `relatedPosts`, `funnelStage` |
 | [`../../../brands.config.ts`](../../../brands.config.ts) | `aurum`: Sprachen `en`, `de` |

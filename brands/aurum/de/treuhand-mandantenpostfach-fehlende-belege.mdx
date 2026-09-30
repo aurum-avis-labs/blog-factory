@@ -1,0 +1,85 @@
+---
+title: "Treuhand: Mandantenpostfach sortieren, fehlende Belege nachfordern"
+description: "So sortiert ein Treuhandbüro Mandantenmails nach Mandant und Periode, legt Anhänge ab und fordert fehlende Belege nach, bis alles da ist."
+pubDate: 2026-10-25
+author: "Aurum Avis Labs"
+tags: ["treuhand", "belege", "gemeinsames postfach"]
+funnelStage: interest
+translationKey: fiduciary-client-inbox-missing-receipts
+relatedPosts: ["drei-ablaeufe-die-sich-lohnen", "belege-erfassen-was-software-nicht-uebernimmt", "was-der-prozess-check-ist"]
+draft: false
+---
+
+## Mandantenpostfach sortieren und fehlende Belege nachfordern
+
+Ein Treuhandbüro sortiert sein Mandantenpostfach mit einem Postfach, einer Zuordnungstabelle und einer Liste. Alle Unterlagen von Mandanten gehen an ein gemeinsames Postfach. Jede Mail und jeder Anhang wird einem Mandanten und einer Periode zugeordnet, im Ordner des Mandanten abgelegt, und die zuständige Person bekommt eine Aufgabe. Fehlende Belege fordern Sie anhand einer Liste nach: was Sie pro Mandant erwarten, verglichen mit dem, was eingegangen ist. Dazu Erinnerungsentwürfe, die eine Person verschickt, und ein Status, der offen bleibt, bis das Dossier vollständig ist. Die Bausteine gibt es in Microsoft 365 und in Google Workspace. Die eigentliche Arbeit ist, die Regeln aufzuschreiben.
+
+Die Anleitung richtet sich an Inhaber und Büroleitungen kleiner Treuhandbüros, bei denen Unterlagen in persönlichen Postfächern landen und jemand in Excel festhält, wer noch was schuldet. Warum dieser Ablauf neben der Buchhaltungssoftware liegt und welche drei weiteren sich anzuschauen lohnen, steht in [KI in der Treuhand](/de/blog/ki-in-der-treuhand).
+
+## Schritt 1: ein Postfach für Mandantenunterlagen
+
+Beginnen Sie mit einer Adresse, an die Mandanten ihre Unterlagen schicken, statt fünf persönlicher Postfächer. In Microsoft 365 ist das ein [freigegebenes Postfach](https://learn.microsoft.com/de-ch/microsoft-365/admin/email/about-shared-mailboxes). Mehrere Personen haben Zugriff, und es speichert bis 50 GB ohne eigene Lizenz, solange die Personen, die es öffnen, selbst ein lizenziertes Postfach haben. In Google Workspace erfüllt eine Gruppe als [gemeinsamer Posteingang](https://support.google.com/a/answer/167430?hl=de) denselben Zweck: Mitglieder können eine Unterhaltung jemandem zuweisen und als erledigt markieren.
+
+Teilen Sie die Adresse in der nächsten Erinnerung und in Ihrer Mail-Signatur mit. Mails, die trotzdem in persönlichen Postfächern ankommen, leiten Sie an die neue Adresse weiter, statt sie von dort aus von Hand abzulegen.
+
+## Schritt 2: jede Mail einem Mandanten und einer Periode zuordnen
+
+Die Zuordnung ist ein Nachschlagen, kein Raten. Sie brauchen eine Tabelle mit Mandantennummer, Name, bekannten Absenderadressen, zuständiger Person und Ablagepfad. Viele Mails lassen sich allein über die Absenderadresse zuordnen. Bei den übrigen steht die Mandantennummer im Betreff, wenn Sie Ihre Mandanten darum bitten, oder der Name auf dem Beleg passt.
+
+Für das Nachschlagen gibt es drei Wege, vom einfachen zum robusten.
+
+- **Outlook-Regeln** [verschieben Nachrichten](https://support.microsoft.com/de-de/office/8400435c-f14e-4272-9004-1548bb1848f2) bekannter Absender in einen Mandantenordner. Das reicht für einige Dutzend Mandanten mit je einer Adresse. Perioden kennt eine Regel nicht.
+- **Power Automate** hat einen Auslöser für [neue Mails in einem freigegebenen Postfach](https://learn.microsoft.com/de-de/connectors/office365/). Ein Ablauf liest den Absender, schlägt in der Tabelle nach (einer SharePoint-Liste oder Excel-Tabelle), speichert die Anhänge im Mandantenordner und versieht die Mail mit einer Kategorie. Microsoft weist darauf hin, dass der Auslöser in ein Zeitlimit laufen kann, wenn viele Mails mit Anhängen gleichzeitig eintreffen. Genau das passiert vor einer Frist.
+- **Ein kleiner Dienst auf Microsoft Graph** abonniert [Änderungsbenachrichtigungen](https://learn.microsoft.com/de-de/graph/outlook-change-notifications-overview) für den Postfachordner und erledigt dieselben Schritte im Code. Er kommt mit grösseren Mengen besser zurecht, kann das Belegdatum aus dem PDF lesen und eine Periode vorschlagen. Dafür braucht er Anwendungsberechtigungen, die Sie mit [RBAC für Anwendungen](https://learn.microsoft.com/de-de/exchange/permissions-exo/application-rbac) auf genau dieses Postfach beschränken.
+
+In Google Workspace entspricht dem ein Gmail-Filter mit Apps Script, das [Unterhaltungen durchsuchen und Entwürfe anlegen](https://developers.google.com/apps-script/reference/gmail/gmail-app) und Dateien in Drive speichern kann.
+
+Die Periode ergibt sich aus dem Belegdatum, nicht aus dem Eingangstag der Mail. Ein Beleg vom März, der im Mai kommt, gehört ins erste Quartal. Was sich nicht sicher zuordnen lässt, landet im Ordner «Nicht zugeordnet». Eine Person schaut ihn jeden Morgen durch. Dieser Ordner gehört zum Ablauf, er ist kein Fehler.
+
+## Schritt 3: ablegen und eine Aufgabe erstellen
+
+Die Ablage folgt einer Struktur: Mandant, Jahr, Periode, Belegart. Die Originalmail bleibt im Postfach, der Anhang kommt in den Ordner, und in die Liste des Mandanten kommt eine Zeile mit Datum, Absender, Dateiname und Periode. Dann folgt die Aufgabe. In Microsoft 365 kann der Planner-Connector [eine Aufgabe erstellen](https://learn.microsoft.com/de-de/connectors/planner/), mit Fälligkeit und zuständiger Person. Erstellen Sie eine Aufgabe pro Mandant und Periode, nicht eine pro Anhang, sonst geht die Aufgabenliste unter.
+
+Benennen Sie Dateien nicht bis zur Unkenntlichkeit um, und löschen Sie die Originalmail nicht. Taucht Monate später eine Frage auf, wollen Sie Mail und Anhang so vor sich haben, wie sie angekommen sind.
+
+## Fehlende Belege systematisch nachfordern
+
+Nachfordern funktioniert mit einer Liste dessen, was Sie erwarten, nicht aus dem Gedächtnis. Halten Sie pro Mandant fest, welche Unterlagen eine Periode braucht. Beim einen Mandanten sind das die monatlichen Kontoauszüge und die Kreditkartenabrechnung. Beim anderen kommen die Lohnliste und die Tankbelege fürs Geschäftsauto dazu. Diese Liste ist der Sollzustand. Der Ablauf vergleicht sie mit dem, was in Schritt 3 eingegangen ist.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Sollliste pro Mandant</h3><p>Belegart, Periode und wie der Beleg normalerweise kommt. Einmal erfasst, angepasst, wenn sich das Mandat ändert.</p></li>
+  <li data-step="2"><h3>Abgleich an einem festen Tag</h3><p>Zum Beispiel zehn Arbeitstage vor Ihrer internen MWST-Frist. Das Ergebnis ist pro Mandant eine kurze Liste der fehlenden Unterlagen.</p></li>
+  <li data-step="3"><h3>Ein Erinnerungsentwurf in Ihrem Ton</h3><p>Mit Namen angesprochen, genau die fehlenden Unterlagen aufgezählt, im Ton Ihres Büros. Er liegt im Entwurfsordner der zuständigen Person.</p></li>
+  <li data-step="4"><h3>Eine Person verschickt ihn</h3><p>Sie liest ihn, ergänzt einen Satz, wenn der Mandant in den Ferien ist oder gestern angerufen hat, und schickt ihn ab.</p></li>
+  <li data-step="5"><h3>Status bis vollständig</h3><p>Angefragt, erinnert, vollständig. Jeder neue Beleg aus Schritt 3 aktualisiert den Status. Die nächste Erinnerung geht nur an Mandanten, bei denen noch etwas offen ist.</p></li>
+</ol>
+
+Arbeiten Sie mit Entwürfen statt mit automatischem Versand, zumindest am Anfang. Microsoft Graph kann in einem Postfach [einen Entwurf anlegen](https://learn.microsoft.com/de-de/graph/api/user-post-messages), Apps Script dasselbe in Gmail. Eine Erinnerung, die rausgeht, während der Mandant gerade mit Ihnen telefoniert, kostet mehr Wohlwollen, als sie Zeit spart. Haben die Entwürfe über einige Perioden gestimmt, können Sie entscheiden, die zweite Erinnerung selbständig laufen zu lassen.
+
+## Ein Beispiel: ein Büro mit rund 120 Buchhaltungsmandaten
+
+Ein erfundenes Bild, kein Kundenfall. Ein Treuhandbüro mit sechs Personen und rund 120 Buchhaltungsmandaten, meist kleine Betriebe mit bexio oder Abacus, MWST quartalsweise.
+
+Heute kommen die Unterlagen in vier persönlichen Postfächern an. Die Büroleiterin führt eine Excel-Liste mit einer Zeile pro Mandant und einer Spalte pro Quartal. Zehn Tage vor der MWST-Frist geht sie die Liste durch und schreibt die Erinnerungen von Hand, eine Woche später die zweite Runde.
+
+Mit dem Ablauf schicken die Mandanten an ein gemeinsames Postfach. Ein Ablauf ordnet die Mails zu, die er über Absenderadresse und Mandantennummer erkennt. Der Rest landet in «Nicht zugeordnet», wo sie ihn jeden Morgen zuweist. Die Anhänge liegen nach Quartal im Mandantenordner. Zehn Tage vor der Frist läuft der Abgleich, und in ihrem Entwurfsordner liegt für jeden offenen Mandanten ein Entwurf, der die fehlenden Unterlagen nennt. Sie liest die Entwürfe, löscht die zwei für Mandanten, die gestern angerufen haben, und verschickt den Rest. Die Excel-Liste braucht es nicht mehr, weil der Stand in der Liste steht, die der Ablauf nachführt.
+
+Von Hand bleiben: der Ordner «Nicht zugeordnet», das Telefonat mit dem Mandanten, der immer eine Schuhschachtel bringt, und jede inhaltliche Frage. Gebucht wird weiterhin in bexio oder Abacus, von der Person, die heute bucht.
+
+## Wo die Mandantendaten bearbeitet werden
+
+Mandantenunterlagen enthalten Personendaten: Löhne, Bankverbindungen, manchmal Arztkosten auf einem Beleg für die Steuererklärung. Wo der Ablauf läuft, ist deshalb eine Frage des Datenschutzes, kein technisches Detail.
+
+Läuft er in Ihrem eigenen Microsoft 365, bleiben die Unterlagen dort, wo Ihre Mails schon liegen. Microsoft führt die Schweiz als Region für die [Datenspeicherung von Exchange Online, SharePoint und Teams](https://learn.microsoft.com/de-ch/microsoft-365/enterprise/m365-dr-overview). Google Workspace lässt in den unterstützten Editionen die [USA oder Europa als Datenregion](https://knowledge.workspace.google.com/admin/compliance/choose-a-geographic-location-for-your-data) wählen, die Schweiz gibt es nicht als eigene Option. Liest ein externer Dienst oder ein KI-Modell die Unterlagen, ist er Auftragsbearbeiter nach [Art. 9 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de#art_9). Er darf die Daten nur so bearbeiten, wie Sie selbst es dürften, keine gesetzliche oder vertragliche Geheimhaltungspflicht darf die Übertragung verbieten, und Sie müssen sich vergewissern, dass er die Datensicherheit gewährleistet. Bearbeitet Ihr Büro die Daten im Auftrag Ihrer Mandanten, braucht ein neuer Dienst die vorgängige Genehmigung des Mandanten.
+
+Daraus folgen drei Dinge. Beschränken Sie die Berechtigungen der Anwendung auf das eine Postfach, nicht auf die ganze Organisation. Halten Sie fest, welcher Dienst welche Daten sieht. Und fragen Sie Ihre Datenschutzberatung, bevor Lohn- oder Gesundheitsdaten durch ein Modell laufen. Das ist eine Einordnung für die Praxis, keine Rechtsberatung. Bei Aurum ist Mitgründer Riccardo Conti für Sicherheit und Datenschutz zuständig.
+
+## Wann Sie es lassen sollten
+
+Lassen Sie es, wenn Sie einige Dutzend Mandanten haben, die zweimal im Jahr Unterlagen schicken. Dann genügt die Excel-Liste. Lassen Sie es, wenn die meisten Mandanten ihre Belege schon direkt in bexio Go oder in den Upload ihrer Buchhaltungssoftware fotografieren. Dann kommen die Unterlagen gar nicht übers Postfach, und die Lücke liegt woanders. Und lassen Sie das Nachfordern weg, solange es die Sollliste pro Mandant nicht gibt. Ohne sie hat der Ablauf nichts zum Vergleichen.
+
+Die vier Fragen, die über jede erste Automatisierung entscheiden, gelten auch hier: [welchen Ablauf Sie zuerst automatisieren sollten](/de/blog/welchen-ablauf-zuerst-automatisieren).
+
+## Diesen Ablauf in den Prozess-Check mitnehmen
+
+Kommen die Unterlagen in Ihrem Büro in mehreren Postfächern an, und kostet das Nachfordern vor jeder Frist einen Nachmittag, ist das eine wiederkehrende Arbeit. Genau dafür ist der [Prozess-Check](/de/prozess-check) da. In 60 Minuten schauen wir an, wie die Mails heute ankommen, wie viele Mandanten und Perioden Sie betreuen und wo die Liste liegt. Beschreiben genügt, Mandantendaten müssen Sie keine zeigen. Danach wissen Sie, womit Sie anfangen, ob es sich lohnt, was die Umsetzung ungefähr kostet und wie lange sie dauert, und Sie bekommen eine kurze schriftliche Zusammenfassung zum Weitergeben. CHF 99, [online buchen](/de/prozess-check/buchen).

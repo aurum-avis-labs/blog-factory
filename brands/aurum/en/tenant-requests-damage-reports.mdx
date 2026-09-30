@@ -1,0 +1,86 @@
+---
+title: "Sort tenant requests and damage reports automatically"
+description: "Capture tenant requests and damage reports from email, phone and forms, recognise building and urgency, prepare the ticket and the contractor order."
+pubDate: 2026-10-31
+author: "Aurum Avis Labs"
+tags: ["tenant requests", "damage reports", "property management"]
+funnelStage: interest
+translationKey: tenant-requests-damage-reports
+relatedPosts: ["which-process-to-automate-first", "three-workflows-worth-automating", "what-the-process-check-is"]
+draft: false
+---
+
+## How to sort tenant requests and damage reports automatically
+
+You can sort tenant requests and damage reports automatically by lining up five steps: bring every input into one queue, extract building, flat, category and urgency, match the report against the master data in your property management software, create a ticket with a reply draft, and prepare a contractor order. The property manager checks and sends. Emergencies such as escaping water or a heating failure in winter bypass all of this and go straight to a person.
+
+This is for property management firms where reports arrive by email, phone and web form and someone merges them by hand. Which other property management workflows are worth it, and when to wait, is covered in [AI in property management](/blog/ai-in-property-management).
+
+## First: emergencies go straight to a person
+
+Before you let anything be sorted, decide what counts as an emergency and how it gets past the system.
+
+An emergency is anything that causes serious damage within hours or puts people at risk. Typical cases: water escaping, the heating failing in winter, a smell of gas, the power out in the whole building, someone stuck in the lift. For these there is an on-call number, and it sits at the top of every automatic acknowledgement.
+
+Detection runs twice: a simple word list ("water running", "flooded", "heating", "gas", "lift", "power") and the AI's own classification. If either one fires, the report goes straight to the person on call by text message or phone, not into a queue. A false alarm costs a minute. A missed water leak costs a parquet floor and the ceiling of the flat below.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>The AI may upgrade a report to an emergency. It may never downgrade one. Whatever the word list flags as an emergency stays an emergency until a person decides otherwise.</p>
+</aside>
+
+The same applies outside office hours. The automatic reply gives the on-call number, and a report that looks like an emergency triggers the call, however late it is.
+
+## The five steps at a glance
+
+Each step prepares. A person decides and sends at the end.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Bring the inputs together</h3><p>Emails to info@ or a repairs address, phone notes and the website form all land in the same queue. Reception records calls in a short note or an internal form, not on slips of paper.</p></li>
+  <li data-step="2"><h3>Extract the details</h3><p>The AI reads address, flat or floor, name, category, urgency and whether photos are attached. If something important is missing, it drafts the follow-up question.</p></li>
+  <li data-step="3"><h3>Match building and responsibility</h3><p>The details are compared with the master data from your property management software: sender, lease, building, responsible property manager, caretaker. If the match is uncertain, the report goes to "to check".</p></li>
+  <li data-step="4"><h3>Create the ticket and reply draft</h3><p>A ticket is created with all the details, plus a reply draft in the tenant's language: receipt confirmed, next step, a follow-up question if needed. A person sends it.</p></li>
+  <li data-step="5"><h3>Prepare the contractor order</h3><p>For repairs, a draft order goes to the contractor on file for that building, with address, flat, contact, description, photos and cost ceiling. The property manager approves it.</p></li>
+</ol>
+
+Keep the categories short. Eight to ten are usually enough: plumbing, heating, electrics, kitchen and appliances, windows and doors, common areas, noise and neighbours, and admin such as service charges, notices or parking. The AI only chooses from your list. It does not invent new categories.
+
+Three levels of urgency are enough: emergency, urgent (within one or two days), normal. What counts as urgent is your rule, not the AI's.
+
+## A worked example from a Monday morning
+
+An example: a firm managing around 900 flats in 60 buildings, four property managers, one shared mailbox and a form on the website. The firm is invented. The workflow is not.
+
+At 7.40 an email arrives: the pipe under the kitchen sink has been dripping since yesterday, and there is a bucket underneath. No address, just "2nd floor left". The sender's address is on file against a lease in the software, so the building and flat are clear. Category plumbing, urgency "urgent", because the water is being caught. The ticket goes to the responsible property manager with two drafts. The reply to the tenant says the plumber will call to arrange a time and suggests closing the isolation valve if the dripping gets worse. The order goes to the plumbing firm on file for that building, with the cost ceiling from the firm's own rule. The property manager reads both, changes one sentence and sends.
+
+At 8.10 reception logs a phone note: the heating is cold in the whole building, and it is January. The word list catches "heating" and the AI classifies it as an emergency. The report does not go into the queue. It triggers an immediate call to the person on call. The ticket is created afterwards, for the record.
+
+At 9.00 a tenant uses the form to ask when the service charge statement will arrive. Category admin, normal. The draft comes from a template with the sending date the firm maintains there.
+
+In the first weeks the property managers correct whatever was routed wrongly, and every correction is counted. After a month you can see which categories run reliably and where the rules need tightening.
+
+## What routing needs: clean master data
+
+Routing is only as good as your master data. This is the part people underestimate most often.
+
+You need tenants' email addresses and phone numbers in the property management software, one responsible person per building, and a list of the contractors who work there. That data comes from your software, as a regular export or through an interface. Whether it is Rimo R5, ImmoTop2, GARAIO REM or another product: what your software offers in terms of interfaces is something we clarify in the Check.
+
+If you already use a tenant portal, such as [GARAIO REM's tenant services](https://www.garaio-rem.ch/de/mieterservices) or [EasyTicket for Rimo R5](https://www.extenso.ch/), reports from there already arrive structured. Then the work is only about the emails and calls that bypass the portal. There almost always are some. The law requires tenants to report defects ([Art. 257g CO](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/en#art_257_g)), but not through which channel.
+
+On data protection: reports contain names, phone numbers and sometimes more than necessary, such as health details. The AI service that reads them works on your behalf. That needs a contract, and you should know where the data is processed. The [FDPIC explains](https://www.edoeb.admin.ch/en/outsourcing-of-data-processing) what you have to ensure when you outsource processing to a processor. A private ChatGPT account is the wrong place for this.
+
+## Where to draw the line
+
+Automate the sorting and the preparation. At the start, decisions stay with people.
+
+No automatic sending of replies until you have counted the corrections over several weeks. No automatic award of jobs to contractors, not even to the usual firm. And no statement from the AI about who pays for a repair, tenant or owner. That is a judgement for each case.
+
+It is not worth it if only a few reports arrive per day and one person handles them on the side, or if your portal already covers nearly everything. Nor if the master data is so patchy that every second report would end up in "to check". Then two weeks of tidying up in the software will do more than an automation.
+
+Whether this workflow is the right first one for you can be checked with the four questions in [which process to automate first](/blog/which-process-to-automate-first).
+
+## When the Process Check fits
+
+The [Process Check](/prozess-check) fits when you have exactly this workflow in front of you: reports that are read, looked up and passed on by hand every day. We go through it together in 60 minutes on Microsoft Teams. You describe where the reports come from and what happens next. You do not need to show real tenant data; a redacted or made-up example is enough.
+
+Afterwards you know where to start, whether it pays off and what price range an implementation falls into, and you get it all in a short written summary. The Check costs CHF 99. If you have it built afterwards, the fee is credited. You can choose a time under [book the Process Check](/prozess-check/buchen).

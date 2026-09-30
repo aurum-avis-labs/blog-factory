@@ -1,0 +1,86 @@
+---
+title: "Automate practice administration: requests, reports, approvals"
+description: "How a Swiss practice can automate appointment requests, reminders, incoming reports and cost approvals while patient data stays in the practice software."
+pubDate: 2026-11-21
+author: "Aurum Avis Labs"
+tags: ["medical practice", "practice administration", "process automation"]
+funnelStage: interest
+translationKey: practice-admin-automation
+relatedPosts: ["shared-inbox-sort-emails", "generate-documents-from-templates", "what-the-process-check-is"]
+draft: false
+---
+
+## How to automate practice administration
+
+To automate practice administration, automate the steps around your practice software, not the software itself. Five tasks usually qualify: appointment requests by email or form, reminders, incoming reports and documents, cost-approval requests to insurers, and follow-ups. The rule that holds it together: patient data stays in the practice software. Where an automation has to touch patient data outside it, it runs only with a suitable processor, under a contract that also covers professional secrecy. Why that rule exists is in [AI in medical practices](/blog/ai-in-medical-practices).
+
+This is for the practice manager, the front desk lead or the owner of a medical, physiotherapy or therapy practice. The appointments live in the practice software. The rest arrives by email, form, fax-to-mail or post, and someone sorts it by hand every morning.
+
+## First decide where patient data stays
+
+Sort every task into one of three zones before you automate anything. The zone decides what is allowed and how much work the automation is.
+
+| Zone | What runs there | Example |
+| --- | --- | --- |
+| No patient data | Ordinary office automation | Supplier mail, job applications, internal reminders that carry only a case number and a date |
+| Patient data inside the practice software | What the software itself offers | Appointment reminders, document import, lists and exports |
+| Patient data outside the practice software | Only with a suitable processor | Classifying incoming requests in the practice mailbox, matching reports to a patient |
+
+The third zone is not forbidden. It needs a processing agreement and a confidentiality agreement with whoever runs the automation, a clear answer on where the data is stored, and a secured channel for anything sent by email. That applies to any IT provider, including us. What your practice software offers in the second zone, its exports or interfaces, we clarify in the Check.
+
+## Appointment requests by email or form
+
+Sort first, reply second. A practice inbox mixes new appointment requests, reschedules and cancellations, prescriptions and referrals, insurer mail, supplier mail and spam. The automation reads each message, assigns one of these categories and moves it to the right folder or person. For a request, it prepares a reply draft from a template: available slots come from the person who books, not from the model.
+
+A person books the slot in the practice software and sends the reply. The general method for sorting a shared inbox, with categories, rules and a queue for the unclear cases, is in [sorting a shared inbox](/blog/shared-inbox-sort-emails). A practice adds one hard limit.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>The automation does not judge urgency. A message that describes symptoms goes to trained staff as it is, every time. Sorting by category is admin. Triage is medical work.</p>
+</aside>
+
+For the web form, ask only what scheduling needs: name, contact, preferred times, whether a prescription or referral exists. Leave out a free-text field for symptoms. And check where the form submissions are stored, because that storage is part of the third zone.
+
+## Reminders the practice software does not send
+
+If your practice software already sends appointment reminders, keep them there. The gap is usually the other reminders: a prescription missing before the first session, a referring doctor still waiting for a report, a cost-approval request without an answer. These reminders can run on a case number and a date, without a diagnosis in the text.
+
+In physiotherapy there is a built-in trigger. The insurer covers at most nine sessions per prescription, and after 36 sessions a continuation needs a reasoned proposal to the insurer's medical adviser, who decides whether, how far and for how long the therapy continues ([KLV Art. 5, in German](https://www.fedlex.admin.ch/eli/cc/1995/4964_4964_4964/de#art_5)). A reminder at session seven of nine, and another well before session 36, saves the scramble.
+
+## Incoming reports and documents to the right file
+
+The automation proposes where a document belongs, and a person confirms every uncertain match. Reports, lab results, prescriptions and insurer letters arrive through secured email, fax-to-mail or the scanner. The automation recognises the document type, reads the identifying details, proposes the patient file and places the document in the practice software's import, if it has one, or in a named queue folder.
+
+Two patients with the same name, a missing date of birth, a report for a patient who is not yet in the system: these go to a person, not to the most likely file. Filing on the name alone is how a report ends up in the wrong record. This task sits in the third zone, so the processor rules above apply.
+
+## Cost-approval requests to insurers
+
+The request stays with the doctor or therapist. The tracking can be automated. For physiotherapy beyond 36 sessions, physioswiss notes that explicit cost approval from the insurer is a precondition for billing from session 37 ([physioswiss FAQ, in German](https://physioswiss.ch/wp-content/uploads/sites/1/221028_d_haeufige-fragen-zur-verordnung-von-physiotherapie_update-okt-2022.pdf)). Which other services need prior approval depends on the service and the insurer. Check with the insurer before you build rules for it.
+
+What the automation does: keep a list of open requests with the date sent and the insurer, remind the front desk when an answer is overdue after the number of days you set, prepare the follow-up letter from a template, and match the insurer's reply to the open request when it arrives. The medical justification is written by the person who treats the patient.
+
+## Follow-ups
+
+Follow-ups are reminders with a template and an owner. A patient still has to bring the insurance card, a recall for a check-up has not been answered, a referring doctor asked for a short report. Each one needs a due date, a template for the message and one person who sends it. If patient invoices run through the practice software or a billing service, leave them there.
+
+## An example: a physiotherapy practice with six therapists
+
+A hypothetical practice: six therapists, two part-time staff at the front desk, a practice software with its own calendar, email on Microsoft 365. On a Monday the info inbox holds several dozen messages. Prescriptions arrive as PDF from different doctors. Nobody has an overview of which patients are close to session 36.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Sort the inbox</h3><p>Every message gets a category. Prescriptions go to a queue, symptoms go straight to a person.</p></li>
+  <li data-step="2"><h3>Read the prescription</h3><p>Doctor, date and number of sessions are read out, a patient match is proposed. The front desk confirms and books in the practice software.</p></li>
+  <li data-step="3"><h3>Count the sessions</h3><p>If the practice software offers an export of open prescriptions, a weekly list shows who is at session seven of nine and who is nearing 36.</p></li>
+  <li data-step="4"><h3>Remind the prescribing doctor</h3><p>A draft letter asking for a new prescription or the report for the insurer, sent by the front desk.</p></li>
+  <li data-step="5"><h3>Track the approvals</h3><p>Open requests on one list. After the number of days the practice chose, a follow-up draft appears.</p></li>
+</ol>
+
+What stays manual: booking, anything medical, and sending. The automation runs in the practice's own Microsoft 365 tenant, under a processing agreement and a confidentiality agreement with whoever operates it. Whether this fits a small package or grows into several steps and systems depends mostly on what the practice software can export. That is the first question in the Check.
+
+## When not to automate
+
+Do not automate triage, not even as a suggestion. Stop if the front desk handles a handful of emails a day, because the sorting then takes minutes, not hours. Wait if nobody can name who decides which category a message belongs to. And if the practice software has neither an export nor an import, a copy step remains. Then the question is whether the automation still saves enough around it.
+
+## Bring one task to the Process Check
+
+The [Process Check](/prozess-check) fits when one recurring task costs your front desk time every week: the morning inbox, the prescription queue, the cost-approval list. It takes 60 minutes on Microsoft Teams and costs CHF 99. You describe the task, no patient data needed, a made-up example is enough. You leave knowing where to start, whether it pays off, and a price range for the implementation, with a short written summary. If you already know the task, [book a slot](/prozess-check/buchen).

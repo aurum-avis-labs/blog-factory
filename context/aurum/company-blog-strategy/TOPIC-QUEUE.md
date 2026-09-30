@@ -1,6 +1,6 @@
 # Aurum — Topic-Queue (KMU / Prozess-Check)
 
-**Stand:** 2026-09-29 · **16 Topics** · Locales: **de + en im selben Cluster-PR**.  
+**Stand:** 2026-09-30 · **16 Topics (Welle 1)**, Welle 2 separat · Locales: **de + en im selben Cluster-PR**.  
 SEO-Arbeit und Working Titles sind **de-CH**. EN ist hreflang-Zwilling, kein zweites Keyword-Programm.
 
 **Lesen zuerst:** [`STRATEGY.md`](./STRATEGY.md) (URLs, Preise, CTA-Regeln, Cluster-Split). Ship-Kalender: [`PUBLISHING.md`](./PUBLISHING.md).
@@ -18,26 +18,7 @@ SEO-Arbeit und Working Titles sind **de-CH**. EN ist hreflang-Zwilling, kein zwe
 
 ## pubDate (ungerade Tage)
 
-Gleiches Datum auf DE und EN. Image-Ordner = EN-Slug.
-
-| pubDate | ID | Slug DE | Slug EN |
-|---------|-----|---------|---------|
-| 2026-10-07 | T02 | `welchen-ablauf-zuerst-automatisieren` | `which-process-to-automate-first` |
-| 2026-10-13 | T04 | `was-der-prozess-check-ist` | `what-the-process-check-is` |
-| 2026-10-21 | T01 | `ki-im-betrieb-nichts-greifbares` | `ai-in-operations-nothing-tangible` |
-| 2026-10-27 | T03 | `drei-ablaeufe-die-sich-lohnen` | `three-workflows-worth-automating` |
-| 2026-11-03 | T12 | `workshop-oder-umsetzung` | `workshop-or-implementation` |
-| 2026-11-11 | T05 | `chatgpt-kundendaten-dsg-schweiz` | `chatgpt-customer-data-swiss-dsg` |
-| 2026-11-17 | T06 | `schatten-ki-im-buero` | `shadow-ai-in-the-office` |
-| 2026-11-23 | T07 | `belege-erfassen-was-software-nicht-uebernimmt` | `invoice-capture-what-software-misses` |
-| 2026-12-01 | T08 | `reporting-aus-fuenf-quellen` | `reporting-from-five-sources` |
-| 2026-12-07 | T09 | `nachfassen-angebote-follow-ups` | `quote-follow-ups` |
-| 2026-12-15 | T10 | `excel-als-schatten-system` | `excel-as-shadow-system` |
-| 2026-12-21 | T11 | `copilot-oder-einen-ablauf-bauen` | `copilot-or-build-a-workflow` |
-| 2026-12-29 | T13 | `was-automatisierung-kostet-schweiz` | `what-automation-costs-switzerland` |
-| 2027-01-05 | T14 | `wann-ki-den-ablauf-schlechter-macht` | `when-ai-makes-the-process-worse` |
-| 2027-01-11 | T15 | `make-n8n-power-automate` | `make-n8n-power-automate` |
-| 2027-01-19 | T16 | `eu-ai-act-schweizer-kmu` | `eu-ai-act-swiss-smes` |
+Die Daten wurden am 2026-09-30 in Q4 verdichtet und mit Welle 2 (N01–N32) verzahnt. Massgebend ist der Kalender in [`PUBLISHING.md`](./PUBLISHING.md). Die Topics T01–T16 unten bleiben gültig. Welle 2 steht in [`../batches/2026-09-30-sme-cluster-wave-2.md`](../batches/2026-09-30-sme-cluster-wave-2.md).
 
 ---
 
@@ -188,7 +169,7 @@ Gleiches Datum auf DE und EN. Image-Ordner = EN-Slug.
 
 - 60 Minuten, ein Prozess, Ergebnis: Case (was, wer, wie oft) + Package-Einschätzung.
 - Ablauf: Slot → zahlen → Confirm (Teams). Termin erst nach Zahlung.
-- Preis: Launch CHF 49 erste 10, danach CHF 99; Anrechnung auf Package; Geld-zurück nur ohne greifbaren Case, Call muss stattgefunden haben.
+- Preis: CHF 99 pauschal; Anrechnung auf Package; Geld-zurück nur ohne greifbaren Case, Call muss stattgefunden haben.
 - Was es **nicht** ist: Workshop, Tool-Schulung, Studio-Pitch, PVP/MVP, Verpflichtung zum Build.
 - Für wen: KMU mit wiederkehrender Handarbeit. Nicht für «wir brauchen eine Produktidee».
 - CTA: Slot wählen.
@@ -473,7 +454,7 @@ Gleiches Datum auf DE und EN. Image-Ordner = EN-Slug.
 
 **Outline**
 
-- Check: CHF 49 Launch / CHF 99 Standard, Anrechnung, Geld-zurück-Bedingung.
+- Check: CHF 99 pauschal, Anrechnung, Geld-zurück-Bedingung.
 - Packages Small–Max als **Richtwerte** (Onepager), intern an CHF 200/h angelehnt — nicht als Stundennachlauf verkaufen.
 - Laufende Kosten: Token beim Kunden, Hosting CHF 50–150/Monat Richtwert, kündbar.
 - Warum Festpreis erst nach definiertem Case Sinn ergibt (Variante C der LP: Klarheit vor Spend).

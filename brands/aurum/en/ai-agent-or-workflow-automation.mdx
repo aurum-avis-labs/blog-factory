@@ -1,0 +1,103 @@
+---
+title: "AI agent or workflow automation: what your process needs"
+description: "Fixed workflow, workflow with one AI step, or AI agent: how they differ in cost, errors, audit trail and data protection, and who each fits."
+pubDate: 2026-12-01
+author: "Aurum Avis Labs"
+tags: ["ai agent", "workflow automation", "process automation"]
+funnelStage: interest
+translationKey: ai-agent-or-workflow-automation
+relatedPosts: ["which-process-to-automate-first", "when-ai-makes-the-process-worse", "what-the-process-check-is"]
+draft: false
+---
+
+## AI agent or workflow automation: which one your process needs
+
+AI agent or workflow automation comes down to one question: do you know the steps before the work arrives? If you do, a fixed workflow is the better choice. It costs almost nothing per run, gives the same result every time and is easy to check. If the path has to be found anew for each case, an agent can help, as long as a person checks what it produces. Most office processes in a Swiss SME need neither extreme. They need a fixed workflow with one AI step where unstructured input has to be read.
+
+This is for owners, ops and office leads who have been offered "AI agents" and want to know whether their process needs one. It compares three designs on the same criteria. What an agent is in the first place is explained in [what is an AI agent](/blog/what-is-an-ai-agent).
+
+The terms follow the line [Anthropic](https://www.anthropic.com/engineering/building-effective-agents) draws. In a workflow, models and tools run "through predefined code paths". An agent "dynamically" directs its own steps and tool use. Anthropic's own guidance: workflows offer "predictability and consistency for well-defined tasks", agents fit where flexibility and model-driven decisions are needed.
+
+## Three designs side by side
+
+The three designs differ less in what they can do than in how they behave when something goes wrong. The table compares them on the same rows.
+
+| | Fixed workflow | Workflow with one AI step | AI agent |
+| --- | --- | --- | --- |
+| Predictability | Same input, same result | Rules are fixed, the AI step is usually right, not always | Path and result can differ from run to run |
+| Cost per run | Close to zero beyond hosting | Hosting plus one model call per run | Several model calls per run, and the number varies |
+| Behaviour on errors | Stops at the failed step and can report it | Fixed checks after the AI step catch implausible values | Can follow a plausible wrong path and keep going |
+| Audit trail | Every step logged, easy to reconstruct | Rule steps clear, AI input and output must be logged | Needs a log of every tool call to reconstruct a run |
+| Data protection | Moves only the fields you defined | The AI service sees the document it reads | Needs access to every system it might consult |
+| Maintenance | Changes when a system or a rule changes | Plus a check when inputs or the model change | Plus review of behaviour when instructions, model or tools change |
+| Typical examples | Monday report, filing, reminders after seven days | Invoices in many layouts, sorting a shared inbox | Finding an answer across several systems, unusual replies |
+
+## Fixed workflow automation: when the path is known
+
+A fixed workflow fits when you can describe every step before the work arrives. A trigger starts it: a file lands in a folder, a date is reached, a form is submitted. Then rules act: copy these columns, send this reminder, route to this approver. There is no model involved, so there is nothing to interpret.
+
+That makes it the cheapest and most predictable option. A run costs almost nothing beyond hosting. When it fails, it fails at a named step, and a well-built workflow says so instead of carrying on. A year later you can still reconstruct why a file went where it went.
+
+Typical cases are the Monday report assembled from the same exports every week, described in [reporting from five sources](/blog/reporting-from-five-sources), or the reminder that appears when a quote has had no reply for seven days, covered in [quote follow-ups](/blog/quote-follow-ups).
+
+Skip it when the input has no fixed shape. A rule cannot read a supplier invoice in a layout it has never seen, or an order written as a sentence in an email. You will then either keep a person in the middle or write rules until nobody understands them.
+
+## The hybrid: a workflow with one AI step
+
+The hybrid is a fixed workflow in which exactly one step is done by a model, usually the step where someone used to read something and type it off. Everything before and after stays rule-based. The model reads. The rules decide.
+
+Take incoming supplier invoices. The trigger is fixed: a PDF reaches the invoices mailbox. The AI step reads it and returns supplier, amount, due date and order number as structured fields. Then rules take over again: is the supplier known, does the order number exist, is the amount above the second-approval threshold? Anything the rules find odd goes to a person. What passes goes to approval as before.
+
+You do not need a special product for this step. Microsoft Power Automate has a [Run a prompt action](https://learn.microsoft.com/en-us/ai-builder/use-a-custom-prompt-in-flow) whose output later actions in the same flow can use. n8n offers both shapes side by side: a [Basic LLM Chain node](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm/) that sets one prompt for the model, and an [AI Agent node](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/) where the model decides which connected tools to call. So the choice between a hybrid and an agent is a design decision, not a software purchase.
+
+The hybrid fits when one step of an otherwise stable process involves unstructured input. It keeps cost per run low, because the model is called once. It keeps the audit trail readable, because you log one AI input and one output per run.
+
+Skip it when the input is already structured. A QR-bill, a CSV export or a web form does not need a model to be read. Skip it too when the step that needs judgement is the decision itself, not the reading. Then a person belongs in that step.
+
+## AI agent: when the path has to be found
+
+An agent fits when the steps depend on what earlier steps found, and a person reviews the result. An internal question such as "why has this customer not received the delivery yet?" can mean checking the order list, the shipping confirmation in the mailbox and a note in the CRM, in an order that differs each time. An agent can do that search and write one answer.
+
+The price is higher cost and less predictability. Anthropic says plainly that agentic systems often "trade latency and cost for better task performance", and that the autonomy of agents brings "the potential for compounding errors". One wrong lookup early on can lead to a confident, wrong answer at the end.
+
+For that reason an agent in an SME office should mostly read and prepare. It may search, summarise and draft. Payments, bookings and replies that commit the company go through a person first. The reasons, including the risk of instructions hidden in emails, are in [what is an AI agent](/blog/what-is-an-ai-agent).
+
+Skip an agent when the job has one correct path, when volume is high and every run looks the same, or when nobody will read the output. In those cases an agent adds variation and cost where a rule would be right every time.
+
+## One order inbox, three designs
+
+Take a clearly hypothetical example: a wholesaler with around 15 people receives orders by email. Some come as a PDF from the customer's system, some as a sentence in the email body, some as a photo of a handwritten list.
+
+A fixed workflow can handle the PDFs from customers with a stable layout. Everything else stays manual, so the office still reads most of the mail.
+
+A workflow with one AI step reads all three kinds and returns customer, article and quantity. Rules then check the article numbers against the product list and send anything uncertain to a review queue. The office confirms, and the order is entered. The model never decides what gets delivered.
+
+An agent could go further: look up stock, choose a delivery date and reply to the customer. That last step is a binding reply. For this office it is exactly the step that should stay with a person. The hybrid is the better fit here.
+
+[KitchenCrew](/portfolio/kitchencrew), a product we built for Swiss restaurants, follows the same principle: the team types a shopping list in a chat, and what arrives in the inbox are order drafts per supplier, not orders already sent.
+
+## Data protection and audit trail in Switzerland
+
+Swiss data protection law applies the same way whether a rule or a model processes personal data. The [FDPIC](https://www.edoeb.admin.ch/en/update-current-legislation-directly-applicable-ai) states that the Federal Act on Data Protection is written to apply to all types of technology and is therefore directly applicable to AI-supported processing. It also says that users have a legal right to know whether they are speaking or corresponding with a machine.
+
+Agents and AI steps raise one further point. Under [Art. 21 of the Data Protection Act](https://www.fedlex.admin.ch/eli/cc/2022/491/en), you must inform a person about a decision based exclusively on automated processing that has a legal consequence for them or a considerable adverse effect on them. On request, they may state their point of view and ask for a natural person to review the decision. In practice: let the agent or the AI step prepare, and let a named person decide anything that matters to a customer, an applicant or an employee.
+
+Two practical rules follow for the audit trail. Give an agent access only to the systems it needs, preferably read-only. And log every tool call, input and output, so you can answer the question "why did this happen?" later. Which customer data may go into which AI tool at all is covered in [ChatGPT and customer data](/blog/chatgpt-customer-data-swiss-dsg). This is practical guidance, not legal advice. For decisions about people, ask your data-protection adviser.
+
+## Which design to skip
+
+Most processes sort themselves once you describe them honestly.
+
+<ul class="blog-scenarios">
+  <li><h3>If you can draw the path on one page</h3><p>Build a fixed workflow. An agent would only add cost and variation.</p></li>
+  <li><h3>If one step is "someone reads it and types it off"</h3><p>Build the workflow and put one AI step there. Let rules check what the model returns.</p></li>
+  <li><h3>If every case needs a different path and a person reads the result</h3><p>An agent can help. Start with drafts and lookups, and keep decisions with a person.</p></li>
+</ul>
+
+Before any of the three, the process itself has to pass the filter in [which process to automate first](/blog/which-process-to-automate-first): it repeats, it hurts, it has a clear start and end, and the data already exists.
+
+## When the Process Check fits
+
+The [Process Check](/prozess-check) fits when you have one recurring manual task and are unsure which of the three designs it needs. In 60 minutes we look at how it runs today. You leave with a case, a price range and a rough duration for the implementation. The answer may well be that a fixed rule is enough and no model is needed.
+
+What the hour includes is described in [what the Process Check is](/blog/what-the-process-check-is). If you already know the task, you can [book a slot](/prozess-check/buchen) directly.

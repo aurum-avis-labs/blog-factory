@@ -1,0 +1,88 @@
+---
+title: "Onboarding neuer Mitarbeitender automatisieren: die Checkliste"
+description: "Onboarding automatisieren mit einem Auslöser und einer festen Liste: Konto, Gruppen, Hardware, Ordner, Vertrag, erster Tag, Erinnerungen, Austritt."
+pubDate: 2026-12-19
+author: "Aurum Avis Labs"
+tags: ["onboarding", "personaladministration", "checkliste"]
+funnelStage: interest
+translationKey: automate-employee-onboarding
+relatedPosts: ["microsoft-365-automatisieren", "dokumente-aus-vorlagen-erstellen", "was-der-prozess-check-ist"]
+draft: false
+---
+
+## Onboarding neuer Mitarbeitender automatisieren: so geht es
+
+Das Onboarding neuer Mitarbeitender automatisieren Sie mit einem Auslöser und einer festen Liste. Der Auslöser ist ein einziger Eintrag zur neuen Person: Name, Funktion, Eintrittsdatum, vorgesetzte Person. Ab diesem Eintrag läuft die Liste von selbst: das Konto in Microsoft 365 oder Google Workspace, Gruppen und Teams-Kanäle, die Bestellung der Hardware, der Zugriff auf gemeinsame Ordner, Vertrag und Unterlagen aus Vorlagen, der Plan für den ersten Tag und Erinnerungen für die ersten Wochen. Jeder Punkt hat eine zuständige Person und ein Datum, gerechnet ab dem Eintritt. Die Gegenliste für den Austritt entsteht am selben Tag. Den Empfang übernehmen Menschen. Die Liste führt das System.
+
+Der Text richtet sich an die Büroleitung, die Geschäftsführung oder die eine Person, die in einer Firma mit 10 bis 80 Leuten «das Personelle» neben der eigentlichen Arbeit macht. Eine Personalabteilung gibt es nicht, und die Konten richtet ein externer IT-Partner ein oder wer sich im Admin Center auskennt.
+
+## Die Checkliste
+
+Übernehmen Sie sie so, oder tragen Sie sie in die Liste ein, die Sie schon führen. Jede Zeile wird ein automatischer Schritt oder eine Erinnerung an eine benannte Person.
+
+<ul class="blog-checklist">
+  <li>Ein Eintrag pro neuer Person: Name, Funktion, Eintrittsdatum, vorgesetzte Person, Arbeitsort, benötigte Hardware</li>
+  <li>Konto erstellt und Lizenz zugewiesen, einige Arbeitstage vor dem Eintritt, Anmeldung gesperrt bis zum ersten Tag</li>
+  <li>Gruppen, Teams-Kanäle und gemeinsame Postfächer nach Funktion zugewiesen</li>
+  <li>Hardware mit Eintrittsdatum bestellt, Rückgabe auf der Austrittsliste vermerkt</li>
+  <li>Ordnerzugriff nach Funktion, nicht als Kopie einer Kollegin</li>
+  <li>Vertrag und Unterlagen aus Vorlagen erstellt, vor der Unterschrift von einer Person geprüft</li>
+  <li>Plan für den ersten Tag an die neue Person und die vorgesetzte Person geschickt</li>
+  <li>Erinnerungen an die vorgesetzte Person nach der ersten Woche, nach dem ersten Monat und vor Ende der Probezeit</li>
+  <li>Gegenliste für den Austritt aus demselben Eintrag erstellt</li>
+</ul>
+
+## Konto in Microsoft 365 oder Google Workspace
+
+Konto, Lizenz und Gruppen lassen sich per Skript aus dem Eintrag anlegen, der Admin oder der IT-Partner gibt den Lauf frei. In Microsoft 365 bietet Microsoft Graph die Aufrufe für jeden Schritt: [Benutzer erstellen](https://learn.microsoft.com/de-de/graph/api/user-post-users?view=graph-rest-1.0), [Lizenz zuweisen](https://learn.microsoft.com/de-de/graph/api/user-assignlicense?view=graph-rest-1.0) und [Mitglied zu einem Team hinzufügen](https://learn.microsoft.com/de-de/graph/api/team-post-members?view=graph-rest-1.0). In Google Workspace [legt die Directory API des Admin SDK den Benutzer an](https://developers.google.com/workspace/admin/directory/reference/rest/v1/users/insert).
+
+Microsoft hat auch eine fertige Lösung: Lebenszyklus-Workflows erledigen Aufgaben bei Eintritt, Wechsel und Austritt, etwa eine Mail an die vorgesetzte Person vor dem Eintrittsdatum oder das Entfernen von Konten beim Austritt. Dafür braucht es eine Lizenz für Microsoft Entra ID Governance oder die Microsoft Entra Suite ([Microsoft Learn](https://learn.microsoft.com/de-de/entra/id-governance/what-are-lifecycle-workflows)). Ohne diese Lizenz laufen dieselben Schritte als kleine Automatisierung auf den Lizenzen, die Sie schon haben. Was mit den Bordmitteln in Ihrem Abo geht, steht in [Microsoft 365 automatisieren](/de/blog/microsoft-365-automatisieren).
+
+Entscheidend ist dabei nicht das Skript, sondern eine Rollentabelle. Schreiben Sie pro Funktion auf, welche Gruppen, Kanäle, Postfächer und Ordner dazugehören. «Buchhaltung» bekommt den Finanzkanal, das Postfach für Rechnungen und Schreibzugriff auf den Finanzordner. Das Skript liest nur diese Tabelle. Ohne sie beginnt jedes Onboarding mit «sie bekommt dasselbe wie Anna», und Annas Rechte sind über Jahre gewachsen.
+
+## Hardware und Ordnerzugriff
+
+Hardware ist eine Bestellung mit Datum, früh genug für die Lieferzeit Ihres Lieferanten oder IT-Partners. Die Automatisierung schickt die Bestellung mit Funktion, Eintrittsdatum und Lieferadresse und setzt das Gerät nach der Übergabe mit Seriennummer auf die Austrittsliste.
+
+Der Ordnerzugriff folgt der Rollentabelle. Läuft der Zugriff über Gruppen, kommt die neue Person in die Gruppe und hat, was die Funktion braucht. Läuft er Person für Person, ist das Onboarding der Moment, das zu ändern. Sonst vergisst der Austritt später einen Ordner.
+
+## Vertrag und Unterlagen aus Vorlagen
+
+Vertrag, schriftliche Information und interne Formulare füllen sich aus demselben Eintrag. Eine Person prüft sie, bevor etwas unterschrieben wird. [Art. 330b OR](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de#art_330_b) verlangt bei einem unbefristeten oder mehr als einmonatigen Arbeitsverhältnis, dass der Arbeitgeber spätestens einen Monat nach Beginn schriftlich informiert über die Namen der Vertragsparteien, das Datum des Beginns, die Funktion, den Lohn und allfällige Lohnzuschläge sowie die wöchentliche Arbeitszeit. Ein schriftlicher Vertrag deckt das in der Regel ab. Beginnt jemand mit einer mündlichen Abmachung, sollte die Automatisierung Sie erinnern.
+
+Wie Sie Briefe und Verträge allgemein aus Vorlagen erstellen, steht in [Dokumente automatisch aus Vorlagen erstellen](/de/blog/dokumente-aus-vorlagen-erstellen). Fürs Onboarding zählt eine Regel: Im Vertrag steht der Lohn. Er gehört in einen Ordner, den nur Personalverantwortliche und Geschäftsleitung öffnen, nicht in den Teamkanal.
+
+## Plan für den ersten Tag und Erinnerungen
+
+Der Plan für den ersten Tag ist eine Vorlage, in der Namen und Zeiten eingesetzt werden. Wer die neue Person empfängt, wo der Arbeitsplatz ist, wann die erste Anmeldung stattfindet, wer mit ihr zu Mittag isst, welche Aufgaben zuerst kommen. Die Automatisierung füllt ihn aus dem Eintrag und schickt ihn einige Tage vor dem Eintritt an die neue und an die vorgesetzte Person.
+
+Die Erinnerungen gehen an die vorgesetzte Person, nicht an die neue: ein kurzes Gespräch nach der ersten Woche, eines nach dem ersten Monat und eines vor Ende der Probezeit, die im Vertrag steht. Die Gespräche führt die Automatisierung nicht. Sie sorgt dafür, dass sie im Kalender stehen.
+
+## Die Gegenliste für den Austritt
+
+Jeder Punkt des Onboardings bekommt sein Gegenstück für den Austritt, erstellt am Tag des Eintritts.
+
+| Eintritt | Austritt |
+| --- | --- |
+| Konto erstellt, Lizenz zugewiesen | Anmeldung gesperrt, Postfach freigegeben oder weitergeleitet, Lizenz entfernt |
+| Gruppen und Teams-Kanäle | Aus allen Gruppen und Kanälen entfernt |
+| Hardware übergeben | Hardware zurück, Seriennummer abgehakt |
+| Ordnerzugriff nach Funktion | Zugriff entfernt, Dateien an eine Kollegin übergeben |
+| Vertrag und Unterlagen | Arbeitszeugnis, Schlussunterlagen |
+| Plan für den ersten Tag | Plan für den letzten Tag: Übergabe, Schlüssel, Abschied |
+
+Beide Anbieter beschreiben den Austritt. Microsoft nennt sieben Schritte, von der gesperrten Anmeldung über das Sichern des Postfachs bis zum Entfernen der Lizenz und dem Löschen des Kontos ([Microsoft Learn](https://learn.microsoft.com/de-de/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide)). Google weist darauf hin, dass beim Löschen eines Benutzers die Inhalte mitgelöscht werden, wenn ein Super-Administrator sie nicht vorher an jemanden überträgt ([Google Workspace-Hilfe](https://knowledge.workspace.google.com/admin/getting-started/options-to-preserve-former-employee-data?hl=de)). Mit einer Gegenliste, die schon beim Eintritt bereitliegt, wird diese Übertragung ein fester Schritt und kein Nachgedanke.
+
+## Ein Beispiel: ein Ingenieurbüro mit 30 Personen
+
+Ein erfundenes Büro mit 30 Personen, alles auf Microsoft 365, dazu ein externer IT-Partner. Es stellt rund fünf Leute pro Jahr ein. Jedes Mal sucht die Büroleiterin die Mail an den IT-Partner vom letzten Jahr, vergisst die Gruppe für den Plotter, und die neue Kollegin sitzt den ersten Morgen ohne Zugriff auf den Projektordner da.
+
+Die automatisierte Fassung: Die Büroleiterin füllt einen Eintrag in einer Microsoft-Liste aus. Die Automatisierung legt das Konto an, mit gesperrter Anmeldung bis zum Eintritt, weist Lizenz und Rollengruppen zu, schickt dem IT-Partner die Laptop-Bestellung mit Datum, erstellt den Vertragsentwurf aus der Vorlage im Personalordner, verschickt den Plan für den ersten Tag, trägt drei Erinnerungen in den Kalender der vorgesetzten Person ein und bereitet die Austrittsliste vor. Unterschrift, Empfang und die Kontrolle der Zugriffe bleiben bei Menschen. Ob das ein klar abgegrenzter Ablauf mit wenigen Systemen bleibt oder zu mehreren Schritten und Systemen wird, klärt der Check.
+
+## Wann eine Checkliste genügt
+
+Stellen Sie ein- oder zweimal im Jahr ein, reicht eine gute Checkliste in einem gemeinsamen Dokument. Automatisieren lohnt sich, wenn so oft eingestellt wird, dass die Liste jedes Mal neu entsteht, oder wenn regelmässig Zugriffe vergessen gehen. Warten Sie, wenn jede Funktion anders ist und noch niemand die Rollentabelle geschrieben hat, und wenn niemand für die Liste zuständig ist. Zuerst [den Ablauf dokumentieren, wie er heute läuft](/de/blog/ablaeufe-dokumentieren), dann automatisieren.
+
+## Ihr Onboarding in den Prozess-Check mitbringen
+
+Der [Prozess-Check](/de/prozess-check) passt, wenn eine wiederkehrende Arbeit wie das Onboarding bei jedem Eintritt wieder Zeit kostet. Er dauert 60 Minuten per Microsoft Teams und kostet CHF 99. Sie beschreiben, wie das Onboarding heute läuft, Personaldaten brauchen Sie keine. Danach wissen Sie, womit Sie anfangen, ob es sich lohnt und was die Umsetzung ungefähr kostet, und Sie haben eine kurze schriftliche Zusammenfassung zum Weitergeben.

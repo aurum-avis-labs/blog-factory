@@ -1,0 +1,92 @@
+---
+title: "Rechnungsfreigabe automatisieren: Visum und Kreditoren-Workflow"
+description: "Rechnungsfreigabe (Visum) automatisieren: Zuweisung nach Lieferant, Kostenstelle oder Betrag, Freigabe in Outlook oder Teams, Stellvertretung, Protokoll."
+pubDate: 2026-11-15
+author: "Aurum Avis Labs"
+tags: ["rechnungsfreigabe", "kreditoren", "microsoft 365"]
+funnelStage: interest
+translationKey: invoice-approval-workflow
+relatedPosts: ["belege-erfassen-was-software-nicht-uebernimmt", "treuhand-mandantenpostfach-fehlende-belege", "was-der-prozess-check-ist"]
+draft: false
+---
+
+## Rechnungsfreigabe automatisieren: was nach der Erfassung kommt
+
+Wer die Rechnungsfreigabe automatisieren will, braucht nach der Erfassung fünf Dinge. Eine Regel, die jede Lieferantenrechnung nach Lieferant, Kostenstelle oder Betrag der richtigen Person zuweist. Ein Visum, das diese Person in Outlook oder Teams gibt, ohne sich in die Buchhaltung einzuloggen. Eine Stellvertretung für die Ferien. Ein Protokoll, wer wann was freigegeben hat. Und eine saubere Übergabe an Buchhaltung und Zahlungslauf. Hat Ihr Buchhaltungsprogramm eine eigene Freigabe und arbeiten alle, die visieren, darin, nutzen Sie zuerst diese. Eine Umsetzung daneben lohnt sich, wenn die Visierenden in Outlook und Teams arbeiten und die Regeln Daten von ausserhalb des Programms brauchen.
+
+Der Text richtet sich an Finanzverantwortliche und Büroleitungen in KMU, in denen Kreditoren heute per Kürzel auf dem Ausdruck visiert werden, per Antwort auf eine weitergeleitete Mail oder mit einem Daumen im Chat. Wie die Rechnungen überhaupt erfasst werden, ist ein eigener Schritt: [Belege erfassen, was die Software nicht übernimmt](/de/blog/belege-erfassen-was-software-nicht-uebernimmt). Dieser Artikel beginnt dort, wo jener aufhört.
+
+<ol class="blog-flow">
+  <li><strong>Erfasst</strong><p>Die Rechnung liegt im Buchhaltungsprogramm oder in einer Prüfliste, die Felder sind ausgelesen.</p></li>
+  <li><strong>Zugewiesen</strong><p>Eine Regel bestimmt, wer visiert.</p></li>
+  <li><strong>Visiert</strong><p>Ein Klick in Outlook oder Teams, oder eine Ablehnung mit Begründung.</p></li>
+  <li><strong>Gebucht</strong><p>Die Buchhaltung sieht den Status und bucht.</p></li>
+  <li><strong>Bezahlt</strong><p>Nur freigegebene Rechnungen kommen in den Zahlungslauf.</p></li>
+</ol>
+
+## Wann die Freigabe im Buchhaltungsprogramm reicht
+
+Viele Buchhaltungsprogramme haben eine eigene Freigabe, und oft genügt sie. Abacus zum Beispiel nennt im [Flyer zur Kreditorenbuchhaltung](https://www.abacus.ch/fileadmin/ablage/02_dokumente/01_flyer/de/flyer_abacus_kreditorenbuchhaltung_de.pdf) die «Freigabe von Belegen mit einem Klick im MyAbacus» und «individualisierbare und dynamische Freigabeprozesse». Haben alle, die visieren, schon ein Login, und lauten Ihre Regeln etwa «Projektleitende visieren ihre Projekte, die Geschäftsleitung ab einem bestimmten Betrag», dann richten Sie das dort ein und hören auf. Ein zweites Freigabesystem neben dem ersten heisst: zwei Orte, an denen man nachschauen muss.
+
+Eine Umsetzung daneben lohnt sich, wenn die Visierenden das Buchhaltungsprogramm nicht nutzen, etwa Bauleiter oder Abteilungsleiterinnen ohne Lizenz. Oder wenn das Visum dort passieren soll, wo die Leute ohnehin arbeiten, in Outlook oder Teams. Oder wenn die Zuweisung Daten braucht, die anderswo liegen, zum Beispiel die Projektliste mit den Projektleitenden in einer SharePoint-Liste oder im ERP. Was Ihr Programm an Freigaben und Schnittstellen bietet, klären wir im Check.
+
+## Schritt 1: die Visumsregeln aufschreiben
+
+Die Zuweisung ist eine Tabelle, kein Bauchgefühl. Bevor etwas automatisch läuft, halten Sie fest, wer was visiert. Drei Merkmale decken die meisten KMU ab: Lieferant, Kostenstelle oder Projekt, Betrag. Die Werte unten sind Beispiele, keine Empfehlung.
+
+| Regel | Visum | Stellvertretung |
+| --- | --- | --- |
+| Rahmenvertragslieferant, unter CHF 500 | Büroleitung | Leitung Finanzen |
+| Rechnung mit Projektnummer | Projektleitung dieses Projekts | Deren Abteilungsleitung |
+| Kostenstelle ohne Projekt | Kostenstellenverantwortliche | Geschäftsleitung |
+| Über CHF 5'000 | Zusätzlich die Geschäftsleitung | Zweite zeichnungsberechtigte Person |
+| Unbekannter Lieferant | Leitung Finanzen prüft zuerst | Geschäftsleitung |
+
+Zwei Grundsätze halten die Tabelle zusammen. Jede Rechnung hat genau eine Person, die zuerst visiert, denn «das Team» visiert nicht. Und eine Rechnung, auf die keine Regel passt, wartet nicht still: Sie geht an die Leitung Finanzen.
+
+## Schritt 2: das Visum in Outlook oder Teams
+
+Visiert wird dort, wo die Person ohnehin arbeitet. In Microsoft 365 hat Power Automate die Aktion [«Genehmigung starten und darauf warten»](https://learn.microsoft.com/de-de/power-automate/get-started-approvals). Die visierende Person antwortet direkt aus einer Outlook-Mail, über eine Karte in Teams oder im Info-Center von Power Automate. Microsoft beschreibt mehrere Arten: Die erste Antwort entscheidet, alle müssen zustimmen, eigene Antwortmöglichkeiten oder eine sequenzielle Genehmigung, bei der die Personen in einer festen Reihenfolge antworten. Die sequenzielle Variante passt zur Regel «zuerst die Projektleitung, über CHF 5'000 danach die Geschäftsleitung».
+
+In Teams erscheinen die Anfragen in der [App «Genehmigungen»](https://learn.microsoft.com/de-de/microsoftteams/approval-admin). Microsoft beschreibt sie als Weg, Überwachung, Compliance, Verantwortlichkeit und Abläufe in die Genehmigungen in Teams zu bringen. Sie setzt eine Lizenz für Power Automate, Microsoft 365 oder Dynamics 365 voraus und speichert die Daten in Microsoft Dataverse.
+
+Was die visierende Person sieht: Lieferant, Betrag, Fälligkeit, Kostenstelle oder Projekt, das PDF und zwei Schaltflächen. Eine Ablehnung braucht eine Begründung, die ans Büro zurückgeht. Mehr nicht. Wer für ein Visum drei Systeme öffnen muss, visiert weiter per Antwortmail.
+
+## Schritt 3: Stellvertretung in den Ferien
+
+Die Stellvertretung gehört in die Regeltabelle, nicht in einen Nachtrag. Drei Mechanismen decken sie ab, in dieser Reihenfolge.
+
+- **Vor dem Versand** prüft der Ablauf, ob die Person eine automatische Antwort eingeschaltet hat. Der Outlook-Connector kann dafür [E-Mail-Infos eines Postfachs abrufen](https://learn.microsoft.com/de-de/connectors/office365/), darunter die automatischen Antworten. Sind sie aktiv, geht die Anfrage direkt an die Stellvertretung aus der Tabelle.
+- **Solange die Anfrage offen ist**, kann die visierende Person sie in Power Automate [einer anderen Person zuweisen](https://learn.microsoft.com/de-de/power-automate/approvals-howto). Wer die Anfrage gestellt hat, kann das nicht, sondern nur abbrechen und neu starten.
+- **Vor der Fälligkeit**, zum Beispiel drei Arbeitstage vorher, geht eine noch offene Anfrage an die Stellvertretung, und das Büro bekommt einen Hinweis.
+
+## Schritt 4: Protokoll und Übergabe an Buchhaltung und Zahlung
+
+Jeder Entscheid braucht einen Eintrag: welche Rechnung, welcher Betrag, wer visiert hat, wann, mit welchem Kommentar und ob eine Stellvertretung eingesprungen ist. Die Teams-App «Genehmigungen» protokolliert Ereignisse wie erstellt, genehmigt, abgelehnt und neu zugewiesen im Microsoft-Purview-Portal. Für den Alltag schreibt der Ablauf zusätzlich pro Entscheid eine Zeile in eine Liste neben der Rechnung, damit Buchhaltung und Revision sie ohne Administratorrechte sehen.
+
+Bewahren Sie diesen Eintrag mit der Rechnung auf. Geschäftsbücher und Buchungsbelege sind zehn Jahre aufzubewahren, und laut [kmu.admin.ch](https://www.kmu.admin.ch/de/elektronische-aufbewahrung-der-geschaeftsbuecher) müssen elektronische Daten so gespeichert sein, dass sie nicht geändert oder gelöscht werden können, ohne dass dies nachweisbar ist. Auch Protokolle und Log Files sind aufzubewahren. Fragen Sie Ihre Treuhand oder Revisionsstelle, wie sie das Visum sehen will, bevor Sie es umsetzen, nicht danach.
+
+Die Übergabe ist ein Status, keine Zahlung. Nach dem Visum bekommt die Rechnung im Buchhaltungsprogramm oder in der Prüfliste den Status «freigegeben», und die Buchhaltung bucht sie. Der Zahlungslauf entsteht weiterhin im Buchhaltungsprogramm oder im E-Banking. In der Schweiz geht der Zahlungsauftrag an die Bank als ISO-20022-Meldung pain.001, beschrieben in den [Swiss Payment Standards](https://www.six-group.com/dam/download/banking-services/standardization/sps/ig-credit-transfer-sps-2026-de.pdf), die SIX im Auftrag des Payments Committee Switzerland veröffentlicht. Abacus führt pain.001 unter seinen Zahlungsformaten. Der Freigabeablauf muss diese Datei nicht erzeugen, und er soll es auch nicht. Seine Aufgabe ist, dass nur visierte Rechnungen in den Zahlungslauf kommen.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Der Freigabeablauf zahlt nicht. Er setzt einen Status. Die Zahlung bleibt im Buchhaltungsprogramm oder im E-Banking, mit den Unterschriften, die Ihre Bank verlangt.</p>
+</aside>
+
+## Ein Beispiel: rund 200 Rechnungen im Monat
+
+Ein erfundenes Bild, kein Kundenfall. Ein Gebäudetechnikbetrieb mit rund 45 Personen, rund 200 Lieferantenrechnungen im Monat und einem Dutzend laufender Projekte. Erfasst werden die Rechnungen im Buchhaltungsprogramm. Visiert wird auf Papier: Das Büro druckt jede Rechnung aus, legt sie der Projektleitung ins Fach und wartet. Die Bauleiter sind selten im Büro, also liegen Rechnungen eine Woche, manchmal bis zur Mahnung.
+
+Die Regeltabelle hat fünf Zeilen. Eine Rechnung mit Projektnummer geht an die Projektleitung. Material vom Rahmenvertragslieferanten unter CHF 1'000 visiert die Büroleitung. Über CHF 10'000 visiert zusätzlich die Geschäftsleitung. Alles ohne Projektnummer oder von einem unbekannten Lieferanten geht an die Leitung Finanzen. Die Projektliste mit den Projektleitenden liegt in einer SharePoint-Liste, die Freigabe läuft in Power Automate. Die Bauleiter visieren auf dem Handy in Outlook oder Teams. Vor dem Versand prüft der Ablauf die automatischen Antworten, nach drei Tagen geht eine offene Anfrage an die Stellvertretung. Jeder Entscheid landet mit der Rechnungsnummer in einer Liste, die die Buchhaltung vor dem Zahlungslauf nach «freigegeben» filtert.
+
+Von Hand bleiben: Rechnungen ohne Projektnummer, die die Leitung Finanzen zuweist, Ablehnungen, die das Büro mit dem Lieferanten klärt, und der Zahlungslauf selbst. Mit mehreren Schritten und zwei Systemen liegt dieser Umfang näher beim Package Medium als bei Small. Die Grösse legt der Check fest.
+
+## Wann Sie es lassen sollten
+
+Lassen Sie es, wenn eine Handvoll Rechnungen im Monat von derselben Person visiert wird, die sie auch bezahlt. Lassen Sie es, wenn die Freigabe im Buchhaltungsprogramm schon alle erreicht, die visieren. Und lassen Sie es, solange die Regeln nicht klar sind. Kann niemand sagen, wer eine Rechnung ohne Projektnummer visiert, schreiben Sie das zuerst auf. Eine unklare Regel zu automatisieren, macht nur das Warten schneller.
+
+Liegt das grössere Problem davor, in einem Postfach, in dem Rechnungen und Unterlagen unsortiert ankommen, beschreibt [Mandantenpostfach sortieren und fehlende Belege nachfordern](/de/blog/treuhand-mandantenpostfach-fehlende-belege) dieselbe Logik.
+
+## Ihren Freigabeweg in den Prozess-Check mitnehmen
+
+Warten Rechnungen bei Ihnen auf Papier, in weitergeleiteten Mails oder im Chat, und können Sie sagen, wer was visieren soll, ist das eine wiederkehrende Arbeit. Dafür ist der [Prozess-Check](/de/prozess-check) gedacht. In 60 Minuten schauen wir an, wie die Rechnungen ankommen, wer visiert und wo die Projektliste liegt. Beschreiben genügt. Danach wissen Sie, womit Sie anfangen, ob es sich lohnt, was die Umsetzung ungefähr kostet und wie lange sie dauert, und Sie bekommen eine kurze schriftliche Zusammenfassung. Die Stunde kostet CHF 99 und lässt sich [online buchen](/de/prozess-check/buchen).

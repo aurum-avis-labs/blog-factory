@@ -1,0 +1,105 @@
+---
+title: "Google Workspace automatisieren: Apps Script, AppSheet, Gemini"
+description: "Was ein KMU in Google Workspace mit Apps Script, AppSheet und Gemini automatisieren kann, was die Kontingente erlauben und wem die Skripte gehören."
+pubDate: 2026-12-09
+author: "Aurum Avis Labs"
+tags: ["google workspace", "apps script", "prozessautomatisierung"]
+funnelStage: interest
+translationKey: automate-google-workspace
+relatedPosts: ["microsoft-365-automatisieren", "make-n8n-power-automate", "was-der-prozess-check-ist"]
+draft: false
+---
+
+## Google Workspace automatisieren mit Apps Script, AppSheet und Gemini
+
+Wer Google Workspace automatisieren will, hat in einem KMU drei Werkzeuge zur Auswahl, und jedes hat eine andere Aufgabe. Apps Script ist JavaScript, das auf den Servern von Google läuft und mit Sheets, Gmail, Drive, Kalender und Formularen arbeitet. Es ist das Werkzeug, das Daten bewegt, wenn niemand tippt. AppSheet erstellt kleine Apps ohne Code. Gemini hilft einer Person beim Schreiben, Zusammenfassen und Suchen, führt aber keinen Ablauf von selbst aus. Die Grenzen sind die täglichen Kontingente, Skripte, die am Konto einer einzelnen Person hängen, und die Tatsache, dass jemand den Code später lesen muss.
+
+Der Beitrag richtet sich an Geschäftsleitungen sowie Büro- und Finanzverantwortliche in Schweizer KMU, die schon mit Gmail, Drive und Sheets arbeiten. Läuft Ihre Firma auf Microsoft 365, ist das Gegenstück [Microsoft 365 automatisieren mit dem, was Sie schon haben](/de/blog/microsoft-365-automatisieren). Ob ein Assistent wie Gemini der richtige Kauf ist, ist eine andere Frage. [Copilot-Lizenz, oder einen Ablauf umsetzen?](/de/blog/copilot-oder-einen-ablauf-bauen) handelt von Copilot, aber die Weggabelung ist dieselbe: Ein Assistent hilft einer Person beim Entwurf, ein Ablauf bewegt Daten, wenn niemand tippt.
+
+## Was Apps Script kann
+
+Apps Script reagiert auf ein Ereignis oder auf die Uhr und liest oder schreibt dann Ihre Tabellen, verschickt Mails und arbeitet mit Dateien in Drive. Google beschreibt es als [Plattform für Geschäftsanwendungen, die sich in Google Workspace einbinden](https://developers.google.com/apps-script/overview) (Dokumentation auf Englisch): Sie schreiben modernes JavaScript in einem Editor im Browser, die Skripte werden in Drive gespeichert und laufen auf den Servern von Google. Vier Startpunkte decken die meisten Büroarbeiten ab.
+
+- **Die Uhr.** Ein [zeitgesteuerter Trigger](https://developers.google.com/apps-script/guides/triggers/installable) startet ein Skript zu einer bestimmten Zeit oder in einem Intervall, so oft wie jede Minute und so selten wie einmal im Monat. Die Zeit kann leicht streuen: Ein Trigger für 9 Uhr läuft irgendwann zwischen 9 und 10 Uhr.
+- **Eine Formularantwort.** Ein Trigger bei Formularübermittlung startet, wenn jemand ein Google-Formular ausfüllt.
+- **Eine Änderung in einer Tabelle.** Ein Bearbeitungs-Trigger startet, wenn jemand einen Wert in einer Tabelle ändert, ein Änderungs-Trigger, wenn sich ihre Struktur ändert.
+- **Eine Web-Anfrage.** Ein Skript mit einer Funktion `doGet` oder `doPost` lässt sich als [Web-App veröffentlichen](https://developers.google.com/apps-script/guides/web), die Anfragen von aussen beantwortet, etwa aus einem Formular auf Ihrer Website.
+
+## AppSheet und Gemini: was Ihre Edition enthält
+
+Nach den Seiten von Google zum Zeitpunkt des Schreibens ist AppSheet Core in Business Starter, Standard und Plus enthalten, und Gemini kommt ab Business Standard in Docs und Sheets. AppSheet Core setzt eine bestätigte Domain voraus.
+
+| | Business Starter | Business Standard | Business Plus |
+| --- | --- | --- | --- |
+| AppSheet Core | Enthalten | Enthalten | Enthalten |
+| Gemini in Gmail | Enthalten | Enthalten | Enthalten |
+| Gemini in Docs, Sheets, Meet, Chat | Nicht enthalten | Enthalten | Enthalten |
+| Gemini-App | Basiszugriff | Erweiterter Zugriff | Erweiterter Zugriff |
+
+Die Zeilen stammen aus Googles [Vergleich der Business-Editionen](https://knowledge.workspace.google.com/admin/getting-started/editions/compare-business-editions?hl=de), der [AppSheet-Seite zu den Abos](https://support.google.com/appsheet/answer/10105400?hl=en) (auf Englisch) und der [Preisseite von Workspace](https://workspace.google.com/intl/de_ch/pricing). Editionen ändern sich, prüfen Sie also vor dem Kauf nach.
+
+Laut der AppSheet-Seite brauchen Gemini in AppSheet, Texterkennung (OCR) und erweiterte Datenanbindungen wie BigQuery oder Salesforce AppSheet Enterprise Plus.
+
+Zu den Daten hält Google im [Datenschutz-Hub](https://knowledge.workspace.google.com/admin/generative-ai/generative-ai-in-google-workspace-privacy-hub?hl=de) fest, dass Inhalte nicht ohne Erlaubnis ausserhalb Ihrer Domain zum Trainieren von Modellen für generative KI verwendet werden und dass Gemini nur Inhalte abruft, auf die die Person ohnehin Zugriff hat. Das ist eine Aussage von Google, keine Prüfung Ihrer Einrichtung. Bei Kundendaten fragen Sie Ihre Datenschutzberatung.
+
+## Ein Beispiel: unser eigener Download für Fallstudien
+
+Auf unserer Website können Besuchende eine Fallstudie als PDF herunterladen, nachdem sie eine E-Mail-Adresse angegeben haben. Apps Script hält diese Kette zusammen.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Ein Formular auf der Website</h3><p>Die Person gibt eine E-Mail-Adresse ein und setzt das Häkchen bei reCAPTCHA. Die Seite schickt die Daten an eine Apps-Script-Web-App.</p></li>
+  <li data-step="2"><h3>Eine Prüfung</h3><p>Das Skript fragt beim Dienst reCAPTCHA von Google nach, ob die Antwort echt ist. Eine Sperrfrist lässt pro E-Mail-Adresse und Fallstudie nur eine Anfrage alle zehn Minuten zu.</p></li>
+  <li data-step="3"><h3>Ein Protokoll in einer Tabelle</h3><p>Das Skript schreibt eine Zeile: Zeitpunkt, E-Mail-Adresse, Fallstudie, Sprache, ob dem Marketing zugestimmt wurde, und den Status.</p></li>
+  <li data-step="4"><h3>Das PDF aus einem privaten Drive-Ordner</h3><p>Das Skript findet die Datei über ihren genauen Namen. Ein PDF ersetzen heisst, eine neue Datei mit demselben Namen hochzuladen. Das Skript bleibt unberührt.</p></li>
+  <li data-step="5"><h3>Eine Mail über Microsoft Graph</h3><p>Das Skript verschickt die Mail mit dem PDF im Anhang und schreibt das Ergebnis, zugestellt oder fehlgeschlagen mit dem Fehlertext, in dieselbe Zeile zurück.</p></li>
+</ol>
+
+Die Mail geht aus unserem Outlook-Postfach über [Microsoft Graph](https://learn.microsoft.com/de-de/graph/api/user-sendmail) hinaus und nicht über Gmail, weil die Firma auf Microsoft 365 läuft. Graph nimmt die Dateianlage im selben Aufruf entgegen. Dafür braucht es eine App-Registrierung in unserem Microsoft-Mandanten mit der Anwendungsberechtigung Mail.Send und die Zustimmung der Administratorin oder des Administrators. Apps Script bleibt das Bindeglied und kann alles ansprechen, was eine Schnittstelle (API) hat.
+
+Das ist ein Tausch von Adresse gegen Datei, kein Kopierschutz: Wer das PDF hat, kann es weiterleiten. Die Adresse der Web-App ist öffentlich, reCAPTCHA und Sperrfrist verringern den Missbrauch, beenden ihn aber nicht.
+
+## Wo die Kontingente Sie bremsen
+
+Googles [Seite zu den Kontingenten](https://developers.google.com/apps-script/guides/services/quotas) setzt tägliche Grenzen pro Nutzer. Messen Sie Ihr Volumen daran, bevor Sie eine Arbeit planen. Die Werte für ein Workspace-Konto, in Klammern ein privates gmail.com-Konto:
+
+- E-Mail-Empfänger pro Tag: 1'500 (100)
+- Ausgehende Anfragen (URL-Fetch-Aufrufe) pro Tag: 100'000 (20'000)
+- Gesamtlaufzeit aller Trigger pro Tag: 6 Stunden (90 Minuten)
+- Laufzeit einer einzelnen Ausführung: 6 Minuten bei beiden
+- Gleichzeitige Ausführungen: 30 pro Nutzer. Trigger: 20 pro Nutzer und Skript
+
+Die Kontingente gelten pro Nutzer und werden 24 Stunden nach der ersten Anfrage zurückgesetzt. Google hält zudem fest, dass alle Kontingente jederzeit ohne Vorankündigung gekürzt oder geändert werden können. Geschäftliche Skripte gehören auf ein Workspace-Konto, nicht auf ein privates.
+
+In unserem Download kostet jede Anfrage eine Handvoll ausgehender Aufrufe: die Prüfung bei reCAPTCHA und die Aufrufe zu Microsoft. Die Grenze von 100'000 ist weit weg, und die Grenze für E-Mail-Empfänger gilt nicht, weil wir nicht über Gmail versenden.
+
+Die Grenze, um die Sie herumplanen sollten, sind die sechs Minuten. Eine Arbeit, die eine grosse Tabelle Zeile für Zeile liest, kann in Zeitnot geraten. Die [bewährten Vorgehensweisen](https://developers.google.com/apps-script/guides/support/best-practices) von Google raten, alle Daten mit einem Befehl in eine Liste einzulesen und mit einem Befehl zurückzuschreiben. Deren Beispiel sinkt von rund 70 Sekunden auf rund 1 Sekunde.
+
+## Wem die Skripte gehören
+
+Das Konto, das einen Trigger anlegt oder eine Web-App veröffentlicht, ist das Konto, unter dem das Skript läuft. Laut Google [laufen installierbare Trigger immer unter dem Konto der Person, die sie erstellt hat](https://developers.google.com/apps-script/guides/triggers/installable). Eine Web-App mit der Einstellung «Ausführen als: ich» läuft unter dem Konto ihres Besitzers, [egal wer sie aufruft](https://developers.google.com/apps-script/guides/web).
+
+Das ist ein Risiko, wenn eine Person alles besitzt. Der [Leitfaden zur Zusammenarbeit](https://developers.google.com/apps-script/guides/collaborating) von Google sagt es deutlich. Sinngemäss übersetzt: Verlässt jemand Ihre Organisation und wird das Konto entfernt, geht der Zugriff auf Skripte ohne weitere Besitzer verloren. Eigenständige Projekte erscheinen in Drive als Dateien, an eine Datei gebundene Skripte nicht. Wissen Sie also, welche Art Sie haben.
+
+Drei Gewohnheiten decken das meiste ab. Teilen Sie den Besitz jedes Skripts, auf das sich das Geschäft verlässt. Führen Sie eine Seite mit allen Skripten: was sie tun, was sie startet, unter welchem Konto sie laufen und wo ihre Zugangsdaten liegen. Und lassen Sie Geschäftsskripte unter einem Konto laufen, das die Firma kontrolliert. Wir betreiben unsere unter einem gemeinsamen Betriebskonto mit Zwei-Faktor-Authentifizierung, nicht unter einem privaten, und nur die Personen, die die Anfragen betreuen, dürfen die Tabelle bearbeiten.
+
+Ein Skript, das mit einem anderen System spricht, hält auch Zugangsdaten. Unsere liegen in den Skripteigenschaften, nicht im Code. Der geheime Clientschlüssel für Microsoft läuft nach [höchstens 24 Monaten](https://learn.microsoft.com/de-de/graph/auth-register-app-v2) ab, jemand muss ihn also rechtzeitig erneuern.
+
+## Wenn etwas schiefgeht
+
+Ein Skript, das still scheitert, ist schlimmer als die Handarbeit, die es ersetzt hat. Das [Dashboard von Apps Script](https://developers.google.com/apps-script/guides/dashboard) listet die letzten Ausführungen mit ihrem Status und zeigt eine Fehlerrate, aber nur, wer hinschaut, sieht sie.
+
+Unser Download schreibt das Ergebnis jedes Versuchs in dieselbe Zeile der Tabelle: Status der Anfrage, Status der Zustellung und den Fehlertext, den Microsoft zurückgegeben hat. Einmal pro Woche filtert jemand nach fehlgeschlagenen Zustellungen, sucht die Ursache und verschickt von Hand nach. Eine Zeile ohne zugestelltes PDF ist eine Person, die auf eine Datei wartet. Die Ursachen, die wir für uns aufgeschrieben haben, sind unspektakulär: ein falsches oder abgelaufenes Geheimnis, eine fehlende Berechtigung, ein falsch geschriebener Dateiname.
+
+Noch eine Falle: Ändern Sie den Code, ändert sich die laufende Web-App erst, wenn Sie eine neue Version bereitstellen.
+
+## Wann die Werkzeuge von Google reichen
+
+Sie reichen, wenn die Daten schon in Sheets, Gmail und Drive liegen, die Regeln auf eine Seite passen, intern jemand das Skript lesen kann und zwei Personen es besitzen. Ein Morgenbericht mit den offenen Zeilen, ein Formular, das ein Register füllt und die Zuständigen benachrichtigt: Das ist Arbeit, die Sie intern erledigen können.
+
+Holen Sie Hilfe, wenn die Kette ein System ohne Google-Anbindung erreichen muss, wenn die Logik mehr Ausnahmen als Regeln hat, wenn das Volumen an die Kontingente stösst oder wenn intern niemand den Code betreuen kann.
+
+## Wann der Prozess-Check passt
+
+Der [Prozess-Check](/de/prozess-check) passt, wenn Sie eine wiederkehrende Arbeit haben, die noch von Hand läuft, und wissen wollen, ob Apps Script oder AppSheet sie abdeckt oder ob es eine Umsetzung braucht. Sechzig Minuten per Microsoft Teams, CHF 99. Er funktioniert mit jedem Programm, das eine Schnittstelle (API) hat, und was Ihre Programme bieten, klären wir in der Stunde. Sie gehen mit dem Wissen, womit Sie anfangen, ob es sich lohnt, und einer Preisspanne für die Umsetzung, dazu eine kurze schriftliche Zusammenfassung. Die Antwort kann durchaus lauten: «Machen Sie das selbst in Apps Script.» Dann steht das in der Zusammenfassung.
+
+Wissen Sie schon, um welche Arbeit es geht: [Prozess-Check buchen](/de/prozess-check/buchen).

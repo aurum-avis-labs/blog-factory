@@ -1,0 +1,111 @@
+---
+title: "Dokumente automatisch aus Vorlagen erstellen: Offerten, Briefe"
+description: "Dokumente automatisch aus Vorlagen erstellen: Felder, Daten, PDF, Ablage, Prüfung vor dem Versand. Wo KI hilft und was in der Schweiz für Signaturen gilt."
+pubDate: 2026-12-03
+author: "Aurum Avis Labs"
+tags: ["dokumente", "vorlagen", "offerten"]
+funnelStage: interest
+translationKey: generate-documents-from-templates
+relatedPosts: ["nachfassen-angebote-follow-ups", "doppelerfassung-vermeiden", "was-der-prozess-check-ist"]
+draft: false
+---
+
+## Dokumente automatisch aus Vorlagen erstellen: die kurze Antwort
+
+Wer Dokumente automatisch aus Vorlagen erstellen will, geht in fünf Schritten vor, für Offerten, Verträge, Briefe und Auftragsbestätigungen gleichermassen. Der feste Text steht einmal in einer Vorlage mit benannten Feldern. Die Felder werden aus einer einzigen Datenquelle gefüllt, etwa aus einem Formular, dem CRM oder einer Tabelle. Ein Skript oder Ablauf exportiert ein PDF und legt es an einem festen Ort ab. Eine Person prüft es, bevor es hinausgeht. Preise, Daten und rechtliche Formulierungen kommen aus Vorlage und Daten. KI schreibt, wenn überhaupt, nur einen markierten Freitext, und immer als Entwurf.
+
+Der Beitrag ist für Inhaberinnen, Inhaber und Büroleitungen in Schweizer KMU, die mehrmals pro Woche dieselbe Art von Dokument schreiben. Die letzte Offerte öffnen, unter neuem Namen speichern, den Kunden ersetzen, die Zahlen anpassen und hoffen, dass in der Fusszeile nichts vom alten Kunden stehen bleibt. Wer im Jahr zwei Verträge schreibt, für den lohnt sich nichts davon.
+
+## Die fünf Schritte von den Daten zum geprüften PDF
+
+Jeder Schritt ist klein. Die Arbeit besteht darin, ihn einmal zu entscheiden und aufzuschreiben.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Eine Vorlage pro Dokumentart</h3><p>Offerte, Auftragsbestätigung, Brief: je eine Datei. Der Text wird einmal geschrieben. Alles, was sich ändert, ist ein benanntes Feld: Kunde, Adresse, Projekt, Beträge, Datum.</p></li>
+  <li data-step="2"><h3>Eine Quelle für die Daten</h3><p>Die Felder kommen von einem Ort: aus einem Webformular, dem CRM oder einer Tabellenzeile. Nicht aus dem Gedächtnis und nicht aus dem letzten Dokument.</p></li>
+  <li data-step="3"><h3>Erzeugen und als PDF exportieren</h3><p>Ein Skript oder Ablauf kopiert die Vorlage, ersetzt die Felder und exportiert ein PDF. Die Word- oder Docs-Datei bleibt als bearbeitbares Original.</p></li>
+  <li data-step="4"><h3>Immer gleich ablegen</h3><p>Eine Ordnerlogik und ein Namensmuster, zum Beispiel Projektnummer, Kunde, Dokumentart, Version. Danach sucht niemand mehr in den gesendeten Elementen.</p></li>
+  <li data-step="5"><h3>Prüfen, dann senden</h3><p>Eine Person liest das PDF neben der Datenzeile und gibt es frei. Erst dann geht die Mail vom Büropostfach hinaus, und das Sendedatum wird im Datensatz vermerkt.</p></li>
+</ol>
+
+An Schritt 2 scheitern die meisten Vorhaben. Steht derselbe Kunde in zwei Programmen mit zwei Schreibweisen, druckt die Vorlage, was sie gerade liest. Legen Sie zuerst fest, welches Programm führt: [Doppelerfassung vermeiden](/de/blog/doppelerfassung-vermeiden) beschreibt diese Entscheidung.
+
+Die Prüfung in Schritt 5 dauert eine Minute: Beträge, Adresse und Anrede, Anhänge, der Freitext. Sie sorgt dafür, dass keine falsche Zahl bei der Kundschaft ankommt.
+
+## Word oder Google Docs: was Ihre Vorlagen schon können
+
+Für ein paar Dokumente pro Woche reicht oft der Seriendruck, den Sie schon haben. Für die vollständige Automatisierung braucht es zusätzlich einen Ablauf.
+
+In Word füllt der Seriendruck Briefe aus einer Excel-Tabelle. Laut der Hilfeseite von Microsoft müssen die Spaltennamen zu den Feldnamen passen, und das Seriendruckdokument bleibt mit der Datenquelle verbunden ([Microsoft Support](https://support.microsoft.com/de-de/office/seriendruck-mithilfe-einer-excel-tabelle-858c7d7f-5cc0-4ba1-9a7b-0a948fa3d7d3)). Das passt für Serien von Briefen, weniger für eine Offerte, deren Honorartabelle jedes Mal eine andere Zahl Zeilen hat.
+
+In Microsoft 365 bietet Power Automate den Connector Word Online (Business) mit den Aktionen «Auffüllen einer Microsoft Word-Vorlage» und «Konvertieren eines Word-Dokuments in PDF» ([Microsoft Learn](https://learn.microsoft.com/de-de/connectors/wordonlinebusiness/)). Dieselbe Seite nennt Grenzen, die für die Planung zählen: Es ist ein Premium-Connector, Rich-Text- und Datumsauswahl-Inhaltssteuerelemente werden nicht unterstützt, und die Aktion zum Auffüllen lässt sich nicht nutzen, wenn eine Richtlinie für bedingten Zugriff eine Multi-Faktor-Authentifizierung verlangt.
+
+In Google Workspace füllen Variablen-Chips in Google Docs mehrere Felder mit demselben Text und exportieren Vorlagen mit anderen Werten. Sie stehen nur für berechtigte Konten von Unternehmen oder Bildungseinrichtungen zur Verfügung, und Sie füllen sie von Hand ([Google Docs-Hilfe](https://support.google.com/docs/answer/13584275?hl=de)). Für das automatische Füllen braucht es ein Skript: Apps Script ersetzt Textmuster in einem Dokument mit [replaceText](https://developers.google.com/apps-script/reference/document/body) und wandelt eine Datei mit [getAs](https://developers.google.com/apps-script/reference/base/blob) in ein PDF um.
+
+Unser eigenes Download-Formular nutzt ähnliche Bausteine: Ein Google Apps Script hält die Anfrage in einer Tabelle fest, holt ein PDF aus einem privaten Drive-Ordner und verschickt es per Microsoft Graph als Mail.
+
+Erstellt Ihr Branchenprogramm die Offerte schon aus einer eigenen Vorlage, nutzen Sie diese zuerst. Die Lücke liegt meist bei den Dokumenten drumherum. Was Ihre Programme an Schnittstellen bieten, klären wir im Check.
+
+## Wo KI hilft und wo feste Formulierungen sicherer sind
+
+KI hilft bei den Freitexten, die jedes Mal anders sind. Alles mit Preis, Datum oder rechtlicher Wirkung bleibt fester Vorlagentext.
+
+| Teil des Dokuments | Kommt aus | Warum |
+| --- | --- | --- |
+| Name, Adresse, Anrede | Daten | Wird übernommen, nie umformuliert |
+| Preise, Mengen, MWST, Summen | Daten und Regeln | Eine falsche Zahl schadet mehr als ein steifer Satz |
+| Bedingungen, Zahlungsfristen, Klauseln | Vorlage, einmal freigegeben | Rechtliche Formulierungen ändern sich nur mit Absicht |
+| Einleitung, «Was Sie bei uns angefragt haben» | KI-Entwurf, markiert | Ist jedes Mal anders, eine Person bearbeitet ihn |
+| Zusammenfassung eines Mailverlaufs für die Akte | KI-Entwurf | Intern, niemand ausserhalb verlässt sich darauf |
+
+Die Regel, die das sicher macht: KI schreibt in ein einziges markiertes Feld. Sie berührt die anderen Felder nie, und eine Person liest alles, bevor es hinausgeht.
+
+Wird dieser Text aus der Mail einer Kundin oder eines Kunden entworfen, enthält die Mail Personendaten. Der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB) hält fest, dass das Schweizer Datenschutzgesetz auf KI-gestützte Datenbearbeitungen direkt anwendbar ist ([EDÖB: KI und Datenschutz](https://www.edoeb.admin.ch/de/ki-und-datenschutz)). Fügen Sie Kundenmails nicht in ein kostenloses Chatbot-Konto ein, und fragen Sie Ihre Datenschutzberatung, welcher Dienst passt. Das ist eine praktische Einordnung, keine Rechtsberatung.
+
+## Signatur: was das Schweizer Recht verlangt
+
+Die meisten Dokumente brauchen keine Unterschrift, die das Gesetz vorschreibt. Wo eine verlangt ist, gilt nur die qualifizierte elektronische Signatur als gleichwertig mit der handschriftlichen.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Laut dem Bundesamt für Kommunikation (BAKOM) gilt im Schweizer Vertragsrecht der Grundsatz der Formfreiheit, deshalb braucht nur eine kleine Zahl von Geschäften überhaupt eine qualifizierte elektronische Signatur. Wo eine eigenhändige Unterschrift verlangt ist, ist nur die qualifizierte elektronische Signatur nach ZertES gleichgestellt: Sie beruht auf einem qualifizierten Zertifikat einer anerkannten Anbieterin und trägt einen qualifizierten Zeitstempel. Andere elektronische Signaturen sind zulässig, wo keine eigenhändige Unterschrift erforderlich ist.</p>
+</aside>
+
+Das ist die Regel nach Art. 14 Abs. 2bis OR, wie sie das [BAKOM erklärt](https://www.bakom.admin.ch/de/23-welche-rechtskraft-haben-elektronische-signaturen). Die Schweizerische Akkreditierungsstelle führt eine Liste der anerkannten Anbieterinnen, die qualifizierte Zertifikate ausstellen dürfen ([BAKOM](https://www.bakom.admin.ch/de/elektronische-signatur-2)).
+
+Eine Offerte oder eine Auftragsbestätigung braucht in der Regel keins von beidem. Ein eingefügtes Bild einer Unterschrift ist keine qualifizierte Signatur: Es stützt sich auf kein Zertifikat und trägt keinen Zeitstempel. Ob ein bestimmter Vertrag Schriftlichkeit verlangt, klären Sie mit Ihrer Anwältin oder Ihrem Anwalt, nicht mit der Vorlage.
+
+## Ablage: was Sie aufbewahren müssen und wie lange
+
+Bewahren Sie das PDF auf, das tatsächlich versendet wurde, nicht nur das bearbeitbare Original. Das Original ändert sich, sobald jemand die Vorlage überarbeitet.
+
+Geschäftsbücher und Buchungsbelege wie Rechnungen müssen zehn Jahre aufbewahrt werden, die Frist beginnt mit dem Ablauf des Geschäftsjahres. Elektronisch ist das erlaubt, wenn die Unterlagen jederzeit lesbar sind und mit den Geschäftsvorfällen übereinstimmen ([kmu.admin.ch](https://www.kmu.admin.ch/de/elektronische-aufbewahrung-der-geschaeftsbuecher)). Für Offerten und Verträge hängt die Frist vom Dokument ab. Fragen Sie Ihre Treuhandstelle oder Ihren Anwalt, bevor Sie eine Löschregel festlegen.
+
+## Ein Beispiel: Honorarofferten in einem Planungsbüro mit 12 Personen
+
+Ein Beispiel, kein Kunde: ein Planungsbüro mit rund zwölf Mitarbeitenden. Es verschickt etwa zehn Honorarofferten pro Monat für Umbauprojekte und zu jeder angenommenen Offerte eine Auftragsbestätigung.
+
+Heute öffnet die Projektleiterin die letzte Offerte, speichert sie unter neuem Namen, tauscht Kunde und Adresse, tippt die Honorartabelle neu und exportiert ein PDF. Jede und jeder benennt die Datei anders, und ab und zu bleibt der Name eines früheren Kunden in der Fusszeile stehen.
+
+Die Umsetzung: eine Word-Vorlage für die Offerte und eine für die Bestätigung. Ein Formular für die Projektleitung schreibt pro Offerte eine Zeile in eine Tabelle: Kunde, Adresse, Leistungsmodule aus einer festen Liste, Stunden oder Pauschale. Die Ansätze stehen in einer zweiten Tabelle, die die Büroleiterin pflegt. Bedingungen und Zahlungsfristen ändern sich nie, sie bleiben in der Vorlage. Ein Feld ist Freitext: wie das Büro das Projekt verstanden hat.
+
+Wird eine Zeile auf «Entwurf erstellen» gesetzt, füllt ein Ablauf die Vorlage, exportiert das PDF, legt es im Projektordner unter festem Namen ab und schickt es an die Projektleitung, nicht an den Kunden. Den Freitext entwirft ein KI-Dienst aus den eigenen Notizen der Projektleitung, markiert als Entwurf. Die Projektleiterin korrigiert ihn und setzt die Zeile auf «freigegeben». Erst dann sendet der Ablauf die Mail vom Büropostfach und trägt das Sendedatum in die Zeile ein. Ab diesem Datum kann eine Erinnerung laufen: siehe [Offerten nachfassen, ohne dass sie in der Inbox liegen bleiben](/de/blog/nachfassen-angebote-follow-ups).
+
+Zur Grössenordnung: Eine Dokumentart mit einer Datenquelle ist die Art klar abgegrenzter Aufgabe, für die der Richtpreis von CHF 3'200–4'800 gedacht ist. Mehrere Dokumentarten oder Systeme gehen Richtung der grösseren Packages. Den Festpreis gibt es nach dem Check, schriftlich.
+
+## Wann Sie Dokumente besser nicht automatisieren
+
+Lassen Sie es, wenn die Menge klein ist oder der Wortlaut nicht feststeht.
+
+- **Kleine Menge.** Für ein paar Dokumente im Monat genügen eine Vorlagendatei mit klaren Feldern und eine Checkliste.
+- **Offener Wortlaut.** Zirkulieren drei Fassungen Ihrer Bedingungen, wählen Sie zuerst eine aus. Die Automatisierung würde die Uneinigkeit nur verbreiten.
+- **Verhandelte Verträge.** Jeder hat eigene Klauseln und oft eine juristische Prüfung. Die Vorlage taugt für den Rahmen, nicht für den Inhalt.
+- **Niemand ist zuständig.** Jede Vorlage braucht eine benannte Person, das Datum der letzten Änderung und ein Archiv alter Fassungen. Sonst geht eine veraltete Zahlungsfrist auf jedem Dokument hinaus.
+
+## Wann der Prozess-Check passt
+
+Der Prozess-Check passt, wenn bei Ihnen jemand regelmässig dieselbe Art von Dokument von Hand zusammenstellt und Sie wissen wollen, was eine Automatisierung dafür braucht. In 60 Minuten per Microsoft Teams schauen wir genau diese eine Dokumentart an: woher die Daten kommen, was sich jedes Mal ändert, wer prüft und wohin das PDF geht.
+
+Bringen Sie ein anonymisiertes oder erfundenes Beispiel mit, Kundendaten brauchen Sie keine zu zeigen. Danach wissen Sie, womit Sie anfangen, ob es sich lohnt, und Sie haben eine Preisspanne und die ungefähre Dauer einer Umsetzung, kurz schriftlich. Der Check kostet CHF 99 und wird auf den Festpreis angerechnet, wenn Sie danach etwas umsetzen lassen. Findet sich in der Stunde nichts, was sich automatisieren lässt, bekommen Sie das Geld zurück, sobald der Termin stattgefunden hat.
+
+Alles Weitere steht auf der Seite [Prozess-Check](/de/prozess-check), dort können Sie auch [einen Termin wählen](/de/prozess-check/buchen).

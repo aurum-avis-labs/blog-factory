@@ -1,0 +1,83 @@
+---
+title: "Automate Microsoft 365 with what you already have"
+description: "What an SME can automate with Forms, Lists, Outlook rules, Teams approvals, Bookings and Power Automate, and where the included licence stops."
+pubDate: 2026-12-07
+author: "Aurum Avis Labs"
+tags: ["microsoft 365", "power automate", "process automation"]
+funnelStage: interest
+translationKey: automate-microsoft-365
+relatedPosts: ["copilot-or-build-a-workflow", "shared-inbox-sort-emails", "make-n8n-power-automate"]
+draft: false
+---
+
+## Automate Microsoft 365 with what you already have
+
+If your firm pays for a Microsoft 365 business plan, you can automate a fair share of office work with what you already have, without buying anything else. Forms collects requests in a fixed shape, Lists keeps the register, Outlook rules sort mail, the Approvals app in Teams asks for a yes or no, Bookings takes appointments, and Power Automate connects them with standard connectors. The included rights stop at premium and custom connectors, at desktop automation, and in practice at the point where every flow depends on one person's account.
+
+This is for owners, office and finance leads in Swiss SMEs that already work in Outlook, Teams and SharePoint and want to know what they can set up themselves before they commission anything. If your question is really whether Copilot will do it, that is a different purchase. Copilot helps a person draft inside the apps. A flow moves data when nobody is typing. That fork is in [a Copilot licence or a built workflow](/blog/copilot-or-build-a-workflow).
+
+## What your Microsoft 365 plan already includes
+
+Microsoft's [plan comparison](https://www.microsoft.com/en-us/microsoft-365/business/compare-all-microsoft-365-business-products) lists Forms, SharePoint, Bookings (in the versions that include Teams) and Power Automate cloud flows in Business Basic, Business Standard and Business Premium. Microsoft Lists is not named there, but a [list can be created on a SharePoint site](https://support.microsoft.com/en-us/office/what-is-a-list-in-microsoft-365-93262a88-20ad-4edc-8410-b6909b2f59a5), and SharePoint is part of all three plans. The Power Automate rights are limited, though. According to Microsoft's [overview of seeded licences](https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/deep-dive-on-specific-license), Microsoft 365 users may create and run cloud flows with standard connectors, with a daily limit of 6,000 actions per user. The connectors for [Forms](https://learn.microsoft.com/en-us/connectors/microsoftforms/), [SharePoint](https://learn.microsoft.com/en-us/connectors/sharepointonline/) (which reaches lists on a SharePoint site) and [Bookings](https://learn.microsoft.com/en-us/connectors/microsoftbookings/) are all standard.
+
+| Tool | On its own | With a flow |
+| --- | --- | --- |
+| Microsoft Forms | Collects a request in the same fields every time: a holiday request, an order, a damage report | Each new response starts the next step |
+| Microsoft Lists | A shared register with columns and views: open requests, orders, defects | A new or changed entry triggers a notification or an approval |
+| Outlook rules | Moves, flags or answers mail automatically when a condition matches, for example words in the subject | Rarely needed for plain sorting |
+| Approvals in Teams | Someone asks, someone decides, the answer is recorded | A flow starts the approval and waits for the decision |
+| Microsoft Bookings | Customers pick a free time and get a confirmation | A flow reacts when an appointment is created, changed or cancelled |
+
+Two details belong in the plan. Microsoft notes that [certain Outlook rules only run when Outlook is open](https://support.microsoft.com/en-us/office/set-up-rules-in-outlook-75ab719a-2ce8-49a7-a214-6d62b67cbd41), so anything that has to run over the weekend is safer in a flow. And the [Approvals app](https://learn.microsoft.com/en-us/microsoftteams/approval-admin) stores approvals in the default Dataverse environment of your organisation. Users need a Power Automate, Microsoft 365 or Dynamics 365 licence, and whoever sets up approval templates also needs Forms.
+
+## A worked example: holiday requests without mail ping-pong
+
+An example, not a client: a planning office with around 20 people. Holiday requests arrive by email, the team lead answers when she finds the mail, and the office keeps a spreadsheet that is never quite current. Everything needed to fix this is in the plan the office already pays for.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>A form instead of a mail</h3><p>A Microsoft Forms form asks for name, dates, half or full days and a note. The same fields every time.</p></li>
+  <li data-step="2"><h3>An entry in a list</h3><p>A Power Automate flow starts on each new response and writes it into a list with the status "requested".</p></li>
+  <li data-step="3"><h3>An approval in Teams</h3><p>The same flow sends an approval to the team lead in Teams. She approves or rejects with a comment, on her phone if need be.</p></li>
+  <li data-step="4"><h3>Status and answer</h3><p>The flow sets the list entry to approved or rejected and sends the requester an Outlook mail with the decision.</p></li>
+  <li data-step="5"><h3>One view for the office</h3><p>The office filters the list by month. The spreadsheet goes.</p></li>
+</ol>
+
+All five steps run on standard connectors, so no extra licence is needed. What stays manual: the decision itself, the odd exception such as a request in the middle of a deadline, and entering the absence in payroll or HR software if that sits outside Microsoft 365. If someone in the office is comfortable with Power Automate, this can be set up internally. Then you do not need a provider for it.
+
+## Where the included licence stops
+
+The included rights stop at the edge of Microsoft's standard connectors. Microsoft's [licensing FAQ](https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/faqs) states that users on a Microsoft 365 plan can only access standard connectors. Four limits come up most often in small offices.
+
+**Premium connectors.** Many connectors to systems outside Microsoft are premium, the [SQL Server connector](https://learn.microsoft.com/en-us/connectors/sql/) for example. If an instant flow uses a premium connector, every user who runs it needs Power Automate Premium, or the flow gets its own Process licence, according to the same FAQ. Premium costs CHF 12.10 per user and month on annual billing, excluding VAT, on Microsoft's [Swiss price page](https://www.microsoft.com/de-ch/power-platform/products/power-automate/pricing) at the time of writing.
+
+**Custom connectors and the on-premises gateway.** If your ERP or industry software has an API but no ready-made connector, the usual route is a custom connector. According to the same [overview of seeded licences](https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/deep-dive-on-specific-license), that is not part of the Microsoft 365 rights, and neither is the gateway to a server in your own office. Whether your program offers an interface at all is something we look at in the Process Check.
+
+**Desktop automation.** Having a flow click through an older Windows program (robotic process automation) is not included in the Microsoft 365 rights either, according to the same overview.
+
+**Flows on Bookings.** The Bookings connector lists its own limits: only Bookings admins can create flows with its appointment triggers, and each Bookings mailbox allows five flows.
+
+## When one person holds all the flows
+
+The risk that bites small firms is rarely the licence. It is ownership. A flow is created in someone's account, and its connections usually sign in as that person. Microsoft's guidance on [flows whose owner has left](https://learn.microsoft.com/en-us/troubleshoot/power-platform/power-automate/flow-management/manage-orphan-flow-when-owner-leaves-org) says such flows can fail if they use connections tied to that account.
+
+Three habits cover most of it. Add a second owner to every flow the business relies on. Keep one page listing each flow: what it does, what starts it, whose account its connections use. And decide who is told when a run fails. A flow that stops quietly is worse than the manual job it replaced, because people keep trusting the result.
+
+Complex logic is the other limit. A flow with a handful of steps can be read by the next person. A flow with nested conditions, loops over attachments and a dozen exceptions often cannot, not even by whoever built it six months ago. When the rules no longer fit on one page, write them down and decide whether this is still a job for an evening in Power Automate.
+
+## What we built on Microsoft 365 ourselves
+
+Aurum Avis Labs runs on Microsoft 365, and our own booking for the Process Check is built on it. The page reads free slots from Microsoft Bookings through Microsoft Graph and sends the visitor to Stripe Checkout. Only after payment does a Stripe webhook create the Bookings appointment with a Teams link. The public Bookings page stays unused, because it would skip the payment. The full flow is in [automating appointment booking with payment](/blog/booking-with-payment-case).
+
+That is the fork this article is about. Bookings, Teams and Outlook do most of the work. The part Bookings cannot do, taking payment first, needed code that talks to Microsoft Graph directly. And that kind of code has its own upkeep: the secret an app uses to reach Graph lasts [24 months at most](https://learn.microsoft.com/en-us/graph/auth-register-app-v2), according to Microsoft, and someone has to renew it in time.
+
+## When the included tools are enough
+
+They are enough when every system involved sits inside Microsoft 365, the rules fit on one page, and someone internal owns the flow and has a deputy. Holiday requests, a register of incoming orders, a reminder when a list entry has waited too long, a Bookings confirmation that also posts to a Teams channel: all of that is do-it-yourself territory.
+
+Get help when the data has to reach a system with no standard connector, when the logic has more exceptions than rules, or when nobody internal can look after it. Sorting a shared inbox by customer or case is a typical example. Outlook rules follow fixed conditions, such as words in the subject line. They do not read a mail and judge where it belongs. That case is in [sorting emails in a shared inbox](/blog/shared-inbox-sort-emails).
+
+## When the Process Check fits
+
+The [Process Check](/prozess-check) fits when you have one recurring task that is still done by hand and want to know whether Microsoft 365 alone covers it or whether it needs an implementation. Sixty minutes on Microsoft Teams, CHF 99. You leave knowing where to start, whether it pays off, and with a price range for the implementation. The hour may well end with "set this up yourself in Power Automate". Then you have that in writing.
+
+If you already know which task it is: [book the Process Check](/prozess-check/buchen).

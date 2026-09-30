@@ -1,0 +1,88 @@
+---
+title: "Automate employee onboarding: a checklist for SMEs"
+description: "Automate employee onboarding with one trigger and a fixed list: accounts, groups, hardware, folders, documents, day-one plan, reminders, and offboarding."
+pubDate: 2026-12-19
+author: "Aurum Avis Labs"
+tags: ["onboarding", "hr administration", "checklist"]
+funnelStage: interest
+translationKey: automate-employee-onboarding
+relatedPosts: ["automate-microsoft-365", "generate-documents-from-templates", "what-the-process-check-is"]
+draft: false
+---
+
+## How to automate employee onboarding
+
+To automate employee onboarding, start with one trigger and one fixed list. The trigger is a single entry for the new person: name, role, start date, manager. From that entry the list runs on its own: the account in Microsoft 365 or Google Workspace, groups and Teams channels, the hardware request, access to shared folders, the contract and documents from templates, a day-one plan, and reminders for the first weeks. Every item has an owner and a due date counted back from the start date. The mirror list for the exit is created on the same day. People do the welcome. The system keeps the list.
+
+This is for the office manager, the managing director or the one person in a company of 10 to 80 who "does HR" next to their actual job. There is no HR department, and the accounts are set up by an external IT partner or by whoever knows the admin centre.
+
+## The checklist
+
+Use this as it is, or copy it into the list you already keep. Each line becomes one automated step or one reminder to a named person.
+
+<ul class="blog-checklist">
+  <li>One entry per new person: name, role, start date, manager, location, hardware needed</li>
+  <li>Account created and licence assigned a few working days before the start, sign-in blocked until day one</li>
+  <li>Groups, Teams channels and shared mailboxes assigned by role</li>
+  <li>Hardware requested with the start date, and the return logged on the exit list</li>
+  <li>Folder access granted by role, not by copying a colleague</li>
+  <li>Contract and documents drafted from templates, checked by a person before signing</li>
+  <li>Day-one plan sent to the new person and the manager</li>
+  <li>Reminders to the manager after week one, after month one and before probation ends</li>
+  <li>Offboarding mirror created from the same entry</li>
+</ul>
+
+## Accounts in Microsoft 365 or Google Workspace
+
+The account, the licence and the group memberships can be created from the entry by a script, with the admin or IT partner approving the run. In Microsoft 365, Microsoft Graph offers the calls for each step: [create a user](https://learn.microsoft.com/en-us/graph/api/user-post-users?view=graph-rest-1.0), [assign a licence](https://learn.microsoft.com/en-us/graph/api/user-assignlicense?view=graph-rest-1.0) and [add a member to a team](https://learn.microsoft.com/en-us/graph/api/team-post-members?view=graph-rest-1.0). In Google Workspace, the Admin SDK Directory API [creates the user](https://developers.google.com/workspace/admin/directory/reference/rest/v1/users/insert).
+
+Microsoft also has a ready-made option: lifecycle workflows handle joiner, mover and leaver tasks, such as emailing the manager before the hire date or removing accounts at the exit. They require a Microsoft Entra ID Governance or Microsoft Entra Suite licence ([Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/what-are-lifecycle-workflows)). Without that licence, the same steps run as a small automation on the licences you already have. What you can do with the tools already in your subscription is in [automating Microsoft 365](/blog/automate-microsoft-365).
+
+The part that makes this work is a role table, not the script. Write down, per role, which groups, channels, mailboxes and folders belong to it. "Accounting" gets the finance channel, the invoices mailbox and read-write access to the finance folder. The script only reads that table. Without it, every onboarding starts with "give her the same as Anna", and Anna's access has grown for years.
+
+## Hardware and folder access
+
+Hardware is a request with a date, sent early enough for the lead time your supplier or IT partner needs. The automation sends the request with role, start date and delivery address, and puts the device on the exit list with its serial number once it is handed over.
+
+Folder access follows the role table. If access to a folder is granted by group, the new person joins the group and has what the role needs. If it is granted person by person, onboarding is the moment to change that, because offboarding will otherwise miss a folder.
+
+## Contract and documents from templates
+
+The contract, the written information and the internal forms fill from the same entry, and a person checks them before anything is signed. In Switzerland, [Art. 330b of the Code of Obligations](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/en#art_330_b) requires the employer to inform the employee in writing, within one month of the start, about the names of the parties, the start date, the function, the salary and any additional benefits, and the weekly working hours, if the employment is for an indefinite period or longer than a month. A written contract usually covers this. If someone starts on a handshake, the automation should remind you.
+
+How to generate letters and contracts from templates in general is in [generating documents from templates](/blog/generate-documents-from-templates). For onboarding, one rule matters: the contract contains the salary. It goes to a folder only HR and management can open, not to the team channel.
+
+## Day-one plan and reminders for the first weeks
+
+The day-one plan is a template with names and times filled in. Who greets the new person, where the workstation is, when the first sign-in happens, who has lunch with them, which tasks come first. The automation fills it from the entry and sends it to the new person and the manager a few days before the start.
+
+The reminders go to the manager, not to the new person: a short check-in after the first week, a conversation after the first month, and one before the end of the probation period set in the contract. The automation cannot hold those conversations. It makes sure they are in the calendar.
+
+## The mirror checklist for offboarding
+
+Every onboarding item gets its exit counterpart, created on the day the person starts.
+
+| Onboarding | Offboarding |
+| --- | --- |
+| Account created, licence assigned | Sign-in blocked, mailbox shared or forwarded, licence removed |
+| Groups and Teams channels | Removed from every group and channel |
+| Hardware handed over | Hardware returned, serial number ticked off |
+| Folder access by role | Access removed, files handed over to a colleague |
+| Contract and documents | Reference letter, final documents |
+| Day-one plan | Last-day plan: handover, keys, farewell |
+
+Both vendors document the exit. Microsoft lists seven steps, from blocking sign-in and saving the mailbox to removing the licence and deleting the account ([Microsoft Learn](https://learn.microsoft.com/en-us/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide)). Google points out that when you delete a user, their content is deleted unless a super administrator transfers it to someone first ([Google Workspace Help](https://knowledge.workspace.google.com/admin/getting-started/options-to-preserve-former-employee-data)). A mirror list that was prepared at the start makes that transfer a step, not an afterthought.
+
+## An example: an engineering office with 30 people
+
+A hypothetical office with 30 people, everything on Microsoft 365, and an external IT partner. It hires about five people a year. Each time, the office manager digs out last year's email to the IT partner, forgets the plotter group, and the new colleague spends the first morning without access to the project folder.
+
+The automated version: the office manager fills in one entry in a Microsoft List. The automation creates the account with sign-in blocked until the start, assigns the licence and the role groups, emails the IT partner the laptop request with the date, drafts the contract from the template into the HR folder, sends the day-one plan, puts three reminders into the manager's calendar and prepares the offboarding list. Signing, the welcome and a check of the access remain with people. Whether this stays one clearly bounded workflow with few systems or becomes several steps and systems is what the Check sizes.
+
+## When a checklist is enough
+
+If you hire once or twice a year, a good checklist in a shared document is enough. Automate when hires come often enough that the list is rebuilt each time, or when access is forgotten regularly. Wait if every role is different and nobody has written the role table yet, and if nobody owns the list. First [document the process as it runs today](/blog/document-processes-before-automating), then automate.
+
+## Bring your onboarding to the Process Check
+
+The [Process Check](/prozess-check) fits when one recurring task like onboarding costs time every time it comes up. It takes 60 minutes on Microsoft Teams and costs CHF 99. You describe how onboarding runs today, no employee data needed. You leave knowing where to start, whether it pays off, a price range for the implementation, and a short written summary to pass on.

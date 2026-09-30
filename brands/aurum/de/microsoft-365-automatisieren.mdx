@@ -1,0 +1,85 @@
+---
+title: "Microsoft 365 automatisieren mit dem, was Sie schon haben"
+description: "Was ein KMU mit Forms, Listen, Outlook-Regeln, Genehmigungen in Teams, Bookings und Power Automate automatisieren kann und wo die enthaltene Lizenz endet."
+pubDate: 2026-12-07
+author: "Aurum Avis Labs"
+tags: ["microsoft 365", "power automate", "prozessautomatisierung"]
+funnelStage: interest
+translationKey: automate-microsoft-365
+relatedPosts: ["copilot-oder-einen-ablauf-bauen", "sammelpostfach-e-mails-zuordnen", "make-n8n-power-automate"]
+draft: false
+---
+
+## Microsoft 365 automatisieren mit Bordmitteln
+
+Wer Microsoft 365 automatisieren will, kann mit dem Abo, das die Firma schon bezahlt, einen guten Teil der Büroarbeit abdecken, ohne etwas dazuzukaufen. Forms nimmt Anfragen in immer gleicher Form entgegen, Lists führt das Register, Outlook-Regeln sortieren die Post, die App «Genehmigungen» in Teams holt ein Ja oder Nein ein, Bookings nimmt Termine an, und Power Automate verbindet die Teile über Standardkonnektoren. Die enthaltenen Rechte enden bei Premium- und eigenen Konnektoren, bei der Desktopautomatisierung und in der Praxis dort, wo jeder Ablauf am Konto einer einzelnen Person hängt.
+
+Der Beitrag richtet sich an Geschäftsleitungen sowie Büro- und Finanzverantwortliche in Schweizer KMU, die schon mit Outlook, Teams und SharePoint arbeiten und wissen wollen, was sie selbst einrichten können, bevor sie etwas in Auftrag geben. Falls Ihre eigentliche Frage ist, ob Copilot das übernimmt: Das ist ein anderer Kauf. Copilot hilft einer Person beim Formulieren in den Apps. Ein Flow bewegt Daten, wenn niemand tippt. Diese Weggabelung steht in [Copilot-Lizenz, oder einen Ablauf umsetzen?](/de/blog/copilot-oder-einen-ablauf-bauen).
+
+## Was Ihr Microsoft-365-Abo schon enthält
+
+Die Business-Abos bringen die Bausteine mit, und Power Automate ist mit einem begrenzten Recht dabei. Laut dem [Planvergleich von Microsoft](https://www.microsoft.com/de-ch/microsoft-365/business/compare-all-microsoft-365-business-products) gehören Forms, SharePoint, Bookings (in den Versionen mit Teams) und Power Automate mit Cloud-Flows zu Business Basic, Business Standard und Business Premium. Microsoft Lists wird dort nicht genannt, aber eine [Liste lässt sich auf einer SharePoint-Website anlegen](https://support.microsoft.com/de-de/office/was-ist-eine-liste-in-microsoft-365-93262a88-20ad-4edc-8410-b6909b2f59a5), und SharePoint gehört zu allen drei Abos.
+
+Die Rechte in Power Automate sind allerdings begrenzt. Nach der [Übersicht zu den mitgelieferten Lizenzen](https://learn.microsoft.com/de-de/power-platform/admin/power-automate-licensing/deep-dive-on-specific-license) dürfen Nutzerinnen und Nutzer mit Microsoft 365 Cloud-Flows mit Standardkonnektoren erstellen und ausführen, bei einer Tagesgrenze von 6'000 Aktionen pro Benutzer. Die Konnektoren für [Forms](https://learn.microsoft.com/de-de/connectors/microsoftforms/), [SharePoint](https://learn.microsoft.com/de-de/connectors/sharepointonline/) (damit erreichen Sie Listen auf einer SharePoint-Website) und [Bookings](https://learn.microsoft.com/de-de/connectors/microsoftbookings/) sind alle Standard.
+
+| Werkzeug | Für sich allein | Mit einem Flow |
+| --- | --- | --- |
+| Microsoft Forms | Nimmt eine Anfrage jedes Mal in denselben Feldern entgegen: Ferienantrag, Bestellung, Schadenmeldung | Jede neue Antwort löst den nächsten Schritt aus |
+| Microsoft Lists | Ein gemeinsames Register mit Spalten und Ansichten: offene Anträge, Bestellungen, Mängel | Ein neuer oder geänderter Eintrag löst eine Benachrichtigung oder eine Genehmigung aus |
+| Outlook-Regeln | Verschieben, kennzeichnen oder beantworten Mails automatisch, wenn eine Bedingung zutrifft, zum Beispiel Wörter im Betreff | Für reines Sortieren selten nötig |
+| Genehmigungen in Teams | Jemand fragt, jemand entscheidet, die Antwort wird festgehalten | Ein Flow startet die Genehmigung und wartet auf den Entscheid |
+| Microsoft Bookings | Kundschaft wählt eine freie Zeit und erhält eine Bestätigung | Ein Flow reagiert, wenn ein Termin angelegt, geändert oder abgesagt wird |
+
+Zwei Details gehören in die Planung. Microsoft weist darauf hin, dass [bestimmte Outlook-Regeln nur ausgeführt werden, wenn Outlook geöffnet ist](https://support.microsoft.com/de-de/office/set-up-rules-in-outlook-75ab719a-2ce8-49a7-a214-6d62b67cbd41). Was über das Wochenende laufen muss, liegt deshalb besser in einem Flow. Und die [App «Genehmigungen»](https://learn.microsoft.com/de-de/microsoftteams/approval-admin) speichert Genehmigungen in der Dataverse-Standardumgebung Ihrer Organisation. Nutzende brauchen dafür eine Lizenz für Power Automate, Microsoft 365 oder Dynamics 365, und wer Genehmigungsvorlagen einrichtet, braucht zusätzlich Forms.
+
+## Ein Beispiel: Ferienanträge ohne Mail-Pingpong
+
+Ein Beispiel, kein Kunde: ein Planungsbüro mit rund 20 Personen. Ferienanträge kommen per Mail, die Teamleiterin antwortet, wenn sie die Mail findet, und das Büro führt eine Tabelle, die nie ganz aktuell ist. Alles, was es zur Lösung braucht, steckt im Abo, das das Büro schon bezahlt.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Ein Formular statt einer Mail</h3><p>Ein Microsoft-Forms-Formular fragt nach Name, Daten, halben oder ganzen Tagen und einer Bemerkung. Jedes Mal dieselben Felder.</p></li>
+  <li data-step="2"><h3>Ein Eintrag in einer Liste</h3><p>Ein Power-Automate-Flow startet bei jeder neuen Antwort und schreibt sie mit dem Status «beantragt» in eine Liste.</p></li>
+  <li data-step="3"><h3>Eine Genehmigung in Teams</h3><p>Derselbe Flow schickt der Teamleiterin eine Genehmigung in Teams. Sie genehmigt oder lehnt mit Kommentar ab, wenn nötig vom Handy aus.</p></li>
+  <li data-step="4"><h3>Status und Antwort</h3><p>Der Flow setzt den Listeneintrag auf genehmigt oder abgelehnt und schickt der antragstellenden Person den Entscheid per Outlook-Mail.</p></li>
+  <li data-step="5"><h3>Eine Ansicht fürs Büro</h3><p>Das Büro filtert die Liste nach Monat. Die Tabelle entfällt.</p></li>
+</ol>
+
+Alle fünf Schritte laufen über Standardkonnektoren, es braucht also keine zusätzliche Lizenz. Von Hand bleiben der Entscheid selbst, die Ausnahme, etwa ein Antrag mitten in einer Abgabefrist, und die Erfassung der Absenz in der Lohn- oder Personalsoftware, falls diese ausserhalb von Microsoft 365 liegt. Wenn jemand im Büro mit Power Automate vertraut ist, lässt sich das intern einrichten. Dann brauchen Sie dafür keinen Anbieter.
+
+## Wo die enthaltene Lizenz endet
+
+Die enthaltenen Rechte enden am Rand der Standardkonnektoren. Laut den [häufigen Fragen zur Lizenzierung](https://learn.microsoft.com/de-de/power-platform/admin/power-automate-licensing/faqs) können Nutzende mit einem Microsoft-365-Lizenzplan nur auf Standardkonnektoren zugreifen. In kleinen Büros stossen Sie meist auf vier Grenzen.
+
+**Premium-Konnektoren.** Viele Konnektoren zu Systemen ausserhalb von Microsoft sind Premium, zum Beispiel der [SQL-Server-Konnektor](https://learn.microsoft.com/de-de/connectors/sql/). Nutzt ein Direktflow (ein Flow, den jemand von Hand startet) einen Premium-Konnektor, braucht laut denselben Fragen jede Person, die ihn ausführt, Power Automate Premium, oder der Flow bekommt eine eigene Prozesslizenz. Premium kostet CHF 12.10 pro Benutzer und Monat bei jährlicher Abrechnung, ohne MWST, laut der [Schweizer Preisseite](https://www.microsoft.com/de-ch/power-platform/products/power-automate/pricing) zum Zeitpunkt des Schreibens.
+
+**Eigene Konnektoren und das lokale Gateway.** Hat Ihr ERP oder Ihre Branchensoftware eine Schnittstelle (API), aber keinen fertigen Konnektor, führt der übliche Weg über einen eigenen Konnektor. Der gehört laut derselben [Übersicht zu den mitgelieferten Lizenzen](https://learn.microsoft.com/de-de/power-platform/admin/power-automate-licensing/deep-dive-on-specific-license) nicht zu den Rechten von Microsoft 365, ebenso wenig das Gateway zu einem Server in Ihrem Büro. Ob Ihr Programm überhaupt eine Schnittstelle anbietet, klären wir im Prozess-Check.
+
+**Desktopautomatisierung.** Ein Flow, der sich durch ein älteres Windows-Programm klickt (Robotic Process Automation), ist in den Rechten von Microsoft 365 laut derselben Übersicht ebenfalls nicht enthalten.
+
+**Flows mit Bookings.** Der [Bookings-Konnektor](https://learn.microsoft.com/de-de/connectors/microsoftbookings/) nennt eigene Grenzen: Nur Bookings-Administratoren können Flows mit Termintriggern erstellen, und pro Bookings-Postfach sind fünf Flows möglich.
+
+## Wenn eine Person alle Flows hält
+
+Das Risiko, das kleine Firmen trifft, ist selten die Lizenz. Es ist die Zuständigkeit. Ein Flow entsteht im Konto einer Person, und seine Verbindungen melden sich meist als diese Person an. Microsoft schreibt in der Anleitung zu [Flows, deren Besitzer die Firma verlassen hat](https://learn.microsoft.com/de-de/troubleshoot/power-platform/power-automate/flow-management/manage-orphan-flow-when-owner-leaves-org), dass solche Flows fehlschlagen können, wenn sie Verbindungen nutzen, die mit diesem Benutzerkonto verknüpft sind.
+
+Drei Gewohnheiten decken das meiste ab. Tragen Sie bei jedem Flow, auf den sich das Geschäft verlässt, eine zweite Besitzerin oder einen zweiten Besitzer ein. Führen Sie eine Seite mit allen Flows: was er tut, was ihn startet, mit wessen Konto seine Verbindungen laufen. Und legen Sie fest, wer informiert wird, wenn ein Lauf fehlschlägt. Ein Flow, der still stehen bleibt, ist schlimmer als die Handarbeit, die er ersetzt hat, weil die Leute dem Ergebnis weiter vertrauen.
+
+Die andere Grenze ist komplexe Logik. Einen Flow mit einer Handvoll Schritten kann die nächste Person lesen. Einen Flow mit verschachtelten Bedingungen, Schleifen über Anhänge und einem Dutzend Ausnahmen oft nicht, nicht einmal die Person, die ihn vor sechs Monaten eingerichtet hat. Passen die Regeln nicht mehr auf eine Seite, schreiben Sie sie auf und entscheiden Sie, ob das noch eine Arbeit für einen Abend in Power Automate ist.
+
+## Was wir selbst auf Microsoft 365 umgesetzt haben
+
+Aurum Avis Labs arbeitet selbst mit Microsoft 365, und unsere Buchung für den Prozess-Check ist darauf umgesetzt. Die Seite liest freie Termine aus Microsoft Bookings über Microsoft Graph und schickt Besuchende zu Stripe Checkout. Erst nach der Zahlung legt ein Stripe-Webhook den Bookings-Termin mit Teams-Link an. Die öffentliche Bookings-Seite bleibt ungenutzt, weil sie die Zahlung überspringen würde. Den ganzen Ablauf beschreibt [Terminbuchung mit Zahlung automatisieren](/de/blog/terminbuchung-mit-zahlung-automatisieren).
+
+Das ist die Weggabelung, um die es hier geht. Bookings, Teams und Outlook erledigen das meiste. Was Bookings nicht kann, nämlich zuerst kassieren, brauchte Code, der direkt mit Microsoft Graph spricht. Und solcher Code will gepflegt sein: Das Geheimnis, mit dem sich eine App bei Graph anmeldet, gilt laut Microsoft [höchstens 24 Monate](https://learn.microsoft.com/de-de/graph/auth-register-app-v2), und jemand muss es rechtzeitig erneuern.
+
+## Wann die enthaltenen Werkzeuge reichen
+
+Sie reichen, wenn alle beteiligten Systeme in Microsoft 365 liegen, die Regeln auf eine Seite passen und jemand intern den Flow betreut und eine Stellvertretung hat. Ferienanträge, ein Register für eingehende Bestellungen, eine Erinnerung, wenn ein Listeneintrag zu lange wartet, eine Bookings-Bestätigung, die zusätzlich in einem Teams-Kanal erscheint: All das können Sie selbst einrichten.
+
+Holen Sie Hilfe, wenn die Daten in ein System müssen, für das es keinen Standardkonnektor gibt, wenn die Logik mehr Ausnahmen hat als Regeln oder wenn intern niemand den Flow betreuen kann. Ein typisches Beispiel ist ein Sammelpostfach, das nach Kunde oder Fall sortiert werden soll. Outlook-Regeln folgen festen Bedingungen, etwa Wörtern im Betreff. Sie lesen keine Mail und beurteilen, wohin sie gehört. Diesen Fall behandelt [E-Mails im Sammelpostfach automatisch zuordnen](/de/blog/sammelpostfach-e-mails-zuordnen).
+
+## Wann der Prozess-Check passt
+
+Der [Prozess-Check](/de/prozess-check) passt, wenn Sie eine wiederkehrende Arbeit haben, die noch von Hand läuft, und wissen wollen, ob Microsoft 365 allein sie abdeckt oder ob es eine Umsetzung braucht. Sechzig Minuten per Microsoft Teams, CHF 99. Sie gehen mit dem Wissen, womit Sie anfangen, ob es sich lohnt, und einer Preisspanne für die Umsetzung, dazu eine kurze schriftliche Zusammenfassung. Die Stunde kann durchaus mit «Richten Sie das selbst in Power Automate ein» enden. Auch das steht dann in der Zusammenfassung.
+
+Wissen Sie schon, um welche Arbeit es geht: [Prozess-Check buchen](/de/prozess-check/buchen).

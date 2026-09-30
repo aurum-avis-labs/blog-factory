@@ -1,0 +1,110 @@
+---
+title: "Who runs the automation afterwards: maintenance, hosting, handover"
+description: "Who runs an automation after go-live: hosting, AI costs, monitoring, what typically breaks, handover, exit questions, and when to run it in-house."
+pubDate: 2026-12-23
+author: "Aurum Avis Labs"
+tags: ["operations", "maintenance", "automation"]
+funnelStage: consideration
+translationKey: who-runs-the-automation
+relatedPosts: ["what-automation-costs-switzerland", "after-the-process-check"]
+draft: false
+---
+
+## Who runs the automation afterwards
+
+Someone has to run an automation once it is live: either the provider who built it, for a monthly fee, or your own team after a proper handover. With us, the default is the first. Robert Schlittler develops the automations himself and runs them afterwards, for CHF 50–150 a month depending on the solution, plus AI service costs by usage, which you pay. You can cancel the running costs at any time. If your own team should run it instead, the Large package includes documentation and handover.
+
+This page is for owners, office and finance leads who are about to buy an automation and want to know what happens in month three, not only on day one. It covers what running an automation involves, what typically breaks, which questions to ask any provider, and when running it in-house is the better choice. What the build costs up front is in [what automation costs in Switzerland](/blog/what-automation-costs-switzerland).
+
+## What running an automation involves
+
+Running an automation is four jobs that nobody sees while things work.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Hosting and running</span><strong>CHF 50–150</strong><p>Per month, depending on the solution, when we run it.</p></li>
+  <li><span class="blog-kicker">AI services</span><strong>By usage</strong><p>On top of hosting, paid by you.</p></li>
+  <li><span class="blog-kicker">Cancellation</span><strong>Any time</strong><p>The running costs can be cancelled at any time.</p></li>
+  <li><span class="blog-kicker">Handover</span><strong>Large</strong><p>Documentation and handover to your team are part of the Large package.</p></li>
+</ul>
+
+**Hosting.** The automation runs on a server or a cloud service, not on someone's laptop that gets closed on Friday.
+
+**Credentials.** It logs in to your systems with its own keys or accounts, and those have expiry dates.
+
+**Monitoring.** Someone notices when a run fails, before a customer or a colleague does.
+
+**Small fixes.** When something around the automation changes, it has to be adjusted.
+
+AI service costs depend on how often the automation runs and how much each run sends to the AI service. A workflow that reads every incoming document every day uses more than a weekly summary of one table. Ask for that estimate before the build, not after the first invoice.
+
+## What typically breaks
+
+Automations rarely break on their own. They break because something around them changed. Four causes are typical in a small office.
+
+### A form or an export changed
+
+A column is renamed, a field is added to the web form, the export now writes dates in a different format. The automation reads what it was set up to read, and that is now somewhere else. This is the most ordinary kind of break, and usually the quickest to fix, provided someone notices.
+
+### A password or a key expired
+
+Automations log in with their own credentials, and those run out. Microsoft, for example, limits a client secret, the key an app uses to reach Microsoft 365 through Graph, to [24 months at most and recommends less than 12](https://learn.microsoft.com/en-us/graph/auth-register-app-v2). Unless someone has that date in a calendar, the automation stops on the day it passes. A changed password on a mailbox the automation uses has the same effect.
+
+### A vendor changed its interface
+
+Software vendors change their interfaces. For Microsoft Graph, Microsoft [declares an API deprecated at least 24 months](https://learn.microsoft.com/en-us/graph/versioning-and-support) before removing it from version 1.0, while the beta version can change without notice and is not supported in production apps. Ask any provider whether your automation relies on beta endpoints. Other vendors have their own rules, and those belong in the documentation.
+
+### A new person does it differently
+
+The new colleague saves the PDF in another folder, puts the order number in the subject line instead of the body, or forwards photos instead of attachments. The automation was built on how the task used to be done. Nothing is broken technically. The input changed. That is why the contact person still matters after go-live: someone has to show new people how the task works now.
+
+## Monitoring: nobody should find out from a customer
+
+A failed run has to produce a message to a named person. The worst failure is the silent one: the automation stops, nobody notices, and the gap turns up two weeks later as a missing invoice or an annoyed customer.
+
+Our own booking shows where that matters. When someone pays for a Process Check, a Stripe webhook creates the appointment. If that step fails, Stripe retries the delivery for up to three days in live mode, according to its [webhook documentation](https://docs.stripe.com/webhooks). Until then the payment exists and the appointment does not. That is exactly the gap monitoring has to catch. The whole flow is described in [automating appointment booking with payment](/blog/booking-with-payment-case).
+
+Ask any provider, including us: who gets the alert, through which channel, and what happens next. "We look at the logs now and then" is not an answer.
+
+## Handover and documentation
+
+If your team will run the automation, the handover has to leave them able to do it. In the Large package, documentation and handover to your team are part of the scope. If you want to run a smaller workflow yourself, raise it before the fixed price is set, so it ends up in the written scope. How that step works is in [after the Process Check](/blog/after-the-process-check).
+
+Useful documentation answers five questions:
+
+<ul class="blog-checklist">
+  <li>What runs where, and on whose account</li>
+  <li>Which credentials it uses, and when each one expires</li>
+  <li>What it expects as input, and what it produces</li>
+  <li>What to do when a run fails, and whom to call</li>
+  <li>How to switch it off without losing work in progress</li>
+</ul>
+
+A document that cannot answer these five is a description, not a handover.
+
+## Exit and ownership: questions for any provider
+
+Ask these before you sign, whoever the provider is, us included. The answers do not have to be elaborate. They have to exist, in writing.
+
+- On whose accounts does it run: your Microsoft 365 tenant, your payment account, your AI service account, or the provider's?
+- Who holds the credentials, and can you revoke them yourself?
+- What do you receive if you cancel the running: the code, the configuration, the documentation?
+- What happens on the day you cancel? Does the automation stop, or can it move to someone else?
+- Who steps in when the person who built it is away?
+- Where is data processed and stored while it runs? If personal data is involved, ask your data protection adviser which contract you need with the provider.
+
+## When you should run it in-house
+
+Running it yourself is the better choice in some firms, and then you should not buy the running from us or anyone else.
+
+- You have an IT person or a Microsoft 365 administrator with time for it.
+- The automation lives inside your own tenant, for example as Power Automate flows, and someone already looks after those. The tool question is covered in [Make, n8n or Power Automate](/blog/make-n8n-power-automate).
+- Your rule is that nothing runs outside your own systems.
+- You will have many small automations, and one internal owner costs less than several monthly fees.
+
+In that case, plan the handover as part of the build and name the internal person before it starts. If you cannot name that person, buy the running instead.
+
+## Planning a larger build with operation in mind
+
+For a larger build, or several connected workflows where running and handover need planning from the start, look at [AI Integration](/services/ai-implementation-consulting). The page describes the path through to implementation or a clean handover to your team, and you decide which of the two fits.
+
+If the job is one recurring task, the [Process Check](/prozess-check) is the small entry point: 60 minutes, a written case and a price range.

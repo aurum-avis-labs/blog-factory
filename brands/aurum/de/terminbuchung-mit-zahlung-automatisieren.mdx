@@ -1,0 +1,105 @@
+---
+title: "Terminbuchung mit Zahlung automatisieren: unser eigener Ablauf"
+description: "Wie unsere eigene Buchung zuerst kassiert: Bookings, Stripe Checkout, Webhook, Teams-Link. Und wann ein fertiges Buchungstool reicht."
+pubDate: 2026-10-15
+author: "Aurum Avis Labs"
+tags: ["terminbuchung", "online-zahlung", "prozessautomatisierung"]
+funnelStage: consideration
+translationKey: booking-with-payment-case
+relatedPosts: ["nach-dem-prozess-check", "was-der-prozess-check-ist"]
+draft: false
+---
+
+## Terminbuchung mit Zahlung automatisieren: so läuft es bei uns
+
+Eine Terminbuchung mit Zahlung lässt sich so automatisieren, dass ein Termin erst gilt, wenn er bezahlt ist. Unsere eigene Buchung für den Prozess-Check läuft genau so. Die Seite liest die freien Zeiten über Microsoft Graph aus Microsoft Bookings und schickt die Besucherin zu Stripe Checkout. Erst wenn Stripe die Zahlung bestätigt, legt ein Webhook den Termin in Bookings an, mit Link für Microsoft Teams. Die Bestätigung per E-Mail verschickt danach Bookings. Im Büro muss dafür niemand etwas tun.
+
+Dieser Artikel ist für Geschäftsleitung und Büroleitung in KMU, die bezahlte Termine anbieten, etwa eine Erstberatung oder eine kostenpflichtige Abklärung, und die bereits mit Microsoft 365 arbeiten. Er beschreibt einen Ablauf, den wir für uns selbst umgesetzt haben und täglich nutzen: Sie gehen ihn durch, wenn Sie den Prozess-Check buchen. Er ist keine Empfehlung, dass jede Firma so etwas braucht. Oft reicht ein fertiges Tool. Wann, steht weiter unten.
+
+## Kann Microsoft Bookings die Zahlung selbst übernehmen?
+
+Nein. In Microsofts eigenen [häufigen Fragen zu Bookings](https://learn.microsoft.com/de-de/microsoft-365/bookings/bookings-faq) lautet die Antwort auf «Kann ich eine Zahlungsoption mit meinen Bookings verknüpfen?»: «Nein, es gibt keinen Zahlungssupport in Bookings.» Eine Ausnahme für einzelne Länder nennt Microsoft nicht. Das gilt also auch in der Schweiz.
+
+Diese Lücke ist der Grund für den ganzen Ablauf. Bookings hat eine öffentliche Buchungsseite, auf der Kundinnen und Kunden direkt buchen können. Der Termin steht dann sofort im Kalender. Bei einem bezahlten Termin könnte so jeder die Zahlung überspringen. Deshalb nutzen wir diesen Link bewusst nicht. Unsere Website hat eine eigene Auswahl für Datum und Uhrzeit, und Bookings bekommt den Termin erst, wenn das Geld da ist.
+
+## Der Ablauf in fünf Schritten
+
+Fünf Schritte, drei Systeme: unsere Website mit einer kleinen Schnittstelle dahinter, Stripe und Microsoft Bookings.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Freie Zeiten lesen</h3><p>Die Buchungsseite fragt unsere Schnittstelle nach freien Terminen zu 60 Minuten. Diese liest die Verfügbarkeit über Microsoft Graph aus Bookings. So bleibt Bookings der eine Kalender, der weiss, was frei ist.</p></li>
+  <li data-step="2"><h3>Zeit wählen und Angaben machen</h3><p>Die Besucherin wählt Datum und Uhrzeit und gibt ihre E-Mail-Adresse ein, dazu freiwillig den Namen und eine kurze Notiz, um welche Arbeit es gehen soll.</p></li>
+  <li data-step="3"><h3>Auf der Seite von Stripe bezahlen</h3><p>Danach geht es zu Stripe Checkout, einer Zahlungsseite, die Stripe betreibt. Die Kartendaten werden dort eingegeben, nicht auf unserer Website.</p></li>
+  <li data-step="4"><h3>Der Webhook legt den Termin an</h3><p>Ist die Zahlung durch, schickt Stripe eine signierte Meldung an unsere Schnittstelle. Diese prüft die Signatur und legt den Termin in Bookings als Online-Besprechung an. Damit bekommt er einen Teams-Link. Die Notiz aus Schritt 2 landet im Termin.</p></li>
+  <li data-step="5"><h3>Bookings schickt die Bestätigung</h3><p>Die Bestätigung mit dem Teams-Link kommt von Bookings, so wie bei jedem anderen Bookings-Termin.</p></li>
+</ol>
+
+Beide Teile in Graph sind von Microsoft dokumentiert: das Lesen der [Verfügbarkeit](https://learn.microsoft.com/de-de/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0) und das [Anlegen eines Termins](https://learn.microsoft.com/de-de/graph/api/bookingbusiness-post-appointments?view=graph-rest-1.0). Ein Termin, der als online markiert ist, kommt dort mit einem Teams-Link zurück.
+
+## Warum der Webhook den Termin anlegt und nicht die Danke-Seite
+
+Der Webhook legt den Termin an, weil auf die Danke-Seite kein Verlass ist. Stripe schreibt das in seiner [Anleitung zur Auftragsabwicklung](https://docs.stripe.com/checkout/fulfillment) deutlich: Man kann sich nicht auf die Seite nach der Zahlung verlassen, weil jemand bezahlen und dann die Verbindung verlieren kann, bevor diese Seite lädt. Der Webhook geht direkt von Stripe an den Server.
+
+Zwei weitere Punkte aus der [Webhook-Dokumentation von Stripe](https://docs.stripe.com/webhooks) haben den Ablauf geprägt. Im Livebetrieb versucht Stripe eine fehlgeschlagene Zustellung bis zu drei Tage lang erneut. Und dieselbe Meldung kann mehr als einmal ankommen. Das Anlegen des Termins muss also auch dann richtig laufen, wenn es für dieselbe Zahlung zweimal ausgelöst wird. Und jemand muss sehen, wenn Zustellungen fehlschlagen. Ein bezahlter Termin ohne Eintrag im Kalender ist der eine Fehler, den dieser Ablauf nie verstecken darf.
+
+Die Prüfung der Signatur hat einen anderen Grund. Ohne sie könnte jeder, der die Adresse kennt, eine gefälschte Meldung «bezahlt» schicken und bekäme einen Termin geschenkt.
+
+## Was bewusst von Hand bleibt
+
+Nicht jeder Teil einer Buchung lohnt sich zu automatisieren. Wir haben die Grenze so gezogen:
+
+<div class="blog-pair">
+  <div>
+    <h3>Läuft automatisch</h3>
+    <ul>
+      <li>Freie Zeiten aus Bookings anzeigen</li>
+      <li>Die Zahlung, mit der der Termin reserviert ist</li>
+      <li>Der Termin in Bookings mit Teams-Link</li>
+      <li>Die Bestätigung per E-Mail</li>
+      <li>Die Notiz zur Arbeit, direkt im Termin</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Bleibt von Hand</h3>
+    <ul>
+      <li>Verschieben, bis 12 Stunden vorher kostenlos, per E-Mail oder Telefon</li>
+      <li>Die Entscheidung über «Geld zurück» nach dem Termin</li>
+      <li>Die Rückzahlung selbst, über Stripe zurück auf die Karte</li>
+    </ul>
+  </div>
+</div>
+
+Verschiebungen sind selten genug, um sie per E-Mail zu erledigen. Die Rückzahlung hängt an einem Urteil: Hat die Stunde etwas ergeben, bei dem sich eine Automatisierung lohnt? Das entscheidet eine Person, keine Regel im Code.
+
+Ein Detail haben wir erst im Betrieb bemerkt: Die Seite von Stripe folgt der Sprache unserer Buchungsseite. Die Bestätigung von Bookings kommt aber in der Sprache, die in den Unternehmenseinstellungen von Bookings hinterlegt ist. Wer Kundschaft in zwei Sprachen hat, sollte beides prüfen.
+
+## Wann ein fertiges Buchungstool reicht
+
+Für viele Firmen ist ein Buchungstool mit eingebauter Zahlung die bessere Wahl, und niemand muss etwas umsetzen. Das gilt, wenn Sie wenige Terminarten mit einem einfachen Ablauf haben, das Tool eine Buchung erst nach der Zahlung bestätigt, es Franken und die Zahlungsart Ihrer Kundschaft unterstützt und Sie den Termin nicht in Ihrem Microsoft-365-Kalender brauchen.
+
+Prüfen Sie diese Punkte auf den Seiten des Anbieters, bevor Sie sich festlegen. Die Währung ist für Schweizer Firmen die häufigste Falle. Calendly zum Beispiel führt für [Zahlungen über Stripe](https://calendly.com/help/calendly-stripe) AUD, CAD, EUR, GBP und USD auf. CHF steht zum Zeitpunkt dieses Artikels nicht auf der Liste. Der zweite Punkt ist die Zahlungsart. Stripe bietet in Checkout für Kundschaft in der Schweiz [TWINT](https://docs.stripe.com/payments/twint) an. Ob ein Buchungstool das weitergibt, müssen Sie prüfen, nicht annehmen.
+
+Lassen Sie einen eigenen Ablauf auch dann bleiben, wenn Sie pro Monat nur eine Handvoll bezahlter Termine haben. Eine Rechnung nach dem Termin ist dann oft einfacher. Und sind Ihre Kunden Firmen, die eine Rechnung erwarten, schreckt die Zahlung per Karte im Voraus einige ab, egal wie gut sie umgesetzt ist.
+
+## Wann sich ein eigener Ablauf lohnt
+
+Ein eigener Ablauf lohnt sich, wenn die Buchung in Systeme passen muss, die Sie schon betreiben. Bei uns heisst das: Die Firma arbeitet mit Microsoft 365, der Kalender ist Bookings, das Gespräch findet in Teams statt, und die Zahlung musste vor der Bestätigung kommen. Das kann Bookings allein nicht.
+
+Er passt, wenn Sie Bookings schon nutzen und bei einem Kalender bleiben wollen, wenn die Zahlung vor dem fixen Termin kommen muss und wenn die Buchung Angaben weitertragen soll, etwa eine Notiz in den Termin. Er passt auch, wenn die Buchungsseite auf Ihrer eigenen Website stehen soll, in Ihren Sprachen.
+
+Rechnen Sie auch den Betrieb mit ein. Stripe verrechnet pro Zahlung und erhebt laut seiner [Preisseite für die Schweiz](https://stripe.com/de-ch/pricing) keine Einrichtungs- oder Monatsgebühren. Für Hosting und Betrieb einer Automatisierung, die wir betreiben, rechnen Sie je nach Lösung mit CHF 50–150 pro Monat. Jemand muss fehlgeschlagene Zustellungen im Blick haben, und die Zugangsdaten, mit denen der Ablauf auf Bookings zugreift, müssen vor ihrem Ablauf erneuert werden. Welche Package-Grösse ein solcher Ablauf bei Ihnen hätte, hängt davon ab, wie viele Systeme er berührt. Genau das klärt der Prozess-Check.
+
+<div class="blog-faq">
+  <p class="blog-faq-q">Kann Microsoft Bookings in der Schweiz Zahlungen entgegennehmen?</p>
+  <p>Nicht von sich aus. Laut Microsofts häufigen Fragen zu Bookings gibt es keinen Zahlungssupport in Bookings. Für die Zahlung braucht es einen eigenen Anbieter wie Stripe und einen Ablauf, der den Termin erst anlegt, wenn die Zahlung durch ist.</p>
+</div>
+
+## Buchen und den Ablauf selbst sehen
+
+Am schnellsten sehen Sie den Ablauf, wenn Sie ihn benutzen. Haben Sie eine wiederkehrende Arbeit, eine solche Buchung oder etwas ganz anderes, buchen Sie den Prozess-Check: Zeit wählen, auf der Seite von Stripe bezahlen, und die Bestätigung mit dem Teams-Link kommt von Bookings. 60 Minuten per Microsoft Teams, CHF 99.
+
+[Prozess-Check buchen](/de/prozess-check/buchen)
+
+Was die Stunde abdeckt, steht in [was der Prozess-Check ist](/de/blog/was-der-prozess-check-ist), was danach kommt in [nach dem Prozess-Check](/de/blog/nach-dem-prozess-check). Das Angebot selbst finden Sie auf der [Prozess-Check-Seite](/de/prozess-check).
+
+Buchen Sie nicht, wenn ein fertiges Buchungstool schon kann, was Sie brauchen, in Franken und mit der Zahlungsart Ihrer Kundschaft. Richten Sie dann dieses Tool ein und sparen Sie sich die Stunde. Dasselbe gilt, wenn Sie wenige Termine im Monat haben und eine Rechnung danach gut funktioniert.

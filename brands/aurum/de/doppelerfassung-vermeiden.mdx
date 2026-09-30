@@ -1,0 +1,105 @@
+---
+title: "Doppelerfassung vermeiden: Daten übertragen ohne Abtippen"
+description: "Doppelerfassung vermeiden: finden, wo abgetippt wird, Stammdaten klären, dann die einfachste Verbindung wählen, von Connector bis RPA. Mit Beispiel."
+pubDate: 2026-11-25
+author: "Aurum Avis Labs"
+tags: ["doppelerfassung", "stammdaten", "schnittstellen"]
+funnelStage: interest
+translationKey: stop-double-data-entry
+relatedPosts: ["excel-als-schatten-system", "reporting-aus-fuenf-quellen", "was-der-prozess-check-ist"]
+draft: false
+---
+
+## Doppelerfassung vermeiden: finden, festlegen, verbinden
+
+Doppelerfassung vermeiden Sie in drei Schritten. Zuerst finden Sie die Stellen, an denen jemand Daten abtippt, die längst in einem anderen Programm stehen. Dann legen Sie fest, welches Programm für Kunden, Artikel und Preise führend ist. Erst danach wählen Sie die Verbindung, und zwar die einfachste, die reicht, in dieser Reihenfolge: fertige Verbindung des Herstellers, Import und Export per CSV, Schnittstelle (API), Integrationsplattform. Bildschirm-Automatisierung (RPA) kommt zuletzt.
+
+Der Beitrag ist für Geschäftsleitungen, Büro- und Finanzverantwortliche in KMU, bei denen zwei Programme nebeneinander laufen, die nicht miteinander reden. Typisch ist: Jemand überträgt jeden Morgen Adressen, Aufträge oder Preise von Hand aus dem einen ins andere Programm. Das ist genau die Arbeit, um die es hier geht.
+
+## Schritt 1: Doppelerfassung finden
+
+Doppelerfassung finden Sie am schnellsten, wenn die Leute, die sie machen, eine Woche lang mitschreiben. Nicht die Geschäftsleitung schätzt, sondern wer tippt, notiert. Eine einfache Liste reicht, hier mit drei Beispielzeilen:
+
+| Welche Daten | Woher | Wohin | Wie oft | Wer |
+| --- | --- | --- | --- | --- |
+| Neue Kundenadresse | Webformular, per Mail | CRM und Buchhaltung | 5 pro Woche | Büro |
+| Bestätigter Auftrag | CRM | Buchhaltung, als Rechnung | täglich | Büro |
+| Artikelpreis | Preisliste des Lieferanten | Shop und Buchhaltung | monatlich | Einkauf |
+
+Anzeichen gibt es viele. Zwei Fenster nebeneinander und Kopieren, Einfügen. Ein Ausdruck, der neben der Tastatur liegt. Dieselbe Firma dreimal in der Buchhaltung, in drei Schreibweisen. Eine Kundennummer, die im CRM anders lautet als auf der Rechnung.
+
+Nach einer Woche sehen Sie, welche Übertragung am häufigsten vorkommt. Mit der fangen Sie an. Nicht mit der, die am meisten nervt, aber nur einmal im Quartal vorkommt.
+
+## Schritt 2: Festlegen, wer die Stammdaten führt
+
+Für jede Art von Stammdaten führt genau ein Programm, die anderen übernehmen. Das ist die wichtigste Entscheidung in diesem Beitrag, und sie hat mit Technik wenig zu tun.
+
+- **Kunden:** meist dort, wo die Beziehung beginnt, im CRM oder im Branchenprogramm. Die Buchhaltung übernimmt.
+- **Artikel und Preise:** dort, wo kalkuliert wird, im ERP oder im Branchenprogramm. Shop und Offerte übernehmen.
+- **Aufträge und Projekte:** dort, wo die Arbeit geplant wird.
+
+Geändert wird nur im führenden Programm. Ändert jemand eine Adresse in der Buchhaltung, ist sie beim nächsten Abgleich wieder die alte, oder zwei Programme widersprechen sich. Schreiben Sie die Regel auf eine Seite und sagen Sie dem Team, wo was geändert wird.
+
+Dazu braucht es einen gemeinsamen Schlüssel, meist die Kundennummer. Bei Firmenkunden hilft zusätzlich die UID, die Sie im [UID-Register des Bundesamts für Statistik](https://www.uid.admin.ch/) nachschlagen können. Ohne gemeinsamen Schlüssel ordnet jede Verbindung nach Namen zu, und «Muster AG» ist dann nicht dasselbe wie «Muster AG, Zug».
+
+Dass hier oft das eigentliche Hindernis liegt, zeigt auch der [GenAI Impact Report 2026 von adesso](https://www.adesso.ch/adesso-ch/whitepaper/genai-impact-report-2026-ch.pdf). Laut dieser Umfrage sind Datenqualität und fehlende Prozesse die grössten Hürden für generative KI in Schweizer Unternehmen, je 32 %, nicht das Modell. Für eine einfache Verbindung zwischen zwei Programmen gilt dasselbe.
+
+## Schritt 3: Die einfachste Verbindung wählen
+
+Nehmen Sie die erste Möglichkeit auf dieser Liste, die für Ihren Fall reicht. Jede weitere Stufe kann mehr, kostet mehr und braucht mehr Pflege.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Fertige Verbindung</h3><p>Ein Connector, den einer der beiden Hersteller schon anbietet. Einschalten, Felder zuordnen, testen.</p></li>
+  <li data-step="2"><h3>Import und Export</h3><p>Das eine Programm exportiert eine CSV-Datei, das andere liest sie ein. Regelmässig, mit festen Spalten.</p></li>
+  <li data-step="3"><h3>Schnittstelle (API)</h3><p>Eine kleine Verbindung holt die Daten direkt aus dem einen Programm und schreibt sie ins andere.</p></li>
+  <li data-step="4"><h3>Integrationsplattform</h3><p>Make, n8n oder Power Automate verbinden mehrere Programme, mit Regeln dazwischen.</p></li>
+  <li data-step="5"><h3>Bildschirm-Automatisierung</h3><p>Ein Programm klickt sich durch die Oberfläche wie ein Mensch. Nur, wenn nichts anderes geht.</p></li>
+</ol>
+
+### Fertige Verbindung
+
+Schauen Sie zuerst beim Hersteller nach. bexio zum Beispiel führt einen [Marketplace](https://marketplace.bexio.com/de-CH/home) mit über 100 Applikationen, die bexio mit anderer Software verbinden. Eine solche Verbindung kostet allenfalls ein Abo, aber keine Entwicklung. Die Grenze: Sie macht, was der Hersteller vorgesehen hat. Passen die Felder nicht zu Ihrem Ablauf, lässt sich wenig ändern.
+
+### Import und Export
+
+Ein Export als CSV und ein Import auf der anderen Seite ist die unterschätzte Lösung. Einmal pro Woche oder jeden Abend reicht für viele Daten, etwa für Artikelpreise. Achten Sie auf feste Spalten, auf Datums- und Zahlenformate und darauf, dass der Import bestehende Einträge aktualisiert, statt neue anzulegen. Sonst haben Sie nach einem Monat jeden Kunden doppelt.
+
+### Schnittstelle (API)
+
+Über eine API lassen sich Daten direkt lesen und schreiben, ohne Datei dazwischen. bexio zum Beispiel veröffentlicht eine [dokumentierte API](https://docs.bexio.com/) für Kontakte, Artikel, Verkaufsdokumente wie Offerten und Rechnungen und weitere Bereiche. Das lohnt sich, wenn die Übertragung sofort passieren muss oder Regeln braucht, etwa «nur bestätigte Aufträge übernehmen». Jemand muss die Verbindung umsetzen und danach betreiben. Was Ihre Programme an Schnittstellen bieten, klären wir im Check.
+
+### Integrationsplattform
+
+Make, n8n oder Power Automate sind Baukästen mit vielen fertigen Bausteinen. Sie lohnen sich, wenn mehr als zwei Programme beteiligt sind oder wenn zwischen Lesen und Schreiben eine Prüfung oder eine Benachrichtigung kommt. Rechnen Sie mit laufenden Lizenzkosten und mit einer Person, die weiss, wie die Abläufe eingerichtet sind.
+
+### Bildschirm-Automatisierung (RPA)
+
+RPA klickt, tippt und liest auf dem Bildschirm, so wie es heute ein Mensch tut. Microsoft beschreibt die [Desktop-Flows von Power Automate](https://learn.microsoft.com/de-de/power-automate/desktop-flows/introduction) als Weg, auch ältere Anwendungen über die Elemente ihrer Bedienoberfläche zu automatisieren. Für ein altes Programm ohne Import und ohne API ist das der richtige Weg. Für alles andere ist es der falsche: Ändert der Hersteller eine Maske, bricht der Ablauf, oft ohne dass es jemand merkt.
+
+## Ein Beispiel: Webformular, CRM und Buchhaltung
+
+Ein Beispiel, kein Kunde: ein Reinigungsunternehmen mit rund 30 Mitarbeitenden. Neue Anfragen kommen über ein Formular auf der Website als Mail ins Büro. Die Büroleiterin tippt die Adresse ins CRM, erstellt dort die Offerte und tippt nach der Zusage denselben Kunden noch einmal in die Buchhaltung, um die erste Rechnung zu schreiben. Die Preise der Leistungen pflegt sie in beiden Programmen.
+
+Die Liste nach einer Woche zeigt sieben neue Kunden, jede Adresse zweimal getippt, und zwei Preise, die im CRM anders waren als in der Buchhaltung.
+
+Festgelegt wird: Das CRM führt die Kunden, die Buchhaltung die Preise. Der gemeinsame Schlüssel ist die Kundennummer, die das CRM vergibt.
+
+Dann die Verbindung, in der Reihenfolge der Liste. Eine fertige Verbindung zwischen genau diesen zwei Programmen gibt es in diesem Beispiel nicht. Die Preise ändern sich nur einmal im Jahr, dafür reichen ein Export aus der Buchhaltung und ein Import ins CRM, von Hand angestossen. Für die Kunden reicht das nicht, weil die erste Rechnung am selben Tag hinausgehen soll. Hier übernimmt eine kleine Verbindung über die API der Buchhaltung: Sobald im CRM ein Auftrag als bestätigt markiert ist, legt sie den Kunden mit derselben Kundennummer in der Buchhaltung an. Findet sie eine ähnliche Adresse, legt sie nichts an und schickt der Büroleiterin eine Nachricht zur Prüfung. Die Anfrage aus dem Webformular landet zudem direkt im CRM statt nur im Postfach.
+
+Was bleibt, ist ihre Prüfung bei möglichen Doppelten. Was wegfällt, ist das zweite Abtippen. Formular, Prüfung, Eintrag im richtigen System und Benachrichtigung: So beschreibt die Angebotsseite des Prozess-Checks den mittleren Umfang einer Umsetzung. Ein einzelner Übertrag ohne Prüfung wäre kleiner. Den verbindlichen Festpreis gibt es erst nach dem Check, schriftlich.
+
+## Wann Sie besser nichts verbinden
+
+Lassen Sie es, wenn die Übertragung selten ist. Drei Adressen im Monat abzutippen, ist günstiger als eine Verbindung, die jemand pflegen muss.
+
+Lassen Sie es auch, wenn eines der beiden Programme eigentlich überflüssig ist. Nutzt das Team das CRM nur als Adressbuch, ist die bessere Lösung vielleicht, die Kontakte nur noch in der Buchhaltung zu führen. Und verwechseln Sie eine einmalige Datenübernahme beim Wechsel eines Programms nicht mit einer laufenden Verbindung. Die einmalige Übernahme ist ein Projekt mit Ende, keine Automatisierung.
+
+Ist die Doppelerfassung eigentlich ein Report, der jede Woche aus mehreren Exporten zusammengesetzt wird, lesen Sie [den Montagsreport aus fünf Quellen](/de/blog/reporting-aus-fuenf-quellen). Dort geht es um dieselbe Handarbeit, nur mit einer Datei am Ende statt einem zweiten Programm.
+
+## Wann der Prozess-Check passt
+
+Der Prozess-Check passt, wenn bei Ihnen jemand regelmässig Daten abtippt, die schon in einem anderen Programm stehen, und Sie wissen wollen, welche der fünf Stufen dafür reicht. In 60 Minuten per Microsoft Teams schauen wir genau diese eine Übertragung an: welche Daten, woher, wohin, wie oft.
+
+Bringen Sie die Liste aus Schritt 1 mit, oder beschreiben Sie einfach, was von wo nach wo wandert. Kundendaten müssen Sie keine zeigen. Danach wissen Sie, womit Sie anfangen, ob es sich lohnt und was die Umsetzung ungefähr kostet und dauert. Die Zusammenfassung bekommen Sie schriftlich. Der Check kostet CHF 99 und wird angerechnet, wenn Sie danach etwas umsetzen lassen.
+
+Alles Weitere steht auf der Seite [Prozess-Check](/de/prozess-check).

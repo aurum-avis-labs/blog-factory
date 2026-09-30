@@ -1,0 +1,110 @@
+---
+title: "Shared inbox: sort and route emails automatically"
+description: "Sort and route shared inbox emails automatically: categories, simple rules first, AI only where rules fail, drafts instead of auto-send, count misroutes."
+pubDate: 2026-11-01
+author: "Aurum Avis Labs"
+tags: ["shared inbox", "email", "process automation"]
+funnelStage: interest
+translationKey: shared-inbox-sort-emails
+relatedPosts: ["tenant-requests-damage-reports", "which-process-to-automate-first", "what-the-process-check-is"]
+draft: false
+---
+
+## How to sort and route shared inbox emails automatically
+
+You can sort and route a shared inbox such as info@ automatically in five steps: set categories that each have an owner, apply simple rules on sender, address and subject first, use AI only for the emails the rules cannot place, produce reply drafts instead of sending automatically, and count every week how many emails landed in the wrong place. In Microsoft 365, a shared mailbox, inbox rules and Power Automate or Microsoft Graph are enough. In Google Workspace, it is filters, labels and a group used as a collaborative inbox.
+
+This is for SMEs where one or two people empty info@ every morning and forward emails to sales, accounts, service and management. For an industry that does this all day, see [sorting tenant requests and damage reports](/blog/tenant-requests-damage-reports).
+
+<ol class="blog-flow">
+  <li><strong>Categories</strong><p>Eight to ten, each with an owner.</p></li>
+  <li><strong>Rules</strong><p>Sender, address, subject. No AI.</p></li>
+  <li><strong>AI</strong><p>Only for the rest, only from your list.</p></li>
+  <li><strong>Draft</strong><p>A person sends.</p></li>
+  <li><strong>Measure</strong><p>Count misroutes every week.</p></li>
+</ol>
+
+## Step 1: categories that someone owns
+
+A category only counts as one if a person owns it and it is clear what happens to the email.
+
+Start with one normal week of email. Sort it by hand into piles and name the piles. Many SMEs end up with eight to ten categories, for example order, quote request, supplier invoice, complaint, appointment request, question about an existing invoice, job application, advertising and newsletters, and other. For each category, write down the owner and the expected action: reply, enter, forward or file.
+
+"Other" has to exist, and someone empties that folder every day. It catches whatever neither rules nor AI can place with confidence. If it grows bigger than the rest, the categories are wrong.
+
+Also decide which category wins in mixed cases. An email that contains both a complaint and a repeat order might always go to service first, for example.
+
+Job applications and medical certificates get their own rule. They go straight to the responsible person and never pass through the AI step. The data protection section explains why.
+
+## Step 2: simple rules first
+
+A large share of email can be routed without AI, purely on sender, recipient address and subject.
+
+Supplier invoices come from known addresses. Portal notifications have fixed subject lines. Newsletters always come from the same sender. None of that needs AI. It needs rules anyone can read and check. A second address often helps more than any automation: invoices@ for suppliers, info@ for everything else.
+
+In Microsoft 365, info@ is usually a [shared mailbox](https://learn.microsoft.com/en-us/microsoft-365/admin/email/about-shared-mailboxes). It needs no licence of its own up to 50 GB, and Microsoft gives 25 as the maximum number of people accessing it at the same time. Inbox rules move emails into folders or assign categories. In Gmail, [filters](https://support.google.com/mail/answer/6579?hl=en) do the same and apply [labels](https://support.google.com/mail/answer/118708?hl=en). For a shared info@ in Google Workspace there are groups used as a [collaborative inbox](https://support.google.com/a/answer/167430?hl=en), where you assign conversations to a person and mark them complete.
+
+| Building block | Microsoft 365 | Google Workspace |
+| --- | --- | --- |
+| Shared mailbox | Shared mailbox | Group as collaborative inbox |
+| Simple rules | Inbox rules, categories | Filters, labels |
+| AI step | Power Automate or Microsoft Graph | Apps Script with the Gmail service |
+| Assigning | Folder, category or task | Assignment in the group |
+
+## Step 3: AI only where the rules fail
+
+The AI only gets the emails that remain after the rules, and it chooses from your category list, not freely.
+
+What remains is usually email from customers and prospects: a question that is also an order and a complaint, a quote request that never uses the word "quote", a forwarded message with three attachments. Here the AI reads subject and body, chooses a category and states how confident it is. Below a threshold you set, the email goes to "other" and therefore to a person. In the same step it can pull out a customer number, order number or requested date and attach it as a note.
+
+There are two technical routes. In Power Automate, the flow starts with the trigger for new emails in a [shared mailbox](https://learn.microsoft.com/en-us/connectors/office365/), calls the AI service and then moves or categorises the email. Through [Microsoft Graph](https://learn.microsoft.com/en-us/graph/outlook-mail-concept-overview), a small program reads email in shared mailboxes as well, assigns categories and creates inbox rules. Graph takes more development work and in return gives you more control, for example over how errors are handled. In Google Workspace, Apps Script with the [Gmail service](https://developers.google.com/apps-script/reference/gmail/gmail-app) takes that role: reading threads, managing labels, creating drafts.
+
+## Step 4: reply drafts, no automatic sending
+
+At the start, the AI writes drafts. A person sends them.
+
+The draft sits in the drafts folder, in the sender's language, with the next step: receipt confirmed, question asked, appointment proposed. The owner reads it, corrects it and sends it. That is quicker than writing from scratch, and it stops a wrong promise from reaching a customer.
+
+You can allow automatic sending later, and only for narrow cases, such as a plain acknowledgement that says nothing about content. Never automatic: replies to complaints, prices, delivery dates, cancellations and anything legal.
+
+## Step 5: route and count the misroutes
+
+An email is only routed once it sits with the right person. How well that works, you only know after a few weeks.
+
+Depending on the business, routing means moving it to the department folder, assigning an Outlook category, assigning the conversation in the Google group, or creating a task. Choose the route your people already use. A new ticketing system for twenty emails a day creates more work than it saves.
+
+Measuring is easy if it is set up from day one. Whoever moves a misrouted email to the right folder also sets the category "misrouted". Once a week you count: how many emails per category, how many of them wrong, how many in "other". Decide in advance which error rate you accept. If a category's rate has not dropped after a month, take that category out of the AI step and route it with rules or by hand again.
+
+## A worked example: an info@ with orders and complaints
+
+An example: a trading business with around 25 staff, customers across German-speaking Switzerland, and an info@ on Microsoft 365 that the receptionist has so far sorted by hand every morning.
+
+Management sets nine categories, each with an owner. Rules take over supplier invoices, notifications from the freight forwarder and newsletters. Accounts gets its own address for this, which from now on is printed on purchase orders. What remains is customer email.
+
+That is what the AI reads. A customer writes that a delivery was incomplete and, in the same sentence, asks to reorder. The AI assigns "complaint", because complaints win in mixed cases, extracts the order number and writes a draft: receipt confirmed, the missing item is being checked, answer by the next working day. The email lands in the service folder. The person there checks the order in the ERP, adjusts the draft and sends it. The reorder goes on to sales.
+
+After four weeks the count shows that quote requests and orders are often confused. Management merges the two for now, and sales separates them by hand. Everything else stays as it is.
+
+## Data protection: processor and data location
+
+The AI service that reads your email processes personal data on your behalf. You remain responsible.
+
+The [FDPIC states](https://www.edoeb.admin.ch/en/outsourcing-of-data-processing) that under Art. 9 of the Data Protection Act you must satisfy yourself, and secure by contract, that a processor guarantees data security and only subcontracts with your approval. For the AI step that means: a business account with a contract, no private account, and knowing which providers behind it see the data.
+
+Data location deserves a closer look. Microsoft lists Switzerland as a region where [Exchange Online data can be stored](https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-overview). Power Automate is a separate service: according to Microsoft, where a flow's data sits depends on the [region of its environment](https://learn.microsoft.com/en-us/power-platform/admin/regions-overview). And the AI service the flow calls may process data somewhere else again. Check all three separately.
+
+That is why job applications and medical certificates stay out of the AI step. This is not legal advice. For health data, or if the data location is unclear, ask your data protection adviser.
+
+## When it is not worth it
+
+Not every info@ needs AI.
+
+If one person empties the inbox in fifteen minutes a day, rules and a second address are enough. If most emails are personal conversations with regular customers, the email belongs with that person, not in a category. And if nobody wants to own the categories, the automation just moves emails into folders nobody opens.
+
+Whether the shared inbox is the right first workflow for you is settled by the four questions in [which process to automate first](/blog/which-process-to-automate-first).
+
+## When the Process Check fits
+
+If someone in your business sorts and forwards info@ by hand every day, that is a typical case for the [Process Check](/prozess-check). In 60 minutes on Microsoft Teams we look at the inbox together: which categories, which rules, where AI helps and where it does not. You do not have to show the emails themselves; describing them is enough.
+
+Afterwards you have a concrete case, a price range and a rough duration for the implementation, in a short written summary. The Check costs CHF 99 and is credited if you have it built afterwards. Choose a time: [book the Process Check](/prozess-check/buchen).

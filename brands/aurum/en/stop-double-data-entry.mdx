@@ -1,0 +1,105 @@
+---
+title: "How to stop double data entry between two systems"
+description: "Stop double data entry: find where data is retyped, decide who owns master data, then pick the simplest link, from connector to RPA. With an example."
+pubDate: 2026-11-25
+author: "Aurum Avis Labs"
+tags: ["double data entry", "master data", "integrations"]
+funnelStage: interest
+translationKey: stop-double-data-entry
+relatedPosts: ["excel-as-shadow-system", "reporting-from-five-sources", "what-the-process-check-is"]
+draft: false
+---
+
+## Stop double data entry: find it, decide ownership, then connect
+
+You stop double data entry between two systems in three steps. First, find the places where someone retypes data that already sits in another program. Then decide which program owns customers, items and prices. Only then choose the connection, and choose the simplest one that does the job, in this order: the vendor's ready-made connector, CSV import and export, an API, an integration platform. Screen automation (RPA) comes last.
+
+This is for managing directors, office and finance leads in SMEs where two programs run side by side and do not talk to each other. The typical picture: every morning someone copies addresses, orders or prices by hand from one program into the other. That is the work this article is about.
+
+## Step 1: Find the double entry
+
+The quickest way to find double entry is to have the people who do it keep a note for one week. Not management estimating, but whoever does the typing writing it down. A simple list is enough, here with three sample rows:
+
+| Which data | From | To | How often | Who |
+| --- | --- | --- | --- | --- |
+| New customer address | Web form, by email | CRM and accounting | 5 a week | Office |
+| Confirmed order | CRM | Accounting, as an invoice | Daily | Office |
+| Item price | Supplier price list | Shop and accounting | Monthly | Purchasing |
+
+The signs are easy to spot. Two windows side by side and copy, paste. A printout next to the keyboard. The same company three times in the accounting system, spelt three ways. A customer number that differs between the CRM and the invoice.
+
+After a week you can see which transfer happens most often. Start there. Not with the one that annoys everyone most but only comes up once a quarter.
+
+## Step 2: Decide who owns the master data
+
+For each kind of master data, exactly one program leads and the others take it over. This is the most important decision in the article, and it has little to do with technology.
+
+- **Customers:** usually where the relationship starts, in the CRM or the trade software. Accounting takes them over.
+- **Items and prices:** where the costing happens, in the ERP or the trade software. The shop and the quote take them over.
+- **Orders and projects:** where the work is planned.
+
+Changes are made only in the lead program. If someone edits an address in accounting, it reverts at the next sync, or the two programs contradict each other. Write the rule on one page and tell the team where each thing gets changed.
+
+You also need a shared key, usually the customer number. For business customers the UID number helps as well; you can look it up in the [UID register of the Federal Statistical Office](https://www.uid.admin.ch/). Without a shared key, every connection matches by name, and "Muster AG" is then not the same as "Muster AG, Zug".
+
+That this is often the real obstacle also shows in the [adesso GenAI Impact Report 2026](https://www.adesso.ch/adesso-ch/whitepaper/genai-impact-report-2026-ch.pdf). According to that survey, data quality and missing processes are the biggest hurdles for generative AI in Swiss companies, 32% each, not the model. The same holds for a simple link between two programs.
+
+## Step 3: Choose the simplest connection
+
+Take the first option on this list that is enough for your case. Each further step can do more, costs more and needs more upkeep.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Ready-made connector</h3><p>A connection one of the two vendors already offers. Switch it on, map the fields, test.</p></li>
+  <li data-step="2"><h3>Import and export</h3><p>One program exports a CSV file, the other reads it in. On a schedule, with fixed columns.</p></li>
+  <li data-step="3"><h3>Interface (API)</h3><p>A small connection reads the data directly from one program and writes it into the other.</p></li>
+  <li data-step="4"><h3>Integration platform</h3><p>Make, n8n or Power Automate link several programs, with rules in between.</p></li>
+  <li data-step="5"><h3>Screen automation</h3><p>A program clicks through the interface like a person. Only if nothing else works.</p></li>
+</ol>
+
+### Ready-made connector
+
+Check with the vendor first. bexio, for example, runs a [marketplace](https://marketplace.bexio.com/de-CH/home) with more than 100 applications that connect bexio to other software. A connection like that may cost a subscription, but no development. The limit: it does what the vendor designed it to do. If the fields do not fit your process, there is little you can change.
+
+### Import and export
+
+A CSV export on one side and an import on the other is the underrated option. Once a week or every evening is enough for a lot of data, item prices for instance. Watch for fixed columns, date and number formats, and whether the import updates existing records rather than creating new ones. Otherwise every customer exists twice after a month.
+
+### Interface (API)
+
+An API lets you read and write data directly, with no file in between. bexio, for example, publishes a [documented API](https://docs.bexio.com/) for contacts, items, sales documents such as quotes and invoices, and more. That pays off when the transfer has to happen straight away or needs rules, such as "only take over confirmed orders". Someone has to build the connection and then run it. What your programs offer in terms of interfaces is something we clarify in the Check.
+
+### Integration platform
+
+Make, n8n or Power Automate are toolkits with many ready-made building blocks. They make sense when more than two programs are involved, or when a check or a notification sits between reading and writing. Expect ongoing licence costs, and a person who knows how the flows are set up.
+
+### Screen automation (RPA)
+
+RPA clicks, types and reads on screen the way a person does today. Microsoft describes [Power Automate desktop flows](https://learn.microsoft.com/en-us/power-automate/desktop-flows/introduction) as a way to automate legacy applications too, through the UI elements of their interface. For an old program with no import and no API, that is the right route. For everything else it is the wrong one: when the vendor changes a screen, the flow breaks, often without anyone noticing.
+
+## An example: web form, CRM and accounting
+
+An example, not a client: a cleaning company with around 30 staff. New enquiries arrive through a form on the website, as an email to the office. The office manager types the address into the CRM, writes the quote there, and after the customer says yes, types the same customer into the accounting system again to issue the first invoice. She maintains the service prices in both programs.
+
+The list after one week shows seven new customers, each address typed twice, and two prices that differed between the CRM and accounting.
+
+The decision: the CRM owns customers, accounting owns prices. The shared key is the customer number the CRM assigns.
+
+Then the connection, in the order of the list. In this example there is no ready-made connector between exactly these two programs. Prices change only once a year, so an export from accounting and an import into the CRM, started by hand, is enough. For customers it is not, because the first invoice should go out the same day. Here a small connection through the accounting system's API takes over: as soon as an order is marked confirmed in the CRM, it creates the customer in accounting with the same customer number. If it finds a similar address, it creates nothing and sends the office manager a message to check. On top of that, enquiries from the web form go straight into the CRM rather than only into the inbox.
+
+What stays is her check on possible duplicates. What goes is the second round of typing. Form, check, entry in the right system and a notification: that is how the Process Check offer page describes the medium scope of a build. A single transfer with no check would be smaller. The binding fixed price comes after the Check, in writing.
+
+## When not to connect anything
+
+Leave it if the transfer is rare. Typing three addresses a month costs less than a connection someone has to maintain.
+
+Leave it too if one of the two programs is really redundant. If the team only uses the CRM as an address book, the better answer may be to keep contacts in accounting only. And do not confuse a one-off data migration, when you switch programs, with an ongoing connection. The one-off migration is a project with an end, not an automation.
+
+If the double entry is really a report assembled every week from several exports, read [the Monday report from five sources](/blog/reporting-from-five-sources). It is the same manual work, just with a file at the end instead of a second program.
+
+## When the Process Check fits
+
+The Process Check fits if someone on your team regularly retypes data that is already in another program, and you want to know which of the five options is enough. In 60 minutes on Microsoft Teams we look at that one transfer: which data, from where, to where, how often.
+
+Bring the list from step 1, or simply describe what moves from where to where. You do not need to show any customer data. Afterwards you know where to start, whether it pays off, and roughly what the build would cost and how long it would take. You get the summary in writing. The Check costs CHF 99 and is credited if you have something built afterwards.
+
+Everything else is on the [Process Check](/prozess-check) page.

@@ -1,0 +1,86 @@
+---
+title: "Mieteranfragen und Schadenmeldungen automatisch zuordnen"
+description: "Mieteranfragen und Schadenmeldungen aus Mail, Telefon und Formular erfassen, Objekt und Dringlichkeit erkennen, Ticket und Auftrag vorbereiten."
+pubDate: 2026-10-31
+author: "Aurum Avis Labs"
+tags: ["mieteranfragen", "schadenmeldungen", "immobilienverwaltung"]
+funnelStage: interest
+translationKey: tenant-requests-damage-reports
+relatedPosts: ["welchen-ablauf-zuerst-automatisieren", "drei-ablaeufe-die-sich-lohnen", "was-der-prozess-check-ist"]
+draft: false
+---
+
+## Mieteranfragen und Schadenmeldungen automatisch erfassen und zuordnen
+
+Mieteranfragen und Schadenmeldungen lassen sich automatisch erfassen und zuordnen, wenn Sie fünf Schritte hintereinanderlegen: alle Eingänge in eine Warteschlange bringen, Liegenschaft, Wohnung, Kategorie und Dringlichkeit herauslesen, die Meldung mit den Stammdaten aus Ihrem Verwaltungsprogramm abgleichen, ein Ticket mit Antwortentwurf anlegen und einen Handwerkerauftrag vorbereiten. Die Bewirtschafterin prüft und verschickt. Notfälle wie austretendes Wasser oder eine ausgefallene Heizung im Winter gehen an diesen Schritten vorbei sofort zu einem Menschen.
+
+Der Beitrag ist für Verwaltungen, bei denen Meldungen per Mail, Telefon und Formular ankommen und jemand sie von Hand zusammenführt. Welche anderen Abläufe in der Bewirtschaftung sich lohnen und wo Sie besser warten, steht in [KI in der Immobilienverwaltung](/de/blog/ki-in-der-immobilienverwaltung).
+
+## Zuerst: Notfälle gehen sofort zu einem Menschen
+
+Bevor Sie irgendetwas sortieren lassen, legen Sie fest, was ein Notfall ist und wie er am System vorbeikommt.
+
+Ein Notfall ist, was innert Stunden grösseren Schaden anrichtet oder Menschen gefährdet. Typisch: Wasser tritt aus, die Heizung fällt im Winter aus, es riecht nach Gas, in der ganzen Liegenschaft ist der Strom weg, jemand steckt im Lift fest. Für diese Fälle gibt es eine Pikettnummer, und in jeder automatischen Eingangsbestätigung steht sie zuoberst.
+
+Die Erkennung läuft doppelt: eine einfache Wortliste («Wasser läuft», «überschwemmt», «Heizung», «Gas», «Lift», «Strom») und die Einstufung durch die KI. Schlägt eines von beiden an, geht die Meldung sofort per SMS oder Anruf an die Person auf Pikett, nicht in eine Warteschlange. Ein Fehlalarm kostet eine Minute. Ein übersehener Wasserschaden kostet ein Parkett und die Decke der Wohnung darunter.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Die KI darf eine Meldung zum Notfall hochstufen. Herunterstufen darf sie nie. Was die Wortliste als Notfall erkennt, bleibt ein Notfall, bis ein Mensch anders entscheidet.</p>
+</aside>
+
+Ausserhalb der Bürozeiten gilt dasselbe. Die automatische Antwort nennt die Pikettnummer, und eine Meldung, die nach Notfall aussieht, löst den Anruf aus, egal wie spät es ist.
+
+## Die fünf Schritte im Überblick
+
+Jeder Schritt bereitet vor. Entschieden und verschickt wird am Ende von einer Person.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Eingänge zusammenführen</h3><p>Mails an info@ oder schaden@, Telefonnotizen und das Formular auf der Website landen in derselben Warteschlange. Anrufe erfasst der Empfang in einer kurzen Notiz oder einem internen Formular, nicht auf Zetteln.</p></li>
+  <li data-step="2"><h3>Angaben herauslesen</h3><p>Die KI liest Adresse, Wohnung oder Stockwerk, Name, Kategorie, Dringlichkeit und ob Fotos dabei sind. Fehlt etwas Wichtiges, entsteht ein Entwurf für die Rückfrage.</p></li>
+  <li data-step="3"><h3>Objekt und Zuständigkeit zuordnen</h3><p>Die Angaben werden mit den Stammdaten aus Ihrem Verwaltungsprogramm abgeglichen: Absender, Mietvertrag, Liegenschaft, zuständige Bewirtschafterin, Hauswart. Ist der Treffer unsicher, landet die Meldung bei «zu prüfen».</p></li>
+  <li data-step="4"><h3>Ticket und Antwortentwurf anlegen</h3><p>Es entsteht ein Ticket mit allen Angaben und ein Antwortentwurf in der Sprache des Mieters: Eingang bestätigt, nächster Schritt, falls nötig eine Rückfrage. Verschickt wird er von einer Person.</p></li>
+  <li data-step="5"><h3>Handwerkerauftrag vorbereiten</h3><p>Für Reparaturen entsteht ein Auftragsentwurf an den Handwerker, der für diese Liegenschaft hinterlegt ist, mit Adresse, Wohnung, Kontakt, Beschreibung, Fotos und Kostendach. Die Bewirtschafterin gibt ihn frei.</p></li>
+</ol>
+
+Halten Sie die Kategorien kurz. Acht bis zehn reichen meist: Sanitär, Heizung, Elektro, Küche und Geräte, Fenster und Türen, allgemeine Teile, Lärm und Nachbarn, Administratives wie Nebenkosten, Kündigung oder Parkplatz. Die KI wählt nur aus Ihrer Liste. Neue Kategorien erfindet sie nicht.
+
+Für die Dringlichkeit genügen drei Stufen: Notfall, dringend (innert ein bis zwei Tagen), normal. Was bei Ihnen als dringend gilt, ist Ihre Regel, nicht die der KI.
+
+## Ein Beispiel aus einem Montagmorgen
+
+Ein Beispiel: eine Verwaltung mit rund 900 Wohnungen in 60 Liegenschaften, vier Bewirtschafterinnen, ein gemeinsames Postfach und ein Formular auf der Website. Die Verwaltung ist erfunden, der Ablauf nicht.
+
+Um 7.40 Uhr kommt eine Mail: Unter dem Spülbecken tropft es seit gestern, ein Kübel steht darunter. Keine Adresse, nur «2. Stock links». Die Absenderadresse ist im Programm bei einem Mietvertrag hinterlegt, damit sind Liegenschaft und Wohnung klar. Kategorie Sanitär, Dringlichkeit «dringend», weil das Wasser aufgefangen wird. Das Ticket geht an die zuständige Bewirtschafterin, zusammen mit zwei Entwürfen. Die Antwort an die Mieterin sagt, dass sich der Sanitär für einen Termin meldet, und rät, bei stärkerem Tropfen das Eckventil zu schliessen. Der Auftrag geht an den Sanitärbetrieb, der für diese Liegenschaft hinterlegt ist, mit dem Kostendach aus der Regel der Verwaltung. Die Bewirtschafterin liest beides, ändert einen Satz und verschickt.
+
+Um 8.10 Uhr erfasst der Empfang eine Telefonnotiz: Heizung in der ganzen Liegenschaft kalt, es ist Januar. Die Wortliste erkennt «Heizung», die KI stuft als Notfall ein. Die Meldung geht nicht in die Warteschlange, sondern löst sofort den Anruf an die Person auf Pikett aus. Das Ticket entsteht danach, zur Dokumentation.
+
+Um 9.00 Uhr fragt ein Mieter über das Formular, wann die Nebenkostenabrechnung kommt. Kategorie Administratives, normal. Der Entwurf kommt aus einer Vorlage mit dem Versanddatum, das die Verwaltung dort gepflegt hat.
+
+In den ersten Wochen korrigieren die Bewirtschafterinnen, was falsch zugeordnet ist, und jede Korrektur wird gezählt. Nach einem Monat sehen Sie, welche Kategorien sicher laufen und wo die Regeln nachgeschärft werden müssen.
+
+## Was die Zuordnung braucht: gepflegte Stammdaten
+
+Die Zuordnung ist nur so gut wie Ihre Stammdaten. Das ist der Teil, der am häufigsten unterschätzt wird.
+
+Nötig sind Mailadressen und Telefonnummern der Mieter im Verwaltungsprogramm, eine Zuständigkeit pro Liegenschaft und eine Liste der Handwerker, die dort arbeiten. Diese Daten kommen aus Ihrem Programm, als regelmässiger Export oder über eine Schnittstelle. Ob Rimo R5, ImmoTop2, GARAIO REM oder ein anderes Programm: was Ihr Programm an Schnittstellen bietet, klären wir im Check.
+
+Nutzen Sie schon ein Mieterportal, etwa die [Mieterservices von GARAIO REM](https://www.garaio-rem.ch/de/mieterservices) oder [EasyTicket für Rimo R5](https://www.extenso.ch/), kommen die Meldungen von dort bereits strukturiert an. Dann geht es nur noch um Mails und Anrufe, die am Portal vorbeilaufen. Die gibt es fast immer. Das Gesetz verlangt vom Mieter, Mängel zu melden ([Art. 257g OR](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de#art_257_g)), aber nicht, auf welchem Weg.
+
+Zum Datenschutz: Meldungen enthalten Namen, Telefonnummern und manchmal mehr, als nötig wäre, etwa Hinweise zur Gesundheit. Der KI-Dienst, der sie liest, arbeitet in Ihrem Auftrag. Dafür braucht es einen Vertrag, und Sie sollten wissen, wo die Daten bearbeitet werden. Der [EDÖB beschreibt](https://www.edoeb.admin.ch/de/outsourcing-auftragsdatenbearbeitung), was Sie beim Auslagern an einen Auftragsbearbeiter sicherstellen müssen. Ein privates ChatGPT-Konto ist dafür der falsche Ort.
+
+## Wo Sie die Grenze ziehen
+
+Automatisieren Sie das Sortieren und Vorbereiten. Die Entscheidungen bleiben am Anfang bei Menschen.
+
+Kein automatischer Versand von Antworten, solange Sie die Korrekturen nicht über einige Wochen gezählt haben. Keine automatische Vergabe an Handwerker, auch nicht an den Stammbetrieb. Und keine Aussage der KI dazu, wer die Reparatur bezahlt, Mieter oder Eigentümer. Das ist eine Beurteilung im Einzelfall.
+
+Es lohnt sich nicht, wenn pro Tag nur wenige Meldungen kommen und eine Person sie nebenbei erledigt, oder wenn Ihr Portal schon fast alles abdeckt. Auch nicht, wenn die Stammdaten so lückenhaft sind, dass jede zweite Meldung bei «zu prüfen» landen würde. Dann bringen zwei Wochen Aufräumen im Programm mehr als eine Automatisierung.
+
+Ob dieser Ablauf bei Ihnen der richtige erste ist, prüfen Sie mit den vier Fragen aus [welchen Ablauf Sie zuerst automatisieren](/de/blog/welchen-ablauf-zuerst-automatisieren).
+
+## Wann der Prozess-Check passt
+
+Der [Prozess-Check](/de/prozess-check) passt, wenn Sie genau diesen Ablauf vor sich haben: Meldungen, die jeden Tag von Hand gelesen, gesucht und weitergeleitet werden. In 60 Minuten per Microsoft Teams schauen wir ihn zusammen an. Sie beschreiben, woher die Meldungen kommen und was danach passiert. Echte Mieterdaten müssen Sie nicht zeigen, ein geschwärztes oder erfundenes Beispiel reicht.
+
+Danach wissen Sie, wo Sie anfangen, ob es sich lohnt und in welcher Preisspanne eine Umsetzung liegt, und Sie bekommen alles kurz schriftlich. Der Check kostet CHF 99. Lassen Sie danach umsetzen, wird der Betrag angerechnet. Einen Termin wählen Sie unter [Prozess-Check buchen](/de/prozess-check/buchen).

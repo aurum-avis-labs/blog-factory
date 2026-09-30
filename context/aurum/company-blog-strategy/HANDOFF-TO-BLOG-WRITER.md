@@ -1,6 +1,6 @@
 # Handoff an den Blog-Writer — Aurum Company (Prozess-Check)
 
-**Stand:** 2026-09-29 · Cluster: KMU / KI-Automation → Prozess-Check  
+**Stand:** 2026-09-30 · Cluster: KMU / KI-Automation → Prozess-Check  
 **Repo:** `blog-factory` · Brand-Ordner: `brands/aurum/{de,en}/`  
 **Site:** https://aurum-avis-labs.ch
 
@@ -36,7 +36,7 @@ Nicht lesen müssen: Product-ICPs, Outreach-Listen, ZIP-Packs.
 **Falsch:** PVP/Scoping/MVP in diesem Cluster.  
 **Falsch:** Workshop und Check als denselben Button.
 
-Preise: Launch CHF 49 (erste 10) / Standard CHF 99, Anrechnung, Geld-zurück — nur aus STRATEGY Abschnitt 2, nicht aus `services.ts`.
+Preise: CHF 99 pauschal, Anrechnung, Geld-zurück — nur aus STRATEGY Abschnitt 2, nicht aus `services.ts`.
 
 ---
 
@@ -58,7 +58,7 @@ Jedes Topic: DE + EN im selben PR, EN-Slug steht in der Queue.
 
 ## 4. Schreib-Minimum
 
-- de-CH (ss, keine ß), Body ab h2  
+- de-CH (ss, keine ß), Anrede **Sie**, Body ab h2  
 - `description` unter 160 Zeichen  
 - 1–3 `relatedPosts` nur in diesem Cluster, Funnel-Alignment (Woche 1: leeres Array ok)  
 - Keine erfundenen Kunden, keine fremden ROI-Prozente als eigene Zahl  

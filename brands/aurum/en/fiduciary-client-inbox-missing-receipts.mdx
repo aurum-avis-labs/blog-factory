@@ -1,0 +1,85 @@
+---
+title: "Fiduciary firms: sort the client inbox, chase missing receipts"
+description: "How a Swiss fiduciary firm sorts client mail by client and period, files attachments, and chases missing receipts until each file is complete."
+pubDate: 2026-10-25
+author: "Aurum Avis Labs"
+tags: ["fiduciary", "receipts", "shared mailbox"]
+funnelStage: interest
+translationKey: fiduciary-client-inbox-missing-receipts
+relatedPosts: ["three-workflows-worth-automating", "invoice-capture-what-software-misses", "what-the-process-check-is"]
+draft: false
+---
+
+## Sorting the client inbox and chasing missing receipts
+
+A fiduciary firm sorts its client inbox with one mailbox, one lookup table and one list. All client documents go to a shared mailbox. Each mail and attachment is assigned to a client and a period, filed in that client's folder, and a task is created for the responsible person. Missing receipts are chased from a list of what you expect per client, compared with what arrived, with reminder drafts that a person sends and a status that stays open until the file is complete. The building blocks exist in Microsoft 365 and in Google Workspace. The real work is writing the rules down.
+
+This is for the owner or office lead of a small Treuhand firm where documents land in personal inboxes and someone keeps an Excel sheet of who still owes what. Why this workflow sits outside the accounting software, and which three others are worth a look, is in [AI for Swiss fiduciary firms](/blog/ai-for-swiss-fiduciaries).
+
+## Step 1: one mailbox for client documents
+
+Start with one address that clients use for documents, instead of five personal inboxes. In Microsoft 365 that is a [shared mailbox](https://learn.microsoft.com/en-us/microsoft-365/admin/email/about-shared-mailboxes): several people have access, and it can store up to 50 GB without a licence of its own, as long as the people who open it have a licensed mailbox. In Google Workspace, a group used as a [collaborative inbox](https://support.google.com/a/answer/167430) does a similar job: members can assign a conversation to someone and mark it complete.
+
+Tell clients about the address in the next reminder and in your email signature. Mails that still reach personal inboxes are forwarded to it, not filed by hand from there.
+
+## Step 2: assign every mail to a client and a period
+
+Assignment is a lookup, not a guess. You need one table: client number, client name, known sender addresses, responsible person, folder path. Many mails can be assigned from the sender address alone. The rest carry the client number in the subject, if you ask clients to add it, or can be matched from the name on the document.
+
+There are three ways to run the lookup, from simple to robust.
+
+- **Outlook rules** can [move messages](https://support.microsoft.com/office/8400435c-f14e-4272-9004-1548bb1848f2) from known senders into a client folder. That works for a few dozen clients with one address each. A rule does not know periods.
+- **Power Automate** has a trigger for [when a new email arrives in a shared mailbox](https://learn.microsoft.com/en-us/connectors/office365/). A flow reads the sender, looks up the table (a SharePoint list or an Excel table), saves the attachments in the client folder and assigns a category to the mail. Microsoft notes that the trigger can time out when many mails with attachments arrive at the same time, which is exactly what happens before a deadline.
+- **A small service on Microsoft Graph** subscribes to [change notifications](https://learn.microsoft.com/en-us/graph/outlook-change-notifications-overview) for the mailbox folder and does the same steps in code. It copes better with volume, can read the document date from the PDF and suggest a period. It needs application permissions, which you can limit to exactly this mailbox with [RBAC for Applications](https://learn.microsoft.com/en-us/exchange/permissions-exo/application-rbac).
+
+On Google Workspace the equivalent is a Gmail filter plus Apps Script, which can [search threads and create drafts](https://developers.google.com/apps-script/reference/gmail/gmail-app) and save files to Drive.
+
+The period comes from the document date, not from the day the mail arrived. A March receipt sent in May belongs to the first quarter. Anything the lookup cannot assign with certainty goes into a folder called "unassigned", which one person looks at every morning. That folder is part of the design, not a failure.
+
+## Step 3: file it and create a task
+
+Filing follows one structure: client, year, period, document type. The original mail stays in the mailbox, the attachment goes into the folder, and a line goes into the client's list: date, sender, file name, period. Then a task. In Microsoft 365 the Planner connector can [create a task](https://learn.microsoft.com/en-us/connectors/planner/) with a due date and the responsible person. Create one task per client and period, not one per attachment, or the task list drowns.
+
+Do not rename files beyond recognition, and do not delete the original mail. When a question comes up months later, you want the mail and the attachment exactly as they arrived.
+
+## Chasing missing receipts, systematically
+
+Chasing works from a list of what you expect, not from memory. Per client, write down which documents a period needs. For one client that is the monthly bank statements and the credit card statement. For another it also includes the payroll list and the fuel receipts for the company car. That list is the standard. The workflow compares it with what arrived in step 3.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Expected list per client</h3><p>Document type, period, how it usually arrives. Written once, updated when the mandate changes.</p></li>
+  <li data-step="2"><h3>Compare on a fixed date</h3><p>For example ten working days before your internal VAT deadline. The result is a short list per client of what is missing.</p></li>
+  <li data-step="3"><h3>A reminder draft that sounds like you</h3><p>Addressed by name, listing exactly the missing documents, in your office's tone. It lands in the drafts folder of the responsible person.</p></li>
+  <li data-step="4"><h3>A person sends it</h3><p>She reads it, adds a line if the client is on holiday or called yesterday, and sends it.</p></li>
+  <li data-step="5"><h3>Status until complete</h3><p>Requested, reminded, complete. Every new document from step 3 updates the status. The next reminder only goes to clients who are still open.</p></li>
+</ol>
+
+Use drafts rather than automatic sending, at least at the start. Microsoft Graph can [create a draft message](https://learn.microsoft.com/en-us/graph/api/user-post-messages) in a mailbox, and Apps Script can do the same in Gmail. A reminder that goes out while the client is on the phone with you costs more goodwill than it saves time. Once a few periods of drafts have shown that they are right, you can decide to let the second reminder go out on its own.
+
+## An example: a firm with about 120 bookkeeping clients
+
+A hypothetical picture, not a client case. A Treuhand firm with six people and about 120 bookkeeping clients, most of them small businesses on bexio or Abacus, VAT filed quarterly.
+
+Today documents arrive in four personal inboxes. The office lead keeps an Excel sheet with one row per client and one column per quarter. Ten days before the VAT deadline she goes through it and writes the reminders by hand, a week later the second round.
+
+With the workflow, clients send to one shared mailbox. A flow assigns the mails it can match from the sender address and the client number; the rest land in "unassigned", where she assigns them each morning. Attachments sit in the client folder by quarter. Ten days before the deadline the comparison runs, and she finds one draft per open client in her drafts folder, each naming the missing documents. She reads them, deletes the two for clients who called yesterday, and sends the rest. The Excel sheet is retired, because the status lives in the list the flow keeps up to date.
+
+What stays manual: the "unassigned" folder, the call with the client who always delivers a shoebox, and every question about content. The booking still happens in bexio or Abacus, done by the person who books today.
+
+## Where client data is processed, and why it matters
+
+Client documents contain personal data: salaries, bank details, sometimes medical costs on a receipt for the tax return. Where the workflow runs is a data-protection question, not a technical detail.
+
+If the flow runs in your own Microsoft 365 tenant, the documents stay where your mail already is. Microsoft lists Switzerland as a data residency geography for [Exchange Online, SharePoint and Teams](https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-overview). Google Workspace lets you choose the [United States or Europe](https://knowledge.workspace.google.com/admin/compliance/choose-a-geographic-location-for-your-data) as a data region in supported editions; Switzerland is not a separate option. If an external service or an AI model reads documents, it acts as a processor under [Art. 9 of the Federal Act on Data Protection](https://www.fedlex.admin.ch/eli/cc/2022/491/en#art_9). It may only process data as you would be allowed to yourself, no statutory or contractual confidentiality duty may prohibit the transfer, and you must make sure it can guarantee data security. If your firm processes the data on behalf of your clients, bringing in a new service needs the client's prior approval.
+
+Three practical consequences. Limit the app's permissions to the one mailbox, not the whole tenant. Write down which service sees which data. And ask your data-protection adviser before salary or health data runs through a model. This is practical guidance, not legal advice. At Aurum, co-founder Riccardo Conti is responsible for security and data protection.
+
+## When to leave it
+
+Leave it when you have a few dozen clients who send documents twice a year: the Excel sheet is enough. Leave it when most clients already photograph receipts straight into bexio Go or their accounting software's own upload. Then the mailbox is not where documents arrive, and the gap lies elsewhere. And leave the chasing part until the expected list per client exists. Without it, the workflow has nothing to compare against.
+
+The same four questions that decide any first automation apply here too, see [which process to automate first](/blog/which-process-to-automate-first).
+
+## Bring this workflow to the Process Check
+
+If documents in your office arrive in several inboxes and chasing takes an afternoon per deadline, that is one recurring task, and that is what the [Process Check](/prozess-check) is for. In 60 minutes we look at how mail arrives today, how many clients and periods you handle, and where the list lives. Describing it is enough, no client data needed. You leave with where to start, whether it pays off, a price range and a rough duration for implementation, and a short written summary to pass on internally. CHF 99, [booked online](/prozess-check/buchen).

@@ -1,0 +1,68 @@
+---
+title: "Was ist ein KI-Agent? Einfach erklärt für das KMU-Büro"
+description: "Ein KI-Agent ist ein Sprachmodell mit Werkzeugen und einem Ziel, das in Schritten arbeitet. Was er im KMU-Büro kann und was nie ungeprüft laufen sollte."
+pubDate: 2026-10-09
+author: "Aurum Avis Labs"
+tags: ["ki-agent", "ki kmu", "büroautomatisierung"]
+funnelStage: awareness
+translationKey: what-is-an-ai-agent
+relatedPosts: ["unterschied-digitalisierung-automatisierung-ki", "welchen-ablauf-zuerst-automatisieren", "ki-agent-oder-workflow"]
+draft: false
+---
+
+## Was ist ein KI-Agent?
+
+Ein KI-Agent ist, einfach erklärt, ein Sprachmodell, das Werkzeuge und ein Ziel bekommen hat und in mehreren Schritten darauf hinarbeitet. Er entscheidet, was er als Nächstes nachschaut oder erledigt, benutzt dafür ein Werkzeug, liest das Ergebnis und macht weiter, bis das Ziel erreicht ist oder er nicht mehr weiterkommt. Ein Chatbot beantwortet eine Frage. Ein Agent handelt in den Systemen, auf die er Zugriff hat. Im KMU-Büro heisst das zum Beispiel: ein Postfach sortieren, eine Antwort vorbereiten oder eine Auskunft zusammensuchen, die in drei Systemen verteilt ist.
+
+[Anthropic](https://www.anthropic.com/engineering/building-effective-agents), ein Hersteller solcher Modelle, zieht die Grenze so: Bei einem festen Ablauf laufen Modell und Werkzeuge über vorher festgelegte Pfade. Bei einem Agenten steuert das Modell selbst, welche Schritte und Werkzeuge es nutzt. Kurz gesagt: Beim festen Ablauf legen Sie den Weg vorher fest. Beim Agenten wählt ihn das Modell.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Modell</span><strong>Liest und schreibt</strong><p>Versteht die Mail, die Notiz, die Frage in normaler Sprache.</p></li>
+  <li><span class="blog-kicker">Werkzeuge</span><strong>Was er anfassen darf</strong><p>Postfach lesen, Kundenliste durchsuchen, Entwurf anlegen.</p></li>
+  <li><span class="blog-kicker">Ziel</span><strong>Wann er fertig ist</strong><p>Zum Beispiel: jede neue Anfrage zugeordnet, ein Entwurf liegt bereit.</p></li>
+</ul>
+
+## Was ein KI-Agent im KMU-Büro kann
+
+Ein Agent lohnt sich dort, wo der nächste Schritt davon abhängt, was der vorherige ergeben hat. In vielen Büros passen drei Arbeiten zu dieser Beschreibung.
+
+Zuordnen: Der Agent liest neue Mails im Sammelpostfach, erkennt, ob es eine Bestellung, eine Reklamation oder eine Frage ist, und weist sie mit einer Zeile Zusammenfassung der richtigen Person zu. Entwerfen: Zu einer Kundenfrage sucht er die letzte Bestellung und die Preisliste heraus und bereitet eine Antwort vor, die jemand liest, bevor sie rausgeht. Nachschlagen über mehrere Systeme: «Wo ist die Lieferung für diesen Kunden?» heisst, die Auftragsliste, die Versandbestätigung im Postfach und eine Notiz im CRM anzuschauen. Der Agent sammelt die drei Antworten und schreibt eine.
+
+In allen drei Fällen ändert sich der Weg von Fall zu Fall. Genau dort ist ein Modell, das seine Schritte selbst wählt, seinen Preis wert.
+
+## Was ein KI-Agent nicht unbeaufsichtigt tun sollte
+
+Ein Agent sollte keine Zahlungen auslösen, keine verbindlichen Antworten verschicken, keine Daten löschen und nichts tun, was keine Person prüft. Verbindlich ist alles, worauf sich eine Kundin berufen kann: ein Preis, ein Liefertermin, eine Zusage zu Bedingungen.
+
+Die [OWASP-Liste der Risiken für Anwendungen mit Sprachmodellen](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) nennt das «Excessive Agency»: schädliche Aktionen, die aus unerwarteten, mehrdeutigen oder manipulierten Antworten des Modells folgen. Als Ursachen nennt sie zu viele Funktionen, zu viele Berechtigungen und zu viel Eigenständigkeit. Die Empfehlung: Folgenreiche Aktionen gibt ein Mensch frei. Für Agenten, die Mails lesen, kommt ein besonderes Risiko dazu. Text in einer Mail oder einer Datei kann Anweisungen enthalten, die das Modell dann befolgt. OWASP führt das als [indirekte Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/).
+
+<div class="blog-pair">
+  <div>
+    <h3>Kann allein laufen</h3>
+    <ul>
+      <li>Eingehende Anfragen zuordnen und zusammenfassen</li>
+      <li>Entwürfe vorbereiten, die eine Person verschickt</li>
+      <li>Auskünfte aus Systemen sammeln, die er lesen darf</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Braucht zuerst eine Person</h3>
+    <ul>
+      <li>Zahlungen und Buchungen</li>
+      <li>Antworten, die die Firma verpflichten</li>
+      <li>Daten löschen oder ändern</li>
+    </ul>
+  </div>
+</div>
+
+## Der Fehler: ein Agent für eine Arbeit, die eine feste Regel zuverlässig erledigt
+
+Der häufigste Fehler ist, einen Agenten dort einzusetzen, wo eine feste Regel die Arbeit schon jedes Mal richtig macht. «Jedes PDF von diesem Lieferanten kommt in diesen Ordner und geht an diese Person zum Visum» hat genau einen richtigen Weg. Eine Regel geht ihn fast ohne Kosten pro Durchlauf, und Sie sehen im Nachhinein, warum sie was getan hat. Ein Agent bringt Schwankung genau dort hinein, wo Sie keine wollen, und jeder Durchlauf kostet mehr.
+
+Den Unterschied zwischen Regel und Modell zeigt der Text zu [Digitalisierung, Automatisierung und KI](/de/blog/unterschied-digitalisierung-automatisierung-ki) an einer Lieferantenrechnung. Welcher Ablauf zuerst drankommt, mit oder ohne Agent, steht in [welchen Ablauf zuerst automatisieren](/de/blog/welchen-ablauf-zuerst-automatisieren).
+
+## Wenn Ihr Team mit Agenten arbeiten will
+
+Soll Ihr Team zuerst verstehen, was Agenten können, sie an echten Aufgaben ausprobieren und gemeinsame Regeln für den Einsatz festlegen, ist der [Workshop «KI im Unternehmen»](/de/services/ai-in-business) das passende Format. Er zeigt auch, wie Sie mehrere Werkzeuge verketten und Aufgaben zwischen ihnen übergeben. Er dauert einen halben oder ganzen Tag, für bis zu 20 Personen.
+
+Haben Sie schon eine bestimmte Arbeit im Kopf, etwa das Postfach, das jeden Morgen von Hand sortiert wird, passt der Workshop nicht. Für diese eine Arbeit gibt es den [Prozess-Check](/de/prozess-check).
