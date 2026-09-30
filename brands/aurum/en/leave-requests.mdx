@@ -1,0 +1,110 @@
+---
+title: "Digital leave requests and approvals"
+description: "Digital leave requests: a form, the manager's decision, a team calendar and a deputy. Use payroll software when it already keeps the balance."
+pubDate: 2026-12-22
+author: "Aurum Avis Labs"
+tags: ["leave", "approvals", "office work"]
+funnelStage: interest
+translationKey: leave-requests
+relatedPosts: ["automate-microsoft-365", "automate-google-workspace", "payroll-preparation"]
+draft: false
+---
+
+## Digital leave requests and approvals
+
+A digital leave request is four things in one path: a form, a decision by the manager, an entry on the team calendar, and a named deputy. The remaining balance is shown from the place that already owns it, usually payroll or the HR file, and the form does not invent a second balance. Until the manager says yes, nothing is blocked on the calendar.
+
+This is for Swiss offices of about 5 to 80 people where leave still travels by chat message or a spreadsheet on one laptop. It is one flow, not a tour of Microsoft 365 or Google Workspace. Those wider maps are in [automate Microsoft 365](/blog/automate-microsoft-365) and [automate Google Workspace](/blog/automate-google-workspace). Illness, certificates and wage types are a different task. They do not belong on the holiday form.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>One form</h3><p>Name, dates, half days if you allow them, and the deputy. Same fields every time.</p></li>
+  <li data-step="2"><h3>A decision, not a chat</h3><p>The manager sees the request beside who else is already away. Yes or no is stored.</p></li>
+  <li data-step="3"><h3>The team calendar</h3><p>Only an approved request becomes an out-of-office entry others can see.</p></li>
+  <li data-step="4"><h3>Balance and payroll</h3><p>The days come off the balance the payroll file already uses. The form does not keep a rival number.</p></li>
+</ol>
+
+## The form is a request, and the manager decides
+
+Swiss employment law sets the floor, and the contract or a collective agreement can give more. The employer grants at least four weeks per year of service, and at least five weeks until the employee has completed their 20th year ([Art. 329a para. 1 OR](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de)). An incomplete year is pro rata (para. 3). The employer sets the dates and takes the employee's wishes into account as far as the business allows. At least two weeks should be consecutive, and leave is generally taken in the year of service ([Art. 329c OR](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de)). During the employment relationship, holiday is not replaced by a payment ([Art. 329d para. 2 OR](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de)).
+
+So the screen is a request plus a decision, not an automatic yes. Write the firm's own entitlement on the employee record, not only the legal minimum. Use the holiday calendar payroll already uses. Canton dates differ, and a national list pasted into the form will be wrong for someone.
+
+The Federal Data Protection and Information Commissioner treats holiday data as part of the personnel file. Access stays with HR and with the departments whose work actually needs it ([EDÖB](https://www.edoeb.admin.ch/de/verschiedene-phasen-des-arbeitsverhaeltnisses)). A team calendar may show who is away. It does not need the reason, the balance, or notes from a medical certificate.
+
+## When payroll or HR software already does this
+
+If the program that pays wages already takes the request, records the manager's yes, subtracts the days and shows a team view people open, stop. A second form creates two balances, and two balances cause arguments in January.
+
+<div class="blog-pair">
+  <div>
+    <h3>Stay in payroll software</h3>
+    <ul>
+      <li>Requests, approval and the remaining days live there today</li>
+      <li>People actually file leave in that program</li>
+      <li>The approved dates reach the calendar the team uses</li>
+    </ul>
+  </div>
+  <div>
+    <h3>A short form is enough</h3>
+    <ul>
+      <li>Leave is still a chat message or a private sheet</li>
+      <li>Payroll only receives a monthly list, and that is acceptable</li>
+      <li>You need a shared calendar and a deputy, not a new HR suite</li>
+    </ul>
+  </div>
+</div>
+
+What a named payroll product can export is specific to that product. We have not built those connections. In a check we look at what your program already offers, and we do not assume a feature it does not have.
+
+## Microsoft 365: form, approval, calendar
+
+Microsoft documents approvals as a fit for vacation requests. With Power Automate, "Start and wait for an approval" sends the request and waits. A licensed approver can answer from Outlook, from a Teams card, or from the approvals action centre ([Microsoft Learn](https://learn.microsoft.com/en-us/power-automate/get-started-approvals)). The same documentation walks through a vacation request that starts in a SharePoint list, emails the approver, and writes the decision back on the list ([Microsoft Learn](https://learn.microsoft.com/en-us/power-automate/modern-approvals)).
+
+A practical shape:
+
+- Microsoft Forms, or the list itself, collects dates and the deputy. The Forms connector starts a flow when a response is submitted and can read the fields ([Microsoft Learn](https://learn.microsoft.com/en-us/power-automate/forms/overview)).
+- The approval goes to the manager named on the employee row, not to a group inbox that nobody owns.
+- On yes, the flow creates an all-day event with Show As set to Out of office. Outlook treats that like busy: others should not expect the person to be free ([Microsoft Support](https://support.microsoft.com/en-gb/outlook/calendar/add-your-out-of-office-event-to-the-outlook-calendar-of-others)).
+- A list with a date column can be shown as a calendar, so the team sees absences without opening payroll ([Microsoft Support](https://support.microsoft.com/en-us/sharepoint/lists/create-a-calendar-view-from-a-list)).
+
+Teams Approvals on its own is a yes or no. It does not know the remaining days. Show the balance on the request from the payroll sheet, or accept that the manager checks the sheet before pressing yes. Do not let the flow invent the balance.
+
+## Google Workspace: notification is not yet an approval
+
+Google Forms can email the form owner when a response arrives: open Responses, then More, then "Get email notifications for new responses" ([Google Docs Editors Help](https://support.google.com/docs/answer/139706)). That is a ping. It is not a stored yes from the manager, and it does not write the calendar.
+
+An out-of-office event is a separate, documented step. On a work or school calendar, marking out of office automatically declines meetings in that period ([Google Calendar Help](https://support.google.com/calendar/answer/7638168)). Someone still has to create that event after the manager agrees. Until you add a flow, the office lead does it, which is fine if requests are few.
+
+Collect the request in Forms, linked to a Sheet the manager can see. Columns: person, start, end, deputy, status. The manager types "yes" or "no" in the status column. Only "yes" becomes a calendar event, either by hand or by a small script you already trust. A shared calendar, not a private one, is what colleagues look at.
+
+## The deputy and the overlapping week
+
+The deputy is a name on the form, copied onto the calendar entry as a title or a note the team can read. It is not a second approval unless your house rule says the deputy must agree. Many offices only need the name so a client is not sent to someone who is also away.
+
+Before yes, the manager looks at the same dates for the rest of the team. Two people in a team of four is a conversation. The flow can list who is already marked out. It should not refuse the request by itself. Art. 329c puts the timing decision with the employer, taking wishes into account. A rule you write ("not more than one person from the counter") is your rule. Put it in the manager's view, and let the person decide.
+
+On no, the requester hears the decision, and no calendar entry is created. On a change of dates, the old entry is updated, not left beside the new one.
+
+## A made-up example: the spring week
+
+A made-up example: a trade workshop with 18 people, no client of ours. Leave lives in a chat thread and a spreadsheet the office manager keeps. In March, three people ask for the same Thursday to Monday around a public holiday in their canton. The spreadsheet shows the balance. The chat does not show who else is away.
+
+They add a form: name, start, end, deputy. In Microsoft 365 the response asks the workshop manager to approve. The request lists the other two open requests for those dates. She says yes to two, asks the third to move one day, and the two approvals become out-of-office entries on the shared calendar, with the deputy's name in the title. On Monday the office manager copies the approved days into the payroll sheet she already uses. She does not keep a second balance in the form.
+
+The same shape works if the firm is on Google Workspace and the volume is lower: the Sheet is the queue, the manager fills the status, and only then does the calendar event exist. Nothing in this sketch is a measured time saving. It is the split between request, decision, calendar and payroll.
+
+## Who should leave it alone
+
+Leave the chat in place if you are four people who share one room and one calendar, and the balance is obvious. A flow is friction when a sentence across the desk already works.
+
+Do not build this for illness. A sick day is not approved like a holiday, and a certificate does not belong on a team calendar.
+
+Do not pay the days out through the form. Art. 329d para. 2 does not allow replacing holiday with money while the employment lasts. Exceptions at the end of a job are a payroll question for your fiduciary, not a button.
+
+Skip a third-party leave app when it would be the only reason to put personnel data in another vendor. Use it when you truly need part-time entitlements, carry-over rules and overlap warnings that your payroll program does not show and you will not maintain by hand. Read that vendor's pages before you believe a feature list in an advert.
+
+## When the Prozess-Check fits
+
+The Prozess-Check fits when holiday requests are the recurring manual task: someone retypes chat messages into a sheet and then into payroll, and the team still double-books. In 60 minutes on Microsoft Teams we look at that one task. You leave with a case, whether it pays off, a price range and a rough duration, in a short written summary. The hour is CHF 99 by card and commits you to nothing. If it finds nothing worth automating, the fee comes back, provided the appointment took place.
+
+Bring the form or the sheet you use now, with names covered. The offer is the [Prozess-Check](/prozess-check).

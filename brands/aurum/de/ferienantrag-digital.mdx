@@ -1,0 +1,114 @@
+---
+title: "Ferienantrag digital: Formular, Freigabe, Kalender"
+description: "Ferienantrag digital: Formular, Entscheid der vorgesetzten Person, Teamkalender und Stellvertretung. Lohnsoftware nutzen, wenn sie den Saldo schon führt."
+pubDate: 2026-12-22
+author: "Aurum Avis Labs"
+tags: ["ferien", "freigaben", "büro"]
+funnelStage: interest
+translationKey: leave-requests
+relatedPosts: ["microsoft-365-automatisieren", "google-workspace-automatisieren", "lohnvorbereitung-automatisieren"]
+draft: false
+---
+
+## Ferienantrag digital
+
+Ein Ferienantrag digital besteht aus vier Teilen in einem Weg: einem Formular, einem Entscheid der vorgesetzten Person, einem Eintrag im Teamkalender und einer genannten Stellvertretung. Der Restsaldo kommt aus dem Ort, der ihn schon führt, meist Lohnprogramm oder Personaldossier. Das Formular erfindet keinen zweiten Saldo. Solange die Freigabe fehlt, ist im Kalender nichts blockiert.
+
+Der Beitrag ist für Schweizer Büros mit etwa 5 bis 80 Personen, in denen Ferien noch per Chat oder in einer Tabelle auf einem einzelnen Laptop laufen. Es ist dieser eine Ablauf, nicht eine Übersicht über Microsoft 365 oder Google Workspace. Die weiteren Karten stehen in [Microsoft 365 automatisieren](/de/blog/microsoft-365-automatisieren) und [Google Workspace automatisieren](/de/blog/google-workspace-automatisieren). Krankheit, Zeugnisse und Lohnarten sind eine andere Arbeit. Sie gehören nicht aufs Ferienformular.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Ein Formular</h3><p>Name, Daten, halbe Tage falls Sie sie erlauben, und die Stellvertretung. Immer dieselben Felder.</p></li>
+  <li data-step="2"><h3>Ein Entscheid, kein Chat</h3><p>Die vorgesetzte Person sieht den Antrag neben den Leuten, die schon weg sind. Ja oder Nein wird gespeichert.</p></li>
+  <li data-step="3"><h3>Der Teamkalender</h3><p>Nur ein bewilligter Antrag wird ein Eintrag, den andere sehen.</p></li>
+  <li data-step="4"><h3>Saldo und Lohn</h3><p>Die Tage gehen vom Saldo ab, den die Lohnakte schon nutzt. Das Formular führt keine zweite Zahl.</p></li>
+</ol>
+
+## Das Formular ist ein Antrag, die vorgesetzte Person entscheidet
+
+Das Arbeitsrecht setzt die Untergrenze. Vertrag oder Gesamtarbeitsvertrag können mehr geben. Der Arbeitgeber gewährt pro Dienstjahr wenigstens vier Wochen Ferien, bis zum vollendeten 20. Altersjahr wenigstens fünf Wochen ([Art. 329a Abs. 1 OR](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de)). Ein unvollständiges Dienstjahr wird anteilig berechnet (Abs. 3). Der Arbeitgeber bestimmt den Zeitpunkt und nimmt auf die Wünsche der angestellten Person Rücksicht, soweit das mit den Interessen des Betriebs vereinbar ist. Wenigstens zwei Wochen hängen zusammen, und die Ferien werden in der Regel im betreffenden Dienstjahr bezogen ([Art. 329c OR](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de)). Während des Arbeitsverhältnisses dürfen Ferien nicht durch Geld oder eine andere Vergünstigung abgegolten werden ([Art. 329d Abs. 2 OR](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de)).
+
+Der Bildschirm ist also Antrag plus Entscheid, kein automatisches Ja. Den Anspruch, den Ihre Verträge wirklich vorsehen, schreiben Sie auf die Personalzeile, nicht nur das gesetzliche Minimum. Kantonale Feiertage unterscheiden sich. Nutzen Sie den Kalender, den Lohn oder Büro schon führen, und legen Sie keine nationale Feiertagsliste ins Formular.
+
+Der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte zählt Ferienangaben zum Personaldossier. Zugriff haben die Personalstelle und Abteilungen, deren Aufgabe die Daten braucht ([EDÖB](https://www.edoeb.admin.ch/de/verschiedene-phasen-des-arbeitsverhaeltnisses)). Der Teamkalender darf zeigen, wer weg ist. Er braucht den Grund nicht, den Saldo nicht und keine Notiz aus einem Arztzeugnis.
+
+## Wann die Lohn- oder Personalsoftware reicht
+
+Wenn das Programm, das den Lohn zahlt, den Antrag schon entgegennimmt, die Freigabe speichert, die Tage abzieht und eine Teamansicht zeigt, die jemand öffnet, hören Sie auf. Ein zweites Formular erzeugt zwei Salden, und zwei Salden geben im Januar Streit.
+
+<div class="blog-pair">
+  <div>
+    <h3>In der Lohnsoftware bleiben</h3>
+    <ul>
+      <li>Antrag, Freigabe und Resttage leben schon dort</li>
+      <li>Die Leute erfassen Ferien wirklich in diesem Programm</li>
+      <li>Die bewilligten Daten erscheinen im Kalender, den das Team nutzt</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Ein kurzes Formular reicht</h3>
+    <ul>
+      <li>Ferien sind noch Chat oder eine private Tabelle</li>
+      <li>Die Lohnsoftware bekommt einmal im Monat eine Liste, und das genügt</li>
+      <li>Sie brauchen Teamkalender und Stellvertretung, keine neue Personalsoftware</li>
+    </ul>
+  </div>
+</div>
+
+Was ein bestimmtes Lohnprogramm exportiert, steht in dessen Dokumentation. Solche Schnittstellen haben wir nicht gebaut. Im Check schauen wir, was Ihr Programm tatsächlich anbietet, und nehmen keine Funktion an, die es nicht hat.
+
+## Microsoft 365: Formular, Freigabe, Kalender
+
+Microsoft beschreibt Ferienanträge als typischen Fall für Genehmigungen. In Power Automate schickt «Start and wait for an approval» den Antrag und wartet. Eine berechtigte Person kann in Outlook, auf einer Karte in Teams oder im Genehmigungscenter antworten ([Microsoft Learn](https://learn.microsoft.com/en-us/power-automate/get-started-approvals)). Dieselbe Anleitung startet den Ferienantrag in einer SharePoint-Liste, schreibt der genehmigenden Person und trägt den Entscheid in die Liste zurück ([Microsoft Learn](https://learn.microsoft.com/en-us/power-automate/modern-approvals)).
+
+Eine brauchbare Form:
+
+- Microsoft Forms oder die Liste selbst sammelt Daten und Stellvertretung. Der Forms-Connector startet einen Ablauf, sobald eine Antwort eingeht, und kann die Felder lesen ([Microsoft Learn](https://learn.microsoft.com/en-us/power-automate/forms/overview)).
+- Die Freigabe geht an die vorgesetzte Person auf der Personalzeile, nicht an ein Postfach ohne Zuständigkeit.
+- Bei Ja entsteht ein ganztägiger Termin mit der Anzeige «Abwesend». Outlook behandelt das wie beschäftigt: andere sollen nicht mit Verfügbarkeit rechnen ([Microsoft Support](https://support.microsoft.com/de-de/outlook/calendar/add-your-out-of-office-event-to-the-outlook-calendar-of-others)).
+- Eine Liste mit Datumsspalte lässt sich als Kalender zeigen, damit das Team Abwesenheiten sieht, ohne die Lohnsoftware zu öffnen ([Microsoft Support](https://support.microsoft.com/de-de/sharepoint/lists/create-a-calendar-view-from-a-list)).
+
+Der erste Genehmigungsablauf im Mandanten braucht die Einrichtung, die Microsoft beschreibt, inklusive einer Lizenz für Standard-Connectors. Das ist einmal eine Aufgabe für die Administration. Es ist kein Grund, eine separate Ferien-App zu kaufen, wenn die Liste reicht.
+
+Die Genehmigungen in Teams allein sind ein Ja oder Nein. Den Restsaldo kennen sie nicht. Zeigen Sie den Saldo aus der Lohndatei auf dem Antrag, oder die vorgesetzte Person prüft die Datei, bevor sie zustimmt. Der Ablauf darf den Saldo nicht erfinden.
+
+## Google Workspace: eine Meldung ist noch keine Freigabe
+
+Google Forms kann der Person, der das Formular gehört, bei einer neuen Antwort mailen: Antworten, dann Mehr, dann «E-Mail-Benachrichtigungen für neue Antworten erhalten» ([Google Docs-Editoren-Hilfe](https://support.google.com/docs/answer/139706?hl=de)). Das ist ein Hinweis. Es ist kein gespeichertes Ja und es schreibt keinen Kalender.
+
+Abwesenheit im Kalender ist ein eigener, dokumentierter Schritt. In einem Arbeits- oder Schulkonto lehnt ein Abwesenheitseintrag Besprechungen in dieser Zeit automatisch ab ([Google Kalender-Hilfe](https://support.google.com/calendar/answer/7638168?hl=de)). Jemand muss den Eintrag erstellen, nachdem die Freigabe da ist. Bei wenigen Anträgen tut das die Büroleitung, und das genügt.
+
+Sammeln Sie den Antrag in Forms, verknüpft mit einer Tabelle, die die vorgesetzte Person sieht. Spalten: Person, Beginn, Ende, Stellvertretung, Status. Die vorgesetzte Person setzt «ja» oder «nein». Nur «ja» wird ein Kalendereintrag, von Hand oder mit einem Skript, dem Sie schon vertrauen. Kolleginnen und Kollegen schauen auf einen gemeinsamen Kalender, nicht auf einen privaten.
+
+Wenn E-Mail, Entscheid und Kalender ohne Skript laufen sollen, sagen Sie das, bevor ein Add-on installiert wird. Ein Add-on ist ein weiterer Ort für Personaldaten. Die Regel zum Personaldossier gilt weiter.
+
+## Stellvertretung und die überlappende Woche
+
+Die Stellvertretung ist ein Name auf dem Formular, der auf dem Kalendereintrag steht, als Titel oder als Notiz, die das Team lesen kann. Sie ist keine zweite Freigabe, ausser Ihre Hausregel verlangt die Zustimmung der Stellvertretung. Oft reicht der Name, damit Kundschaft nicht an eine Person verwiesen wird, die ebenfalls weg ist.
+
+Vor dem Ja schaut die vorgesetzte Person dieselben Daten im Team. Zwei Personen in einem Team von vier sind ein Gespräch. Der Ablauf kann auflisten, wer schon als abwesend markiert ist. Er soll den Antrag nicht selbst ablehnen. Art. 329c legt den Zeitpunkt beim Arbeitgeber, unter Berücksichtigung der Wünsche. Eine Regel, die Sie schreiben («nicht mehr als eine Person am Empfang»), ist Ihre Regel. Zeigen Sie sie in der Ansicht der vorgesetzten Person, und lassen Sie diese Person entscheiden.
+
+Bei Nein erfährt die antragstellende Person den Entscheid, und es entsteht kein Kalendereintrag. Bei einer Datumsänderung wird der alte Eintrag angepasst, nicht neben dem neuen stehen gelassen.
+
+## Ein erfundenes Beispiel: die Frühlingswoche
+
+Ein erfundenes Beispiel: ein Werkstattbetrieb mit 18 Personen, kein Kunde von uns. Ferien leben in einem Chat und in einer Tabelle, die die Büroleitung führt. Im März wollen drei Personen denselben Donnerstag bis Montag, rund um einen Feiertag in ihrem Kanton. Die Tabelle zeigt den Saldo. Der Chat zeigt nicht, wer sonst noch weg ist.
+
+Der Betrieb richtet ein Formular ein: Name, Beginn, Ende, Stellvertretung. In Microsoft 365 fragt die Antwort die Werkstattleitung um Freigabe. Der Antrag listet die zwei anderen offenen Anträge für diese Tage. Die Leitung sagt zwei Anträgen zu, bittet die dritte Person, einen Tag zu verschieben, und aus den zwei Freigaben werden Abwesenheitseinträge im gemeinsamen Kalender, mit dem Namen der Stellvertretung im Titel. Am Montag überträgt die Büroleitung die bewilligten Tage in die Lohndatei, die sie schon benutzt. Einen zweiten Saldo im Formular führt sie nicht.
+
+Dieselbe Form funktioniert, wenn der Betrieb auf Google Workspace ist und weniger Anträge hat: die Tabelle ist die Warteschlange, die vorgesetzte Person füllt den Status, und erst dann gibt es den Kalendereintrag. In dieser Skizze steht keine gemessene Zeitersparnis. Es ist die Trennung von Antrag, Entscheid, Kalender und Lohn.
+
+## Wann Sie es lassen
+
+Lassen Sie den Chat, wenn Sie zu viert in einem Raum und einem Kalender arbeiten und der Saldo offensichtlich ist. Ein Ablauf stört, wenn ein Satz über den Tisch schon genügt.
+
+Bauen Sie das nicht für Krankheit. Ein Krankheitstag wird nicht wie Ferien bewilligt, und ein Zeugnis gehört nicht in den Teamkalender.
+
+Zahlen Sie die Tage nicht über das Formular aus. Art. 329d Abs. 2 erlaubt es nicht, Ferien während des Arbeitsverhältnisses durch Geld zu ersetzen. Ausnahmen am Ende einer Anstellung klärt die Treuhand, nicht eine Schaltfläche.
+
+Eine Ferien-App eines Drittanbieters lassen Sie weg, wenn sie der einzige Grund wäre, Personaldaten an einen weiteren Anbieter zu geben. Sinnvoll ist sie, wenn Sie Teilzeitansprüche, Überträge und Überschneidungen brauchen, die Ihr Lohnprogramm nicht zeigt und die niemand von Hand pflegen will. Lesen Sie die Seiten des Anbieters, bevor Sie einer Werbeliste glauben.
+
+## Wann der Prozess-Check passt
+
+Der Prozess-Check passt, wenn Ferienanträge die wiederkehrende Handarbeit sind: jemand tippt Chatnachrichten in eine Tabelle und danach in die Lohnsoftware, und das Team plant dieselben Tage doppelt. In 60 Minuten per Microsoft Teams schauen wir nur diese Arbeit an. Sie gehen mit einem Fall, einer Einschätzung, ob es sich lohnt, einer Preisspanne und einer ungefähren Dauer hinaus, kurz schriftlich. Die Stunde kostet CHF 99 per Karte und verpflichtet Sie zu nichts. Findet sie nichts, das sich zu automatisieren lohnt, kommt der Betrag zurück, sofern der Termin stattgefunden hat.
+
+Bringen Sie das Formular oder die Tabelle mit, Namen abgedeckt. Das Angebot steht auf der Seite [Prozess-Check](/de/prozess-check).

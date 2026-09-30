@@ -1,0 +1,86 @@
+---
+title: "Analyse free-text survey answers with AI"
+description: "Analyse free-text survey answers with AI by clustering themes and checking a sample. Strip names first. Employee and customer comments differ."
+pubDate: 2026-12-25
+author: "Aurum Avis Labs"
+tags: ["surveys", "free text", "data protection"]
+funnelStage: interest
+translationKey: analyse-survey-free-text
+relatedPosts: ["multilingual-customer-communication", "ai-agent-or-workflow-automation", "what-the-process-check-is"]
+draft: false
+---
+
+## Analyse free-text survey answers with AI
+
+You analyse free-text survey answers with AI by turning comments into a short list of themes, then having a person read a sample of the originals against that list. The model sorts. It does not publish a result, score a member of staff, or reply to a customer. Names, roles that only one person holds, and details that point at one event are removed before the file goes anywhere a model can read it.
+
+This is for owners and office leads who get a spreadsheet of comments once or twice a year, from customers or from staff, and who otherwise print the column and highlight it by hand. Replying in the customer's language is a different job, covered in [multilingual customer communication](/blog/multilingual-customer-communication). A fixed sort with a human check is a workflow. A system that goes on to act is something else, set out in [AI agent or workflow](/blog/ai-agent-or-workflow-automation).
+
+<ol class="blog-flow">
+  <li><strong>Export</strong><p>Comments only, plus a question label. No respondent key if the survey was meant to be anonymous.</p></li>
+  <li><strong>Strip</strong><p>Remove names, unique roles, order numbers and case details a colleague would recognise.</p></li>
+  <li><strong>Cluster</strong><p>The model proposes themes and counts. It does not quote a line that still identifies someone.</p></li>
+  <li><strong>Sample</strong><p>A person reads a slice of the originals and corrects themes that swallow two issues into one.</p></li>
+  <li><strong>Close</strong><p>Keep the theme list. Delete or anonymise the raw file when the report no longer needs it.</p></li>
+</ol>
+
+## Remove what makes a row a person
+
+Under the Federal Act on Data Protection, personal data are details that relate to an identified or identifiable person ([Art. 5 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de)). A comment that says "the Thursday technician in Zug was rude" can be enough in a small firm. Health, political or union views, and similar fields are sensitive under the same article. A free-text box collects those by accident when someone writes about sick leave, a dismissal, or a colleague's beliefs.
+
+Processing has to stay proportionate and tied to a purpose the person can recognise ([Art. 6 paras. 2 and 3 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de)). The Federal Data Protection and Information Commissioner states that the Act applies directly to AI, and that purpose, how the system works and the data sources have to be made plain ([EDÖB](https://www.edoeb.admin.ch/de/update-geltendes-datenschutzgesetz-ist-auf-ki-direkt-anwendbar)). "We used a tool" is not that explanation.
+
+<ul class="blog-checklist">
+  <li>Drop name, email, staff number, customer number and IP address from the file the model sees</li>
+  <li>Replace a unique job title ("the only accountant") with a generic role, or leave the row out of the model file</li>
+  <li>Cut order numbers, case names and dates that pick out one incident</li>
+  <li>If a comment mentions health or a conflict with a named person, keep it for a human and out of the model</li>
+  <li>Do not upload the file to a consumer chat account whose training terms you have not read</li>
+</ul>
+
+There is no number in the Swiss Act that says "five answers make a group anonymous". Pages aimed at German firms often quote such cut-offs. They are not a Swiss rule. In a team of eight, even a careful theme can point at someone. If you cannot defend the claim of anonymity, do not make it. Say the comments are read in aggregated form, and that a phrase may still be recognisable.
+
+## Staff surveys and customer comments
+
+Staff comments sit inside an employment relationship. The employer may process data about suitability for the job, or data needed to carry out the contract ([OR Art. 328b](https://www.edoeb.admin.ch/de/datenbearbeitung-durch-den-arbeitgeber), as the EDÖB explains it). A mood survey is often wider than that. The same page notes that consent from someone in a subordinate role is rarely free, because refusing is costly. Do not treat "they clicked submit" as a signed permission to run the text through any tool.
+
+A customer comment is usually about a delivery, a bill or a visit. Clustering "late delivery" and "unclear invoice" is ordinary quality work, still personal data while the row can be tied to a customer. Use it to fix the process. Do not paste a quote into a sales meeting if the quote identifies the account, unless that account already knows you use their words that way.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Do not use staff free text to rank, discipline or single out a person. The sample is there to correct themes. It is not a hunting list. If a comment describes harm, a manager reads that row as a report, outside the cluster.</p>
+</aside>
+
+Tell people, before they write, what will happen: who sees themes, whether raw text is read, how long it is kept, and that a model is used to group wording. That is the practical side of the information duty. The exact wording for your case is a question for your data-protection adviser if the survey is sensitive or compulsory. This page is not that advice.
+
+## What the sample is for
+
+Take a slice, not a vibe. For a file of comments, read every row if there are fewer than about forty. Above that, read at least one in five, spread across the themes the model proposed, plus every row the model marked uncertain. You are looking for three failures:
+
+- Two problems were merged because they share a word. "Waiting" can be the phone queue or an unpaid invoice.
+- A theme was created from three angry lines and now looks like half the file.
+- A quote the model wants in the report still names a team, a place or a shift.
+
+Correct the theme list. Do not "fix" the originals to match the themes. Counts are counts of comments, not of customers, unless you know each person wrote once. Say so in the report.
+
+When the report is done, Art. 6 para. 4 says data are destroyed or anonymised once they are no longer required for the purpose. Keep the theme summary. Delete the identifiable export from the tool and from inboxes that only needed it for the exercise. If you need a few lines as evidence of a product fault, keep those lines in the case file, not the whole survey in a chat history.
+
+## Who should skip the model
+
+Skip it when you have a handful of comments and the same person will read them all anyway. Highlighting by hand is faster, and it avoids a copy of the file in a third system.
+
+Skip it when the survey promised strict anonymity and you cannot remove identifiers, because the only useful comments are the ones that name a site and a person. Either change what you promise next time, or read them in a closed room without a model.
+
+Do not cluster in order to write marketing lines from private complaints. The purpose people were told was a survey, not a slogan. If you later reply to a customer, that reply is a separate draft and a person sends it.
+
+## A made-up example: 120 comments after a busy month
+
+A made-up example: a service firm with 30 people, not a client. After a busy month they export 120 customer comments from a form. Columns in the raw sheet include name, postcode and the comment. The office copies only the comment column into a second sheet, then searches for surnames of staff and for town names that appear once. Eight rows mention a specific technician by name. Those eight stay with the owner and never enter the model. The rest are grouped. The model proposes six themes. The office lead reads 25 comments, five from each of the larger themes. "Rude on the phone" and "nobody called back" had been one theme. She splits them, because one is tone and one is a missed return call. The report to the Monday meeting has six themes, counts, and no quotations. The export in the AI tool is deleted the same week. The eight named rows are handled as individual follow-ups, not as a score.
+
+No time saving is claimed. The useful part is the split: aggregate themes for the meeting, named complaints as ordinary case work.
+
+## When the Prozess-Check fits
+
+The Prozess-Check fits when this export is a recurring manual task: a few times a year someone reads a long comment column and builds the same categories with a marker. In 60 minutes on Microsoft Teams we look at that task. You leave with a case, whether it is worth doing, a price range and a rough duration, written up briefly. The hour is CHF 99 by card and commits you to nothing. If nothing is worth automating, the fee is returned, as long as the appointment took place.
+
+Bring a blank export of the columns, not live comments. The offer is the [Prozess-Check](/prozess-check). What the hour is for is in [what the Prozess-Check is](/blog/what-the-process-check-is).
