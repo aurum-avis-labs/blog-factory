@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import { getReadingTime } from "@/lib/utils";
+import {
+  blogListingUrl,
+  getBrand,
+  liveSites,
+  siteLabel,
+  worldIdFromSite,
+} from "@/lib/brands";
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
@@ -12,8 +19,20 @@ interface Props {
 }
 
 const { post, brand, lang } = Astro.props;
+const brandConfig = getBrand(brand);
+const siteId = liveSites(brandConfig).length
+  ? worldIdFromSite(post.data.site)
+  : undefined;
+const backHref = blogListingUrl(brand, lang, siteId);
+const backLabel = siteId
+  ? siteLabel(brandConfig, siteId)
+  : lang === "de"
+    ? "Alle Beiträge"
+    : "All Articles";
 
 const readTime = getReadingTime(post.body || "");
+const headerColumn = "max-w-[42rem]";
+const column = "max-w-[42rem]";
 
 const formattedDate = post.data.pubDate.toLocaleDateString(
   lang === "en"
@@ -42,12 +61,14 @@ const category =
   title={`${post.data.title} | ${brand}`}
   description={post.data.description}
   brand={brand}
+  site={siteId}
+  lang={lang}
 >
   <article class="min-h-screen bg-background">
     <!-- Back Button -->
     <div class="container mx-auto px-4 pt-6">
       <a
-        href={`/${brand}/blog`}
+        href={backHref}
         class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group"
       >
         <span
@@ -55,12 +76,12 @@ const category =
         >
           <ArrowLeft className="w-4 h-4" />
         </span>
-        <span class="font-medium">All Articles</span>
+        <span class="font-medium">{backLabel}</span>
       </a>
     </div>
 
     <!-- Hero Section -->
-    <header class="container mx-auto px-4 pt-8 pb-12 max-w-4xl">
+    <header class:list={["container mx-auto px-4 pt-8 pb-12", headerColumn]}>
       {
         category && (
           <div class="mb-6">
@@ -90,7 +111,9 @@ const category =
                 <span class="text-sm font-semibold text-foreground">
                   {post.data.author}
                 </span>
-                <span class="text-xs text-muted-foreground">Author</span>
+                <span class="text-xs text-muted-foreground">
+                  {lang === "de" ? "Autor" : "Author"}
+                </span>
               </div>
             </div>
           )
@@ -136,7 +159,7 @@ const category =
     </header>
 
     <!-- Article Content -->
-    <main class="container mx-auto px-4 max-w-3xl">
+    <main class:list={["container mx-auto px-4", column]}>
       <div class="prose-editorial">
         <slot />
       </div>
@@ -145,7 +168,7 @@ const category =
     <!-- Tags -->
     {
       post.data.tags && post.data.tags.length > 0 && (
-        <div class="container mx-auto px-4 max-w-3xl mt-16">
+        <div class:list={["container mx-auto px-4 mt-16", column]}>
           <div class="flex flex-wrap items-center gap-3 pt-8 border-t border-border/50">
             {post.data.tags.map((tag: string) => (
               <span class="px-4 py-2 rounded-full text-sm font-medium bg-muted/50 text-muted-foreground">
@@ -158,7 +181,7 @@ const category =
     }
 
     <!-- Divider -->
-    <div class="container mx-auto px-4 max-w-3xl my-20">
+    <div class:list={["container mx-auto px-4 my-20", column]}>
       <div class="flex items-center justify-center gap-4">
         <div
           class="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent"

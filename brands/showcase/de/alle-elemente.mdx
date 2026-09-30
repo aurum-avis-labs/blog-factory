@@ -1,0 +1,221 @@
+---
+title: "Alle Elemente im Blog"
+description: "Musterkatalog der Bausteine, die ein Blogbeitrag setzen kann. Dazu zwei Vorschläge, die nur im Showcase laufen."
+pubDate: 2026-09-30
+author: "Showcase"
+tags: ["Muster", "Bausteine", "Layout"]
+funnelStage: "awareness"
+translationKey: "alle-elemente"
+relatedPosts: ["beispielartikel"]
+draft: false
+---
+
+<p class="blog-lede">Dieser Beitrag ist der Musterkatalog. Jedes Element steht einmal da, mit dem Satz, wofür es da ist. Ein normaler Beitrag nimmt davon ein oder zwei, wie der <a href="/showcase/blog/beispielartikel">Beispielartikel</a>.</p>
+
+Die heutigen Beiträge werden müde, weil fast jeder Einschub dieselbe graue Karte ist. Drei Fakten nebeneinander, darunter Schritte in Kästen, darunter eine Liste in Kästen. Die Zeile ist lang, der Abstand zwischen den Zeilen gross, und nach zwei Abschnitten sieht alles gleich wichtig aus.
+
+Lesbarer wird das mit einer engeren Spalte, etwa 60 bis 70 Zeichen, und mit Formen, die sich unterscheiden. Eine Zahl bleibt eine Zahl. Ein Ablauf ist eine Linie. Ein Vergleich sind zwei Spalten. Der Kasten bleibt der Stelle vorbehalten, die man nicht überlesen darf. Hero-Bilder lässt dieser Katalog weg. Die kommen aus dem Frontmatter, nicht aus dem Text.
+
+## Einstieg
+
+Der erste Absatz ist grösser als der Rest. Dafür trägt er die Klasse `blog-lede`. Ein oder zwei Sätze, die sagen, worum es geht. Danach normaler Text.
+
+Im Fliesstext bleiben **fett** für den einen Begriff, den man wiederfinden soll, und *kursiv* für einen Namen oder einen fremden Ausdruck. Ein [Link](/showcase/blog/beispielartikel) bleibt unterstrichen.
+
+### Eine Zwischenüberschrift
+
+H3 gliedert einen Abschnitt, wenn der H2 zu gross dafür wäre. H4 nur, wenn darunter noch eine Stufe nötig ist. In den meisten Beiträgen reicht H2.
+
+#### Noch eine Stufe
+
+So sieht H4 aus. Selten brauchen.
+
+## Listen
+
+Eine Aufzählung, wenn die Reihenfolge egal ist.
+
+- Den Betreff lesen, die Mail noch nicht öffnen
+- Den Punkt mit Datum zuerst aufschreiben
+- Die Agenda in zwei Sätzen
+
+Eine nummerierte Liste, wenn die Reihenfolge zählt, der Leser die Schritte aber nicht als Ablauf abhaken muss.
+
+1. Postfach zu
+2. Liste auf den Tisch
+3. Termin anschauen
+
+Für eine Folge, die jemand wirklich abarbeitet, die Schritte weiter unten. Nicht diese Liste.
+
+## Faktenleiste
+
+Drei oder vier harte Angaben. Eine Leiste mit gemeinsamer Linie, keine drei Kästen.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Mails</span><strong>46</strong><p>Ungelesen seit Freitag, 16:40.</p></li>
+  <li><span class="blog-kicker">Liste</span><strong>7 Punkte</strong><p>Zwei davon mit einem Datum.</p></li>
+  <li><span class="blog-kicker">Termin</span><strong>10:00</strong><p>25 Minuten, ohne Agenda.</p></li>
+</ul>
+
+## Eine Zahl
+
+Eine belegte Zahl, mit der Quelle im Satz daneben. Keine zweite und dritte Zahl im selben Block.
+
+<div class="blog-stat">
+  <strong>34%</strong>
+  <p>Anteil der KMU, die 2025 KI genutzt haben. Quelle im Beitrag nennen, nicht unsere Umfrage.</p>
+</div>
+
+## Schritte
+
+Eine Reihenfolge, die der Leser abarbeiten soll. Die Ziffer steht in `data-step` und bleibt mit der Reihenfolge gleich.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Die zwei datierten Punkte aufschreiben</h3><p>Name, Ergebnis, Datum. Ein Satz pro Punkt.</p></li>
+  <li data-step="2"><h3>Agenda in die Einladung</h3><p>Was entschieden werden soll. Und was heute nicht drankommt.</p></li>
+  <li data-step="3"><h3>Erst dann die Mails</h3><p>Nur die, die den Termin um zehn betreffen.</p></li>
+</ol>
+
+## Ablauf
+
+Drei bis fünf kurze Stationen eines Vorgangs. Pfeil heisst: das kommt danach. Kein Kasten pro Station.
+
+<ol class="blog-flow">
+  <li><strong>Liste</strong><p>Zwei Punkte mit Datum.</p></li>
+  <li><strong>Agenda</strong><p>Zwei Sätze in der Einladung.</p></li>
+  <li><strong>Mails</strong><p>Nur, was den Termin betrifft.</p></li>
+</ol>
+
+## Hinweis
+
+Der einzige Kasten. Für einen Satz, den man nicht überlesen darf. Das Wort am Anfang ist `Hinweis`, `Korrektur` oder `Grenze`.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Nach zwei Abschnitten kommt höchstens ein Kasten. Sonst ist er wieder eine Karte unter vielen.</p>
+</aside>
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Korrektur</span>
+  <p>Dieselbe Form wie der Hinweis. Nur das Wort wechselt, damit klar ist, dass eine ältere Angabe falsch war.</p>
+</aside>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Harte Einschränkung. Die Klasse <code>blog-callout--limit</code> setzt den Rahmen, das Wort trägt die Bedeutung auch ohne Farbe.</p>
+  <ul>
+    <li>Ein Punkt, der nicht verhandelbar ist</li>
+    <li>Kein zweiter Grenz-Kasten im selben Abschnitt</li>
+  </ul>
+</aside>
+
+## Zwei Seiten
+
+Zwei Spalten für ein Paar: vorher und nachher, dafür und lieber nicht, der übliche Weg und dieser Weg.
+
+<div class="blog-pair">
+  <div>
+    <h3>Vor zehn Uhr</h3>
+    <ul>
+      <li>Die zwei Punkte mit Datum</li>
+      <li>Zwei Sätze Agenda</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Nach dem Termin</h3>
+    <ul>
+      <li>Die restlichen Mails</li>
+      <li>Punkte ohne Datum</li>
+    </ul>
+  </div>
+</div>
+
+## Zum Abhaken
+
+Dinge, die der Leser am selben Tag tun kann. Kurze Zeilen, ein Haken, eine Linie.
+
+<ul class="blog-checklist">
+  <li>Donnerstag: Offerte an die Meier AG schicken</li>
+  <li>Lagerbestand für die Bestellung vom 3. prüfen</li>
+  <li>Agenda in die Einladung von 10:00</li>
+</ul>
+
+## Fälle
+
+Höchstens drei Situationen. Überschrift sagt, wer gemeint ist. Darunter der eine Satz, was dann zu tun ist.
+
+<ul class="blog-scenarios">
+  <li><h3>Jemand ruft um 8:30 an</h3><p>Den Anruf notieren. Die zwei Punkte trotzdem zu Ende schreiben.</p></li>
+  <li><h3>Der Termin fällt aus</h3><p>Die Agenda bleibt stehen. Die Mails sind der nächste Block.</p></li>
+  <li><h3>Die Liste hat kein einziges Datum</h3><p>Dann ist es noch keine Liste. Zuerst einen Punkt mit Namen und Tag versehen.</p></li>
+</ul>
+
+## Tabelle
+
+Dieselben Spalten für jede Zeile. Gut, wenn man Werte vergleichen will, die sonst drei Absätze bräuchten.
+
+| | Sitzplatz | Minuten | Einmal |
+| --- | --- | --- | --- |
+| Rechnung | pro Person | pro Gespräch | einmal im Store |
+| Passt | ein Team | viel Telefon | eine Person |
+
+## Zitat
+
+Ein Satz, der als Zitat herausgezogen wird. Im Markdown eine Zeile mit `>`.
+
+> Ohne Namen ist der Punkt vom Freitag am Montag wieder offen.
+
+## Merksatz
+
+Vorschlag, nur im Showcase. Ein eigener Satz aus dem Beitrag, gross gesetzt, ohne Anführungszeichen und ohne Kasten. Höchstens einer pro Beitrag. Klasse `blog-pull` auf dem Absatz.
+
+<p class="blog-pull">Zuerst die zwei Punkte mit Datum. Die Mails warten.</p>
+
+## Begriffe
+
+Vorschlag, nur im Showcase. Kurze Definitionen, Begriff links, Satz rechts. Klasse `blog-terms`. Auf den Markenseiten fällt das ohne Stylesheet auf eine normale Liste zurück.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Sitzplatz</dt>
+    <dd>Du zahlst für eine Person, die sich anmelden kann.</dd>
+  </div>
+  <div>
+    <dt>Minuten</dt>
+    <dd>Das Gespräch zehrt am Kontingent, nicht an der Monatspauschale.</dd>
+  </div>
+  <div>
+    <dt>Einmal</dt>
+    <dd>Kauf im Store. Keine Verlängerung für das Programm selbst.</dd>
+  </div>
+</dl>
+
+## Fragen
+
+Eine Frage, die jemand so in die Suche tippt. Die Antwort im ersten Satz. Die Frage ist eine H3.
+
+<div class="blog-faq">
+  <h3>Muss die Liste neu geschrieben werden?</h3>
+  <p>Nur die zwei Punkte mit Datum. Der Rest bleibt, wo er ist.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Was ist mit Mails, die dringend klingen?</h3>
+  <p>Den Betreff lesen. Betrifft die Mail den Termin, kommt sie in die Agenda. Der Rest wartet bis danach.</p>
+</div>
+
+## Code
+
+Ein kurzes Fragment, wenn der Beitrag wirklich einen Befehl oder ein Feld zeigt. Für normalen Fliesstext reicht ein Wort im Satz, zum Beispiel `draft: false`.
+
+```
+pubDate: 2026-09-30
+funnelStage: awareness
+```
+
+## Pause
+
+Eine Linie trennt zwei Teile, die nicht unter dieselbe Überschrift gehören. Einmal, nicht nach jedem Abschnitt.
+
+<hr />
+
+Der [Beispielartikel](/showcase/blog/beispielartikel) nimmt davon zwei Bausteine. Mehr wäre für einen normalen Beitrag zu viel.

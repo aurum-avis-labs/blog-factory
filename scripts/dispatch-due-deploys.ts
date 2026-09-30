@@ -227,6 +227,11 @@ async function main(): Promise<void> {
   let failed = false;
 
   for (const brand of brands) {
+    if (brand.previewOnly) {
+      console.log(`  ${brand.displayName}: preview only, not dispatched.`);
+      continue;
+    }
+
     if (brand.id === "citysage") {
       console.log(`  ${brand.displayName}: CitySage ships from a release tag and is not dispatched.`);
       continue;

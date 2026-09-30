@@ -162,8 +162,12 @@ for (const brandDir of brandDirs) {
   const brandId = brandDir.name;
   const brandPath = path.join(BRANDS_ROOT, brandId);
 
-  if (!brandHasBinaryImages(brandPath)) {
-    console.warn(`[sync] Skipping ${brandId}: no binary images under brands/${brandId}/images`);
+  const hasPosts = fs.readdirSync(brandPath, { withFileTypes: true }).some(
+    (entry) => entry.isDirectory() && entry.name !== "images" && !entry.name.startsWith(".")
+  );
+
+  if (!brandHasBinaryImages(brandPath) && !hasPosts) {
+    console.warn(`[sync] Skipping ${brandId}: no posts and no images`);
     continue;
   }
 

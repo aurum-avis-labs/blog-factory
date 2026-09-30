@@ -49,6 +49,11 @@ const targetBrands = brandIds.map((id) => {
 console.log(`Dispatching to ${targetBrands.length} brand(s)${dryRun ? " (DRY RUN)" : ""}:\n`);
 
 for (const brand of targetBrands) {
+  if (brand.previewOnly) {
+    console.log(`  ${brand.displayName}: preview only, not dispatched.`);
+    continue;
+  }
+
   const [owner, repo] = brand.repo.split("/");
   const url = `https://api.github.com/repos/${owner}/${repo}/dispatches`;
 

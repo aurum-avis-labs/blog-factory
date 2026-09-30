@@ -1,18 +1,22 @@
 ---
 import "@/styles/global.css";
+import "@/styles/blog-reading.css";
 import BrandSwitcher from "@/components/BrandSwitcher.astro";
 
 interface Props {
   title: string;
   description?: string;
   brand?: string;
+  /** Aurum blog id, when the page belongs to one world. */
+  site?: string;
+  lang?: string;
 }
 
-const { title, description = "Blog Factory Preview", brand } = Astro.props;
+const { title, description = "Blog Factory Preview", brand, site, lang = "en" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,8 +24,8 @@ const { title, description = "Blog Factory Preview", brand } = Astro.props;
     <meta name="description" content={description} />
     <meta name="robots" content="noindex, nofollow" />
   </head>
-  <body class="min-h-screen bg-background text-foreground">
-    <BrandSwitcher currentBrand={brand} />
+  <body class="min-h-screen bg-background text-foreground" data-brand={brand}>
+    <BrandSwitcher currentBrand={brand} currentSite={site} />
     <slot />
   </body>
 </html>

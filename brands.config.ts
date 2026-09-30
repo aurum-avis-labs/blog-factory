@@ -16,12 +16,16 @@ export interface BrandConfig {
   languages: string[];
   /** Default language (determines URL prefix behavior) */
   defaultLanguage: string;
+  /** Preview-only brand. Dispatch scripts skip it. */
+  previewOnly?: boolean;
   /**
    * Worlds on one marketing host. Landing pages route posts by frontmatter `site`.
    * Planned worlds are registered, not built.
    */
   sites?: Array<{
     id: string;
+    /** Short name in the preview site switcher */
+    label: string;
     path: string;
     blog: string;
     status: "live" | "planned";
@@ -37,10 +41,11 @@ export const brands: BrandConfig[] = [
     languages: ["en", "de"],
     defaultLanguage: "en",
     sites: [
-      { id: "studio", path: "/", blog: "/blog", status: "live" },
-      { id: "prozess-check", path: "/prozess-check", blog: "/prozess-check/blog", status: "live" },
-      { id: "workshops", path: "/workshops", blog: "/workshops/blog", status: "planned" },
-      { id: "security", path: "/security", blog: "/security/blog", status: "live" },
+      { id: "studio", label: "Studio", path: "/", blog: "/blog", status: "live" },
+      { id: "prozess-check", label: "Prozess-Check", path: "/prozess-check", blog: "/prozess-check/blog", status: "live" },
+      { id: "workshops", label: "Workshops", path: "/workshops", blog: "/workshops/blog", status: "live" },
+      { id: "security", label: "Security", path: "/security", blog: "/security/blog", status: "live" },
+      { id: "web3", label: "Web3", path: "/web3", blog: "/web3/blog", status: "live" },
     ],
   },
   {
@@ -106,5 +111,14 @@ export const brands: BrandConfig[] = [
     domain: "https://www.vemoir.ch",
     languages: ["en", "de", "fr", "it"],
     defaultLanguage: "en",
+  },
+  {
+    id: "showcase",
+    displayName: "Showcase",
+    repo: "preview-only/showcase",
+    domain: "Nur im Preview",
+    languages: ["de"],
+    defaultLanguage: "de",
+    previewOnly: true,
   },
 ];

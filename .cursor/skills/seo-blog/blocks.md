@@ -19,8 +19,13 @@ The page still makes sense if the stylesheet is missing: the text stays, the lay
 | Table | A comparison with the same rows for each option |
 | Quote | A short line worth pulling out. Use a markdown blockquote |
 | FAQ | A question a searcher actually asks, with a direct answer |
+| Opening | The first paragraph only. Larger type, one or two sentences |
+| Pull | One sentence from this article, set larger. At most one per article |
+| Terms | Short definitions: the word, then one sentence |
 
-Most posts need one or two blocks. A comparison can have a table plus a pair. Do not wrap every heading.
+Most posts need one or two blocks in the body. A comparison can have a table plus a pair. An FAQ at the end is normal when the questions are real searches, and it does not license a block under every heading. The Showcase brand (`brands/showcase`) is the specimen of every block. It is not a template for a normal article.
+
+Opening, pull, and terms are styled in the Showcase preview. On brand sites they read as ordinary text until that stylesheet is copied over. Do not invent further classes.
 
 ## Markup
 
@@ -139,6 +144,39 @@ Render the question and answer in full. The question is an `h3`, so it stays in 
 ```
 
 A brand context may instead require a localized H2 (`Frequently asked questions`, `Häufige Fragen`, `Questions fréquentes`, `Domande frequenti`) and each question as a markdown `###`. That form is also read as FAQ schema. Do not mix both in one article.
+
+### Opening
+
+The first paragraph of the article, before the first H2. One or two sentences that answer the query. Not a second deck under the title.
+
+```html
+<p class="blog-lede">Fathom needs a meeting link. It does not record a room.</p>
+```
+
+### Pull
+
+One sentence already earned by the article, set larger so the eye can rest. At most one. It is the writer's sentence, not a quotation, so do not also use a markdown blockquote in the same article.
+
+```html
+<p class="blog-pull">A room does not have a meeting link.</p>
+```
+
+### Terms
+
+Three or four words a reader might mix up. The term is short. The definition is one sentence.
+
+```html
+<dl class="blog-terms">
+  <div>
+    <dt>Seat</dt>
+    <dd>You pay for a person who can log in.</dd>
+  </div>
+  <div>
+    <dt>Minutes</dt>
+    <dd>The call spends the pool, not the monthly price.</dd>
+  </div>
+</dl>
+```
 
 ## Rules
 
