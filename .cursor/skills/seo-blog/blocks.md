@@ -1,6 +1,6 @@
 # Editorial blocks
 
-Use these HTML blocks inside MDX instead of extra photos. Pick one or two per article. Do not invent a new class.
+Use these HTML blocks inside MDX instead of extra photos. Budget: one or two blocks per article, three only when each carries a different job, at most one FAQ section. More blocks is a smell, not thoroughness. Do not invent a new class.
 
 The page still makes sense if the stylesheet is missing: the text stays, the layout just gets flatter.
 
@@ -143,7 +143,7 @@ Render the question and answer in full. The question is an `h3`, so it stays in 
 </div>
 ```
 
-A brand context may instead require a localized H2 (`Frequently asked questions`, `Häufige Fragen`, `Questions fréquentes`, `Domande frequenti`) and each question as a markdown `###`. That form is also read as FAQ schema. Do not mix both in one article.
+A brand context may instead require a localized H2 (`Frequently asked questions`, `Häufige Fragen`, `Questions fréquentes`, `Domande frequenti`) and each question as a markdown `###`. That form is also read as FAQ schema. Do not mix both in one article, and keep the same form in every locale. When the `div.blog-faq` form is used, the div still sits under its own localized FAQ H2.
 
 ### Opening
 

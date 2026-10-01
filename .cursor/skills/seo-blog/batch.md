@@ -47,6 +47,7 @@ The type says what the page must do. Research that query, then write it.
 5. `draft: true` on every new file.
 6. Open a PR that contains that wave only. Say what was verified (competitor pages, sources) and what was not. List any file that does not finish its query; those files are not done.
 7. Leave the rest of the batch as rows.
+8. Run [qa.md](qa.md) on the wave. A wave is not ready to schedule until the gate passes on every locale.
 
 When you audit posts that already exist, a URL that does not finish its query is a fail. Expand every language of that `translationKey`. Do not leave a locale because the blocks or images already look fine.
 
@@ -54,8 +55,11 @@ When you audit posts that already exist, a URL that does not finish its query is
 
 Only after the user accepts the wave:
 
+- run the [qa.md](qa.md) gate on every file and fix what it reports
 - set `draft: false`
 - set `pubDate` values about 2–3 days apart, not all on today
 - merge, or leave the dates for `scheduled-publish.yml` (`scripts/dispatch-due-deploys.ts` skips drafts and future dates)
+
+Schedules are per `site`: worlds on one host keep separate calendars. Two sections may publish on the same date; inside one section keep one article per date. A new section's schedule may start as soon as its posts pass the gate, even while another section is still running.
 
 Do not dump a finished batch onto `main` with today's date.

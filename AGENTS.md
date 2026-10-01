@@ -8,7 +8,7 @@ Blog writing, SEO batches, translations, and images are handled by the project s
 
 `.cursor/skills/seo-blog/SKILL.md`
 
-Read that skill before drafting or queuing posts. Brand strategy stays in `context/{brand}/` and overrides the skill when they conflict.
+Read that skill before drafting or queuing posts. The pre-publish gate is `.cursor/skills/seo-blog/qa.md`; a wave does not go to `draft: false` before it passes. Brand strategy stays in `context/{brand}/` and overrides the skill when they conflict.
 
 ## Contract
 

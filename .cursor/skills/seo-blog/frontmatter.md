@@ -24,17 +24,17 @@ draft: true
 | `pubDate` | `YYYY-MM-DD`. Stagger waves. Do not bump the date without a real update. |
 | `updatedDate` | Optional. Add only when the body materially changes. |
 | `author` | Reuse the byline already used on that brand (`Postology Team`, `Aurum Avis Labs`, `Inklets Team`). Do not invent a person. |
-| `tags` | 3–5. Topic labels, not synonyms of the title. |
+| `tags` | 3–5 topic labels, not synonyms of the title (Vemoir: 2–4; its first tag is the category). |
 | `funnelStage` | Exactly `awareness`, `interest`, or `consideration`. Same on every locale. |
 | `translationKey` | English slug, shared by every locale. If the brand has no English, use the default-language slug. |
-| `relatedPosts` | 1–3 slugs that exist in **this language**. Same or higher intent: `awareness` < `interest` < `consideration`. `interest` never links to `awareness`. `consideration` links to `consideration`, or to `interest` only when no other `consideration` post exists in that language. `[]` only when that language has no eligible peer yet. |
+| `relatedPosts` | 1–3 slugs that exist in **this language**. Same or higher intent: `awareness` < `interest` < `consideration`. `interest` never links to `awareness`. `consideration` links to `consideration`, or to `interest` only when no other `consideration` post exists in that language. `[]` only when that language has no eligible peer yet. Verify each slug as a file on disk before finishing. |
 | `image` | `@/assets/blog/{translationKey}/hero.jpg`. Omit the line when there is no hero. Every locale points at the same file. |
 | `draft` | `true` until this wave is approved to schedule. |
-| `site` | Aurum only. `studio`, `prozess-check`, or `security`. Same value on every locale. `workshops` is reserved and not used yet. Security posts use `security`. |
+| `site` | Aurum only. Match the `sites` list in `brands.config.ts` (`studio`, `prozess-check`, `security`, `web3`, `workshops`). Posts use the section they belong to; security posts use `security`. Same value on every locale. |
 
 `funnelStage` maps to the landing-page funnel: `awareness` (top), `interest` (middle), `consideration` (bottom). No other values.
 
-Brand context may require extra fields. Vemoir posts include `tool:` after `draft`. Add those fields. Do not invent new ones.
+Brand context may require one extra field. Vemoir posts include `tool:` after `relatedPosts`, in the brand's order. Add it where the brand uses it. Do not invent new fields or reorder existing ones.
 
 ## Body images
 

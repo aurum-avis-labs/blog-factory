@@ -31,7 +31,8 @@ You write SEO blog content. Brainstorm the queries, keywords, and topics a speci
 3. **Write one wave** (8–12 articles). Finish every language in `brands.config.ts` for each article before the next article.
 4. **English first** when `en` is a brand language. `translationKey` is the English slug. Other locales get a localized slug, the same `funnelStage`, the same `translationKey`, and `relatedPosts` in that language.
 5. **One hero per article**, shared by every locale. No inline photos. Follow [images.md](images.md). Use a block from [blocks.md](blocks.md) where a limit, sequence, or comparison would otherwise need a picture.
-6. **Stop after the wave.** Leave later rows unwritten. Open a PR. Do not push `main` unless the user asks.
+6. **Run the gate.** Before any file gets `draft: false`, or leaves the wave ready to schedule, run [qa.md](qa.md) on every locale and fix what it reports.
+7. **Stop after the wave.** Leave later rows unwritten. Open a PR. Do not push `main` unless the user asks. Leave a short retro (see [qa.md](qa.md)) for the next batch.
 
 ## Each article
 
@@ -39,17 +40,17 @@ You write SEO blog content. Brainstorm the queries, keywords, and topics a speci
 - Answer the query in the opening. Later sections add the next questions a searcher actually has (limits, cost, who should skip, how it differs).
 - Research the query and the questions around it, then write the article. A page that only names the query is not done. A locale that only swaps the keyword is not done.
 - 3–5 secondary phrases, used where they belong. No stuffing.
-- 1–3 `relatedPosts` in the same language, same or higher funnel. Also link one of them in the body with the path pattern that brand already uses (`/blog/...` or `/{lang}/blog/...`).
+- 1–3 `relatedPosts` in the same language, same or higher funnel; verify each slug exists as a file in that language. Also link one of them in the body with the path pattern that brand already uses (`/blog/...` or `/{lang}/blog/...`). Body links point only at posts that are already live when this post publishes; `relatedPosts` may point forward.
 - CTA only to a URL that already exists in that brand's context. Awareness stays light. Consideration can name the product and say when not to use it.
 - Comparisons name who each option is for and who should skip it. Prices and feature claims come from the vendor page at write time. If you cannot verify a number, omit it.
-- Stats that are not yours get a source link and are labeled as someone else's measurement.
+- Stats that are not yours get a source link and are labeled as someone else's measurement. No meta commentary in the body: no writer notes, no remarks about the search results or the article itself.
 - Voice: calm, specific, no hype, no exclamation marks in body copy, no em dash (U+2014). Short paragraphs. Headings start at H2. No `---` in the body.
-- Prefer a block from [blocks.md](blocks.md) over a decorative photo. Most posts need one or two blocks in the body, not the whole set. The Showcase brand is the specimen, not the pattern to copy.
+- Prefer a block from [blocks.md](blocks.md) over a decorative photo. One or two blocks per post is the norm, three only when each carries a different job, and at most one FAQ section under its own localized H2. The Showcase brand is the specimen, not the pattern to copy.
 - Locale voice comes from the brand file (for Aurum German, de-CH: ss, not ß).
 
 ## Ship shape
 
-New wave files use `draft: true` unless the user says this wave is ready to schedule. When they are ready, stagger `pubDate` about 2–3 days apart in `Europe/Zurich`. `draft: false` plus a due `pubDate` is what `scripts/dispatch-due-deploys.ts` sends live. Pushing `main` can also trigger `auto-publish.yml`. Never edit `.github/`.
+New wave files use `draft: true` unless the user says this wave is ready to schedule. When they are ready, run [qa.md](qa.md), then stagger `pubDate` in `Europe/Zurich` (2–3 days apart by default; a researched cluster of distinct queries may run weekdays). Schedules are per `site`: worlds on one host keep separate calendars, two sections may publish on the same date, and one section keeps one article per date. `draft: false` plus a due `pubDate` is what `scripts/dispatch-due-deploys.ts` sends live. Pushing `main` can also trigger `auto-publish.yml`. Never edit `.github/`.
 
 ## Hard stops
 

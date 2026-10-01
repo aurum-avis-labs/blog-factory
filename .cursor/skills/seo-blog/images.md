@@ -49,7 +49,7 @@ python3 scripts/fetch-unsplash-images.py --jobs scripts/unsplash-jobs-{brand}.js
 ]
 ```
 
-`slug` is the `translationKey`. Copy `attributionHtml` from `sources.json` into each locale under the hero, or omit it when the hero is Higgsfield.
+`slug` is the `translationKey`. Copy `attributionHtml` from `sources.json` into each locale under the hero, or omit it when the hero is Higgsfield. Put the credit after the lede (before the first H2), translated, not at the end of the article.
 
 ## Higgsfield
 
