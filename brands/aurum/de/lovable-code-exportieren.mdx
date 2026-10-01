@@ -1,0 +1,83 @@
+---
+title: "Lovable Code exportieren und produktiv betreiben"
+description: "Lovable Code exportieren: GitHub-Sync, Supabase behalten, Secrets und RLS prüfen, ausserhalb von Lovable deployen. Was Export nicht leistet."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["lovable", "export", "supabase", "github", "produktion"]
+funnelStage: consideration
+translationKey: move-a-lovable-app-to-production-code
+relatedPosts: ["technische-due-diligence-startup", "fake-door-test-oder-mvp"]
+draft: true
+site: studio
+---
+
+## Lovable Code exportieren
+
+Lovable Code exportieren heisst, das generierte Frontend in ein Repository zu bringen, das Sie kontrollieren, das Supabase-Projekt mit Auth und Daten klar zuzuordnen, Geheimnisse aus dem Browser zu entfernen, Row-Level-Security unter Missbrauch zu prüfen und die App auf Hosting zu betreiben, das nicht an den Lovable-Editor gebunden ist. Der übliche Weg ist die GitHub-Anbindung; ein einmaliger ZIP-Download ist auf bezahlten Plänen möglich, wenn Sie nur einen Snapshot brauchen. Das ersetzt keine Sicherheitsprüfung und keinen späteren Neuaufbau auf einem Stack, den Ihre Beschaffung verlangt. Der Text richtet sich an Gründerinnen, Gründer und Innovationsverantwortliche, die einen Ablauf in Lovable bereits getestet haben und jetzt zahlenden Nutzenden oder einem Pilotvertrag mehr schulden als einen geteilten Vorschau-Link.
+
+Wenn noch offen ist, ob die Idee einen Build verdient, bleiben Sie bei [Fake-Door-Test oder MVP](/de/blog/fake-door-test-oder-mvp). Wenn Investoren oder eine Konzernkundschaft das Repository öffnen, planen Sie nach den Schritten unten eine technische Due Diligence für ein KI-gebautes MVP.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>GitHub verbinden, bevor zwei Wahrheiten existieren</h3><p>In Lovable unter Einstellungen → Integrationen → GitHub die App autorisieren und das Projekt verknüpfen. Lovable legt ein Repository an und synchronisiert den Default-Branch in beide Richtungen. Ein bestehendes GitHub-Repo können Sie nicht in Lovable importieren; ab hier gilt der geklonte Stand als Referenz.</p></li>
+  <li data-step="2"><h3>Lokal klonen und starten</h3><p>Repository klonen, Abhängigkeiten installieren, Umgebungsvariablen aus Supabase in eine lokale <code>.env</code> legen, die nicht eingecheckt wird. Läuft die App nur im Lovable-Editor, beheben Sie das vor dem Pilotversprechen.</p></li>
+  <li data-step="3"><h3>Supabase inventarisieren</h3><p>Region, Auth-Provider, Tabellen, Storage, Edge Functions und jede Row-Level-Policy notieren. Zürich (eu-central-2) ist wählbar, wenn Sie sie bei der Erstellung gesetzt haben. Die Datenbank liegt nicht im Git-Export; Eigentum und Abrechnung bleiben im Supabase-Dashboard, bis Sie migrieren.</p></li>
+  <li data-step="4"><h3>Geheimnisse aus dem Client entfernen</h3><p>Im Repo nach API-Keys, Service-Role-Keys und Webhook-Tokens suchen. Alles mit Admin-Rechten gehört auf einen Server, den Sie betreiben, nicht in das Browser-Bundle. Der Anon-Key ist absichtlich öffentlich; Policies müssen festlegen, wer welche Zeilen sieht.</p></li>
+  <li data-step="5"><h3>Autorisierung testen, nicht nur den Happy Path</h3><p>Versuche skripten: fremde Zeilen mit normaler Session, ohne Session, mit manipulierter User-ID lesen. Fehlende oder kosmetische Row-Level-Security ist bei Lovable-ähnlichen Stacks öffentlich dokumentiert; behandeln Sie Policies wie Produktionscode.</p></li>
+  <li data-step="6"><h3>Ausserhalb von Lovable deployen</h3><p>Statischen oder Serverless-Host an das Build hängen, Produktionsvariablen setzen, eigene Domain verbinden und Kunden-Traffic nicht mehr über den Lovable-Publish-Knopf leiten. Branch-Regeln festlegen, damit Editor-Änderungen gehärtete Arbeit nicht ohne Review überschreiben.</p></li>
+</ol>
+
+## Was Export wirklich liefert
+
+Export liefert React-ähnlichen Quellcode, Versionshistorie und die Freiheit für CI, Pull Requests und externes Hosting. Laut Lovable-Dokumentation ist Git-Sync auf allen Plänen möglich; der vollständige ZIP-Download des Baums gehört zu den bezahlten Optionen.
+
+Export liefert kein zweites Backend, keine automatisierten Tests, keine sauberen Modulgrenzen und keinen Beweis, dass Fremde einander keine Daten lesen. Supabase wandert nicht mit: Sie bleiben im gleichen Projekt angemeldet oder führen eine Migration mit Ausfallfenster und Datenabgleich durch.
+
+<div class="blog-pair">
+  <div>
+    <h3>Beim exportierten Stack bleiben, wenn</h3>
+    <ul>
+      <li>Das Produkt eine schlanke Web-App über Supabase mit wenig eigener Logik bleibt</li>
+      <li>Jemand wöchentlich React und SQL-Policies pflegen kann</li>
+      <li>Beschaffung Supabase und den gewählten Host akzeptiert</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Neuaufbau planen, wenn</h3>
+    <ul>
+      <li>Sie eine eigene API-Schicht, komplexe Workflows oder On-Prem-Regeln brauchen</li>
+      <li>Generierte Dateien unter Zeitdruck nicht reviewbar sind</li>
+      <li>Die nächste Phase Store-Freigabe mit striktem Offline-Verhalten ist</li>
+    </ul>
+  </div>
+</div>
+
+## Was produktiver Betrieb nicht beweist
+
+Ein GitHub-Repo und eine eigene Domain zeigen, dass Sie den Editor verlassen können. Sie beweisen nicht Last bei höherem Traffic, Monitoring bei einem Nachtausfall oder eine bestandene Security-Fragebogen. Sie ersetzen keine Retention-Daten und keinen unterschriebenen Pilot.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Export ist ein Übergabe-Schritt, kein Zertifikat. Wenn Sie die Anmeldung für das offene Internet öffnen, während Row-Level-Security noch «was Lovable vorgeschlagen hat» ist, tragen Sie dasselbe Risiko wie zuvor, nur mit Ihrem Logo in der URL.</p>
+</aside>
+
+Die sechs Produktionsfragen in [Ist Ihre vibe-codierte App produktionsreif](/de/blog/ist-deine-vibe-coded-app-produktionsreif) gelten nach dem Export weiter. Nutzen Sie sie, bevor Sie den Zugang erweitern.
+
+## Ein erfundenes Beispiel: von der Vorschau zum Pilot-Host
+
+Ein erfundenes Beispiel: Ein Zwei-Personen-Team in der Ostschweiz hat in Lovable Bestellentwürfe für Lieferanten gebaut, die Caterer von Messen kennen. Sechs Köche testeten; einer kam ohne Erinnerung zurück. Eine grössere Firma will einen bezahlten Pilot, wenn die App auf einer Subdomain der Firma läuft und ein kurzes Security-Memo existiert. Am Montag verbinden sie GitHub und klonen das Repo. Am Dienstag finden sie einen Service-Role-Key in einer eingecheckten <code>.env.example</code> und rotieren Schlüssel in Supabase. Am Mittwoch schreiben sie drei Row-Level-Tests und stellen fest, dass Entwürfe kontenübergreifend lesbar waren; sie korrigieren Policies vor dem Donnerstag-Deploy auf einen statischen Host. Am Freitag läuft der Pilot auf der neuen URL; Lovable bleibt für Versuche auf einem Branch verbunden, nicht für Produktions-Traffic. Vor weiterer Anmeldung buchen sie eine strukturierte Prüfung.
+
+## Wer den Export nicht hetzen sollte
+
+Weniger als zehn ernsthafte Sessions und kein Rückkehr-Signal: Export lenkt ab. Geht es nur um eine Folie für den Verwaltungsrat, reicht oft eine Aufzeichnung der Lovable-Vorschau, bis Verhaltensdaten da sind.
+
+Teams ohne jemanden, der TypeScript und SQL lesen kann, sollten «wir haben GitHub» nicht mit «wir können das betreiben» gleichsetzen. Skill einstellen, Review kaufen oder Neuaufbau einplanen.
+
+## Wann ein Vibe Code Review passt
+
+Ein [Vibe Code Review](/de/services/vibe-code-review) passt, wenn Sie bereits exportiert haben oder kurz vor dem Umschalten des Traffics auf den eigenen Host stehen und vor skaliertem Geld oder Kundendaten eine neutrale Einschätzung brauchen. Sie erhalten eine Gap-Analyse gegen OWASP ASVS v5.0, acht fokussierte Stunden zu Architektur und Codequalität, eine priorisierte P0/P1/P2-Massnahmenliste, ein Abschlussgespräch und eine NDA.
+
+Buchen sollten Sie, wenn der Pilotvertrag Security erwähnt, wenn Investoren eine Due-Diligence-Liste senden oder wenn klar ist, dass das generierte Repo das Asset für das nächste Jahr ist.
+
+Nicht buchen sollten Sie, wenn noch kein Nutzender den Kernjob einmal zu Ende geklickt hat, oder wenn Sie erwarten, dass jemand das Produkt weiterhin in Lovable für Sie neu schreibt. Aurum baut Kunden-Validierungspakete nicht mit Lovable oder Supabase; wenn die Entscheidung ein Produktions-Stack auf Azure mit React und NestJS ist, ist das ein anderes Mandat als die Prüfung eines bestehenden Repos.
+
+Wenn unklar ist, ob Export oder Neuaufbau zuerst kommt, beschreiben Sie auf der Kontaktseite zum [Vibe Code Review](/de/services/vibe-code-review) das Pilotdatum und was noch in Lovable gehostet ist. Nicht buchen: Gründerinnen und Gründer, die noch zwischen Fake-Door und erstem Build wählen, oder Teams, die ein Angebot für ein Greenfield-Produkt ohne Repository zur Prüfung wollen.

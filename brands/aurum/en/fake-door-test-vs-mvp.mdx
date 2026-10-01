@@ -1,0 +1,107 @@
+---
+title: "Fake door test vs real MVP: demand or behaviour?"
+description: "Fake door test vs real MVP: a fake door measures demand and intent; a real MVP measures behaviour. When each fits, and what neither proves."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["fake door test", "mvp", "product validation", "startup"]
+funnelStage: consideration
+translationKey: fake-door-test-vs-mvp
+relatedPosts: ["mvp-brief-template", "move-a-lovable-app-to-production-code"]
+draft: true
+site: studio
+---
+
+## Fake door test vs real MVP
+
+A **fake door test vs real MVP** is not a contest between clever and serious. A fake door measures **demand signal**: whether strangers click, sign up, or ask for something you have not built yet. A real MVP measures **behaviour**: whether people return, complete the core job, and act in ways that survive friction. If you shipped a Lovable or Bolt screen with a button that does nothing, you ran a fake door inside a product shell. If users can log in and finish one valuable loop on deployed infrastructure, you are in MVP territory. The mistake is to treat the first as proof of the second.
+
+This is for founders who already vibe-coded a landing page, a waitlist, or a clickable prototype and now wonder whether the numbers justify a production build. The split matters for budget and for what you tell investors. Why we still insist on production quality when behaviour is the question is in [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps). That article is about measurement integrity; this one is about **which experiment you should run next**.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Fake door test</dt>
+    <dd>A surface that promises an outcome you have not delivered yet, used to measure intent before you build.</dd>
+  </div>
+  <div>
+    <dt>Smoke test</dt>
+    <dd>Often a landing page plus acquisition; overlaps with a fake door when the CTA does not ship the product.</dd>
+  </div>
+  <div>
+    <dt>Real MVP</dt>
+    <dd>A deployed product with a narrow scope where users can complete the core path, not a mockup with a fake button.</dd>
+  </div>
+</dl>
+
+## Fake door test vs real MVP: what each one answers
+
+| Question | Fake door | Real MVP |
+| --- | --- | --- |
+| Is there curiosity in this segment? | Yes, if traffic is honest | Partly, if people reach the product |
+| Will they take a low-cost action (email, click)? | Yes | Only if onboarding works |
+| Will they come back and finish the job? | No | Yes, that is the point |
+| Does your pricing model hold? | Rarely | Sometimes, if payment is in scope |
+| Can you blame the tool if they bounce? | Often | Less often |
+
+A fake door is the right tool when the riskiest assumption is **top-of-funnel**: the wording, the segment, or whether anyone cares at all. You keep build time near zero and you accept that you learn nothing about retention, depth of use, or operational cost.
+
+A real MVP is the right tool when the riskiest assumption is **behaviour inside the product**: onboarding, habit, completion of a workflow, or willingness to pay after they have seen value. That requires something people can use more than once, on infrastructure you trust enough to read analytics.
+
+<p class="blog-pull">Signups measure interest. Sessions measure whether the idea survives contact with reality.</p>
+
+## What a fake door can prove, and what it cannot
+
+Strong fake-door outcomes look like repeated clicks or signups from **strangers** who match your segment, not friends filling a form to be kind. You learn that the headline and channel reached someone who recognised the problem.
+
+Weak outcomes are easy to misread: a spike from one post, a waitlist where nobody answers a follow-up email, or a high click rate on a button that promises something you cannot legally or operationally deliver. Those are demand **signals**, not contracts.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>A fake door does not prove product-market fit, pricing power, or that you can operate the service at margin. It does not show whether a no-code or vibe-coded shell will survive real load. Stop treating waitlist size as behaviour.</p>
+</aside>
+
+## What a real MVP adds, and what it still does not prove
+
+A real MVP adds **observable usage**: where people drop off, whether they return without a reminder, whether the core job completes in one session or needs support. In our internal Holist-IQ build, signups and paid clicks were encouraging; the harder read was whether sessions lasted long enough to model anything and whether anyone bought credits. Interest and behaviour pointed in different directions.
+
+Even a solid MVP leaves gaps. It does not prove a large market, a defensible moat, or that your first channel scales. It does not protect the idea: ideas as such cannot be protected, only execution and brand ([IGE on ideas](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). It also does not fix a wrong segment. If strangers never reach the product, you may need a sharper fake door before you extend scope.
+
+## If you built with Lovable, Bolt, v0, or similar
+
+Vibe-coded tools make both experiments faster, which blurs the line. A polished UI with a non-functional checkout is still a fake door. Exporting code and deploying it does not automatically turn the experiment into behaviour measurement if auth, data, and the core loop are stubbed.
+
+Stay on a fake door when you would still change the segment or the promise after ten honest conversations. Move to a real MVP when the promise is stable and the open question is whether people **use** it twice. If the question is whether the generated stack is safe to scale, that is a different conversation (review and hardening), not a fake door with better CSS.
+
+<div class="blog-pair">
+  <div>
+    <h3>Who should run a fake door first</h3>
+    <ul>
+      <li>Founders who need to know if the headline lands before weeks of build</li>
+      <li>Teams testing B2B wording where the buyer and user differ</li>
+      <li>Anyone whose riskiest row is «will anyone click» not «will anyone return»</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip straight to an MVP</h3>
+    <ul>
+      <li>Teams whose fake door already cleared demand and behaviour is the blocker</li>
+      <li>Products where trust or data handling is part of the value, so a shell misleads</li>
+      <li>Founders who will interpret bounce rate as market rejection unless the product is reliable</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-faq">
+  <h3>Is a waitlist a fake door?</h3>
+  <p>Often yes, if nothing is delivered yet. It measures intent. Follow up with a behaviour test when you need to know whether people will use the product, not whether they typed an email.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Does a real MVP contradict running a fake door earlier?</h3>
+  <p>No. Many paths use a fake door for demand, then an MVP for behaviour. The error is upgrading the label without upgrading the measurement.</p>
+</div>
+
+## When the Product Validation Package fits
+
+The [Product Validation Package](/services/mvp-validation) is for the behaviour chapter: a deployed web app (and native wrap ready to submit), paid acquisition, analytics from day one, and a Go, Pivot, or Stop recommendation with what the data do and do not prove. It is not a substitute for a cheap fake door when you still need the first demand read.
+
+Book a discovery conversation on the [contact page](/contact) when that split matches your stage. **Do not book** if you only need a landing page test, if the segment is still moving every week, or if you want a full product before you have falsified demand. In those cases, stay in discovery or keep the fake door running until the next assumption is clearly behavioural.

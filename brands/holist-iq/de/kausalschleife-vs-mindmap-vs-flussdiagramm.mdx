@@ -10,7 +10,11 @@ relatedPosts: ["causal-loop-diagramm-software", "systemdenken-tool-checkliste", 
 image: "@/assets/blog/causal-loop-diagram-vs-mind-map/hero.jpg"
 ---
 
-Teams greifen zu visuellen Karten, wenn Gespräche verknoten. Der Fehler ist selten das Zeichnen, sondern die falsche Karte für die Frage. Ein **Kausalschleifen-Diagramm** zeigt, wie Faktoren sich beeinflussen, inklusive Feedback zu früheren Variablen. Eine **Mindmap** strahlt Ideen von einem Kernthema für Exploration und Gedächtnis aus. Ein **Flussdiagramm** ordnet Prozessschritte mit Start und Ende.
+## Kausalschleife vs Mindmap vs Flussdiagramm auf einen Blick
+
+Wenn Gespräche verknoten, greifen Teams zu visuellen Karten. Der Fehler liegt selten beim Zeichnen, sondern beim falschen Kartentyp für die Frage. Ein **Kausalschleifen-Diagramm** (in Unterlagen oft **Wirkungsdiagramm** oder **Kausaldiagramm**) zeigt, wie Faktoren sich beeinflussen, inklusive Rückkopplung auf frühere Variablen. Eine **Mindmap** strahlt Ideen von einem Kernthema aus, für Exploration und Gedächtnis. Ein **Flussdiagramm** ordnet Prozessschritte mit Start und Ende.
+
+Dieser Leitfaden vergleicht Kausalschleife vs Mindmap vs Flussdiagramm, damit Notation und Absicht zusammenpassen. Suchst du nach «Mindmap oder Kausaldiagramm», «Ursache Wirkung Diagramm Feedback» oder «Flussdiagramm vs Systemkarte», ist die Unterscheidung unten dieselbe. Notation neu? [Was ist ein Kausalschleifen-Diagramm](/de/blog/was-ist-ein-kausalschleifen-diagramm). Software evaluieren? [Leitfaden Causal-Loop-Diagramm-Software](/de/blog/causal-loop-diagramm-software).
 
 <div class="blog-pair">
   <div>
@@ -28,8 +32,6 @@ Teams greifen zu visuellen Karten, wenn Gespräche verknoten. Der Fehler ist sel
     </ul>
   </div>
 </div>
-
-Dieser Leitfaden vergleicht Kausalschleife vs Mindmap vs Flussdiagramm, damit Notation und Intent zusammenpassen. Notation neu? [Was ist ein Kausalschleifen-Diagramm](/de/blog/was-ist-ein-kausalschleifen-diagramm). Software evaluieren? [Leitfaden Causal-Loop-Diagramm-Software](/de/blog/causal-loop-diagramm-software).
 
 ## Welche Frage welche Karte beantwortet
 
@@ -54,7 +56,7 @@ Soll das Meeting Hebel für eine wiederkehrende Kennzahl finden, nimm das Kausal
 
 ### Feedback vs Breite
 
-- **Kausalschleifen-Diagramm:** Macht verstärkende und ausgleichende Schleifen besprechbar.
+- **Kausalschleifen-Diagramm:** Macht verstärkende und ausgleichende Schleifen besprechbar. Typen vertiefen: [Verstärkende vs ausgleichende Schleifen](/de/blog/verstaerkende-vs-ausgleichende-schleifen).
 - **Mindmap:** Breite schnell; Tiefe optional.
 
 Mindmaps für frühe Discovery. CLDs, wenn dasselbe Ergebnis zurückkommt.
@@ -69,9 +71,27 @@ Für Handoffs über Meetings: [Systemdenken-Tool-Checkliste](/de/blog/systemdenk
 ### Alignment im Raum
 
 - **Kausalschleifen-Diagramm:** Gemeinsame Variablennamen und testbare Links.
-- **Mindmap:** weniger Friktion; gut für gemischte Gruppen in Stunde eins.
+- **Mindmap:** weniger Zeremonie; gut für gemischte Gruppen in Stunde eins.
 
 Starte mit Mindmap, wenn Variablennamen noch fehlen. Wandle Äste in Kandidaten-Variablen, bevor du CLD-Links zeichnest.
+
+## Ein erfundenes Beispiel: eine Kennzahl, drei Karten
+
+**Ein erfundenes Beispiel:** Ein Produktteam verpasst wiederholt Release-Termine. Jemand mindmappt «warum Launches rutschen» mit Ästen für Tools, Stimmung und Scope. Das sammelt Ideen, zeigt aber nicht, ob Stimmung den Slip *treibt* oder nur mitläuft.
+
+Ein Flussdiagramm des Release-Checklists zeigt, wer wann freigibt. Es erklärt nicht, warum das Muster nächstes Quartal wiederkehrt.
+
+Ein kleines CLD verknüpft **zugesagten Scope**, **Integrations-Test-Backlog** und **Terminvertrauen**, mit einer ausgleichenden Schleife über **Scope-Kürzung** und einer verstärkenden über **Notfall-Fixes**. Das Team kann einen Link streiten und testen. Dafür sind Kausalkarten da.
+
+## Typische Verwechslung im Workshop
+
+In Verwaltung, KMU und Beratung tauchen dieselben Muster auf:
+
+- **«Wirkungsdiagramm» auf dem Flipchart** mit einer linearen Ursachenkette ohne Rückweg. Das ist noch keine Kausalschleife, auch wenn der Titel es suggeriert.
+- **Mindmap mit Pfeilen überall**, die wie Polarität aussehen, ohne Schleifen zu benennen. Das erzeugt Schein-Präzision.
+- **Flussdiagramm für ein Politik- oder Strategieproblem**, bei dem Verzögerungen und Gegenreaktionen das Ergebnis prägen. Die Reihenfolge ist dann Nebensache.
+
+Schreibe die Intent-Frage auf den Poster-Header: «Themen explorieren» (Mindmap), «Arbeit sequenzieren» (Flussdiagramm) oder «Wiederkehr erklären» (CLD). Header und Tool widersprechen sich? Tool wechseln.
 
 ## Wann Mindmap oder Flussdiagramm die ehrlich bessere Wahl ist
 
@@ -90,7 +110,11 @@ Ein Kausalschleifen-Diagramm ist nicht immer der richtige erste Schritt.
 - **Compliance verlangt Schritt-Nachweis.** Auditoren wollen lineare Traceability, nicht Schleifen-Semantik.
 - **SLAs auf Handoffs im Fokus.** Flussdiagramme passen zu Operations-Tools; CLDs zu Systemverhalten über Zeit.
 
-Diese Fälle explizit zu nennen verhindert «CLD-Müdigkeit» und reserviert Kausalkarten für Situationen, in denen Schleifen Ergebnisse wirklich treiben.
+<ul class="blog-checklist">
+  <li>Entscheidungsfrage vor dem Tool aufschreiben</li>
+  <li>Braucht die Antwort Polarität und Schleifen, ist die Mindmap nicht das finale Artefakt</li>
+  <li>Brainstorm behalten; das CLD als Decision Record speichern</li>
+</ul>
 
 ## Wann ein Kausalschleifen-Diagramm die bessere Wahl ist
 
@@ -105,17 +129,15 @@ Workflow: [Systemdenken im Unternehmen](/de/blog/systemdenken-im-unternehmen).
 
 ## Praktischer Hybrid-Workflow
 
-1. **Mindmap (30–45 Min.):** Zentralfrage, freie Äste, Zitate und Hypothesen.
-2. **Variablen-Harvest:** Nomen, die steigen/fallen können; Urteils-Labels neutralisieren.
-3. **CLD-Draft:** Zuerst konfliktträchtige Links; Polarität und Delays markieren.
-4. **Schleifen benennen:** Mindestens eine R- und eine B-Schleife, auch wenn unvollständig.
-5. **Entscheidung:** Einen Link testen; Mindmap als Anhang, nicht als Decision Record.
+<ol class="blog-steps">
+  <li data-step="1"><h3>Mindmap (30–45 Min.)</h3><p>Zentralfrage, freie Äste, Zitate und Hypothesen.</p></li>
+  <li data-step="2"><h3>Variablen-Harvest</h3><p>Nomen, die steigen/fallen können; Urteils-Labels neutralisieren.</p></li>
+  <li data-step="3"><h3>CLD-Draft</h3><p>Zuerst konfliktträchtige Links; Polarität und Delays markieren.</p></li>
+  <li data-step="4"><h3>Schleifen benennen</h3><p>Mindestens eine R- und eine B-Schleife, auch wenn unvollständig.</p></li>
+  <li data-step="5"><h3>Entscheidung</h3><p>Einen Link testen; Mindmap als Anhang, nicht als Decision Record.</p></li>
+</ol>
 
 Breit explorieren, eng committen.
-
-## Zwischenschritt: Poster-Header für den nächsten Workshop
-
-Schreibe die Intent-Frage auf den Header: «Themen explorieren» (Mindmap), «Arbeit sequenzieren» (Flussdiagramm) oder «Wiederkehr erklären» (CLD). Header und Tool widersprechen sich? Tool wechseln.
 
 ## Nächster Schritt: Software für die gepflegte Karte
 

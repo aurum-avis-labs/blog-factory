@@ -1,0 +1,106 @@
+---
+title: "TestFlight Beta Test vor dem iOS-Launch"
+description: "TestFlight Beta Test: Tester einladen, Beta App Review, echte Installationen. Grenzen, wer warten sollte, und was ein Beta nicht beweist."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["testflight", "ios", "beta test", "mvp", "app store"]
+funnelStage: interest
+translationKey: testflight-beta-testing
+relatedPosts: ["app-im-app-store-veroeffentlichen", "app-store-abgelehnt-4-2"]
+draft: true
+site: studio
+---
+
+## TestFlight Beta Test
+
+Ein TestFlight Beta Test bringt eine echte iOS-Version auf die Geräte von Testerinnen und Testern, bevor die App im App Store erscheint: Sie laden einen Build in App Store Connect hoch, laden interne oder externe Tester ein, und diese installieren über die TestFlight-App von Apple. Der erste Build für externe Tester kann die Beta App Review durchlaufen. Jeder hochgeladene Build bleibt höchstens 90 Tage testbar. Ziel sind Erkenntnisse aus Installationen, Abstürzen und Feedback auf dem Gerät, nicht ein Ersatz für eine Falsifikation, die Sie vor dem Code festgehalten haben.
+
+Der Text richtet sich an Gründerinnen, Gründer und Innovationsverantwortliche in der Schweiz, die bereits ein Apple-Developer-Konto haben, einen Build, der auf einem iPhone läuft, und eine enge Frage, etwa ob Fremde den Kernjob auf iOS zu Ende bringen. Ablauf und Store-Pflichten stehen in [App im App Store veröffentlichen](/de/blog/app-im-app-store-veroeffentlichen). Mindestfunktion und dünne Hüllen in [App Store abgelehnt wegen 4.2](/de/blog/app-store-abgelehnt-4-2). Android hat einen eigenen Weg; die geschlossenen Tests bei Google Play für neue persönliche Konten sind nicht TestFlight.
+
+## TestFlight Beta Test in der Praxis
+
+Behandeln Sie den Beta Test wie ein kleines Experiment mit einer schriftlichen Stop-Regel, nicht wie eine offene Freundesliste.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Klarstellen, was Sie testen</h3><p>Ein Job, ein Erfolgssignal und wann Sie den Build stoppen. Beispiel: «Acht von zehn eingeladenen Planerinnen schaffen den Upload auf dem Handy» ist prüfbar; «schauen, ob es gefällt» nicht.</p></li>
+  <li data-step="2"><h3>Build hochladen und Export-Compliance</h3><p>Aus Xcode oder Ihrer CI archivieren, nach App Store Connect laden und Verschlüsselungsfragen ehrlich beantworten. Builds brauchen gültige Provisioning Profiles mit den richtigen App-Identifiers.</p></li>
+  <li data-step="3"><h3>Mit internen Testern starten</h3><p>Bis zu 100 Personen in Ihrem App-Store-Connect-Team können ohne externes Beta-Review-Gate installieren. Nutzen Sie das für Login-Brüche und Absturz-Smoke-Tests.</p></li>
+  <li data-step="4"><h3>Externe Tester, wenn der Build stabil ist</h3><p>Gruppe anlegen, Build zuweisen, per E-Mail oder öffentlichem Link einladen. Externe Tester können bis zu 10'000 sein. Der erste Build in einer Gruppe kann vor den Einladungen die Beta App Review brauchen.</p></li>
+  <li data-step="5"><h3>Signale sammeln und ersetzen oder auslaufen lassen</h3><p>Abstürze, Sitzungen und TestFlight-Feedback lesen. Neuen Build schicken, wenn Blocker weg sind. Den 90-Tage-Zähler pro Build im Kopf behalten.</p></li>
+</ol>
+
+## Was TestFlight zeigen kann und was nicht
+
+<div class="blog-pair">
+  <div>
+    <h3>Was Sie daraus lesen dürfen</h3>
+    <ul>
+      <li>Ob der Kernflow auf echten Geräten und OS-Versionen läuft, die Sie nicht emuliert haben</li>
+      <li>Wo Personen abbrechen, abstürzen oder in Feedback Hilfe verlangen</li>
+      <li>Ob Onboarding und Berechtigungen ohne Sie im Raum verständlich sind</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Was ein Beta Test allein nicht beweist</h3>
+    <ul>
+      <li>Product-Market-Fit, Umsatz oder einen wiederholbaren Akquisitionskanal</li>
+      <li>Dass die App-Store-Prüfung klappt, weil TestFlight geklappt hat</li>
+      <li>Android-Verhalten: geschlossene Tests in der Play Console sind eine andere Checkliste</li>
+    </ul>
+  </div>
+</div>
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Build-Dauer</span><strong>90 Tage</strong><p>Apples TestFlight-Übersicht: ein Build ist bis zu 90 Tage testbar.</p></li>
+  <li><span class="blog-kicker">Externes Limit</span><strong>10'000</strong><p>Externe Tester pro App, laut Apple-Dokumentation.</p></li>
+  <li><span class="blog-kicker">Internes Limit</span><strong>100</strong><p>App-Store-Connect-Nutzer mit Zugriff auf Ihre Inhalte.</p></li>
+  <li><span class="blog-kicker">Erster externer Build</span><strong>Review</strong><p>Beta App Review kann nötig sein, bevor externe Tests im ersten Build einer Gruppe starten.</p></li>
+</ul>
+
+Eine eingepackte Web-App kann trotzdem an der Prüfung scheitern, wenn sie sich wie ein Lesezeichen verhält. Richtlinie 4.2 verlangt mehr als eine umverpackte Website; 4.2.2 stösst reine Marketing-Hüllen zurück. TestFlight ist kein Umweg um diese Schwelle.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>TestFlight braucht ein eingeschriebenes Apple-Developer-Konto und einen installierbaren Build. Es ersetzt keine vage Hypothese, und warme Tester, die Sie kennen, stehen nicht für Fremde. Stoppen Sie, wenn Ihre Falsifikation erfüllt oder gebrochen ist, nicht wenn jede Bekannte einen Link hat.</p>
+</aside>
+
+## Ein erfundenes Beispiel: enger Job auf iOS
+
+Ein erfundenes Beispiel: Eine Gründerin in Zürich testet ein MVP, mit dem Servicetechniker ein Maschinenlabel fotografieren und die letzte Service-Notiz öffnen. Die Hypothese: Techniker schaffen Aufnahme und Nachschlag in unter drei Minuten ohne Anruf ins Büro. Sie laden Build 1.0.3 hoch, laden vier interne Kolleginnen aus App Store Connect ein und beheben einen Absturz bei Kameraberechtigung. Build 1.0.4 geht an zwölf externe Tester aus einem LinkedIn-Post, öffentlicher Link auf höchstens zwanzig Installationen begrenzt. Vor den Einladungen notieren sie: «Wenn weniger als sechs von zehn den Nachschlag ohne Support-Nachricht in einer Woche schaffen, führen wir Interviews, bevor wir Zahlungen bauen.» TestFlight zeigt den meisten Abbruch beim Label-Picker auf kleinen Screens. Zwölf Installationen gelten nicht als Kanalnachweis. Sie schicken 1.0.5 mit grösserem Tap-Ziel und dieselbe Regel noch einmal.
+
+## Wer TestFlight vorerst weglassen sollte
+
+<ul class="blog-scenarios">
+  <li><h3>Wenn das Produkt noch nur im Browser lebt</h3><p>Validieren Sie den Job zuerst im Web oder lesen Sie [Web-App, native App oder PWA](/de/blog/web-app-oder-native-app). TestFlight hilft nur, wenn die iOS-Binary das ist, worüber Sie lernen müssen.</p></li>
+  <li><h3>Wenn keine Falsifikation feststeht</h3><p>Einladungen ohne Stop-Regel werden zur Stimmungsfrage. Schreiben Sie die Regel vor dem Upload.</p></li>
+  <li><h3>Wenn Android halbe Zielgruppe ist</h3><p>Planen Sie den geschlossenen Play-Test parallel. Die Regel mit 12 Testern und 14 Tagen für neue persönliche Konten ist eigene Arbeit.</p></li>
+</ul>
+
+<dl class="blog-terms">
+  <div>
+    <dt>Interne Tester</dt>
+    <dd>Personen in Ihrem App-Store-Connect-Team, die vor dem externen Beta Review installieren können.</dd>
+  </div>
+  <div>
+    <dt>Externe Tester</dt>
+    <dd>Alle ausserhalb des Teams, unter dem externen Limit und den Review-Regeln.</dd>
+  </div>
+  <div>
+    <dt>Beta App Review</dt>
+    <dd>Apples Prüfung des ersten Builds für externe Tester in einer Gruppe, nicht die volle Store-Listing-Prüfung.</dd>
+  </div>
+</dl>
+
+<div class="blog-faq">
+  <h3>Müssen Tester für TestFlight zahlen?</h3>
+  <p>Nein. Tester installieren die kostenlose TestFlight-App und nehmen die Einladung an. Die Gebühr des Apple Developer Program trägt das Konto der Entwicklerin oder des Entwicklers.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Kann ich nach dem App-Store-Release weiter testen?</h3>
+  <p>Apple weist darauf hin, dass Tester einen nicht ausgelaufenen Build auch nach dem Live-Gang nutzen können, bis der Build nach 90 Tagen ausläuft. Planen Sie, ob Sie diese Überlappung wollen.</p>
+</div>
+
+## Wann das Product Validation Package passt
+
+Das [Product Validation Package](/de/services/mvp-validation) passt, wenn der TestFlight Beta Test auf ein ausgeliefertes Produkt mit Analytics und Session-Aufzeichnungen von Tag eins sitzen soll, nicht auf eine Einmal-Binary aus einem Wochenend-Hack. In den Wochen 1 bis 4 steht die Web-App live inklusive nativem Wrap für die Store-Einreichung; danach folgen Landingpage, bezogene Reichweite und gemessene Conversion für eine Go-, Pivot- oder Stop-Empfehlung. Brauchen Sie nur Store-Mechanik ohne vollen Validierungsbogen, reichen die verlinkten Beiträge. Ist die Frage, ob der Build skalierbar sicher ist, ist das ein anderes Gespräch als TestFlight-Einladungen. Warum wir vor Ads produktionsnahen Code liefern, steht in [Warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps).

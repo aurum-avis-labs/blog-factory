@@ -1,0 +1,78 @@
+---
+title: "Code Qualitaet pruefen ohne Entwicklerteam"
+description: "Code Qualitaet pruefen: Repo, Geheimnisse, Tests und Datenregeln, die Sie als Gruenderin oder Leitung ohne Code-Lektüre prüfen können."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["code qualitaet", "gruender", "vibe coding", "technische prüfung"]
+funnelStage: interest
+translationKey: judging-code-quality-as-a-non-developer
+relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
+draft: true
+site: studio
+---
+
+## Code Qualitaet pruefen ohne jeden Commit zu lesen
+
+Code Qualitaet pruefen heisst als Gruenderin, Inhaber oder Innovationsverantwortliche nicht jede Zeile TypeScript zu verstehen. Sie prüfen, ob das Projekt gepflegt wirkt: Versionierung, ein nachvollziehbares README, keine Schlüssel im Repository, automatische Checks wo sie existieren, und Zeilenebenen-Regeln auf gemeinsamen Datenbanken, bevor Fremde ein Konto erhalten. Sie filtern Nachlässigkeit und offensichtliche Risiken heraus. Sie ersetzen keine Chief-Engineer-Freigabe. Das reicht oft, um zu entscheiden, ob Sie Zugang erweitern, einen Pilot stoppen oder eine strukturierte Review buchen.
+
+Der Text richtet sich an Schweizer KMU und Start-ups, die ein MVP aus einem Vibe-Coding-Tool oder von einer Agentur haben und Verwaltungsrat, Investorin oder IT-Kontakt einer Pilotpartnerin Antworten geben müssen, ohne den Stack selbst gebaut zu haben. Wenn Sie die Produktionsreife ohnehin bezweifeln, lesen Sie zuerst [ist Ihre vibe-coded App produktionsreif](/de/blog/ist-deine-vibe-coded-app-produktionsreif). Row Level Security auf Supabase ist ein eigener Schritt; dazu [Lovable Supabase RLS](/de/blog/lovable-supabase-rls), wenn Ihr Build diese Kombination nutzt.
+
+<ul class="blog-checklist">
+  <li>Admin-Zugang zu Git, Cloud-Projekt und Datenbank-Dashboard sichern, nicht nur eine Demo-URL</li>
+  <li>README lesen: lokaler Start, welche Umgebungsvariablen nötig sind, wer zuletzt aktualisiert hat</li>
+  <li>Im Repository nach offensichtlichen Geheimnissen suchen (API-Schlüssel, Service-Role-Keys, versehentlich committete `.env`-Dateien)</li>
+  <li>Fragen, ob Tests oder Linting bei jedem Push laufen; Grün beweist nichts, totales Fehlen schon</li>
+  <li>Bei Supabase oder ähnlich: Policies öffnen und prüfen, ob anonyme Nutzer fremde Zeilen lesen können</li>
+  <li>Abhängigkeits-Warnungen im Host oder Paketmanager prüfen; kritische Meldungen und eine verantwortliche Person notieren</li>
+  <li>Schriftlich klären, wem Code, Designs und Cloud-Konten nach Projektende gehören</li>
+</ul>
+
+## Was Sie ohne Syntax sehen können
+
+Beginnen Sie mit Artefakten. Ein ernsthaftes MVP hat eine Quelle in Git, Releases oder Tags, die zum Deploy passen, und eine kurze Notiz zum Rollback. Lebt die einzige Kopie nur im Builder und ist Export unklar, ist Qualität nicht das erste Problem; Wiederherstellbarkeit ist es.
+
+Die Commit-Historie ansehen. Regelmässige kleine Commits von ein bis zwei Personen lesen sich anders als ein einziger Riesen-Dump in der Demo-Woche. Keines davon beweist saubere Architektur; Stille in Git korreliert oft mit Stille bei Sicherheitsfixes.
+
+Issue-Liste oder Aufgabenboard öffnen, falls das Team eines nutzt. Offene Punkte mit Stichworten Sicherheit, Auth oder Datenleck sagen mehr als eine polierte Landingpage. Sie müssen den Fix nicht verstehen; Sie müssen sehen, dass er verfolgt wird.
+
+## Was Code Qualitaet pruefen nicht beweist
+
+Eine bestandene Checkliste heisst nicht, dass die App Missbrauch aushält, sauber skaliert oder OWASP ASVS erfüllt. Sie ersetzt keinen Penetrationstest und keine Architektur-Review. Sie zeigt nicht, dass generierte Row-Level-Policies jede Tabelle und jeden Join abdecken; fehlende oder wirkungslose RLS bei Lovable-verknüpften Supabase-Projekten hat öffentliche Datenfreigaben ausgelöst (CVE-2025-48757, NVD).
+
+Sie beweist auch kein Product-Market-Fit, keine Unit Economics und keine Store-Freigabe. Apple Guideline 4.2 erwartet mehr als eine umverpackte Website, wenn Sie in den App Store wollen.
+
+<div class="blog-pair">
+  <div>
+    <h3>Für wen die Liste passt</h3>
+    <ul>
+      <li>Gruenderinnen kurz vor offener Registrierung über Freundeskreis hinaus</li>
+      <li>Innovationsverantwortliche mit IT-Gespräch einer Pilotpartnerin</li>
+      <li>Wer Übergabe von Freelancer oder Vibe-Coding-Sprint verhandelt</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Wer den DIY-Schritt überspringen sollte</h3>
+    <ul>
+      <li>Produkte mit Gesundheits-, Zahlungs- oder Kinderdaten ohne Security-Verantwortliche</li>
+      <li>Multi-Tenant-B2B, wo Kundendaten nie in fremden Exporten landen dürfen</li>
+      <li>Teams, deren Term Sheet formale Tech-Due-Diligence in diesem Quartal vorsieht</li>
+    </ul>
+  </div>
+</div>
+
+## Ein erfundenes Beispiel: der Ordner vor dem Pilot
+
+Ein erfundenes Beispiel: Ein Logistik-Start-up in Bern hat einen Buchungsflow aus einem Vibe-Coding-Tool mit Supabase. Die CEO hat Demo-Login, aber nicht die Git-Organisation. Vor dem Pilot mit einer Regionalspediteurin fordert sie Admin-Zugang an, klont noch nichts, und geht die Liste mit einer halbtags Product Managerin durch. Das README ist sechs Monate alt und erwähnt kein Staging. Die Suche findet `.env.example`, aber auch einen alten Commit mit einem noch gültigen Test-Key in der Historie. Supabase-Policies existieren auf `bookings`, nicht auf `messages`. GitHub zeigt keine Workflows. Die CEO bewertet den Code nicht als «gut» oder «schlecht». Sie notiert vier offene Risiken, verschiebt offene Registrierung um zwei Wochen und verlangt Policies auf jeder Nutzertabelle plus Schlüsselrotation vor dem IT-Termin der Partnerin. Das ist angemessen. «Produktionsreif» wäre es nicht.
+
+## Eigentum und die Fragen, die Verträge klären
+
+Nach schweizerischer Übung gehört von Mitarbeitenden für den Arbeitgeber geschriebene Software diesem; Werk einer externen Autorin bleibt bei ihr bis zur schriftlichen Abtretung ([Überblick Softwareschutz](https://www.rentschpartner.ch/ict-law/schutz-von-software)). Ihre Prüfung endet mit Vertrag und Kontoinhaberschaft, nicht nur mit grünen Checks. Hält nur der Builder die Kopie, bewerten Sie eine Demo, kein Asset.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Diese Schritte sind eine angemessene Vorprüfung für Personen ohne Entwicklerhintergrund. Sie sind keine Freigabe für regulierte Daten oder unbegrenzten Traffic. Steht Sicherheit im Pilotvertrag oder liegen Kundendaten zahlender Nutzer in der Datenbank, hören Sie auf zu raten und holen Sie eine Review.</p>
+</aside>
+
+## Wann ein Vibe Code Review passt
+
+Ein [Vibe Code Review](/de/services/vibe-code-review) passt, wenn der Prototyp das ist, was Sie gleich exponieren: offene Registrierung, Sandbox einer Konzernpartnerin oder Diligence vor einer Seed-Runde. Sie erhalten eine strukturierte Lückenanalyse gegen OWASP ASVS v5.0, fokussierte Zeit zu Architektur und Codequalität, eine priorisierte P0/P1/P2-Liste und ein abschliessendes Gespräch unter NDA. Buchen Sie, wenn Ihr Ordner-Durchgang Lücken zeigt, die Sie nicht mit Prompts schliessen, nicht bevor eine Nutzerin den Kernjob in [Lovable MVP](/de/blog/lovable-mvp) zum ersten Mal durchgeklickt hat.

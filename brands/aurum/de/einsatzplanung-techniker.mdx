@@ -1,6 +1,6 @@
 ---
 title: "Einsatzplanung für Techniker automatisieren"
-description: "Einsätze nach Können, Gebiet und Material planen, ein Zeitfenster bestätigen, und sagen, wann Einsatzsoftware die bessere Wahl ist."
+description: "Einsatzplanung für Techniker: Anfrage zu Fenster, Verschiebung mit Nachricht, und wann Einsatzsoftware die bessere Wahl ist."
 pubDate: 2027-02-16
 author: "Aurum Avis Labs"
 tags: ["einsatzplanung", "service", "ablauf"]
@@ -14,77 +14,125 @@ site: prozess-check
 
 ## Einsatzplanung für Techniker automatisieren
 
-Einsatzplanung für Techniker automatisieren heisst: aus einer Anfrage einen vorgeschlagenen Einsatz machen, der zu Können, Gebiet und Material passt, und mit der Kundschaft ein Zeitfenster bestätigen. Ändert sich der Tag, wird daraus eine Nachricht, nicht eine stille Hoffnung. Eine kleine Tafel reicht für ein kleines Team. Eine eigene Einsatzsoftware ist die bessere Wahl, wenn Fahrzeit, der live sichtbare Stand und ein Morgen das Problem sind, den man jedes Mal neu legen muss. Diese Seite trennt das. Sie reiht keine Produkte.
-
-Wiederkehrende Daten auf Serviceverträgen, die Erinnerung und der Vorschlag Wochen im Voraus, sind der Vertragskalender in [Wartungstermine planen](/de/prozess-check/blog/wartungstermine-planen). Diese Seite ist der Tag: diese bestätigten Einsätze, plus Störungen, plus die Verschiebungen. Nach dem Einsatz liegen Rapport und Rechnung in [Vom Regierapport zur Rechnung](/de/prozess-check/blog/regierapport-zur-rechnung). Legen Sie hier keinen zweiten Rechnungsweg an.
+«Einsatzplanung automatisieren» heisst in einem kleinen Betrieb selten eine neue Software. Es heisst: aus einer Anfrage einen vorgeschlagenen Einsatz mit Können, Gebiet und Material, ein bestätigtes Zeitfenster mit der Kundschaft, und bei Verschiebung eine Nachricht, die jemand prüft, bevor sie rausgeht. Wiederkehrende Vertragswartungen mit Erinnerung Wochen im Voraus sind der Vertragskalender in [Wartungstermine planen](/de/prozess-check/blog/wartungstermine-planen). Diese Seite ist der laufende Tag: bestätigte Einsätze, Störungen, Verschiebungen. Rapport und Rechnung danach in [Vom Regierapport zur Rechnung](/de/prozess-check/blog/regierapport-zur-rechnung). Hier keinen zweiten Rechnungsweg bauen.
 
 <ol class="blog-flow">
-  <li><strong>Anfrage</strong><p>Was defekt oder fällig ist, wo, und wie dringend.</p></li>
-  <li><strong>Passung</strong><p>Können, Gebiet, und ob das Teil im Wagen oder in der Werkstatt ist.</p></li>
-  <li><strong>Fenster</strong><p>Eine Zeit, welche die Kundschaft bestätigt. Dann steht es auf der Tafel.</p></li>
-  <li><strong>Änderung</strong><p>Eine Verspätung oder ein Zusatzauftrag erreicht die Leute, die warten.</p></li>
-  <li><strong>Abschluss</strong><p>Der Einsatz speist den Rapport. Die Tafel zeigt ihn als erledigt.</p></li>
+  <li><strong>Anfrage</strong><p>Was defekt oder fällig ist, wo, wie dringend.</p></li>
+  <li><strong>Passung</strong><p>Können, Gebiet, Teil im Wagen oder in der Werkstatt.</p></li>
+  <li><strong>Fenster</strong><p>Zeit, die die Kundschaft bestätigt. Dann auf der Tafel.</p></li>
+  <li><strong>Änderung</strong><p>Verspätung oder Zusatzauftrag erreicht Wartende.</p></li>
+  <li><strong>Abschluss</strong><p>Einsatz speist den Rapport. Tafel zeigt erledigt.</p></li>
 </ol>
 
-## Was die Anfrage sagen muss, bevor jemand eingeteilt wird
+## Was die Anfrage vor der Zuordnung braucht
 
-Eine Anfrage «Heizung, Müller, irgendwann» lässt sich nicht planen. Bevor ein Name auf die Tafel kommt, hat das Büro:
+Viele Betriebe sammeln Anfragen per Telefon, Formular und Mail vom Handwerker vor Ort. Der Ablauf braucht einen Eingang, der die Felder setzt, bevor die Tafel sichtbar wird. Sonst tippt die Disposition dieselben Daten zweimal.
 
-- Den Standort, und wer aufmacht.
-- Was der Einsatz ist: eine bestätigte Wartung, eine Störung, eine Offerte, ein zweiter Besuch, weil ein Teil gefehlt hat.
-- Das Können, in den Worten Ihres Teams. Gas, Regelung, eine Marke, für die Sie nicht zugelassen sind. Ein Auftrag bei der falschen Person ist ein zweiter Besuch.
-- Das Teil, wenn die Störung üblicherweise eines braucht. Im Wagen, in der Werkstatt, oder zu bestellen.
-- Wie fest die Zeit ist. Ein Betrieb, der stillsteht, ist nicht dasselbe wie ein Filterwechsel, der einen Tag warten kann.
+«Heizung, Müller, irgendwann» lässt sich nicht planen. Bevor ein Name auf die Tafel kommt, hat das Büro Felder, keine Prosa zum Nachlesen:
 
-Schreiben Sie das als Felder, nicht als Absatz, den die disponierende Person noch einmal lesen muss. Das Telefon kann die Felder füllen. Die Tafel darf nicht vom Gedächtnis an das Gespräch abhängen.
+- Standort und wer aufmacht
+- Einsatzart: Wartung, Störung, Offerte, Rückbesuch wegen Teil
+- Können in Ihren Wörtern (Gas, Regelung, Marke ohne Zulassung)
+- Teil, wenn die Störung eines braucht: Wagen, Werkstatt, Bestellung
+- Wie fest die Zeit ist (Stillstand vs. Filter, der einen Tag warten kann)
 
-Ist das Teil weder im Wagen noch in der Werkstatt, verspricht der Vorschlag heute keine Reparatur. Er schlägt eine Besichtigung vor, oder einen Tag, an dem das Teil da sein kann. Die Reparatur zu versprechen und ohne Teil anzukommen, verdirbt den Morgen der Kundschaft und Ihren.
+Das Telefon kann die Felder füllen. Die Tafel darf nicht vom Gedächtnis an das Gespräch hängen.
 
-## Ein Vorschlag, dann eine Bestätigung
+<ul class="blog-checklist">
+  <li>Standort und Kontakt vor Zuordnung</li>
+  <li>Einsatzart und Können in Team-Wörtern</li>
+  <li>Teilstatus, wenn die Störung eines braucht</li>
+  <li>Dringlichkeit in einem Satz, nicht «bald»</li>
+</ul>
 
-Ordnen Sie die Anfrage einer Person zu, die das Können hat und schon in dem Gebiet ist, oder die hin kann, ohne den Rest des Tages zu zerlegen. Bei einer Handvoll Techniker mit bekannten Gebieten ist das eine Regel, die eine Person sieht: Norden, Stadt, Seeseite, und das Können jeder Person. Die Tafel schlägt vor. Die Disposition bestätigt. Tun Sie nicht so, als rechne ein Blatt die beste Fahrt durch den Kanton. Das tut es nicht. Es verhindert, dass das Büro die einzige Person mit diesem Können an den entfernten Ort schickt, während ein näherer Einsatz wartet.
+Fehlt das Teil im Wagen und in der Werkstatt, verspricht der Vorschlag heute keine Reparatur. Er schlägt Besichtigung oder einen Tag vor, an dem das Teil da ist. Reparatur versprechen und ohne Teil ankommen verdirbt den Morgen beider Seiten.
 
-Die Kundschaft erhält ein Fenster, nicht eine erfundene Minute. «Zwischen 10 und 12» ist ehrlich, wenn der Tag das hergibt. Eine einzelne Uhrzeit ist ehrlich, nur wenn Sie sie meinen. Der Termin ist bestätigt, wenn die Kundschaft zustimmt, dieselbe Regel wie im Vertragskalender. Eine Störung kann heissen: «Wir können heute Nachmittag, wir rufen von unterwegs an.» Das ist trotzdem eine Nachricht, die Sie ablegen können. Es ist keine Lücke.
+## Vorschlag, dann Bestätigung
 
-Material und Können bleiben auf der Zeile, welche die Kundschaft nicht vollständig sehen muss. Die Kundschaft sieht Fenster, Standort und was Sie vorhaben. Die Disposition sieht, warum diese Person, und was im Wagen sein muss.
+Ordnen Sie der Anfrage eine Person mit Können und passendem Gebiet zu, ohne den Rest des Tages zu zerlegen. Bei wenigen Technikerinnen mit festen Gebieten ist das eine sichtbare Regel: Norden, Stadt, Seeseite, plus Skills pro Person. Die Tafel schlägt vor. Die Disposition bestätigt. Ein Blatt rechnet nicht die optimale Fahrt durch den Kanton. Es verhindert, dass die einzige Fachperson mit diesem Können ans andere Ende fährt, während ein näherer Einsatz wartet.
+
+Die Kundschaft erhält ein Fenster, keine erfundene Minute. «Zwischen 10 und 12» ist ehrlich, wenn der Tag das hergibt. Eine Uhrzeit nur, wenn Sie sie meinen. Bestätigt ist der Termin, wenn die Kundschaft zustimmt, wie im Vertragskalender. Störung kann heissen: «Heute Nachmittag, wir rufen von unterwegs an.» Das ist eine ablegbare Nachricht.
+
+Material und Können bleiben auf der Zeile für die Disposition. Die Kundschaft sieht Fenster, Standort und Vorhaben.
+
+Störungen, die «sofort» klingen, brauchen trotzdem Felder. «Sofort» ohne Standort führt zur falschen Person. Die Disposition entscheidet, ob «sofort» den geplanten Wartungseinsatz verdrängt. Diese Entscheid bleibt menschlich. Der Ablauf legt nur vor, wer geografisch und fachlich passt.
 
 ## Wenn der Tag sich verschiebt
 
-Der Tag verschiebt sich. Eine Störung um neun, ein falsches Teil, ein Einsatz, der länger dauert. Die Tafel muss die neue Reihenfolge zeigen, und die Kundschaft, deren Fenster sich geändert hat, muss es hören, bevor sie an der Tür wartet.
+Störung um neun, falsches Teil, Einsatz läuft länger: die Tafel zeigt die neue Reihenfolge, und wer ein anderes Fenster hatte, hört es vor der Tür.
 
-Der Ablauf kann die Nachricht aus dem neuen Fenster entwerfen: wer, welcher Standort, die neue Spanne, und dass Sie wieder anrufen, wenn es sich noch einmal verschiebt. Eine Person schickt die Nachricht, wenn die neue Zeit noch eine Schätzung ist. Ein entworfener «14:00», den die Disposition nicht angenommen hat, steht sonst falsch im Kalender der Kundschaft. Ist das neue Fenster schon entschieden, ist genau das der Gewinn: den Entwurf schicken, ohne ihn noch einmal abzutippen.
+Der Ablauf kann die Nachricht aus dem neuen Fenster entwerfen: wer, wo, neue Spanne, nochmaliger Anruf bei weiterer Verschiebung. Eine Person schickt, wenn die Zeit noch Schätzung ist. Ein entworfenes «14:00», das die Disposition nicht angenommen hat, steht sonst falsch im Kalender der Kundschaft.
 
-Halten Sie am Auftrag ein kurzes Protokoll: ursprüngliches Fenster, neues Fenster, wer informiert wurde, um welche Zeit. Der Streit später geht nicht um Wohlwollen. Er geht darum, ob jemand gesagt hat, dass die Zeit sich verschoben hat. Eine Zeile reicht. Ein Anruf, den niemand notiert, zählt nicht.
+Kurzes Protokoll am Auftrag: ursprüngliches Fenster, neues Fenster, wer wann informiert wurde. Der Streit später ist, ob jemand die Verschiebung gesagt hat. Ein Anruf ohne Zeile zählt nicht.
 
-Schieben Sie in diesem Ablauf nicht die ganze Woche um. Die Verschiebung ist die Tafel von heute. Die Wartungen der nächsten Woche bleiben im Vertragskalender, ausser eine Person zieht eine vor.
+Verschieben Sie hier nicht die ganze Woche. Heute ist die Tafel. Nächste Woche bleibt im Vertragskalender, ausser eine Person zieht einen Termin vor.
+
+Wenn Technikerinnen selbst Status setzen («unterwegs», «fertig»), brauchen Sie eine Regel, wer das darf und wann das Büro eingreift. Sonst steht «fertig» auf dem Handy, während die Kundschaft noch wartet, oder umgekehrt. Der Ablauf kann den Status vorschlagen, die Disposition oder die Fachperson bestätigt.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Grenze</span>
-  <p>Die Tafel schlägt eine Passung vor und entwirft die Aktualisierung. Sie verspricht keine Reparatur ohne das Teil, und sie schickt keine neue Zeit, welche die Disposition nicht angenommen hat.</p>
+  <p>Die Tafel schlägt Passung vor und entwirft die Aktualisierung. Keine Reparatur ohne Teil, keine neue Zeit ohne Freigabe der Disposition.</p>
 </aside>
 
-## Wann eine Einsatzsoftware die bessere Wahl ist
+## Wann Einsatzsoftware die bessere Wahl ist
 
-Kaufen Sie eine Einsatzsoftware, oder nutzen Sie die, die in Ihrer Branchensoftware schon steckt, wenn die kleine Tafel das ist, was weh tut.
+Kaufen oder nutzen Sie Branchensoftware, wenn die kleine Tafel der Engpass ist. Der Test ist nicht «hat die Messe eine grosse Halle», sondern ob Ihr Team die vorhandene Software schon für Auftragsabschluss nutzt. Wenn Aufträge dort enden, aber die Planung auf Papier bleibt, ist der erste Schritt oft Umzug der Planung ins Modul, nicht ein zweites Produkt daneben.
 
-Sie brauchen sie, wenn die Fahrzeit die Grenze ist: viele Aufträge, die sich überschneiden, und die Reihenfolge des Tages die Stunden verändert. Eine Liste mit Namen löst die Fahrt nicht. Ein Programm, das Wege plant, tut genau diese Arbeit. Lesen Sie, was dieses Programm auf der eigenen Seite behauptet, bevor Sie ihm trauen. Dieser Artikel wiederholt keine Herstellerzahlen.
+<ul class="blog-scenarios">
+  <li><h3>Fahrzeit dominiert</h3><p>Viele überlappende Aufträge, Reihenfolge ändert Stunden. Eine Namensliste löst die Fahrt nicht. Lesen Sie Herstellerangaben auf deren Seite vor dem Kauf, nicht in diesem Artikel.</p></li>
+  <li><h3>Mobile Akte nötig</h3><p>Technikerin soll Auftrag, Geschichte und Material sehen, Büro «vor Ort» ohne SMS.</p></li>
+  <li><h3>Zwei Tafeln drohen</h3><p>Team wächst, sonst planen zwei Personen getrennt. Ein System, das alle nutzen, schlägt einen Ablauf neben Software, in der niemand Jobs abschliesst.</p></li>
+</ul>
 
-Sie brauchen sie, wenn die Fachperson Auftrag, Geschichte und Material sehen soll, ohne das Büro anzurufen, und wenn das Büro «vor Ort» oder «erledigt» sehen soll, ohne eine Textnachricht. Das ist eine mobile Akte, keine Morgenmail.
+Messgrösse für «lohnt sich»: wie oft pro Woche verschiebt sich ein Fenster, und wie viele Anrufe «wo bleiben Sie» kommen ohne Protokoll. Wenn das selten ist, reicht Vorlage plus Tafel. Wenn es täglich ist, zahlt sich ein sauberer Entwurfsweg aus, auch ohne neues ERP.
 
-Sie brauchen sie, wenn das Team wächst und sonst zwei Personen zwei Tafeln führen. Ein System, das alle nutzen, schlägt einen geschickten Ablauf neben einem Programm, in dem niemand die Aufträge abschliesst.
+Sie brauchen kein neues Produkt, wenn fünf Techniker Gebiete auf einen Zettel passen, der Schmerz «Kundschaft wusste nicht von Verschiebung» ist, und Nachricht plus eine Tafel das lösen. Sie brauchen auch keines, wenn Sie ein Servicemodul schon bezahlen und das Büro auf Papier plant. Planen Sie im Modul, das Sie haben.
 
-Sie brauchen kein neues Produkt, wenn fünf Techniker Gebiete abdecken, die auf einen Zettel passen, der Schmerz ist «die Kundschaft wusste nicht, dass wir verschoben haben», und eine Nachricht plus eine Tafel das behebt. Sie brauchen auch keines, wenn Sie ein Servicemodul schon bezahlen und die Lücke ist, dass das Büro weiter auf Papier plant. Legen Sie die Planung auf das Modul, das Sie haben. Ein zweites Werkzeug macht das erste nicht wahr.
+<div class="blog-pair">
+  <div>
+    <h3>Tafel und Entwürfe reichen</h3>
+    <ul>
+      <li>Kleines Team, feste Gebiete, wenige Störungen pro Tag</li>
+      <li>Schmerz ist Kommunikation, nicht Routenoptimierung</li>
+      <li>Disposition bestätigt jeden Versand</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Software zuerst prüfen</h3>
+    <ul>
+      <li>Viele parallele Einsätze, Fahrt frisst Plan</li>
+      <li>Techniker braucht Historie und Teile mobil</li>
+      <li>Zwei Personen würden sonst zwei Listen führen</li>
+    </ul>
+  </div>
+</div>
 
 ## Ein erfundenes Beispiel
 
-Ein erfundenes Beispiel: vier Techniker, Heizung und Regelung, eine Person in der Disposition. Die Montagstafel beginnt mit den bestätigten Wartungen. Um 8:40 kommt eine Störung, ein Kessel in derselben Ortschaft wie der zweite Einsatz am Morgen, und das Können passt zur Fachperson, die schon dorthin fährt. Das Teil ist eine gängige Platine, und die Wagenliste sagt, eine sei im Wagen. Die Disposition legt ein Fenster nach diesem Einsatz, die Kundschaft sagt «später Vormittag» zu. Um 11:00 ist die Platine vor Ort eine andere Ausführung. Die Reparatur wird für heute nicht versprochen. Die Kundschaft erhält die Nachricht, die Fachperson habe nachgesehen, das Teil sei bestellt, und für Mittwoch werde ein Fenster vorgeschlagen. Zwei weitere Kunden, deren Fenster um eine Stunde gerutscht sind, erhalten einen Entwurf, den die Disposition nach einem Blick auf die Tafel schickt. Der Rapport vom Vormittagseinsatz geht in den Rechnungsweg, den die Firma schon nutzt. Firma und Zeiten sind erfunden.
+Ein erfundenes Beispiel: vier Techniker, Heizung und Regelung, eine Disponentin. Montag beginnt mit bestätigten Wartungen. Um 8:40 Störung: Kessel in derselben Ortschaft wie der zweite Morgeneinsatz, Können passt zur Fachperson, die schon dorthin fährt. Gängige Platine laut Wagenliste im Wagen. Fenster nach diesem Einsatz, Kundschaft sagt «später Vormittag» zu. Um 11:00 andere Platine vor Ort. Keine Reparatur heute. Nachricht: nachgesehen, Teil bestellt, Fenster für Mittwoch vorgeschlagen. Zwei Kunden mit um eine Stunde gerutschtem Fenster erhalten einen Entwurf nach Blick auf die Tafel; die Disposition schickt, sobald die neue Reihenfolge steht. Im Protokoll steht: ursprünglich 10–12, neu 11–13, SMS an beide um 10:45. Rapport vom Vormittagseinsatz geht in den Rechnungsweg, den die Firma schon nutzt, ohne hier eine zweite Rechnungslogik zu erfinden. Firma und Zeiten sind erfunden.
 
 ## Was Sie liegen lassen sollten
 
-Lassen Sie eine neue Umsetzung liegen, wenn die disponierende Person auch die einzige Fachperson ist und die «Tafel» die Agenda im Wagen ist. Eine Textvorlage für Verspätungen kann trotzdem helfen. Ein Planungsablauf nicht. Lassen Sie den rechtlichen Inhalt eines Servicevertrags liegen. Was der Einsatz umfassen muss, steht im Vertrag. Die Tafel setzt nur eine Person und eine Zeit. Können Sie nicht sagen, welche Fähigkeiten es gibt, schreiben Sie diese Liste, bevor Sie die Zuordnung automatisieren. Eine Zuordnung gegen eine leere Liste nimmt, wer frei ist.
+Lassen Sie einen Planungsablauf, wenn die Disponentin auch die einzige Fachperson ist und die «Tafel» die Agenda im Wagen ist. Eine Textvorlage für Verspätungen kann trotzdem helfen. Lassen Sie Vertragsrecht im Ablauf: der Vertrag definiert den Einsatz, die Tafel setzt Person und Zeit. Ohne Skill-Liste zuerst automatisieren Sie Zuordnung gegen eine leere Liste, und wer frei ist, gewinnt.
+
+## Kurz gefragt
+
+Wartungsverträge und Tagesstörungen teilen sich Technikerinnen, nicht dieselbe Prioritätsregel. Der Vertragskalender darf vorschlagen. Die Tages-Tafel darf vorschlagen. Welche Störung einen Wartungstermin verschiebt, entscheidet die Disposition mit Blick auf beide Listen. Ein einziger «KI-Plan» ohne diese Trennung mischt Vertrag und Störung und erzeugt Anrufe, die niemand begründen kann.
+
+### Was ist der Unterschied zu Wartungsterminen?
+
+Wartung kommt aus dem Vertrag und dem Kalender Wochen im Voraus. Diese Seite ist die Tages-Tafel mit Störungen und Verschiebungen. Beides braucht Technikerinnen, aber nicht dieselbe Software-Schicht.
+
+### Ersetzt das GPS-Tracking?
+
+Nein. Standort live auf der Karte ist ein Produktfeature. Hier reicht oft: bestätigtes Fenster, Nachricht bei Verschiebung, Rapport danach.
+
+### Was passiert nach dem Einsatz?
+
+Rapport, Material, Unterschrift: das gehört in den Weg, den Sie für Rechnungen schon haben, nicht in die Tafel. Die Tafel markiert «erledigt» und übergibt an den Rapport-Schritt. Sonst planen Sie morgen aus einer Liste, die gestern nie geschlossen wurde.
 
 ## Wann ein Prozess-Check passt
 
-Ein Prozess-Check passt, wenn die Morgentafel eine wiederkehrende Arbeit ist und Sie eine Preisspanne wollen, bevor Sie einen Vorschlagsablauf umsetzen oder entscheiden, dass die vorhandene Software reicht. Es sind 60 Minuten über Microsoft Teams, pauschal CHF 99, Zahlung per Karte bei der Buchung. Sie beschreiben einen Morgen. Wagenlisten oder Kundennamen brauchen Sie nicht.
+Ein [Prozess-Check](/de/prozess-check) passt, wenn die Morgentafel wiederkehrend gleich aussieht und Sie eine Preisspanne wollen, bevor Sie einen Vorschlagsablauf bauen oder die vorhandene Software reicht. 60 Minuten per Microsoft Teams, CHF 99, Zahlung bei Buchung. Sie beschreiben einen Morgen ohne Kundennamen oder Wagenlisten.
 
-Sie gehen mit einem schriftlichen Fall, einer Einschätzung, ob es sich lohnt, und einer Preisspanne. Die Stunde verpflichtet zu nichts. Lohnt sich nichts zu automatisieren, kommt das Geld zurück. Das Angebot steht auf der Seite zum [Prozess-Check](/de/prozess-check).
+Sie erhalten einen schriftlichen Fall, Lohnt-sich-Einschätzung und Preisspanne als Richtwerte aus dem Gespräch, keine Festpreis-Schnittstelle. Ohne greifbaren Case Geld zurück. Details auf der [Prozess-Check-Seite](/de/prozess-check). Bringen Sie einen typischen Montag als Ablauf, nicht als Software-Wunschliste.

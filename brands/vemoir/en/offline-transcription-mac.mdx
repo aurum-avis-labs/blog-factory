@@ -14,9 +14,10 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@enchponnt?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Thomas Chizzali</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Offline transcription on Mac** means the speech model is already on the machine, and the audio file never has to leave that machine for the text step. It does not mean "never used the internet." Setup, first model downloads, account sign-in, and most cloud notetakers still need a network. Once the weights sit in a browser cache or in a Mac app's model library, you can transcribe with Wi-Fi off.
 
-This guide separates three honest cases: the free browser tools on vemoir.ch, a local Mac meeting app after models are installed, and cloud services that transcribe on someone else's servers even when you started the call on a Mac. It also says when a Finder-only file app is the simpler offline choice.
+**Offline transcription on Mac** means the speech model is already on the machine, and the audio file never has to leave that machine for the text step. It does not mean you never used the internet. Setup, first model downloads, account sign-in, and most cloud notetakers still need a network. Once the weights sit in a browser cache or in a Mac app's model library, you can transcribe with Wi-Fi off.
+
+This guide separates three honest cases: the free browser tools on vemoir.ch, a local Mac meeting app after models are installed, and cloud services that transcribe on someone else's servers even when you started on a Mac. It also says when a Finder-only file app is the simpler offline choice.
 
 <ul class="blog-facts">
   <li><span class="blog-kicker">Browser file</span><strong>15 min</strong><p>Per file on vemoir.ch tools.</p></li>
@@ -33,11 +34,10 @@ This guide separates three honest cases: the free browser tools on vemoir.ch, a 
 
 People search **offline transcription mac** for two different jobs:
 
-
 1. **A file already on disk** (Voice Memo M4A, Zoom `audio_only.m4a`, interview WAV). They want text without uploading the file.
 2. **The next live meeting.** They want capture and transcription without a bot and without sending audio to a vendor cloud.
 
-Those jobs share a test: after the model is present, can you disconnect the network and still get a transcript? If the product breaks without an API call, it is not offline transcription. If it only caches notes you already made in the cloud, that is offline *editing*, not offline speech-to-text.
+Those jobs share a test: after the model is present, can you disconnect the network and still get a transcript? If the product breaks without an API call, it is not offline transcription. If it only caches notes you already made in the cloud, that is offline editing, not offline speech-to-text.
 
 Local processing still needs storage and memory. Vemoir's Mac app asks for Apple silicon, macOS Sonoma 14.2 or later, at least 8 GB of memory and 10 GB free; 16 GB or more is the practical recommendation for long meetings. Intel Macs are not supported. Those are hardware limits, not a privacy claim.
 
@@ -45,17 +45,16 @@ Local processing still needs storage and memory. Vemoir's Mac app asks for Apple
 
 The free tools on vemoir.ch transcribe a file you already have **in the browser tab**. The audio is **not uploaded** to Vemoir. A public Whisper model downloads once. Later runs can work with the network off if the browser still has the model cached. You can confirm that in the **Network** tab (no multipart upload of your file).
 
+Use [/tools/transcribe-recording](/tools/transcribe-recording) for a generic MP3, M4A, WAV, or MP4. Zoom locals have a dedicated page at [/tools/transcribe-zoom-recording](/tools/transcribe-zoom-recording). For a Voice Memos export specifically, see [how to transcribe a voice memo on Mac](/blog/transcribe-voice-memo-mac).
 
-Use [/tools/transcribe-recording](/tools/transcribe-recording) for a generic MP3, M4A, WAV, or MP4. Zoom locals have a dedicated page at [/tools/transcribe-zoom-recording](/tools/transcribe-zoom-recording). Voice memos sit at [/tools/transcribe-voice-memo](/tools/transcribe-voice-memo).
-
-Limits that do not go away when you go offline:
+Limits that stay the same offline:
 
 - **15 minutes** per file.
 - **Three successful runs per week**.
 - **No speaker labels**.
-- **No live meeting capture** in the tab. There is no extension, bot, or tab-audio recorder.
+- **No live meeting capture** in the tab.
 
-Swiss German usually comes out as **Standard German** text. That is how public Whisper behaves, not a dialect model.
+Swiss German usually comes out as **Standard German** text with public Whisper models.
 
 First-run checklist:
 
@@ -74,13 +73,13 @@ After the chosen transcription models are downloaded, **transcription and speake
 
 Internet is still required for:
 
-- First-time setup and **model downloads** (progress is visible and resumable; Vemoir does not silently swap a model mid-run).
+- First-time setup and **model downloads** (progress is visible and resumable).
 - Optional Apple Notes export, if you choose that path.
 - Optional own-key text generation, if you activate it.
 
 Once the models you picked are on disk, you can record a Teams, Zoom, Meet, or Slack huddle, transcribe, and draft minutes **without a network**. Import of MP3, M4A, WAV, AIFF, CAF, and FLAC uses the same local pipeline.
 
-That is the operational difference from a notepad that transcribes through Deepgram or Assembly and stores notes on AWS: those products can feel "local" because no bot appears, but the speech step is still a cloud call. See [is Otter.ai safe](/blog/is-otter-ai-safe) for a cloud-bot example documented from vendor pages.
+That is different from a desktop notepad that streams audio to Deepgram or Assembly and stores notes on AWS: no bot may appear, but the speech step is still a cloud call. See [is Otter.ai safe](/blog/is-otter-ai-safe) for a cloud-bot example from vendor pages.
 
 Want the next call transcribed on the Mac after models are installed? [Record from the menu bar](/#how) and keep the file on the device unless you export it.
 
@@ -92,11 +91,11 @@ Want the next call transcribed on the Mac after models are installed? [Record fr
 | Later transcription | Can be offline if cached | Yes, offline | No: audio or stream goes to vendor |
 | Live meeting capture | Not available | Yes, on the Mac | Bot or desktop upload |
 | Speaker labels | No | Yes, on the Mac | Vendor feature, in their cloud |
-| Sharing a transcript | You copy text yourself | You export what you choose | Often stored and shareable in their workspace |
+| Sharing a transcript | You copy text yourself | You export what you choose | Often stored in their workspace |
 
 "Airplane mode after setup" is a fair test for the first two columns. It is not a fair test for Otter, Fireflies, or similar services: they are designed to keep a library in their cloud.
 
-Granola's own security FAQ (as of September 2026) says notes are cached locally so you can edit them offline, while **all data is stored on AWS in the United States**, and desktop transcription uses third-party providers. That is offline *notes access*, not offline speech-to-text. Read their pages if that product is in your shortlist.
+Granola's own security FAQ (as of September 2026) says notes are cached locally so you can edit them offline, while **all data is stored on AWS in the United States**, and desktop transcription uses third-party providers. That is offline notes access, not offline speech-to-text. Read their pages if that product is in your shortlist.
 
 ## When a Finder-only local app is the better fit
 
@@ -134,7 +133,7 @@ Do not plan on dialect spelling. Public Whisper in the browser, and the shipped 
 
 ### What if my file is longer than 15 minutes?
 
-Import it in the Mac app, or split it only if you accept multiple browser runs and a broken timeline. The weekly browser quota is three successful jobs.
+Use the Mac app import path, or split only if you accept multiple browser runs and a broken timeline. The weekly browser quota is three successful jobs.
 
 ### Is airplane mode a good privacy test?
 

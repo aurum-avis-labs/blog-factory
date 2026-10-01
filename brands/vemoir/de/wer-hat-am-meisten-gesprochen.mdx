@@ -14,9 +14,10 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@creatopy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Creatopy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Wer hat am meisten gesprochen, kannst du nur belegen, wenn im Text schon steht, wer die Wörter gesagt hat. Dafür gibt es die freie Seite [Wer hatte das Wort](/de/tools/wer-hatte-das-wort). Du fügst ein Transkript mit Namen ein und bekommst jeden Namen mit seinem Anteil an den Wörtern. Fehlen die Namen, rechnet die Seite nicht. Der Browser trennt keine Stimmen und setzt kein «Sprecher A» ein, damit trotzdem eine Grafik entsteht.
 
-Der Wortanteil ist die Verteilung der Wörter im eingefügten Text, keine Redezeit in Minuten. Wer schnell spricht, kann mehr Wörter haben als jemand, der länger am Wort war und langsamer formuliert. Die Zahl beschreibt den Text, den du eingefügt hast.
+Wer hat am meisten gesprochen, kannst du nur belegen, wenn im Text schon steht, wer die Wörter gesagt hat. Dafür gibt es [Wer hatte das Wort](/de/tools/wer-hatte-das-wort). Du fügst ein Transkript mit Namen ein und siehst jeden Namen mit seinem Anteil an den Wörtern. Fehlen die Namen, rechnet die Seite nicht. Der Browser trennt keine Stimmen und erfindet kein «Sprecher A», damit trotzdem eine Grafik entsteht.
+
+Der Wortanteil ist keine Redezeit in Minuten. Wer schnell spricht, kann mehr Wörter haben als jemand, der länger und langsamer am Wort war. Die Zahl beschreibt den Text, den du eingefügt hast.
 
 <ul class="blog-facts">
   <li><span class="blog-kicker">Browser-Tool</span><strong>Keine Labels</strong><p>Ohne Namen im Text gibt es kein Ranking.</p></li>
@@ -31,92 +32,96 @@ Der Wortanteil ist die Verteilung der Wörter im eingefügten Text, keine Redeze
 
 ## Was du vor dem Zählen brauchst
 
-Du brauchst ein Transkript, in dem die Sprecher schon so stehen, dass die Seite sie lesen kann:
-
+Du brauchst ein Transkript, in dem die Sprecher so stehen, dass die Seite sie lesen kann:
 
 - `Name: was die Person gesagt hat`, auf einer eigenen Zeile
-- `Speaker 1:` oder `SPEAKER_01:`, wenn ein anderes Tool die Stimmen getrennt und diese Labels gelassen hat
-- ein WebVTT-Stimm-Tag, `<v Name>Text</v>`, wie ihn Teams und manche Zoom-Cloud-Dateien schreiben
+- `Speaker 1:` oder `SPEAKER_01:`, wenn ein anderes Tool die Stimmen getrennt hat
+- ein WebVTT-Stimm-Tag, `<v Name>Text</v>`, wie Teams und manche Zoom-Cloud-Dateien es schreiben
 
-Eine lokale Zoom-Datei `audio_only.m4a` hat diese Zeilen nicht. Eine reine Mikrofonaufnahme auch nicht. Die Transkription einer Datei im Browser setzt sie nicht nachträglich dazu. Solange du nur Audio hast, gibt es die Zählung noch nicht. Sprecher trennen, anonyme Labels setzen und umbenennen macht die Mac-App, nachdem du aufgenommen oder eine Datei importiert hast. Wie die Aufnahme läuft, steht unter [Aufnahme](/de#capture). Diese Seite macht diesen Schritt nicht.
+Eine lokale Zoom-Datei `audio_only.m4a` hat diese Zeilen nicht. Die Transkription einer Datei im Browser setzt sie nicht nachträglich dazu. Solange du nur Audio hast, gibt es die Zählung noch nicht. Sprecher trennen und umbenennen macht die Mac-App nach Aufnahme oder Import. Wie die Aufnahme läuft, steht unter [Aufnahme](/de#capture). Diese Seite macht diesen Schritt nicht.
 
-Zeitstempel entfernen ist erlaubt und verbraucht keinen der drei Transkriptionsläufe pro Woche. Der [Transkript-Bereiniger](/de/tools/transkript-bereinigen) behält Namen, die schon da waren, und sagt dir, wenn keine da waren. Hast du ein VTT, bereinigst du zuerst und fügst den Klartext danach in «Wer hatte das Wort» ein. Die Wortanteile verbrauchen ebenfalls keinen Lauf. Es wird kein Sprachmodell geladen, und der Raum wird nicht aufgenommen.
+Zeitstempel entfernen ist erlaubt und verbraucht keinen der drei Transkriptionsläufe pro Woche. Der [Transkript-Bereiniger](/de/tools/transkript-bereinigen) behält Namen, die schon da waren. Bei VTT bereinigst du zuerst und fügst den Klartext danach in «Wer hatte das Wort» ein. Wortanteile verbrauchen keinen Lauf und laden kein Sprachmodell.
+
+Willst du Labels ohne Export-Jagd? [Vemoir](/de#capture) zeichnet die nächste Sitzung auf dem Mac auf und trennt Sprecher lokal.
+
+## Wortanteil ist nicht Redezeit
+
+Viele verwechseln «am meisten gesprochen» mit der längsten Sprechzeit. Hier zählen nur Wörter im eingefügten Text. Pausen und Überschneidungen fehlen. Ein kurzer Monolog kann einen langen Austausch aus kurzen Sätzen überholen. Für Sekunden im Audio brauchst du ein anderes Werkzeug.
 
 ## Wer hat am meisten gesprochen, als Wortanteil
 
 Du bekommst einen Namen und einen Anteil an den Wörtern. Lies die Zahl an der Sitzung, die du wirklich hattest.
 
-
-- Sechzig Prozent bei einer Person im Status-Update heissen oft nur, dass diese Person die Folien hatte. Das ist für sich kein Problem.
+- Sechzig Prozent bei einer Person im Status-Update heissen oft nur, dass diese Person die Folien hatte.
 - In einem Workshop, in dem alle zu Wort kommen sollten, ist ein Name mit dem Grossteil der Wörter ein Hinweis für die Moderation. Die Liste erklärt nicht, warum der Text so ungleich ist.
-- `Speaker 2` ist keine Kollegin, bis du das Label zuordnest. Zählen kannst du es trotzdem. In eine Mail als Person gehört «Speaker 2 hat dominiert» nicht.
-- `Conference Room` oder `iPhone` ist ein Gerätename aus der Meeting-App. Dahinter steckt oft der Anteil mehrerer Personen. Die Zeile ist keine einzelne Stimme.
-- Kurze Zustimmungen («ja», «mach nur») fallen kaum ins Gewicht. Ein langer Monolog fällt stark ins Gewicht, weil Wörter gezählt werden. Der Monolog macht den grösseren Anteil aus, auch wenn die kurzen Sätze die Entscheide waren.
+- `Speaker 2` ist keine Kollegin, bis du das Label zuordnest. In eine Mail als Person gehört «Speaker 2 hat dominiert» nicht.
+- `Conference Room` oder `iPhone` ist ein Gerätename aus der Meeting-App. Dahinter steckt oft der Anteil mehrerer Personen.
+- Kurze Zustimmungen wie «ja» oder «mach nur» fallen kaum ins Gewicht. Ein langer Monolog fällt stark ins Gewicht, weil Wörter gezählt werden.
 
-Zwei Schreibweisen derselben Person (`Jon` und `Jonathan`) legt die Seite nicht zusammen. Korrigiere die Kopie und zähle noch einmal. Die Seite kennt dein Organigramm nicht.
+Zwei Schreibweisen derselben Person (`Jon` und `Jonathan`) legt die Seite nicht zusammen. Korrigiere die Kopie und zähle noch einmal.
 
 ## Wann die Zahl die falsche Frage ist
 
 Ein Protokoll braucht Entscheide, Personen und Termine. Wer am meisten gesprochen hat, sagt dir nicht, wer entschieden hat. Die leise Person kann das «nein» gesagt haben, das eine Option beendet. Das gehört in die Entscheidzeile auf dem [Sitzungsprotokoll](/de/tools/sitzungsprotokoll). Den Wortanteil lässt du aus dem Verwaltungsratsdossier, ausser die Sitzung ging wirklich um die Beteiligung.
 
-In Forschung und Interviews brauchst du den Wortanteil manchmal. Auch dort codierst du nur Namen, denen du traust. Eine Grafik aus einem automatischen Transkript ohne Namen ist keine Codierung. Sie zeigt eine gemischte Stimme, oder sie entsteht gar nicht, wenn das Tool die Datei ablehnt.
+In Forschung und Interviews brauchst du den Wortanteil manchmal. Auch dort codierst du nur Namen, denen du traust. Eine Grafik aus einem automatischen Transkript ohne Namen ist keine Codierung.
 
-Ein Zusammenfassungsmodell ist der falsche Zähler. Es schreibt «Alex hat die Diskussion geführt», weil der Text sich so anfühlt. Dieser Satz ist kein Wortanteil. Wenn du die Zahl willst, nimm die Zahl. Steht im Entwurf jemand, der in der Datei nie vorkommt, streichst du den Namen.
+Ein Zusammenfassungsmodell ist der falsche Zähler. Es schreibt «Alex hat die Diskussion geführt», weil der Text sich so anfühlt. Wenn du die Zahl willst, nimm die Zahl. Steht im Entwurf jemand, der in der Datei nie vorkommt, streichst du den Namen.
 
 ## Wenn die Datei keine Labels hat
 
-Dann hör auf. Zeichne keine Prozente aus dem Gedächtnis und schieb sie keinem Tool unter. Es gibt drei brauchbare Wege:
+Dann hör auf. Zeichne keine Prozente aus dem Gedächtnis und schieb sie keinem Tool unter.
 
-1. Bei einem kurzen Gespräch, bei dem du dabei warst, setzt du in einer Kopie `Name:` vor die Stellen, die du sicher kennst. Lücken bleiben ohne Label. Dann zählst du die Kopie, nicht den Originalexport.
-2. Bei einer längeren Aufnahme mit mehreren Stimmen nimmst du auf dem Mac auf oder importierst die Datei. Die Diarisierung erzeugt anonyme Labels, die du umbenennst. «Diesen Sprecher merken» ist ein eigener, freiwilliger Schritt und für eine einzelne Sitzung nicht nötig. Unbekannte bleiben anonym.
-3. Du lässt die Grafik weg und schreibst das Protokoll aus dem, was du vertreten kannst. Zuschreibungen ohne Grundlage gehören nicht in die Notizen, die du teilst.
+1. Bei einem kurzen Gespräch, bei dem du dabei warst, setzt du in einer Kopie `Name:` vor die Stellen, die du sicher kennst. Lücken bleiben ohne Label. Dann zählst du die Kopie.
+2. Bei einer längeren Aufnahme nimmst du auf dem Mac auf oder importierst die Datei. Die Diarisierung erzeugt anonyme Labels, die du umbenennst. «Diesen Sprecher merken» ist für eine einzelne Sitzung nicht nötig.
+3. Du lässt die Grafik weg und schreibst das Protokoll aus dem, was du vertreten kannst.
 
-Teile einen namenlosen Absatz nicht in erfundene Redewechsel, nur damit eine Kreisgrafik entsteht. Die Grafik sieht genau aus und folgt trotzdem nur deiner Aufteilung.
+Teile einen namenlosen Absatz nicht in erfundene Redewechsel, nur damit eine Kreisgrafik entsteht.
 
 ## Ein kurzer Ablauf
 
 1. Das Originaltranskript bleibt unverändert.
-2. Ist es ein VTT oder SRT, bereinigst du es und prüfst, ob die Namen noch da sind.
+2. Ist es VTT oder SRT, bereinigst du es und prüfst, ob die Namen noch da sind.
 3. Schreibweisen vereinheitlichst du auf einer Kopie.
 4. Du fügst den Text in [Wer hatte das Wort](/de/tools/wer-hatte-das-wort) ein.
 5. Meldet die Seite, dass keine Sprechernamen da sind, nimmst du das so.
-6. Ein Satz, den du so sagen könntest: «In diesem Text hat Jordan den grössten Wortanteil.» Daraus wird nicht «Jordan hat alle unterbrochen», ausser du hast das gesehen.
+6. Ein Satz, den du so sagen könntest: «In diesem Text hat Jordan den grössten Wortanteil.»
 7. Beteiligung und Entscheide bleiben getrennt. Das [Sitzungsprotokoll](/de/tools/sitzungsprotokoll) ist für die Entscheide.
 
-Wer live aufnimmt, sagt das den Leuten. Eine Beteiligungsgrafik ändert die Einwilligung nicht. Für sich ist sie kein Mitarbeitergespräch und kein Bericht, den du für die Compliance-Ablage brauchst.
+Wer live aufnimmt, sagt das den Leuten. Eine Beteiligungsgrafik ist weder Einwilligung noch Mitarbeitergespräch noch Compliance-Bericht.
 
 ## Häufige Fragen
 
 ### Heisst «am meisten gesprochen» die meisten Minuten?
 
-Hier nicht. Das Browser-Tool zeigt den Wortanteil jedes Namens im eingefügten Text. Es misst keine Sekunden im Audio. Wer schnell spricht, kann mehr Wörter haben als jemand, der länger und langsamer am Wort war.
+Hier nicht. Das Browser-Tool zeigt den Wortanteil jedes Namens im eingefügten Text, keine Sekunden im Audio.
 
 ### Warum weist die Seite mein Transkript ab?
 
-Sie hat keine Sprecher-Präfixe erkannt, die sie kennt. Zeitstempel allein sind keine Namen. Der Bereiniger setzt auch keine Namen dazu. Du brauchst Labels im Text, eine Diarisierung auf dem Mac oder eine Datei, die du von Hand beschriftest.
+Sie hat keine Sprecher-Präfixe erkannt, die sie kennt. Zeitstempel allein sind keine Namen. Du brauchst Labels im Text, Diarisierung auf dem Mac oder Handarbeit.
 
 ### Kann ich Sprecher in einer lokalen Zoom-Aufnahme zählen?
 
-Erst wenn daraus Text mit Namen geworden ist. `audio_only.m4a` ist Audio. Ein Cloud-VTT hat manchmal Namen, lokales Audio nicht. Wenn du die Wörter noch brauchst, siehe [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
+Erst wenn daraus Text mit Namen geworden ist. `audio_only.m4a` ist Audio. Wenn du die Wörter noch brauchst, siehe [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
 
 ### Verbraucht das einen meiner drei Wochenläufe?
 
-Nein. Wortanteile starten kein Sprachmodell. Ein VTT zu bereinigen auch nicht. Audio zu transkribieren schon. Notizen aus einem Transkript entwerfen auch.
+Nein. Wortanteile und VTT-Bereinigung starten kein Sprachmodell. Audio transkribieren schon.
 
 ### Was, wenn jemand aus einem Sitzungszimmer dabei war?
 
-Der Export kann jedes Wort aus diesem Raum unter dem Raumnamen ablegen. Der Anteil sagt dann nichts über eine einzelne Person. Teile ihn nur von Hand, wenn du die Wechsel kennst. Sonst nennst du ihn nicht im Bericht.
+Der Export kann jedes Wort unter dem Raumnamen ablegen. Teile den Anteil nur von Hand, wenn du die Wechsel kennst.
 
 ### Gehört die Grafik in die Notizen, die ich verschicke?
 
-Nur wenn die Beteiligung das Thema war und die Namen echt sind. Sonst lenkt sie von Personen und Terminen ab, und ein falsches Label wird im nächsten Posteingang zur Tatsache.
+Nur wenn die Beteiligung das Thema war und die Namen echt sind. Sonst lenkt sie ab, und ein falsches Label wird zur Tatsache.
 
 ### Kann die Mac-App das ohne den Browser?
 
-Die Mac-App trennt Sprecher in Labels, die du auf dem Gerät umbenennen kannst. Die Seite für den Wortanteil ist das Browser-Tool für Text, den du schon hast. Die App holt die Labels, die Seite zählt eine Einfügung. Der Browser hört das Gespräch nicht mit.
+Die Mac-App trennt Sprecher in Labels, die du auf dem Gerät umbenennen kannst. Die Seite zählt eine Einfügung. Der Browser hört das Gespräch nicht mit.
 
 ### Ist ein hoher Anteil ein Problem?
 
-Nur in einer Sitzung, in der du mehr Stimmen wolltest. In einem Briefing soll eine Person die meisten Wörter haben. Die Zahl deutet sich nicht von selbst.
+Nur in einer Sitzung, in der du mehr Stimmen wolltest. In einem Briefing soll eine Person die meisten Wörter haben.
 
 Nächster Schritt: ein beschriftetes Transkript in [Wer hatte das Wort](/de/tools/wer-hatte-das-wort) einfügen. Fehlen die Namen, klärst du das, bevor du irgendetwas zählst.

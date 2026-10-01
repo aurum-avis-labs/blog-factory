@@ -22,7 +22,7 @@ The question usually arrives as a slogan: "our data must stay in Switzerland." S
 
 Disclosure abroad is not only a file you email to a supplier in another country. It is also the moment a cloud service processes a name, an address, or a message on infrastructure outside Switzerland. The [Federal Data Protection and Information Commissioner (FDPIC)](https://www.edoeb.admin.ch/en/cross-border-transfer-of-personal-data) states that a transfer is allowed only if the conditions are met, and that the controller stays responsible.
 
-A private free chat account is a different problem, and it is already covered in [ChatGPT and customer data](/prozess-check/blog/chatgpt-customer-data-swiss-dsg). This page is about location: where a contracted tool processes and stores the data, and which sentence in the contract actually says so. The EU AI Act is a different statute again. For a firm that only sells in Switzerland, it is rarely the first filter. That split is in [the EU AI Act and Swiss SMEs](/prozess-check/blog/eu-ai-act-swiss-smes).
+A private free chat account is a different problem, covered in [ChatGPT and customer data](/prozess-check/blog/chatgpt-customer-data-swiss-dsg). This page is about location for a contracted tool. The EU AI Act is a different statute again; for a firm that only sells in Switzerland, it is rarely the first filter, as in [the EU AI Act and Swiss SMEs](/prozess-check/blog/eu-ai-act-swiss-smes).
 
 ## Three paths the Act actually names
 
@@ -34,43 +34,72 @@ A private free chat account is a different problem, and it is already covered in
   <li><span class="blog-kicker">Exceptions</span><strong>Art. 17</strong><p>A short list, including express consent. Not a general permission to paste a dossier into any tool.</p></li>
 </ul>
 
-The FDPIC states that, where protection is adequate, private companies may transfer personal data to that state without a further mechanism under Art. 16 para. 2. Where it is not, the FDPIC has recognised the EU standard contractual clauses, with Swiss adjustments described in its guide. The data subject must be informed of disclosure abroad ([Art. 19 para. 4 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/en), as the FDPIC summarises it). A transfer that meets neither Art. 16 nor Art. 17 can be an offence under Art. 61 let. a DSG. Countries and safeguards also belong in the register of processing activities (Art. 12 DSG). Which of these applies to your files is a question for your data-protection adviser, not for a blog.
+The FDPIC states that, where protection is adequate, private companies may transfer personal data to that state without a further mechanism under Art. 16 para. 2. Where it is not, the FDPIC has recognised the EU standard contractual clauses. The data subject must be informed of disclosure abroad (Art. 19 para. 4 DSG). Countries and safeguards belong in the register of processing activities (Art. 12 DSG). Which path applies to your files is a question for your data-protection adviser.
 
 ## The country list, and the United States line
 
-The list is Annex 1 of the [Data Protection Ordinance](https://www.fedlex.admin.ch/eli/cc/2022/568/en). It is not a slogan about "Europe". Germany, Austria, Belgium, France and Italy are on it, among others. A provider that processes only in one of those states sits on the Art. 16 para. 1 path for that processing, on the text of the ordinance. You still need a processor contract, and you still need to know which subprocessors see the file.
+The list is Annex 1 of the [Data Protection Ordinance](https://www.fedlex.admin.ch/eli/cc/2022/568/en). Germany, Austria, Belgium, France and Italy are on it, among others. A provider that processes only in one of those states sits on the Art. 16 para. 1 path for that processing. You still need a processor contract, and you still need to know which subprocessors see the file.
 
-The United States line is narrower. Since 15 September 2024, adequate protection for the US applies to personal data processed by organisations certified under the Swiss-US Data Privacy Framework. The ordinance cites Switzerland's designation on 7 June 2024. A US company that is not certified is not covered by that line. Ask for the certification, or treat the transfer as one that still needs Art. 16 para. 2 or an Art. 17 exception. A logo on a marketing page is not the Federal Council's decision.
+The United States line is narrower. Since 15 September 2024, adequate protection for the US applies to personal data processed by organisations certified under the Swiss-US Data Privacy Framework. A US company that is not certified is not covered by that line. Ask for the certification, or treat the transfer as one that still needs Art. 16 para. 2 or an Art. 17 exception.
+
+<div class="blog-pair">
+  <div>
+    <h3>What the DSG often allows</h3>
+    <ul>
+      <li>Processing in a state on Annex 1</li>
+      <li>US providers with a valid framework certification for those data</li>
+    </ul>
+  </div>
+  <div>
+    <h3>What can still be stricter</h3>
+    <ul>
+      <li>Customer contract saying «Switzerland only» or «EU only»</li>
+      <li>Professional secrecy or especially sensitive data</li>
+    </ul>
+  </div>
+</div>
 
 ## When the server location is still the practical question
 
-The statute is not the only text that binds you.
+A customer contract, a mandate, or an internal rule may say the data stay in Switzerland or in the EU. If you signed it, the country list does not rewrite it.
 
-A customer contract, a mandate, or an internal rule may say the data stay in Switzerland or in the EU. That sentence can be stricter than the DSG. If you signed it, the country list does not rewrite it.
+Professional secrecy can block a transfer the DSG would otherwise allow. In a medical practice, health data and the duty in the Criminal Code sit on top of the hosting question, as in [AI in medical practices](/prozess-check/blog/ai-in-medical-practices). Banks, lawyers and other professions have their own duties.
 
-Professional secrecy can block a transfer the DSG would otherwise allow. In a medical practice, health data and the duty in the Criminal Code sit on top of the hosting question. The office version of that limit is in [AI in medical practices](/prozess-check/blog/ai-in-medical-practices). Banks, lawyers and other professions have their own duties. Name the duty before you name the region.
-
-A contract can also be the thing you write. If the board wants Swiss or EU hosting, put that in the processor agreement and in the [allow-list](/prozess-check/blog/approve-ai-tools-allow-list), so staff do not open a second tool that ignores it.
+If the board wants Swiss or EU hosting, put that in the processor agreement and in the [allow-list](/prozess-check/blog/approve-ai-tools-allow-list), so staff do not open a second tool that ignores it.
 
 ## A mailbox in Switzerland is not the model
 
-Two products SMEs already pay for show why the slogan fails.
+Microsoft defines data residency as the place where customer data is stored at rest. On its [overview](https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-overview), Switzerland is a local-region geography; Exchange, SharePoint, OneDrive, Teams and Microsoft 365 Copilot are among the core services named there. The Data Location card shows geography for your tenant: storage at rest for those services, not a promise that every model inference happens in Switzerland. Read the card, then the Copilot terms for the plan you bought.
 
-Microsoft defines data residency as the place where customer data is stored at rest. On its [overview](https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-overview), Switzerland is a local-region geography, and the European Union/EFTA macro region lists data centres that include Switzerland. Exchange, SharePoint, OneDrive, Teams and Microsoft 365 Copilot are among the core services named there. The Data Location card shows the geography for your tenant: storage at rest for those services, not a promise that every model inference happens in Switzerland. Read the card, then the Copilot terms for the plan you bought.
-
-OpenAI's API documentation describes a project option labelled [Europe (EEA + Switzerland)](https://developers.openai.com/api/docs/guides/your-data), on eu.api.openai.com, for eligible customers. For supported endpoints the table marks both storage and processing as available in that region. Customer content is stored at rest in the selected region where the endpoint needs to keep it. System data may still be processed outside it, and a region other than the United States needs extra approval and a contract amendment. The page does not name a data centre in Switzerland. "Europe, including Switzerland in the label" is not "runs in Zurich". Consumer ChatGPT is a different product. Do not copy the API sentence onto a free account.
+OpenAI's API documentation describes a project option labelled [Europe (EEA + Switzerland)](https://developers.openai.com/api/docs/guides/your-data), on eu.api.openai.com, for eligible customers. Customer content is stored at rest in the selected region where the endpoint needs to keep it. System data may still be processed outside it. The page does not name a data centre in Switzerland. Consumer ChatGPT is a different product.
 
 If a vendor page does not state a location, leave the location out of the decision. A sales sentence is not the trust page.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Regional API endpoints and «data residency» often cover storage at rest. Ask the vendor whether model requests use the same region when that matters for your file.</p>
+</aside>
 
 <ul class="blog-checklist">
   <li>Which country processes this workflow, and which stores it at rest?</li>
   <li>Is that state on Annex 1, or is the US firm certified under the Swiss-US framework?</li>
-  <li>If neither, which Art. 16 para. 2 safeguard or Art. 17 exception is the transfer meant to use?</li>
+  <li>If neither, which Art. 16 para. 2 safeguard or Art. 17 exception applies?</li>
   <li>Who are the subprocessors, and does our customer contract forbid this path?</li>
 </ul>
+
+## Who should frame the question differently
+
+Free chat accounts without a contract, shadow tools in the browser, and files with especially sensitive personal data need different answers than «is the server in the EU». Internal notes without names often carry less pressure than customer dossiers in a new AI mailbox.
+
+<div class="blog-faq">
+  <h3>Is «Made in Switzerland» on the website enough?</h3>
+  <p>Not on its own. You need the contract, subprocessors, and the path under Art. 16 or 17. Marketing does not replace the country list.</p>
+</div>
 
 ## What to settle with the team
 
 Location is one line on the allow-list, next to which files may enter the tool. The people who draft mail need the same sentence as the person who signs the contract.
 
-If the team needs a shared rule for which tools are allowed, and where those tools may process data, that is the job of the [AI in business workshop](/services/ai-in-business). A single recurring task, such as one inbox or one document flow, is a [Prozess-Check](/prozess-check) case: one hour, one workflow, a price range afterwards.
+Note in the register of processing activities which states each tool uses, and which Art. 16 or 17 path applies. Without that line, the allow-list becomes a list of slogans.
+
+If the team needs a shared rule for which tools are allowed, and where those tools may process data, that is the job of the [AI in business workshop](/services/ai-in-business). A single recurring task, such as one inbox or one document flow, is a [Process Check](/prozess-check) case: 60 minutes, one workflow, a price range afterwards. The check costs CHF 99 flat.

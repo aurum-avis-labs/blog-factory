@@ -1,0 +1,96 @@
+---
+title: "KI Code testen: Pruefpass vor breiterem Launch"
+description: "KI Code testen: manuelle Ablaufe, Rechte und Daten pruefen, und was ein Demo-Klick allein am Vibe-Code-Build nicht beweist."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["vibe coding", "testing", "sicherheit", "mvp"]
+funnelStage: interest
+translationKey: testing-ai-generated-code
+relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">KI Code testen heisst, Verhalten, Berechtigungen und Datenpfade zu prüfen, die das Modell in Ihrem Prompt nie gesehen hat, nicht nur den Bildschirm durchklicken, den das Werkzeug gezeigt hat.</p>
+
+## KI Code testen
+
+Sie testen KI-generierten Code, indem Sie die echten Nutzerwege in einer Staging- oder Preview-URL gehen und danach bewusst Annahmen brechen: falsches Konto, leere Felder, direkte API-Aufrufe mit Schlüsseln aus dem Browser, und ein Blick in das Datenbank-Dashboard. Apps aus Lovable, Bolt, v0, Replit, Cursor oder Claude Code wirken oft fertig, während Auth-Regeln, Zeilenfilter und Fehlerbehandlung dünn sind. Der Text richtet sich an Gründerinnen, Gründer und Produktverantwortliche, die schnell gebaut haben und vor Investoren, Piloten oder offenem Sign-up einen nüchternen Durchlauf brauchen.
+
+Row Level Security auf Supabase behandelt ein eigener Beitrag: [Lovable Supabase Row Level Security](/de/blog/lovable-supabase-rls). Ob der gesamte Build produktionsreif ist, ordnet [Ist Ihre vibe-coded App produktionsreif?](/de/blog/ist-deine-vibe-coded-app-produktionsreif) ein.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Drei Abläufe und einen Missbrauchsfall notieren</h3><p>Happy Path, eine Berechtigung, die Sie verweigern wollen, und eine Aktion, die nie die Zeile eines anderen Nutzers zeigen darf. Der Missbrauchsfall ist keine Schwarzmalerei; dort scheitern generierte Backends.</p></li>
+  <li data-step="2"><h3>Die Abläufe mit zwei Konten fahren</h3><p>Zwei Accounts in einem Inkognito-Fenster. Prüfen Sie, ob Nutzer B die URLs, IDs oder API-Antworten von Nutzer A nicht öffnen kann.</p></li>
+  <li data-step="3"><h3>Umgebungsvariablen und Client-Keys einmal lesen</h3><p>DevTools öffnen, notieren, was in den Browser gelangt, und prüfen, ob Anon-Keys Tabellen erreichen, die gesperrt sein sollten. Policies vor Einladung an Fremde korrigieren.</p></li>
+  <li data-step="4"><h3>Mängel protokollieren, dann Scope einfrieren</h3><p>Eine Liste mit Priorität. P0 bei Auth und Daten schliessen, bevor neue Features kommen. Nur geänderte Pfade erneut testen.</p></li>
+</ol>
+
+## Was manuelles Testen beweisen kann
+
+Manuelles Testen zeigt, ob eine kleine Gruppe den Job erledigt, den Sie im Kopf haben, und ob beim Kontowechsel offensichtliche Rechtefehler auftauchen. Es ist die richtige erste Schicht nach einem Vibe-Coding-Sprint, weil es schnell ist und blockierte Abläufe findet, die Lernen verhindern.
+
+Es bringt auch fehlende Validierung, durchsickende Fehlermeldungen und Routen zutage, die im Demo-Konto funktionieren, aber nicht nach frischem Sign-up. Paaren Sie Sitzungsnotizen mit ein bis zwei Zählern, die Sie vor dem Test festgelegt haben, etwa abgeschlossene Entwürfe oder Rückkehrer, nicht Vanity-Traffic aus eigenen Posts.
+
+Automatisierte Tests helfen, wenn Sie dasselbe Modul ständig ändern; viele KI-Builds haben keine. Bis Sie welche haben, schlägt ein schriftliches Skript planloses Klicken. Das Skript geben Sie nächste Woche einer Kollegin oder einem Reviewer.
+
+## Was KI Code testen nicht beweist
+
+Eine bestandene eigene Checkliste heisst nicht, dass die App Scanning, Credential Stuffing oder einen neugierigen Nutzer mit dem öffentlichen Supabase-Key übersteht. 2025 dokumentierte CVE-2025-48757 fehlende oder wirkungslose Row Level Security bei vielen Lovable-verknüpften Supabase-Projekten, bei denen der Client-Key Abfragen ohne Login erlaubte, betroffen waren 170+ Apps ([NVD](https://nvd.nist.gov/vuln/detail/CVE-2025-48757)). Ein grüner UI-Test hätte diese Fehlerklasse ohne Prüfung auf Datenebene nicht gefunden.
+
+Manuelle Durchläufe beweisen auch keine Last, keine saubere Lizenzierung aller Dependencies und nicht, dass eine gewrappte Web-App [Apples Richtlinie 4.2](https://developer.apple.com/app-store/review/guidelines/) zur Mindestfunktionalität erfüllt. Sie ersetzen kein strukturiertes Security-Review, wenn Verträge Datenschutz nennen oder wenn jeder Mandant die Daten des anderen nie sehen darf.
+
+<div class="blog-pair">
+  <div>
+    <h3>Für wen dieser Durchlauf passt</h3>
+    <ul>
+      <li>Gründerinnen und Gründer, die Zugang über Freunde und Familie erweitern wollen</li>
+      <li>Innovationsverantwortliche, die einen Pilot zeigen müssen, nicht nur ein Demo-Login</li>
+      <li>Teams, die mit KI gescaffoldet haben und jetzt das Repo besitzen</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Wer direkt zum Review sollte</h3>
+    <ul>
+      <li>Gesundheits-, Finanz- oder Kinderdaten ohne Security-Verantwortliche</li>
+      <li>Multi-Tenant-B2B, bei dem Isolation Teil des Verkaufs ist</li>
+      <li>Einkauf, der schon OWASP- oder Pentest-Sprache verlangt hat</li>
+    </ul>
+  </div>
+</div>
+
+## Ein erfundenes Beispiel: zwei Konten und eine Tabelle
+
+Ein erfundenes Beispiel: Jemand in Bern liefert ein kleines Job-Board-Prototyp mit einem KI-Werkzeug und Supabase. Drei Schritte im Skript: Stelle eintragen, mit zweitem Konto bewerben, Bewerberliste als Inserent öffnen. In Chrome und Firefox laufen beide Wege. In Schritt zwei loggt sich eine dritte Person ein und setzt die Bewerber-ID aus dem Network-Tab in eine neue Registerkarte. Die Seite zeigt Namen und E-Mail einer anderen Person. Einladungen stoppen, Row-Level-Security-Policies in Supabase aktivieren, erneut testen, bis die dritte Person nur die eigene Bewerbung sieht. Die Produktstory für Coaches bleibt; der Launch verschiebt sich um eine Woche. Diese Woche ist günstiger als eine Breach-Notiz an frühe Tester.
+
+## Grenzen, werkzeugneutral
+
+Bleiben Sie neutral zum Builder: Solange die App für zehn geführte Tester reicht, genügen manuelle Skripte. Wenn der nächste Schritt ein Firmenpilot oder ein bezahltes Tier ist, lautet die nächste Frage, ob Codebase und Backend verteidigbar sind, nicht ob ein weiterer Prompt ein Feature liefert.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Diese Sequenz ist ein gründergeführter Testdurchlauf. Sie ist keine OWASP-ASVS-Verifikation, kein Penetrationstest und keine Rechtsauskunft zum Schweizer Datenschutz. Wenn Vertrag oder Investorenmappe Security nennen, ist die Liste Vorbereitung für ein strukturiertes Review, nicht das Review selbst.</p>
+</aside>
+
+<ul class="blog-checklist">
+  <li>Zwei Testkonten und ein gemeinsames Skript, das alle gleich abarbeiten</li>
+  <li>Datenbank-Policies am Missbrauchsfall prüfen, nicht nur an der Demo</li>
+  <li>Secrets aus dem Client-Bundle, wo das Werkzeug eine Abkürzung erlaubt hat</li>
+  <li>Mängelliste mit geschlossenen P0-Themen zu Daten und Auth vor Marketingbudget</li>
+</ul>
+
+<div class="blog-faq">
+  <h3>Brauchen Sie Unit-Tests, wenn Sie das MVP vibe-coded haben?</h3>
+  <p>Nicht am ersten Tag, wenn Sie noch beweisen, ob jemand den Job will. Sie brauchen sie, wenn sich derselbe Auth- oder Billing-Pfad wöchentlich ändert und Regressionen Piloten kosten. Bis dahin sind wiederholbares manuelles Skript plus Datenebenen-Checks das minimale seriöse Minimum.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Kann das KI-Werkzeug den eigenen Output testen?</h3>
+  <p>Es kann Fälle vorschlagen, kennt aber nicht Ihre Produktionsschlüssel, Ihre echten Policies oder was Sie im Pilot zugesagt haben. Skripte vom Modell entwerfen lassen, dann selbst mit frischen Konten ausführen.</p>
+</div>
+
+## Wann ein Vibe Code Review passt
+
+Ein [Vibe Code Review](/de/services/vibe-code-review) passt, wenn Ihr manueller Durchlauf Mängel zeigt, die Sie nicht priorisieren können, oder wenn Sie das Repo jemandem zeigen, der nach Datenisolation fragt. Sie erhalten ein Gap-Review gegen OWASP ASVS v5.0, fokussierte Zeit zu Architektur und Codequalität, eine priorisierte P0/P1/P2-Liste und ein abschliessendes Gespräch unter NDA. Der Schritt ist richtig, wenn der Prototyp noch Wert hat, Sie ihn aber nicht mehr als private Demo bezeichnen wollen.
+
+Haben Sie noch keinen Zwei-Konten-Test gefahren, beginnen Sie dort. Ein Review auf einem ungeprüften Happy Path dokumentiert nur, was Sie bereits vermuten.

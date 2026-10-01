@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { brands } from "@/lib/brands";
+import { blogListingUrl, brands, liveSites, worldIdFromSite } from "@/lib/brands";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("blog", ({ data }) => !data.draft);
@@ -10,6 +10,14 @@ const postCounts: Record<string, number> = {};
 for (const brand of brands) {
   postCounts[brand.id] = allPosts.filter((p) =>
     p.id.startsWith(brand.id + "/")
+  ).length;
+}
+
+function siteCount(brandId: string, lang: string, siteId: string): number {
+  return allPosts.filter(
+    (post) =>
+      post.id.startsWith(`${brandId}/${lang}/`) &&
+      worldIdFromSite(post.data.site) === siteId,
   ).length;
 }
 ---
@@ -25,25 +33,64 @@ for (const brand of brands) {
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        brands.map((brand) => (
-          <a
-            href={`/${brand.id}/blog`}
-            class="group p-6 rounded-2xl border border-border hover:border-primary/50 hover:bg-muted/30 transition-all duration-300"
-          >
-            <h2 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-              {brand.displayName}
-            </h2>
-            <p class="text-sm text-muted-foreground mb-4">{brand.domain}</p>
-            <div class="flex items-center gap-4 text-xs text-muted-foreground">
-              <span class="px-2 py-1 rounded-full bg-muted">
-                {postCounts[brand.id] || 0} posts
-              </span>
-              <span class="px-2 py-1 rounded-full bg-muted">
-                {brand.languages.join(", ")}
-              </span>
+        brands.map((brand) => {
+          const sites = liveSites(brand);
+          if (sites.length === 0) {
+            return (
+              <a
+                href={`/${brand.id}/blog`}
+                class="group p-6 rounded-2xl border border-border hover:border-primary/50 hover:bg-muted/30 transition-all duration-300"
+              >
+                <h2 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                  {brand.displayName}
+                </h2>
+                <p class="text-sm text-muted-foreground mb-4">{brand.domain}</p>
+                <div class="flex items-center gap-4 text-xs text-muted-foreground">
+                  <span class="px-2 py-1 rounded-full bg-muted">
+                    {postCounts[brand.id] || 0} posts
+                  </span>
+                  <span class="px-2 py-1 rounded-full bg-muted">
+                    {brand.languages.join(", ")}
+                  </span>
+                </div>
+              </a>
+            );
+          }
+
+          return (
+            <div class="p-6 rounded-2xl border border-border">
+              <h2 class="text-xl font-bold mb-2">{brand.displayName}</h2>
+              <p class="text-sm text-muted-foreground mb-4">{brand.domain}</p>
+              <div class="flex items-center gap-4 text-xs text-muted-foreground mb-4">
+                <span class="px-2 py-1 rounded-full bg-muted">
+                  {postCounts[brand.id] || 0} posts
+                </span>
+                <span class="px-2 py-1 rounded-full bg-muted">
+                  {brand.languages.join(", ")}
+                </span>
+              </div>
+              <div class="flex flex-col gap-1">
+                {sites.map((site) => (
+                  <a
+                    href={blogListingUrl(brand.id, brand.defaultLanguage, site.id)}
+                    class="flex items-center justify-between gap-3 rounded-xl px-3 min-h-11 text-sm font-medium hover:bg-muted transition-colors"
+                  >
+                    <span>{site.label}</span>
+                    <span class="text-xs text-muted-foreground">
+                      {siteCount(brand.id, brand.defaultLanguage, site.id)} {brand.defaultLanguage}
+                    </span>
+                  </a>
+                ))}
+                <a
+                  href={blogListingUrl(brand.id, brand.defaultLanguage)}
+                  class="flex items-center justify-between gap-3 rounded-xl px-3 min-h-11 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                >
+                  <span>All blogs</span>
+                </a>
+              </div>
             </div>
-          </a>
-        ))
+          );
+        })
       }
     </div>
   </main>

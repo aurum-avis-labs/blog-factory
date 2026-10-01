@@ -1,0 +1,110 @@
+---
+title: "Lost laptop with personal data: what to do in Switzerland"
+description: "Lost laptop with personal data at a Swiss SME: remote wipe, encryption, internal report, and when to notify the FDPIC after a missing device."
+pubDate: 2026-10-29
+author: "Aurum Avis Labs"
+tags: ["lost device", "laptop", "data breach", "fadp", "switzerland"]
+funnelStage: interest
+translationKey: lost-laptop-with-personal-data
+relatedPosts: ["email-sent-to-the-wrong-recipient", "report-a-data-breach-to-the-fdpic", "data-protection-training-for-employees"]
+draft: false
+site: security
+---
+
+## Lost laptop with personal data: what to do
+
+A lost laptop with personal data is one of the most common physical breaches in Swiss SMEs. Someone leaves a bag on the train, a break-in takes hardware, or a phone disappears after a client visit. Your first hours matter for remote lock, evidence for insurers, and deciding whether the FDPIC must hear about a high-risk incident. Swiss law does not use a 72-hour EU clock; it asks whether high risk is likely and expects notification [as fast as possible](https://www.edoeb.admin.ch/de/meldung-von-datensicherheitsverletzungen).
+
+This how-to is for staff, managers and IT partners in firms with 20 to 250 employees. It is practical orientation, not legal advice. For the full FDPIC portal process, use [reporting a data breach to the FDPIC](/security/blog/report-a-data-breach-to-the-fdpic); here we focus on laptops, tablets and company phones with business data.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Security incident</span><strong>Yes when personal data are involved</strong><p>Loss of unencrypted or still accessible data is a breach of security.</p></li>
+  <li><span class="blog-kicker">FDPIC</span><strong>High risk only</strong><p>Notify when a high risk for data subjects is likely ([Art. 24 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de)).</p></li>
+  <li><span class="blog-kicker">Encryption</span><strong>Changes the assessment</strong><p>It does not replace documentation or a check of mail cache and local exports.</p></li>
+  <li><span class="blog-kicker">BACS cyber duty</span><strong>Usually no</strong><p>Critical infrastructure reporting is separate from Art. 24 FADP.</p></li>
+</ul>
+
+## Who to tell in the first hour
+
+The employee should not «eventually ping IT». They call a named contact you agreed in advance: HR, the part-time privacy lead, the IT partner, or a pair of both. Line management and the executive team join as soon as it is clear that personal data were on the device or that remote wipe failed.
+
+IT or your MSP needs the serial number, user account, last known location and whether the device was powered on. Finance and insurers come later; police in parallel when theft is obvious. You notify the FDPIC only after a short risk assessment, not in the first fifteen minutes.
+
+## First hour: lock, wipe, passwords
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Report internally</h3><p>Phone the named contact, not chat alone. Note time and place.</p></li>
+  <li data-step="2"><h3>Remote lock or wipe</h3><p>Check MDM, Microsoft Intune, Jamf or Find My Device and trigger wipe.</p></li>
+  <li data-step="3"><h3>Secure accounts</h3><p>Change passwords and revoke app sessions for mail, cloud and VPN that stayed signed in on the device.</p></li>
+  <li data-step="4"><h3>Sketch what was stored</h3><p>Sync folders, Outlook cache, local PDF exports, browser-saved passwords.</p></li>
+  <li data-step="5"><h3>Preliminary risk view</h3><p>Encryption on or off, sensitive categories, number of people affected. Escalate to management the same day if unclear.</p></li>
+</ol>
+
+If remote wipe fails or the device stayed offline, urgency rises. A stolen, unencrypted laptop with an open Outlook cache is a different case from an encrypted machine you successfully wiped at midnight. Document both.
+
+## Encryption: what it changes and what it does not
+
+Full-disk encryption on company laptops (FileVault on Mac, BitLocker on Windows) is standard Art. 8 practice. Without it, someone who powers the machine on can read the disk. With encryption and a strong device password, unauthorised read access is much less likely unless they knew the password or the device was unlocked when lost.
+
+Encryption does not close the file. Mail cache, OneDrive sync and local HR exports can still matter if the device was unlocked before loss or cloud accounts stay reachable without MFA. For audits, keep proof that encryption was enforced by policy: Intune compliance, an MDM report or a status screenshot before wipe. After a successful wipe, log serial number and wipe confirmation.
+
+MFA on cloud accounts limits damage if someone powers the device on and reuses sessions. Policy: no long-term customer databases on local disk when cloud and access control are enough.
+
+## What data might be exposed
+
+Typical items are Outlook cache, OneDrive or SharePoint sync, saved PDFs, browser passwords without central management, and VPN certificates. Health files, salary lists or client dossiers raise severity faster than generic correspondence. Cross-check with [sensitive personal data under the FADP](/security/blog/sensitive-personal-data-under-the-fadp).
+
+Showroom tablets or shared reception PCs are easy to forget. If a demo CRM was syncing, treat loss like a laptop. BYOD phones with work mail: remove access (password, sessions); remote wipe on personal hardware is often limited.
+
+## FDPIC notification or internal record only?
+
+Notify the FDPIC when unauthorised access to personal data is likely and high risk to personality or fundamental rights follows. A wiped, encrypted corporate laptop with no sensitive local exports may stay internal if your written analysis says so. An unencrypted laptop with thousands of customer records likely needs contact via [databreach.edoeb.admin.ch](https://www.edoeb.admin.ch/de/meldung-von-datensicherheitsverletzungen).
+
+Do not claim that encrypted devices are never reportable in every case; facts differ. When in doubt, document the analysis and seek counsel. Inform affected people when they must act, even if you do not notify the FDPIC. Have wording reviewed before send.
+
+Police reports for theft and insurer claims run in parallel; they do not replace privacy documentation under [Art. 15 of the Data Protection Ordinance](https://www.fedlex.admin.ch/eli/cc/2022/568/de) (keep at least two years, including when you do not report).
+
+## IT partner and parallel account steps
+
+External IT partners can revoke device compliance and confirm wipe logs faster than the employee can from a personal phone. Pass serial number and account immediately and ask for a written wipe log for the file. Alongside privacy work, IT checks suspicious sign-ins in Microsoft Entra ID, revokes VPN certificates and reassigns licences. Security and privacy share one incident number but different checklists so external statements stay consistent.
+
+<ul class="blog-checklist">
+  <li>Date, time, place, who discovered the loss</li>
+  <li>Device type, serial number, encryption status before wipe</li>
+  <li>Which data categories and how many people affected (estimate)</li>
+  <li>Remote wipe: started, completed or failed</li>
+  <li>FDPIC decision yes/no with brief reasoning</li>
+  <li>Steps for affected people and team follow-up</li>
+</ul>
+
+## A made-up example: train ride home
+
+A made-up example: a project manager loses a company MacBook on the SBB evening train. She alerts the office manager within 30 minutes. IT confirms FileVault via MDM and starts remote wipe, completed at midnight. Local storage held slide decks without personal data; mail stayed in Exchange online. Management logs the incident, actions and decision «no FDPIC report». They also log the loss with the SBB lost property office. A short reminder on travel habits lands in the next [security awareness session on how often to train](/security/blog/how-often-to-run-security-awareness-training), not a one-off lecture after this case alone.
+
+## Follow-up without blaming individuals
+
+Replace hardware, review who may download local exports, and agree travel habits in a team note. A second lost device from the same team within a year belongs in the breach log and in awareness, not a public reprimand. Law firms and fiduciaries: tell the responsible partner when client files were offline; professional secrecy and FADP run in parallel.
+
+Pair with [data protection training for employees](/security/blog/data-protection-training-for-employees) so reporting feels normal before the next incident.
+
+<div class="blog-faq">
+  <h3>Must every lost laptop be reported to the FDPIC?</h3>
+  <p>No. Only when high risk is likely. You still document internally.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is encryption enough on its own?</h3>
+  <p>It often lowers risk but does not replace checking cache, exports and accounts. Write the decision down.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Does the GDPR 72-hour rule apply?</h3>
+  <p>Not as the Swiss default. EU processing may add duties; follow the FADP first.</p>
+</div>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Orientation for Swiss SMEs under the FADP. It does not state that your case must or must not be reported. Borderline cases: FDPIC guide and counsel.</p>
+</aside>
+
+For datenschutz training on devices, reporting paths and breaches, see [Datenschutz awareness training](/security/datenschutz).

@@ -14,6 +14,8 @@ const blog = defineCollection({
       draft: z.boolean().optional().default(false),
       funnelStage: z.string().optional(),
       relatedPosts: z.array(z.string()).optional(),
+      /** Aurum world. `ki` is the old id for prozess-check. Other brands omit it. */
+      site: z.enum(["studio", "ki", "prozess-check", "workshops", "security", "web3"]).optional(),
     }),
 });
 

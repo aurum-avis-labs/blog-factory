@@ -1,0 +1,78 @@
+---
+title: "App im App Store veroeffentlichen: Ablauf für Gründer"
+description: "App im App Store veroeffentlichen: Developer-Programm, Build hochladen, App Store Connect ausfüllen, Review einreichen. Grenzen bei 4.2 klar benennen."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["app store", "ios", "mvp", "gründer"]
+funnelStage: interest
+translationKey: publish-an-app-on-the-app-store
+relatedPosts: ["app-store-abgelehnt-4-2", "google-play-12-tester"]
+draft: true
+site: studio
+---
+
+## App im App Store veroeffentlichen
+
+Wenn Sie eine App im App Store veroeffentlichen wollen, melden Sie sich im Apple Developer Program an, legen Sie den App-Eintrag in App Store Connect an, laden Sie einen signierten Build aus Xcode oder Ihrer CI-Pipeline hoch, füllen Sie Listing, Datenschutz und Exportfragen aus und reichen Sie das Paket zur Prüfung ein. Wer «veröffentlichen» sucht, meint denselben Weg; im Titel steht die Schreibung ohne Umlaut, wie in der Suche üblich. Apple entscheidet über die Freigabe. Niemand ausser Apple kann eine Zusage geben. Der Text richtet sich an Gründerinnen und Gründer in der Schweiz mit Idee oder Pre-Seed, die den Store als Lernschritt sehen, nicht an IT-Teams, die nur zusätzliche Entwickler für einen bestehenden Release-Zug brauchen.
+
+Ein Store-Build ist nicht dasselbe wie ein Validierungs-MVP im Browser. Solange Sie Produktfehler und Marktsignal noch nicht trennen können, lesen Sie [warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps), bevor Sie die Review als Hauptmeilenstein setzen. Ablehnungen unter [Richtlinie 4.2](https://developer.apple.com/app-store/review/guidelines/) und die [Google-Play-Testregeln](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en) für viele neue Konten behandeln die verlinkten Artikel auf dieser Site; hier geht es um den Einreichungsweg.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Anmelden und Kennungen anlegen</h3><p>Treten Sie dem <a href="https://developer.apple.com/programs/">Apple Developer Program</a> mit der juristischen Person bei, die die App signiert. Legen Sie eine Bundle-ID an, aktivieren Sie benötigte Fähigkeiten (Push, «Sign in with Apple» usw.) und registrieren Sie Geräte nur, wenn Sie ausserhalb von TestFlight testen.</p></li>
+  <li data-step="2"><h3>App in App Store Connect erstellen</h3><p>Neue App anlegen, Bundle-ID wählen, Hauptsprache setzen, Namen reservieren. SKU und Anzeigename dürfen abweichen; wählen Sie Bezeichnungen, die in Rechnungen und Support-Mail tragbar sind.</p></li>
+  <li data-step="3"><h3>Release-Build erzeugen und hochladen</h3><p>In Xcode archivieren oder per Pipeline mit passenden Zertifikaten und Profilen bauen. Upload nach App Store Connect, dann warten, bis der Build «Processing» verlässt.</p></li>
+  <li data-step="4"><h3>Listing, Datenschutz, Export</h3><p>Screenshots pro Geräteklasse, Beschreibung, Stichworte, Support-URL, Altersfragen, Privacy Nutrition Labels und Export-Compliance. Wenn Sie Personendaten erfassen, müssen die Labels zur Binary passen.</p></li>
+  <li data-step="5"><h3>Zur Prüfung einreichen</h3><p>Build wählen, Review-Notizen bei Login-Pflicht, einreichen. In App Store Connect antworten, wenn Apple nachfragt. Eine Ablehnung ist Rückmeldung, kein Endurteil über Ihre Idee.</p></li>
+</ol>
+
+## Was eine Veröffentlichung im App Store nicht beweist
+
+Eine Freigabe zeigt, dass Ihre Binary am Prüftag Apples Massstab erfüllte. Sie beweist kein Product-Market-Fit, keine Zahlungsbereitschaft, keine Retention und nicht, dass bezahlte Akquise funktioniert. Sie zeigt nicht, dass eine verpackte Web-App nach Änderungen an der Site freigegeben bleibt. Richtlinie [4.2](https://developer.apple.com/app-store/review/guidelines/) erwartet mehr als eine umverpackte Website; [4.2.2](https://developer.apple.com/app-store/review/guidelines/) stösst reine Marketing-Hüllen zurück. Viele validieren zuerst in mobilem Safari oder TestFlight und setzen den öffentlichen Store später als Tor.
+
+TestFlight ist oft der bessere Unterricht: echte Installationen, Absturzprotokolle, Rückmeldungen, ohne der Öffentlichkeit ein fertiges Produkt zu versprechen. Das ersetzt keine ehrlichen Datenschutztexte und keinen Support, den Sie beantworten.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Niemand ausser Apple kann eine Freigabe zusichern. Eine native Hülle um dieselben URLs wie im Web kann abgelehnt werden, wenn das Produkt wie ein Lesezeichen wirkt. Planen Sie Zeit für Umbau oder einen engeren, app-ähnlichen Flow, nicht nur für Metadaten.</p>
+</aside>
+
+## Wer jetzt einreichen sollte, und wer warten sollte
+
+<div class="blog-pair">
+  <div>
+    <h3>Store-Ziel ist plausibel</h3>
+    <ul>
+      <li>Eine enge Aufgabe, die Nutzer ohne Sie im Raum wiederholen</li>
+      <li>Offline, Push oder Geräte-APIs sind für den Test relevant</li>
+      <li>Investoren oder Piloten wollten einen Install-Link, der Web-Test lief bereits</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Besser warten</h3>
+    <ul>
+      <li>Die «App» ist noch die Marketing-Site im Rahmen</li>
+      <li>Sie haben noch nicht zehn Personen beim Kernschritt zugeschaut</li>
+      <li>Android ist mit drin, und Sie kennen die Play-Testregeln für neue Privatkonten nicht</li>
+    </ul>
+  </div>
+</div>
+
+## Ein erfundenes Beispiel: erster Build am Donnerstag
+
+Ein erfundenes Beispiel: eine Gründerin in Bern, keine Kundin, liefert ein Schichttausch-Werkzeug für kleine Cafés. Sie meldete die GmbH im Developer Program an, packte die bestehende React-Web-App in eine Capacitor-Hülle und lud Build 3 hoch, nachdem ein Login-Redirect nur auf iOS scheiterte. App Store Connect brauchte einen Tag für die Binary. Sie trug Privacy Labels für Name, E-Mail und Schichtzeiten ein, hänge Screenshots eines Testkontos an und reichte am Donnerstag ein. Die Prüfung verlangte einen Demo-Login; sie antwortete am selben Nachmittag. Live ging die App am folgenden Dienstag. Zwei Betriebe installierten; eine Barista schloss einen Tausch ohne Hilfe ab. Das war qualitatives Signal. Es zeigte nicht, dass Fremde über die Suche laden würden oder dass CHF 40 pro Standort und Monat tragbar sind. Die Web-App blieb der Hauptkanal für Akquise; der Store diente der Glaubwürdigkeit in Gesprächen mit Inhaberinnen, nicht dem Beweis von Skalierung.
+
+## Fragen, die Suchende stellen
+
+<div class="blog-faq">
+  <h3>Brauche ich einen Mac, um eine App im App Store zu veroeffentlichen?</h3>
+  <p>Für einen klassischen nativen oder Cross-Platform-iOS-Build brauchen Sie macOS und Xcode oder einen CI-Dienst mit Apple-Hardware fürs Archiv. Manche Teams mieten einen Mac mini oder eine Cloud-Mac nur für den Upload. Die Richtlinien prüfen die Binary, nicht den Ort des Archiv-Klicks.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Kann dieselbe Codebasis parallel zu Google Play gehen?</h3>
+  <p>Oft ja mit Capacitor oder React Native, aber Play hat eigenes Listing, Signatur und Regeln. Viele neue persönliche Play-Konten müssen einen geschlossenen Test mit mindestens zwölf Testern über vierzehn durchgehende Tage fahren, bevor die Produktion offen ist. Lesen Sie Google Play 12 Tester, bevor Sie beide Stores am selben Datum versprechen.</p>
+</div>
+
+## Wann das Produktvalidierungs-Paket passt
+
+Das [Produktvalidierungs-Paket](/de/services/mvp-validation) passt, wenn Sie eine ausgelieferte Web-App und eine native Hülle submit-bereit wollen, plus Landingpage, bezahlte Akquise und gemessenes Lernen über zwölf Wochen, nicht wenn Sie nur jemanden für «Einreichen» in App Store Connect suchen. Woche 1 bis 4 liefern Produktionscode auf Azure mit React und NestJS; Woche 5 bis 10 fokussieren Cost per Lead, Conversion und bis zu drei Pivot-Schleifen; Woche 11 bis 12 enden mit Go, Pivot oder Stop und dem, was die Daten noch nicht beweisen. Code, Designs und Daten gehören Ihnen. Wenn die offene Frage noch lautet, ob überhaupt jemand nutzt, bleiben Sie im Web und in TestFlight, bevor Sie Store-Stichworte optimieren.

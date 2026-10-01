@@ -1,0 +1,28 @@
+---
+/**
+ * One Aurum blog in the brand's default language.
+ * URL: /{brand}/sites/{site}/blog/
+ */
+import type { GetStaticPaths } from "astro";
+import BlogListing from "@/components/BlogListing.astro";
+import { listingPaths } from "@/lib/listing";
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+  return listingPaths(paginate, allPosts, {
+    defaultLanguageOnly: true,
+    scopedSite: true,
+  });
+}) satisfies GetStaticPaths;
+
+const { page, brandId, brandName, lang, siteId } = Astro.props;
+---
+
+<BlogListing
+  page={page}
+  brandId={brandId}
+  brandName={brandName}
+  lang={lang}
+  siteId={siteId}
+/>

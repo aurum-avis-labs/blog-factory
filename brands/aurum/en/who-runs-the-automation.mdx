@@ -12,9 +12,9 @@ draft: false
 site: prozess-check
 ---
 
-## Who runs the automation afterwards
+## Who runs the automation after go-live?
 
-Someone has to run an automation once it is live: either the provider who built it, for a monthly fee, or your own team after a proper handover. With us, the default is the first. Robert Schlittler develops the automations himself and runs them afterwards, for CHF 50–150 a month depending on the solution, plus AI service costs by usage, which you pay. You can cancel the running costs at any time. If your own team should run it instead, the Large package includes documentation and handover.
+Someone has to run an automation once it is live: either the provider who built it, for a monthly fee, or your own team after a proper handover. With us, the default is the first. Robert Schlittler develops the automations himself and runs them afterwards, for CHF 50 to 150 a month depending on the solution, plus AI service costs by usage, which you pay. You can cancel the running costs at any time. If your own team should run it instead, the Large package includes documentation and handover.
 
 This page is for owners, office and finance leads who are about to buy an automation and want to know what happens in month three, not only on day one. It covers what running an automation involves, what typically breaks, which questions to ask any provider, and when running it in-house is the better choice. What the build costs up front is in [what automation costs in Switzerland](/prozess-check/blog/what-automation-costs-switzerland).
 
@@ -65,7 +65,7 @@ A failed run has to produce a message to a named person. The worst failure is th
 
 Our own booking shows where that matters. When someone pays for a Process Check, a Stripe webhook creates the appointment. If that step fails, Stripe retries the delivery for up to three days in live mode, according to its [webhook documentation](https://docs.stripe.com/webhooks). Until then the payment exists and the appointment does not. That is exactly the gap monitoring has to catch. The whole flow is described in [automating appointment booking with payment](/prozess-check/blog/booking-with-payment-case).
 
-Ask any provider, including us: who gets the alert, through which channel, and what happens next. "We look at the logs now and then" is not an answer.
+Ask any provider, including us: who gets the alert, through which channel, and what happens next? «We look at the logs now and then» is not an answer.
 
 ## Handover and documentation
 
@@ -98,15 +98,17 @@ Ask these before you sign, whoever the provider is, us included. The answers do 
 
 Running it yourself is the better choice in some firms, and then you should not buy the running from us or anyone else.
 
-- You have an IT person or a Microsoft 365 administrator with time for it.
-- The automation lives inside your own tenant, for example as Power Automate flows, and someone already looks after those. The tool question is covered in [Make, n8n or Power Automate](/prozess-check/blog/make-n8n-power-automate).
-- Your rule is that nothing runs outside your own systems.
-- You will have many small automations, and one internal owner costs less than several monthly fees.
+<ul class="blog-scenarios">
+  <li><h3>IT or M365 administration</h3><p>You have an IT person or a Microsoft 365 administrator with time for it.</p></li>
+  <li><h3>Flows inside your tenant</h3><p>The automation lives inside your own tenant, for example as Power Automate flows, and someone already looks after those. On tools: [Make, n8n or Power Automate](/prozess-check/blog/make-n8n-power-automate).</p></li>
+  <li><h3>Nothing outside your systems</h3><p>Your rule is that nothing runs outside your own systems.</p></li>
+  <li><h3>Many small automations</h3><p>You will have many small automations, and one internal owner costs less than several monthly fees.</p></li>
+</ul>
 
 In that case, plan the handover as part of the build and name the internal person before it starts. If you cannot name that person, buy the running instead.
 
 ## Planning a larger build with operation in mind
 
-For a larger build, or several connected workflows where running and handover need planning from the start, look at [AI Integration](/services/ai-implementation-consulting). The page describes the path through to implementation or a clean handover to your team, and you decide which of the two fits.
+For a larger build or several connected workflows, look at [AI Integration](/services/ai-implementation-consulting). The page covers implementation or handover to your team.
 
-If the job is one recurring task, the [Process Check](/prozess-check) is the small entry point: 60 minutes, a written case and a price range.
+If the job is one recurring task, the [Process Check](/prozess-check) is the small entry point: 60 minutes, a written case and a price range. To book the slot directly: [book the Process Check](/prozess-check/buchen).

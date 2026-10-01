@@ -12,11 +12,13 @@ draft: false
 site: prozess-check
 ---
 
-## Capture customer orders from email automatically
+## Capture customer orders from email: the short answer
 
-You capture customer orders from email by reading the message and its files, matching the customer and the article numbers, and writing an order draft in the system you already use. A confirmation goes out only after a person has cleared the lines that did not match. PDF forms, Excel sheets and short free-text emails all need the same fields. The copying is the part to automate. The matching that fails stays with a person.
+<p class="blog-lede">Capturing orders from email means reading the message and attachment, matching customer and items, and writing a draft order in the system you already use. Unclear lines stay with a person until release.</p>
 
-This is for sales offices and order desks in Swiss B2B firms where customers still send the order as a file, not through a shop. It is the order case of a wider habit, typing the same facts twice, which is covered in [stop double data entry](/prozess-check/blog/stop-double-data-entry). Sorting which emails are orders at all sits one step earlier, in [sorting a shared inbox](/prozess-check/blog/shared-inbox-sort-emails).
+PDF forms, Excel sheets and short free-text emails need the same fields. The copying is what you automate. Failed matching stays on the desk.
+
+This is for sales offices and order desks in Swiss B2B firms where customers send files instead of ordering through a shop. It is the order case of [stop double data entry](/prozess-check/blog/stop-double-data-entry). Which emails are orders at all is one step earlier, in [sorting a shared inbox](/prozess-check/blog/shared-inbox-sort-emails).
 
 <ol class="blog-flow">
   <li><strong>Inbox</strong><p>The order mailbox is read, including the attached file.</p></li>
@@ -28,66 +30,78 @@ This is for sales offices and order desks in Swiss B2B firms where customers sti
 
 ## What every order email has to contain
 
-Every order, whatever the file type, has to yield the same fields before a draft is worth creating. Decide the list once, from the orders you actually receive, and write it down. The reading step looks for those fields and nothing else.
+Every order has to yield the same fields before a draft is worth creating. Decide the list once from orders you actually receive and write it down.
 
-- Customer, matched to a number you already hold, not only to the name in the signature.
-- Delivery address or site, when it is not the default address on the customer record.
-- The customer's own order reference, so the confirmation and later the invoice can cite it.
-- Article number as the customer wrote it, and the article number in your list once it matches.
+- Customer, matched to a number you hold, not only to the name in the signature.
+- Delivery address or site when it is not the default on the customer record.
+- The customer's order reference for confirmation and later invoice.
+- Article number as the customer wrote it, and your number once it matches.
 - Quantity and unit. A quantity without a unit is not a complete line.
-- Requested date, if the customer named one. If they did not, your usual lead time applies and the draft says so.
+- Requested date if the customer named one. If not, your usual lead time applies and the draft says so.
 
-Excel is the easiest of the three when the customer uses a sheet you sent them, with fixed columns. A PDF of their own form is readable, but the layout differs by customer, so the first weeks are about learning those layouts, not about a perfect read on day one. Free text, the three-line email, is readable when the article numbers are in the text. It is a poor source when the customer writes "the usual" or "same as last month". That mail goes to a person, with the previous order beside it.
+Excel is the calmest when the customer uses your sheet with fixed columns. Their PDF form is readable but layouts differ, so the first weeks are about learning layouts. Free text works when article numbers are in the message. When the customer writes "the usual" or "same as last month", that mail goes to a person with the previous order beside it.
 
 ## How the draft gets into the system you already use
 
-The draft belongs in the order system the desk already uses. The automation does not replace that system. It fills a draft the way a careful clerk would, and it stops where the clerk would also stop and ask.
+The draft belongs in the order system the desk already uses. The automation does not replace it. It fills a draft the way a careful clerk would and stops where the clerk would ask.
 
-If the mailbox is Microsoft 365, [Microsoft Graph](https://learn.microsoft.com/en-us/graph/api/message-list-attachments?view=graph-rest-1.0) can list the attachments on a message. The least privileged permission on that page is Mail.Read. If the mailbox is Google Workspace, the [Gmail API](https://developers.google.com/gmail/api/reference/rest/v1/users.messages.attachments/get) can fetch a specified attachment, with a read-only mail scope among the scopes Google lists. You are reading mail the office already receives. You are not asking the customer to change how they order.
+If the mailbox is Microsoft 365, [Microsoft Graph](https://learn.microsoft.com/en-us/graph/api/message-list-attachments?view=graph-rest-1.0) can list attachments. The least privileged permission on that page is Mail.Read. If the mailbox is Google Workspace, the [Gmail API](https://developers.google.com/gmail/api/reference/rest/v1/users.messages.attachments/get) can fetch an attachment with a read-only mail scope. You read mail the office already receives. You are not asking the customer to change how they order.
 
-What happens next depends on what that order system accepts. Some accept a file import. Some offer an interface. Some only have a screen. Which of those your program offers is something we clarify in the Check, against the product you actually run. We do not assume a named accounting or ERP package has an order interface until that product's own page says so.
+What happens next depends on the order system: file import, interface or screen only. Which your program offers is clarified in the Check against the product you run. We do not assume an order interface until the vendor page says so.
 
-Match customer and articles against your records, not against the spelling in the email. A customer can sign as a brand name and order under a legal name. Keep a small table of the names and article codes they use, maintained by the order desk, and let the match use that table first. New spellings fall through to the person, and a confirmed match can be added to the table so the next order is quieter.
+Match customer and articles against your records. A customer may sign as a brand and order under a legal name. Keep a table of names and article codes they use, maintained by the desk. New spellings fall to the person; confirmed matches can enter the table.
 
-Prices on the customer file are a check, not the price you adopt without looking. If the customer's PDF shows a unit price and your agreement shows another, the line is flagged. The draft keeps your price, and the note shows both numbers.
+Prices on the customer file are a check, not the price you adopt without looking. If the PDF unit price differs from your agreement, the line is flagged. The draft keeps your price and the note shows both numbers.
 
 ## Unclear lines stay with a person
 
-An unclear line is not a failure of the tool. It is the reason a person still sits on the desk. Send the line to that person instead of guessing an article, a unit or a customer.
+An unclear line is not a failure of the tool. That is why someone still sits on the desk.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>If the match is unsure, the draft does not invent an article, a unit or a customer. The line waits. The rest of the order can still be prepared, if you have written that rule down.</p>
+  <p>If the match is unsure, the draft does not invent an article, a unit or a customer. The line waits. The rest of the order can still be prepared if you have written that rule down.</p>
 </aside>
 
-Typical waits: no article code and a description that fits two items, a quantity with no unit, two customer records with the same name, a delivery address you have never used, or a price that does not match the agreement. Write, in one sentence each, what the desk does. Correct the line and release the draft. Ask the customer and hold the order. Split the sure lines into a draft and park the rest. The rule has to be the same on Monday and on Friday, or the automation and the person will contradict each other.
+Typical waits: no article code and a description that fits two items, quantity with no unit, two records with the same name, an address you have never used, a price outside the agreement. Write one sentence each for what the desk does: correct and release, ask the customer and hold, split sure lines into a draft and park the rest. The rule must be the same on Monday and Friday.
 
-Do not send the confirmation until the draft is released. A confirmation that quotes a guessed article is worse than a short delay. The original file stays on the draft, so the person does not hunt through the mailbox.
+Do not send the confirmation until the draft is released. A confirmation that quotes a guessed article is worse than a short delay. The original file stays on the draft.
 
-Orders contain customer and commercial data. The mailbox already holds them. Do not paste the PDF into a free chat tool to "just read it". What belongs in which tool is set out in [ChatGPT and customer data under the Swiss FADP](/prozess-check/blog/chatgpt-customer-data-swiss-dsg).
+Orders contain customer and commercial data. Do not paste the PDF into a free chat tool to "just read it". What belongs in which tool is in [ChatGPT and customer data under the Swiss DPA](/prozess-check/blog/chatgpt-customer-data-swiss-dsg).
+
+<div class="blog-faq">
+  <h3>Can a PDF go straight into an order?</h3>
+  <p>Yes, when layout and fields are known and matching to your records works. Unknown layouts and ambiguous lines stay with the person and the draft waits.</p>
+</div>
 
 ## A made-up example
 
-A made-up example: a small wholesale office for installation parts, eight people, no in-house IT. Orders arrive at bestellung@ from about forty trade customers. A dozen of them send a PDF of their own form. Most of the rest send the Excel sheet the office issued last year, with columns for article, quantity and the customer's commission number. Two or three emails a week are free text from a foreman on site.
+A made-up example: a small wholesale office for installation parts, eight people, no in-house IT. Orders arrive at bestellung@ from about forty trade customers. A dozen send a PDF of their own form. Most send the Excel sheet the office issued, with columns for article, quantity and commission number. Two or three emails a week are free text from a foreman on site.
 
-Each morning the flow reads the mailbox. Excel lines with a known article and a unit become draft lines. PDF lines are read into the same fields. Where the article text is "elbow 90" and two articles match, the line is marked and the draft is held. The free-text mail that says "same as Tuesday, plus six of the usual clips" is placed in a folder for the desk, with Tuesday's order linked.
+Each morning the flow reads the mailbox. Excel lines with a known article become draft lines. PDF lines map to the same fields. Where "elbow 90" fits two articles, the line is marked and the draft held. "Same as Tuesday, plus six of the usual clips" is not read; it sits in a folder for the desk with Tuesday's order linked.
 
-The person on the desk opens the held drafts, not every email. She corrects the elbow, releases the draft, and the confirmation goes out with the customer's commission number on it. The original PDF stays on the order. Nothing in this example is a client, and it is not a claim about how many minutes you will save.
+The person on the desk opens held drafts. She corrects the elbow, releases the draft, and the confirmation goes out with the commission number. The original PDF stays on the order. Nothing here is a client, and it is not a claim about minutes saved.
 
-## When EDI with the large customers is the better answer
+## When EDI with large customers is the better answer
 
-EDI is the better answer when a few large customers already send orders as structured messages, or when they require it. [GS1 Switzerland](https://www.gs1.ch/en/barcodes-standards/gs1-standards/share) describes electronic data interchange as the way to transmit transactional documents such as orders, order confirmations, delivery notes and invoices in a standardised format. It names EANCOM as the format for electronic orders, and it says that in Switzerland a further reduced subset is offered as IDEAL messages.
+EDI fits when a few large customers already send structured messages or require them. [GS1 Switzerland](https://www.gs1.ch/en/barcodes-standards/gs1-standards/share) describes electronic data interchange for orders, confirmations, delivery notes and invoices in a standard format. It names EANCOM for electronic orders and a reduced IDEAL subset in Switzerland.
 
-The GS1 Switzerland Ideal Message for orders, published in December 2022, is meant for day-to-day ordering. Its recommended practice is one purchase order for one delivery, in one location, at one time. That is a different job from reading a PDF. Both sides need the identifiers the message expects, such as location and item numbers, and a path that already speaks that format.
+The GS1 Switzerland Ideal Message for orders, published in December 2022, is meant for day-to-day ordering: one purchase order for one delivery, in one location, at one time. That is different work from reading a PDF. Both sides need the identifiers the message expects and a path that already speaks that format.
 
-Use EDI for those customers and keep the email path for everyone else. Do not type EDI orders into the mailbox flow "as well", or you will create two drafts. Do not wait for every small customer to move to EDI. Most of them will keep sending a file. The email flow is for that long tail. A customer who only orders twice a year is not an EDI project.
+Use EDI for those customers and keep the email path for everyone else. Do not type EDI orders into the mailbox flow as well, or you create two drafts. Do not wait for every small customer to move to EDI. The email flow is for the long tail. A customer who orders twice a year is not an EDI project.
+
+<div class="blog-faq">
+  <h3>EDI or email first?</h3>
+  <p>EDI for customers who require or already send it. Email reading for the rest. Running both on the same order creates two drafts.</p>
+</div>
 
 ## What to leave alone
 
-Leave it alone if you receive a handful of orders a week and you already know each one by name. A shared checklist and a careful person will beat a flow that nobody trusts. Leave it alone if the order system has no import and no interface and nobody will type from a prepared screen. The reading still helps, but someone still keys the draft. Complaints, invoices and quotes stay out of this flow. This page starts when the message is already an order.
+If you receive a handful of orders a week and know each by name, a shared checklist and a careful person beat a flow nobody trusts. If the order system has no import and no interface and nobody will type from a prepared screen, reading still helps but someone keys the draft by hand. Know that before you start.
 
-## When a Prozess-Check fits
+Complaints, invoices and quotes stay out of this flow. This page starts when the message is already an order.
 
-A Prozess-Check fits when the order mailbox is one recurring job, the same each week, and you want to know whether a draft flow is worth it before you buy a tool. It is 60 minutes on Microsoft Teams, CHF 99, paid by card when you book. You bring the task. Describing it is enough. No customer files are required.
+## When the Process Check fits
 
-You leave with a written case, whether it pays off, and a price range for the work. The hour does not commit you to anything. If the hour finds nothing worth automating, the fee comes back. Details are on the [Prozess-Check](/prozess-check) page.
+It fits when the order mailbox is one recurring job each week and you want to know whether a draft flow is worth it before you buy a tool. Sixty minutes on Microsoft Teams, CHF 99, paid by card when you book. Describing the task is enough. No customer files are required.
+
+You leave with a written case, whether it pays off, and a price range as a guide figure for the work. The hour does not commit you. If the hour finds nothing worth automating, the fee comes back. Details on the [Process Check](/prozess-check) page. Choose a time: [book the Process Check](/prozess-check/buchen).

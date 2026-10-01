@@ -1,0 +1,129 @@
+---
+title: "E-Mail Weiterleitungsregeln prüfen"
+description: "E-Mail Weiterleitungsregeln prüfen nach BEC-Hinweisen: versteckte Weiterleitungen, Posteingangsregeln und Review für Schweizer KMU."
+pubDate: 2026-12-11
+author: "Aurum Avis Labs"
+tags: ["e-mail", "microsoft 365", "bec", "schweiz"]
+funnelStage: interest
+translationKey: check-mailbox-forwarding-rules
+relatedPosts: ["auftragsbearbeitung-vertrag-schweiz", "datenschutz-folgenabschaetzung-wann", "datenschutz-und-security-in-der-praxis"]
+draft: false
+site: security
+---
+
+## E-Mail Weiterleitungsregeln prüfen
+
+E-Mail Weiterleitungsregeln prüfen Sie, weil Angreifer nach einer Kompromittierung oft versteckte Weiterleitungen und Posteingangsregeln setzen, die Kopien an externe Adressen schicken, während das Postfach normal wirkt. Die [BACS-Empfehlung zu Business E-Mail Compromise](https://www.bacs.admin.ch/de/business-email-compromise-de) nennt die Kontrolle von Weiterleitungen neben Zwei-Faktor-Authentifizierung und klaren Zahlungsprozessen. Die Prüfung gehört in denselben Rhythmus wie Passwort-Resets und Offboarding, nicht nur nach einem Betrugsversuch.
+
+Der Text richtet sich an IT-Partner und die Person, die Mail in Betrieben mit etwa 20 bis 250 Mitarbeitenden betreut. Einordnung für Microsoft 365 und Exchange Online, kein Herstellerhandbuch.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Export oder zentrale Auswertung planen</h3><p>Im Microsoft-365-Administrationscenter unter Exchange die Postfächer mit hohem Risiko listen: Buchhaltung, Geschäftsleitung, info@, gemeinsame Funktionspostfächer. Ihr MSP soll monatlich oder quartalsweise einen Report liefern: Postfach, Regelname, Aktion, Zieladresse, letzte Änderung.</p></li>
+  <li data-step="2"><h3>Mailbox-Weiterleitung je Benutzer prüfen</h3><p>Pro Postfach die Einstellung «Weiterleitung» und «Weiterleiten und zustellen» öffnen. Externe Ziele zu gmail.com, proton.me oder unbekannten Domains ohne schriftliche Freigabe markieren. «Nur weiterleiten» ohne Kopie im Postfach ist besonders riskant.</p></li>
+  <li data-step="3"><h3>Posteingangsregeln (Inbox Rules) durchgehen</h3><p>Outlook-Regeln können Mail löschen, in RSS-Ordner verschieben oder an externe Adressen weiterleiten. Verdächtig sind kurze Regelnamen, Sonderzeichen oder ein Erstellungsdatum kurz nach einem Phishing-Klick. Delegationen und «Senden als» im gleichen Lauf prüfen.</p></li>
+  <li data-step="4"><h3>Transportregeln auf Organisationsebene</h3><p>Exchange-Transportregeln können Benutzereinstellungen übersteuern oder Kopien an Dritte leiten. Hybrid mit On-Prem-Connectors ist eine weitere Leckstelle. Beide Ebenen dokumentieren.</p></li>
+  <li data-step="5"><h3>Bei böswilligen Regeln Kompromittierung annehmen</h3><p>Passwort und Sitzungen zurücksetzen, Gesendet-Elemente und Zahlungsanweisungen prüfen, Finanz informieren. Dann Vorfallprotokoll und erneute Regelprüfung nach sieben Tagen.</p></li>
+</ol>
+
+## Worauf Sie achten
+
+Legitime Weiterleitungen gibt es: Funktionspostfach an Teamleitung, temporäre Abwesenheitsweiterleitung mit HR-OK. Verdächtig sind externe Ziele ohne Kopie, Regeln, die Sicherheitswarnungen ausblenden, und persönliche Weiterleitungen auf gemeinsamen Adressen wie info@.
+
+Unterscheiden Sie Mailbox-Weiterleitung (alles geht raus) von Posteingangsregeln (nur bestimmte Absender oder Betreffzeilen). Angreifer kombinieren oft beides: eine Regel leitet Rechnungen weiter, eine zweite löscht Warnungen von Microsoft. SMTP-Weiterleitung auf Serverebene ist seltener in reinen Microsoft-365-Tenants, taucht aber nach Migrationen noch auf.
+
+<ul class="blog-checklist">
+  <li>Export mit Datum und Name der prüfenden Person speichern</li>
+  <li>Externe Weiterleitungen mit Geschäftsleitung oder Finanz abgleichen</li>
+  <li>Regeln mit «delete», «move to RSS» oder leeren Namen priorisieren</li>
+  <li>Nach Fund: Passwort, MFA, Gesendet-Ordner, dann erneut prüfen</li>
+</ul>
+
+<div class="blog-stat">
+  <strong>52 %</strong>
+  <p>Betrugsanteil an BACS-Meldungen im zweiten Halbjahr 2025, laut Halbjahresbericht. Mailkonto-Übernahme ist ein häufiger Schritt vor [Rechnungsbetrug mit geänderter IBAN](/de/security/blog/rechnungsbetrug-iban-geaendert).</p>
+</div>
+
+## Was das nicht ist
+
+Kein Ersatz für MFA oder für den vollen Zahlungsfreigabeprozess. Keine Rechtsauskunft, ob eine Weiterleitung mit Personendaten eine Meldung an den [EDÖB](https://www.edoeb.admin.ch/) nahelegt. Das Gesetz verlangt angemessene technische und organisatorische Massnahmen ([Art. 8 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de)); dieser Artikel beschreibt eine davon.
+
+## Ein erfundenes Beispiel: Regel «..»
+
+Ein erfundenes Beispiel: Die Buchhaltung klickt auf eine falsche Rechnung. Zwei Tage später findet ein IT-Check eine Weiterleitung an einen Gratis-Anbieter und eine Regel, die Mails mit «Passwort» löscht. Finanz prüft offene Zahlungen per Rückruf; MFA wird erzwungen. Keine bekannte Massenabfluss, aber die Weiterleitung lief vermutlich wochenlang.
+
+<div class="blog-pair">
+  <div>
+    <h3>Wer mit Handprüfung starten kann</h3>
+    <ul>
+      <li>Wenige Postfächer, ein IT-Mensch, der jeden Nutzer kennt</li>
+      <li>Monatlicher Blick im Admin-Center mit datiertem Protokoll</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Wer Reports braucht</h3>
+    <ul>
+      <li>Grössere Tenants mit vielen Funktionspostfächern</li>
+      <li>Betriebe mit Zahlungsmail und häufigem Personalwechsel in der Finanz</li>
+    </ul>
+  </div>
+</div>
+
+## Gemeinsame Postfächer und Mandatsmail
+
+In der [Datenschutz-Praxis für Immobilienverwaltungen](/de/security/blog/datenschutz-in-der-immobilienverwaltung) und in [Treuhand-Postfächern](/de/security/blog/datenschutz-treuhand-und-kanzlei) treffen Mietverträge oder Mandats-PDFs ein. Dort lohnt die Regelprüfung zuerst. info@ mit Delegation statt persönlicher Weiterleitung reduziert vergessene Privat-Kopien.
+
+## Personendaten und Dokumentation
+
+Weitergeleitete Mail kann Gesundheits-, Lohn- oder Kundendaten enthalten. Lief die Weiterleitung lange, hilft Beratung bei der Frage, ob ein hohes Risiko eine Meldung nahelegt. Intern dokumentieren Sie auch ohne externe Meldung: Datum, geprüfte Postfächer, Funde, Massnahmen.
+
+## Finanz und Rückruf
+
+Nach dem technischen Review die Zahlungsfreigeber an die Rückrufregel für geänderte IBAN erinnern. BACS nennt telefonische Verifikation; Weiterleitungsprüfung stellt sicher, dass Angreifer Ihre Antworten nicht mitlesen.
+
+<ol class="blog-flow">
+  <li><strong>Woche 1</strong><p>MSP-Export anfordern, Finanz-Postfächer zuerst, ungenehmigte externe Weiterleitungen entfernen.</p></li>
+  <li><strong>Woche 2</strong><p>MFA-Lücken schliessen, Quartals-Termin in den Kalender, Protokoll ablegen.</p></li>
+  <li><strong>Laufend</strong><p>Nach jedem Austritt in der Buchhaltung und nach jedem Phishing-Vorfall in der Finanz erneut prüfen.</p></li>
+</ol>
+
+## Protokoll für Audit und Versicherung
+
+Ein brauchbares Protokoll braucht weniger als zehn Spalten: Datum, Postfach, Regeltyp (Weiterleitung, Posteingang, Transport), Ziel, Bewertung (OK, entfernt, offen), Name der Prüfenden, Verweis auf Ticket oder Vorfall. Ohne «offene» Zeilen wirkt der Bericht wie Alles-sauber, obwohl Sie bewusst Ausnahmen hatten, etwa ein gesperrtes Mandantenpostfach. Speichern Sie das Dokument im selben Ablageort wie Ihre jährlichen Zugriffsreviews.
+
+## Awareness ergänzen
+
+Nutzer legen manchmal selbst Weiterleitungen im mobilen Outlook an. Eine [Security Awareness](/de/security/security-awareness)-Session für Finanz und Empfang erklärt Phishing, Meldewege und warum «zum Testen» keine externe Weiterleitung sein soll. Live-Session etwa ein bis zwei Stunden, remote oder vor Ort in der Schweiz, mit Follow-up-Gespräch einige Wochen später.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Menüpfade in Microsoft 365 ändern sich. Schritte in der aktuellen Dokumentation oder mit Ihrem MSP bestätigen.</p>
+</aside>
+
+<div class="blog-faq">
+  <h3>Wie oft E-Mail Weiterleitungsregeln prüfen?</h3>
+  <p>Quartalsweise, wenn Zahlungsmail im Haus ist. Sofort nach Verdacht auf Kompromittierung oder nach Phishing-Klick auf ein Finanz-Postfach.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Gemeinsame Postfächer mit einbeziehen?</h3>
+  <p>Ja. Delegation und versteckte Benutzerregeln gelten für info@ und Finanz@ jedes Quartal.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Böswillige Regel gefunden?</h3>
+  <p>Kompromittierung annehmen: Passwörter, Sitzungen, Gesendet-Ordner, Zahlungsanweisungen, dann Ihren Vorfallprozess.</p>
+</div>
+
+## Mit dem MSP arbeiten
+
+Fordern Sie einen wiederkehrenden Report an: Postfach, Regelname, Aktion, externe Adresse, letzte Änderung. Kann der Partner das nicht liefern, planen Sie ein Screen-Share-Audit im Admin-Center. Nach Fusionen verstecken geerbte Tenants oft alte Weiterleitungen aus übernommenen Firmen. Notieren Sie im Protokoll auch Transportregeln auf Organisationsebene und geteilte Postfächer ohne persönlichen Besitzer.
+
+## Nach Offboarding in der Finanz
+
+Wenn jemand die Buchhaltung verlässt, prüfen Sie dessen Postfach und alle Delegationen auf info@ und Finanz@ erneut. Ehemalige Mitarbeitende haben manchmal persönliche Weiterleitungen vergessen. Das passt zum Rhythmus von [Security Onboarding und Offboarding](/de/security/blog/security-onboarding-neue-mitarbeitende), auch wenn dieser Artikel nur die Mail-Seite abdeckt.
+
+## CEO-Fraud und lesbare Antworten
+
+BACS meldet steigende CEO-Fraud-Fälle; ein kompromittiertes Postfach kann Ihre Rückrufe mitlesen. Weiterleitungsprüfung ist keine Zahlungskontrolle, aber sie schliesst eine Lücke neben dem [Vier-Augen-Prinzip](/de/security/blog/vier-augen-prinzip-zahlungen). Kombinieren Sie technische Prüfung mit einer kurzen Erinnerung an Betrugsmuster aus den BACS-Hinweisen, ohne Panik zu machen.
+
+Halten Sie das Review-Protokoll neben Zugriffsreviews und Offboarding. Versicherer fragen zunehmend, wie Sie Mail-Kompromittierung erkennen; ein datiertes Regel-Log antwortet darauf ohne erfundene Kennzahlen. In Hybrid-Umgebungen mit noch einem On-Prem-Exchange prüfen Sie Connector-Regeln und Journal-Archive; alte Regeln können nach Cloud-Migration weiter aktiv sein. Speichern Sie den Export mindestens ein Jahr für Versicherungsfragen und Kundenaudits, sofern Ihre Aufbewahrungsrichtlinie das erlaubt. Wenn Ihr Betrieb [Microsoft 365 und Schweizer Datenschutz](/de/security/blog/microsoft-365-datenschutz-schweiz) bereits thematisiert hat, hängen Sie die Regelprüfung dort als technische Massnahme an, statt ein zweites, widersprüchliches Dokument zu pflegen.

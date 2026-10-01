@@ -12,72 +12,74 @@ image: "@/assets/blog/record-zoom-meeting-mac/hero.jpg"
 draft: false
 
 ---
-You **record a Zoom meeting on Mac** during the call in two different ways, and they should not be collapsed into one. Zoom's Record button writes Zoom's own file, on this computer or in the cloud, and Zoom's banner tells the room. A menu-bar app records the microphone and the sound coming out of the speakers while the call runs, and Zoom does not treat that as its recorder. This page is the during-the-call path. If you already finished the meeting and you are looking for `Documents/Zoom` and an `audio_only.m4a` Zoom saved itself, use [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording) instead. That article starts after the file exists. This one starts while people are still talking.
+You **record a Zoom meeting on Mac** during the call in two different ways, and they should not be collapsed into one. Zoom's Record button writes Zoom's own file, on this computer or in the cloud, and Zoom's banner tells the room. A menu-bar app records the microphone and the sound coming out of the speakers while the call runs, and Zoom does not treat that as its recorder. This page is the during-the-call path. If you already finished the meeting and you are looking for `Documents/Zoom` and an `audio_only.m4a` Zoom saved itself, use [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording) instead.
 
-## Contents
-
-- [What Zoom records during the call](#what-zoom-records-during-the-call)
-- [Record a Zoom meeting on Mac from the menu bar](#record-a-zoom-meeting-on-mac-from-the-menu-bar)
-- [After the call: a short file versus the whole meeting](#after-the-call-a-short-file-versus-the-whole-meeting)
-- [What this does not do](#what-this-does-not-do)
-- [Frequently asked questions](#frequently-asked-questions)
+This is not legal advice. Say that you are recording before you start.
 
 ## What Zoom records during the call
 
-If you are the host or a co-host, Zoom shows Record. "Record on this computer" writes a local file. "Record to the cloud" writes to Zoom's cloud, and a cloud transcript is part of that cloud feature set, not of the free local file. Local recording is audio and video that Zoom saved. It is not a text transcript by itself. You still have to transcribe the file if you want minutes. The folder Zoom uses, and how to transcribe the local audio afterward, is the other article linked above. Do not hunt for that folder while the call is still open. Let Zoom finish writing first, or record with a second tool that you stop yourself.
+If you are the host or a co-host, Zoom shows Record. "Record on this computer" writes a local file. "Record to the cloud" writes to Zoom's cloud, and a cloud transcript is part of that cloud feature set, not of the free local file. Local recording is audio and video that Zoom saved. It is not a text transcript by itself. The folder Zoom uses, and how to transcribe the local audio afterward, is the other article linked above. Do not hunt for that folder while the call is still open.
 
-
-Zoom's recording indicator follows Zoom's recorder. It does not follow every app on the Mac that can hear the speakers. If you only start a third-party capture, the banner stays off. That is a reason to say out loud that you are recording, not a reason to skip consent.
+Zoom's recording indicator follows Zoom's recorder. It does not follow every app on the Mac that can hear the speakers. If you only start a third-party capture, the banner stays off. Say out loud that you are recording. Missing Zoom's banner is not a reason to skip consent.
 
 If your Zoom account does not show Record, the host has not given you the right, or the account type does not include recording. You cannot grant that to yourself as a guest. You can still capture system audio on the Mac, and you still have to tell the room.
 
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Host Record</span><strong>Policy</strong><p>Hosts and co-hosts set who may record. Guests follow those settings.</p></li>
+  <li><span class="blog-kicker">Local file</span><strong>After stop</strong><p>Zoom finishes writing when you end recording. Open Finder paths only after the call.</p></li>
+  <li><span class="blog-kicker">Cloud</span><strong>Separate</strong><p>Cloud transcript belongs to Zoom cloud recording, not to every local M4A.</p></li>
+  <li><span class="blog-kicker">Menu bar</span><strong>No bot</strong><p>System audio plus mic, with no new name on the participant list.</p></li>
+</ul>
+
 ## Record a Zoom meeting on Mac from the menu bar
 
-The Mac app is from Aurum Avis Labs GmbH in Oberägeri. It sits in the menu bar. Before the first call, macOS asks for the microphone and for System Audio Recording. Those two permissions are the capture: your voice on one local track, Zoom's playback on another. There is no screen recording in this path, and no bot joins the Zoom participant list.
+[Vemoir](https://apps.apple.com/app/id6794693630) sits in the menu bar. Before the first call, macOS asks for the microphone and for Screen Recording. Those two permissions are the capture: your voice on one local track, Zoom's playback on another. There is no screen movie in this path, and no bot joins the Zoom participant list. See [capture and models](/#capture).
 
+Start the capture when the conversation should be kept, not when you remember ten minutes later. You stop it from the same menu. The app does not detect the meeting for you and it does not announce itself in the Zoom chat.
 
-Start the capture when the conversation should be kept, not when you remember ten minutes later. You stop it from the same menu. The app does not detect the meeting for you and it does not announce itself in the Zoom chat. Say that you are recording. If someone objects, stop.
+After models are installed, transcription and speaker separation run on the Mac. Minutes, decisions, and tasks are written locally unless you choose, with your own key, to send only the text step to OpenAI or Anthropic. Parakeet v3 covers 25 European languages. Swiss German is not a dialect output you should expect.
 
-After models are installed, transcription and speaker separation run on the Mac. Minutes, decisions, and tasks are written locally unless you choose, with your own key, to send only the text step to OpenAI or Anthropic. There is no silent fallback, and the audio does not go with that text. The interface can be English, German, French, Italian, or Dutch. The transcript language follows the speech model, not the menu language. Parakeet v3 covers 25 European languages. Other models cover their own lists. Swiss German is not a dialect output you should expect.
+As of September 2026 the Mac App Store price is CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, and $22.99 in the United States. One purchase, no per-meeting fee ([pricing](/#pricing)). You need Apple silicon, macOS Sonoma 14.2 or later, 8 GB of memory, and 10 GB free. Long meetings are more reliable with 16 GB.
 
-Price on the Mac App Store, checked September 2026: CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the United States. One purchase, no per-meeting fee ([pricing](/#pricing)). You need Apple silicon, macOS Sonoma 14.2 or later, 8 GB of memory, and 10 GB free. Long meetings are more reliable with 16 GB. Intel Macs, Windows, iPhone, iPad, and Android are not supported. The install link is the [Mac App Store](https://apps.apple.com/app/id6794693630).
+<ol class="blog-steps">
+  <li data-step="1"><h3>Say you are recording</h3><p>Zoom's banner appears only for Zoom's recorder. Announce a menu-bar capture at the start.</p></li>
+  <li data-step="2"><h3>Allow audio</h3><p>System Settings, Privacy and Security: Screen Recording and Microphone for the app.</p></li>
+  <li data-step="3"><h3>Record from the menu bar</h3><p>Join Zoom with sound on the Mac. Start and stop in Vemoir. Headphones reduce echo.</p></li>
+  <li data-step="4"><h3>Export or transcribe</h3><p>Review on the Mac, or use Zoom's local file with the after-the-call guide linked above.</p></li>
+</ol>
 
-If you also press Zoom's Record, you will have two files: Zoom's, and the menu-bar capture. That is fine for a test. For a normal meeting, pick one, so nobody has to decide later which transcript is the record.
+If you also press Zoom's Record, you will have two files. For a normal meeting, pick one record so nobody has to decide later which transcript is official.
+
+Want text without hunting Zoom folders mid-call? [Vemoir records the live meeting from the menu bar](/#how).
+
+## When Zoom's own recorder is the better choice
+
+Use Zoom's Record when IT expects the cloud or local file Zoom writes, when the host already turned on cloud transcript for the org, or when your customer policy names Zoom as the system of record. That path keeps video when you need screen content, not audio only.
+
+A menu-bar capture fits when you are not allowed to press Record, when you want audio on the Mac without a bot, or when you need minutes during the call. Compare [record a Google Meet on Mac](/blog/record-google-meet-mac) and [record a Teams meeting on Mac](/blog/record-teams-meeting-mac) for the next tool in the stack.
 
 ## After the call: a short file versus the whole meeting
 
-When the meeting is over and you only have a short clip, the browser tool [transcribe a Zoom recording](/tools/transcribe-zoom-recording) turns that file into text without uploading it. The speech model downloads once. Later runs can work offline. Limits: 15 minutes, 3 successful runs a week, MP3, M4A, WAV, or MP4, no speaker labels. Use the Network tab if you want to see that the audio stays in the tab. A one-hour Zoom call does not fit that tool. The during-the-call Mac app is the path for the whole meeting.
+When the meeting is over and you only have a short clip, the browser tool [transcribe a Zoom recording](/tools/transcribe-zoom-recording) turns that file into text without uploading it. Limits: 15 minutes, 3 successful runs a week, MP3, M4A, WAV, or MP4, no speaker labels. A one-hour Zoom call does not fit that tool. The during-the-call Mac app is the path for the whole meeting.
 
-If Zoom itself already wrote `audio_only.m4a` because you used Record on this computer, you do not need to record the call a second time to get text from that file. Follow [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording) for the Finder path and the transcription of that Zoom file. Use this article when the decision is still in front of you, before Record or the menu bar.
+If Zoom already wrote `audio_only.m4a` because you used Record on this computer, follow [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording) for the Finder path. Use this article when the decision is still in front of you, before Record or the menu bar.
 
-Own notes you typed during the call can be folded into the Mac record. Sharing the finished notes uses the macOS share sheet. There is no team workspace and no push into a CRM.
+Typed notes during the call can be folded into the Mac record. Sharing uses the macOS share sheet. There is no team workspace and no CRM export.
 
-## What this does not do
+## What this path does not do
 
-It does not replace Zoom's cloud transcript for a company that has already standardized on Zoom cloud and is allowed to use it. If the host is recording to the cloud and that policy is the one your customer signed, leave it. A second local copy is extra data you would then have to retain or delete on purpose.
-
-It does not make the recording lawful. You tell participants. The app does not claim to be a compliant or certified transcript.
-
-It does not label speakers in the 15-minute browser tool. Speaker separation is on the Mac, after you stop the capture.
-
-It does not run on a Windows laptop in the guest's meeting. If you are on Windows, Zoom's own recorder is the control you have, subject to the host.
-
-<ol class="blog-steps">
-  <li data-step="1"><h3>Announce recording</h3><p>Tell participants before you press Record in the menu bar.</p></li>
-  <li data-step="2"><h3>Grant audio permission</h3><p>macOS needs Screen Recording permission for system audio capture.</p></li>
-  <li data-step="3"><h3>Stop at the end</h3><p>Export minutes from the Mac when the call ends.</p></li>
-</ol>
+It does not replace Zoom cloud transcript for a company that has standardized on Zoom cloud and is allowed to use it. It does not make the recording lawful: you tell participants, and the app does not claim a certified transcript. Speaker labels in the 15-minute browser tool are not available; speaker separation is on the Mac after you stop. It does not run on a Windows laptop in the guest's meeting.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>Built-in meeting recorders follow the host's licence. A menu-bar app does not replace Teams or Zoom policy banners.</p>
+  <p>Zoom's recorder needs host permission and the right account features. A menu-bar app does not write Zoom's file or trigger Zoom's in-meeting banner.</p>
 </aside>
 
 ## Frequently asked questions
 
 ### Can I record a Zoom meeting on Mac if I am not the host?
 
-Zoom's Record button follows the host's settings. A menu-bar capture of system audio does not need that button, and it does not add you as Zoom's recorder. You still need permission from the people in the call.
+Zoom's Record button follows the host's settings. A menu-bar capture of system audio does not need that button. You still need permission from the people in the call.
 
 ### Will attendees see a recording banner?
 
@@ -85,18 +87,22 @@ They see Zoom's banner if the host uses Zoom's recorder. They do not see that ba
 
 ### Is this the same as transcribing Zoom's local file later?
 
-No. That workflow starts when Zoom has already written the file. This workflow is while the call is running. Both can end in text. They do not start in the same place.
+No. That workflow starts when Zoom has already written the file. This workflow is while the call is running.
 
 ### Does the browser tool upload the Zoom file?
 
-No. [Transcribe a Zoom recording](/tools/transcribe-zoom-recording) keeps the file in the tab, up to 15 minutes, with 3 successful runs a week and no speaker names. The Network tab is the check.
+No. [Transcribe a Zoom recording](/tools/transcribe-zoom-recording) keeps the file in the tab, up to 15 minutes, with 3 successful runs a week and no speaker names.
 
 ### What does the Mac app cost?
 
-CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the United States, as a one-time Mac App Store purchase (September 2026). No subscription and no per-seat fee.
+CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the United States, as a one-time Mac App Store purchase (September 2026).
 
 ### Can I record the call and use Zoom cloud too?
 
 Yes, you will have two recordings. Pick the one that matches the rule you already told the room about, and delete the other if you were only testing.
+
+### Does Vemoir join Zoom as a participant?
+
+No. It records locally. The roster does not change.
 
 For a short file after the call, open [transcribe a Zoom recording](/tools/transcribe-zoom-recording). For the next live Zoom meeting on Apple silicon, start the menu-bar capture before the discussion you need to keep, and say so when people join.

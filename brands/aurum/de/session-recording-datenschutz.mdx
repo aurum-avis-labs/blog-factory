@@ -1,0 +1,111 @@
+---
+title: "Session Recording Datenschutz: Vor dem ersten Replay klären"
+description: "Session Recording Datenschutz: wann Wiedergabe-Tools zum MVP passen, was Sie offenlegen, und was Aufzeichnungen nicht beweisen."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "analytics", "session recording", "datenschutz", "schweiz"]
+funnelStage: interest
+translationKey: session-recordings-and-swiss-privacy
+relatedPosts: ["analytics-mvp-einrichten", "tracking-plan-events"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Session Recording und Datenschutz in der Schweiz betrifft Sie, sobald Sie fremde Nutzende Ihres MVP beobachten: Mausbewegungen, Scrolltiefe, manchmal getippte Zeichen. Nach dem DSG ist das in der Regel Bearbeitung von Personendaten, auch wenn das Tool «Analytics» heisst. Replay bleibt sinnvoll für Validierung, wenn Sie es in der Datenschutzerklärung benennen, die Erfassung begrenzen und Formulierungen mit der Beratung klären, nicht mit diesem Beitrag.</p>
+
+Der Text richtet sich an Gründerinnen, Gründer und Innovationsverantwortliche, die GA4, Microsoft Clarity, Hotjar oder ein vergleichbares Replay auf Landingpage oder Web-App planen, oft zusammen mit bezahlter Reichweite. Es ist Orientierung für Produktentscheide, keine Rechtsauskunft. Was in einer Schweizer Datenschutzerklärung stehen muss, erläutert der Security-Beitrag zur [Pflicht zur Datenschutzerklärung in der Schweiz](/de/security/blog/datenschutzerklaerung-pflicht-schweiz). Wie Events und Seitenaufrufe in denselben Stack passen, ergänzen [Analytics für ein MVP einrichten](/de/blog/analytics-mvp-einrichten) und ein [Tracking-Plan für Events](/de/blog/tracking-plan-events).
+
+## Session Recording Datenschutz kurz gefasst
+
+Wiedergabe-Tools speichern einen Ablauf im Browser: Klicks, Navigation, Fokus in Formularen, Fehler. Anbieter blenden Passwort- und Kartenfelder oft standardmässig aus. Sie wissen nicht von selbst, dass Ihr Vertrags-Upload, der Gesundheitsfragebogen oder das Lohnfeld sensibel ist. Das DSG gilt für Personendaten über identifizierbare Personen ([Art. 5 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de)). Eine Sitzung mit Konto, IP-Adresse oder seltenem Seitenmuster kann Personendaten sein, auch ohne Namen auf dem ersten Screen.
+
+Transparenz ist Pflicht. Art. 19 DSG verlangt, dass Verantwortliche in verständlicher Form mitteilen, was bearbeitet wird, wozu und wem Daten zugehen. Replay gehört in diese Erzählung, sobald Sie es für echte Nutzende einschalten, auch für Pilotkohorten per persönlicher Einladung.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Anbieter</span><strong>Dritter</strong><p>Clarity, Hotjar und andere laufen auf fremder Infrastruktur. Ihre Azure- oder Supabase-Region verschiebt Replays nicht automatisch.</p></li>
+  <li><span class="blog-kicker">Erklärung</span><strong>Pflicht</strong><p>Anbieter, Zweck (Produktverbesserung, UX-Fehler) und übliche Aufbewahrung nennen, soweit bekannt.</p></li>
+  <li><span class="blog-kicker">Cookies</span><strong>Kontext</strong><p>Schweizer Regeln hängen von Risiko und Zweck ab; Replay ist nicht frei, weil es «Produkt» heisst.</p></li>
+  <li><span class="blog-kicker">Beweis</span><strong>Nur UX</strong><p>Wiedergaben zeigen Reibung, nicht Product-Market-Fit ohne weitere Signale.</p></li>
+</ul>
+
+## Wofür Gründer Replay in einem MVP nutzen
+
+In Woche fünf bis zehn einer strukturierten Validierung zählt, wo Leute stoppen: Überschrift ohne Lesen, TWINT-Knopf ausserhalb des sichtbaren Bereichs auf dem Handy, Feld das sich nach Refresh leert. Session Replay beantwortet «was wurde versucht?» schneller als eine Umfrage drei Tage später. Heatmaps und «Wutklick»-Hinweise ergänzen Event-Zahlen in GA4; sie ersetzen keinen Tracking-Plan.
+
+Replay hilft auch, wenn Sie selbst gebaut haben und die Nutzenden nicht Sie sind. Bekannte sagen «hat funktioniert» und überspringen den Schritt, den Sie messen wollen. Eine kurze Replay-Liste nach fünfzig Sitzungen genügt oft, um eine Korrektur vor der nächsten Anzeigeniteration zu setzen.
+
+Das ist legitimes Produktlernen. Es ersetzt kein sauberes Consent-Design auf Marketingseiten, keine Verträge mit Enterprise-Kundschaft und kein Absichern von Admin-Oberflächen, die Replay nie sehen darf.
+
+## Datenschutz-Themen, die Sie nicht wegwischen sollten
+
+**Datenschutzerklärung.** Ist das MVP öffentlich, braucht es eine Erklärung, die zur Realität passt. Session Recording steht neben Analytics und Hosting, mit benanntem Anbieter. Der verlinkte Security-Beitrag führt durch den Inhalt; dieser Text wiederholt ihn nicht.
+
+**Zweck und Verhältnismässigkeit.** Bearbeiten Sie nur, was der Test braucht. Volles Replay auf jeder Seite inklusive Kontoeinstellungen ist schwerer zu tragen als Replay auf Landing-Funnel und Erstnutzung. Stichprobenquoten und URL-Ausschlüsse sind Produkteinstellungen mit Datenschutzwirkung.
+
+**Sensible Bereiche.** Gesundheit, Kinder, Finanzen und Mitarbeiterüberwachung werfen Fragen auf, die hier offen bleiben. Berührt Ihr MVP diese Kategorien, gilt Replay als aus, bis die Beratung den Flow gelesen hat.
+
+**Daten ins Ausland.** Viele Anbieter speichern ausserhalb der Schweiz. Sie bleiben Verantwortliche; Übermittlungen und Unterauftragnehmer gehören in die Erklärung und oft in einen Auftragsbearbeitungsvertrag. «Wir nutzen Clarity» im Fusszeilentext ohne Prüfung des Vertrags ist ein klassisches Due-Diligence-Problem.
+
+**Cookies und ähnliche Technologien.** In der Schweiz gilt keine pauschale «alle Cookies akzeptieren»-Pflicht für jedes Skript. Der EDÖB-Leitfaden zu Cookies unterscheidet Fälle mit Einwilligungspflicht, etwa bei risikoreichem Profiling, Cross-Site-Tracking und Retargeting, von Fällen mit Informations- und Widerspruchsrechten. Session Replay ist kein Retargeting, aber auch nicht unsichtbar. Banner, Erklärung und Tag Manager sollten dasselbe erzählen. Im Zweifel die Beratung, nicht eine deutsche DSGVO-Vorlage kopieren.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Dieser Beitrag orientiert Produkt- und Analytics-Entscheide. Er sagt nicht, dass Ihr MVP aufzeichnen darf, wie lange oder ohne Einwilligung in Ihrer Branche. Er ersetzt keine Datenschutz-Folgenabschätzung, wenn eine nötig ist.</p>
+</aside>
+
+## Was Session Recording beweist und was nicht
+
+Wiedergaben beweisen, dass Sitzungen an einem konkreten Hindernis hängen: unklare Bezeichnung, defekter Zurück-Knopf, Formularfehler ohne Support-Mail. Zusammen mit Funnel-Events und wenigen Gesprächen schärfen sie den nächsten Pivot.
+
+Sie beweisen **nicht**, dass Fremde den Job wollen, zahlen oder dass Product-Market-Fit da ist. Dazu brauchen Sie wiederholte Nutzung, Retention oder Zahlungssignale gemeinsam gelesen, wie in [Product-Market-Fit erreichen](/de/blog/product-market-fit-erreichen) beschrieben. Eine saubere Wiedergabe von jemandem, der nach zehn Sekunden geht, bleibt ein Abbruch.
+
+Sie beweisen **nicht**, dass Ihr Vibe-Code-Backend sicher ist. Fehlende Row-Level-Security in generierten Stacks ist in Vorfällen sichtbar geworden; Replay prüft das nicht.
+
+Sie ersetzen **keine** Stichprobenlogik. Drei verärgerte Replays sind ein Hinweis, kein Signifikanztest. Kombinieren Sie sie mit Traffic-Volumen und Event-Nennern aus Ihren Analytics-Beiträgen.
+
+<div class="blog-pair">
+  <div>
+    <h3>Replay früh einschalten</h3>
+    <ul>
+      <li>Bezahlter oder organischer Traffic auf eine live URL, nicht nur localhost-Demos</li>
+      <li>Offene Frage ist UX oder Botschaft, nicht die rechtliche Zulassung des Geschäftsmodells</li>
+      <li>Sie können die Datenschutzerklärung vor der Kohorte aktualisieren</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Replay vorerst aus lassen</h3>
+    <ul>
+      <li>Noch keine öffentlichen Nutzenden; Aufzeichnungen zeigen nur Ihr Team</li>
+      <li>Das Produkt erhebt besonders schützenswerte Daten ohne Beratung</li>
+      <li>Ein Käufer verbietet Drittanbieter-Analytics im Pilotvertrag</li>
+    </ul>
+  </div>
+</div>
+
+## Gewohnheiten, die den Test genügend tragfähig machen
+
+Maskierung konfigurieren, bevor Sie den Link teilen. Replay auf `/admin`, Staging und interne Tools sperren. Aufbewahrung auf das kürzeste Fenster setzen, das Ihren zweiwöchigen Anzeigenlauf abdeckt; «für immer» brauchen Sie selten für eine MVP-Entscheidung.
+
+Authentifizierte Bereiche nicht aufzeichnen, bevor Sie wissen, was auf dem Screen steht: Namen in der Kopfzeile, Nachrichtenvorschau, Dokumenttitel. Clarity und andere bieten Ausschlussregeln; nutzen Sie sie.
+
+Pilotkundschaft die Wahrheit sagen. Ein Satz in der Einladung («wir nutzen Session Replay, um den Signup zu verbessern») passt zur Erklärung und reduziert Überraschung im Support.
+
+Replay-Funde im Produktkanal besprechen, nicht als öffentlicher Slack-Screenshot mit sichtbarer E-Mail-Adresse.
+
+Wächst der Pilot, Anbieter, Aufbewahrung und Erklärung gemeinsam neu bewerten. Export ist selten das Hindernis; Bearbeitung beenden, die Sie nicht mehr brauchen, schon.
+
+<div class="blog-faq">
+  <h3>Ist Microsoft Clarity in der Schweiz erlaubt?</h3>
+  <p>Das Schweizer Recht führt keine Liste zulässiger Anbieter. Clarity ist verbreitet, auch in strukturierten Validierungs-Builds mit GA4 und Replay. Ob Sie es für Ihr MVP nutzen dürfen, hängt von Erklärung, Verträgen, Datenkategorien und Übermittlungen ab. Die Frage an die Beratung lautet, ob Ihr Setup dokumentiert und verhältnismässig ist, nicht ob ein Blog Ja sagte.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Brauche ich vor jeder Wiedergabe eine Einwilligung?</h3>
+  <p>Manchmal ja, manchmal genügen Information und Widerspruch, je nachdem was Sie aufzeichnen, auf welchen Seiten und welches andere Tracking auf derselben Site läuft. Eine EU-Vorlage ohne Schweizer Prüfung ist ein häufiger Fehler. Diese Seite antwortet nicht für Ihre URL.</p>
+</div>
+
+## Wann das Product-Validation-Paket passt
+
+Das [Product-Validation-Paket](/de/services/mvp-validation) passt, wenn Sie eine deployte Web-App, Landingpage, bezahlte Akquise, Analytics und Session Recording von Tag eins brauchen, mit gemessener Conversion und Raum für Pivot auf Belege statt Meinung. Wir bauen auf Azure mit React und NestJS; Replay steht neben Event-Tracking, nicht an dessen Stelle. Brauchen Sie nur eine Rechtsauskunft, ob Sie überhaupt aufzeichnen dürfen, starten Sie mit Beratung und dem Security-Beitrag zur Erklärung, nicht mit einem zwölfwöchigen Build.
+
+Zeichnen Sie bereits auf einem Lovable- oder Bolt-Export auf und fragen sich, was neben dem Snippet noch live ist, behandeln Sie Datenschutz-Review und [Vibe Code Review](/de/services/vibe-code-review) getrennt von «drei Replays ansehen und den Knopf fixen».

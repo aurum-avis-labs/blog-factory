@@ -36,19 +36,31 @@ Qualche file che la gente prova e che non è in questa lista:
 
 I memo vocali iPhone arrivano spesso come M4A dopo AirDrop. Quando il file è locale, è un import ordinario.
 
-Requisiti dell’app Mac: Apple silicon (M1 o più recente), macOS Sonoma 14.2 o successivo, spazio per i modelli. I Mac Intel non sono supportati. La rete serve a setup e download. Poi l’elaborazione può girare offline.
+Requisiti dell’app Mac: Apple silicon (M1 o più recente), macOS Sonoma 14.2 o successivo, spazio per i modelli. I Mac Intel non sono supportati. La rete serve a setup e download. Poi l’elaborazione può girare offline. Vedi [trascrizione offline su Mac](/it/blog/trascrizione-offline-mac) per l’intero flusso senza rete.
 
 ## Importare un file audio su Mac in Vemoir
 
-1. Metti il file sul Mac. Nominalo così da ritrovarlo il mese prossimo. Data e sigla cliente battono `registrazione(3).m4a`.
-2. Apri Vemoir. Crea o scegli un **progetto** se la call appartiene a un cliente. Puoi archiviare l’import prima dell’elaborazione, come una registrazione live prima di Record.
-3. Usa il selettore, o trascina il file sull’app. Un file diventa un record nella libreria.
-4. Lascia finire la trascrizione locale. La trascrizione di riferimento si costruisce dall’audio importato. La separazione speaker gira sul Mac. Poi rinomini. I profili «ricorda questo speaker» sono opt-in e cifrati; le voci sconosciute restano anonime.
-5. Modifica verbale, decisioni e azioni sul Mac. Le note digitate confluiscono in quel record. Condividi con le condivisioni native di macOS, solo le parti che scegli.
+<ol class="blog-steps">
+  <li data-step="1"><h3>Mettere il file sul Mac</h3><p>Data e sigla cliente invece di <code>registrazione(3).m4a</code>.</p></li>
+  <li data-step="2"><h3>Scegliere o creare un progetto</h3><p>Archiviare l’import prima dell’elaborazione se il cliente è già chiaro.</p></li>
+  <li data-step="3"><h3>Selezionare o trascinare il file</h3><p>Un file diventa un record nella libreria.</p></li>
+  <li data-step="4"><h3>Attendere la trascrizione locale</h3><p>Separazione speaker sul Mac. I profili «ricorda questo speaker» sono opt-in.</p></li>
+  <li data-step="5"><h3>Modificare il verbale</h3><p>Decisioni e azioni restano sul Mac. Condividi solo le parti scelte.</p></li>
+</ol>
 
 Nulla di questo elenco carica l’audio su Vemoir. I modelli testo cloud (OpenAI o Anthropic con la tua chiave) sono opt-in per la prosa generata. Non trascrivono il file e l’app non ci cade in silenzio.
 
 Se vuoi una trascrizione senza installare l’app e il clip è breve, vai alla sezione browser. Se il file è una registrazione Zoom locale, la caccia alla cartella è in [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom).
+
+Un file che hai già, senza upload da fornitore? [Apri lo strumento trascrivere audio](/it/strumenti/trascrivere-audio).
+
+## Tre file che si importano dopo una call
+
+**Cartella Zoom locale.** Dopo «Registra su questo computer», `audio_only.m4a` sta spesso accanto al video. Importa l’M4A, non il filmato MP4. Oltre 15 minuti resta nell’app Mac; otto minuti possono restare nel browser se ti serve testo grezzo una volta.
+
+**Memo vocale via AirDrop.** Il telefono invia M4A. Il contenuto è ciò che il microfono del telefono ha sentito: conversazione in sala sì, call Zoom su un altro portatile no. Più dettaglio Finder in [trascrivere una nota vocale su Mac](/it/blog/trascrivere-nota-vocale-mac).
+
+**Export da registratore.** WAV e FLAC funzionano nell’app Mac. Ascolta dieci secondi prima dell’import. Alcuni dispositivi scrivono un primo file muto se hai avviato prima che qualcuno parlasse.
 
 ## Import contro registrare la call tu
 
@@ -56,7 +68,7 @@ L’import serve all’audio che esiste già: la registrazione Zoom locale di un
 
 La cattura live serve alla prossima riunione su **questo** Mac: microfono più audio di sistema, nessun bot in lista. L’import non aggiunge audio di sistema che non era nel file. Se l’M4A è già solo microfono, non recuperi il lato remoto importandolo in un’app «migliore».
 
-Non importare un file muto aspettandoti una trascrizione. Se la riproduzione è vuota, il tema successivo è la cattura, non l’import.
+Non importare un file muto aspettandoti una trascrizione. Se la riproduzione è vuota, il tema successivo è la cattura, non l’import. Vedi [registrazione riunione senza audio su Mac](/it/blog/registrazione-riunione-senza-audio-mac).
 
 ## Percorso browser: file brevi, niente installazione
 

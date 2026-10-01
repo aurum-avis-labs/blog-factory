@@ -1,0 +1,96 @@
+---
+title: "Testing AI-generated code: what to run before wider launch"
+description: "Testing AI-generated code: manual checks, auth and data tests, and what a happy-path demo still does not prove about your vibe-coded app."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["vibe coding", "testing", "security", "mvp"]
+funnelStage: interest
+translationKey: testing-ai-generated-code
+relatedPosts: ["building-an-mvp-with-lovable", "lovable-supabase-row-level-security"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Testing AI-generated code means checking behaviour, permissions, and data paths the model never saw in your prompt, not only clicking through the screen the tool showed you.</p>
+
+## Testing AI-generated code
+
+You test AI-generated code by walking the real user journeys in a staging or preview URL, then deliberately breaking assumptions: wrong account, empty fields, direct API calls with keys from the browser, and exports from the database dashboard. Generated apps from Lovable, Bolt, v0, Replit, Cursor, or Claude Code often look finished while auth rules, row filters, and error handling are still thin. This page is for founders and product leads who built quickly and need a sober pass before investors, pilots, or open signup.
+
+Row level security on Supabase is a separate deep dive in [Lovable Supabase row level security](/blog/lovable-supabase-row-level-security). Whether the whole build is ready for production is framed in [is your vibe-coded app production-ready](/blog/is-your-vibe-coded-app-production-ready).
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Write three journeys and one abuse case</h3><p>Happy path, a permission you expect to deny, and one action that must never leak another user's row. The abuse case is not pessimism; it is where generated backends fail.</p></li>
+  <li data-step="2"><h3>Run the journeys as two different users</h3><p>Create two accounts in an incognito window. Confirm user B cannot open user A's URLs, IDs, or API responses.</p></li>
+  <li data-step="3"><h3>Read env and client keys once</h3><p>Open devtools, note what ships to the browser, and check whether anon keys can reach tables they should not. Fix policies before you invite strangers.</p></li>
+  <li data-step="4"><h3>Log defects, then freeze scope</h3><p>One list with severity. Patch P0 auth and data issues before new features. Retest only the paths you changed.</p></li>
+</ol>
+
+## What manual testing can prove
+
+Manual testing shows whether a small set of people can complete the job you care about and whether obvious permission mistakes appear when you switch accounts. It is the right first layer after a vibe-coded sprint because it is fast and it catches broken flows that block learning.
+
+It can also surface missing validation, leaky error messages, and routes that work in the demo account but not for a fresh signup. Pair session notes with one or two counters you chose before the test, such as completed drafts or return visits, not vanity traffic from your own posts.
+
+Automated tests help when you keep changing the same module, but many AI builds ship with none. Until you add them, a written script beats ad hoc clicking. The script is what you hand to a colleague or a reviewer next week.
+
+## What testing AI-generated code does not prove
+
+Passing your own checklist does not mean the app withstands scanning, credential stuffing, or a curious user with the public Supabase key. In 2025, CVE-2025-48757 documented missing or ineffective row level security on many Lovable-linked Supabase projects, where the client key allowed queries without login across 170+ apps ([NVD](https://nvd.nist.gov/vuln/detail/CVE-2025-48757)). A green UI test would not have caught that class of flaw without a data-layer check.
+
+Manual passes also do not prove performance under load, clean licensing of dependencies, or that a wrapped web app will pass [Apple's guideline 4.2](https://developer.apple.com/app-store/review/guidelines/) on minimum functionality. They do not replace a structured security review when contracts mention data protection or when each tenant must never see another's records.
+
+<div class="blog-pair">
+  <div>
+    <h3>Who should run this pass</h3>
+    <ul>
+      <li>A founder who is about to widen access beyond friends and family</li>
+      <li>An innovation lead who must show a pilot, not only a demo login</li>
+      <li>A team that used AI to scaffold and now owns the repo</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip to a review</h3>
+    <ul>
+      <li>Health, finance, or children's data without a security owner</li>
+      <li>Multi-tenant B2B where isolation is part of the sale</li>
+      <li>Procurement that already asked for OWASP or penetration test language</li>
+    </ul>
+  </div>
+</div>
+
+## A made-up example: two accounts and one table
+
+A made-up example: someone in Bern ships a small job-board prototype built with an AI tool and Supabase. They script three steps: post a role, apply with a second account, and open the applicant list as the poster. In Chrome and Firefox, both flows work. In step two of their plan, they log in as a third user and paste the applicant record ID from the network tab into a new tab. The page loads another person's name and email. They stop invites, enable row level security policies in Supabase, and retest until the third user sees only their own application. The product story for coaches is unchanged; the launch date slips by a week. That week is cheaper than a breach note to early testers.
+
+## Tool-neutral limits
+
+Stay neutral about the builder: when the app is still for ten guided testers, manual scripts are enough. When the next step is a corporate pilot or paid tier, the next question is whether the codebase and backend can be defended, not whether another prompt will add a feature.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>This sequence is a founder-led test pass. It is not OWASP ASVS verification, a penetration test, or legal advice on Swiss data law. When your contract or investor deck mentions security, treat this list as preparation for a structured review, not as the review itself.</p>
+</aside>
+
+<ul class="blog-checklist">
+  <li>Two test accounts and one shared script everyone runs the same way</li>
+  <li>Database policies checked against the abuse case, not only the demo</li>
+  <li>Secrets out of the client bundle where the tool allowed a shortcut</li>
+  <li>Defect list with P0 data and auth items closed before marketing spend</li>
+</ul>
+
+<div class="blog-faq">
+  <h3>Do I need unit tests if I vibe-coded the MVP?</h3>
+  <p>Not on day one if you are still proving anyone wants the job done. You need them when the same auth or billing path changes every week and regressions cost you pilots. Until then, a repeatable manual script plus data-layer checks is the minimum serious pass.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Can the AI tool test its own output?</h3>
+  <p>It can suggest cases, but it does not know your production keys, your real policies, or what you promised in a pilot agreement. Use it to draft scripts, then run them yourself with fresh accounts.</p>
+</div>
+
+## When a Vibe Code Review fits
+
+A [Vibe Code Review](/services/vibe-code-review) fits when your manual pass found issues you cannot rank, or when you are about to show the repo to someone who will ask how data is isolated. You get a gap review against OWASP ASVS v5.0, focused time on architecture and code quality, a prioritised P0/P1/P2 action list, and a closing conversation under NDA. It is the right step when the prototype still has value but you are no longer comfortable calling it a private demo.
+
+If you have not run two-account tests yet, do that first. A review on top of an unexamined happy path only documents what you already guessed.

@@ -1,0 +1,126 @@
+---
+title: "Passwort-Manager Firma: gemeinsamer Tresor statt Excel-Liste"
+description: "Passwort-Manager für die Firma im Vergleich zu geteilten Team-Passwörtern und Excel: Nutzen, Grenzen und Einführung für Schweizer KMU ohne Produktranking."
+pubDate: 2026-12-07
+author: "Aurum Avis Labs"
+tags: ["passwort-manager", "geteilte zugänge", "zugangskontrolle", "schweiz"]
+funnelStage: interest
+translationKey: password-manager-for-a-business
+relatedPosts: ["rechnungsbetrug-iban-geaendert", "sicherheitsvorfall-melden", "vier-augen-prinzip-zahlungen"]
+draft: false
+site: security
+---
+
+## Passwort-Manager Firma: wenn Teams die geteilte Tabelle überwachsen
+
+Ein Passwort-Manager für die Firma gibt benannten Nutzern einen gemeinsamen Tresor für Shop-Admin, Social Media, Lieferantenportale und Legacy-Apps ohne Single Sign-On. In Schweizer KMU mit 20 bis 250 Personen scheitert es selten nur an schwachen Privatpasswörtern. Häufiger liegt «Marketing2024» im Teams-Chat oder eine Excel-Datei «Passwörter ALT nicht nutzen» auf einem Laufwerk. Dieses Muster führt zu Kontoübernahme und [Rechnungsbetrug mit geänderter IBAN](/de/security/blog/rechnungsbetrug-iban-geaendert). Ein Firmentresor ersetzt geteilte Geheimnisse durch Rollen, Audit-Logs und Offboarding, das eine Person entfernt, ohne alle Passwörter zu wechseln.
+
+Kein Anbieter-Ranking mit erfundenen Preisen. Verglichen werden drei Gewohnheiten: Business-Passwort-Manager, geteiltes Team-Login, Tabelle oder Chat. Längenregeln stehen in [Passwortrichtlinie KMU](/de/security/blog/passwortrichtlinie-kmu); Zahlungskontrolle in [Vier-Augen-Prinzip](/de/security/blog/vier-augen-prinzip-zahlungen).
+
+<table>
+  <thead>
+    <tr><th>Ansatz</th><th>Passend für</th><th>Hauptgrenze</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Business-Passwort-Manager</td><td>Viele geteilte Portale, Fluktuation</td><td>Rollout, MFA auf Vault-Admin</td></tr>
+    <tr><td>Ein Team-Login</td><td>Vielleicht ein Legacy-Gerät ohne Alternative</td><td>Keine individuelle Nachverfolgung</td></tr>
+    <tr><td>Excel oder Chat</td><td>Fast niemand mit Wachstum</td><td>Leaks, kein Audit, indexierte Kopien</td></tr>
+  </tbody>
+</table>
+
+## Was ein Firmentresor speichert (und was nicht)
+
+Private Mitarbeitenden-Tresore und Firmen-Sammlungen bleiben getrennt. In den Sammlungen liegen Registrar, Frachtportal, LinkedIn-Admin, Buchungstools, Testumgebungen. Jeder Eintrag zeigt, wer zuletzt sah. Eine Passwortrotation aktualisiert einen Datensatz statt zwölf Leute anzuschreiben. MFA auf dem Tresor und auf kritischen Postfächern gehört dazu, wie in [MFA für Mitarbeitende einführen](/de/security/blog/mfa-fuer-mitarbeitende-einfuehren) beschrieben.
+
+Ein erfundenes Beispiel: Ein Industriebetrieb mit 90 Mitarbeitenden verschiebt Registrar, Frachtportal und Instagram in einen Firmentresor. Geht eine Marketing-Praktikantin, werden drei Einträge entzogen, ohne dass alle anderen Tool-Passwörter wechseln.
+
+<div class="blog-pair">
+  <div>
+    <h3>Gute Passung</h3>
+    <ul>
+      <li>Mehr als fünf geteilte Non-SSO-Logins</li>
+      <li>Regelmässige Ein- und Austritte in Marketing oder Ops</li>
+      <li>Audit oder Versicherung fragt Zugriffe nach</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Später oder nein</h3>
+    <ul>
+      <li>Ein Cloud-Tenant mit SSO überall</li>
+      <li>Geschäftsleitung lehnt jedes Shared Tool ohne Policy ab</li>
+      <li>Niemand administriert den Tresor</li>
+    </ul>
+  </div>
+</div>
+
+## Geteiltes Team-Passwort: dokumentieren, dann abbauen
+
+Geteilte Logins im Team sind der Nachbar zu diesem Thema: solange ein Gerät kein benanntes Konto erlaubt, bleibt ein Tresoreintrag mit Owner und Review-Datum die zweitbeste Lösung. Shops, Franchise-Kassen und alte Frankiermaschinen nutzen noch ein Login. Owner, letzte Rotation und Kompensationskontrolle festhalten. Quartalsweise prüfen, ob ein benanntes Konto oder ein Tresoreintrag möglich ist. Eine info@-Shared Mailbox ist nicht dasselbe wie Admin-Passwort weitergeben: delegierten Zugriff nutzen, wo die Plattform es erlaubt.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Ein Tresor ersetzt kein Vier-Augen beim Zahlungsausgang. E-Banking braucht benannte Banknutzer mit Doppelunterschrift, nicht einen geteilten «Finanz»-Eintrag aus dem Manager.</p>
+</aside>
+
+## Excel und Chat: warum Auditoren widersprechen
+
+Excel auf SharePoint, Notizen und angeheftete Teams-Nachrichten erzeugen Kopien, Offline-Sync und Suchindex. Jeder mit Link sieht alles. Nach Phishing weiss niemand, wer das Credential nutzte. Der Wechsel zum Tresor ist Kultur und Software: keine Resets mehr im Chat posten.
+
+Verdacht melden über [Sicherheitsvorfall melden](/de/security/blog/sicherheitsvorfall-melden), ob der Leak aus einer Tabelle oder schwachem Vault-MFA kam.
+
+## Rollout in einem KMU: Reihenfolge
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Owner benennen</h3><p>Interne Person plus IT-Partner. Ohne Owner verwaist der Tresor nach dem ersten Admin-Wechsel.</p></li>
+  <li data-step="2"><h3>Geteilte Logins inventarisieren</h3><p>Duplikate löschen. Die fünf grössten Schmerzpunkte zuerst migrieren.</p></li>
+  <li data-step="3"><h3>Marketing und Assistenz vor Finanz</h3><p>Dort liegt die höchste Fluktuation bei externen Plattformen.</p></li>
+  <li data-step="4"><h3>MFA auf Vault-Admins</h3><p>Break-glass-Konten versiegelt und protokolliert, nicht in Tickets einfügen.</p></li>
+  <li data-step="5"><h3>Offboarding anbinden</h3><p>Am Austrittstag Konto sperren, Einträge übergeben, kritische Passwörter rotieren bei breitem Zugriff.</p></li>
+</ol>
+
+<ul class="blog-scenarios">
+  <li><h3>Marketing</h3><p>Viele externe Plattformen, Praktikanten. Rollenbasierter Tresor reduziert Reset-Chaos.</p></li>
+  <li><h3>Finanz</h3><p>Bank-eigene Dual-User statt geteilter Tresoreinträge. Tresor nur für read-only Portale.</p></li>
+  <li><h3>IT</h3><p>Notfallzugang testen, wenn der einzige Admin kündigt. Ohne Prozedur landen Passwörter wieder in Excel.</p></li>
+</ul>
+
+## Eigenschaften vergleichen, ohne Markennamen
+
+Verschlüsselung at rest und in transit, ob CH- oder EU-Hosting in Ihrem AVV stehen muss, SSO mit Microsoft-Tenant, Notfallzugang. Was Sie auf der Anbieterseite nicht verifizieren, kommt nicht ins Entscheidungsmemo. Gesundheitsbetriebe kombinieren den Tresor mit Abläufen aus [Datenschutz und Security in der Praxis](/de/security/blog/datenschutz-und-security-in-der-praxis); dort geht es um Prozess, nicht Toolwahl.
+
+Quartalsweise Access Review: Vorgesetzte bestätigen, ob jemand eine Sammlung noch braucht. Export des Tresors einmal jährlich testen, damit Vendor Lock-in kein Blackout wird. Viele KMU wählen Hosting in der Schweiz oder EU, weil Kundenfragebogen das verlangen, nicht weil das DSG für jeden Tresor eine Region vorschreibt. Die Entscheidung ins IT-Memo schreiben, nicht nur in die Einkaufsmail.
+
+## HR, Offboarding und Versicherungsfragen
+
+Am Austrittstag das Vault-Konto wie das Mailkonto sperren. Geteilte Einträge prüfen, die exportierbar waren. Geheimnisse rotieren, die die Person regelmässig sah. Logs beantworten die Frage «wer sah das Lieferantenportal zuletzt?» besser als «wir glauben, wir haben Instagram geändert». HR und IT teilen sich eine Kurzcheckliste: Konto aus, Sammlungen übergeben, Export-Rechte entfernen.
+
+Versicherer fragen oft nach geteilten Zugängen. Antwort: Firmentresor mit Rollen, dokumentiertes Offboarding, MFA auf Admins. «Excel auf SharePoint» ist die Antwort, die Nachfragen auslöst. Einmal jährlich den Log-Export testen und die Aufbewahrungsfrist mit dem Datenschutz abstimmen.
+
+## Shared Mailboxes und Architektur
+
+Wo Exchange delegierten Zugriff erlaubt, kein Tresor-Passwort für info@ speichern. IT-Partner und interner Owner gemeinsam benennen; kein Schatten-Admin, der Sammlungen anlegt, die niemand reviewt.
+
+## Lizenzen ohne Preisvergleich
+
+Lizenzen nach aktiven Nutzern zählen, nicht nach historischen Konten. Externe Projektpartner nur für die Projektdauer. Der erste Monat nach Einführung braucht mehr Helpdesk-Kapazität; danach sinken Reset-Anfragen meist. Zu viele Sammlungen ohne Namenskonvention verwirren; lieber wenige, klar benannte Ordner.
+
+## Rechtliche Einordnung und Schulung
+
+<div class="blog-faq">
+  <h3>Ist ein Passwort-Manager Pflicht nach Schweizer Recht?</h3>
+  <p>Das [DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de) verlangt angemessene technische und organisatorische Massnahmen; die Form hängt vom Risiko ab. Ein Tresor ist eine häufige organisatorische Massnahme bei vielen geteilten Credentials, kein automatisches Gesetzsetikett. Orientierung, keine Rechtsberatung.</p>
+</div>
+
+Tools scheitern an Post-its. Eine Live-Stunde zu Tresor, MFA-Müdigkeit und Zahlungsbetrug hilft mehr als ein Link in einer Mail. Inhalte zur [Security Awareness](/de/security/security-awareness)-Session. Wenn das Team weiterhin Passwörter im Chat postet, ist das ein Signal für Schulung, nicht für strengere Export-Sperren allein.
+
+Prüfen Sie im Auftragsbearbeitungsvertrag, ob Subprozessoren und Regionen offenlegt sind. Fehlt der AVV beim Anbieter, gehört das in die Risoliste neben technischen Features.
+
+Mit wachsendem SSO schrumpfen Tresoreinträge; Break-glass und Legacy bleiben. Neue Mitarbeitende erhalten am ersten Tag nur nötige Sammlungen, nicht «alles sehen» für Praktikanten. Der Beitrag zu geteilten Team-Logins im Unternehmen bleibt relevant, solange Legacy-Geräte existieren: pro Quartal ein Shared Login weniger planen.
+
+Passphrase-Generator nutzen, keine Wörterbuchwörter. Rotation bei Austritt und nach Vorfall, nicht kalenderblind alle 30 Tage. Zwei kurze Schulungsslots für Marketing und Ops schlagen einen langen Workshop, danach Q&A mit dem IT-Partner.
+
+BACS warnt vor Business E-Mail Compromise, wenn Angreifer über übernommene Portale Rechnungen manipulieren. Ein Tresor allein stoppt das nicht, aber er reduziert die Fläche geteilter Admin-Zugänge, die Phishing ausnutzt.
+
+Die Geschäftsleitung braucht keine technische Tiefe, aber eine Zeile pro Quartal: Anzahl offener Access Reviews, Ausnahmen mit Ablaufdatum, Trend bei geteilten Logins. Das reicht für Versicherungsgespräche, ohne Zahlen zu erfinden.
+
+Ein gemeinsames Passwort im Chat ist kein Tresor. Wer geht, kennt es weiter. Der Manager entzieht Zugang, ohne das Passwort allen übrigen zu schicken. Messen Sie nach sechs Monaten, ob die Anzahl geteilter Logins sinkt; eine Zahl reicht der Geschäftsleitung als Fortschrittsindikator. Wer Excel parallel weiterführt, hat den Tresor nur halb eingeführt. Dann fehlt die Audit-Spur genau dort, wo Versicherer nachfragen.

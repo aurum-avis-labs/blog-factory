@@ -11,17 +11,31 @@ image: "@/assets/blog/operational-firefighting-feedback-loops/hero.jpg"
 draft: false
 ---
 
-Ops-Teams leeren die Queue, bekommen Dank und finden am nächsten Morgen eine ähnliche Queue. **Feedbackschleifen beim operativen Feuerlöschen** sind die Struktur unter diesem Muster. Dringende Arbeit ist sichtbar, also bekommt sie Anerkennung und Stunden. Prävention ist leise, also verliert sie dieselbe Stunde. Das Ergebnis ist ein Team, das beschäftigt bleibt, und eine Wiederkehr, die aus Versehen finanziert wird.
+## Was **Feedbackschleifen beim operativen Feuerlöschen** erklären
 
-Die Seite ist für Operations-Leitungen, die Incidents, Tickets oder entwischte Fehler schon fahren und "bessere Priorisierung" ohne Änderung an dem versucht haben, was sich wiederholt. Dasselbe Muster in anderen Funktionen steht in [warum dieselben Geschäftsprobleme wiederkommen](/de/blog/warum-dieselben-geschaeftsprobleme-immer-wiederkommen).
+Ops-Teams leeren die Queue, bekommen Dank und finden am nächsten Morgen eine ähnliche Queue. Dringende Arbeit ist sichtbar, also bekommt sie Anerkennung und Stunden. Prävention ist leise, also verliert sie dieselbe Stunde. Das Ergebnis ist ein Team, das beschäftigt bleibt, und eine Wiederkehr, die aus Versehen finanziert wird.
+
+Die Seite ist für Operations-Leitungen, die Incidents, Tickets oder entwischte Fehler schon fahren und «bessere Priorisierung» ohne Änderung an dem versucht haben, was sich wiederholt. Wenn Sie nach **warum Ops-Teams dauernd busy bleiben** suchen, ist die Antwort selten fehlende Disziplin. Es ist meist eine Schleife, die Saves sichtbar macht und verhinderte Incidents nicht zählt. Dasselbe Muster in anderen Funktionen steht in [warum dieselben Geschäftsprobleme wiederkommen](/de/blog/warum-dieselben-geschaeftsprobleme-immer-wiederkommen).
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">R-Schleife</span><strong>Save wird belohnt</strong><p>Sichtbarer Clear zieht Zeit von Prävention weg.</p></li>
+  <li><span class="blog-kicker">B-Schleife</span><strong>Surge senkt Rückstand</strong><p>Wirkt wie Fortschritt, solange die Ursache steht.</p></li>
+  <li><span class="blog-kicker">Verzögerung</span><strong>Prävention braucht Wochen</strong><p>Die Incident-Zahl diese Woche lügt oft.</p></li>
+</ul>
+
+## Feuerlöschen ist nicht dasselbe wie Incident Management
+
+Incident Management beantwortet: Was ist kaputt, wer fixiert es, wann ist der Dienst wieder grün? **Operatives Feuerlöschen** beschreibt den Modus, in dem dieselbe Incident-Klasse Woche für Woche zurückkommt und jeder Clear wie der Job aussieht. Ein gutes IM-Tool macht den Clear schneller. Es ändert nichts, wenn die Klasse strukturell ist und Prävention jedes Mal verdrängt wird.
+
+Wenn Ihr Review nur «Zeit bis Clear» und «offene Tickets» kennt, optimieren Sie die sichtbare Seite der Schleife. Fragen Sie zusätzlich: Welche Klassen waren schon einmal geschlossen? Wer bekam Anerkennung für was? Wie viele Stunden gingen an eine Kante, die die Klasse nächstes Quartal nicht mehr erzeugt?
 
 ## Die verstärkende Schleife, die den Save belohnt
 
 Lesen Sie sie als Geschichte. Ein Incident ist sichtbar. Die Person, die ihn schliesst, wird belohnt, formal oder über den Ruf. Zeit für Prävention ist das, was gestrichen wird, weil die nächste Seite, das nächste Ticket oder der nächste Kunde schon wartet. Mit weniger Prävention werden ähnliche Incidents wahrscheinlicher. Diese Incidents sind wieder sichtbar, und die Belohnung verschiebt sich weiter zum Save.
 
-Nichts in dieser Schleife verlangt ein nachlässiges Team. Es braucht eine Uhr und ein Rufsystem, das die Rettung sehen kann und den Incident nicht, der nicht eingetreten ist. Schuld an einer "Heldenkultur" landet meist bei den Leuten, die die Schleife schon dafür bezahlt, Helden zu sein. Die Schleife ist der Anreizpfad: Sichtbarkeit, Belohnung, weniger Präventionszeit, mehr Wiederkehr, mehr Sichtbarkeit.
+Nichts in dieser Schleife verlangt ein nachlässiges Team. Es braucht eine Uhr und ein Rufsystem, das die Rettung sehen kann und den Incident nicht, der nicht eingetreten ist. Kritik an einer «Heldenkultur» landet oft bei den Leuten, die die Schleife schon dafür bezahlt, Helden zu sein. Die Schleife ist der Anreizpfad: Sichtbarkeit, Belohnung, weniger Präventionszeit, mehr Wiederkehr, mehr Sichtbarkeit.
 
-Benennen Sie sie auf einer Skizze, wenn Sie eine haben. R1: Feuerlösch-Spirale. Die Variablen, die dazugehören, sind konkret genug zum Streiten: dringende Stunden, Anerkennung für dringende Clears, verbleibende Stunden für Prävention und die Rate wiederkehrender Incident-Klassen. "Beschäftigtsein" ist keine Variable. Es ist das Gefühl, das die Schleife erzeugt.
+Benennen Sie sie auf einer Skizze, wenn Sie eine haben. R1: Feuerlösch-Spirale. Die Variablen, die dazugehören, sind konkret genug zum Streiten: dringende Stunden, Anerkennung für dringende Clears, verbleibende Stunden für Prävention und die Rate wiederkehrender Incident-Klassen. «Beschäftigtsein» ist keine Variable. Es ist das Gefühl, die Schleife erzeugt.
 
 ## Die ausgleichende Schleife, die wie Fortschritt aussieht
 
@@ -31,17 +45,22 @@ Diese ausgleichende Schleife ist real, und deshalb fühlt sich Feuerlöschen wir
 
 Eine Karte hilft hier nur, wenn beide Schleifen drauf sind. Ein Bild vom Rückstand allein empfiehlt die nächste Surge. Ein Bild von Anerkennung und Präventionszeit fragt, welche Kante die Surge nie berührt hat.
 
-## Verzoegerungen verstecken den Präventionsgewinn
+## Verzögerungen verstecken den Präventionsgewinn
 
 Präventionskennzahlen bewegen sich langsam: Wiederholrate in einer Klasse, Change-Fehler an einer bekannten Ursache, Zeit bis zur Entdeckung in einer Klasse, die Sie instrumentiert haben. Feuerlösch-Kennzahlen bewegen sich täglich. Die Aufmerksamkeit folgt der schnellen Uhr, ausser Sie legen einen Frühindikator auf die langsame.
 
-Das Auseinanderliegen ist derselbe Mechanismus wie andere [Verzoegerungen in Feedbackschleifen](/de/blog/verzoegerungen-in-feedbackschleifen). Ein Präventionsblock kann arbeiten, während die Incident-Zahl dieser Woche noch schlecht aussieht, weil die Incidents schon unterwegs früher entstanden sind. Beurteilen Sie den Block nur an der Zahl dieser Woche, ziehen Sie die Leute ab und löschen den Test. Schreiben Sie die Verzoegerung an die Präventionskante, bevor der erste Review kommt.
+Das Auseinanderliegen ist derselbe Mechanismus wie andere [Verzögerungen in Feedbackschleifen](/de/blog/verzoegerungen-in-feedbackschleifen). Ein Präventionsblock kann arbeiten, während die Incident-Zahl dieser Woche noch schlecht aussieht, weil die Incidents schon unterwegs früher entstanden sind. Beurteilen Sie den Block nur an der Zahl dieser Woche, ziehen Sie die Leute ab und löschen den Test. Schreiben Sie die Verzögerung an die Präventionskante, bevor der erste Review kommt.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Eine Schleife pro Quartal reicht. Zehn Verbesserungen ohne Owner an einer Kante füttern R1 mit Aktivität statt Struktur.</p>
+</aside>
 
 ## Was Sie an der Schleife ändern
 
 Verschieben Sie ein Stück Anerkennung auf verhinderte Wiederkehr, in einer Form, die das Team sehen kann. Das kann Anerkennung im Review für eine Incident-Klasse sein, die unten geblieben ist. Finanzieren Sie eine kleine Präventionsscheibe und schützen Sie sie vor dem Abzug, wenn der nächste dringende Tag kommt. Ist die Scheibe ausleihbar, ist sie keine Scheibe. Sie ist Reservekapazität für die verstärkende Schleife.
 
-Kartieren Sie pro Quartal eine strukturelle Kante und geben Sie ihr eine Verantwortung. Eine Kante reicht: die Übergabe, die das Ticket neu erzeugt, die fehlende Prüfung, die denselben Fehler entwischen lässt, der Alert, der Leute ruft, die die Klasse nicht beheben können. Ein Quartalsprogramm mit zehn Verbesserungen baut das Feuerlöschen in die Verbesserungsliste ein.
+Kartieren Sie pro Quartal eine strukturelle Kante und geben Sie ihr eine Verantwortung. Eine Kante reicht: die Übergabe, die das Ticket neu erzeugt, die fehlende Prüfung, die denselben Fehler entwischen lässt, der Alert, der Leute ruft, die die Klasse nicht beheben können.
 
 <div class="blog-pair">
   <div>
@@ -72,7 +91,7 @@ Lassen Sie Feuerlöschen auch stehen, wenn das Volumen wirklich einmalig ist, et
 
 Schätzen Sie Stunden auf Wiederholklassen gegen Stunden auf neue Arbeit. Sie brauchen keine präzise Studie. Eine grobe Quote, laut im Ops-Review gesagt, verschiebt das Gespräch von der Person, die lang blieb, zu der Schleife, die die Zeit bekam. Lagen fast alle Stunden auf Wiederholungen, verlängert eine weitere Einstellungs-Surge ohne geschützten Präventionsblock die ausgleichende Schleife und lässt R1 stehen. Lagen die Stunden auf neuer Sicherheitsarbeit, ist die Feuerlösch-Geschichte diesen Monat die falsche Diagnose.
 
-Dieselbe Gewohnheit ausserhalb der Bereitschaft steht in [Systemdenken im Unternehmen](/de/blog/systemdenken-im-unternehmen). Nutzen Sie die [Tool-Checkliste](/de/blog/systemdenken-tool-checkliste), wenn die Skizze die Schichtübergabe überleben muss. Holist-IQ passt, wenn Operations-Leitungen die Schleifen aktuell halten müssen, damit die nächste Rotation die Struktur mit der Queue übernimmt. Die Fassung auf einer Seite steht in [Systemdenken für Führungskräfte](/de/blog/systemdenken-fuer-fuehrungskraefte).
+Die Gewohnheit ausserhalb der Bereitschaft steht in [Systemdenken im Unternehmen](/de/blog/systemdenken-im-unternehmen). Nutzen Sie die [Tool-Checkliste](/de/blog/systemdenken-tool-checkliste), wenn die Skizze die Schichtübergabe überleben muss. Holist-IQ passt, wenn Operations-Leitungen die Schleifen aktuell halten müssen, damit die nächste Rotation die Struktur mit der Queue übernimmt. Die Fassung auf einer Seite steht in [Systemdenken für Führungskräfte](/de/blog/systemdenken-fuer-fuehrungskraefte).
 
 <div class="blog-faq">
   <h3>Ist operatives Feuerlöschen ein Kulturproblem?</h3>
@@ -89,6 +108,11 @@ Dieselbe Gewohnheit ausserhalb der Bereitschaft steht in [Systemdenken im Untern
   <p>Neuartiger Schaden und Sicherheitsvorfälle bekommen den Surge-Modus. Eine Klasse, die Sie schon einmal geschlossen haben, ist die Spirale. Trennen Sie beides im Review, damit eines nicht die Regeln des anderen borgt.</p>
 </div>
 
+<div class="blog-faq">
+  <h3>Wie unterscheidet sich die Feuerlösch-Spirale von «wiederkehrenden Problemen»?</h3>
+  <p>Wiederkehrende Probleme sind das Symptom in der Sprache der Führung. Die Spirale ist der Mechanismus: Belohnung für Saves, weniger Prävention, mehr derselben Klasse. Ohne Karte reden Teams über Schuld. Mit R1 und B1 reden sie über Kanten und Verzögerungen.</p>
+</div>
+
 ## Was als Nächstes kommt
 
-Skizzieren Sie R1 und die Surge-Schleife für eine Wiederholklasse und setzen Sie eine Verzoegerung an die Präventionskante, bevor der nächste Ops-Review kommt. Danach verbinden Sie das mit der weiteren Wiederkehrgeschichte in [warum dieselben Geschäftsprobleme wiederkommen](/de/blog/warum-dieselben-geschaeftsprobleme-immer-wiederkommen). Braucht die Führung das Muster auf einer Seite, ist [Systemdenken für Führungskräfte](/de/blog/systemdenken-fuer-fuehrungskraefte) die nächste Lektüre.
+Skizzieren Sie R1 und die Surge-Schleife für eine Wiederholklasse und setzen Sie eine Verzögerung an die Präventionskante, bevor der nächste Ops-Review kommt. Danach verbinden Sie das mit der weiteren Wiederkehrgeschichte in [warum dieselben Geschäftsprobleme wiederkommen](/de/blog/warum-dieselben-geschaeftsprobleme-immer-wiederkommen). Braucht die Führung das Muster auf einer Seite, ist [Systemdenken für Führungskräfte](/de/blog/systemdenken-fuer-fuehrungskraefte) die nächste Lektüre.

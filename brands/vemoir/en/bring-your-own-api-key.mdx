@@ -13,14 +13,16 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@zoshuacolah?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zoshuacolah</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
 **Bring your own API key** when you want OpenAI or Anthropic to write text for you, and you want that choice spelled out. Vemoir stores the credential in the macOS Data Protection Keychain. Saving or verifying a key does not turn it on. You confirm an activation that routes Ask Vemoir, documents, meeting artifacts, and custom artifacts to that one provider. Audio and speaker separation stay on the Mac. If the key is missing, the endpoint changed, the provider is down, or the call fails, the operation stops. Nothing silently picks another backend.
 
-The Mac app itself is a one-time App Store purchase: CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the US. The provider bills whatever its own API charges for the text you send. Those rates are theirs, and they change. Check the provider. Vemoir can keep a content-free receipt with provider, model, timing, outcome, usage, and a dated cost estimate when compatible pricing exists. The receipt does not contain the prompt, the transcript, names, or the key.
+The Mac app itself is a one-time App Store purchase: CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 in the US. The provider bills its API for the text you send. Check current rates on the provider site as of September 2026. Vemoir can keep a content-free receipt with provider, model, timing, outcome, usage, and a dated cost estimate when compatible pricing exists. The receipt does not contain the prompt, the transcript, names, or the key.
 
 ## What a bring-your-own API key is allowed to see
 
 External generation is text only. Raw audio, files, images, and remote URLs are not part of the request. The transcript text and the notes you already have on the Mac can be what you chose to process as text, because that is how a summary gets written. The recording itself does not leave for speech-to-text. Parakeet or Whisper already did that locally, or they will. Speaker separation does not move to the provider.
 
+When you generate minutes, Ask Vemoir, or a custom artifact, the app sends the text context needed for that job. That can include transcript excerpts, your typed notes, and project glossary terms as plain text. It does not send the audio file. Read the vendor's API and privacy documentation for retention. Vemoir does not claim compliance on your behalf.
 
 One active source at a time. Activating the key sends Ask, documents, meeting artifacts, and custom artifacts to it. Selecting a local language model, Qwen3 4B or gpt-oss-20b, switches all four back on the Mac. You do not get a blend where Ask uses Anthropic and the minutes use Qwen unless you change the active source between them.
 
@@ -32,6 +34,12 @@ Onboarding can skip the provider entirely. Local models remain the default path.
   <li><span class="blog-kicker">Vendor</span><strong>Your account</strong><p>Billing and retention follow that provider.</p></li>
 </ul>
 
+Want minutes without sending text to a vendor? Leave the key off and let the local model write on the Mac. The same recording flow is in [Ask questions about a meeting transcript](/blog/ask-questions-about-meeting-transcript).
+
+## Who pays for API usage
+
+The App Store price covers the Mac app, not provider tokens. Heavy Ask use can show on the provider bill while the key stays active. Content-free receipts in Privacy settings help you reconcile usage without storing meeting text.
+
 ## Turn it on without surprising yourself
 
 1. Open Settings, AI. The same flow exists in advanced onboarding, and you can refuse it there.
@@ -39,7 +47,6 @@ Onboarding can skip the provider entirely. Local models remain the default path.
 3. Verify if you want to know the key works. Verification is not activation.
 4. Read the activation disclosure and confirm it. That confirmation is the moment selected meeting text can go to the provider.
 5. After a meeting, look for the visible external-processing mark on output that used the key. A local summary will not wear that mark.
-
 
 Removing the key stops new requests and cancels registered work for that provider. It does not delete text you already generated. Receipts can be exported or deleted in Privacy and Data settings. They are content-free on purpose.
 
@@ -69,9 +76,7 @@ The setup lives with the other model choices in [capture](/#capture).
 
 ## A client who forbids cloud text
 
-You recorded the call locally. The transcript is on the Mac. The client agreement says meeting content does not go to a model vendor. You do not paste the key, you do not "just try" activation to see the disclosure. The disclosure is the point at which text may leave. Leave activation off and let Qwen or gpt-oss, or Apple Intelligence where the Mac has it, write the draft. If a paragraph is weak, edit it. That is slower than a frontier model and it matches the agreement.
-
-On a different engagement the agreement allows your company's own API key. You activate, generate the follow-up, export the text, then remove the key or switch back to the local model before the next client who does not allow it. Receipts show that a request happened, without storing the transcript inside the receipt. Keep or delete those receipts in Privacy settings. They are an audit trail of the choice, not a second copy of the meeting.
+You recorded locally and the agreement forbids sending meeting content to a model vendor. Do not activate the key to read the disclosure only. Leave it off and let the local model or Apple Intelligence write the draft. On another engagement that allows your company key, activate, export, then remove the key before the next restricted client.
 
 ## Frequently asked questions
 
@@ -97,14 +102,14 @@ In the macOS Data Protection Keychain. Removing the key blocks new requests. Gen
 
 ### Will I see that a note used the cloud?
 
-Yes. External output keeps a visible external-processing mark, plus provider and model provenance. Receipts in Privacy settings are content-free and can be deleted.
+Yes. External output keeps a visible external-processing mark and provider provenance.
 
 ### Does this change the App Store price?
 
-The app is a one-time purchase at the store price above. API usage is billed by OpenAI or Anthropic on their terms, not as a Vemoir seat.
+No. API usage is billed by the provider, not as a Vemoir seat.
 
 ### Can I keep audio local and only ask one hard question in the cloud?
 
-Yes, if you activate the key, ask, and then switch the active source back to the local model when you are done. While the key is active, Ask, documents, and artifacts use it, not a mix.
+Yes, if you activate, ask, then switch the active source back to the local model when finished.
 
 Activate the key only for text you are willing to send, and leave it off when the local model is enough. The switch is in [capture](/#capture).

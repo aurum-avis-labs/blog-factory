@@ -14,71 +14,121 @@ site: prozess-check
 
 ## Replace an old Microsoft Access database, or keep it
 
-Replace an Access database when more than one or two people depend on a single file, the only person who can change it is leaving, or the edition you run will no longer get security updates. Keep it when a handful of people use one file, that edition is still in support, a copy exists somewhere that is not the only copy, and a new system would cost more than the risk you can name. The October 2026 date is not an order to rebuild. It is a reason to look up which Access you actually have.
+<p class="blog-lede">Replacing an Access database pays off when more than a few people depend on one file, the only person who can change it is leaving, or the edition you run will no longer receive security updates.</p>
 
-An Excel workbook that has quietly become the real system is a different problem, covered in [Excel as a shadow system](/prozess-check/blog/excel-as-shadow-system). This page is the Access file: tables, forms, and usually one person who knows how they fit.
+Keep the file when a handful of people use it, that edition is still in support, a second copy exists somewhere, and a new system would cost more than the risk you can name. The October 2026 date is not an order to rebuild. It is a reason to look up which Access is actually installed.
 
-## Which date applies to your edition
+An Excel workbook that has quietly become the real system is a different topic, covered in [Excel as a shadow system](/prozess-check/blog/excel-as-shadow-system). This page is the .accdb: tables, forms, reports, and usually one person who knows how they fit.
 
-Microsoft's list of products ending support in 2026 names Access 2021 and Access LTSC 2021 for 13 October 2026. On that list, end of support means no new security updates, no non-security updates, no free or paid assisted support, and no online technical content updates. The product page for Access 2021 shows a retirement timestamp of 14 October 2026, 6:59:59 am Pacific. Use the lifecycle page for the edition installed on the machine, not a blog summary of "Access".
+<div class="blog-pair">
+  <div>
+    <h3>When to replace</h3>
+    <ul>
+      <li>Several people share one file on a drive</li>
+      <li>Only one person can change forms or fields</li>
+      <li>Access 2021 or LTSC 2021 with no planned edition change</li>
+    </ul>
+  </div>
+  <div>
+    <h3>When to keep it</h3>
+    <ul>
+      <li>Few users, one file, edition still in support</li>
+      <li>Tested backup and the edition written down</li>
+      <li>The pain is copying, not the platform</li>
+    </ul>
+  </div>
+</div>
 
-Access 2024 is a different product. Its lifecycle page shows retirement on 9 October 2029. Desktop database files (.accdb) were not shut down when Access web apps left SharePoint Online. Microsoft stopped new Access web apps in June 2017 and shut the remaining ones down by April 2018, and said it would keep investing in Access desktop databases. A file on a PC is not that retired web feature.
+## Which support date applies to your edition
 
-If the title bar says Microsoft 365, do not assume the 2021 date. Look the edition up. An unsupported program can keep running. It just stops receiving fixes.
+Microsoft lists Access 2021 and Access LTSC 2021 for 13 October 2026 among products whose support ends. On that list, end of support means no new security updates, no non-security updates, no assisted support, and no online technical content updates. The product page for Access 2021 also shows 14 October 2026, 6:59:59 am Pacific. Use the edition on the machine, not a blog summary of "Access".
 
-## The five ways off the file, and when to stay
+Access 2024 is a different product. Its lifecycle page shows retirement on 9 October 2029. Desktop database files (.accdb) were not shut down when Access web apps left SharePoint Online. Microsoft stopped new web apps in June 2017 and shut the remaining ones down by April 2018, and said it would keep investing in Access desktop databases. A file on a PC is not that retired web feature.
+
+If the title bar says Microsoft 365, do not assume the 2021 date. An unsupported program can keep running. It just stops receiving fixes.
+
+## Five paths off the file
 
 | Path | Fits when | Walk away when |
 | --- | --- | --- |
-| Keep Access | Few people, one file, edition still supported, a second copy exists | Several people share one file on a drive, or the only person who can edit a form is about to leave |
-| SharePoint Lists | One list of rows, simple columns, the team already lives in Microsoft 365 | Many related tables, existing forms and reports that have to survive |
-| Dataverse, with or without Access in front | You want the tables in Microsoft's cloud data platform, and Access can stay as the screen for now | You need every column type to move unchanged, or nobody will pay for the platform afterwards |
-| A program that already does the job | The file is really invoices, stock or a CRM, and a product already sells that | The steps are specific to how this office works and a standard package would mean changing the work to fit the product |
-| A small app | The steps are specific, the data is yours, and the other rows do not fit | You have not written down what the forms actually do |
+| Keep Access | Few people, one file, edition still supported, a second copy exists | Several people share one file, or the form owner is about to leave |
+| SharePoint Lists | One table, simple columns, the team already lives in Microsoft 365 | Many related tables, forms and reports must survive |
+| Dataverse | You want tables in Microsoft's cloud data platform, Access can stay as the screen for now | Every column type must move unchanged, or nobody will pay for the platform afterwards |
+| A standard program | The file is really invoices, stock or a CRM, and a product already sells that | The steps are office-specific and a package would bend the work |
+| A small app | The steps are specific, the data is yours, and the other rows do not fit | The forms are not described yet |
 
-Microsoft's current migration document is about Dataverse, not about declaring Lists the successor to every database. Access can export data to Dataverse or Dataverse for Teams. Not every Access data type is supported, and some limits differ. After the move, Microsoft says people can keep using the Access desktop client, with the tables now outside the file. That is a move of the data, not an automatic copy of every form, report and macro. Test it on a copy. Compare row counts. Anything the tool refuses stays behind in Access.
+Microsoft's current migration document is about Dataverse. Access can export data to Dataverse or Dataverse for Teams. Not every Access data type is supported, and limits differ. Afterwards the tables can sit outside the file while the desktop client remains the screen. That is a move of the data, not an automatic copy of every form, report and macro. Test on a copy. Compare row counts. Anything the tool refuses stays in Access.
 
-Lists is the right conversation when the "database" is one table the team maintains, such as a register of equipment. It is the wrong conversation when the value sits in the relationships between five tables and in a form someone spent years adjusting.
+Lists fits when the "database" is one table, such as an equipment register. It does not fit when the value sits in five linked tables and a form someone spent years adjusting.
 
-A standard program wins when you would be rebuilding invoicing or stock software that already exists. A small app wins when the form encodes a sequence this office invented and no package matches it. How to judge a partner for that build is in [choosing an automation partner](/prozess-check/blog/choosing-an-automation-partner). Who looks after it once it runs is in [who runs the automation afterwards](/prozess-check/blog/who-runs-the-automation).
+A standard program wins when you would rebuild invoicing or stock software that already exists. A small app wins when the form encodes a sequence no package matches. Partner choice is in [choosing an automation partner](/prozess-check/blog/choosing-an-automation-partner). Ongoing care is in [who runs the automation afterwards](/prozess-check/blog/who-runs-the-automation).
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>Moving the tables does not move the knowledge. If the rules live only in a form, or only in one person's head, the new store will not have them until someone writes them down.</p>
+  <p>Moving tables does not move rules. If required fields and statuses live only in a form or in one person's head, the new store will not have them until someone writes them down.</p>
 </aside>
 
-## The risk that is already in the file
+## The risk already in the file
 
-The usual Access risk is not a missing licence. It is one file.
+The usual Access risk is a shared file, not a missing licence.
 
-Several people open the same .accdb on a shared drive. Access locks records, the file grows, and a copy named "final" sits beside "final2". The person who built the forms is the only one who can add a field. If that person is ill, the office keeps typing into a tool nobody else can repair. Anyone who can open the folder can copy the whole database, customers and all, onto a stick. A server database with accounts does not behave like that. A file does.
+Several people open the same .accdb on a drive. Access locks records, the file grows, and "final" sits beside "final2". The form owner is the only one who can add a field. If that person is ill, the office keeps typing into a tool nobody else can repair. Anyone who can open the folder can copy the whole database. A server database with accounts does not behave like that.
 
-A backup that has never been opened is not a backup. Before you argue about platforms, restore yesterday's copy onto another PC and see if the form opens. That test is cheaper than a migration.
+<ul class="blog-checklist">
+  <li>Restore yesterday's backup on another PC and open the form</li>
+  <li>Note a row count per table from the copy before you promise a date</li>
+  <li>Record the edition in the title bar and accept or plan around end of support</li>
+</ul>
 
-End of support adds a second risk only for the editions on the 2026 list. The file will still open. Newly found problems in that edition will not be patched. If the PC is otherwise current and the file never leaves the office, some firms accept that for a while. Write the acceptance down. Do not discover it when the one PC dies.
+End of support in 2026 applies only to the editions on the list. Newly found problems in that edition will not be patched. If the file never leaves the office and the PC is current, some firms accept that for a while. Write the acceptance down.
 
 ## A made-up example
 
-A made-up example: an installer's office of 15 people has tracked service jobs in Access since 2014. One coordinator built the forms. Four people in the office enter jobs. The file sits on a shared drive. The title bar is Access 2021. There is a copy on the coordinator's laptop from March, never opened.
+A made-up example: an installer's office of 15 people has tracked service jobs in Access since 2014. One coordinator built the forms. Four people enter jobs. The file sits on a shared drive. The title bar is Access 2021. There is a copy on the coordinator's laptop from March, never opened.
 
-They should not start by commissioning an app. They should open the March copy on another machine and confirm the jobs are there. Then they should count what the file really is. If it is jobs, parts and invoices tangled together, a stock program might cover parts and a small app might cover the job sheet, and those are two decisions. If it is one list of open jobs with a few columns, Lists is a candidate and Dataverse is more platform than they need. If the coordinator is staying, the edition is the real date, and four people is still tolerable, they can stay on Access through a planned move of the edition, or until the coordinator's role changes.
+They should not start by commissioning an app. They should open the March copy on another machine and confirm the jobs are there. Then count what the file really is. If jobs, parts and invoices are tangled, a stock program and a small app might be two separate decisions. If it is one list of open jobs with a few columns, Lists is a candidate. If the coordinator is staying and four people is still tolerable, they can stay on Access until the edition changes or the role changes.
 
-What they should not do is let a developer import the tables over a weekend and call the forms done. The form hides which fields are required and which status names are allowed. Those rules have to be written next to the table before anyone switches the office off the file.
+What they should not do is import the tables over a weekend and call the forms done. The form hides required fields and allowed status names. Those rules belong next to the table before the office leaves the file.
 
-The firm, the year and the headcount are invented. Your file decides the row in the table.
+The firm, year and headcount are invented. Your file decides the row in the table.
 
 ## What a move has to include
 
-Whoever does the work, the list is the same.
+Name live tables and history. Export a row count per table from the copy. List columns the migration tool will not take, from Microsoft's type notes, before you promise a date. Decide whether Access remains the screen for a while. That is a bridge, not a permanent stop, if the reason you moved was that only one person could change the screen.
 
-Name the tables that are live, and the ones that are history. Export a row count per table from the copy, and agree that the new store matches those counts. List the columns the migration tool will not take, from Microsoft's type notes, before you promise a date. Decide whether Access remains the screen for a while. Microsoft's path allows that. It is a bridge, not a place to stop, if the reason you moved was that only one person could change the screen.
+Then decide who can see which rows. A file has no accounts. The new store should not give everyone the full history because that was how the drive worked.
 
-Then decide who can see which rows. A file has no accounts. The new store should not give every employee the whole history because that was how the shared drive worked.
+Guide prices for a bounded build are in [what automation costs in Switzerland](/prozess-check/blog/what-automation-costs-switzerland). They are not a flat quote for "replace Access". The size is the workflow you can point at after the forms are described.
 
-Guide prices for a bounded build, if it comes to that, are in [what automation costs in Switzerland](/prozess-check/blog/what-automation-costs-switzerland). They are not a quote for "replace Access" as a slogan. The size is the workflow you can point at, after the forms are described.
+<dl class="blog-terms">
+  <div>
+    <dt>Migration</dt>
+    <dd>Move data and permissions into a new store, with row counts checked.</dd>
+  </div>
+  <div>
+    <dt>Bridge</dt>
+    <dd>Access stays the screen while tables already live elsewhere.</dd>
+  </div>
+  <div>
+    <dt>Replacement</dt>
+    <dd>The office workflow runs without the old file, including rules that lived in forms.</dd>
+  </div>
+</dl>
 
-## When this is an integration, and when it is one hour
+Before you ask for a quote, spend half an hour clicking through a typical form and writing down required fields. That is not IT work. It saves weeks in the project.
 
-A database that should become a small app, or a link from the tables into a program you already pay for, is the kind of case on the [AI integration](/services/ai-implementation-consulting) page. We have not built a ready-made connection to bexio, Abacus or a trade package. Whether those programs offer an interface is a fact about them, settled on their own pages or in the hour, not assumed here.
+## Integration, one hour, or keep them separate
 
-A single concrete task inside the file, such as one form the office repeats every day, is a [Prozess-Check](/prozess-check), not a replacement project. One hour, a description of that task, and you leave with whether to start and a price range. If the honest outcome of the hour is "keep Access, back it up, and move off the 2021 edition", that is a successful hour.
+A database that should become a small app, or tables that should feed a program you already pay for, fits the [AI integration](/services/ai-implementation-consulting) page. If you only need a link between Access and another system, without rebuilding every form, that is a different size from "replace everything". Whether bexio, Abacus or a trade package offers an interface is settled on their pages or in the hour. We have not built a ready-made connector to those products.
+
+One recurring task inside the file, such as one form the office uses every day, is a [Prozess-Check](/prozess-check) at CHF 99 flat: 60 minutes, a description of that task, and you leave with whether to start and a price range. If the honest outcome is "keep Access, back it up, move off the 2021 edition", that is a successful hour. Book the slot at [Prozess-Check booking](/prozess-check/buchen).
+
+<div class="blog-faq">
+  <h3>Can I move only the tables to Dataverse and keep the forms?</h3>
+  <p>Microsoft allows tables outside the file while Access remains the screen. Forms, reports and macros do not copy across automatically. Plan time to check whether the screen still matches the data.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Does SharePoint Lists replace an Access database?</h3>
+  <p>Only when the value is a simple list. Once relationships, reports and office-specific forms carry the value, Lists is a partial path or not one at all.</p>
+</div>

@@ -22,9 +22,9 @@ Offer URLs: ...
 Languages: en, de
 Mix: 35 / 40 / 25
 
-| ID | Wave | Type | funnelStage | Primary query | EN slug | Floor | Image | Status |
-|----|------|------|-------------|---------------|---------|-------|-------|--------|
-| 1 | 1 | problem | awareness | ... | ... | 700 | unsplash | planned |
+| ID | Wave | Type | funnelStage | Primary query | EN slug | Image | Status |
+|----|------|------|-------------|---------------|---------|-------|--------|
+| 1 | 1 | problem | awareness | ... | ... | unsplash | planned |
 ```
 
 Add columns for each other language's slug when you know them. `Status` moves `planned` → `drafted` → `scheduled`.
@@ -36,19 +36,19 @@ Drop a row when:
 - the only difference is a year, a city, or a synonym
 - the topic is outside the ICP
 
-`Floor` is the query-map minimum for that type, not a wish. A review or audit that ignores it will ship 1–2 minute pages again.
+The type says what the page must do. Research that query, then write it.
 
 ## Writing a wave
 
 1. Mark the wave in the plan.
 2. For each article: English MDX, then the other locales, then images.
-3. Count body words (no frontmatter, no HTML tags). Every locale must meet the type floor before you mark the row `drafted`.
+3. Read each locale. It is not `drafted` if it does not finish the query, or if it is only a keyword swap of another language.
 4. `relatedPosts` may point at other slugs in the same wave once those files exist. Fix the links before the PR.
 5. `draft: true` on every new file.
-6. Open a PR that contains that wave only. Say what was verified (competitor pages, sources) and what was not. List any file still under the floor; those files are not done.
+6. Open a PR that contains that wave only. Say what was verified (competitor pages, sources) and what was not. List any file that does not finish its query; those files are not done.
 7. Leave the rest of the batch as rows.
 
-When you audit posts that already exist, a URL under the floor is a fail. Expand every language of that `translationKey`. Do not skip length because blocks or images already look fine.
+When you audit posts that already exist, a URL that does not finish its query is a fail. Expand every language of that `translationKey`. Do not leave a locale because the blocks or images already look fine.
 
 ## Going live
 

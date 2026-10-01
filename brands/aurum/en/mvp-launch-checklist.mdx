@@ -1,0 +1,89 @@
+---
+title: "MVP launch checklist"
+description: "MVP launch checklist before real users: core flow, analytics, privacy, stores, and measurement. What it proves, what it does not, and who can wait."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "launch", "checklist", "analytics", "app store"]
+funnelStage: interest
+translationKey: mvp-launch-checklist
+relatedPosts: ["publish-an-app-on-the-app-store", "app-store-guideline-4-2"]
+draft: true
+site: studio
+---
+
+## MVP launch checklist
+
+An **MVP launch checklist** is the short pass you run before strangers can sign up, before paid ads point at a live URL, or before you ask a pilot customer to invite colleagues. You are not polishing for a Series A demo. You are making sure the product can be used, measured, and supported without obvious gaps that turn every metric into a story about broken software.
+
+This is for founders and innovation leads in Switzerland who already have something deployable, not a clickable mock-up. If you are still testing demand with a landing page only, most items below are premature. For why we treat deploy quality as part of validation, see [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps).
+
+<div class="blog-pair">
+  <div>
+    <h3>Run this checklist when</h3>
+    <ul>
+      <li>Real users outside friends and family can create accounts or submit data</li>
+      <li>You plan paid acquisition or a store listing in the next few weeks</li>
+      <li>A B2B pilot expects a stable URL, a privacy notice, and someone to email when something breaks</li>
+      <li>You need two weeks of behaviour data you can compare week on week</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Skip or shorten it when</h3>
+    <ul>
+      <li>You are running a fake-door or waitlist test with no product login</li>
+      <li>Only you use a local build and no personal data leaves your machine</li>
+      <li>Legal counsel already signed off a regulated launch pack this month</li>
+    </ul>
+  </div>
+</div>
+
+## What finishing the list does and does not prove
+
+Ticking every box means you removed launch blockers you could find in an afternoon or two, and you wrote down what is still open. It does not prove product-market fit, a repeatable acquisition channel, or that your price is right. A clean launch only means the signal is more likely to be about the offer, not about a missing password reset or a blank analytics tag.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>This list is engineering and go-to-market hygiene, not legal advice. Health data, employment records, or children’s products need counsel before you widen access, even if the app «works».</p>
+</aside>
+
+## The checklist before you go live
+
+Work top to bottom. If an item is not applicable, note why in one line so a contractor next month does not assume you forgot it.
+
+<ul class="blog-checklist">
+  <li><strong>One core job, end to end.</strong> A new user can complete the main promise without you in the room: sign up, do the thing, see a result. Secondary screens can wait; the path you will measure must not depend on a hidden admin toggle.</li>
+  <li><strong>Production host, not a dev URL.</strong> The link in your ad or email is the same environment you tested. HTTPS works, sessions survive a refresh, and you know who can deploy and roll back.</li>
+  <li><strong>Analytics and session context.</strong> Page views alone are thin for a product. Configure the events you will judge the test on (signup, activation, key action, drop-off step) and confirm they fire in a private browser test. Session recordings help explain where people stall; turn them on only with a clear notice if your traffic is in Switzerland.</li>
+  <li><strong>Privacy and contact.</strong> Publish who processes data, for what purpose, and how to reach you. Match what the landing page claims about data use. Swiss law does not require a cookie banner for every site, but profiling, certain transfers, and cross-site tracking need consent; otherwise inform users and give a way to object. When in doubt, ask counsel rather than copying a German template.</li>
+  <li><strong>Errors visible to you, not only to users.</strong> Trigger a failure on purpose. Check that your team gets an alert or a log entry without reading the user’s screen. Raw stack traces in the browser are a leak; fix or mask them before scale.</li>
+  <li><strong>Support path.</strong> One monitored inbox or form for «it broke». Someone is named internally for the first 48 hours after launch, even if that person is the founder.</li>
+  <li><strong>Promise match.</strong> Headline, store screenshot, and first screen inside the app describe the same job. A surprise upsell or a different persona on day one pollutes interview and retention data.</li>
+  <li><strong>Data you cannot lose.</strong> If users store content or messages, state whether backup and export exist and whether you tested restore. «The host backs up» is not the same as «we tried a restore».</li>
+  <li><strong>Mobile store readiness, if you ship a wrap.</strong> Apple’s guideline 4.2 expects more than a repackaged website; 4.2.2 rejects pure marketing shells. Plan app-like function before review. For Google Play, new personal developer accounts created after 13 November 2023 must run a closed test with at least 12 testers for 14 continuous days before production. Details sit in [publish an app on the App Store](/blog/publish-an-app-on-the-app-store) and [App Store guideline 4.2](/blog/app-store-guideline-4-2).</li>
+  <li><strong>Written success criteria.</strong> One paragraph: what you will look at for the next two to four weeks, what would count as «stop», and what you will not conclude from a small sample. Without that, every spike feels like traction and every quiet day feels like failure.</li>
+  <li><strong>Launch log.</strong> Date, version, who deployed, what was checked, known open risks. You will need it when the first bug report arrives at midnight.</li>
+</ul>
+
+## A made-up example: a B2B roster tool on a Wednesday
+
+A made-up example: a team of two ships a shift-roster web app for small care homes in German-speaking Switzerland. No payments in v1; managers invite staff by email. They plan a modest LinkedIn test the following Monday.
+
+On Wednesday they run the checklist. Signup and invite work on mobile Safari, but the «publish week» button silently fails when the session is older than an hour; they fix token refresh before any ad spend. Google Analytics events were missing on the invite step; they add one named event and verify in debug view. The privacy page still mentions a product they dropped in beta; they rewrite the purpose line. They decide not to submit an iOS wrap yet because the product is still browser-first and guideline 4.2 would be a gamble. They write success criteria: ten activated homes with at least one published week within 21 days, otherwise pause ads and interview five managers who bounced on invite. The launch log is a shared note with version 0.9.3 and «restore untested».
+
+The pass took a day. It did not prove homes will pay. It stopped them from buying clicks while invites were broken.
+
+## Common gaps that look like «no demand»
+
+Broken email delivery, wrong locale on the login screen, and analytics that double-count signups each produce graphs that look like rejection. So does a store rejection you discover only after announcing a launch date. Build store lead time into the calendar when mobile is in scope, not the night before press.
+
+<div class="blog-faq">
+  <h3>Should we launch on web first and add stores later?</h3>
+  <p>Often yes, when the hypothesis is workflow and retention in a browser. Stores add review time and policy risk. Add a wrap when mobile use is part of the test or when buyers expect an icon on the home screen.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is a checklist enough before enterprise buyers?</h3>
+  <p>It is a floor. Larger customers may ask for security questionnaires, data location, and subprocessors. Finish the list, then decide whether a structured review or a production build is the next step.</p>
+</div>
+
+The [product validation package](/services/mvp-validation) fits when the checklist is done and the open question is whether real users return, convert, and can be reached profitably. Weeks one to four put a deployed product on Azure in their hands, with analytics and session recordings from day one; later weeks add positioning, paid acquisition on Google and LinkedIn, and measured pivots toward Go, Pivot, or Stop, including what the data still cannot prove. It is a weak match if you only need a smoke test page or if you will not change course when the numbers disagree with the story.

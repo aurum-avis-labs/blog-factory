@@ -1,0 +1,95 @@
+---
+title: "Cookie rules for a landing page in Switzerland"
+description: "Cookie rules for a Swiss landing page: when consent is required, when information and objection suffice, and what a simple test page usually needs."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["cookies", "landing page", "swiss privacy", "analytics"]
+funnelStage: interest
+translationKey: cookie-rules-swiss-landing-page
+relatedPosts: ["privacy-requirements-swiss-mvp", "app-store-privacy-labels"]
+draft: true
+site: studio
+---
+
+## Cookie rules for a landing page in Switzerland
+
+Cookie rules for a landing page in Switzerland do not start with a mandatory «accept all» banner on every script. You list what the page loads, match each tag to its purpose, and then decide whether Swiss practice expects consent, or information plus a way to object. Retargeting, cross-site profiling, and several third-party advertising setups usually sit on the consent side. Basic analytics and session replay on your own marketing URL often sit on the information side, provided you describe them honestly and do not turn on advertising features you did not plan for.
+
+This is for founders and innovation leads who publish a demand test page before a build, often with Google Analytics, Tag Manager, Microsoft Clarity, or conversion tags from ad platforms. It is orientation for a Swiss `.ch` audience, not legal advice, and not a copy-paste of a German GDPR kit. How the page fits into a wider build is in [startup software development in Switzerland](/blog/startup-software-development-switzerland). What the privacy notice itself must cover is a separate security article on [privacy notice requirements in Switzerland](/security/blog/privacy-notice-requirement-switzerland).
+
+## How to apply cookie rules on a landing page
+
+Work from the live page, not from memory. A landing page changes when someone adds a pixel «just for this campaign».
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Inventory every script and iframe</h3><p>Open the published URL in a clean browser profile, use your tag assistant or network tab, and write down hosts that set or read cookies, including tags loaded through a container.</p></li>
+  <li data-step="2"><h3>Classify purpose per vendor</h3><p>Separate measurement on this page, session replay, form delivery, chat, advertising, remarketing, and social embeds. Mixed modes in one account are common; read the vendor settings, not only the marketing name.</p></li>
+  <li data-step="3"><h3>Match purpose to the Swiss line</h3><p>Consent tends to matter for high-risk profiling, specially protected data, data passed to a third party for their own purposes, and cross-site tracking or retargeting. Many plain analytics setups lean toward information and objection when those heavier modes stay off ([EDÖB on cookies](https://www.edoeb.admin.ch/edoeb/de/home/datenschutz/themen/cookies.html), [Art. 45c FMG](https://www.fedlex.admin.ch/eli/cc/1991/860_862_863/de#art_45_c)).</p></li>
+  <li data-step="4"><h3>Align notice, banner, and what actually fires</h3><p>If the footer says «analytics only» but the container loads a remarketing tag, the page is wrong. Fix the tag manager before you scale ad spend.</p></li>
+  <li data-step="5"><h3>Record the decision</h3><p>One short internal note: date, tags, who approved the wording, and what you would change before the next campaign. You will forget after three pivots.</p></li>
+</ol>
+
+## When a cookie banner is required, and when it is not
+
+Swiss law does not treat «cookie» as a single switch. The question is what processing the tag enables and whether that processing falls into a consent case in current EDÖB guidance.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Often consent</span><strong>Retargeting</strong><p>Ads that follow visitors across sites or apps after they left your page.</p></li>
+  <li><span class="blog-kicker">Often consent</span><strong>Cross-site tracking</strong><p>Pixels that profile behaviour across domains you do not control.</p></li>
+  <li><span class="blog-kicker">Often information</span><strong>Basic analytics</strong><p>Page views and events on the landing URL when advertising features stay disabled.</p></li>
+  <li><span class="blog-kicker">Still personal data</span><strong>Session replay</strong><p>Not retargeting, but not invisible. Disclose it and keep recordings off password fields.</p></li>
+</ul>
+
+Strictly necessary cookies for security or for a form the visitor asked for are a different conversation from marketing tags. Do not hide remarketing behind «necessary» labels.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>This article cannot say your URL is lawful. Vendors change defaults, agencies add tags, and EU visitors may trigger GDPR questions on top of Swiss rules. When several tools share one container, stop and ask your adviser instead of shipping a template you found on a forum.</p>
+</aside>
+
+## What cookie rules do not prove
+
+Getting the banner and notice roughly right does not validate your product idea. It does not replace a [privacy notice](/security/blog/privacy-notice-requirement-switzerland) that names the controller, purposes, and recipients under the FADP. It does not fix misleading copy on the page itself.
+
+A compliant measurement setup also does not mean your conversion rate is «good». There is no benchmark worth citing here. It only means you can read traffic without adding legal noise to a failed test.
+
+## A made-up example: GA4 first, Meta pixel later
+
+A made-up example: an innovation lead in Zurich prepares a German landing page for a B2B workflow pilot. Week one: GA4 through Tag Manager, Clarity on the hero section only, Web3Forms for applications, no paid ads. They add two sentences to the footer linking a one-page privacy note that names Google and Microsoft as processors and states that analytics cookies are used with a mailto address to object. No consent popup, because remarketing and cross-site advertising tags are absent.
+
+Week three, marketing wants Meta and LinkedIn conversion tracking for a small campaign. The lead re-runs the inventory, sees new third-party advertising cookies, and switches to a consent flow for those tags only, leaving analytics blocked until accept or reject according to the tool they chose after a short counsel call. They delay the campaign by two days rather than firing pixels silently. The test still fails on message fit. The cookie work did not cause the failure, but it would have created a separate problem if they had skipped step four.
+
+## Who should fix cookies now, and who can wait
+
+<div class="blog-pair">
+  <div>
+    <h3>Who this is for</h3>
+    <ul>
+      <li>Founders launching a measured landing page before paid traffic</li>
+      <li>Teams using Tag Manager who did not build the container themselves</li>
+      <li>Anyone adding retargeting or multi-site pixels to a page that previously only had analytics</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip deep work for now</h3>
+    <ul>
+      <li>Static pages with no analytics, no embeds, and no forms that store data</li>
+      <li>Teams that already have counsel-owned documentation for the same stack</li>
+      <li>Products in private beta with login only and no public marketing site yet</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-faq">
+  <h3>Do Swiss landing pages need a cookie banner for Google Analytics?</h3>
+  <p>Not always. Many validation pages use GA4 without advertising features and handle Swiss practice with clear information and objection rights. The answer changes when you enable remarketing, allow cross-site profiling, or add tags that use data for a vendor's own purposes. Check the live container, not the blog post you read last year.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is a German GDPR banner enough for Switzerland?</h3>
+  <p>Often no. Swiss rules do not mirror the EU «reject all» debate on every site. Copying a German text without mapping your tags to EDÖB guidance is a common way to look compliant while loading the wrong scripts.</p>
+</div>
+
+## When the landing page package fits
+
+The [landing page package](/services/landing-page-package) fits when you want a demand page with GA4 and Microsoft Clarity wired from day one, code you own, and a sensible base to discuss notice text before ads scale, without booking the full twelve-week validation programme. It is still your job, with counsel when needed, to approve what fires after launch. If the open question is behaviour inside a product strangers already use, a landing page iteration is the wrong next move; use the contact page instead.

@@ -1,0 +1,111 @@
+---
+title: "Microsoft 365 Datenschutz Schweiz: was Sie klären sollten"
+description: "Microsoft 365 und Datenschutz in der Schweiz: AVV, Zugriffe, MFA und realistische Fragen an den IT-Partner. Keine erfundenen Anbieter-Zusagen."
+pubDate: 2026-12-02
+author: "Aurum Avis Labs"
+tags: ["microsoft 365", "datenschutz", "dsg", "kmu"]
+funnelStage: awareness
+translationKey: microsoft-365-and-swiss-data-protection
+relatedPosts: ["daten-in-die-usa-uebermitteln", "geteiltes-passwort-im-team", "phishing-link-geklickt"]
+draft: false
+site: security
+---
+
+## Microsoft 365 Datenschutz Schweiz: was Sie klären sollten
+
+Microsoft 365 und Datenschutz treffen in fast jedem KMU-Postfach zusammen: Kundenmail, Verträge, HR-Anhänge und Termine sind Personendaten. Sie bleiben nach dem [DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de) für angemessene Sicherheit und rechtmässige Bearbeitung verantwortlich. Microsoft ist für grosse Teile des Dienstes Auftragnehmer; Ihr IT-Partner oft ein weiterer. Das Produkt ersetzt nicht Zugriffskonfiguration, Schulung oder die Bearbeitungsbedingungen für Ihren Tenant.
+
+Der Text richtet sich an Geschäftsleitung und die Person, die IT mitbetreut, in einem Betrieb mit etwa 20 bis 250 Mitarbeitenden. Sie suchen keine Feature-Liste fürs Audit, sondern eine kurze Prüfliste für Partner und Admin-Center. Einordnung, keine Rechtsberatung. Wir behaupten nicht, Ihre Firma oder Microsoft sei unter dem Swiss-U.S. Data Privacy Framework zertifiziert, ohne die offizielle Liste für die betreffende US-Entität geprüft zu haben.
+
+## AVV, Bearbeitungsbedingungen und Ihr Ordner
+
+Art. 9 DSG verlangt einen Vertrag, wenn jemand Personendaten in Ihrem Auftrag bearbeitet. Bei Microsoft holen Sie die Bearbeitungsbedingungen für die SKU, die Sie wirklich kaufen, und legen sie neben Ihre anderen Auftragsverträge ab. Dasselbe gilt für den IT-Partner, der als Global Administrator agiert: sein [Auftragsbearbeitungsvertrag](/de/security/blog/auftragsbearbeitung-vertrag-schweiz) muss zu dem passen, was er im Tenant darf.
+
+Notieren Sie Tenant-Name, Datum des Downloads, wer unterschrieben hat und welche Module genannt sind (Exchange, SharePoint, Teams, Zusatzprodukte). Fehlt ein Modul in der Fassung, ist das ein offener Punkt im Kundenfragebogen, kein Grund, etwas zu erfinden.
+
+Unterauftragnehmer und Support-Zugriffe stehen in den Anbieterunterlagen, nicht in Ihrer Kopfnotiz «Server in der Schweiz». Lesen Sie die aktuelle Liste, bevor Sie eine Aussage an einen Konzernkunden unterschreiben. Ob das für Ihren Fall genügt, ordnet Ihre Beratung ein, nicht dieser Text.
+
+## Fragen, die Ihr Audit-Ordner beantworten soll
+
+Wer ist Global Administrator, und ist die Zahl minimal? Ist MFA für alle Pflicht, besonders Finanz und Geschäftsleitung? Welche Drittanbieter haben OAuth-Apps oder delegierten Mailzugriff? Sind Aufbewahrung und Legal Hold dokumentiert, oder behält jeder Mail unbegrenzt?
+
+Bei [Business E-Mail Compromise](https://www.bacs.admin.ch/de/business-email-compromise-de) geht es oft um gekaperte Konten und versteckte Weiterleitungen. Technik und Verhalten gehören zusammen zu organisatorischen Massnahmen nach Art. 8 DSG. Physischer Zugang und Neugier am fremden Laptop spielen mit: siehe [USB-Stick und Tailgating](/de/security/blog/usb-stick-gefunden-tailgating).
+
+<ul class="blog-checklist">
+  <li>MFA für alle Benutzer mit Admin-Rollen erzwingen</li>
+  <li>Gastzugriff und externe Freigaben schriftlich regeln</li>
+  <li>Bearbeitungsbedingungen für die Tenant-SKU ablegen</li>
+  <li>AVV des IT-Partners zu seinem Admin-Zugang abstimmen</li>
+  <li>Weiterleitungs- und Posteingangsregeln quartalsweise prüfen</li>
+</ul>
+
+## Legacy-Anmeldung und Admin-Konten
+
+Viele Pannen starten mit einem alten Protokoll oder einem Dienstkonto, das niemand mehr benennt. Fragen Sie den Partner, ob Legacy-Authentifizierung für normale Benutzer aus ist und ob Break-Glass-Konten dokumentiert sind. Ein Global Administrator ohne MFA ist ein offenes Fenster, auch wenn alle anderen Konten geschützt sind.
+
+Dienstpostfächer ohne persönlichen Besitzer brauchen trotzdem klare Verantwortung: wer darf senden, wer prüft Weiterleitungen, wer ändert Regeln. Das ist Organisation, nicht nur ein Menüpunkt.
+
+## Was Microsoft 365 nicht ist
+
+Es ist nicht automatisch ein rein schweizerisches Silo. Standort und Support hängen von Edition und Konfiguration ab; aktuelle Anbieter-Dokumentation lesen. Es ersetzt keinen Auftragsvertrag mit Tools, die in Teams oder SharePoint synchronisieren. Es hindert niemanden, Mandatsdaten in private KI-Tools zu kopieren. Ein Abo allein ist keine «Schulung nach DSG und DSGVO» für Ihr Team.
+
+## Freigaben, Gäste und Geräte
+
+Externe Freigabelinks machen aus einem Ordner ein offenes Fenster, wenn niemand sie prüft. Gastkonten für Kundenprojekte sollten ablaufen. Sync-Clients kopieren ganze Bibliotheken auf Laptops; Ihr Ablauf bei Geräteverlust sollte annehmen, dass OneDrive Mail-Anhänge enthält. Orientierung dazu: [Laptop verloren](/de/security/blog/laptop-verloren-personendaten). POP oder Weiterleitung auf privates Gmail verschiebt Daten ohne Projektentscheid aus dem Tenant.
+
+<div class="blog-stat">
+  <strong>65 % / 82 %</strong>
+  <p>Deloitte 2026, Firmen unter 250 Mitarbeitenden: regelmässige Cyber-Schulung bei kleinen beziehungsweise mittleren Betrieben. Nicht unsere Messung.</p>
+</div>
+
+Schulung ersetzt keine falsch gesetzten Freigaben, gibt Finanz und HR aber Worte, um unsichere Abkürzungen abzulehnen.
+
+## Wer tiefer prüfen soll
+
+<div class="blog-pair">
+  <div>
+    <h3>Mehr Aufwand sinnvoll</h3>
+    <ul>
+      <li>Praxen mit Gesundheitsdaten</li>
+      <li>Kanzleien mit Mandatsakten</li>
+      <li>Personalvermittler mit Kandidatendossiers</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Oft genügt die Basisliste oben</h3>
+    <ul>
+      <li>Nur interne Mail ohne Kundendaten in der Cloud</li>
+      <li>Kein Gastzugriff auf sensible Bibliotheken</li>
+      <li>MSP liefert quartalsweise Admin-Kurzbericht</li>
+    </ul>
+  </div>
+</div>
+
+Wenn US-Bearbeitung für Ihr Risikobild zählt, [Daten in die USA übermitteln](/de/security/blog/daten-in-die-usa-uebermitteln) neben Anbieterbedingungen lesen. Support-Zugriffe und Unterauftragnehmer zählen mit, nicht nur der Speicherort in der Marketingübersicht.
+
+## Was Sie zuerst tun
+
+Eine Stunde mit dem IT-Partner: Admin-Rollen, MFA-Lücken, Weiterleitungsregeln, Logs bei Mail-Exfiltration. Ergebnisse im Ordner zu anderen Auftragsverträgen ablegen. Mailbox-Hygiene ins Security-Onboarding. Ein Passwort für alle im gemeinsamen Postfach ist ein bekanntes Risiko; beheben Sie das vor dem nächsten Lizenzkauf. Wenn der Partner nur Screenshots schickt, verlangen Sie eine Kurzliste in Klartext mit Datum.
+
+Nach einem [geklickten Phishing-Link](/de/security/blog/phishing-link-geklickt) prüfen Sie Weiterleitungen und Posteingangsregeln erneut, auch wenn das Konto «wieder sicher» wirkt.
+
+Eine [Datenschutz-Schulung](/de/security/datenschutz) klärt in ein bis zwei Stunden live plus Follow-up, was in Mail und Chat darf, Pannenschwellen und Meldung, remote oder vor Ort in der Schweiz.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Microsoft ändert Admin-Bezeichnungen und Datenstandort-Optionen. Namen und Regionen in der aktuellen Dokumentation prüfen, bevor Sie einen Kundenfragebogen ausfüllen.</p>
+</aside>
+
+<div class="blog-faq">
+  <h3>Reicht Schweizer Datenstandort für Art. 16 DSG?</h3>
+  <p>Standort ist ein Faktor. Support-Zugriff, Unterauftragnehmer und Auslandsanfragen zählen mit. Art. 16 ordnet Ihre Beratung für Ihren Fall ein.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Muss jede Firma mit Microsoft 365 eine Datenschutz-Folgenabschätzung machen?</h3>
+  <p>Das hängt von Datenarten und Risiko ab, nicht vom Produktnamen. Ob Sie eine Folgenabschätzung brauchen, klären Sie mit Beratung. Dieser Text ersetzt das nicht.</p>
+</div>
+
+## Kurz vor dem Kundenfragebogen
+
+Wenn ein Konzern einen Fragebogen schickt, sammeln Sie Tenant-Name, Liste der Admins, Speicherort laut Vertrag, Bearbeitungsanhang und Datum der letzten Weiterleitungsprüfung. Antworten Sie «wir prüfen quartalsweise» nur, wenn das im Kalender steht. Fehlt MFA auf einem Konto mit Zahlungsfreigabe, ist das ein ehrlicher offener Punkt. Die Geschäftsleitung muss nicht jedes Menü kennen, braucht aber eine Unterschrift nur auf Fakten, die Sie wirklich geprüft haben.

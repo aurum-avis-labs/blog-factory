@@ -38,6 +38,10 @@ Dans le portail cloud, une transcription traitée apparaît comme VTT à côté 
 
 La couverture des langues n'est pas « tout ce qui a été dit ». Une documentation Zoom plus ancienne sur la transcription audio cloud indiquait l'anglais. Les produits plus récents de résumé et de transcription listent leurs propres langues dans les articles actuels de Zoom. Vérifiez la page de la fonction que vous avez vraiment activée avant de promettre un VTT allemand depuis un réglage qui ne couvrait que l'anglais.
 
+## Deux fichiers VTT dans un même dossier d'enregistrement
+
+Certains enregistrements cloud incluent à la fois un `.vtt` de transcription audio et un `cc.vtt` séparé pour les sous-titres. Longueur et timing peuvent différer. Nettoyez un fichier, en général la transcription audio, et gardez l'autre seulement si vous avez besoin du timing des captions.
+
 ## D'où vient un VTT cloud
 
 Une transcription audio typique ressemble à ceci :
@@ -82,6 +86,12 @@ Ce qui ne change pas :
 Ce nettoyage ne dépense pas un passage hebdomadaire. Les trois passages sont pour la reconnaissance vocale et pour les notes qui appellent un modèle. Vous pouvez ranger un VTT même si vous avez déjà utilisé les passages de transcription de la semaine.
 
 Gardez le VTT d'origine. Le texte brut sert à lire et à rédiger des notes. Le VTT est ce que vous comparez si un temps ou un cue compte, et c'est ce que Zoom vous a donné si quelqu'un demande l'export.
+
+Pour le prochain appel, [Vemoir enregistre depuis la barre des menus sur Mac](/fr) sans bot dans la liste des participants quand vous voulez votre propre fichier plutôt qu'un téléchargement cloud.
+
+## Nettoyer un VTT à la main si vous devez
+
+Ouvrez le `.vtt` dans un éditeur de texte brut. Supprimez l'en-tête `WEBVTT`, les numéros de cue et les lignes avec `-->`. Gardez les balises `<v Nom>` si elles sont là. Fusionnez à la main les lignes consécutives d'un même locuteur. Pour les longs fichiers, le [nettoyage de transcription](/fr/outils/nettoyer-transcription) va plus vite et commet moins d'erreurs.
 
 ## Ce que le texte brut doit encore contenir
 
@@ -140,5 +150,9 @@ Gardez-le jusqu'à être sûr de ne plus avoir besoin des temps de cue ni d'un n
 ### Le VTT est dans la mauvaise langue. Le nettoyeur peut-il traduire ?
 
 Non. Il retire seulement l'échafaudage des sous-titres. La traduction est une décision à part, et un modèle de parole réglé sur la mauvaise langue ne se répare pas en supprimant les horodatages.
+
+### Puis-je ouvrir un VTT dans Word ?
+
+Word peut ouvrir un `.vtt`, mais les lignes de temps restent tant que vous n'avez pas nettoyé. Texte brut ou sortie du nettoyeur se lisent et se transmettent plus facilement.
 
 Étape suivante : si le fichier commence par `WEBVTT`, ouvrez le [nettoyage de transcription](/fr/outils/nettoyer-transcription). Si le fichier est `audio_only.m4a`, utilisez [transcrire un enregistrement Zoom](/fr/outils/transcrire-enregistrement-zoom) seulement s'il dure 15 minutes ou moins.

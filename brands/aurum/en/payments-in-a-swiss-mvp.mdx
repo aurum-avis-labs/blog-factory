@@ -1,0 +1,85 @@
+---
+title: "Payments in a Swiss MVP: Stripe, TWINT, and what to test first"
+description: "Payments in a Swiss MVP: when to add Stripe and TWINT, a minimal checkout path, and what money on the wire does and does not prove."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "stripe", "twint", "payments", "switzerland"]
+funnelStage: interest
+translationKey: payments-in-a-swiss-mvp
+relatedPosts: ["how-to-build-a-scalable-mvp", "choosing-a-startup-tech-stack"]
+draft: true
+site: studio
+---
+
+## Payments in a Swiss MVP
+
+Payments in a Swiss MVP belong in the build only when willingness to pay is the open question. You wire Stripe Checkout or the Payment Element, turn on TWINT for Swiss shoppers, charge one real price in test mode first, then in live mode with a handful of people you already know. You are not building a finance department. You are learning whether anyone completes checkout for the job you described.
+
+This is for founders and innovation leads who already have a narrow product and need a Swiss-friendly way to take money, not for teams that still argue about the problem statement. If the core test is signups or a waitlist, a fake pay button teaches the wrong lesson. If the core test is «will they pay CHF 29 for this report?», payments belong in week one. How far production quality should go before that test is a separate decision, set out in [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps).
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Write the payment hypothesis in one line</h3><p>Example: «At least three of ten pilot users pay once for feature X.» If you cannot name the price and the success count, postpone code.</p></li>
+  <li data-step="2"><h3>Open Stripe and enable Switzerland</h3><p>Complete business verification before you promise live charges. In the dashboard, add TWINT alongside cards. Stripe documents TWINT for Switzerland on its payment methods page.</p></li>
+  <li data-step="3"><h3>Ship one product and one success URL</h3><p>Create a Price, point Checkout at it, and send the customer to a thank-you page that matches what you will measure in analytics.</p></li>
+  <li data-step="4"><h3>Listen for webhooks before you polish the UI</h3><p>Grant access, send the file, or mark the order paid only after `checkout.session.completed` (or the equivalent event) is handled reliably in your backend.</p></li>
+  <li data-step="5"><h3>Run live with a short allow list</h3><p>Ten to thirty people who expect to pay. Watch drop-off at TWINT, at card, and on mobile Safari. Fix one blocker, then pause feature work.</p></li>
+</ol>
+
+## Stripe TWINT in practice
+
+TWINT is widely used in Switzerland for everyday payments. Stripe offers TWINT as a payment method for businesses that use Stripe in Switzerland, so you do not need a separate TWINT merchant contract for a first test if Stripe is already your processor. Checkout can show TWINT next to cards; the customer is sent through TWINT's flow and returns to your success page when payment succeeds.
+
+That convenience has limits. TWINT is for consumers paying in francs, not for every B2B invoice story. Subscriptions, split payouts, marketplace escrow, and tax reporting each add rules and engineering you should not smuggle into «we added a pay button». For a single SKU or a one-off pilot fee, Checkout plus TWINT is often enough. For a platform that holds money for third parties, stop and scope with a lawyer and an accountant before you call it an MVP.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Hypothesis</span><strong>One price</strong><p>Multiple tiers before anyone pays once usually means pricing research, not payment integration.</p></li>
+  <li><span class="blog-kicker">TWINT</span><strong>Via Stripe</strong><p>Enable in the Stripe dashboard for CH; no separate TWINT stack required for a first test.</p></li>
+  <li><span class="blog-kicker">Proof</span><strong>Completion</strong><p>Counts paid sessions and refunds, not gross merchandise value on a slide.</p></li>
+  <li><span class="blog-kicker">Out of scope</span><strong>Ledger</strong><p>Full VAT logic, dunning, and marketplace settlement are later projects.</p></li>
+</ul>
+
+## What payments in a Swiss MVP prove
+
+A successful charge shows that someone trusted your description enough to leave the TWINT or card app and finish. Combined with session recordings or short interviews, you learn whether price, wording, or timing blocked the rest. You can compare TWINT uptake against cards in your pilot cohort, which matters when your audience is domestic and mobile-heavy.
+
+Payments do not prove product-market fit, retention, or that strangers will find you without a warm intro. They do not prove you can operate a two-sided marketplace: one client pilot deliberately left payments out while testing listings and chat, because liquidity on the demand side was the bottleneck, not the payment rail. They do not prove PCI comfort for investors; Stripe reduces your card-data exposure when you use hosted Checkout, but your own logs, support inbox, and admin tools still need discipline.
+
+<div class="blog-pair">
+  <div>
+    <h3>Who should integrate early</h3>
+    <ul>
+      <li>B2C or prosumer products with a single clear offer in Switzerland</li>
+      <li>Pilots where the board asked for revenue, not just «interest»</li>
+      <li>Teams that can support refunds and receipt questions for thirty users</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should wait</h3>
+    <ul>
+      <li>Marketplaces that must pay out sellers before demand is proven</li>
+      <li>Products still changing the job weekly; fix the job before the tariff</li>
+      <li>Regulated flows where payment triggers licensing you have not scoped</li>
+    </ul>
+  </div>
+</div>
+
+## A made-up example: a CHF 49 template
+
+A made-up example: a founder in Bern sells a Notion-based onboarding pack for Swiss micro-employers. The product is a PDF plus a short Loom walkthrough. They create a Stripe Product at CHF 49, enable TWINT and cards, and embed Checkout behind one button on an otherwise plain page. Test mode: two friends complete payment with test cards. Live mode: they email fifteen contacts from a workshop list, with a personal note that the link is a pilot. Seven open the page, four reach Checkout, three pay (two TWINT, one card). One asks for a refund because they bought the wrong language; they refund through Stripe and note the copy issue. They stop building new sections and interview the three buyers about what almost stopped them. That is a useful payment MVP. It is not proof that SEO or ads will scale.
+
+## Engineering habits that save the test
+
+Keep secrets out of the front end. Use Stripe's client-only keys for Checkout redirect flows; handle webhooks with a server or serverless function and verify signatures. Log payment IDs next to user IDs in your database so support can answer «did my TWINT go through?» without guessing.
+
+Use test clocks and test TWINT behaviour in Stripe's docs before you demo to a sceptical finance lead. Name your analytics events before launch: `checkout_started`, `checkout_completed`, `checkout_failed`. Match them to funnel reporting in week five of a structured validation programme, not only to a single evening's excitement.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>This article is not tax, accounting, or payment-services law. VAT registration thresholds, invoice wording, and whether your model needs a licence belong with your adviser. Stripe's docs describe TWINT availability; they do not replace that conversation.</p>
+</aside>
+
+## When the product validation package fits
+
+The [product validation package](/services/mvp-validation) fits when payment is one signal among several you must show in twelve weeks: a deployed web app, landing page, paid acquisition, and measured conversion, with room to pivot twice if checkout works but the channel does not. We build on Azure with React and NestJS, not by bolting TWINT onto a throwaway mockup. If you only need to know whether three contacts will TWINT-pay for a PDF, Stripe Checkout on a page you already have may be enough without hiring a build partner.
+
+If you already took money on a vibe-coded app and worry what broke under the hood, a payment test passed is not the same as a security review. Treat those as separate decisions.

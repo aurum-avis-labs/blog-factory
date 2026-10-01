@@ -1,0 +1,99 @@
+---
+title: "Data breach through an AI tool at work"
+description: "Data breach through an AI tool when staff paste personal data into ChatGPT or shadow apps: contain, document, and Swiss FDPIC thresholds."
+pubDate: 2026-12-16
+author: "Aurum Avis Labs"
+tags: ["ai", "data breach", "chatgpt", "shadow it", "switzerland"]
+funnelStage: awareness
+translationKey: data-breach-through-an-ai-tool
+relatedPosts: ["fadp-fines-and-personal-liability", "sensitive-personal-data-under-the-fadp", "does-the-gdpr-apply-to-swiss-companies"]
+draft: false
+site: security
+---
+
+## Data breach through an AI tool
+
+A data breach through an AI tool happens when someone puts customer names, contract text, health notes, or payroll exports into a public or unapproved model service. The data leave your controlled environment and may be processed abroad under terms management never approved. Under the Swiss FADP that is often an unauthorised disclosure or access incident and a signal that [Art. 8 security measures](https://www.fedlex.admin.ch/eli/cc/2022/491/de) failed on process, not only on firewalls.
+
+This article is for owners and HR in SMEs with 20 to 250 staff after «someone used ChatGPT with a client file». Orientation, not legal advice. For rules before an incident, see [ChatGPT and customer data under Swiss law](/prozess-check/blog/chatgpt-customer-data-swiss-dsg), [shadow AI in the office](/prozess-check/blog/shadow-ai-in-the-office), and [approving AI tools with an allow list](/prozess-check/blog/approve-ai-tools-allow-list).
+
+## First response same day
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Stop further pasting</h3><p>Speak briefly with the person involved without shaming them in a public channel. You need facts for the log.</p></li>
+  <li data-step="2"><h3>Clarify scope</h3><p>Full CVs, one paragraph, screenshot, audio upload? Note time, account, and tool name. Browser tab, extension, or meeting bot?</p></li>
+  <li data-step="3"><h3>Involve the privacy contact</h3><p>Internal owner or external adviser. Involve IT in parallel if a corporate login or SSO was used.</p></li>
+  <li data-step="4"><h3>Secure access</h3><p>Change passwords if the tool account reused a corporate login. Review offboarding if private accounts still hold work data; see [remove access when someone leaves](/security/blog/remove-access-when-someone-leaves).</p></li>
+</ol>
+
+## Is it a data security breach?
+
+Usually yes if personal data reached a processor you have no contract with or no approval for. Whether you notify the [FDPIC](https://www.edoeb.admin.ch/de/meldung-von-datensicherheitsverletzungen) depends on whether a high risk to individuals is likely ([Art. 24 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de)), and then as fast as possible, not within 72 hours as under the GDPR. Document facts, impact, and measures for at least two years even when you do not notify.
+
+Pasting medical or financial records into a consumer AI tool makes high risk more likely. See [sensitive personal data under the FADP](/security/blog/sensitive-personal-data-under-the-fadp).
+
+## How AI incidents differ from other shadow IT
+
+<div class="blog-pair">
+  <div>
+    <span class="blog-kicker">AI tool</span>
+    <p>Text or files are often sent to a provider that may use content for training or support, depending on contract and settings.</p>
+  </div>
+  <div>
+    <span class="blog-kicker">Unknown cloud</span>
+    <p>Also risky, but supplier questionnaires ask especially often whether models were trained on your data.</p>
+  </div>
+</div>
+
+Enterprise AI with a signed data processing agreement and documented configuration differs from a free browser tab. Management should maintain an allow list and block obvious consumer endpoints on work devices where feasible. The linked Prozess-Check posts cover allow lists and shadow AI without repeating every governance checklist here.
+
+## «Translation only» or «just shortening» still uploads
+
+Translating a customer email in a consumer tool still uploads personal data. Same rule as summarising a contract or asking to anonymise a CV. Some AI writing extensions send page text to third parties silently; block unapproved extensions on managed browsers like unknown cloud sync tools.
+
+Feeding a Teams recording to transcription AI can upload voices and customer names who never consented to that processor. Treat it like any new tool: allow list or ban before someone «just tries it».
+
+## GDPR and EU customers
+
+If EU personal data were in the paste, parallel duties in the EU may apply alongside Swiss analysis. [Does the GDPR apply to Swiss companies](/security/blog/does-the-gdpr-apply-to-swiss-companies) sets the frame. Confirm with counsel whether an EU customer must be informed regardless of the FDPIC.
+
+## Personal fines and HR
+
+Criminal fines need intent ([FADP fines and personal liability](/security/blog/fadp-fines-and-personal-liability)). An honest mistake reported quickly is a different picture from repeated shadow use after a written ban.
+
+## A made-up example: proposal draft in a browser tab
+
+A made-up example: a sales employee uploads a 40-page tender with customer contact tables into a free AI writer to shorten text. IT logs show the upload domain is not on the allow list. Management pulls the tender from the tool where possible, records categories and 120 contacts, assesses moderate risk, receives counsel advice not to report to the FDPIC, updates rules, and runs a 30-minute team briefing. They add AI rules to the next datenschutz session.
+
+Ask which tool was used and whether content is still visible in history. Screenshots can help the log before the vendor deletes data, if deletion is possible at all. If the vendor is not on your DPA list, treat the case as shadow IT.
+
+## FDPIC notification: when to involve counsel
+
+High risk is not a headline but a case-by-case question: how many people, which data categories, whether passwords or health data were included, whether the vendor stores content or may use it for training. The [FDPIC breach guidance](https://www.edoeb.admin.ch/de/meldung-von-datensicherheitsverletzungen) describes the portal and documentation duties. If you are unsure, involve counsel before submitting, not after.
+
+Inform affected individuals only when they must act, for example change passwords or expect fraud. That is separate from internal HR follow-up.
+
+## Documentation and IT blocks
+
+Log time, data categories, number of people affected, measures, and the FDPIC decision. URL filters and DLP rules reduce repeat incidents but do not replace a culture of reporting. After an incident, explain briefly why blocks exist.
+
+If you later buy Microsoft Copilot with data protection terms, tell staff the approved path so they stop using the free tab from the incident.
+
+## Staff message in plain language
+
+«Do not put personal data into tools we did not approve. If you already did, tell us today so we can contain and document.» Repeat in onboarding and training. Add AI rules to the next [datenschutz awareness session](/security/datenschutz).
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Vendor terms and retention change. Check current AI contracts, sector rules, and whether deletion is technically possible with counsel.</p>
+</aside>
+
+<div class="blog-faq">
+  <h3>Must every AI use be reported?</h3>
+  <p>Only when personal data reached an unapproved tool or you suspect affected individuals. Pure public text without personal data is a different conversation.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is «enterprise version» enough without a DPA?</h3>
+  <p>No. A paid account without a data processing agreement and without documented settings (training off, region) is often still not approved for client data.</p>
+</div>

@@ -12,11 +12,15 @@ draft: false
 site: prozess-check
 ---
 
-## Onboarding neuer Mitarbeitender automatisieren: so geht es
+## Onboarding neuer Mitarbeitender automatisieren
 
-Das Onboarding neuer Mitarbeitender automatisieren Sie mit einem Auslöser und einer festen Liste. Der Auslöser ist ein einziger Eintrag zur neuen Person: Name, Funktion, Eintrittsdatum, vorgesetzte Person. Ab diesem Eintrag läuft die Liste von selbst: das Konto in Microsoft 365 oder Google Workspace, Gruppen und Teams-Kanäle, die Bestellung der Hardware, der Zugriff auf gemeinsame Ordner, Vertrag und Unterlagen aus Vorlagen, der Plan für den ersten Tag und Erinnerungen für die ersten Wochen. Jeder Punkt hat eine zuständige Person und ein Datum, gerechnet ab dem Eintritt. Die Gegenliste für den Austritt entsteht am selben Tag. Den Empfang übernehmen Menschen. Die Liste führt das System.
+<p class="blog-lede">Onboarding automatisieren heisst: ein Auslöser, eine feste Liste, und das System hält die Fristen, während Menschen empfangen und prüfen.</p>
+
+Das Onboarding neuer Mitarbeitender automatisieren Sie mit einem Auslöser und einer festen Liste. Der Auslöser ist ein einziger Eintrag zur neuen Person: Name, Funktion, Eintrittsdatum, vorgesetzte Person. Ab diesem Eintrag läuft die Liste: Konto in Microsoft 365 oder Google Workspace, Gruppen und Teams-Kanäle, Hardware-Bestellung, Ordnerzugriff, Vertrag und Unterlagen aus Vorlagen, Plan für den ersten Tag, Erinnerungen für die ersten Wochen. Jeder Punkt hat eine zuständige Person und ein Datum, gerechnet ab dem Eintritt. Die Gegenliste für den Austritt entsteht am selben Tag. Den Empfang übernehmen Menschen. Die Liste führt das System.
 
 Der Text richtet sich an die Büroleitung, die Geschäftsführung oder die eine Person, die in einer Firma mit 10 bis 80 Leuten «das Personelle» neben der eigentlichen Arbeit macht. Eine Personalabteilung gibt es nicht, und die Konten richtet ein externer IT-Partner ein oder wer sich im Admin Center auskennt.
+
+Diese Seite ist die Checkliste und die Reihenfolge. Welche Microsoft-365-Schritte sich mit Bordmitteln automatisieren lassen, steht in [Microsoft 365 automatisieren](/de/prozess-check/blog/microsoft-365-automatisieren). Wie Verträge aus Vorlagen entstehen, in [Dokumente automatisch aus Vorlagen erstellen](/de/prozess-check/blog/dokumente-aus-vorlagen-erstellen).
 
 ## Die Checkliste
 
@@ -34,11 +38,17 @@ Der Text richtet sich an die Büroleitung, die Geschäftsführung oder die eine 
   <li>Gegenliste für den Austritt aus demselben Eintrag erstellt</li>
 </ul>
 
+<ol class="blog-flow">
+  <li><strong>Eintrag</strong><p>Eine Person, ein Datensatz, ein Startdatum.</p></li>
+  <li><strong>Liste</strong><p>Schritte und Erinnerungen mit Frist und Zuständigkeit.</p></li>
+  <li><strong>Gegenliste</strong><p>Austrittsschritte am Tag des Eintritts anlegen.</p></li>
+</ol>
+
 ## Konto in Microsoft 365 oder Google Workspace
 
 Konto, Lizenz und Gruppen lassen sich per Skript aus dem Eintrag anlegen, der Admin oder der IT-Partner gibt den Lauf frei. In Microsoft 365 bietet Microsoft Graph die Aufrufe für jeden Schritt: [Benutzer erstellen](https://learn.microsoft.com/de-de/graph/api/user-post-users?view=graph-rest-1.0), [Lizenz zuweisen](https://learn.microsoft.com/de-de/graph/api/user-assignlicense?view=graph-rest-1.0) und [Mitglied zu einem Team hinzufügen](https://learn.microsoft.com/de-de/graph/api/team-post-members?view=graph-rest-1.0). In Google Workspace [legt die Directory API des Admin SDK den Benutzer an](https://developers.google.com/workspace/admin/directory/reference/rest/v1/users/insert).
 
-Microsoft hat auch eine fertige Lösung: Lebenszyklus-Workflows erledigen Aufgaben bei Eintritt, Wechsel und Austritt, etwa eine Mail an die vorgesetzte Person vor dem Eintrittsdatum oder das Entfernen von Konten beim Austritt. Dafür braucht es eine Lizenz für Microsoft Entra ID Governance oder die Microsoft Entra Suite ([Microsoft Learn](https://learn.microsoft.com/de-de/entra/id-governance/what-are-lifecycle-workflows)). Ohne diese Lizenz laufen dieselben Schritte als kleine Automatisierung auf den Lizenzen, die Sie schon haben. Was mit den Bordmitteln in Ihrem Abo geht, steht in [Microsoft 365 automatisieren](/de/prozess-check/blog/microsoft-365-automatisieren).
+Microsoft hat auch eine fertige Lösung: Lebenszyklus-Workflows erledigen Aufgaben bei Eintritt, Wechsel und Austritt, etwa eine Mail an die vorgesetzte Person vor dem Eintrittsdatum oder das Entfernen von Konten beim Austritt. Dafür braucht es eine Lizenz für Microsoft Entra ID Governance oder die Microsoft Entra Suite ([Microsoft Learn](https://learn.microsoft.com/de-de/entra/id-governance/what-are-lifecycle-workflows)). Ohne diese Lizenz laufen dieselben Schritte als kleine Automatisierung auf den Lizenzen, die Sie schon haben.
 
 Entscheidend ist dabei nicht das Skript, sondern eine Rollentabelle. Schreiben Sie pro Funktion auf, welche Gruppen, Kanäle, Postfächer und Ordner dazugehören. «Buchhaltung» bekommt den Finanzkanal, das Postfach für Rechnungen und Schreibzugriff auf den Finanzordner. Das Skript liest nur diese Tabelle. Ohne sie beginnt jedes Onboarding mit «sie bekommt dasselbe wie Anna», und Annas Rechte sind über Jahre gewachsen.
 
@@ -52,7 +62,7 @@ Der Ordnerzugriff folgt der Rollentabelle. Läuft der Zugriff über Gruppen, kom
 
 Vertrag, schriftliche Information und interne Formulare füllen sich aus demselben Eintrag. Eine Person prüft sie, bevor etwas unterschrieben wird. [Art. 330b OR](https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de#art_330_b) verlangt bei einem unbefristeten oder mehr als einmonatigen Arbeitsverhältnis, dass der Arbeitgeber spätestens einen Monat nach Beginn schriftlich informiert über die Namen der Vertragsparteien, das Datum des Beginns, die Funktion, den Lohn und allfällige Lohnzuschläge sowie die wöchentliche Arbeitszeit. Ein schriftlicher Vertrag deckt das in der Regel ab. Beginnt jemand mit einer mündlichen Abmachung, sollte die Automatisierung Sie erinnern.
 
-Wie Sie Briefe und Verträge allgemein aus Vorlagen erstellen, steht in [Dokumente automatisch aus Vorlagen erstellen](/de/prozess-check/blog/dokumente-aus-vorlagen-erstellen). Fürs Onboarding zählt eine Regel: Im Vertrag steht der Lohn. Er gehört in einen Ordner, den nur Personalverantwortliche und Geschäftsleitung öffnen, nicht in den Teamkanal.
+Fürs Onboarding zählt eine Regel: Im Vertrag steht der Lohn. Er gehört in einen Ordner, den nur Personalverantwortliche und Geschäftsleitung öffnen, nicht in den Teamkanal.
 
 ## Plan für den ersten Tag und Erinnerungen
 
@@ -73,7 +83,7 @@ Jeder Punkt des Onboardings bekommt sein Gegenstück für den Austritt, erstellt
 | Vertrag und Unterlagen | Arbeitszeugnis, Schlussunterlagen |
 | Plan für den ersten Tag | Plan für den letzten Tag: Übergabe, Schlüssel, Abschied |
 
-Beide Anbieter beschreiben den Austritt. Microsoft nennt sieben Schritte, von der gesperrten Anmeldung über das Sichern des Postfachs bis zum Entfernen der Lizenz und dem Löschen des Kontos ([Microsoft Learn](https://learn.microsoft.com/de-de/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide)). Google weist darauf hin, dass beim Löschen eines Benutzers die Inhalte mitgelöscht werden, wenn ein Super-Administrator sie nicht vorher an jemanden überträgt ([Google Workspace-Hilfe](https://knowledge.workspace.google.com/admin/getting-started/options-to-preserve-former-employee-data?hl=de)). Mit einer Gegenliste, die schon beim Eintritt bereitliegt, wird diese Übertragung ein fester Schritt und kein Nachgedanke.
+Beide Anbieter beschreiben den Austritt in Admin-Hilfen ([Microsoft Learn](https://learn.microsoft.com/de-de/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide), [Google Workspace-Hilfe](https://knowledge.workspace.google.com/admin/getting-started/options-to-preserve-former-employee-data?hl=de)). Die Gegenliste macht Datenübertragung beim Austritt zu einem festen Schritt.
 
 ## Ein Beispiel: ein Ingenieurbüro mit 30 Personen
 
@@ -83,8 +93,25 @@ Die automatisierte Fassung: Die Büroleiterin füllt einen Eintrag in einer Micr
 
 ## Wann eine Checkliste genügt
 
-Stellen Sie ein- oder zweimal im Jahr ein, reicht eine gute Checkliste in einem gemeinsamen Dokument. Automatisieren lohnt sich, wenn so oft eingestellt wird, dass die Liste jedes Mal neu entsteht, oder wenn regelmässig Zugriffe vergessen gehen. Warten Sie, wenn jede Funktion anders ist und noch niemand die Rollentabelle geschrieben hat, und wenn niemand für die Liste zuständig ist. Zuerst [den Ablauf dokumentieren, wie er heute läuft](/de/prozess-check/blog/ablaeufe-dokumentieren), dann automatisieren.
+<div class="blog-pair">
+  <div>
+    <h3>Checkliste reicht</h3>
+    <ul>
+      <li>Ein- oder zweimal pro Jahr eine neue Person</li>
+      <li>Rollentabelle steht, jemand pflegt das gemeinsame Dokument</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Automatisieren lohnt sich eher</h3>
+    <ul>
+      <li>Mehrere Eintritte pro Jahr, jedes Mal wird die Liste neu gebaut</li>
+      <li>Zugriffe oder Gruppen werden regelmässig vergessen</li>
+    </ul>
+  </div>
+</div>
+
+Warten Sie, wenn jede Funktion anders ist und noch niemand die Rollentabelle geschrieben hat, und wenn niemand für die Liste zuständig ist. Zuerst [den Ablauf dokumentieren, wie er heute läuft](/de/prozess-check/blog/ablaeufe-dokumentieren), dann automatisieren.
 
 ## Ihr Onboarding in den Prozess-Check mitbringen
 
-Der [Prozess-Check](/de/prozess-check) passt, wenn eine wiederkehrende Arbeit wie das Onboarding bei jedem Eintritt wieder Zeit kostet. Er dauert 60 Minuten per Microsoft Teams und kostet CHF 99. Sie beschreiben, wie das Onboarding heute läuft, Personaldaten brauchen Sie keine. Danach wissen Sie, womit Sie anfangen, ob es sich lohnt und was die Umsetzung ungefähr kostet, und Sie haben eine kurze schriftliche Zusammenfassung zum Weitergeben.
+Der [Prozess-Check](/de/prozess-check) passt, wenn eine wiederkehrende Arbeit wie das Onboarding bei jedem Eintritt wieder Zeit kostet. Er dauert 60 Minuten per Microsoft Teams und kostet CHF 99. Sie beschreiben, wie das Onboarding heute läuft, Personaldaten brauchen Sie keine. Danach wissen Sie, womit Sie anfangen, ob es sich lohnt und was die Umsetzung ungefähr kostet, und Sie haben eine kurze schriftliche Zusammenfassung zum Weitergeben. [Termin wählen](/de/prozess-check/buchen).

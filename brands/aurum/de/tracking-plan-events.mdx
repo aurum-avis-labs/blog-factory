@@ -1,0 +1,109 @@
+---
+title: "Tracking Plan Events: Messpunkte vor dem MVP-Launch festlegen"
+description: "Tracking Plan Events für ein MVP: welche Aktionen Sie messen, wie Sie sie benennen und welche Frage jede Zeile beantwortet. Checkliste für Gründerinnen."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "analytics", "tracking", "produktvalidierung"]
+funnelStage: interest
+translationKey: event-tracking-plan-for-an-mvp
+relatedPosts: ["analytics-mvp-einrichten", "retention-messen-app"]
+draft: true
+site: studio
+---
+
+## Tracking Plan Events für ein MVP
+
+Ein Tracking Plan für Events in einem MVP ist eine kurze Tabelle, die Sie vor dem Launch gemeinsam festhalten: welche Nutzeraktionen als Events zählen, wie sie heissen, wo sie ausgelöst werden und welche Geschäftsfrage jede Zeile beantwortet. Ohne diesen Plan bleiben Analytics oft bei Seitenaufrufen und spontanen Button-Namen, die Sie von Woche zu Woche nicht vergleichen können. Sie bauen kein Data Warehouse. Sie notieren die zehn bis zwanzig Signale, die eine Go-, Pivot- oder Stop-Entscheidung wirklich bewegen können.
+
+Der Beitrag richtet sich an Gründerinnen und Gründer sowie Pre-Seed-Teams in der Schweiz, die ein erstes Produkt oder einen Validierungs-Build ausliefern und ein Dokument brauchen, das Entwicklung und die Person mit Zugang zu GA4 gleichermassen verstehen. Die technische Einrichtung gehört zu [Analytics MVP einrichten](/de/blog/analytics-mvp-einrichten). Aktivierung und Wiederkehr behandeln Retention messen App. Was Product-Market Fit nach echter Nutzung bedeuten kann, steht in [Product-Market Fit erreichen](/de/blog/product-market-fit-erreichen). Hier geht es um den Plan selbst: Grenzen, wer ihn weglassen kann und was Events nicht beweisen.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Event</dt>
+    <dd>Eine benannte Nutzeraktion, die Sie an Analytics senden, zum Beispiel Onboarding abgeschlossen oder Entwurf gestartet.</dd>
+  </div>
+  <div>
+    <dt>Property</dt>
+    <dd>Zusatzfelder am Event, zum Beispiel Tarif oder Fehlercode, begrenzt auf das, worauf Sie später filtern.</dd>
+  </div>
+  <div>
+    <dt>Primäre Aktion</dt>
+    <dd>Das eine Event, das Sie in einem Validierungsfenster als Erfolg zählen, festgelegt bevor Traffic oder Einladungen starten.</dd>
+  </div>
+</dl>
+
+## Was in den Tracking Plan gehört
+
+Halten Sie das Dokument auf einer Seite plus Namenskonvention. Jede Zeile soll eine Entscheidung tragen, keine Neugier.
+
+<ul class="blog-checklist">
+  <li>Produkt und Umgebung: App-Name, Produktions-URL, Analytics-Property-ID und wer nach dem Launch Events ergänzen darf</li>
+  <li>Namensregel: einheitlich kleingeschrieben mit Unterstrich oder Objekt_Aktion, gleiches Schema im Web und in der gewrappten App, falls Sie beides liefern</li>
+  <li>Akquise-Events: Registrierung gestartet, Registrierung abgeschlossen, Einladung angenommen, Quelle einmal beim Einstieg miterfassen</li>
+  <li>Onboarding-Events: jeder Pflichtschritt, plus ein onboarding_complete, wenn die erste wertvolle Ansicht erreicht ist</li>
+  <li>Kernwert-Events: Aktionen, die zeigen, dass das Produkt seinen Job erledigt, ausgerichtet auf Ihre riskanteste Annahme</li>
+  <li>Umsatz- oder Commitment-Events: Test gestartet, Checkout gestartet, Zahlung erfolgreich, nur wenn diese Flows im MVP existieren</li>
+  <li>Fehler-Events: Validierungsfehler im Formular, Zahlungsfehler, leere Zustände, wo Abbruch zählt</li>
+  <li>Sitzungskontext für Funnels: eingeloggt oder anonym, Tarif, Rolle oder Segment bei B2B</li>
+  <li>Mapping-Spalte: welches Dashboard oder welche Wochentabelle jedes Event füttert</li>
+  <li>Nicht-in-Scope-Liste: Events, die in v1 bewusst fehlen, damit niemand mid-sprint neue Namen erfindet ohne Plan-Update</li>
+</ul>
+
+Ergänzen Sie den Plan mit Session Recordings auf denselben Flows. Zahlen zeigen, dass Abbruch passiert; Aufzeichnungen zeigen oft, ob Text, Layout oder ein stiller Fehler schuld sind.
+
+## Was ein Event-Tracking-Plan nicht beweist
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Beweist</span><strong>Verhalten im Build</strong><p>Nutzer haben die benannten Aktionen in Produktion in einem Zeitraum ausgeführt, den Sie wiederholen können.</p></li>
+  <li><span class="blog-kicker">Beweist nicht</span><strong>Marktgrösse</strong><p>Events zählen Ankommende, nicht alle, die das Problem hätten.</p></li>
+  <li><span class="blog-kicker">Beweist nicht</span><strong>Retention allein</strong><p>Dafür brauchen Sie Kohortenregeln und Wiederkehr; ein Abschluss ist noch keine Gewohnheit.</p></li>
+  <li><span class="blog-kicker">Beweist nicht</span><strong>Schutz der Idee</strong><p>Ideen als solche sind nicht schützbar; Umsetzung und Marke schon ([IGE zu Ideen](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)).</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Ein Tracking Plan hilft nicht, wenn sich das MVP jede Woche ändert, ohne die Tabelle anzupassen. Fixieren Sie die primäre Aktion für ein Validierungsfenster, oder akzeptieren Sie, dass der Funnel vom letzten Monat nicht mit diesem vergleichbar ist.</p>
+</aside>
+
+## Für wen der Plan lohnt, und wer warten sollte
+
+<div class="blog-pair">
+  <div>
+    <h3>Dafür geeignet</h3>
+    <ul>
+      <li>Gründer mit erstem Build, die Pivots an Nutzung messen, nicht nur an Interviews</li>
+      <li>Teams mit einer Entwicklung oder Agentur, die eine Quelle für Event-Namen brauchen</li>
+      <li>Innovationsverantwortliche, die dem Verwaltungsrat Metriken zur Hypothese zeigen müssen</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Weglassen oder kürzen</h3>
+    <ul>
+      <li>Smoke Tests, bei denen nur ein Formular auf der Landing Page zählt; eine Zeile für die primäre Aktion reicht</li>
+      <li>Concierge-MVPs, bei denen Menschen in einer Tabelle arbeiten und das Produkt der Prozess ist</li>
+      <li>Teams, die Analytics erst lesen, wenn das Pitch-Deck fertig sein muss</li>
+    </ul>
+  </div>
+</div>
+
+## Ein erfundenes Beispiel: B2B-Onboarding für ein Reporting-Tool
+
+Ein erfundenes Beispiel: Ein Zweier-Team in Bern liefert ein MVP, das CSV-Exporte aus der Buchhaltung in ein board-taugliches Diagramm bringt. Vor dem Launch veröffentlichen sie einen Tracking Plan mit zwölf Zeilen. Primäre Aktion ist report_exported innerhalb von sieben Tagen nach Registrierung. Events umfassen signup_completed, data_source_connected, first_chart_viewed, filter_applied, report_exported und export_failed mit einer Property error_code. signup_completed speist wöchentliche Registrierungen, data_source_connected die Aktivierung, report_exported die Validierungsregel: weiter, wenn mindestens vierzig Prozent der neuen Konten Daten verbinden und zwanzig Prozent in Woche drei eines bezahlten LinkedIn-Tests exportieren. Session Recordings laufen nur auf Connect- und Export-Screens. Nach zwei Wochen gibt es viele first_chart_viewed, wenige Exporte; Aufzeichnungen zeigen den Export-Button unterhalb der Falz auf dem Handy. Sie verschieben den Button, benennen Events nicht um und vergleichen Woche vier mit Woche drei auf denselben Zeilen. Sie behaupten kein Product-Market Fit; sie behaupten, der Funnel ist messbar genug, um Text oder Scope zu pivotieren.
+
+## Datenschutz und die ersten Events
+
+Wenn Analytics, Heatmaps oder Retargeting Besucher profilieren oder siteübergreifend verfolgen, verlangt die Schweizer Praxis Information und wo nötig Einwilligung. Stellen Sie den Hinweis auf Produkt und Landing Page, bevor bezahlter Traffic startet. Dieser Beitrag ist keine Rechtsauskunft.
+
+<div class="blog-faq">
+  <h3>Wie viele Events sind zu viele?</h3>
+  <p>Wenn Sie die Entscheidung pro Event nicht benennen können, ist es Rauschen. Starten Sie mit Akquise, Onboarding, einer Kernwert-Aktion und einem Fehlersignal. Ergänzen Sie Zeilen, wenn sonst wieder Meinung statt Daten entscheidet.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Muss der Plan GA4-Empfehlungen folgen?</h3>
+  <p>Nutzen Sie empfohlene Namen, wo sie zu Ihren Flows passen. Eigene Namen sind in Ordnung, wenn die Produktaktion nicht sauber abbildbar ist, solange Web und App konsistent bleiben und niemand ein zweites Label für denselben Klick erfindet.</p>
+</div>
+
+## Wann das Product-Validation-Paket passt
+
+Das [Product-Validation-Paket](/de/services/mvp-validation) passt, wenn der Tracking Plan steht, das Produkt aber noch nicht: Sie brauchen eine ausgelieferte Web-App auf Azure, Analytics und Session Recordings ab Tag eins, und in den Wochen sieben bis zehn Kosten pro Lead, Conversion, Abbruch und bis zu drei Pivot-Iterationen, mit einer Go-, Pivot- oder Stop-Empfehlung und dem, was die Daten weiterhin nicht beweisen. Wenn die offene Frage nur ist, ob Fremde auf eine Botschaft klicken, schliessen Sie zuerst den Landing-Page-Test ab und buchen Sie ein Validierungsgespräch, wenn Verhalten im Produkt der Engpass ist.

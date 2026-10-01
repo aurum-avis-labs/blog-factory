@@ -17,7 +17,9 @@ draft: false
 
 Aucun des deux modèles n'écrit le compte rendu. Notes, documents et Ask utilisent un modèle de langue pour écrire&nbsp;: Qwen3 4B sur la plupart des Mac, gpt-oss-20b sur les Mac à grande mémoire, Apple Intelligence là où le Mac l'a, ou une clé texte que vous activez vous-même. Le modèle de parole ne fait que transformer l'audio en texte.
 
-## Ce que Parakeet ou Whisper change
+Pour savoir quel fichier de parole télécharger en premier, ouvrez [capture](/fr#capture) sur le Mac et comparez les tailles avant d'en mettre un second en file.
+
+## Comment les indices de glossaire diffèrent
 
 | | Parakeet v3 | Whisper Turbo, Medium, Large-v3 |
 | --- | --- | --- |
@@ -30,13 +32,9 @@ Aucun des deux modèles n'écrit le compte rendu. Notes, documents et Ask utilis
 
 La bibliothèque de modèles montre l'état, le stockage et l'adéquation au matériel. Vous pouvez retirer un modèle que vous ne voulez plus. Une réunion ultérieure ne substitue pas l'autre famille parce que vous étiez hors ligne ou que le fichier manquait. Réparez le téléchargement, puis traitez.
 
-La langue de l'interface (anglais, allemand, français, italien, néerlandais) n'est pas la langue de transcription. Réglez-les séparément.
+Les glossaires de projet aident à orthographier noms et termes produit dans les comptes rendus générés. Sur une transcription Whisper compatible, des indices de glossaire peuvent aussi atteindre l'invite de parole. Parakeet v3 n'annonce pas les mêmes indices au passage de parole. Si votre flux dépend de la première ligne de transcription, lisez Whisper dans la doc de l'app. Si vous voulez surtout des noms corrects dans le résumé, les deux familles peuvent suffire une fois le texte là.
 
-|  | Parakeet v3 | Whisper |
-| --- | --- | --- |
-| Languages | 25 European (Vemoir docs) | Depends on model size |
-| Runs on | Apple silicon Mac | Mac or browser download |
-| Swiss German | Standard German text | Standard German text |
+La langue de l'interface (anglais, allemand, français, italien, néerlandais) n'est pas la langue de transcription. Réglez-les séparément.
 
 |  | Parakeet v3 | Whisper |
 | --- | --- | --- |
@@ -84,6 +82,8 @@ La transcription est reconstruite à partir de l'audio local finalisé après l'
 
 Ensuite un modèle d'écriture rédige le compte rendu. Si un nom est faux, le modèle de parole est un endroit où regarder (mauvais modèle pour la langue, micro bruyant) et le modèle d'écriture un autre (une phrase lisse qui n'était pas dans l'audio). Changez ce qui a échoué. N'échangez pas Parakeet et Whisper au hasard en attendant un bond de précision publié.
 
+Retraiter le même fichier conservé est honnête. Installer un second modèle de parole « au cas où » sans écouter d'abord remplit souvent le disque avant de corriger une ligne.
+
 La suppression du bruit, Off, Balanced ou Strong, porte sur le micro avant ce choix. Elle ne choisit pas le modèle de parole.
 
 Les deux familles sont dans [capture](/fr#capture).
@@ -100,7 +100,7 @@ Les deux familles sont dans [capture](/fr#capture).
 
 Un modèle de parole est un gros fichier. Installer Parakeet et chaque variante Whisper sur le même disque est permis, et souvent inutile. Vérifiez l'espace libre par rapport à la taille que l'écran des modèles affiche avant de lancer trois téléchargements. La base de l'app est 10&nbsp;Go libres, ce qui n'est pas une promesse que trois modèles de parole plus un modèle d'écriture tiendront dans cette marge. Si un téléchargement échoue faute d'espace, libérez de l'espace et reprenez. Ne traitez pas l'outil navigateur comme un remplaçant silencieux d'une réunion qui devait rester dans l'app. L'outil navigateur est un autre chemin, avec un plafond de 15 minutes.
 
-Quand un fichier Parakeet et un fichier Whisper sont prêts, sélectionnez-en un pour la réunion suivante et laissez-le. La substitution en cours de réunion n'existe pas. Si un appel bilingue mélange deux langues, attendez-vous aux limites du modèle choisi. Si le résultat est inutilisable, c'est une raison d'essayer l'autre famille exprès et de comparer avec vos oreilles, toujours sans chiffre. Gardez l'enregistrement si le stockage l'a encore, pour que le second passage soit le même audio et pas un nouvel appel avec un nouveau bruit. Un fichier, deux modèles, vos oreilles. C'est toute la méthode que cette page défend. Notez le modèle choisi et la date, dans les notes de projet si vous en avez, pour qu'un désaccord plus tard porte sur l'audio et pas sur un réglage oublié. La bibliothèque de modèles est le registre de ce qui a été installé. Votre note est le registre de ce que vous avez choisi pour cette réunion. Si un collègue demande quel modèle a «&nbsp;gagné&nbsp;», la réponse est celui que vous avez pu vérifier contre l'audio conservé. Un chiffre de benchmark ne l'aiderait pas à rejouer votre appel.
+Quand un fichier Parakeet et un fichier Whisper sont prêts, sélectionnez-en un pour la réunion suivante et laissez-le. Si le résultat est inutilisable, essayez l'autre famille exprès et comparez avec vos oreilles, sans chiffre. Gardez l'enregistrement pour retraiter le même audio. Notez le modèle et la date dans les notes de projet. Pour des réunions qui doivent rester hors ligne après installation des modèles, voir [transcription hors ligne sur Mac](/fr/blog/transcription-hors-ligne-mac).
 
 ## Questions fréquentes
 

@@ -1,0 +1,101 @@
+---
+title: "QR code phishing (quishing) at work"
+description: "QR code phishing: quishing on posters, invoices, and parking slips. What Swiss office staff should check before scanning."
+pubDate: 2026-11-11
+author: "Aurum Avis Labs"
+tags: ["quishing", "qr code", "phishing", "switzerland"]
+funnelStage: awareness
+translationKey: qr-code-phishing
+relatedPosts: ["how-to-spot-phishing-emails", "spotting-ai-generated-phishing", "fake-microsoft-support-call-at-work"]
+draft: false
+site: security
+---
+
+## QR code phishing at work
+
+QR code phishing, often called quishing, hides a malicious link behind a square barcode so phones skip the «read the URL» step. At work that can mean a sticker on a parking meter, a fake courier label, or a «scan for Wi‑Fi» sign in the lobby. This glossary note explains what happens when someone scans, how quishing differs from legitimate QR use, and who should be extra careful. It complements [how to spot phishing e-mails](/security/blog/how-to-spot-phishing-emails); parcel SMS (smishing) is a different topic.
+
+## What happens when you scan
+
+The camera app or a QR reader turns the pattern into a URL, plain text, or an app link. In fraud, the code opens a login page that asks for credentials, card data, or company accounts. Some pages push malware next. The attack relies on habit: QR codes feel «official» because restaurants, events, and suppliers have used them for years.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Context</span><strong>Physical</strong><p>Often a sticker over a real code or a new sign with no announcement.</p></li>
+  <li><span class="blog-kicker">Goal</span><strong>Credentials</strong><p>Generic login screens or payment forms.</p></li>
+  <li><span class="blog-kicker">Source</span><strong>BACS</strong><p>Swiss NCSC (BACS) reports quishing on parking meters as a real campaign (external report).</p></li>
+</ul>
+
+## Where quishing shows up near the office
+
+The [Swiss National Cyber Security Centre (BACS)](https://www.bacs.admin.ch/de/24w43-de) described cases where stickers on parking meters replaced legitimate payment codes. On the commute that is a familiar flow: scan, pay, leave. Inside the building you see similar patterns: «guest Wi‑Fi», «order toner», «download the event app». Fake courier labels at reception also appear in reports. A new QR step with no e-mail from facilities or IT is a warning sign.
+
+## Who should be extra careful
+
+<div class="blog-pair">
+  <div>
+    <h3>Typical situations</h3>
+    <ul>
+      <li>Reception and back office with heavy visitor traffic</li>
+      <li>Staff who use pay-by-QR parking or shared printers</li>
+      <li>Events with many unfamiliar codes nearby</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Less often affected</h3>
+    <ul>
+      <li>Offices with no visitor QR and no parking pay-by-QR</li>
+      <li>Teams who type payments only in known apps, never scan</li>
+    </ul>
+  </div>
+</div>
+
+## Checklist before you scan
+
+<ul class="blog-checklist">
+  <li>Was the code printed or published by your employer, facilities, or a known vendor?</li>
+  <li>Does the preview URL match your usual app, not a generic «secure-login» domain?</li>
+  <li>Would security or facilities have announced a new QR process in writing?</li>
+  <li>Does the sticker look freshly pasted over an older code?</li>
+</ul>
+
+Many phones show the URL before opening. Use that preview. If the link is shortened or the domain is odd, stop and report to IT or building management.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Treat physical tampering like an IT incident: photograph, remove if safe, inform building management. BACS asks the public to report suspicious parking-meter stickers (external guidance on bacs.admin.ch).</p>
+</aside>
+
+## What quishing is not
+
+Legitimate Swiss QR-bill lines on invoices you expect from known suppliers are not quishing. Menu QR codes in a café you entered on purpose are usually fine. NFC payment at the till is another channel. Quishing here means a surprising code with no clear source.
+
+## Car parks and shared printers
+
+Quishing stickers also appear near pay stations and on printers where staff scan to order toner. Facilities should walk the perimeter after weekends. If a code promises «free guest Wi‑Fi», read the written visitor policy first instead of scanning.
+
+## Rules that fit on one slide
+
+Facilities publishes Wi‑Fi and visitor instructions centrally, without ad-hoc QR printouts at reception. Reception does not scan courier labels on behalf of staff; parcels go through the normal log. Marketing checks event posters before they hang in the lobby. Event organisers should name the official congress QR; fake «download the app» stickers nearby are a known pattern.
+
+## When mail and QR arrive in the same week
+
+E-mail with a similar domain may land in the same week as a physical QR lure. IT can block both channels if reporting is fast. Teams learn that physical and digital lures often chase the same payment or credentials. That belongs in ongoing phishing training, not as a replacement for it.
+
+<div class="blog-faq">
+  <h3>Can phones preview QR destinations?</h3>
+  <p>On many devices, yes. Use the preview; do not open shortened or strange domains.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Should every QR-bill line look suspicious?</h3>
+  <p>No. Check expected sender and amount. An unexpected code on a car park is a different risk from the QR line on a familiar supplier invoice.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>What if someone already opened a fake page?</h3>
+  <p>Do not enter more data, close the page, report to IT. Change passwords if anything was typed. Speed of reporting matters, as with mail phishing.</p>
+</div>
+
+Phishing is not mail-only. Public team photos on your website can feed social engineering on the phone; see [staff photos on the website](/security/blog/staff-photos-on-the-website).
+
+[Security awareness training](/security/security-awareness) covers quishing alongside mail and SMS in a live session for companies without a dedicated security team.

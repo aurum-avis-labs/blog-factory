@@ -1,0 +1,101 @@
+---
+title: "When the AI model cannot finish the last step"
+description: "When the AI model cannot finish the last step, split the job: models draft, code or a human owns publishing and overlays."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["ai agents", "mvp validation", "image models", "product workflow"]
+funnelStage: interest
+translationKey: when-the-model-cannot-finish-the-job
+relatedPosts: ["a-launch-is-not-validated-demand", "testing-a-niche-product-before-revenue"]
+draft: true
+site: studio
+---
+
+When the AI model cannot finish the last step, the workable move is to stop pretending it can. Give the model a narrower job upstream, own the weak step in application code or in a deliberate human handoff, and ship something you can still use while platform or legal prerequisites catch up. That pattern showed up early in Postology, an internal Aurum project from 2024: useful generation and preparation, manual Instagram transfer until API access was viable.
+
+The reader here is a founder or innovation lead in Switzerland who is wiring agents, image models, or automations into a product. The question is not whether the model is «smart enough». It is where the pipeline breaks, and whether the product is still worth building if one integration stays manual for a while.
+
+## When the AI model cannot finish the last step
+
+In practice the «last step» is often one of three failures. The model cannot place readable branded text on an image. A platform API refuses the call until an account, review, or legal entity exists. Or the step needs a judgement call you do not want inside a black box, such as approving copy before it goes public.
+
+None of these mean the upstream automation was wasted. They mean the architecture has to name the boundary explicitly instead of hiding it inside a single «generate post» button.
+
+<ol class="blog-flow">
+  <li><strong>Draft</strong><p>Models produce topics, images, captions, or structured fields you can inspect.</p></li>
+  <li><strong>Render</strong><p>Typography, layout, or format rules live in code you control, not in the image model.</p></li>
+  <li><strong>Gate</strong><p>A person or an integration you qualify checks output before it leaves your system.</p></li>
+  <li><strong>Publish</strong><p>Platform APIs, exports, or copy-paste complete the loop when automation is allowed.</p></li>
+</ol>
+
+## What Postology did when the image model stopped
+
+Postology started before Aurum Avis Labs had a legal entity. The goal was to cut the weekly manual load of social content: ideation, visuals, overlay copy, music, and format prep. Image generation helped for concepts. It did not reliably render brand-safe overlay text inside the picture, which matches what many teams saw with early DALL-E style outputs: pretty frames, illegible or wrong lettering.
+
+The response was to split creative work into chained agents with narrower roles: frame the topic, write image prompts, derive caption and overlay text from the topic-image pair, pick music by mood, then assemble static or vertical outputs. The image model supplied a base visual. The application owned an HTML overlay layer for typography and layout, so text rules stayed testable and on-brand instead of being re-prompted until luck struck.
+
+Instagram was the hard stop. Without a legal entity, the product could not use the API path needed for user connection and direct posting. Publishing stayed manual: copy the prepared output across. That is a constraint class many Swiss founders hit before the GmbH exists, not a model limitation, but it feels the same in the roadmap because the feature checklist still says «post».
+
+A waitlist launch collected roughly ten signups without active advertising or sustained promotion. The project was not positioned as a scaled public SaaS launch. It remained an internal system that kept evolving: newer models, campaign structures, reference images, and tighter overlay control. The technical lesson mattered more than waitlist size: decompose ambiguous AI work into observable agents, a rendering layer you own, and an honest human fallback.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>A blocked final integration does not prove the idea is worthless. It also does not prove strangers will pay, that manual publishing is fine forever, or that platform policy will not change again.</p>
+</aside>
+
+## What this pattern does not prove
+
+Removing manual work up to export is a real productivity win. It is not validation on its own. Ten waitlist signups without paid acquisition do not show a repeatable channel, pricing power, or habit. Neither does a polished agent demo.
+
+If your board or your co-founder needs evidence of demand, you still need a test with friction, measurement, and a defined decision window, not only a faster content factory. How Aurum structures that kind of test is described in [how we validate MVPs in 12 weeks](/blog/how-aurum-avis-validates-mvps). A launch that creates attention without a channel is a different failure mode, explored in [a launch is not validated demand](/blog/a-launch-is-not-validated-demand).
+
+## Who should skip the split-pipeline approach
+
+<div class="blog-pair">
+  <div>
+    <h3>Who this is for</h3>
+    <ul>
+      <li>Teams building agentic workflows where models are strong on drafts but weak on pixels or policy</li>
+      <li>Founders who can ship value while one platform integration waits on legal or account setup</li>
+      <li>Products where review before publish is a feature, not an embarrassment</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip it</h3>
+    <ul>
+      <li>Products whose only promise is one-click publish with no human in the loop</li>
+      <li>Teams that will abandon the build if any step stays manual past week two</li>
+      <li>Ideas with no test plan beyond «we automated our own workflow»</li>
+    </ul>
+  </div>
+</div>
+
+If the entire value proposition lives in the API call that is blocked, pause until the entity, the Meta business verification, or the App Store agreement is real. Automating everything except the blocked step is still research. It is not yet a market test.
+
+## Design choices that kept Postology usable
+
+Three decisions translated model limits into software you could run weekly.
+
+**Separate image generation from text placement.** Asking the model to «write the headline on the image» optimises for screenshots, not production. Owning overlays in code makes fonts, safe zones, and campaign references explicit.
+
+**Treat agent chains like a factory line, not a chat.** When agents drift, add structure: fixed handoffs, traceability, and a narrow contract per step. Music selection, for example, became an agent decision bounded by mood and royalty-free rules instead of a free-form suggestion.
+
+**Preserve export quality when publish is manual.** If the human step is copy-paste, the bundle must be complete: image, overlay, caption, and format dimensions. Manual publishing is tolerable when it takes minutes, not when someone rebuilds assets in Canva anyway.
+
+The fuller Postology story, including PDF access after email, sits on the [portfolio page](/portfolio/postology).
+
+<div class="blog-faq">
+  <h3>Should we wait until the model can do the whole job?</h3>
+  <p>Usually no, if the business question is whether the workflow saves enough time or whether customers care about the output. Models will keep improving at typography and tool use. Platform rules and legal gates will keep shifting. Waiting for a perfect end-to-end model often means never learning whether the product idea deserves a production build.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is a human last step «not real AI»?</h3>
+  <p>It is real product engineering. The test is whether the human step is occasional review or whether it is the same repetitive labour you set out to remove. Postology kept manual Instagram transfer because the API path was closed, not because agents could not draft posts.</p>
+</div>
+
+## When the Product Validation Package fits
+
+The [Product Validation Package](/services/mvp-validation) fits when you have a hypothesis that needs a deployed product, paid acquisition, and measured behaviour, not only an internal automation that feels clever. Weeks 1 to 4 ship a real web app on Azure with analytics from day one. Weeks 5 to 12 add positioning, ads, iteration, and a Go, Pivot, or Stop recommendation with explicit limits on what the data cannot prove.
+
+Book that path when the open question is market signal, retention, or unit economics, and when you are ready to own code, data, and documentation after the engagement. Skip it if you only need a content tool for your own team and you are not trying to falsify demand with strangers. Fixing the last mile of an agent pipeline is craft. Proving someone else will pay is a different programme, and both can be true in sequence.

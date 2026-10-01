@@ -35,19 +35,23 @@ Was oft versucht wird und hier nicht vorgesehen ist:
 
 Sprachnotizen vom iPhone landen nach AirDrop oft als M4A. Sobald die Datei lokal ist, ist das ein normaler Import.
 
-Voraussetzungen der Mac-App: Apple Silicon (M1 oder neuer), macOS Sonoma 14.2 oder neuer, Platz für die Modelle. Intel-Macs sind nicht unterstützt. Netz brauchst du für die Einrichtung und die Downloads. Danach kann die Verarbeitung offline laufen.
+Voraussetzungen der Mac-App: Apple Silicon (M1 oder neuer), macOS Sonoma 14.2 oder neuer, Platz für die Modelle. Intel-Macs sind nicht unterstützt. Netz brauchst du für die Einrichtung und die Downloads. Danach kann die Verarbeitung offline laufen. Siehe [Offline-Transkription am Mac](/de/blog/offline-transkription-mac), wenn du den ganzen Ablauf ohne Netz brauchst.
 
 ## Audiodatei importieren am Mac in Vemoir
 
-1. Leg die Datei auf den Mac. Benenn sie so, dass du sie nächsten Monat findest. Datum und Kundenkürzel sind klarer als `aufnahme(3).m4a`.
-2. Öffne Vemoir. Leg ein **Projekt** an oder wähl eines, wenn der Call zu einem Mandanten gehört. Den Import kannst du vor der Verarbeitung ablegen, analog zur Live-Aufnahme vor dem Start.
-3. Wähl die Datei oder zieh sie auf die App. Eine Datei wird ein Sitzungsdatensatz in der Bibliothek.
-4. Wart auf die lokale Transkription. Das Transkript, das zählt, entsteht aus dem importierten Audio. Die Sprechertrennung läuft auf dem Mac. Danach benennst du um. «Diesen Sprecher merken» ist freiwillig und verschlüsselt. Unbekannte Stimmen bleiben anonym.
-5. Bearbeite Protokoll, Beschlüsse und Aufgaben auf dem Mac. Getippte Notizen fliessen in denselben Datensatz. Teilen geht über die normalen Teilen-Wege von macOS, und nur die Teile, die du wählst.
+<ol class="blog-steps">
+  <li data-step="1"><h3>Datei auf den Mac legen</h3><p>Datum und Kundenkürzel statt <code>aufnahme(3).m4a</code>.</p></li>
+  <li data-step="2"><h3>Projekt wählen oder anlegen</h3><p>Den Import vor der Verarbeitung ablegen, wenn der Mandant schon klar ist.</p></li>
+  <li data-step="3"><h3>Datei wählen oder ziehen</h3><p>Eine Datei wird ein Sitzungsdatensatz in der Bibliothek.</p></li>
+  <li data-step="4"><h3>Lokale Transkription abwarten</h3><p>Sprechertrennung auf dem Mac. «Diesen Sprecher merken» ist freiwillig.</p></li>
+  <li data-step="5"><h3>Protokoll bearbeiten</h3><p>Beschlüsse und Aufgaben bleiben auf dem Mac. Teilen nur die Teile, die du wählst.</p></li>
+</ol>
 
 Nichts davon lädt das Audio zu Vemoir hoch. Cloud-Textmodelle (OpenAI oder Anthropic mit eigenem Schlüssel) sind freiwillig und gelten für erzeugten Text. Sie transkribieren die Datei nicht, und die App fällt nicht still auf sie zurück.
 
 Brauchst du Text ohne Installation und ist der Clip kurz, nimm den Browser-Abschnitt. Ist die Datei eine lokale Zoom-Aufnahme, steht die Ordnersuche in [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
+
+Willst du eine vorhandene Datei ohne Anbieter-Upload? [Audio transkribieren öffnen](/de/tools/audio-transkribieren).
 
 ## Import und selbst aufnehmen
 
@@ -55,7 +59,7 @@ Import ist für Audio, das schon existiert: die lokale Zoom-Datei einer Kollegin
 
 Live-Aufnahme ist das nächste Meeting auf **diesem** Mac: Mikrofon plus Systemton, kein Bot. Import holt keinen Systemton in eine Datei, die ihn nie hatte. Ist die M4A schon nur Mikrofon, bringst du die Gegenseite mit einem «besseren» Import nicht zurück.
 
-Importiere keine stumme Datei und erwarte ein Transkript. Ist die Wiedergabe leer, geht es beim nächsten Mal um die Aufnahme, nicht um den Import.
+Importiere keine stumme Datei und erwarte ein Transkript. Ist die Wiedergabe leer, geht es beim nächsten Mal um die Aufnahme, nicht um den Import. [Meeting-Aufnahme ohne Ton am Mac](/de/blog/meeting-aufnahme-kein-ton-mac) gehört zu diesem Thema.
 
 ## Browser: kurze Dateien, keine Installation
 
@@ -89,7 +93,7 @@ Nenn das Ergebnis nicht beglaubigt, nicht DSGVO-zertifiziert und nicht als privi
 
 **Lokaler Zoom-Ordner.** Nach «Auf diesem Computer aufzeichnen» liegt oft `audio_only.m4a` neben dem Video. Die M4A ist der Import, nicht der MP4-Film. Den Ordnerpfad beschreibt [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren). Ist die M4A länger als 15 Minuten, bleibt sie in der Mac-App. Ist sie acht Minuten lang und du brauchst nur Rohtext, reicht der Browser.
 
-**AirDrop einer Sprachnotiz.** Das iPhone schickt M4A. Sobald die Datei im Finder ist, ist es ein normaler Import. Der Inhalt ist nur, was das Telefonmikrofon gehört hat: ein Gespräch im Sitzungszimmer ja, ein Zoom-Call, der auf einem anderen Laptop lief, nein.
+**AirDrop einer Sprachnotiz.** Das iPhone schickt M4A. Sobald die Datei im Finder ist, ist es ein normaler Import. Der Inhalt ist nur, was das Telefonmikrofon gehört hat: ein Gespräch im Sitzungszimmer ja, ein Zoom-Call, der auf einem anderen Laptop lief, nein. Mehr Finder-Detail in [Sprachnotiz transkribieren am Mac](/de/blog/sprachnotiz-transkribieren-mac).
 
 **Export aus einem Diktiergerät.** WAV und FLAC sind in der Mac-App vorgesehen. Hör vor dem Import zehn Sekunden Probe. Manche Geräte schreiben eine stumme erste Datei, wenn du die Aufnahme vor dem Gespräch gestartet hast. Die importierst du nicht zweimal.
 

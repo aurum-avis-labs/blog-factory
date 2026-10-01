@@ -1,0 +1,130 @@
+---
+title: "Ransomware was tun KMU: erste Schritte in den ersten Stunden"
+description: "Ransomware erste Schritte für KMU: isolieren, Beweise sichern, Versicherung informieren und wann die BACS-Meldepflicht typischer Firmen nicht gilt."
+pubDate: 2026-11-25
+author: "Aurum Avis Labs"
+tags: ["ransomware", "incident response", "kmu", "schweiz"]
+funnelStage: interest
+translationKey: ransomware-first-steps-for-an-sme
+relatedPosts: ["rechnungsbetrug-iban-geaendert", "sicherheitsvorfall-melden", "vier-augen-prinzip-zahlungen"]
+draft: false
+site: security
+---
+
+## Ransomware was tun KMU: eindämmen vor der Lösegeld-Debatte
+
+Ransomware erste Schritte für ein KMU beginnen mit Isolieren betroffener Geräte, Stoppen lateraler Ausbreitung und Anruf der Incident-Leitung, nicht mit Lesen der Bitcoin-Forderung. Ein Schweizer Betrieb mit 20 bis 250 Personen hat selten ein 24/7-SOC; Inhaber, IT-Partner und Backup-Verantwortliche müssen die Reihenfolge kennen. Das BACS zählte im zweiten Halbjahr 2025 [57 Ransomware-Fälle](https://www.bacs.admin.ch/de/hjb-25-2-de) im Meldebild; Betrug dominierte insgesamt. Die meisten Handels- und Dienstleistungsfirmen unterliegen nicht der [Meldepflicht ans BACS innert 24 Stunden](https://www.bacs.admin.ch/de/informationen-zur-meldepflicht); freiwillige Meldung ist nach Schadensbegrenzung möglich.
+
+Nutzen Sie den Weg aus [Sicherheitsvorfall melden](/de/security/blog/sicherheitsvorfall-melden), damit HR und Finanz früh Bescheid wissen. Während des Ausfalls gelten weiter [Vier-Augen-Kontrollen](/de/security/blog/vier-augen-prinzip-zahlungen) und Rückrufregeln aus [Rechnungsbetrug IBAN geändert](/de/security/blog/rechnungsbetrug-iban-geaendert). Kundenkommunikation bei Personendaten-Leak berührt die [Datenschutzerklärung Pflicht Schweiz](/de/security/blog/datenschutzerklaerung-pflicht-schweiz).
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Isolieren</h3><p>Betroffene PCs vom WLAN und LAN trennen; VPN-Routen stoppen, wenn sich die Verschlüsselung ausbreitet.</p></li>
+  <li data-step="2"><h3>Beweise sichern</h3><p>Lösegeld-Screen fotografieren, Uhrzeit notieren, Logs exportieren; nicht sofort wipen, wenn Polizei, Versicherung oder Forensik untersuchen.</p></li>
+  <li data-step="3"><h3>Informieren</h3><p>IT-Partner, Cyber-Versicherung, Geschäftsleitung; eine Sprecherperson benennen.</p></li>
+  <li data-step="4"><h3>Backups prüfen</h3><p>Offline- oder unveränderliche Kopien verifizieren, bevor Restore-Tests auf Produktion laufen.</p></li>
+  <li data-step="5"><h3>Datenschutz parallel</h3><p>Bei Personendaten-Leak EDÖB-Meldung bei hohem Risiko prüfen, getrennt von BACS-Pflicht.</p></li>
+</ol>
+
+## Stunde null bis zwei: wer isoliert was
+
+Legen Sie die Namen vor dem Vorfall schriftlich fest. Wer zuerst am Schreibtisch steht, ist selten IT.
+
+In den ersten zehn Minuten zieht die Person am betroffenen Arbeitsplatz das Netzwerkkabel oder schaltet WLAN am Laptop aus und lässt das Gerät eingeschaltet. Sie startet keine «Schnell-Reparatur» und öffnet keine Anhänge aus der Lösegeld-Mail. Parallel ruft sie die Incident-Leitung an (Inhaber, IT-Verantwortliche oder externer Partner) und nennt Uhrzeit, Gerätename und ob andere Dateien gerade umbenannt werden.
+
+Der IT-Partner oder interne Admin trennt in Stunde eins betroffene VLANs oder schaltet Switch-Ports aus, statt nur einzelne PCs zu «putzen». Er prüft, ob Backup-Server und NAS noch vom kompromittierten Segment erreichbar sind, und trennt diese Verbindung zuerst. Er sammelt Screenshots, letzte Anmeldezeiten und Firewall-Logs in ein Ticket, ohne Produktionsserver neu zu booten.
+
+Die Geschäftsleitung entscheidet, ob Fertigung oder Versand stoppt, und benennt eine Sprecherperson für Kunden. Finanz arbeitet nur auf einem Gerät, das nicht im selben Netz wie der Ausbruch hängt, idealerweise Papierliste und Telefon. HR schickt Teamleitungen einen Satz: «IT-Vorfall, keine Passwörter per Mail, Meldungen an …» ohne Täterdetails.
+
+<ul class="blog-checklist">
+  <li>Incident-Nummer anlegen und jede Massnahme mit Uhrzeit notieren</li>
+  <li>Backup-Repositories vom kompromittierten LAN unreachable machen</li>
+  <li>Keine Massen-Mails mit Passwörtern oder Reset-Links</li>
+  <li>Anwaltsthread getrennt von All-Staff-Mail</li>
+  <li>Runbook auf Papier im Büro, nicht nur auf Fileservern</li>
+</ul>
+
+## Lösegeld zahlen oder nicht
+
+Behörden und Versicherer raten meist vom Zahlen ab; Entschlüsselung ist nicht garantiert, Kriminalität wird finanziert. Welche Klausel Ihre Police hat, steht nur in Ihrem Vertrag. Wer zahlt, braucht schriftliche Freigabe von Geschäftsleitung und Rücksprache mit Versicherung und Anwalt, nicht allein die Person am Bildschirm.
+
+Bis zur Entscheidung: keine Wallet-Adresse kopieren, keine «Decryptor»-Tools von Tätern installieren. Priorität bleibt Restore aus getestetem Backup und Wiederherstellung von Mail, ERP und Telefonie in der vereinbarten Reihenfolge.
+
+## Was in Stunde eins nicht tun
+
+Keine «Support»-Chats mit Tätern, auch wenn sie «nur helfen wollen». Kein sofortiges Wipe aller PCs, bevor geklärt ist, ob Polizei oder Versicherung Images brauchen. Server nicht neu starten, wenn Forensik den Speicher sichern will.
+
+Mitarbeitenden nicht sagen, «jeder muss innert 24 Stunden ans BACS», ausser Sie sind meldepflichtiger Betreiber kritischer Infrastruktur. Keine öffentlichen Details zu Schwachstellen, solange Eindämmung läuft.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Art. 8 DSG erwartet angemessene Backup- und Recovery-Massnahmen. Ransomware mit Personendaten kann eine EDÖB-Meldung bei hohem Risiko auslösen, «so rasch als möglich», nicht auf derselben Uhr wie freiwillige BACS-Meldungen.</p>
+</aside>
+
+## Zahlungsbetrug während des Ausfalls
+
+Finanz fällt auf manuelle Prozesse zurück; genau dann steigen BEC-Versuche. Keine Überweisung, keine Freigabe und kein «Express-Zahlung», weil jemand in Teams, WhatsApp oder Mail schreibt, «wegen Ransomware sofort überweisen». Das ist ein separates Risiko, kein Recovery-Schritt.
+
+Neue IBAN, geänderte Kontoinhaber oder «dringende Ausnahme vom CEO» gelten nur nach [Vier-Augen-Kontrolle](/de/security/blog/vier-augen-prinzip-zahlungen) und Rückruf auf die Nummer im Vertrag oder auf der letzten echten Rechnung. Lohnlauf-Woche: vorab festhalten, wer bei ausgefallenem ERP Papier-Contingency und Bank-Cut-offs verantwortet.
+
+## Kommunikation nach aussen und innen
+
+Eine Person schreibt Kunden- und Lieferantentexte; bei Personendaten prüft Beratung Formulierungen. Intern: täglicher Kurzstatus an Geschäftsleitung und Teamleitungen (Was läuft, was ausgefallen, wohin Fragen). Social-Media und Website-Posts nur über dieselbe Sprecherperson. IT-Partner spricht nicht parallel mit Kunden, ausser so vereinbart.
+
+## Versicherung, Polizei, freiwilliges BACS
+
+Cyber-Policen verlangen oft unverzügliche Meldung. Notieren Sie Anrufzeit, Ansprechperson und Fallnummer, auch wenn Lösegeld noch offen ist. Polizei: cybercrime.ch oder Kantonspolizei am Firmensitz; Nummer im Runbook.
+
+Freiwillige Meldung ans BACS nach Eindämmung ist möglich fürs Lagebild. Sie ersetzt für die meisten KMU keine gesetzliche 24-Stunden-Pflicht. Datenschutz-Verantwortliche prüfen parallel EDÖB und Betroffene, ohne IT-Restore zu blockieren.
+
+## Rebuild oder Restore: Reihenfolge
+
+Geschäftsleitung bestätigt schriftlich, welche Systeme zuerst zurückkommen. Typische Reihenfolge in KMU:
+
+<ol class="blog-flow">
+  <li><strong>Backups isolieren</strong><p>Letzte saubere Kopie identifizieren; Test-Restore auf separatem System.</p></li>
+  <li><strong>Identität</strong><p>Directory, MFA, Admin-Konten; Passwörter der Privilegierten neu setzen.</p></li>
+  <li><strong>Mail und Kommunikation</strong><p>Ohne Mail stoppen viele Prozesse; Phishing während Recovery weiter melden.</p></li>
+  <li><strong>ERP / Buchhaltung</strong><p>Erst nach sauberem Backup; Finanz erst wieder online, wenn Vier-Augen-Regeln klar sind.</p></li>
+  <li><strong>Telefonie und Kundenportale</strong><p>Danach; Kunden informieren, wenn SLA droht.</p></li>
+  <li><strong>Produktion / Fertigung</strong><p>Zuletzt, ausser Vertrag verlangt anderes.</p></li>
+</ol>
+
+Manchmal sind frische VMs besser als Restore aus unsicherem Backup. Wer «Restore» wählt, dokumentiert Datum der Backup-Generation und wer freigegeben hat. Eintragspfad nach Stabilisierung: patchen, schwache Konten entfernen, MFA überall, wo Admins arbeiten.
+
+## Lieferkette und EDI während Ausfall
+
+Wenn EDI, Kundenportale oder Lieferanten-Login ausfallen, informieren Sie aktive Partner, sobald Lieferfristen gefährdet sind. Nennen Sie Ausfall und nächstes Update-Zeitfenster, keine internen Forensik-Details. Das ist operativ; es ist nicht automatisch BACS-Meldepflicht.
+
+## Forensik und Polizei abstimmen
+
+Bevor Sie massenhaft löschen: mit IT-Partner klären, ob Images von betroffenen Servern nötig sind. Wenn ja: keine Reboots, keine «Bereinigung» am Wochenende ohne Absprache. Polizei will oft Zeitstempel und Screenshots; Versicherung will Ticketverlauf und Backup-Nachweis. Beides parallel sammeln spart Wochen später Streit.
+
+## Tabletop vor dem Ereignis: was Sie durchspielen
+
+Einmal jährlich, 45 Minuten, Teilnehmer: Geschäftsleitung, Finanz, HR, IT-Partner. Kein Live-Hack nötig. Moderator liest Szenario: «Montag 07:30, Buchhaltung sieht .locked-Dateien, Laufwerk H: stoppt.»
+
+<ul class="blog-checklist">
+  <li>Wer zieht welches Kabel, wer ruft wen zuerst an?</li>
+  <li>Wo liegt das Papier-Runbook und wer hat Backup-Passwörter?</li>
+  <li>Stoppt Finanz Zahlungen aus Chat-Nachrichten während des Ausfalls?</li>
+  <li>Wer spricht mit Kunden, wer mit Versicherung?</li>
+  <li>Welche drei Systeme kommen in welcher Reihenfolge zurück?</li>
+</ul>
+
+Am Ende: drei Massnahmen mit Termin (z. B. monatlicher Restore-Test, Nummer Polizei im Runbook, Finanz-Contingency). Nach zwei Wochen stabil: kurzes Lessons-learned ohne Schuldzuweisung.
+
+<div class="blog-faq">
+  <h3>Ransomware freiwillig ans BACS melden?</h3>
+  <p>Möglich nach Eindämmung fürs Lagebild. Nicht identisch mit gesetzlicher Pflicht für kritische Infrastrukturen.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Müssen wir Kunden sofort informieren?</h3>
+  <p>Wenn deren Personendaten betroffen sein könnten, prüfen Sie Meldung an Betroffene und EDÖB getrennt von IT-Wiederherstellung. Vertragsfristen können gelten; das ist nicht automatisch BACS-Pflicht.</p>
+</div>
+
+## Ein erfundenes Beispiel
+
+Ein erfundenes Beispiel: Ein Zulieferer mit 80 Mitarbeitenden findet Montag 06:00 verschlüsselte Dateien. Die erste Person trennt zwei PCs am Schreibtisch vom Netz, fotografiert den Screen, ruft die Incident-Leitung und den IT-Partner an. Der Partner trennt das VLAN der Buchhaltung und prüft das Backup vom Freitag auf einem Test-PC. Finanz unterschreibt keine «Express»-Überweisung aus einer Mail «wegen IT-Notfall». Restore startet mit Mail, dann ERP; Versicherung erhält am selben Tag Uhrzeit und Ticketnummer. Eine Werkstatt mit 30 Personen sieht um 07:40 umbenannte Dateien auf Laufwerk S: ein PC vom Netz, Gerät anlassen, Partner von Mobiltelefon anrufen. Niemand zahlt aus der Meldung auf dem Bildschirm.
+
+Regelmässige Schulung ist in mittleren Firmen laut [Deloitte Cyber Studie 2026](https://www.allnews.ch/sites/default/files/ckfinder/userfiles/Deloitte%20Cyber%20Studie%202026_0.pdf) häufiger als in kleinen; das ist fremde Messung. Eine live Nachbesprechung nach Vorfall oder Tabletop hilft Empfang und Finanz. Details unter [Security Awareness](/de/security/security-awareness).

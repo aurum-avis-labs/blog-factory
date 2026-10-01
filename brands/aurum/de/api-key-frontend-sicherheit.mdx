@@ -1,0 +1,98 @@
+---
+title: "API Key Frontend Sicherheit in KI-Apps"
+description: "API Key Frontend Sicherheit: welche Schlüssel im Browser erlaubt sind, welche nie ins Bundle gehören, und wie Sie einen Lovable-Export prüfen."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["api key", "frontend", "supabase", "vibe coding", "sicherheit"]
+funnelStage: interest
+translationKey: api-keys-and-secrets-in-ai-built-apps
+relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">API Key Frontend Sicherheit heisst: alles, was im JavaScript-Bundle landet, ist öffentlich. Erlaubt sind bewusst publishable Schlüssel (Stripe Publishable Key, Supabase Anon Key). Verboten sind Service-Role-Keys, OpenAI-Tokens und Passwörter, auch wenn ein KI-Assistent sie in eine «öffentliche» Umgebungsvariable geschrieben hat.</p>
+
+## API Key Frontend Sicherheit prüfen
+
+Wer mit Lovable, Bolt, v0, Replit oder Cursor gebaut hat, sollte den Export behandeln wie eine veröffentlichte Webseite: Mindestens URL und oft ein Supabase Anon Key stecken im Client. Das ist kein Skandal, solange Row Level Security die Daten trennt. Der typische Unfall ist ein Service-Role-Key oder ein bezahlter API-Token in `VITE_`- oder `NEXT_PUBLIC_`-Variablen. Die RLS-Seite dazu: [Lovable Supabase RLS](/de/blog/lovable-supabase-rls).
+
+<ul class="blog-checklist">
+  <li>Repository und Build-Ordner nach service_role, sk-, secret und provider-Namen durchsuchen</li>
+  <li>Produktions-JavaScript im Browser unter Quellen öffnen und dieselben Strings suchen</li>
+  <li>Jeden Treffer einordnen: öffentlich by design oder nur serverseitig</li>
+  <li>Alles Rotierte neu ausstellen, was jemals im Frontend oder in einem öffentlichen Repo lag</li>
+</ul>
+
+## Was im Frontend bleiben darf
+
+Der Supabase Anon Key ist für Client-Apps gedacht. Er ersetzt keine Zugriffskontrolle: Policies entscheiden, welche Zeilen ein anonymer oder eingeloggter Nutzer sieht. Stripe unterscheidet publishable und secret; nur der publishable Teil gehört in die Oberfläche.
+
+Vite liefert Variablen mit Prefix `VITE_` an den Browser. Next.js macht das mit `NEXT_PUBLIC_`. Ein OpenAI-Key dort landet im öffentlichen Bundle. Fremde können damit auf Ihr Guthaben zugreifen. KI-Tools schlagen das manchmal vor, weil die Demo sofort läuft.
+
+<div class="blog-stat">
+  <strong>170+</strong>
+  <p>Apps in CVE-2025-48757: fehlende oder wirkungslose Supabase-RLS, sodass der öffentliche Anon Key Daten ohne Login lesen liess. <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-48757">NVD</a></p>
+</div>
+
+## Was nie ins Bundle gehört
+
+Der Supabase Service-Role-Key umgeht RLS. Webhook-Signing-Secrets, Datenbank-URLs mit Passwort und Admin-Tokens gehören auf einen Server, den Sie kontrollieren, nicht in GitHub und nicht in die Hosting-Konsole als «public env». `.env` auf dem Laptop schützt nicht, wenn die Datei mitgeschickt oder fotografiert wird.
+
+Logs und Fehlermeldungen leaken ebenfalls: wer Requests mit vollem Header loggt, exportiert Schlüssel in Monitoring-Tools. Ausgangspunkt: das Bundle ist öffentlich.
+
+Privilegierte Aktionen gehören hinter eine Route, die Sie kontrollieren: Supabase Edge Functions, ein kleines NestJS- oder Node-Backend, oder serverseitige Hooks Ihres Hosters. Der Browser ruft nur Ihre URL auf; der Server hält den Service Key und prüft Session oder Rolle. KI-Generatoren legen solche Schichten nicht immer an, wenn die Demo «nur» Daten anlegt. Für einen Pilot mit echten Kundendaten ist das der Unterschied zwischen sichtbarem Anon Key und offenem Datenbankzugriff.
+
+Nach einer Rotation: alte Keys in Dashboards deaktivieren, CI und Hosting-Variablen aktualisieren, einen Build auslösen und erneut im Bundle suchen. Einmal reicht nicht, wenn drei Umgebungen dieselbe Datei kopieren.
+
+## Ein erfundenes Beispiel: der Launch am Freitag
+
+Ein erfundenes Beispiel: eine Person in Zürich veröffentlicht nach Lovable eine Beta für Team-Aufgaben. In der Readme stehen `VITE_SUPABASE_URL` und `VITE_SUPABASE_ANON_KEY`, korrekt. Zusätzlich liegt `VITE_SUPABASE_SERVICE_KEY` aus einer Seed-Phase im selben Block. Vor dem Freitag-Post prüft niemand das Build-Artefakt. Ein Besucher kopiert den Service Key aus den DevTools und liest die Tabelle `profiles` ohne Login. Die Person rotiert den Service Role in Supabase, verschiebt Admin-Aufgaben in ein Skript lokal und testet neue Policies ausgeloggt im Netzwerk-Tab. Der Anon Key bleibt im Client.
+
+Das stoppt den akuten Leak. Es beweist nicht Compliance, noch dass Fremde keine fremden Datensätze per ID erraten können.
+
+<div class="blog-pair">
+  <div>
+    <h3>Wer jetzt handeln sollte</h3>
+    <ul>
+      <li>Offene Anmeldung ausserhalb des Freundeskreises steht an</li>
+      <li>Ein Pilotvertrag nennt Vertraulichkeit oder Personendaten</li>
+      <li>Der KI-Export wurde nie auf Schlüssel geprüft</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Wer warten kann</h3>
+    <ul>
+      <li>Nur localhost mit erfundenen Daten, ohne Produktions-API</li>
+      <li>Ein technischer Mitgründer betreibt bereits Secret-Scanning in CI</li>
+      <li>Das Produktkonzept wechselt noch jede Woche</li>
+    </ul>
+  </div>
+</div>
+
+## Was die Prüfung beweist und was nicht
+
+Kein Service Role im Bundle bedeutet: eine grosse Fehlerklasse ist weg. Es bedeutet nicht, dass RLS vollständig ist, Uploads privat sind oder jede Route den Aufrufer prüft. Viele öffentliche Meldungen zu Lovable und Supabase betreffen Policies, nicht «geheime» Anon Keys.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Dieser Text ist Hygiene für Gründerinnen und Gründer, kein Penetrationstest und keine Rechtsauskunft zum Schweizer Datenschutz oder zu Meldepflichten nach einem Leak.</p>
+</aside>
+
+Wenn Sie Authorization testen wollen, loggen Sie sich aus und versuchen Sie fremde IDs in URL oder API-Aufruf. Das schliesst eher an [Ist Ihre vibe-coded App produktionsreif](/de/blog/ist-deine-vibe-coded-app-produktionsreif) an als jede reine Schlüsselsuche. Wer noch an der ersten Lovable-Sequenz hängt, findet den Ablauf in [Lovable MVP](/de/blog/lovable-mvp); beides ersetzt keine Review, wenn der Code schon extern geteilt wird.
+
+<div class="blog-faq">
+  <h3>Ist der Supabase Anon Key ein Geheimnis?</h3>
+  <p>Nein. Er ist publishable. Schutz kommt von RLS und serverseitiger Logik, nicht vom Verstecken des Strings.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Reicht es, Secrets nur in .env zu lassen?</h3>
+  <p>Nur wenn diese Datei nie im Repo, nie im Client-Build und nie als «public» im Hosting landet. Alles mit VITE_ oder NEXT_PUBLIC_ wird gebündelt.</p>
+</div>
+
+## Wann ein Vibe Code Review passt
+
+Ein [Vibe Code Review](/de/services/vibe-code-review) passt, wenn das KI-Repo die Basis für Investoren, eine Sicherheitsfrage im Unternehmen oder erste zahlende B2B-Kunden ist und Sie eine strukturierte Lücke gegen OWASP ASVS v5.0 wollen statt weiterer manueller Suche. Dazu kommen priorisierte Massnahmen, fokussierte Zeit für Architektur und Codequalität sowie ein abschliessendes Gespräch unter NDA.
+
+Solange die Idee noch wöchentlich kippt, reichen offensichtliche Rotationen; buchen Sie die Review, wenn der Stand stabil genug ist, um ihn zu schützen.

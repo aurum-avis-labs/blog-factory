@@ -1,0 +1,109 @@
+---
+title: "Event tracking plan for an MVP: what to log before you ship"
+description: "An event tracking plan for an MVP lists user actions, names, and the one question each event answers. A checklist founders can hand to a build."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "analytics", "event tracking", "product validation"]
+funnelStage: interest
+translationKey: event-tracking-plan-for-an-mvp
+relatedPosts: ["analytics-setup-for-an-mvp", "measure-activation-and-retention"]
+draft: true
+site: studio
+---
+
+## Event tracking plan for an MVP
+
+An event tracking plan for an MVP is a short table you agree before code ships: which user actions count as events, what you call them, where they fire, and which business question each row answers. Without it, analytics becomes a pile of page views and ad-hoc button names that nobody can compare week to week. You are not building a data warehouse. You are writing down the ten to twenty signals that could change a Go, Pivot, or Stop call.
+
+This is for founders and pre-seed teams in Switzerland who will ship a first product or validation build and need one document both the builder and the person reading GA4 can follow. Tool setup belongs in [analytics setup for an MVP](/blog/analytics-setup-for-an-mvp). Activation and return visits belong in measure activation and retention. What product-market fit would look like after you have usage is in [product-market fit: how to find it](/blog/product-market-fit-how-to-find-it). Here the focus stays on the plan itself: limits, who should skip it, and what events cannot prove.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Event</dt>
+    <dd>A named user action you send to analytics, such as completing onboarding or starting a draft.</dd>
+  </div>
+  <div>
+    <dt>Property</dt>
+    <dd>Extra fields on an event, such as plan tier or error code, kept to a small set you will actually filter on.</dd>
+  </div>
+  <div>
+    <dt>Primary action</dt>
+    <dd>The one event you treat as success in a validation window, named before traffic or invites go out.</dd>
+  </div>
+</dl>
+
+## What belongs in the tracking plan
+
+Keep the document to one page plus a naming convention. Every row should tie to a decision, not to curiosity.
+
+<ul class="blog-checklist">
+  <li>Product and environment: app name, production URL, analytics property ID, and who may add events after launch</li>
+  <li>Naming rule: lowercase snake_case or object_action, same pattern in web and wrapped mobile if you ship both</li>
+  <li>Acquisition events: signup started, signup completed, invite accepted, with source captured once at entry</li>
+  <li>Onboarding events: each required step, with a single onboarding_complete when the user reaches the first valuable screen</li>
+  <li>Core value events: the actions that mean the product did its job, aligned with your riskiest assumption</li>
+  <li>Revenue or commitment events: trial started, checkout started, payment succeeded, only if those flows exist in the MVP</li>
+  <li>Failure events: form validation errors, payment errors, empty states where drop-off matters</li>
+  <li>Session context you need for funnels: logged in versus anonymous, plan, role, or segment if B2B</li>
+  <li>Mapping column: which dashboard or weekly table each event feeds</li>
+  <li>Out of scope list: events you will not track in v1 so nobody adds them mid-sprint without updating the plan</li>
+</ul>
+
+Pair the plan with session recordings on the same flows. Numbers tell you that drop-off happened; recordings often show whether the copy, layout, or a silent error caused it.
+
+## What an event tracking plan does not prove
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Proves</span><strong>Behaviour in the build</strong><p>People took the actions you named, in production, in a period you can repeat.</p></li>
+  <li><span class="blog-kicker">Does not prove</span><strong>Market size</strong><p>Events count users who arrived, not everyone who could have needed the product.</p></li>
+  <li><span class="blog-kicker">Does not prove</span><strong>Retention by itself</strong><p>You still need cohort rules and return visits; one completion is not a habit.</p></li>
+  <li><span class="blog-kicker">Does not prove</span><strong>Ideas are safe</strong><p>Ideas as such cannot be protected; execution and brand can ([IGE on ideas](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)).</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>A tracking plan is useless if the MVP changes every week without updating the sheet. Freeze the primary action for a validation window, or accept that last month’s funnel is not comparable to this month’s.</p>
+</aside>
+
+## Who should write it, and who should wait
+
+<div class="blog-pair">
+  <div>
+    <h3>Who this is for</h3>
+    <ul>
+      <li>Founders shipping a first build who will judge pivots on usage, not on interviews alone</li>
+      <li>Teams with one developer or agency who need a single source of truth for event names</li>
+      <li>Innovation leads who must show a board which metrics tie to the hypothesis</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip or shorten it</h3>
+    <ul>
+      <li>Smoke tests where the only action is a landing page form; a one-line primary action is enough</li>
+      <li>Concierge MVPs where humans do the work in a spreadsheet and the product is the process</li>
+      <li>Teams that will not look at analytics until after a fundraising deck is due</li>
+    </ul>
+  </div>
+</div>
+
+## A made-up example: B2B onboarding for a reporting tool
+
+A made-up example: a two-person team in Bern ships an MVP that turns CSV exports from accounting into a board-ready chart. Before launch they publish a tracking plan with twelve rows. Primary action is report_exported within seven days of signup. Events include signup_completed, data_source_connected, first_chart_viewed, filter_applied, report_exported, and export_failed with an error_code property. They map signup_completed to weekly signups, data_source_connected to activation, and report_exported to the validation rule: continue if at least forty percent of new accounts connect data and twenty percent export in week three of a paid LinkedIn test. Session recordings run on the connect and export screens only. After two weeks they see many first_chart_viewed events but few exports; replays show the export button below the fold on mobile. They move the button, do not rename events, and compare week four to week three on the same rows. They do not claim product-market fit; they claim the funnel is measurable enough to pivot copy or scope.
+
+## Privacy and the first events
+
+If analytics, heatmaps, or retargeting profile visitors or track them across sites, Swiss practice expects information and consent where the law requires it. Put the notice on the product and landing page before paid traffic. This article is not legal advice.
+
+<div class="blog-faq">
+  <h3>How many events is too many?</h3>
+  <p>If you cannot name the decision each event supports, it is noise. Start with acquisition, onboarding, one core value action, and one failure signal. Add rows when a repeated debate would otherwise be settled by opinion.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Should the plan match GA4 recommended events?</h3>
+  <p>Use recommended names where they fit your flows. Custom names are fine when your product action does not map cleanly, as long as the plan stays consistent across web and app and nobody invents a second label for the same click.</p>
+</div>
+
+## When the product validation package fits
+
+The [product validation package](/services/mvp-validation) fits when the tracking plan is ready but the product is not: you need a deployed web app on Azure, analytics and session recordings from day one, and weeks seven to ten spent on cost per lead, conversion, drop-off, and up to three pivot iterations, ending in a Go, Pivot, or Stop recommendation with what the data still cannot prove. If the open question is only whether strangers click on a message, finish the landing page test first and book a validation conversation when behaviour inside the product is the bottleneck.

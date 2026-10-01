@@ -13,13 +13,14 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sunx?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sunx</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Microphone noise suppression** in Vemoir is a setting on the microphone track. You choose Off, Balanced, or Strong. Processing stays on the Mac. The call audio from Teams, Zoom, Meet, or another app is a separate track and is not what this control cleans.
+**Microphone noise suppression** in Vemoir is a Mac-side setting on your microphone track only. You pick Off, Balanced, or Strong before you record. Nothing in this menu is sent to a cloud noise-removal service. The remote side stays on the separate system-audio track.
 
-If the room is already quiet, Off is often the better choice. Balanced and Strong are for steady background noise: keyboard, hum, a fan. They do not invent a cleaner voice when someone else is talking over you, and they do not replace a proper headset if the room is genuinely bad.
+If the room is already quiet, Off is often enough. Balanced and Strong target steady background noise: keyboard, HVAC, a fan. They do not fix overlapping talkers, and they do not repair bad audio from the other participants.
 
 ## Contents
 
 - [What microphone noise suppression changes](#what-microphone-noise-suppression-changes)
+- [Meeting app noise settings vs Vemoir](#meeting-app-noise-settings-vs-vemoir)
 - [Off, Balanced, and Strong](#off-balanced-and-strong)
 - [What it does not do](#what-it-does-not-do)
 - [A practical way to choose before a call](#a-practical-way-to-choose-before-a-call)
@@ -42,6 +43,14 @@ The control sits on the microphone you select for the recording. That is your si
 Noise suppression does not mix those two tracks into one "clean meeting." It tries to reduce non-speech interference on the mic path before that mic audio is finalized. Speaker separation still runs on the Mac afterward, on the local audio, and is a different step.
 
 The selected mode stays visible, so you can see whether the last meeting used Off, Balanced, or Strong. If suppression is unavailable, or the processed result is uncertain, Vemoir uses the ordinary microphone path. You still get a recording. You do not get a silent swap to a cloud speech service.
+
+## Meeting app noise settings vs Vemoir
+
+Teams, Zoom, and Meet can apply their own noise reduction to what they send on the wire. That helps other people hear you in the call. It does not change what Vemoir stores on the Mac: your mic track still follows the microphone you selected, and the system-audio track still follows the meeting playback.
+
+Use the in-app toggle when the problem is how you sound to remote participants. Use Vemoir's Off, Balanced, or Strong when the problem is steady noise on the recording you keep locally. You can run both, but if your voice sounds thin, try lowering the meeting app's aggressiveness before you turn Strong on in Vemoir.
+
+Krisp and similar apps sit between the mic and every app. Vemoir's control applies to the mic path it records, on the Mac, without routing your voice through a subscription service. If you already use a virtual audio device, pick the same input in Vemoir that your meeting app uses so the modes match what you expect.
 
 ## Off, Balanced, and Strong
 

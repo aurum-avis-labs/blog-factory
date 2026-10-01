@@ -11,9 +11,23 @@ image: "@/assets/blog/operational-firefighting-feedback-loops/hero.jpg"
 draft: false
 ---
 
-Ops teams clear the queue, get thanked, and find a similar queue the next morning. **Operational firefighting feedback loops** are the structure under that pattern. Urgent work is visible, so it gets recognition and staff time. Prevention is quiet, so it loses the same hour. The result is a team that stays busy and a recurrence that stays funded by accident.
+## What **operational firefighting feedback loops** explain
 
-This page is for operations leads who already run incidents, tickets, or production escapes, and who have tried "better prioritization" without a change in what repeats. The same-problem pattern in other functions is in [why the same business problems keep coming back](/blog/why-the-same-business-problems-keep-coming-back).
+Ops teams clear the queue, get thanked, and find a similar queue the next morning. Urgent work is visible, so it gets recognition and staff time. Prevention is quiet, so it loses the same hour. The result is a team that stays busy and a recurrence that stays funded by accident.
+
+This page is for operations leads who already run incidents, tickets, or production escapes, and who have tried "better prioritization" without a change in what repeats. If you searched **why ops teams stay busy**, the answer is rarely missing discipline. It is usually a loop that makes saves visible and does not count incidents that never happened. The same-problem pattern in other functions is in [why the same business problems keep coming back](/blog/why-the-same-business-problems-keep-coming-back).
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">R loop</span><strong>Save gets rewarded</strong><p>Visible clears pull time off prevention.</p></li>
+  <li><span class="blog-kicker">B loop</span><strong>Surge cuts backlog</strong><p>Feels like progress while the cause stays put.</p></li>
+  <li><span class="blog-kicker">Delay</span><strong>Prevention needs weeks</strong><p>This week's incident count often lies.</p></li>
+</ul>
+
+## Firefighting is not the same as incident management
+
+Incident management answers: what broke, who fixes it, when is service green again? **Operational firefighting** is the mode where the same incident class returns week after week and every clear looks like the job. A good IM tool makes the clear faster. It does not change anything when the class is structural and prevention keeps getting displaced.
+
+If your review only tracks time-to-clear and open tickets, you are optimising the visible side of the loop. Add: which classes were closed before, who got credit for what, and how many hours went to a link that stops the class next quarter.
 
 ## The reinforcing loop that rewards the save
 
@@ -37,11 +51,16 @@ Prevention metrics move slowly: repeat rate inside a class, change failure on a 
 
 The mismatch is the same mechanism as other [delays in feedback loops](/blog/delays-in-feedback-loops). A prevention block can be working while this week's incident count is still ugly, because the incidents already in flight were created earlier. If you judge the block on this week's count alone, you will reassign the people and erase the test. Write the delay next to the prevention link before the first review.
 
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>One loop per quarter is enough. Ten improvements with no owner on a single link feeds R1 with activity instead of structure.</p>
+</aside>
+
 ## What to change in the loop
 
 Shift a piece of recognition toward prevented recurrence, in a form the team can see. That might be credit in the review for a class of incident that stayed down, not a speech about ownership. Fund a small prevention slice and protect it from redeployment when the next urgent day arrives. If the slice is borrowable, it is not a slice. It is spare capacity for the reinforcing loop.
 
-Map one structural link per quarter and give it an owner. One link is enough: the handoff that recreates the ticket, the missing check that lets the same defect escape, the alert that pages people who cannot fix the class. A quarterly program of ten improvements recreates the firefight inside the improvement list.
+Map one structural link per quarter and give it an owner. One link is enough: the handoff that recreates the ticket, the missing check that lets the same defect escape, the alert that pages people who cannot fix the class.
 
 <div class="blog-pair">
   <div>
@@ -87,6 +106,11 @@ The same habit outside the on-call rotation is in [systems thinking in business]
 <div class="blog-faq">
   <h3>How do we tell a real emergency from the spiral?</h3>
   <p>Novel harm and safety incidents get surge mode. A class you have already cleared before is the spiral. Separate them in the review so one does not borrow the other's rules.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>How is the firefighting spiral different from "recurring problems"?</h3>
+  <p>Recurring problems is the symptom in leadership language. The spiral is the mechanism: reward for saves, less prevention, more of the same class. Without a map, teams argue about blame. With R1 and B1, they argue about links and delays.</p>
 </div>
 
 ## What to do next

@@ -1,0 +1,109 @@
+---
+title: "App Store guideline 4.2 rejection: what it means and what to do"
+description: "App Store guideline 4.2 rejection usually means your build looks like a website in a shell. How to read the note and what to fix before you resubmit."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["app store", "capacitor", "mvp", "mobile"]
+funnelStage: interest
+translationKey: app-store-guideline-4-2
+relatedPosts: ["publish-an-app-on-the-app-store", "google-play-12-testers-14-days"]
+draft: true
+site: studio
+---
+
+## App Store guideline 4.2 rejection
+
+An App Store guideline 4.2 rejection means Apple treats your build as too close to a website in a native shell: limited app-like function, thin content, or a experience that does not need to live on the device. The message often cites [Minimum Functionality](https://developer.apple.com/app-store/review/guidelines/) (4.2) or the related rule against pure marketing sites and web clippings (4.2.2). It is not a comment on your business idea. It is a product-shape decision. You fix the shape, document what changed, and resubmit, or you keep testing on the web until the product earns a store slot.
+
+This page is for founders and product leads who wrapped a web app with Capacitor or a similar bridge, or who bought a validation package that included a store-ready wrap, and who need a calm read of the rejection before they spend another week on icons. How to publish on the store at all is a separate walkthrough: [publish an app on the App Store](/blog/publish-an-app-on-the-app-store). Google Play has its own closed-test rules for many new accounts: Google Play 12 testers 14 days.
+
+<dl class="blog-terms">
+  <div>
+    <dt>4.2</dt>
+    <dd>Minimum functionality: the app should do more than repackage a site.</dd>
+  </div>
+  <div>
+    <dt>4.2.2</dt>
+    <dd>Discourages apps that are mainly ads, marketing, or clipped web pages.</dd>
+  </div>
+  <div>
+    <dt>Capacitor wrap</dt>
+    <dd>Your web UI runs inside a native container with access to some device APIs.</dd>
+  </div>
+</dl>
+
+## What Apple is actually objecting to
+
+Reviewers do not publish a scorecard for your repo. In practice, 4.2 shows up when the binary feels interchangeable with Safari: login and a few web views, no offline behaviour, or content identical to your marketing site. A responsive website with a splash screen is the classic pattern.
+
+That is separate from crashes, privacy labels, or account deletion rules. Those rejections cite other sections. If your email only mentions 4.2, start with product depth, not legal text.
+
+Aurum ships [Inklets](https://inklets.app) as a React app in a Capacitor wrap on iOS and Google Play. That path is real for products that behave like apps. It does not mean every wrap passes on the first try. A thin wrapper around a landing page still fails 4.2 even when the engineering is tidy.
+
+<div class="blog-pair">
+  <div>
+    <h3>Signals you are in 4.2 territory</h3>
+    <ul>
+      <li>Every screen is a web view with no native navigation patterns</li>
+      <li>Nothing works without a live network connection</li>
+      <li>The app duplicates a public site users could bookmark</li>
+      <li>Push, camera, files, or background tasks are absent though the job needs them</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should not fight 4.2 yet</h3>
+    <ul>
+      <li>You only need ten testers and a URL already works</li>
+      <li>The «app» is still a demand test with a waitlist</li>
+      <li>You have not watched anyone complete the core job on a phone</li>
+    </ul>
+  </div>
+</div>
+
+## What to do after the rejection email
+
+Read the exact citation in App Store Connect. Screenshot the Resolution Center thread. Compare your build to the guideline text, not to a competitor on the store.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Map the core job on the device</h3><p>Write one sentence for what the user does in your app that they cannot do as well in a browser tab. If you cannot, the product may belong on the web for now.</p></li>
+  <li data-step="2"><h3>Add app-like behaviour, not decoration</h3><p>Offline read of recent data, sensible use of push for state the user asked for, native share sheets, camera or file pickers where the workflow needs them, and navigation that feels like an app rather than a zoomed site.</p></li>
+  <li data-step="3"><h3>Trim marketing-only screens</h3><p>Move long explainers to the web. The binary should open on the job, not on a hero section.</p></li>
+  <li data-step="4"><h3>Reply in Resolution Center with specifics</h3><p>List what you changed in plain language. A paragraph beats an argument that you «need» store presence.</p></li>
+  <li data-step="5"><h3>Resubmit one focused build</h3><p>Do not bundle unrelated features to look bigger. Reviewers notice padding.</p></li>
+</ol>
+
+## A made-up example: a booking shell
+
+A made-up example: a founder in Bern wraps a Next.js site that shows services and a contact form. TestFlight goes out to friends. Apple rejects with 4.2: minimum functionality. The public site already does the same job. The founder removes the marketing home from the app entry, adds a signed-in list of upcoming appointments synced from the API, enables offline viewing of the last three bookings, and uses the share sheet so a client can add the appointment to the calendar. They write in Resolution Center that the app now targets returning customers who manage bookings on the phone. The second submission is accepted. That outcome is plausible, not guaranteed. Another reviewer or another category could still ask for more.
+
+## What a 4.2 fix does not prove
+
+Passing review shows Apple accepted this build under today's rules. It does not prove retention or that you should keep maintaining a native binary. It does not replace Google Play's test requirements on Android.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>No honest agency or studio can promise a 4.2 pass before reviewers see the binary. A Capacitor wrap is a delivery option when the product already behaves like an app. It is not a trick to win store placement for a thin site.</p>
+</aside>
+
+## Frequently asked questions
+
+<div class="blog-faq">
+  <h3>Is guideline 4.2 only for Capacitor apps?</h3>
+  <p>No. Any stack can fail 4.2 if the experience is essentially a website or a marketing shell. Native code does not help if the product has no app-like job.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Should I appeal instead of changing the app?</h3>
+  <p>Appeals sometimes work when Apple misread your category or a feature was hidden in review notes. If the app truly mirrors your site, an appeal without product change rarely succeeds. Fix the job on device first, then appeal with facts.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Can I stay on the web and skip the store?</h3>
+  <p>Yes. Many validation tests never need a store listing. Add the store when distribution or device APIs matter, not because a slide deck says «mobile app».</p>
+</div>
+
+Production-minded MVPs treat store readiness as part of scope, not a surprise in week twelve. [Why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps) sets out how we think about deployable software versus mockups.
+
+## When the product validation package fits
+
+The [product validation package](/services/mvp-validation) fits when you want a deployed web app, measurement, and paid acquisition in one engagement, with an iOS and Android wrap prepared for submission when the product is app-like enough. Weeks one to four deliver working software on Azure with React and NestJS, not a fake button on a landing page. Weeks five to twelve add positioning, traffic, and a Go, Pivot, or Stop read. Book a discovery conversation on that page when store rejection is a symptom of shipping too early, not bad luck alone.

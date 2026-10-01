@@ -38,6 +38,10 @@ Nel portale cloud, una trascrizione elaborata compare come VTT accanto alla regi
 
 La copertura delle lingue non è «qualunque cosa sia stata detta». Una documentazione Zoom più vecchia sulla trascrizione audio cloud indicava l'inglese. I prodotti più recenti di riassunto e trascrizione elencano le loro lingue negli articoli attuali di Zoom. Controlla la pagina della funzione che hai davvero acceso prima di promettere un VTT tedesco da un'impostazione che copriva solo l'inglese.
 
+## Due file VTT in una cartella di registrazione
+
+Alcune registrazioni cloud includono sia un `.vtt` di trascrizione audio sia un `cc.vtt` separato per i sottotitoli. Lunghezza e timing possono differire. Pulisci un file, di solito la trascrizione audio, e tieni l'altro solo se ti serve il timing delle caption.
+
 ## Da dove arriva un VTT cloud
 
 Una trascrizione audio tipica ha questa forma:
@@ -82,6 +86,12 @@ Che cosa non cambia:
 Questa pulizia non spende un passaggio settimanale. I tre passaggi sono per la voce-in-testo e per le note che chiamano un modello. Puoi sistemare un VTT anche se hai già usato i passaggi di trascrizione della settimana.
 
 Tieni il VTT originale. Il testo semplice serve a leggere e a scrivere note. Il VTT è il confronto se conta un tempo o una cue, ed è ciò che Zoom ti ha dato se qualcuno chiede l'export.
+
+Per la prossima chiamata, [Vemoir registra dalla barra dei menu sul Mac](/it) senza bot nell'elenco partecipanti quando ti serve un tuo file invece di un download cloud.
+
+## Pulire un VTT a mano se devi
+
+Apri il `.vtt` in un editor di testo semplice. Elimina l'intestazione `WEBVTT`, i numeri di cue e le righe con `-->`. Tieni i tag `<v Nome>` se ci sono. Unisci a mano le righe consecutive dello stesso parlante. Per file lunghi, [pulire la trascrizione](/it/strumenti/pulire-trascrizione) è più veloce e commette meno errori.
 
 ## Che cosa il testo semplice deve ancora contenere
 
@@ -140,5 +150,9 @@ Tienilo finché non sei sicuro di non aver più bisogno dei tempi di cue né di 
 ### Il VTT è nella lingua sbagliata. Il pulitore può tradurre?
 
 No. Toglie solo l'impalcatura dei sottotitoli. La traduzione è una decisione a parte, e un modello di voce impostato sulla lingua sbagliata non si ripara cancellando i timestamp.
+
+### Posso aprire un VTT in Word?
+
+Word può aprire un `.vtt`, ma le righe dei tempi restano finché non pulisci. Testo semplice o output del pulitore si leggono e si inoltrano più facilmente.
 
 Passo successivo: se il file inizia con `WEBVTT`, apri [pulire la trascrizione](/it/strumenti/pulire-trascrizione). Se il file è `audio_only.m4a`, usa [trascrivere una registrazione Zoom](/it/strumenti/trascrivere-registrazione-zoom) solo se dura 15 minuti o meno.

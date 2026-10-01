@@ -1,0 +1,105 @@
+---
+title: "Lovable vs Bolt: Datenstandort, Export und Produktion"
+description: "Lovable vs Bolt: Wo liegen die Daten, was lässt sich übergeben, was findet ein Review? Schweizer Kontext, keine Feature-Matrix der Anbieter."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["lovable", "bolt", "vibe coding", "mvp", "schweiz"]
+funnelStage: interest
+translationKey: lovable-vs-bolt-vs-v0-vs-replit
+relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Lovable vs Bolt entscheidet selten über die bessere Idee. Es entscheidet darüber, wo Personendaten liegen, ob Sie Code und Datenbank später in eigene Hände bekommen, und ob der Stack noch steht, wenn Fremde einloggen. Beide Werkzeuge liefern schnell eine Web-App mit Auth und Datenbank. Der Unterschied zeigt sich bei Region, Schlüsseln und dem Tag nach dem Demo.</p>
+
+Der Beitrag richtet sich an Gründerinnen und Gründer sowie an Innovationsverantwortliche in der Schweiz, die schon mit einem KI-Builder gearbeitet haben und zwischen Lovable und Bolt wählen. v0 und Replit sind andere Pfade (UI-Komponenten bzw. Browser-Umgebung); hier geht es um die zwei üblichen Full-Stack-Generatoren. Welche Werkzeugklasse zu welcher Phase passt, steht in [KI-gestützte MVP-Entwicklung](/de/blog/ki-mvp-entwicklung). Lovable im Detail: [Lovable MVP](/de/blog/lovable-mvp).
+
+## Lovable vs Bolt: dieselben Fragen, nicht dieselbe Marketingtabelle
+
+Vergleichen Sie keine Checkbox-Listen von Anbieterseiten. Vergleichen Sie drei Fragen, die in jedem Piloten wiederkehren:
+
+**Wo liegen die Daten?** Lovable und Bolt hängen in der Praxis oft an Supabase oder einem ähnlichen Backend-as-a-Service. Die Region wählen Sie bei der Projektanlage, nicht nachträglich per Klick im Editor.
+
+**Wer hält die Schlüssel?** Anon-Key, Service-Role, OAuth-Secrets: Wer sie exportieren kann, definiert das Risiko bei Austritt oder Leak.
+
+**Was passiert bei Übergabe?** Repository, Schema, Deploy-Schritte: Bleibt alles im Konto des Werkzeugs, oder können Sie in CI und Staging weitermachen?
+
+Lovable wirkt vielen Teams vertraut, wenn der erste Flow aus einem Prompt kommen soll. Bolt verfolgt ein ähnliches «App aus Sprache»-Modell mit eigenem Hosting-Gewohnheiten. Welches UI Ihnen liegt, ist sekundär, sobald eine Kundin fragt, in welchem Land ihre Daten stehen.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Region</span><strong>Zürich möglich</strong><p>Supabase listet eu-central-2 unter den Regionen ([Supabase Regions](https://supabase.com/docs/guides/platform/regions)).</p></li>
+  <li><span class="blog-kicker">Zugriff</span><strong>RLS prüfen</strong><p>Generierte Row-Level-Security kann fehlen oder wirkungslos sein ([CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757)).</p></li>
+  <li><span class="blog-kicker">Review</span><strong>ASVS v5.0</strong><p>Strukturiertes Review deckt Auth, Authz und Konfiguration ab, nicht die Produktidee.</p></li>
+</ul>
+
+## Datenstandort Schweiz und Row Level Security
+
+Wenn Ihr Lovable- oder Bolt-Projekt Supabase nutzt, dokumentieren Sie die **gewählte Region** in der Datenschutzerklärung und in Verträgen mit Auftragsbearbeitern. Zürich (`eu-central-2`) ist als Region wählbar; das ersetzt keine Rechtsberatung und behebt keine falschen Berechtigungen.
+
+Row Level Security ist kein Garant, weil das Wort im Tutorial steht. Öffentliche Client-Keys mit zu weiter Leserecht wurden in vielen generierten Projekten ein Problem ([CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757)). Der Ablauf für Lovable und Supabase ist in [Lovable, Supabase und Row Level Security](/de/blog/lovable-supabase-rls) beschrieben. Testen Sie mit Rollen, die Ihre Pilotkundschaft wirklich hat, nicht nur mit Ihrem Admin-Konto.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Region Zürich beantwortet eine Residency-Frage. Sie beweist weder vollständige DSG-Konformität noch sichere Authz. Policies, Logs und Unterauftragnehmer bleiben Ihre Checkliste.</p>
+</aside>
+
+## Export und Übergabe in den Produktionsbetrieb
+
+Das Demo optimiert Geschwindigkeit. Produktion optimiert **änderbare Software** unter Last und Verantwortung.
+
+Notieren Sie vor dem nächsten Feature:
+
+- Gibt es ein Git-Repository unter Ihrer Kontrolle, oder nur den Stand im Builder?
+- Können Sie ein Backup einspielen, ohne es zum ersten Mal im Notfall zu tun?
+- Liegen Umgebungsvariablen in einem Passwort-Manager, den das Team teilt?
+- Gibt es Staging und Rollback, oder nur «Publish» im Tool?
+
+Bleiben Sie zu lange im All-in-One-Konto, wächst der Preis oft als Rewrite, nicht als weiterer Prompt. Das ist kein Versagen von Lovable oder Bolt; es ist der übliche Übergang von Validierung zu Betrieb.
+
+## Was ein Vibe Code Review findet
+
+Wenn Fremde oder zahlende Piloten auf Ihrer App sitzen, reicht «wir haben noch nichts Schlimmes gesehen» selten gegenüber IT oder Einkauf.
+
+Ein **Vibe Code Review** prüft den bestehenden Stand gegen OWASP ASVS v5.0: Sessions, Berechtigungen auf APIs, Geheimnisse, Logging, typische Fehlkonfigurationen in generierten Stacks. Sie erhalten einen Gap-Report, etwa acht Stunden Architektur- und Code-Qualitätsreview, eine priorisierte P0-, P1- und P2-Liste und ein abschliessendes Gespräch unter NDA.
+
+Das Review findet konkrete Lücken. Es beweist kein Product-Market-Fit, repariert keine Akquise und ersetzt kein zwölfwöchiges Validierungsprogramm.
+
+<div class="blog-pair">
+  <div>
+    <h3>Wann Lovable vs Bolt noch Sinn macht</h3>
+    <ul>
+      <li>Sie starten gerade und brauchen vier Wochen einen Stack für einen klaren Test</li>
+      <li>Ein Kunde verlangt Residency-Nachweis vor weiteren Logins</li>
+      <li>Sie wollen wissen, ob Full-Stack-Generator oder UI-Generator (v0) zum Risiko passt</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Wer den Vergleich überspringen sollte</h3>
+    <ul>
+      <li>Die App hat schon zahlende Nutzer: Inventar und Review vor Tool-Wechsel</li>
+      <li>Sie brauchen nur Landingpage und Warteliste</li>
+      <li>Sie arbeiten bereits in Cursor oder Claude Code in eigenem Repo</li>
+    </ul>
+  </div>
+</div>
+
+## Was der Vergleich nicht beweist
+
+Ob Lovable oder Bolt «gewinnt», sagt nichts über Nachfrage, Retention oder Deckungsbeitrag. Es sagt nichts über App-Store-Freigabe oder über Angriffe auf Ihre API. Werkzeugwahl ist **Rahmen für das Experiment**, nicht das Experiment selbst.
+
+<div class="blog-faq">
+  <h3>Ist Bolt oder Lovable besser für B2B in der Schweiz?</h3>
+  <p>Der Name allein nicht. Entscheidend sind dokumentierbare Region, testbare Rollen und ein Plan, wie Code an eine Engineering-Ressource geht, wenn der Pilot hält. Fehlt das, ist das schnellere UI nicht das günstigere.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Wann soll ich den Builder verlassen?</h3>
+  <p>Wenn die offene Frage lautet, ob Sie Produktion ändern können, ohne zahlende Nutzer zu verlieren, oder ob Zugriffskontrolle standhält. Dann ist Review oder Produktionsbuild dran, nicht noch eine Woche Prompts.</p>
+</div>
+
+## Wann ein Vibe Code Review passt
+
+Das [Vibe Code Review](/de/services/vibe-code-review) passt, wenn Ihre Lovable- oder Bolt-App live ist, echte Nutzer hat und Sie vor Skalierung, Enterprise-Pilot oder Finanzierung Klarheit über Sicherheit und Architektur brauchen. Es ist kein Tool-Kurs und kein Komplett-Rebuild.
+
+Wenn Sie noch das erste Werkzeug für einen Smoke-Test wählen, liefern Sie einen Loop aus und schalten Analytics zu. Wenn die URL live ist und Sie Ihre Datenkarte nicht auf einer Seite erklären können, starten Sie auf der Review-Seite.

@@ -1,0 +1,108 @@
+---
+title: "App development cost in Switzerland: build, stores, and run"
+description: "App development cost in Switzerland covers scope, stores, hosting, and maintenance, not a single build quote. How to budget without a fake total."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["app development", "switzerland", "software costs", "app stores"]
+funnelStage: consideration
+translationKey: app-development-cost-switzerland
+relatedPosts: ["paying-a-partner-in-equity", "fixed-price-vs-time-and-materials"]
+draft: true
+site: studio
+---
+
+## App development cost in Switzerland
+
+**App development cost in Switzerland** is the sum of what you pay to have software built, what you pay to reach the App Store and Google Play, and what you keep paying to host, integrate, and maintain it. A single franc total without a written scope is marketing, not a budget. For a Swiss SME turning internal know-how into a customer app, a portal, or a small SaaS product, the useful question is which buckets belong in year one and which ones continue after launch.
+
+This page is about **commissioned app work and production run costs**, not the narrower question of how much an early MVP validation budget should be. That comparison, partner types, and what «MVP» meant in each quote, is in [MVP cost in Switzerland](/blog/mvp-cost-switzerland). Here the focus is the full app path: build, stores, maintenance, and running bills.
+
+## App development cost in Switzerland: what the build quote actually buys
+
+Partners price from **scope**, not from the word "app". Roles, integrations, and admin surfaces matter more than screen count. A **production bar** (authentication, logging, backups, deploy paths) costs more than a demo on one laptop. Fixed price and time and materials shift who pays when the spec moves; see [fixed price vs time and materials](/blog/fixed-price-vs-time-and-materials) and [paying a partner in equity](/blog/paying-a-partner-in-equity). Quotes often omit **project management**, QA, migration, documentation, and first store submission. Treat unnamed work as zero until it is priced.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Build</span><strong>Scope-led</strong><p>Roles, integrations, and admin surfaces drive effort more than screen count.</p></li>
+  <li><span class="blog-kicker">Contract</span><strong>Shared risk</strong><p>Fixed fee, T&amp;M, or equity each move who pays when the spec shifts.</p></li>
+  <li><span class="blog-kicker">Bar</span><strong>Production</strong><p>Security, deploy paths, and supportability are not automatic in a «first version».</p></li>
+</ul>
+
+## Store path: accounts, review, and calendar time
+
+Publishing is not a one-line item at the end of development.
+
+**Apple.** Organisation enrollment needs a legal entity, a D-U-N-S number, authority to bind the company, a work email on the company domain, and a public site; the seller name on the store is that entity ([Apple enrollment](https://developer.apple.com/support/enrollment/)). The programme membership is stated as **99 USD** per year on the same page (Enterprise is listed separately). Review looks at **minimum functionality**: more than a repackaged website; pure marketing shells fail ([guideline 4.2](https://developer.apple.com/app-store/review/guidelines/)). A wrapped web app still has to behave like an app.
+
+**Google Play.** For **personal** developer accounts created after 13 November 2023, production access requires a closed test with at least **12 testers** opted in **continuously for 14 days** ([Play Console help](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en)). That is recruitment, reminders, and calendar time, even when the build is ready. Organisation accounts may differ; check the console for your account type before you promise a launch date.
+
+Each rejection or policy change can mean another build and another review cycle. Budget **people time**, not only store fees.
+
+## Running costs after go-live
+
+Once users sign in, cost moves from project to **operations**.
+
+**Hosting and data** on Azure or a managed database recur monthly; Supabase can use Zurich (`eu-central-2`) ([regions](https://supabase.com/docs/guides/platform/regions)). **APIs** for maps, email, SMS, identity, or AI bill per use. **Payments:** TWINT via Stripe ([Stripe TWINT](https://stripe.com/en-ch/payment-method/twint)) is integration plus transaction fees. **Analytics** storage is ongoing; Swiss cookie rules differ for profiling and cross-site tracking. Turnover above **CHF 100'000** triggers VAT duty; this is not ESTV advice.
+
+## Maintenance: the line item missing from the first quote
+
+An app is not «finished» at v1.0.
+
+OS updates, dependency patches, and store policy changes need scheduled work. Maintenance is usually a **retainer** or change orders. Without an owner, the app drifts until login breaks or a store build is rejected.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Run cost</dt>
+    <dd>Hosting, APIs, and store programmes while the product is live.</dd>
+  </div>
+  <div>
+    <dt>Maintenance</dt>
+    <dd>Engineering time to keep the app secure, compatible, and publishable.</dd>
+  </div>
+  <div>
+    <dt>Change order</dt>
+    <dd>Scoped work outside the original statement of work, priced separately.</dd>
+  </div>
+</dl>
+
+## Who should budget for a full build first
+
+<div class="blog-pair">
+  <div>
+    <h3>Who this is for</h3>
+    <ul>
+      <li>An SME that already validated demand and needs a durable customer or partner app</li>
+      <li>A team that must publish on iOS and Android, not only a browser tab</li>
+      <li>An owner who can fund run and maintenance after launch, not only sprint one</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should pause</h3>
+    <ul>
+      <li>Anyone who still needs a cheap read on demand before commissioning production scope</li>
+      <li>A buyer who only wants the lowest build quote with no written scope</li>
+      <li>A firm that needs multi-year enterprise roadmap delivery in the first contract</li>
+    </ul>
+  </div>
+</div>
+
+Cash next to the build matters too. A GmbH needs at least **CHF 20'000** share capital fully paid in at formation ([KMU guidance](https://www.kmu.admin.ch/de/gmbh-haftung-stammkapital-gruendung)). A trademark in one class is listed at **CHF 450** for ten years on the IGE FAQ (recheck before you file). Those are not development hours, but they sit on the same treasury plan if you trade as a company and care about the name on the store.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>This article does not give franc ranges for app quotes. Comparing two numbers without the same scope document, store plan, and maintenance assumption is how projects overrun. If a partner will not write what is in and out, treat the headline price as incomplete.</p>
+</aside>
+
+## What the data still will not prove
+
+Paying for a full build does not show product-market fit. It shows you can ship. Store approval does not show retention. A polished UI does not show willingness to pay. Code ownership still needs a written assignment for external authors ([Art. 17 URG](https://www.rentschpartner.ch/ict-law/schutz-von-software), summarised on the linked page). None of that replaces a validation phase when the risk is still «do strangers want this».
+
+<div class="blog-faq">
+  <h3>Is the cheapest quote the cheapest outcome?</h3>
+  <p>Not when the quote excludes stores, hosting, or maintenance and you buy those later under time pressure. The expensive mistake is often rebuilding scope or architecture after a false saving on the first contract.</p>
+</div>
+
+## When the product validation package fits
+
+The [product validation package](/services/mvp-validation) delivers a deployed product on Azure with React and NestJS, landing page and paid acquisition, funnel metrics, up to three pivot iterations, and a Go, Pivot, or Stop recommendation with what the data cannot prove. You receive web plus native wraps ready to submit, analytics from day one, and you own code, designs, data, and documentation. Payment can be cash, equity, or a mix; the split is for discovery.
+
+Use the contact page on [product validation](/services/mvp-validation) when the question is **whether the idea earns a production build**, not maintenance on a live app. **Do not book** for a legacy retainer only, a tender without a product owner, or the cheapest build without measurement. After vibe tooling, code quality is a review path, not this package. For demand before store work, start from [MVP cost in Switzerland](/blog/mvp-cost-switzerland) and say so in the same message.

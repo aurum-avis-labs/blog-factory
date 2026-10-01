@@ -14,9 +14,9 @@ site: prozess-check
 
 ## What is an AI agent?
 
-An AI agent is a language model that has been given tools and a goal, and works towards that goal in steps. It decides what to look up or do next, uses a tool, reads the result and carries on until the goal is met or it gets stuck. A chatbot answers a question. An agent acts inside the systems it has access to. In a small business office that can mean sorting an inbox, preparing a reply or finding an answer spread across three systems.
+An AI agent is a language model that has been given tools and a goal, and works towards that goal in steps. It decides what to look up or do next, uses a tool, reads the result and carries on until the goal is met or it gets stuck. A chat window in the browser answers a question and stops. An agent acts inside the systems it has access to. In a small business office that can mean sorting an inbox, preparing a reply or finding an answer spread across three systems.
 
-[Anthropic](https://www.anthropic.com/engineering/building-effective-agents), which builds such models, draws the line this way: workflows are systems where models and tools run "through predefined code paths", while agents "dynamically direct their own processes and tool usage". In short: in a workflow you fix the path in advance. In an agent the model chooses it.
+[Anthropic](https://www.anthropic.com/engineering/building-effective-agents), which builds such models, draws the line this way: workflows are systems where models and tools run through predefined code paths, while agents dynamically direct their own processes and tool usage. In short: in a workflow you fix the path in advance. In an agent the model chooses it.
 
 <ul class="blog-facts">
   <li><span class="blog-kicker">Model</span><strong>Reads and writes</strong><p>Understands the email, the note, the question in plain language.</p></li>
@@ -24,19 +24,25 @@ An AI agent is a language model that has been given tools and a goal, and works 
   <li><span class="blog-kicker">Goal</span><strong>When it is done</strong><p>For example: every new request sorted and a draft prepared.</p></li>
 </ul>
 
+## How an agent differs from chat and workflow
+
+Three ideas get mixed up in everyday speech. **Chat** means you ask, the model answers, the interaction ends. **Workflow** means the same chain of steps on every run, often without the model choosing the route. **Agent** means the goal is fixed but the path can change case by case because the model picks the next tool.
+
+The difference between a rule, a workflow and a model is explained with a supplier invoice in [digitalisation, automation and AI](/prozess-check/blog/digitalisation-automation-ai-difference). Which process in your firm deserves attention first, agent or not, is the subject of [which process to automate first](/prozess-check/blog/which-process-to-automate-first).
+
 ## What an AI agent can do in an SME office
 
 An agent is useful where the next step depends on what the previous one found. Three jobs fit that description in many offices.
 
-Triage: the agent reads new mail in the shared info mailbox, decides whether it is an order, a complaint or a question, and assigns it to the right person with a one-line summary. Drafting: for a customer question it looks up the last order and the price list and prepares a reply that someone reads before it goes out. Looking things up across systems: "Where is the delivery for this customer?" means checking the order list, the shipping confirmation in the mailbox and a note in the CRM. The agent collects the three answers and writes one.
+**Triage:** the agent reads new mail in the shared info mailbox, decides whether it is an order, a complaint or a question, and assigns it to the right person with a one-line summary. **Drafting:** for a customer question it looks up the last order and the price list and prepares a reply that someone reads before it goes out. **Looking things up across systems:** «Where is the delivery for this customer?» means checking the order list, the shipping confirmation in the mailbox and a note in the CRM. The agent collects the three answers and writes one.
 
-In all three the path changes from case to case. That is where a model choosing its own steps earns its cost.
+In all three the path changes from case to case. That is where a model choosing its own steps earns its cost. Copilot in Microsoft 365 or similar assistants in your suite can help with single steps; an «agent» in the narrower sense ties several tools to one goal without every intermediate decision being scripted.
 
 ## What an AI agent should not do unattended
 
 An agent should not make payments, send binding replies, delete data or take any action that no person checks. Binding means anything a customer can hold you to: a price, a delivery date, an acceptance of terms.
 
-The [OWASP list of risks for language-model applications](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) calls this "excessive agency": damaging actions that follow from unexpected, ambiguous or manipulated model output. It names too many functions, too many permissions and too much autonomy as the causes, and recommends that a human approves high-impact actions. There is also a specific risk for agents that read mail: text inside an email or a file can carry instructions the model then follows. OWASP lists this as [indirect prompt injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/).
+The [OWASP list of risks for language-model applications](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) calls this «excessive agency»: damaging actions that follow from unexpected, ambiguous or manipulated model output. It names too many functions, too many permissions and too much autonomy as the causes, and recommends that a human approves high-impact actions. There is also a specific risk for agents that read mail: text inside an email or a file can carry instructions the model then follows. OWASP lists this as [indirect prompt injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/).
 
 <div class="blog-pair">
   <div>
@@ -57,11 +63,30 @@ The [OWASP list of risks for language-model applications](https://genai.owasp.or
   </div>
 </div>
 
+## Data and shadow AI in a Swiss office
+
+Agents need access to real data: mail, customer lists, contracts. Customer and internal figures do not belong in free chat accounts without a contract and clear retention rules. Swiss data protection law expects appropriate technical and organisational measures; which tools your firm allows is a business decision, not a model feature.
+
+If staff already use consumer chat tools for office work, you do not have an agent programme, you have shadow AI with no audit trail. A firm-run agent therefore needs boundaries: which systems, which accounts, who approves, what gets logged.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Limit</span>
+  <p>An agent does not replace a missing process description. If nobody can say who approves and where data lives, automation becomes expensive and risky.</p>
+</aside>
+
+## Who should wait before buying «an agent»
+
+Not every SME needs an agent to make AI useful. If your problem is a fixed path with few exceptions, a rule or simple workflow is often enough. If only one person holds IT access, fix the basics first. If the job happens once a quarter, setup and review cost more than the benefit.
+
+<ul class="blog-scenarios">
+  <li><h3>Recurring work with clear rules</h3><p>Supplier PDF to a folder, mail to the approver: workflow beats agent.</p></li>
+  <li><h3>Shared inbox with shifting topics</h3><p>The next step depends on content: an agent can help with human sign-off.</p></li>
+  <li><h3>Quarterly analysis once</h3><p>Manual work or assisted chat is enough; no standing agent required.</p></li>
+</ul>
+
 ## The mistake: an agent for a job a fixed rule does reliably
 
-The most common mistake is using an agent where a fixed rule already does the job every time. "Every PDF from this supplier goes into this folder and to this approver" has one correct path. A rule follows it at almost no cost per run, and you can see afterwards why it did what it did. An agent adds variation exactly where you want none, and it costs more for each run.
-
-The difference between a rule and a model is explained with a supplier invoice in [digitalisation, automation and AI](/prozess-check/blog/digitalisation-automation-ai-difference). Which process deserves attention first, agent or not, is the subject of [which process to automate first](/prozess-check/blog/which-process-to-automate-first).
+The most common mistake is using an agent where a fixed rule already does the job every time. «Every PDF from this supplier goes into this folder and to this approver» has one correct path. A rule follows it at almost no cost per run, and you can see afterwards why it did what it did. An agent adds variation exactly where you want none, and it costs more for each run.
 
 ## If your team wants to work with agents
 

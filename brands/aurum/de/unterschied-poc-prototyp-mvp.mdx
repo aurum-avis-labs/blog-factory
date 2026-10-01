@@ -1,0 +1,66 @@
+---
+title: "Unterschied PoC Prototyp MVP: welche Stufe Sie meinen"
+description: "Unterschied PoC Prototyp MVP: Machbarkeit, Verständnis, wiederholtes Verhalten. Was jede Stufe beweist und wo Sie aufhören sollten."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "prototyp", "proof of concept", "produktvalidierung", "vibe coding"]
+funnelStage: interest
+translationKey: poc-vs-prototype-vs-mvp
+relatedPosts: ["mvp-features-priorisieren", "klickdummy-erstellen"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Der Unterschied PoC Prototyp MVP liegt in der Frage, die Sie beantworten wollen: ob es technisch geht, ob Menschen den Ablauf verstehen, oder ob Fremde die Kernaufgabe mehr als einmal erledigen. Ein Wochenend-Export aus Lovable oder Cursor kann wie ein Produkt aussehen und trotzdem nur ein Prototyp sein, solange alle Daten erfunden sind und niemand ausserhalb Ihres Netzwerks eingeloggt war.</p>
+
+Sie haben bereits mit KI-Werkzeugen gebaut und hören nun «starkes MVP» von Bekannten, von Investoren oder in der eigenen Präsentation. Die Bezeichnung steuert, was Sie messen und was Sie nicht behaupten sollten. Was ein MVP als Lernobjekt bedeutet, steht in [Was ist ein MVP](/de/blog/was-ist-ein-mvp). Dieser Text ordnet nur die Stufen: Proof of Concept, Prototyp, MVP, und wo jede aufhört.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Proof of Concept (PoC)</dt>
+    <dd>Ein enger technischer Test: eine Schnittstelle, ein Modell, ein Ablauf, um zu sehen, ob der Ansatz tragfähig ist, bevor Sie UX polieren oder Nutzer akquirieren.</dd>
+  </div>
+  <div>
+    <dt>Prototyp</dt>
+    <dd>Eine erlebbare Oberfläche, oft mit Platzhalterdaten oder manueller Nachbearbeitung im Hintergrund, um zu lernen, ob Geschichte und Screens für Menschen Sinn ergeben.</dd>
+  </div>
+  <div>
+    <dt>MVP</dt>
+    <dd>Ein deploytes Produkt mit kleinem Umfang, in dem echte Nutzer die Kernaufgabe wiederholt erledigen können, damit Sie Verhalten in Analytics lesen, nicht nur Meinungen.</dd>
+  </div>
+</dl>
+
+## Unterschied PoC Prototyp MVP in der Praxis
+
+Dasselbe Repository kann je nach letzter Woche in einer anderen Stufe stehen. Die Stufe folgt der **offenen Frage**, nicht der Anzahl Screens, die ein Werkzeug erzeugt hat.
+
+In der PoC-Stufe ist die Frage eng und technisch: kommen Daten von A nach B, liefert das Modell brauchbare Ausgaben? Publikum sind oft Sie und eine technische Sparringsperson, Erfolg ein Ja oder Nein zur Machbarkeit, manchmal auf einem Wegwerf-Branch. In der Prototyp-Stufe fragen Sie, ob Menschen den Job verstehen und wo sie hängen bleiben. Publikum sind Interviews, ein Design-Partner oder ein freundlicher Pilot. Erfolg sind überarbeitete Abläufe und eine Liste der Verwirrungen; Zahlung, Compliance und Skalierung dürfen bewusst fehlen. In der MVP-Stufe fragen Sie, ob jemand ausserhalb Ihres Netzwerks die Kernaktion wiederholt. Publikum sind Fremde oder ein Segment, das Sie ehrlich ansprechen. Erfolg ist messbares Verhalten: Rückkehr, Abschluss einer Schleife oder Kosten pro Lead von Woche zu Woche.
+
+Vibe Coding springt oft direkt zum Prototyp, weil Screens billig geworden sind. Die Fragen bleiben. Ein hübscher Prototyp kann offen lassen, ob ein API-Limit den Use Case killt (PoC-Arbeit, die Sie verschoben haben). Ein PoC kann wie ein Produkt wirken, weil das Template am ersten Tag Login mitlieferte.
+
+## Was jede Stufe beweist
+
+Ein PoC zeigt, ob der riskante Pfad auf Ihrem Stack funktioniert und ob Latenz oder Kosten pro Aufruf tragbar sind. Er zeigt nicht Nachfrage, klare UX für Nicht-Entwickler oder sicheren Betrieb unter Last. Ein Prototyp zeigt, ob die Problemformulierung im Gespräch trifft und ob jemand eine geführte Aufgabe schafft; er zeigt nicht Gewohnheit, Retention oder Unit Economics. Ein MVP zeigt, ob Fremde die Kernschleife ohne Sie im Raum abschliessen und ob Abbrüche in Analytics sichtbar sind; er zeigt nicht Product-Market-Fit, einen dauerhaften Akquisitionskanal oder Marge, wenn die Abrechnung bewusst fehlte.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Ein Demo als MVP zu bezeichnen erzeugt kein Lernen. Wenn jede Nutzerin ein Bekannter ist, Daten nachts zurückgesetzt werden oder der «Zahlungs»-Knopf nichts tut, bleiben Sie beim Prototyp oder beim Fake-Door. Benennen Sie die Stufe, damit Sie im Deck nicht zu viel versprechen.</p>
+</aside>
+
+## Wer wo stoppen sollte
+
+Wenn das offene Risiko die Technik ist, bleiben Sie beim PoC, bis ein Pfad nachweislich funktioniert. Bezahlte Ads auf einen PoC lohnen selten, ausser die Anzeige verspricht nur ein Forschungsgespräch. Wenn das Risiko das Verständnis ist, reicht ein klickbarer Prototyp für strukturierte Interviews; lesen Sie Klickdummy erstellen, bevor Sie einen Vollbau planen. Wenn das Risiko wiederholtes Verhalten ist, brauchen Sie MVP-Form: deployt, instrumentiert, enger Umfang, echte Nutzer. Produktionsqualität dient der Messung, nicht der Feature-Liste für Investoren.
+
+Teams nach Vibe Coding sollten offen benennen, welches Risiko noch offen ist. Viele stehen beim Prototyp mit MVP-Aufkleber, weil Login und Datenbank im Template gratis waren.
+
+## Den nächsten Schritt benennen
+
+Schreiben Sie vor dem nächsten Feature einen Satz: «Die riskanteste offene Frage ist …» Ist die Antwort technisch, time-boxen Sie einen PoC-Branch. Ist sie UX, führen Sie fünf Interviews auf dem jetzigen Build, ohne neue Module. Ist sie Verhalten, schneiden Sie auf eine Schleife zu, deployen Sie, schalten Sie Analytics ein, bevor Sie Nebenscreens polieren.
+
+MVP Features priorisieren hilft, sobald Sie akzeptieren, in der MVP-Stufe zu sein. Davor kann Priorisierung Aufschieben in schönerer Schrift sein.
+
+## Wann das Produktvalidierungs-Paket passt
+
+Das [Produktvalidierungs-Paket](/de/services/mvp-validation) richtet sich an Teams, die «verstehen die Screens?» hinter sich haben und eine Go-, Pivot- oder Stop-Empfehlung aus echtem Gebrauch brauchen: deployte Web-App, Messung, bezahlte Akquise wo die Hypothese es verlangt, bis zu drei Pivot-Iterationen auf der Kernschleife. Es ist kein PoC-Workshop und kein reines Figma-Engagement.
+
+Wenn Sie noch beweisen, ob eine API oder ein Modell funktioniert, schliessen Sie das in einem kurzen PoC ab. Wenn Sie Verhalten mit Fremden testen wollen und Code, Daten und Dokumentation am Ende in Ihrem Namen brauchen, vereinbaren Sie ein Gespräch über die Seite.

@@ -1,0 +1,135 @@
+---
+title: "MFA für Mitarbeitende einführen: Rollout für Schweizer KMU"
+description: "Zwei-Faktor-Authentifizierung einführen ohne Chaos: Phasen, MFA-Müdigkeit, Ausnahmen und Kommunikation für Microsoft 365 oder Google."
+pubDate: 2026-11-13
+author: "Aurum Avis Labs"
+tags: ["mfa", "zwei-faktor-authentifizierung", "rollout", "schweiz"]
+funnelStage: interest
+translationKey: rolling-out-mfa-to-staff
+relatedPosts: ["rechnungsbetrug-iban-geaendert", "sicherheitsvorfall-melden", "vier-augen-prinzip-zahlungen"]
+draft: false
+site: security
+---
+
+## Zwei-Faktor-Authentifizierung einführen: zuerst Admins, dann Mail, dann Rest
+
+MFA für Mitarbeitende einführen heisst: Konten, die E-Mail lesen oder Zahlungsdaten ändern können, brauchen einen zweiten Faktor, bevor ein Täter mit gestohlenem Passwort einbricht. In einem Schweizer KMU auf Microsoft 365 oder Google Workspace ist das Projekt Kommunikation und Technik. MFA reduziert Business E-Mail Compromise mit [Rechnungsbetrug IBAN geändert](/de/security/blog/rechnungsbetrug-iban-geaendert). Es ersetzt nicht [Vier-Augen-Zahlungen](/de/security/blog/vier-augen-prinzip-zahlungen). Planen Sie Phasen, Helpdesk-Fenster und Schulung zu MFA-Müdigkeit, wenn Täter Prompts spammen, bis jemand «Genehmigen» tippt.
+
+Vor dem Umschalten klären Sie den [internen Meldeweg](/de/security/blog/sicherheitsvorfall-melden), damit gesperrte Nutzer wissen, wohin sie rufen.
+
+## Was Sie vor Woche eins festlegen
+
+Erstellen Sie eine Liste globaler Admins, Billing-Inhaber, Finanz-Postfächer und geteilte Postfächer, die noch nur ein Passwort haben. Wählen Sie Authenticator-App oder Passkey, was Ihr Tenant unterstützt. Es geht nicht um zehn Produkte, sondern um das, was Microsoft oder Google bereits anbietet.
+
+Benennen Sie einen internen Owner und die Rolle des IT-Partners: wer Conditional-Access-Policies schreibt, wer am Go-live-Tag ans Telefon geht, wer zur Geschäftsleitung eskaliert, wenn jemand die Registrierung verweigert. Die Finanz sollte wissen, dass MFA in derselben Woche kommt wie die [Passwortrichtlinie KMU](/de/security/blog/passwortrichtlinie-kmu), damit Identitätsregeln wie eine Geschichte wirken.
+
+<ul class="blog-checklist">
+  <li>Admin- und Finanz-Postfächer listen, die zuerst registrieren müssen</li>
+  <li>Go-live-Termine ausserhalb von Monatsend-Zahlungsläufen wählen, wenn möglich</li>
+  <li>Einseitige Anleitung mit Screenshots zur gewählten App vorbereiten</li>
+  <li>Doppelte Helpdesk-Besetzung am ersten Rollout-Tag einplanen</li>
+  <li>Fatigue-Regel formulieren: unbekannte Prompts ablehnen, Codes am Telefon nicht vorlesen</li>
+</ul>
+
+## Phasen, die Mitarbeitende nachvollziehen können
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>MFA für Admins erzwingen</h3><p>Globale Admins, Billing, alle, die Passwörter zurücksetzen können. Legacy-Auth blockieren, wo der Tenant es erlaubt.</p></li>
+  <li data-step="2"><h3>Eine Abteilung pilotieren</h3><p>Team wählen, das Reibung verkraftet. Helpdesk-Skripte nach Feedback schärfen, bevor die Policy breiter wird.</p></li>
+  <li data-step="3"><h3>MFA für alle Mail-Nutzer</h3><p>Conditional Access oder Security Defaults auf jedes Postfach mit externem Mailverkehr.</p></li>
+  <li data-step="4"><h3>VPN und Fachanwendungen</h3><p>Dasselbe Identity-Provider-Setup, wo möglich. Jede Ausnahme mit Ablaufdatum dokumentieren.</p></li>
+  <li data-step="5"><h3>Neueintritte schliessen</h3><p>MFA-Registrierung gehört zum ersten Arbeitstag, nicht zu einem Ticket drei Wochen später.</p></li>
+</ol>
+
+Ein erfundenes Beispiel: Ein Logistikbetrieb mit 120 Microsoft-365-Postfächern aktiviert die Authenticator-App in Woche eins für IT und Finanz, pilotiert in Woche zwei die Logistik, und verlangt in Woche drei MFA für alle Mail-Nutzer. Am Rollout-Tag ist der Helpdesk von 08:00 bis 18:00 besetzt. Zwei Nutzer rufen an, weil sie beim Mittagessen «Genehmigen» tippten, ohne sich einzuloggen. IT setzt Sessions zurück, blockiert den fremden Login und verschickt eine Kurzinfo zur MFA-Müdigkeit.
+
+## MFA-Müdigkeit: Angriff, den jeder Rollout erwähnen muss
+
+Ist MFA aktiv, senden Täter mit Passwort wiederholte Push-Meldungen oder rufen als IT an. Mitarbeitende sollen wissen: Wer gerade nicht einloggt, lehnt ab und meldet über den internen Kanal. Codes am Telefon nicht vorlesen. Das überschneidet sich mit [Deepfake Anruf vom Chef](/de/security/blog/deepfake-anruf-vom-chef), wenn «IT» einen Code verlangt.
+
+Die Fatigue-Regel steht in derselben E-Mail wie der Setup-Link. Ein Satz im Team-Chat am Go-live-Tag reicht nicht.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>SMS als zweiter Faktor ist besser als nichts, schwächer als Authenticator-App oder Passkey. Bevorzugen Sie App-MFA für Finanz- und GL-Postfächer.</p>
+</aside>
+
+## Wer vorübergehend eine Ausnahme braucht
+
+Alte Scanner, Kiosk-PCs oder Line-of-Business-Apps ohne modernes Auth. Jede Ausnahme mit Owner, Review-Datum und Kompensationskontrolle dokumentieren, zum Beispiel Netzwerkisolierung.
+
+<div class="blog-pair">
+  <div>
+    <h3>Zulässige Ausnahmen</h3>
+    <ul>
+      <li>Service-Account mit Zertifikats-Auth in Umstellung</li>
+      <li>Kiosk-PC in isoliertem VLAN ohne Mailzugriff</li>
+      <li>Scanner mit Relay, das Sie ersetzen</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Keine Ausnahmen</h3>
+    <ul>
+      <li>GL-Wunsch ohne technische Hürde</li>
+      <li>Geteiltes Finanz-Login aus Gewohnheit</li>
+      <li>Dauerhaft nur SMS für Zahlungsfreigaben</li>
+    </ul>
+  </div>
+</div>
+
+Prüfen Sie die Ausnahmeliste vierteljährlich mit der Geschäftsleitung. Finanzpostfächer sollten nicht dauerhaft darauf stehen.
+
+## Kommunikation, die Sperren reduziert
+
+Zwei Wochen vor Go-live: Datum, Helpdesk-Zeiten, Link zur Anleitung. Am Tag Erinnerung im Chat-Tool, das alle nutzen, nicht nur ein IT-Ticket. Nach einer Woche: wie viele Konten noch ohne MFA sind und wer nachfasst.
+
+<ul class="blog-scenarios">
+  <li><h3>Finanz in einem Zahlungslauf</h3><p>Enrollment nach dem Lauf planen oder Helpdesk-Zeiten für Freigebende verlängern.</p></li>
+  <li><h3>Viele Remote-Mitarbeitende</h3><p>Self-Service nutzen; QR-Codes nicht per Post verschicken, die jemand im Postraum scannen könnte.</p></li>
+  <li><h3>GL noch nicht registriert</h3><p>GL in den Pilot aufnehmen, bevor die breite Mail-Policy gilt.</p></li>
+</ul>
+
+## Technische Reihenfolge in Microsoft 365 und Google Workspace
+
+In Microsoft 365 Conditional Access oder Security Defaults stufenweise: Legacy-Auth blockieren, MFA für Admins, dann für alle Nutzer mit Exchange Online. Shared Mailboxes einzeln prüfen; oft braucht es einen benannten Delegierten mit MFA statt eines geteilten Passworts.
+
+In Google Workspace 2-Step Verification aus dem Admin-Console erzwingen, in derselben Reihenfolge: Super-Admins, dann Organisationseinheiten. Prüfen, ob Legacy-IMAP-Clients brechen, bevor Sie ein Cut-off-Datum kommunizieren.
+
+Service-Accounts und Integrationen auf Zertifikate oder Managed Identities umstellen, wo der Anbieter es erlaubt. Mailfähige Service-Accounts ohne MFA brauchen eine schriftliche Ausnahme mit Ablauf, keine offene Dauerfreigabe.
+
+Admins sollten Backup-Codes versiegelt offline lagern. Ein verlorenes Handy darf nicht dazu führen, MFA mit einem geteilten Passwort zu umgehen. Externe IT-Partner brauchen vor dem Go-live eine schriftliche Rolle: wer Policies setzt, wer den Helpdesk führt, wer Vorfälle an die Geschäftsleitung meldet.
+
+Gastkonten und externe Berater erhalten MFA, bevor VPN-Zugang freigeschaltet wird. Gast-WLAN ersetzt keine Identitätskontrolle. Contractor-Postfächer mit Zugriff auf Mandantendaten gehören in dieselbe Policy wie interne Nutzer.
+
+Eine Woche nach Go-live lohnt ein kurzer Blick auf Sign-in-Logs: fremde Länder, Legacy-Auth, wiederholte Fehlversuche. Optional kann eine kurze Phishing-Simulation folgen, ohne Einzelbewertung der Mitarbeitenden; Orientierung zu Art. 26 ArGV 3 und Art. 328b OR, keine Rechtsauskunft.
+
+## Erfolg messen ohne Vanity-Kennzahlen
+
+Registrierte MFA-Nutzer in Prozent, bearbeitete Müdigkeitsmeldungen, Zeit bis Neueintritte registriert sind. Zwei Wochen nach Go-live sollten Sign-in-Logs weniger Legacy-Auth zeigen.
+
+<div class="blog-stat">
+  <strong>65% / 82%</strong>
+  <p><a href="https://www.allnews.ch/sites/default/files/ckfinder/userfiles/Deloitte%20Cyber%20Studie%202026_0.pdf">Deloitte Cyber Studie 2026</a>, Betriebe unter 250 MA: regelmässige Schulung in kleinen versus mittleren Firmen. Nicht unsere Erhebung. Kombinieren Sie MFA mit einer kurzen Live-Session, wenn Ihr Betrieb unter der mittleren Linie liegt.</p>
+</div>
+
+Der Rollout ist fertig, wenn die Registrierungsquote erreicht ist, Legacy-Auth sinkt und die Finanz weiss, Prompts bei Zahlungsfreigabe abzulehnen, wenn sie sich nicht gerade selbst eingeloggt hat.
+
+Legen Sie am Ende einen Screenshot der aktiven Conditional-Access-Policy und einen Export der MFA-Registrierungsquote ab. Versicherer und Kundenfragebögen fragen oft nach «MFA auf E-Mail»; ein Datum und ein Verantwortlicher reichen meist, ohne ein ISO-Zertifikat zu behaupten.
+
+Vier Wochen nach Go-live: kurzer Bericht an die Geschäftsleitung mit offenen Konten, Fatigue-Vorfällen und der Ausnahmeliste. Schriftliche Entscheidung, wer eskaliert, wenn jemand in der GL die Registrierung verweigert, gehört in den Plan vor dem ersten Push. Remote-Mitarbeitende behandeln Sie gleich wie Büroangestellte; Self-Service im Portal vermeidet Postversand von Einmalcodes.
+
+## Schulung zu MFA und Zahlungsbetrug
+
+Finanz und GL profitieren von einer Live-Stunde zu MFA, Phishing und Zahlungsprüfung. Rückrufgewohnheiten bei Kundendaten stützen Sicherheitsgewohnheiten; siehe [Identität am Telefon prüfen](/de/security/blog/identitaet-am-telefon-pruefen). Das Aurum-Format zu Phishing und Zahlungsbetrug steht auf [Security Awareness](/de/security/security-awareness).
+
+<div class="blog-faq">
+  <h3>MFA während Ferienseason?</h3>
+  <p>Besser eine ruhige Woche mit Helpdesk. Muss vor Jahresend-Rechnungen live gehen, Helpdesk-Zeiten für Finanz verlängern.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Authenticator-Apps vergleichen?</h3>
+  <p>Nein. Nutzen Sie, was der Tenant unterstützt, und dokumentieren Sie eine Standardmethode. Dieser Artikel behandelt Rollout und Müdigkeit, keinen Produktvergleich.</p>
+</div>
+
+Beginnen Sie bei Finanz und bei den Personen, die das gemeinsame Postfach verwalten. Der Rest des Teams folgt im selben Monat, mit einer Ansprechperson, wenn die Abfrage hängen bleibt.

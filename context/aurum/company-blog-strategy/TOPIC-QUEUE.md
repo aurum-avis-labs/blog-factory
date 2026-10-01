@@ -554,7 +554,7 @@ Ein Post pro Wochentag, 1. Oktober 2026 bis 22. Februar 2027, Feiertage inklusiv
 - Für rein in der Schweiz tätige KMU: AI Act nicht der erste Hebel; nDSG und bestehende Cloud-Verträge sind der Alltag (T05).
 - Wann der Act dennoch relevant wird (EU-Kunden, Hochrisiko-Systeme) — ein Absatz, Link auf Primärquelle, keine Auslegung als Kanzlei.
 - Praktischer Takeaway: Positivliste, keine Kundendaten in Free-Tools, Owner.
-- Wenn der Entwurf länger als ~800 Wörter Rechtslage wird: **nicht publizieren**, Topic streichen.
+- Wenn der Entwurf zum Rechtskommentar wird: **nicht publizieren**, Topic streichen.
 
 ---
 

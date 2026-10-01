@@ -1,0 +1,107 @@
+---
+title: "Who owns the code when an agency builds it"
+description: "Who owns the code when an agency builds it: employment law, written assignment for contractors, and what your contract should transfer before you pay."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["software ownership", "agency contract", "startup", "intellectual property", "switzerland"]
+funnelStage: consideration
+translationKey: who-owns-the-code
+relatedPosts: ["fake-door-test-vs-mvp", "mvp-brief-template"]
+draft: true
+site: studio
+---
+
+## Who owns the code when an agency builds it
+
+**Who owns the code when an agency builds it** depends on who wrote it, under what contract, and whether copyright was assigned in writing. In Switzerland, software an employee creates in the course of employment belongs to the employer ([Art. 17 URG](https://www.rentschpartner.ch/ict-law/schutz-von-software)). Work a freelancer or an agency subcontractor writes does not move to you by default: the author keeps copyright until a written assignment. Paying an invoice does not replace that clause. The practical answer is the signed agreement plus repository access, design files, credentials, and documentation handed over in a form you can run without the vendor.
+
+This is for founders and innovation leads about to pay for a first product or a handover from a vibe-coded prototype. It is not legal advice. When the chain of title is unclear, ask a lawyer before you fundraise. How Swiss teams choose in-house, agency, or studio models is in [startup software development in Switzerland](/blog/startup-software-development-switzerland). Whether you need a build at all is in [fake door test vs real MVP](/blog/fake-door-test-vs-mvp).
+
+<dl class="blog-terms">
+  <div>
+    <dt>Copyright</dt>
+    <dd>The right to reproduce and adapt the source. On contractor work it stays with the author unless assigned in writing.</dd>
+  </div>
+  <div>
+    <dt>Assignment</dt>
+    <dd>A written transfer of copyright (Urheberrechtsabtretung). Verbal promises at kick-off are not enough for the default rule.</dd>
+  </div>
+  <div>
+    <dt>Licence</dt>
+    <dd>Permission to use code the vendor still owns. Narrow licences can block resale, audits, or changing agencies.</dd>
+  </div>
+  <div>
+    <dt>Repository</dt>
+    <dd>Where the history lives. Admin rights without an assignment still leave gaps if a freelancer was never covered.</dd>
+  </div>
+</dl>
+
+## Who owns the code when an agency builds it: employment vs contract work
+
+If the author was your employee and the code was part of their job, the employer is the statutory owner under Art. 17 URG. That covers many in-house teams. It does not cover an external agency, a solo contractor, or a student paid as a freelancer, even when they sit in your office.
+
+Agency staff assign work to the agency in their employment contract. Your contract must assign those rights onward to you. Subcontractors are the usual gap.
+
+<div class="blog-pair">
+  <div>
+    <h3>Usually yours after a proper contract</h3>
+    <ul>
+      <li>Custom backend and frontend written for your product</li>
+      <li>UI layouts and brand files named in the statement of work</li>
+      <li>Configuration and infrastructure-as-code you paid to create</li>
+      <li>Documentation written for handover, if assigned</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Often not fully yours</h3>
+    <ul>
+      <li>The agency’s reusable boilerplate, unless the contract says otherwise</li>
+      <li>Stock icons, fonts, or photos under their licence terms</li>
+      <li>Open-source components you receive as source but must still comply with</li>
+      <li>Trademarks and product names, which need separate filing, not code ownership</li>
+    </ul>
+  </div>
+</div>
+
+Ideas as such cannot be protected ([IGE on ideas](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). Repository ownership does not stop someone rebuilding the same idea.
+
+## What to put in the contract before the first sprint
+
+Treat ownership as a checklist, not a paragraph buried on page nine. Align it with the brief you send before build, as in [MVP brief template](/blog/mvp-brief-template).
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Name the deliverables</h3><p>Source code, design files, data exports, runbooks, and accounts. «The app» is too vague if marketing assets sit in the agency’s Figma team.</p></li>
+  <li data-step="2"><h3>Require written assignment to you</h3><p>Copyright on newly created work, not merely a licence to operate. Cover agency employees and named subcontractors.</p></li>
+  <li data-step="3"><h3>Set the handover trigger</h3><p>Repository admin, cloud subscription in your tenant, DNS, app store accounts, and secrets vault, tied to a milestone or final payment you can withhold.</p></li>
+  <li data-step="4"><h3>List third-party material</h3><p>Open-source licences, stock assets, and any agency framework you are allowed to keep. You need to comply after they leave.</p></li>
+  <li data-step="5"><h3>Separate data from their sandbox</h3><p>Production data in your systems. Test data and their tooling accounts documented so you are not locked out on day one after launch.</p></li>
+</ol>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Ownership is not quality, security, or App Store approval. You can hold every line of code and still owe a security review, a privacy update, or a rebuild if the first version was a disposable prototype. It also does not prove market demand; that needs measurement, not a zip file.</p>
+</aside>
+
+## A made-up example: handover on a Friday
+
+A made-up example: a founder hires a small agency for an eight-week MVP. The statement of work promises "delivery of the application" but says nothing about copyright. Two freelancers write the API. The agency grants admin on a GitHub organisation the founder owns. Six months later due diligence asks for assignments from every author. One freelancer no longer responds. The repository was on the founder’s name; the gap was paper, not passwords. A kick-off assignment list and withheld final payment until signatures would have closed it.
+
+## What full ownership still does not give you
+
+You still owe open-source compliance, processor contracts if personal data sat in agency tools, and a secrets check on any vibe-coded export. A narrow licence on the agency starter kit can block white-labelling for a second product.
+
+<div class="blog-faq">
+  <h3>Does paying the invoice transfer copyright in Switzerland?</h3>
+  <p>Not by default for contractor-created software. Payment settles the commercial deal; assignment is a separate written act. Treat missing assignment as a blocker to final payment, not as something to fix after launch.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>What if we only have a licence to use the code?</h3>
+  <p>You may be able to run the product but not to sell the company, open the source, or switch vendors without renegotiating. Investors notice exclusive licences that revert when the contract ends.</p>
+</div>
+
+## When the Product Validation Package fits
+
+In the [Product Validation Package](/services/mvp-validation), the code, designs, data, and documentation belong to the customer when the engagement completes, with written assignment for external authors where required. Weeks 1 to 4 ship a deployed product on Azure with React and NestJS; later weeks add positioning, acquisition, and a Go, Pivot, or Stop recommendation that states what the data did not prove.
+
+Book a discovery conversation on the [contact page](/contact) when ownership and measurement must sit in one twelve-week loop. **Do not book** for a quote without a handover checklist or if the code should stay in the agency repository. **Do book** when contract, repository, and learning goal are in a brief and you need production code you can audit and extend.

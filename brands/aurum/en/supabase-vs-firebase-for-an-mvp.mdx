@@ -1,0 +1,116 @@
+---
+title: "Supabase vs Firebase for an MVP"
+description: "Supabase vs Firebase for an MVP: Postgres and RLS versus Firestore and rules, Swiss region choice, and what the backend pick does not prove."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["supabase", "firebase", "mvp", "vibe coding", "backend"]
+funnelStage: interest
+translationKey: supabase-vs-firebase-for-an-mvp
+relatedPosts: ["building-an-mvp-with-lovable", "lovable-supabase-row-level-security"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Supabase vs Firebase for an MVP is mostly a data-model and security-rules question, not a winner on a slide. Supabase gives you Postgres, SQL, and row level security in a stack many vibe-coding tools already wire up. Firebase gives you Firestore, security rules, and Google’s auth and realtime paths that mobile templates expect. Either can ship a first login and a first workflow in days. Neither proves strangers will pay, and neither replaces a review before you invite unknown users with sensitive data.</p>
+
+For founders who exported from Lovable, Bolt, v0, Replit, Cursor, or Claude Code and need a backend that matches the product shape. If load, monitoring, and auth edge cases are the open question, start with [is your vibe-coded app production ready?](/blog/is-your-vibe-coded-app-production-ready).
+
+## Supabase vs Firebase for an MVP
+
+Both are backend-as-a-service: auth, a database, client SDKs, and hosting hooks so you do not run your own server on day one. The fork that matters for an MVP is relational versus document data, and who owns the security story on the wire.
+
+Supabase centres on **Postgres**. You get tables, joins, migrations, and **row level security (RLS)** policies that Postgres enforces on every query. That fits products with accounts, roles, ledgers, bookings, or anything you already sketched as rows and foreign keys. Tools in the Lovable family often default here, which is convenient until RLS is missing or too permissive.
+
+Firebase centres on **Firestore** (and related Google services). Documents and collections, **security rules** written in a rules language, and strong realtime and mobile SDK habits. That fits feeds, presence, simple per-user blobs, and teams already living in Google Analytics, Cloud Functions, or Flutter templates. SQL reporting and ad hoc joins are not the native path.
+
+Neither choice removes the need to define **who can read and write which rows or documents**. UI hiding a button is not authorization.
+
+## A practical comparison
+
+| Question | Supabase | Firebase |
+| --- | --- | --- |
+| Core database | Postgres (SQL) | Firestore (documents) |
+| Access control | Row level security policies | Firestore security rules |
+| Fits vibe-coded web stacks | Common default with Lovable-style exports | Common in mobile-first and Google templates |
+| Realtime | Supported via Postgres changes | First-class on Firestore |
+| Swiss data location | Project region **Zurich (eu-central-2)** can be selected at creation | Depends on project and product settings; confirm in your console |
+| What it does not prove | Product-market fit, safe RLS, or cost at scale | Product-market fit, tight rules, or cost at scale |
+
+The table is about **first test** fit, not a scorecard. A team that already thinks in SQL will fight Firestore for the same reason a document-native prototype will fight migrations on Postgres.
+
+<div class="blog-pair">
+  <div>
+    <h3>Lean toward Supabase when</h3>
+    <ul>
+      <li>The MVP is relational: orders, memberships, multi-step forms stored as rows</li>
+      <li>You want SQL, views, or exports without a separate warehouse yet</li>
+      <li>You create the project in Switzerland and need a clear region choice at setup</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Lean toward Firebase when</h3>
+    <ul>
+      <li>The prototype is document-shaped: profiles, chat-like threads, live counters</li>
+      <li>You already depend on Google auth, FCM, or mobile SDKs from a template</li>
+      <li>Realtime sync matters more than joins in the first release</li>
+    </ul>
+  </div>
+</div>
+
+## Swiss context: region and paperwork
+
+If Swiss customers or partners ask where data lives, **Supabase lets you pick region Zurich (eu-central-2) when you create the project**, per Supabase’s region documentation. That is a concrete checkbox at setup, not something you infer later.
+
+For Firebase, storage and processing follow the Google Cloud and Firebase settings on **your** project. The honest answer in a pitch is: open the console, read the location, and align your privacy notice and contracts with what you find. This article does not list Firebase regions; misstating them is worse than saying you will confirm.
+
+Data location alone does not make an MVP compliant. You still need purpose, retention, subprocessors, and access control that match the Swiss FADP and your contracts, whether the backend is Supabase or Firebase.
+
+## Security: RLS, rules, and a real CVE
+
+On Supabase, the anon key in the client is **meant** to be public. Safety depends on RLS denying what the browser should never see. Generated policies from a vibe-coding tool are a starting point, not proof. [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757) documented missing or ineffective RLS on many Lovable-linked Supabase projects, where the public client key could query data without login. Reported in 2025, it is a reminder to **test** policies, not only enable them.
+
+On Firebase, the same class of mistake appears as **Firestore rules** that are too open, or auth checks only in the UI. Rules need review and tests with the same hostility you would apply to RLS.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Picking Supabase or Firebase does not tell you whether your policies are correct. A green dashboard and a working demo are not a penetration test. Before you scale traffic or handle payment-related fields, have someone who knows OWASP and backend auth review the project.</p>
+</aside>
+
+<dl class="blog-terms">
+  <div>
+    <dt>RLS</dt>
+    <dd>Postgres row level security: the database filters rows per user, not only the app UI.</dd>
+  </div>
+  <div>
+    <dt>Security rules</dt>
+    <dd>Firebase rules that allow or deny reads and writes on each path in Firestore or Storage.</dd>
+  </div>
+  <div>
+    <dt>Anon key</dt>
+    <dd>Supabase client key shipped in the browser; safe only when RLS denies other users’ data.</dd>
+  </div>
+</dl>
+
+## What this choice does not prove
+
+A working backend lets you learn behaviour: signups, sessions, drop-off, support messages. It does **not** prove pricing power, marketplace liquidity, or that your vibe-coded shell survives production load. It does **not** replace analytics, session recording, or a Go, Pivot, or Stop read after paid traffic.
+
+Aurum’s sold validation build uses **Azure, React, and NestJS**, not Lovable with Supabase, when a founder needs production deployment and measured pivots. Staying on either BaaS for the first test is valid; treating the test backend as the long-term architecture without a plan is not.
+
+## Who should not spend a week on this comparison
+
+If you have not talked to five target users and your MVP is still a landing page, pick the default your tool exports and measure. If you need regulated health data or strict tenant isolation, you need architecture input, not a blog table. Styling problems do not disappear when you swap backends.
+
+<div class="blog-faq">
+  <h3>Can you switch later?</h3>
+  <p>Often, at a cost. Moving Postgres to Firestore or the reverse is a rewrite of the data model and every query, not a settings toggle. For an MVP, choose the shape that matches the job you are testing, and accept that a pivot may include migration work.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is one more Swiss than the other?</h3>
+  <p>Supabase offers an explicit Zurich region at project creation. Firebase depends on your Google project configuration. Compliance is your process and contracts, not the logo on the dashboard.</p>
+</div>
+
+## When a Vibe Code Review fits
+
+If your MVP already runs on Supabase or Firebase, real users are coming, and you are not sure RLS or Firestore rules cover every API path, the next step is review, not another feature sprint. A [Vibe Code Review](/services/vibe-code-review) maps gaps against OWASP ASVS v5.0, spends focused time on architecture and code quality, and ends with a prioritised action list and a closing conversation under NDA. It fits when the tool was enough to learn, and production risk is the open question. It is a poor fit if you still need to validate demand with a fake door only, or if you want someone to defend misconfigured rules without changing them.

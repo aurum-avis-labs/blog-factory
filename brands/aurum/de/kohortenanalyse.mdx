@@ -1,0 +1,121 @@
+---
+title: "Kohortenanalyse für Gründer"
+description: "Kohortenanalyse: Anmeldungen pro Woche gruppieren, Rückkehr lesen, und wissen, was eine Kohortentabelle allein nicht beweist."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["kohortenanalyse", "gründung", "analytics", "retention", "mvp"]
+funnelStage: interest
+translationKey: cohort-analysis-for-founders
+relatedPosts: ["analytics-mvp-einrichten", "tracking-plan-events"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Kohortenanalyse heisst, Nutzerinnen und Nutzer danach zu gruppieren, wann sie Ihr Produkt zum ersten Mal genutzt haben, und zu beobachten, ob sie in den folgenden Wochen zurückkommen, aktiv werden oder bezahlen. Aus einer flachen Nutzerzahl wird so ein Muster, das Sie zwischen Startwochen vergleichen können.</p>
+
+## Kohortenanalyse in einem Satz
+
+Sie wählen ein Start-Event, meist Kontoerstellung oder erster Besuch, und ein Zeitfenster, oft die Anmeldewoche. Alle, die in dieser Woche gestartet haben, bilden eine Kohorte. Dann lesen Sie dieselbe Kennzahl für jede spätere Woche: Wiederanmeldung, abgeschlossenes Onboarding oder ein Limit, das Sie vorher definiert haben. Die Tabelle zeigt, ob die Anmeldungen vom letzten Monat besser sind als die vom Monat davor, nicht ob Sie «gewinnen» ohne Kontext.
+
+Der Text richtet sich an Gründerinnen und Gründer mit live MVP oder schmaler Beta, sofern Anmeldungen zuverlässig erfasst werden. Bei reiner Landingpage und Warteliste wartet die Kohortenanalyse, bis Menschen das Produkt mehr als einmal nutzen können. Bei hunderten täglichen Nutzenden und einem Finance-Team brauchen Sie eher dediziertes Product Analytics als diesen Einstieg.
+
+Kohortenkurven ergänzen Gespräche und Funnel-Kennzahlen, wenn Sie fragen, ob jemand bleibt. [Product-Market-Fit erreichen](/de/blog/product-market-fit-erreichen) ordnet die breitere Evidenz ein. Instrumentierung gehört in [Analytics für ein MVP einrichten](/de/blog/analytics-mvp-einrichten) und einen [Tracking-Plan für Events](/de/blog/tracking-plan-events), bevor die Tabelle etwas bedeutet.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Kohorte</dt>
+    <dd>Nutzer mit gleicher Startperiode, zum Beispiel der Woche der Anmeldung.</dd>
+  </div>
+  <div>
+    <dt>Retention</dt>
+    <dd>Anteil dieser Kohorte, der in einer späteren Woche oder einem späteren Tag die gewählte Aktion wieder ausführt.</dd>
+  </div>
+  <div>
+    <dt>Aktivierung</dt>
+    <dd>Die erste sinnvolle Aktion, die Sie vor dem Start schriftlich festgelegt haben, nicht «App einmal geöffnet», falls Sie mehr meinten.</dd>
+  </div>
+  <div>
+    <dt>Start-Event</dt>
+    <dd>Der Zeitstempel, der jemanden in eine Kohorte legt. Ändern Sie ihn, ändert sich die Geschichte.</dd>
+  </div>
+</dl>
+
+## Was in die erste Kohortentabelle gehört
+
+Halten Sie die erste Version klein. Ein Start-Event, wöchentliche Buckets für die ersten acht bis zwölf Wochen, zwei oder drei Ergebniszeilen.
+
+<ul class="blog-checklist">
+  <li>Aktivierung schriftlich festlegen, bevor Sie das Sheet lesen</li>
+  <li>Für alle Nutzer dieselbe Zeitzone, für Schweizer Launches meist Europe/Zurich</li>
+  <li>Interne Konten und offensichtliche Test-E-Mails aus der Kohorte ausschliessen</li>
+  <li>Woche null als Anmeldewoche, Woche eins als erste volle Woche danach</li>
+  <li>Rückkehr, Aktivierung und ein Umsatz- oder Limit-Event, falls vorhanden</li>
+  <li>Kohortenlabels im Analytics-Tool oder Export speichern, nicht nur in einer Präsentation</li>
+</ul>
+
+Ein Spreadsheet reicht bei zwanzig bis zweihundert Anmeldungen, wenn Events stimmen. GA4-Explorationen oder eine Abfrage auf der Produktdatenbank funktionieren, sobald Events einheitlich benannt sind. Session Recordings erklären einen Einbruch in Woche zwei, sie ersetzen die Tabelle nicht.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Start-Event benennen</h3><p>Konto erstellt, Test gestartet oder erstes Projekt gespeichert. Im Tracking-Plan festhalten.</p></li>
+  <li data-step="2"><h3>Bucket wählen</h3><p>Wöchentliche Kohorten sind früh leichter lesbar als tägliches Rauschen.</p></li>
+  <li data-step="3"><h3>Zwei Auswertungen wählen</h3><p>Beispiel: Prozent aktiviert bis Ende Woche null, Prozent mit zweiter Session in Woche eins.</p></li>
+  <li data-step="4"><h3>Kohorten vergleichen, nicht Heldenstorys</h3><p>Fragen Sie, ob die Kohorte vom 12. März auf denselben Zeilen besser ist als die vom 5. März, nicht ob eine Zahl «gut klingt».</p></li>
+</ol>
+
+## Was Kohortenanalyse nicht beweist
+
+Steigende Rückkehr in Woche eins ist kein Product-Market-Fit. Es ist ein verzögertes Signal unter vielen. Kohorten zeigen nicht, ob Fremde in grösserem Stil zahlen, ob der Kanal wiederholbar ist oder ob Support tragbar bleibt.
+
+Kleine Zahlen täuschen leise. Zehn Anmeldungen in einer Kohorte bedeuten: eine Person ist zehn Prozent. Gründer-Netzwerk und Bekannte verzerren frühe Wochen. Ein Produktrelease mitten im Monat spaltet eine Kohorte, wenn Sie das Datum nicht notieren.
+
+Kohortenanalyse schützt die Idee nicht. Ideen als solche sind in der Schweiz nicht schützbar, Ausführung und Verträge schon ([IGE zu Ideen](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). Behandeln Sie die Tabelle als Input für Go, Pivot oder Stop, nicht als Deck-Titel.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>War Aktivierung undefiniert, bis Sie in die Daten geschaut haben, passen Sie eine Geschichte an Rauschen an. Events neu festlegen, frische Kohorte abwarten, Regel vor der nächsten Startwoche schreiben.</p>
+</aside>
+
+<div class="blog-pair">
+  <div>
+    <h3>Wobei es hilft</h3>
+    <ul>
+      <li>Prüfen, ob Onboarding-Änderungen Woche eins bewegen</li>
+      <li>Startwochen nach Positionswechsel vergleichen</li>
+      <li>Dem Verwaltungsrat ein Diagramm ohne Vanity-Totals geben</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Was es allein nicht leistet</h3>
+    <ul>
+      <li>Zahlungsbereitschaft aus Gratis-Nutzung beweisen</li>
+      <li>Qualitative Gründe aus Interviews ersetzen</li>
+      <li>Einen kaputten Akquisitionskanal reparieren</li>
+    </ul>
+  </div>
+</div>
+
+## Ein erfundenes Beispiel: acht Wochen nach schmalem Launch
+
+Ein erfundenes Beispiel: Ein Zweier-Team liefert ein B2B-Tool für Event-Veranstalter in der Schweiz. Anmeldewoche ist die Kohorte. Aktivierung heisst «ein Event mit mindestens drei Sessions angelegt». Rückkehr in Woche eins heisst «an zwei verschiedenen Tagen in den sieben Tagen nach Anmeldung eingeloggt».
+
+Wochen eins bis drei nach öffentlicher Beta: jede Kohorte hat zwölf bis achtzehn Anmeldungen, meist aus dem Netzwerk der Gründer. Aktivierung liegt zwischen vierzig und fünfzig Prozent. Rückkehr in Woche eins schwankt zwischen zwanzig und fünfunddreissig Prozent ohne klaren Trend. Sie liefern klarere Leerzustände und eine Checkliste am ersten Tag.
+
+Wochen vier bis sechs: eine Podcast-Erwähnung bringt kältere Traffic. Die Kohorte vom 14. April hat zweiundzwanzig Anmeldungen, Aktivierung fällt auf dreissig Prozent, Rückkehr in Woche eins auf achtzehn Prozent. Session Recordings zeigen Stillstand bei Venue-Berechtigungen, die Nutzer noch nicht haben. Sie ergänzen ein Demo-Event und eine E-Mail am dritten Tag.
+
+Wochen sieben und acht: die Kohorte vom 28. April erreicht wieder fünfundvierzig Prozent Aktivierung und achtundzwanzig Prozent Rückkehr in Woche eins, noch unter dem Ziel für bezahlte Pläne, aber warme und kalte Kohorten stehen in einer Tabelle. Fünfzehn Käufergespräche werden geplant, das Kohortenblatt bleibt für das nächste Release.
+
+## Wer die Tabelle vorerst weglassen sollte
+
+Lassen Sie Kohortenansichten weg, wenn niemand sich zweimal einloggen kann, wenn nur intern getestet wird, oder wenn das Start-Event wöchentlich wechselt. Eine Definition wählen und einen Monat halten.
+
+<div class="blog-faq">
+  <h3>Ist Kohortenanalyse dasselbe wie Retention in GA4?</h3>
+  <p>Retention-Berichte in Analytics-Tools sind eine Möglichkeit, Kohorten zu zeichnen. Die Methode ist Gruppierung nach Startperiode und spätere Auswertung. Das Tool ist austauschbar, wenn Events stimmen.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Wie viele Anmeldungen braucht eine Kohorte?</h3>
+  <p>Genug, dass eine Person den Prozentsatz nicht um zehn Punkte verschiebt. Es gibt kein universelles Minimum. Einstellige Kohorten sind Richtung, kombiniert mit Gesprächen.</p>
+</div>
+
+Wenn Fremde das Produkt wiederholt nutzen und die offene Frage Cost per Lead, Onboarding-Abbruch und Scope-Pivot ist, verbindet das [MVP-Validierungspaket](/de/services/mvp-validation) einen deployten Build auf Azure mit gemessenen Kohorten, bis zu drei Pivot-Iterationen und einer Go-, Pivot- oder Stop-Empfehlung inklusive dem, was die Daten weiterhin nicht beweisen.

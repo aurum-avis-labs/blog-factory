@@ -26,22 +26,19 @@ Die App zeigt den Speicherplatz, ob das Gerät passt, und welches Modell gewähl
 | Lizenz der Gewichte | Apache 2.0, über die festgelegte lokale Laufzeit, Zuschreibung liegt bei | Apache 2.0, dasselbe |
 | Wenn es fehlt | selbst herunterladen. Sonst tut die Verarbeitung nicht so, als wäre es da | Dasselbe. Kein stiller Ersatz |
 
-
 Beide laufen auf dem Mac. Das Netz brauchst du für den Download, danach nicht für jeden Satz einer fertigen Sitzung. Du kannst jedes Modell aus der Bibliothek entfernen. Dort siehst du, ob es bereit ist, und wie viel Platz es braucht.
 
 Ask, Dokumente, Sitzungsartefakte und eigene Artefakte teilen sich eine aktive Textquelle. Wählst du das lokale Modell, Qwen oder gpt-oss, bleibt diese Quelle auf dem Gerät. Hattest du einen eigenen Schlüssel aktiv, legt der Wechsel zurück auf das lokale Modell alle vier wieder auf den Mac. Ein Fehler greift nicht still zum anderen lokalen Modell und auch nicht zum Cloud-Schlüssel.
 
-|  | Qwen (lokal) | GPT-OSS (lokal) |
-| --- | --- | --- |
-| Aufgabe | Text auf dem Mac | Text auf dem Mac |
-| Internet | Download beim Einrichten | Download beim Einrichten |
-| Aus | Nur lokale Vorlagen | Nur lokale Vorlagen |
+## Sprachmodell und Textmodell sind zwei Downloads
+
+Transkription ist eine eigene Wahl neben Qwen oder gpt-oss. Parakeet v3 und Whisper hören die Sitzung auf dem Mac. Qwen und gpt-oss lesen nur den Transkripttext danach. Stimmen die Wörter nicht, korrigierst du Sprachmodell, Mikrofon oder Glossar, bevor du das Textmodell verantwortlich machst. Siehe [Parakeet oder Whisper](/de/blog/parakeet-oder-whisper).
 
 ## Wann Qwen die bessere Wahl ist
 
 Qwen3 4B ist die bessere Wahl auf einem Mac ohne viel Speicher, wenn du das Textmodell willst, das die Einrichtung für die meisten Geräte vorschlägt, und wenn du Platte und Arbeitsspeicher lieber für das Sprachmodell und die Aufnahme lässt. Es ist auch die bessere Wahl, wenn du unsicher bist. gpt-oss-20b auf einen Mac zu zwingen, der nicht passt, wird von der App nicht als Qualitätsstufe kaschiert. Die Hinweise zur Gerätepassung stehen da, damit du nicht raten musst.
 
-Das Sprachmodell wählst du separat. Eine flüssige Qwen-Zusammenfassung eines schlechten Transkripts bleibt die Zusammenfassung eines schlechten Transkripts. Stimmen die Wörter nicht, korrigierst du das Sprachmodell, das Mikrofon oder das Glossar. Der Wechsel von Qwen zu gpt-oss benennt keine Sprecher um und wendet keine Glossarhinweise auf das Audio an.
+Das Sprachmodell wählst du separat. Eine flüssige Qwen-Zusammenfassung eines schlechten Transkripts bleibt die Zusammenfassung eines schlechten Transkripts.
 
 ## Wann gpt-oss die bessere Wahl ist
 

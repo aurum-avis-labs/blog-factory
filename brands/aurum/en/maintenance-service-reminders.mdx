@@ -14,9 +14,11 @@ site: prozess-check
 
 ## Schedule recurring maintenance and service appointments
 
-You schedule recurring maintenance by keeping one register of contracts, with the next due date on each, sending a reminder early enough to agree a visit, and proposing times the customer confirms. After the visit, the report and the invoice follow the work that was actually done. The calendar does not invent the interval, and it does not turn up at the site until someone has said yes.
+<p class="blog-lede">You schedule maintenance from one register of contracts: the next due date, a reminder early enough, concrete times the customer confirms, then the report and invoice from the visit.</p>
 
-This is for service offices that hold contracts for heating, ventilation, fire protection or machines: the same customers, the same plants, a date that comes around. It is the contract calendar. Routing technicians through a day's emergencies is a different job. The visit itself, once it has happened, meets the report and the invoice in [from daywork report to invoice](/prozess-check/blog/daywork-report-to-invoice). This page stops at getting the visit agreed, and points there for the paperwork after.
+The calendar does not invent the interval, and it does not turn up at the site until someone has said yes. This is for service offices that hold contracts for heating, ventilation, fire protection or machines: the same customers, the same plants, a date that comes around.
+
+Routing technicians through a day's emergencies is a different job. The visit itself meets the report and the invoice in [from daywork report to invoice](/prozess-check/blog/daywork-report-to-invoice). This page stops when the visit is agreed, and points there for the paperwork after.
 
 <ol class="blog-flow">
   <li><strong>Register</strong><p>Customer, plant, interval, last visit, next due date.</p></li>
@@ -28,54 +30,70 @@ This is for service offices that hold contracts for heating, ventilation, fire p
 
 ## What the register has to hold
 
-One row per contract, or per plant if one customer has several with different intervals. The fields that make a reminder possible are few:
+One row per contract, or per plant if one customer has several intervals. Without these fields the reminder has nothing to read:
 
-- Customer, site, and a phone or email that still works.
-- What is being maintained, in the words the technician and the invoice will use.
-- The interval, taken from the contract or from the manufacturer's instruction, with the source noted.
-- The date of the last completed visit, not the date you meant to go.
-- The next due date, calculated from the last completed visit or from a fixed calendar date, whichever the contract says.
-- Who is allowed to agree the appointment, on your side and on the customer's.
+<ul class="blog-checklist">
+  <li>Customer, site, phone or email that still works</li>
+  <li>What is being maintained, in the words the technician and invoice will use</li>
+  <li>Interval from the contract or manufacturer's instruction, with the source noted</li>
+  <li>Date of the last completed visit, not the date you meant to go</li>
+  <li>Next due date: from the last visit or a fixed calendar month, per the contract</li>
+  <li>Who may agree the appointment, on your side and on the customer's</li>
+</ul>
 
-A spreadsheet is a register if those columns stay stable and one person owns them. A service program is a register if the staff actually close the visit in it. A drawer of contracts is not a register. The reminder has nothing to read.
+A spreadsheet is a register if those columns stay stable and one person owns them. A service program is a register if staff actually close the visit in it. A drawer of contracts is not a register.
 
-The interval is not a default you copy from another firm. A fire-protection installation and a small ventilation unit do not share a date just because both sit in the same building. For fire protection, the VKF fire-safety standard places a maintenance duty on owners and users: structural, technical and defensive fire-protection installations, and building-services systems, are to be kept fit for purpose and ready for operation. That is [Article 20 of the VKF Brandschutznorm](https://services2.vkf.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-57.pdf/content). It does not, in that article, set one interval for every heating contract. The date you put in the register is the one in your contract or in the instruction for that plant. Which cantonal rule applies on top is something the contract and, if needed, your adviser say. The flow only reads the date you stored.
+Do not copy the interval from another firm. A fire-protection installation and a small ventilation unit do not share a date just because both sit in the same building. [Article 20 of the VKF fire-safety standard](https://services2.vkf.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-57.pdf/content) places a maintenance duty on owners and users: structural, technical and defensive fire protection, and building-services systems, are to be kept fit for purpose. That article does not set one interval for every heating contract. The date in the register comes from your contract or the instruction for that plant. Cantonal rules are for the contract and your adviser. The flow only reads the date you stored.
 
 ## Remind early, and do not book the site alone
 
-The useful reminder is internal first. Weeks before the due date, the office sees the list of plants coming due, with the technician's rough availability. Then the customer gets a proposal: two or three concrete times, the site, and what the visit covers. A sentence that says "we will be there in March" is not an appointment.
+The useful reminder starts internally. Weeks before the due date, the office sees plants coming due and the technician's rough availability. Then the customer gets a proposal: two or three concrete times, the site, and what the visit covers. "We will be there in March" is not an appointment.
 
-The customer confirms in a reply you can file against the row. Until that reply exists, the slot is a proposal. Technicians plan against confirmed visits, not against a hope. If the customer does not answer, a second message goes out while there is still time, and then a person calls. The flow may draft both messages. It does not mark the visit as confirmed on silence.
+The customer confirms in a reply you can file against the row. Until that reply exists, the slot is a proposal. Technicians plan against confirmed visits. If the customer does not answer, a second message goes out while there is still time, then a person calls. The flow may draft both messages. It does not mark the visit as confirmed on silence.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
   <p>A due date in the register is not an appointment. The visit is confirmed when the customer has agreed a time. Silence is not agreement.</p>
 </aside>
 
-Put the lead time in the register as well as the interval. A plant that needs a part ordered two weeks ahead cannot be reminded three days before. The reminder date is due date minus that lead time. If you only store the due date, the office will always be late on the plants that need parts.
+Put lead time in the register as well as the interval. A plant that needs a part ordered two weeks ahead cannot be reminded three days before. The reminder date is due date minus lead time.
 
 Access matters. Some sites need a key, a code, or a person on site. The proposal says so, and the confirmation stores who will open the door. A visit that fails because nobody was there still consumes the day. It should not silently count as "maintained".
 
 ## After the visit, move the next date
 
-When the visit is done, two things happen, and neither is optional. The report and the invoice are produced from what was done. If that is time and material, the daywork path already describes capture, a check, a draft invoice and an approval. Do not build a second invoicing flow for the same reports. The maintenance register only needs the result: visit completed, date, and any defect the technician wrote down.
+When the visit is done, the report and invoice follow what was done. If that is time and material, [from daywork report to invoice](/prozess-check/blog/daywork-report-to-invoice) already describes capture, a check, a draft invoice and approval. Do not build a second invoicing flow for the same reports. The maintenance register only needs the result: visit completed, date, and any defect the technician wrote down.
 
-Then the next due date moves. If the interval runs from the last visit, the next date is that completion date plus the interval. If the contract is a fixed month each year, the next date is that month, not "twelve months from whenever we got there". Write which of the two the row uses. A completed visit that does not move the date will remind you forever. A visit that was cancelled must not move the date. Cancellation is a status, not a completion.
+Then the next due date moves. If the interval runs from the last visit, the next date is that completion date plus the interval. If the contract is a fixed month each year, the next date is that month. Write which rule the row uses. A completed visit that does not move the date will remind you forever. A cancelled visit must not move the date. Cancellation is a status, not a completion.
 
-Defects found on the visit are not a new contract. They are a note for a quote or a follow-up visit. They do not change the interval unless the contract says a repair resets the clock. Usually it does not.
+Defects found on the visit are a note for a quote or follow-up visit, not a new contract. They do not change the interval unless the contract says a repair resets the clock.
+
+When technicians are on the road for the day's jobs rather than the contract calendar, you are planning routing and priorities for that day. That is a different job from this page. This page is about the date that returns every year or month, whether or not a pump fails on Tuesday.
+
+<ul class="blog-scenarios">
+  <li><h3>If your service program already closes visits</h3><p>Check whether it holds due date, reminder and confirmation on one row. If it does, extend the program instead of building a parallel calendar.</p></li>
+  <li><h3>If the register lives in Excel</h3><p>Automation often pays off first on the reminder list and mail templates, not on a new product.</p></li>
+</ul>
 
 ## A made-up example
 
-A made-up example: a firm services heating and ventilation for about forty small commercial sites, plus fire-damper checks on twelve of them. The register is one sheet. Heating rows say "every twelve months from the last completed visit", because that is what those contracts say. Fire-damper rows carry the interval written in each customer's contract, not a number copied from the heating rows. Lead time is three weeks, because filters are ordered in.
+A made-up example: a firm services heating and ventilation for about forty commercial sites, plus fire-damper checks on twelve of them. Heating rows: "every twelve months from the last completed visit". Fire-damper rows carry the interval in each customer's contract. Lead time is three weeks because filters are ordered.
 
-On the first Monday of a month the flow lists rows whose reminder date falls in the next ten days. The office sends proposals with two morning slots. Confirmed replies become appointments and block the technician's week. Silence gets a second message, then a call. After a completed heating visit, the report goes through the firm's usual invoice check, and the next due date moves twelve months from the day the technician marked it done. A cancelled visit stays on the old date. Counts and the firm are invented. Nothing here is a measured saving.
+On the first Monday the flow lists rows whose reminder date falls in the next ten days. The office sends proposals with two morning slots. Confirmed replies become appointments and land in the technician's week plan with site and access notes. Silence gets a second message, then a call. A customer replies "Thursday morning" without a time. The office answers with one concrete slot and waits for a second confirmation before planning the visit.
+
+After a completed heating visit, the report goes through the usual invoice check, and the next due date moves twelve months from the day marked done. A fire damper at the same site keeps its own interval on another row. A cancellation because the customer was ill stays on the old date, with a note "cancelled, not completed". Counts and the firm are invented. Nothing here is a measured saving.
 
 ## What to leave alone
 
-Leave it alone when a service program the technicians already use sends the reminders, stores the confirmation and moves the next date. Adding a second calendar creates two truths. Leave it alone when you have twenty contracts and one person already sees them. The sheet is the system. Automate when the list is long enough that dates slip, or when the reminder, the proposal and the "who confirmed" live in three places. Do not use this flow for breakdowns. A plant that fails on Tuesday is dispatched. It is not a contract anniversary.
+Leave it alone when your service program sends reminders, stores confirmations and moves the next date. A second calendar creates two truths. Leave it alone when you have twenty contracts and one person already sees them. Automate when dates slip, or when the reminder, the proposal and "who confirmed" live in three places. A plant that fails on Tuesday is dispatched. It is not a contract anniversary.
+
+<div class="blog-faq">
+  <h3>Is an Outlook calendar enough for service contracts?</h3>
+  <p>A calendar holds appointments, not intervals, last completed visits, or customer confirmations. Without a register the reminder has no source row.</p>
+</div>
 
 ## When a Prozess-Check fits
 
 A Prozess-Check fits when the contract calendar is one recurring task and you want a price range before a reminder and a proposal are built. It is 60 minutes on Microsoft Teams, CHF 99, paid by card when you book. You describe one contract type. You do not need the customer list.
 
-You leave with a written case, whether it pays off, and a price range. The hour commits you to nothing. If nothing is worth automating, the fee comes back. The offer is on the [Prozess-Check](/prozess-check) page.
+You leave with a written case, whether it pays off, and a price range. If nothing is worth automating, the fee comes back. The offer is on the [Prozess-Check](/prozess-check) page.

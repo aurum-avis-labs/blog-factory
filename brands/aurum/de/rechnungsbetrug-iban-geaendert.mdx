@@ -1,0 +1,130 @@
+---
+title: "Rechnungsbetrug IBAN geändert: Freigabe und Prüfung vor der Zahlung"
+description: "Rechnungsbetrug mit geänderter IBAN nutzt oft ein übernommenes Lieferantenpostfach. So prüfen Sie Bankdaten, stoppen Zahlungen und schärfen den Prozess."
+pubDate: 2026-10-06
+author: "Aurum Avis Labs"
+tags: ["rechnungsbetrug", "iban", "business email compromise", "zahlungen"]
+funnelStage: interest
+translationKey: invoice-fraud-changed-iban
+relatedPosts: ["sicherheitsvorfall-melden", "vier-augen-prinzip-zahlungen", "passwortrichtlinie-kmu"]
+draft: false
+site: security
+---
+
+## Rechnungsbetrug IBAN geändert: was vor der Zahlung passieren muss
+
+Rechnungsbetrug mit geänderter IBAN liegt vor, wenn jemand Lieferantenkommunikation abfängt oder imitiert und eine echte wirkende Rechnung mit neuen Bankdaten schickt. In Schweizer Meldungen fällt das unter Business E-Mail Compromise. Das PDF kann stimmen, der Betrag zur Bestellung passen, nur die Zahlungsanweisung ist falsch. Ihre erste Aufgabe ist, die ausgehende Zahlung zu stoppen, das Konto über einen Kanal zu verifizieren, den Sie bereits vertrauen, und danach Stammdaten sowie Freigaben so zu justieren, dass der nächste Versuch früher scheitert. Das [BACS](https://www.bacs.admin.ch/de/business-email-compromise-de) beschreibt Täter, die ein Postfach übernehmen und echte Rechnungen mit neuer IBAN weiterleiten; empfohlen werden Rückruf, Sensibilisierung der Finanzabteilung, Zwei-Faktor-Authentifizierung, klare Zahlungsprozesse und Prüfung von Weiterleitungsregeln.
+
+Betrug machte im zweiten Halbjahr 2025 rund [52 Prozent der Meldungen](https://www.bacs.admin.ch/de/hjb-25-2-de) aus. Schulungsthemen für Finanzteams umfassen dieses Muster neben Phishing; siehe [Security Awareness Training Inhalte](/de/security/blog/security-awareness-training-inhalte). Das Vier-Augen-Prinzip für Zahlungen ist ein eigener Checklisten-Artikel; hier geht es um die Prüfung, wenn die IBAN auf der Rechnung nicht zu Ihren Unterlagen passt.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Zahlung anhalten</h3><p>Keinen Zahlungslauf freigeben, bis die Bankdaten bestätigt sind. Notieren, wer die Rechnung wann erhielt.</p></li>
+  <li data-step="2"><h3>Stammdaten vergleichen</h3><p>IBAN gegen den Lieferanteneintrag prüfen, nicht nur gegen das letzte PDF im Thread.</p></li>
+  <li data-step="3"><h3>Lieferant anrufen</h3><p>Nummer aus Vertrag oder alter Rechnung nutzen, nicht aus der verdächtigen E-Mail.</p></li>
+  <li data-step="4"><h3>Intern melden</h3><p>IT informieren, wenn das Postfach kompromittiert sein könnte; Weiterleitungen und Logins prüfen.</p></li>
+  <li data-step="5"><h3>Dokumentieren</h3><p>Vorfall festhalten für Versicherung und Audit, auch wenn kein Geld abfloss.</p></li>
+</ol>
+
+## Warum geänderte IBAN-Betrug in KMU funktioniert
+
+Viele Betriebe mit 20 bis 250 Personen haben eine schlanke Finanzabteilung. Eine Person matcht Rechnungen, eine andere gibt frei, dringende Lieferanten werden beschleunigt. Täter kennen diesen Rhythmus. Sie übernehmen das Lieferantenpostfach, Ihr Einkaufspostfach oder senden von einer ähnlichen Domain. Weil der Rechnungskörper normal wirkt, bestehen automatische Prüfungen auf Betrag und UID oft noch.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Kanal</span><strong>E-Mail</strong><p>Die meisten Fälle starten im gewohnten Lieferantenthread.</p></li>
+  <li><span class="blog-kicker">Änderung</span><strong>Nur IBAN</strong><p>Layout, Logo und Beträge bleiben oft plausibel.</p></li>
+  <li><span class="blog-kicker">Ziel</span><strong>Auszahlung</strong><p>Geld geht ab, bevor jemand zurückruft.</p></li>
+</ul>
+
+## Woran Sie eine IBAN-Änderung im Thread erkennen
+
+Achten Sie auf Hinweise, die technische Filter nicht sehen. Eine Absenderadresse, die um ein Zeichen von der gewohnten Domain abweicht. Eine Fusszeile mit «neue Bankverbindung ab sofort», während der Rest der Rechnung unverändert wirkt. Ein PDF, das wie die Vorlage aussieht, aber eine andere QR-Rechnung oder andere Referenznummer trägt. Manchmal kommt die Rechnung aus dem echten Postfach des Lieferanten, weil jemand dort eingeloggt ist und nur die Zahlungszeile ersetzt.
+
+Lesen Sie die E-Mail-Kopfzeilen nur, wenn IT das kann. Für die Buchhaltung reicht oft: stimmt die IBAN mit dem ERP überein, und wer hat die Änderung schriftlich angekündigt, bevor die Rechnung kam?
+
+## Was dieses Thema nicht abdeckt
+
+Dieser Beitrag ist nicht CEO Fraud, bei dem die «Geschäftsleitung» per Chat eine Überweisung fordert. Er ist nicht die vollständige Ausgestaltung eines Vier-Augen-Rasters, obwohl neue Bankdaten eine zweite Prüfung brauchen. Er ersetzt keine Rechtsberatung zur Rückforderung; Bank und Polizei kommen nach einer fehlgeleiteten Zahlung dazu.
+
+## Grenzen von E-Mail- und PDF-Prüfung allein
+
+SPF und DKIM können «grün» sein und trotzdem eine falsche IBAN transportieren. Ein signiertes PDF beweist nicht, dass die Bankdaten seit der letzten echten Rechnung unverändert blieben. OCR und Drei-Wege-Match finden Duplikate, nicht Social Engineering in einem echten Thread.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Eine Regel «wir zahlen nur bekannte IBAN» scheitert, wenn ein Lieferant legitim die Bank wechselt. Der Fix ist Verifikation auf bekannter Telefonnummer, nicht pauschales Ablehnen jeder Änderung.</p>
+</aside>
+
+## Ein erfundenes Beispiel: Dienstagnachmittag in der Buchhaltung
+
+Ein erfundenes Beispiel: ein Handelsbetrieb mit 45 Mitarbeitenden, keine Kundennamen. Am Dienstag erhält die Buchhaltung eine PDF-Rechnung eines langjährigen Verpackungslieferanten. Der Betrag passt zur Bestellung. Die IBAN in der Fusszeile weicht um zwei Stellen vom ERP ab. Die Sachbearbeiterin stoppt den Zahlungslauf, ruft die Nummer von der Rechnung des Vormonats an und hört, der Lieferant habe die Bank nicht gewechselt. IT findet in dem kompromittierten Lieferantenpostfach eine Weiterleitung an eine externe Adresse. Keine Zahlung ging raus. Der Betrieb ergänzt die Regel: jede IBAN-Änderung braucht einen protokollierten Rückruf vor der Freigabe.
+
+## Was tun, wenn die Zahlung schon raus ist
+
+Handeln Sie am Tag der Entdeckung. Bank sofort anrufen und Rückruf oder Sperre anfragen. Polizei melden und Aktenzeichen notieren. Intern IT und Geschäftsleitung informieren. Speichern Sie die E-Mail, das PDF, Kontoauszug und Zeitstempel der Freigabe. Rückforderung hängt von Fristen und Empfängerkonto ab; dieser Beitrag ersetzt keine Rechtsberatung.
+
+Versicherer fragen später nach dem Ablauf: wer hat freigegeben, welche IBAN stand im ERP, welcher Rückruf fehlte. Je früher Sie das schriftlich haben, desto ruhiger das Gespräch, auch wenn das Geld weg bleibt.
+
+## Wer darf Lieferanten-IBAN im System ändern
+
+In kleinen Teams darf oft jede Assistenz Stammdaten pflegen. Für Betrüger ist das der kürzeste Weg: ein Phishing-Klick, dann IBAN im ERP ersetzen, dann die «normale» Rechnung aus dem Thread. Trennen Sie «Rechnung erfassen» von «Bankdaten ändern». Wer IBAN ändern darf, braucht einen zweiten Blick und einen Rückruf, bevor die nächste Zahlung auf die neue Nummer läuft.
+
+Einkauf darf Bestellungen freigeben, Finanz darf zahlen: beide sollten wissen, dass eine geänderte IBAN immer stoppt, nicht nur «wenn es komisch wirkt».
+
+## Wer aufwändige Prozesse vorerst weglassen kann
+
+Weniger als ein Handvoll Lieferantenzahlungen pro Monat und nur lang bekannte Begünstigte: eine kurze schriftliche Regel plus Rückruf kann reichen, bis das Volumen steigt. Internationale Zahlungen, viele neue Lieferanten oder Assistenzen, die Stammdaten allein ändern dürfen: Freigabeschritte vor dem nächsten Audit oder Versicherungsfragebogen klären.
+
+<div class="blog-pair">
+  <div>
+    <h3>Für wen reicht die Kurzregel</h3>
+    <ul>
+      <li>Wenige feste Lieferanten, gleiche IBAN seit Monaten</li>
+      <li>Eine Person sieht jede Rechnung vor der Freigabe</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Wer früher nachjustieren sollte</h3>
+    <ul>
+      <li>Viele neue Lieferanten oder Auslandzahlungen pro Quartal</li>
+      <li>Mehrere Personen dürfen Stammdaten ohne Vier-Augen ändern</li>
+    </ul>
+  </div>
+</div>
+
+## Technische Hygiene als Stütze für die Finanzabteilung
+
+Das BACS nennt Zwei-Faktor-Authentifizierung auf Geschäfts-E-Mail und Prüfung von Weiterleitungsregeln. Ihr IT-Partner kann nach Auto-Forward auf externe Adressen und ungewohnte Postfachregeln suchen. Das ersetzt nicht den Anruf, schliesst aber einen häufigen Einstieg.
+
+Prüfen Sie, ob Einkauf dieselben Passwortgewohnheiten wie die Finanzabteilung hat. Geteilte Zugänge in kleinen Teams erlauben Tätern, nach einem Phishing-Klick in Rechnungsthreads zu wechseln. Mehrfaktor-Authentifizierung für alle, die Lieferantenstammdaten ändern dürfen, gehört ins gleiche Programm wie Sensibilisierung in der Finanzabteilung.
+
+<ul class="blog-checklist">
+  <li>Weiterleitungen auf private oder unbekannte Adressen entfernen</li>
+  <li>Postfächer von Einkauf und Buchhaltung auf ungewohnte Login-Orte prüfen</li>
+  <li>Keine Zahlung freigeben, solange IBAN und ERP abweichen</li>
+</ul>
+
+## Fragen von Versicherung und Audit nach einem Beinahe-Vorfall
+
+Cyberversicherungen und Kundenaudits fragen oft, wie Sie Bankdatenänderungen verifizieren. Eine einseitige interne Regel plus protokollierter Rückruf überzeugt viele Prüfer mehr als «wir rufen meist an». Das Protokoll bleibt schlank: Datum, Lieferant, wer bestätigt hat, vereinbarte IBAN. Ein Softwareprojekt ist dafür nicht nötig.
+
+Ist Geld bereits unterwegs, wollen Versicherer den Zeitablauf, die Originalrechnung, die falsche Anweisung und Polizei-Referenzen. Dokumentation ab dem Tag der Entdeckung beschleunigt das Gespräch, auch wenn Rückforderung scheitert.
+
+<div class="blog-faq">
+  <h3>Sollen wir einen Beinahe-Vorfall mit geänderter IBAN melden?</h3>
+  <p>Intern ja, als Sicherheitsvorfall. Extern helfen freiwillige Meldungen beim BACS. Die gesetzliche Cyberangriff-Meldepflicht gilt für kritische Infrastrukturen, nicht für die meisten KMU.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Reicht es, die IBAN per E-Mail zurückzufragen?</h3>
+  <p>Nein, wenn der Thread kompromittiert ist, antwortet der Täter. Rückruf auf einer Nummer, die Sie schon vor dem Vorfall genutzt haben.</p>
+</div>
+
+## Schulung, die Finanz und Einkauf verbindet
+
+Die Finanzabteilung ist das letzte Tor, Einkauf und Assistenz sehen den Thread oft zuerst. Eine Live-Security-Awareness-Schulung von ein bis zwei Stunden kann Rechnungsbetrug, CEO-Dringlichkeit und Meldewege ohne Schuldzuweisung durchgehen. Remote oder vor Ort in der Schweiz beschreibt die Seite [Security Awareness](/de/security/security-awareness).
+
+In der Vorbereitung lohnt sich ein kurzer Blick auf Ihre drei häufigsten Lieferanten: Wo steht die IBAN heute, wer darf sie ändern, und wer ruft bei Abweichung an? Diese drei Antworten reichen oft als Einstieg in der Schulung, ohne vertrauliche Beträge zu nennen.
+
+## Meldung an Behörden und freiwillige Hinweise
+
+Eine fehlgeleitete Zahlung ist strafrechtlich und über die Bank zu klären. Für Statistik und Warnung anderer Betriebe können Sie beim BACS freiwillig melden. Das ist nicht dieselbe Pflicht wie die Meldepflicht für kritische Infrastrukturen seit April 2025. Verwechseln Sie die beiden Wege nicht, wenn die Geschäftsleitung nach «Meldepflicht» fragt.

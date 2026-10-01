@@ -1,0 +1,5 @@
+# aurum/clicked-a-phishing-link-at-work
+- de: 900 -> 1653 words, brands/aurum/de/phishing-link-geklickt.mdx
+- en: 924 -> 1697 words, brands/aurum/en/clicked-a-phishing-link-at-work.mdx
+## What changed
+Added the queries around the click itself: password changed by the employee or by IT, link only versus credentials or an opened attachment, IBAN and a payment already sent, whether the FDPIC/EDÖB report or the 24-hour BACS duty applies, and the private-person checklist versus a company mailbox. Verified against BACS phishing, account-hacked and business-email-compromise pages (DE and EN), Microsoft's compromised-mailbox guide (disable, revoke sessions, hidden rules), fedlex Art. 8 and Art. 24, and the EDÖB fine page. Left out the exact BACS form URL (the reporting page is the stable entrance), any PowerShell, training prices, and links to later security posts because this is seq 1. Deloitte's 25 percent / 924-person figure is cited from the brand research file with the PDF linked; that PDF was not re-read line by line.

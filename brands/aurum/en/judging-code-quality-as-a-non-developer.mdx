@@ -1,0 +1,78 @@
+---
+title: "Judging code quality as a non-developer"
+description: "Judging code quality as a non-developer: repo signals, tests, secrets, and data rules you can check without reading every line."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["code quality", "founders", "vibe coding", "technical due diligence"]
+funnelStage: interest
+translationKey: judging-code-quality-as-a-non-developer
+relatedPosts: ["building-an-mvp-with-lovable", "lovable-supabase-row-level-security"]
+draft: true
+site: studio
+---
+
+## Judging code quality as a non-developer
+
+Judging code quality as a non-developer does not mean reading every function. It means asking whether the repository, the hosting account, and the data layer look cared for: version control, a readable README, secrets kept out of the tree, automated checks where they exist, and row-level rules on shared databases before strangers get logins. You are screening for neglect and obvious risk, not signing off as chief engineer. That is enough to decide whether to widen access, pause a pilot, or book a structured review.
+
+This is for founders, SME owners, and innovation leads who paid for a vibe-coded or agency MVP and must answer a board member, an investor, or a corporate security contact without pretending they wrote the stack. If you already know the app is not production-grade, start with [is your vibe-coded app production ready](/blog/is-your-vibe-coded-app-production-ready) for load, monitoring, and auth questions. Supabase row level security is a separate pass; see [Lovable Supabase row level security](/blog/lovable-supabase-row-level-security) if your build uses that pairing.
+
+<ul class="blog-checklist">
+  <li>Confirm you have admin access to the Git host, the cloud project, and the database dashboard, not only a preview URL</li>
+  <li>Read the README: how to run locally, which environment variables exist, and who last updated it</li>
+  <li>Search the repository for obvious secrets (API keys, service role keys, `.env` files committed by mistake)</li>
+  <li>Ask whether automated tests or linting run on each push; green is not proof, but total absence is a signal</li>
+  <li>For Supabase or similar: open policies and check that anonymous users cannot read other people's rows</li>
+  <li>Check dependency alerts in the host or package manager; note anything marked critical and whether someone owns the fix</li>
+  <li>Clarify in writing who owns the code, designs, and cloud accounts after the project ends</li>
+</ul>
+
+## What you can see without reading TypeScript
+
+Start with artefacts, not syntax. A serious MVP still has a single source of truth in Git, tags or releases that match what is deployed, and a short note on how to roll back. If the only copy lives inside a builder's workspace and export is unclear, quality is not the first problem; recoverability is.
+
+Look at change history. Steady small commits from one or two people read differently from a single giant dump the week before a demo. Neither pattern tells you the architecture is sound, but silence in version control often matches silence on security fixes.
+
+Open the issue or task list if the team uses one. Unclosed items labelled security, auth, or data leak are more informative than a polished landing page. You do not need to understand the fix; you need to know it is tracked.
+
+## What judging code quality does not prove
+
+Passing your checklist does not mean the app survives abuse, scales cleanly, or meets OWASP ASVS expectations. It does not replace penetration testing or a full architecture review. It does not show that generated row level security covers every table and join; misconfigured RLS on Lovable-linked Supabase projects has already led to public data exposure in the wild (CVE-2025-48757 is documented on the NVD).
+
+It also does not prove product-market fit, unit economics, or that Apple or Google will accept a thin wrapper. Guideline 4.2 still expects more than a repackaged website when you aim at the store.
+
+<div class="blog-pair">
+  <div>
+    <h3>Who this checklist fits</h3>
+    <ul>
+      <li>A founder about to open signup beyond friends and family</li>
+      <li>An innovation lead preparing a pilot with a client's IT contact</li>
+      <li>Someone negotiating handover from a freelancer or a vibe-coding sprint</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip the DIY pass</h3>
+    <ul>
+      <li>Products processing health, payment, or children's data without a security owner</li>
+      <li>Multi-tenant B2B where one customer's data must never appear in another's export</li>
+      <li>Teams where the term sheet already assumes formal tech due diligence this quarter</li>
+    </ul>
+  </div>
+</div>
+
+## A made-up example: the folder before the pilot
+
+A made-up example: a Bern-based logistics startup has a working booking flow built in a vibe-coding tool with Supabase. The CEO has a demo login but not the Git org. Before a regional carrier joins the pilot, they ask the contractor for admin access, clone nothing yet, and walk the list above with a part-time product manager. The README is six months old and omits staging. A search finds a committed `.env.example` but also an old commit with a live test key still in history. Supabase policies exist on `bookings` but not on `messages`. GitHub shows no workflows. The CEO does not rate the code "good" or "bad". They record four open risks, delay open signup by two weeks, and ask for policies on every user table plus secret rotation before the carrier's IT call. That judgment is proportionate. Calling the app "production ready" would not be.
+
+## Ownership and the questions lawyers care about
+
+Under Swiss practice, software written by employees for the employer generally belongs to the employer; work by an external author stays with the author until a written assignment ([overview on software protection](https://www.rentschpartner.ch/ict-law/schutz-von-software)). Your checklist should end with contracts and account ownership, not only green tests. If the builder holds the only copy, you are reviewing a demo, not an asset.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>These checks are proportionate screening for a founder or lead who is not a developer. They are not a statement that the app is safe for regulated data or unlimited traffic. When the pilot contract mentions security, or the database holds paying customers' records, stop guessing and bring in a review.</p>
+</aside>
+
+## When a Vibe Code Review fits
+
+A [Vibe Code Review](/services/vibe-code-review) fits when the prototype is the thing you are about to expose: open registration, a corporate sandbox, or diligence ahead of a seed round. You get a structured gap review against OWASP ASVS v5.0, focused time on architecture and code quality, a prioritised P0/P1/P2 list, and a closing conversation under NDA. Book it when your own folder pass found gaps you cannot close with prompts alone, not when you have not yet watched one user complete the core job in [building an MVP with Lovable](/blog/building-an-mvp-with-lovable).

@@ -1,0 +1,99 @@
+---
+title: "Technische Due Diligence Startup: MVP mit KI-Build"
+description: "Technische Due Diligence Startup: was Prüfer bei Lovable- oder Cursor-Code sehen, wie Sie sich vorbereiten, und was die Prüfung nicht beweist."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["due diligence", "startup", "mvp", "vibe coding", "investoren"]
+funnelStage: consideration
+translationKey: tech-due-diligence-for-an-ai-built-mvp
+relatedPosts: ["lovable-code-exportieren", "fake-door-test-oder-mvp"]
+draft: true
+site: studio
+---
+
+## Technische Due Diligence Startup
+
+**Technische Due Diligence** bei einem Startup mit MVP aus Lovable, Bolt, v0, Replit, Cursor oder Claude Code bedeutet: Ein Dritter prüft, ob Produkt und Code den nächsten Schritt tragen, bevor Kapital fliesst, ein Konzernpilot startet oder der Verwaltungsrat grünes Licht gibt. Gefragt sind nicht Animationen im Demo-Video, sondern Eigentum am Quellcode, Datentrennung zwischen Kunden, Verhalten unter Last und ein klarer Weg, einen Sicherheitsfehler zu beheben. Ein KI-unterstützter Erstbuild kann diese Hürde passieren, wenn Sie ihn wie Software dokumentieren: Repository, Deploy und Tests, nicht nur eine Demo mit Login.
+
+Der Text richtet sich an Gründerinnen und Gründer sowie Innovationsverantwortliche in der Schweiz, die bereits Nutzer oder Gespräche mit Investoren haben. Er ersetzt keine Rechtsberatung zu Beteiligungsverträgen und keinen Penetrationstest, wenn die Gegenseite einen verlangt.
+
+<div class="blog-pair">
+  <div>
+    <h3>Diligence lohnt sich, wenn</h3>
+    <ul>
+      <li>Eine Runde, ein Grant oder ein M&amp;A-Prozess einen technischen Reviewer nennt</li>
+      <li>Ein B2B-Pilot Nachweise zu Sicherheit oder Datenstandort schriftlich will</li>
+      <li>Sie den bestehenden Code behalten und zahlende Nutzer onboarden</li>
+      <li>Ihre Cap-Table-Story voraussetzt, dass die Gesellschaft das Produkt besitzt</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Schieben oder verengen, wenn</h3>
+    <ul>
+      <li>Sie Nachfrage noch mit einem Fake-Door-Test ohne Produktivdaten prüfen</li>
+      <li>Nur das Gründerteam lokal mit synthetischen Daten arbeitet</li>
+      <li>Sie ohnehin auf einen neuen Stack neu bauen und dieses Repo nicht weiterführen</li>
+    </ul>
+  </div>
+</div>
+
+## Was Prüfer typischerweise öffnen
+
+Technische Due Diligence auf einem jungen Produkt deckt meist vier Bereiche ab. Kommerzielle Prüfung (Markt, Churn, Unit Economics) läuft parallel. Verwechseln Sie die beiden nicht.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Eigentum und IP</dt>
+    <dd>Wer Urheberrechte hält, welche Auftragnehmer Abtretungen unterschrieben haben, ob Arbeitnehmerregeln für Mitarbeitenden-Code gelten.</dd>
+  </div>
+  <div>
+    <dt>Architektur und Abhängigkeiten</dt>
+    <dd>Wie Frontend, API, Datenbank und KI-Dienste zusammenhängen, und was passiert, wenn ein Anbieter Preise oder Bedingungen ändert.</dd>
+  </div>
+  <div>
+    <dt>Sicherheit und Datenschutz</dt>
+    <dd>Authentifizierung, Autorisierung, Geheimnisse, Logging, Backups und Speicherort von Personendaten.</dd>
+  </div>
+  <div>
+    <dt>Betrieb</dt>
+    <dd>Deployments, Monitoring, Incident-Ablauf und ob nur eine Person produktiv ausrollen kann.</dd>
+  </div>
+</dl>
+
+Ideen als solche sind in der Schweiz nicht schützbar; die Ausführung schon. Code eines externen Autors bleibt beim Autor, bis eine schriftliche Abtretung vorliegt. Von Arbeitnehmenden im Rahmen der Arbeit geschaffene Software gehört dem Arbeitgeber ([Art. 17 URG](https://www.rentschpartner.ch/ict-law/schutz-von-software)). Im Datenraum erwarten Prüfer Git-Historie, Lizenzlisten und Verträge, nicht nur eine Folie «wir besitzen alles».
+
+KI-generierte Projekte zeigen wiederkehrende Schwachstellen: Row-Level-Regeln, die im Dashboard grün wirken, aber mit dem öffentlichen Client-Key Daten preisgeben, wie im Muster von [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757) bei Lovable-verknüpften Supabase-Projekten beschrieben. Schlüssel im Frontend, Admin-URLs ohne Server-Check und Deploy-Skripte «nur auf meinem Laptop» sind häufig. Das kritisiert nicht die Wahl des Werkzeugs für die Validierung; es verlangt Nachweise.
+
+Zu Last, Monitoring und Deploy-Disziplin vor externer Prüfung hilft [ist Ihre vibe-coded App produktionsreif](/de/blog/ist-deine-vibe-coded-app-produktionsreif) als Selbsttest. Due Diligence geht tiefer, aber dieselben Fragen tauchen in Gesprächen früh auf.
+
+## Repository vorbereiten (Gründersicht)
+
+Sie brauchen kein perfektes System. Sie brauchen eine ehrliche Landkarte und Fixes für alles, was in einer geteilten Bildschirmfreigabe peinlich wäre.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Review-Branch einfrieren</h3><p>Taggen Sie den Commit, der Produktion entspricht. Notieren Sie die Hosting-Region (zum Beispiel Supabase eu-central-2 Zürich) und jeden Subprozessor mit Personendaten.</p></li>
+  <li data-step="2"><h3>Laufzeit in einem Blatt erklären</h3><p>Anmeldung, Kernflow, Dateispeicher, Umgebungsvariablen. Wer es nicht skizzieren kann, signalisiert Risiko.</p></li>
+  <li data-step="3"><h3>Zugriffskontrolle belegen</h3><p>Zwei Testkonten. Cross-Tenant-Lesen bei jeder ID-in-der-URL testen. Versteckte UI-Elemente sind kein Beweis.</p></li>
+  <li data-step="4"><h3>Geheimnisse und Lizenzen prüfen</h3><p>Client-Bundle und Repo nach Keys durchsuchen. Dependency-Audit auf dem Lockfile, das Sie wirklich deployen.</p></li>
+  <li data-step="5"><h3>Bekannte Lücken offen listen</h3><p>Eine kurze Tabelle mit Owner und Datum schlägt Schweigen. Überraschungen strafen Prüfer härter als einen Backlog.</p></li>
+  <li data-step="6"><h3>Demo unter Stress proben</h3><p>Signup, Kernnutzen, Logout im sauberen Browser. Rollback-Plan, falls das Deploy im Termin scheitert.</p></li>
+</ol>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Technische Due Diligence beweist kein Product-Market-Fit, keine Ideen-Exklusivität und keinen funktionierenden Vertrieb. Sie ersetzt keine Datenschutz-Folgenabschätzung, keine arbeitsrechtliche Klärung zu Monitoring und keinen vom Käufer verlangten Penetrationstest. Ein sauberer technischer Befund heisst «Engineering darf skalieren», nicht «Vertrieb kann aufhören».</p>
+</aside>
+
+## Ein erfundenes Beispiel: Seed-Runde mit Cursor und Supabase
+
+Ein erfundenes Beispiel: ein zweiköpfiges B2B-SaaS in Zug, kein Kunde. Fünfzehn Pilotnutzer validierten den Preis auf einer in Cursor gebauten App mit Supabase-Auth und Postgres. Ein Schweizer Angel-Syndikat verlangt technische Due Diligence vor der Überweisung.
+
+Die Gründer taggen `v0.9.4-prod`, zeichnen den Laufzeitplan und testen mit zwei Konten. Eine Edge-Function liefert bei erratener UUID fremde Projektzeilen; Policies werden vor dem Reviewer-Termin nachgezogen. Sie dokumentieren explizit getestete RLS-Szenarien, rotieren einen alten Anon-Key in einer Kommentarzeile und notieren «Restore ungetestet» bei Backups. Der externe Prüfer hat einen Tag Repo-Zugang, einen aufgezeichneten Architektur-Walkthrough und ein kurzes Schreiben. Befunde betreffen vor allem Betrieb (kein Staging, ein Gründer hält Produktionskeys), nicht «Code wegwerfen». Die Runde schliesst mit der Auflage, Monitoring und gemeinsamen Deploy-Zugang innert neunzig Tagen nachzuziehen.
+
+Das Beispiel ist erfunden. Ablauf und Tiefe variieren je nach Firma. Der Kern: Vorbereitung machte aus einem roten Flag einen begrenzten Massnahmenplan.
+
+## Wann ein strukturiertes Security-Review passt
+
+Steht Due Diligence unmittelbar bevor, oder verlangt ein Pilot Nachweise nach einem veröffentlichten Standard, lohnt sich ein fokussiertes Review mehr als ein weiterer interner Abend mit Checkliste. Das [Vibe Code Review](/de/services/vibe-code-review) von Aurum richtet sich an Apps aus Cursor, Lovable, v0 oder Claude Code. Die Arbeit wird OWASP ASVS v5.0 zugeordnet. Sie erhalten einen Gap-Report, rund acht Stunden zu Architektur und Codequalität, eine priorisierte P0/P1/P2-Liste, ein abschliessendes Gespräch und ein NDA.
+
+Buchen Sie, wenn Zugriffskontrolle, Datenstandort oder Code-Eigentum Umsatz, Investment oder eine Partnerschaft blockieren und Sie dieses Repository behalten wollen. Nutzen Sie die [Kontaktseite](/de/contact), um Timing, Teilnehmer am Schlussgespräch und die Anforderungen der Gegenseite zu skizzieren. Unterlassen Sie das Review, wenn Sie Nachfrage noch mit wegwerfbaren Fake-Daten testen, wenn Sie nur ein weiteres Feature vom KI-Werkzeug wollen, oder wenn Sie ohnehin komplett neu bauen und diesen Code nicht an zahlende Nutzer bringen. Ein Review dokumentiert Lücken; es ersetzt nicht Ihre Pflicht, P0-Punkte zu schliessen, bevor Sie den Zugang erweitern.

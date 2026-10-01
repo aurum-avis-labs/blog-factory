@@ -1,0 +1,78 @@
+---
+title: "Publish an app on the App Store: a founder sequence"
+description: "Publish an app on the App Store: enrol as a developer, ship a build, complete App Store Connect, and submit for review, with clear limits on 4.2."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["app store", "ios", "mvp", "founders"]
+funnelStage: interest
+translationKey: publish-an-app-on-the-app-store
+relatedPosts: ["app-store-guideline-4-2", "google-play-12-testers-14-days"]
+draft: true
+site: studio
+---
+
+## Publish an app on the App Store
+
+To publish an app on the App Store you enrol in the Apple Developer Program, create the app record in App Store Connect, sign and upload a build from Xcode or your CI pipeline, complete the listing and compliance questions, then submit for review. Apple decides approval; no consultant or agency can guarantee a pass. This page is for founders and pre-seed teams in Switzerland who want a store listing as part of learning, not for corporate IT groups that only need extra developers on an existing release train.
+
+A store build is not the same as a validation MVP in the browser. If you are still separating product bugs from market signal, read [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps) before you treat review as the main milestone. Rejection under [guideline 4.2](https://developer.apple.com/app-store/review/guidelines/) and the [Google Play closed-test rules](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en) for many new accounts are covered in the linked articles on this site; this page stays on the submission path.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Enrol and set up identifiers</h3><p>Join the <a href="https://developer.apple.com/programs/">Apple Developer Program</a> with the legal entity that will sign the app. Create a bundle identifier, enable the capabilities you need (push, Sign in with Apple, and so on), and register devices only if you still test outside TestFlight.</p></li>
+  <li data-step="2"><h3>Create the app in App Store Connect</h3><p>Add a new app, choose the bundle ID, set the primary language, and reserve the name. SKU and user-facing name can differ; pick something you can live with in invoices and support mail.</p></li>
+  <li data-step="3"><h3>Produce a signed release build</h3><p>Archive in Xcode or run your pipeline with distribution certificates and provisioning profiles that match the bundle ID. Upload to App Store Connect and wait until the build leaves «Processing».</p></li>
+  <li data-step="4"><h3>Complete listing, privacy, and export</h3><p>Screenshots per device class, description, keywords, support URL, age rating questionnaire, privacy nutrition labels, and export-compliance answers. If you collect personal data, the labels must match what the binary actually does.</p></li>
+  <li data-step="5"><h3>Submit for review</h3><p>Select the build, add review notes if login is required, and submit. Respond in App Store Connect if Apple asks questions. A rejection is feedback, not a final verdict on your idea.</p></li>
+</ol>
+
+## What publishing on the App Store does not prove
+
+An approved listing shows that your binary met Apple's bar on the day of review. It does not prove product-market fit, willingness to pay, retention, or that paid acquisition will work. It does not show that a wrapped web app will stay approved after you change the site behind it. Guideline [4.2](https://developer.apple.com/app-store/review/guidelines/) expects more than a repackaged website; [4.2.2](https://developer.apple.com/app-store/review/guidelines/) pushes back on pure marketing shells. Many founders validate in mobile Safari or TestFlight first and treat the public store as a later gate.
+
+TestFlight is often the better classroom: real installs, crash logs, and feedback without promising the world a finished product. None of that removes the need for honest privacy copy and a support channel you answer.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>No one outside Apple can promise approval. A native shell around the same URLs you already ship on the web can still be rejected if the product feels like a bookmark. Plan time for a redesign or a narrower app-like flow, not only for metadata edits.</p>
+</aside>
+
+## Who should submit now, and who should wait
+
+<div class="blog-pair">
+  <div>
+    <h3>Reasonable to aim for the store</h3>
+    <ul>
+      <li>You have a narrow job users repeat without you in the room</li>
+      <li>Offline, push, or on-device APIs matter to the test</li>
+      <li>Investors or pilots asked for an install link, and the web test already ran</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Better to wait</h3>
+    <ul>
+      <li>The «app» is still the marketing site in a frame</li>
+      <li>You have not watched ten people finish the core action on the web</li>
+      <li>Android is in scope and you have not read the Play closed-test rules for new personal accounts</li>
+    </ul>
+  </div>
+</div>
+
+## A made-up example: first build on a Thursday
+
+A made-up example: a founder in Bern, not a client, ships a shift-swapping tool for small cafés. They enrolled in the developer program in their GmbH's name, reused the React web app inside a Capacitor shell, and uploaded build 3 after fixing a login redirect that only broke on iOS. App Store Connect took a day to process the binary. They filed privacy labels for name, email, and shift times, attached screenshots from a test account, and submitted on a Thursday. Review asked for a demo login; they replied the same afternoon. The app went live the following Tuesday. Two venues installed it; one barista completed a swap without help. That was useful qualitative signal. It did not show that strangers would download from search, or that the firm could charge CHF 40 per site per month. They kept the web app as the main acquisition path and treated the store as credibility for owner conversations, not as proof of scale.
+
+## Questions founders still ask
+
+<div class="blog-faq">
+  <h3>Do I need a Mac to publish an app on the App Store?</h3>
+  <p>For a conventional native or cross-platform iOS build you still need macOS and Xcode, or a CI service that archives on Apple hardware. Some teams rent a Mac mini or use a cloud Mac for the upload step only. The review guidelines care about the binary, not where you clicked Archive.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Can I ship the same codebase to Google Play at the same time?</h3>
+  <p>Often yes with Capacitor or React Native, but Play has its own listing, signing, and policy checks. Many new personal Play Console accounts must run a closed test with at least twelve testers for fourteen continuous days before production. Read Google Play 12 testers 14 days before you promise both stores on the same launch date.</p>
+</div>
+
+## When the product validation package fits
+
+The [product validation package](/services/mvp-validation) fits when you want a deployed web app and a native wrap ready to submit, plus landing page, paid acquisition, and measured learning over twelve weeks, not when you only need someone to click Submit in App Store Connect. Weeks 1 to 4 deliver production code on Azure with React and NestJS; weeks 5 to 10 focus on cost per lead, conversion, and up to three pivot loops; weeks 11 to 12 end in a Go, Pivot, or Stop recommendation with what the data still cannot prove. You own the code, designs, and data. If the open question is still «will anyone use this at all», stay on the web and in TestFlight before you optimise store keywords.

@@ -1,0 +1,104 @@
+---
+title: "Swiss FADP vs GDPR: what applies to your company"
+description: "Swiss FADP vs GDPR for SMEs: scope, breach reporting, fines, and when a Zurich firm still follows EU rules for customers in Germany or France."
+pubDate: 2026-10-20
+author: "Aurum Avis Labs"
+tags: ["fadp", "gdpr", "comparison", "switzerland", "sme"]
+funnelStage: interest
+translationKey: swiss-fadp-vs-gdpr
+relatedPosts: ["email-sent-to-the-wrong-recipient", "report-a-data-breach-to-the-fdpic", "data-protection-training-for-employees"]
+draft: false
+site: security
+---
+
+## Swiss FADP vs GDPR
+
+Swiss FADP vs GDPR is not a contest you win by choosing one label. A company in Bern follows the Federal Act on Data Protection for Swiss processing by default. It also follows the GDPR when it offers goods or services to people in the EU or monitors their behaviour there. Many SMEs with 20 to 250 staff sit in both worlds: Swiss law for HR and local customers, EU law for the web shop shipping to Germany or SaaS trial sign-ups from France.
+
+This comparison is for owners and the person who answers customer audits. It is orientation, not legal advice. For whether EU law bites at all, see your separate note on whether the GDPR applies to Swiss companies; here we contrast the two frameworks once both may matter.
+
+<div class="blog-pair">
+  <div>
+    <span class="blog-kicker">Swiss FADP</span>
+    <p>Default for processing in Switzerland. FDPIC supervision. Criminal fines up to CHF 250'000 against natural persons with intent.</p>
+  </div>
+  <div>
+    <span class="blog-kicker">GDPR</span>
+    <p>Applies when EU scope triggers. EU supervisory authorities. Administrative fines against undertakings in serious cases.</p>
+  </div>
+</div>
+
+## Geographic scope
+
+The FADP applies to processing by private controllers in Switzerland and to processing that has effects in Switzerland, regardless of where the software runs. The GDPR applies to establishments in the EU and, under [Art. 3(2)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679), to non-EU controllers targeting EU residents or monitoring them. A Swiss web shop with German checkout fields and EU delivery is a classic dual case. A Swiss plumber with only local customers may be FADP-only.
+
+The [Swiss SME portal on the EU regulation](https://www.kmu.admin.ch/de/eu-regelung-zum-datenschutz-neue-eu-verordnung) summarises when EU rules reach Swiss firms. Treat it as a starting point, not the final word on your facts.
+
+## Principles and security duties
+
+Both laws demand lawfulness, purpose limitation, minimisation, accuracy, storage limits, integrity and confidentiality. Wording differs; auditors often map policies to both when you have EU customers. [Art. 8 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de) and the GDPR's [Art. 32](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679) require appropriate technical and organisational measures. Training staff is a common organisational measure under both; neither statute lists «one hour e-learning» as sufficient alone.
+
+## Breach notification: the timing trap
+
+| Topic | Swiss FADP | GDPR (EU-facing processing) |
+| --- | --- | --- |
+| Threshold to notify the authority | FDPIC only when a high risk to personality or fundamental rights is likely | Supervisory authority when risk is not unlikely |
+| Timing | [As fast as possible](https://www.edoeb.admin.ch/de/meldung-von-datensicherheitsverletzungen) | Generally within 72 hours when feasible |
+| Individuals | Inform when they need to act | Broader information duties in high-risk cases |
+
+Teams that run EU and Swiss processing must not copy the EU deadline onto a Swiss-only incident, or delay an EU notification because Swiss analysis is slower. Internal documentation applies in both systems; Switzerland expects records kept at least two years from notification where relevant ([Art. 15 DSV](https://www.fedlex.admin.ch/eli/cc/2022/568/de)). Our guides on [email sent to the wrong recipient](/security/blog/email-sent-to-the-wrong-recipient) and [reporting a breach to the FDPIC](/security/blog/report-a-data-breach-to-the-fdpic) focus on the Swiss path. For day-to-day mail habits, see [sending personal data by email](/security/blog/sending-personal-data-by-email).
+
+## Registers, advisers, fines
+
+Switzerland exempts many firms under 250 employees from a full register of processing activities unless sensitive data at scale or high-risk profiling applies ([Art. 24 DSV](https://www.fedlex.admin.ch/eli/cc/2022/568/de)). The GDPR expects a record of processing activities for most controllers with regular processing. Germany often expects a Datenschutzbeauftragter at defined thresholds; Switzerland has no identical mandatory DPO role for every SME.
+
+Swiss criminal fines up to CHF 250'000 target natural persons with intent ([FDPIC on penalties](https://www.edoeb.admin.ch/de/strafbestimmungen)). GDPR administrative fines can reach much higher figures against legal entities for serious violations. Fear marketing about EU millions does not replace sober Swiss risk management, and Swiss calm does not excuse ignoring EU customers' contractual GDPR clauses.
+
+## Data subject rights, transfers, processors
+
+Both grant access, rectification, erasure in defined cases, and restrictions. GDPR portability and some objection rights are broader in practice for EU-focused SaaS. One inbox for privacy requests helps; two policy appendices may still be needed.
+
+Switzerland has its own adequacy dialogue with the EU and separate tools for transfers to the US (Swiss-U.S. Data Privacy Framework for certified US firms). GDPR Chapter V rules bind EU-facing processing. A single US vendor may need two legal analyses.
+
+[Art. 9 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de) and GDPR Art. 28 both require written terms with processors. Many vendors offer a European SCC package plus a Swiss addendum. Collect what you have; do not assume one PDF covers both if sales teams only sent the EU version.
+
+## Who can focus on FADP only
+
+Purely local B2B services with no EU marketing, no EU monitoring analytics and no EU resident data may live under Swiss law alone. Revisit the question when you launch an English shop, hire a remote worker in the EU, or join a marketplace that lists EU buyers.
+
+## Who must run dual playbooks
+
+E-commerce, software vendors, tourism, clinics near borders, recruitment with EU candidates, and suppliers to German automotive tiers. Maintain a Swiss breach decision tree and an EU 72-hour path where GDPR processing exists, documented separately («EU customer data» vs «Swiss HR data») even when both sit in Microsoft 365.
+
+## A made-up example: one wrong send, two questions
+
+A made-up example: a 60-person industrial supplier in St Gallen emails a spare-parts list with EU customer contacts to the wrong distributor. Swiss analysis: moderate risk, document, notify FDPIC if high risk likely. GDPR analysis for the same file: processing relates to EU customers, 72-hour clock may start for the EU lead supervisory authority if risk is not unlikely. Management learns one template email is not one legal answer. They split incident forms by legal basis and train sales on Bcc habits.
+
+<ul class="blog-checklist">
+  <li>One security baseline: MFA, access reviews, DPAs, training</li>
+  <li>A short incident table: Swiss trigger and timing vs EU trigger and 72-hour timing</li>
+  <li>One privacy contact and a website notice that matches both frameworks if EU visitors matter</li>
+</ul>
+
+## What auditors and EU customers ask
+
+ISO 27001 customers cite control A 6.3 on awareness. EU customers under NIS2 may flow training duties into supplier contracts. They rarely care which statute you quote if you can show measures, incident paths and training records. [Data protection training for employees](/security/blog/data-protection-training-for-employees) framed as training after DSG and GDPR matches mixed teams without claiming a course finishes both laws for you.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Comparison for orientation. Sector law, employment and contracts can override summaries.</p>
+</aside>
+
+<div class="blog-faq">
+  <h3>Does every SME need equal depth on both laws?</h3>
+  <p>No. If you only sell in Switzerland and do not process EU residents, FADP-only may be enough. Once EU customer data or EU marketing appears, you need a second playbook for notification and contracts.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is a German privacy section on the website enough?</h3>
+  <p>Often not. It describes GDPR practice but may not say which processing sits under Swiss law. Split the text or label both frameworks clearly.</p>
+</div>
+
+For a live session that covers DSG and GDPR in Swiss office practice, see [Datenschutz awareness training](/security/datenschutz): one to two hours after a short needs call, in German or English.
+
+Use the FADP for people in Switzerland. Use the GDPR as well when you offer goods or services to people in the EU or monitor their behaviour. A Swiss address on the invoice does not switch one statute off. If you only serve clients who walk into a shop in Zug, the GDPR is usually not your statute. If you sell online into Germany and track those visitors, both can apply. Write that split into the privacy notice instead of copying a German template and swapping the word Switzerland.

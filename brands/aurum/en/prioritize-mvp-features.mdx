@@ -1,0 +1,88 @@
+---
+title: "Prioritize MVP features: one test, a short list"
+description: "Prioritize MVP features by tying each item to a falsifiable assumption, not a roadmap. Steps, limits, and what scope does not prove."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "product discovery", "startup", "prioritisation"]
+funnelStage: interest
+translationKey: prioritize-mvp-features
+relatedPosts: ["poc-vs-prototype-vs-mvp", "clickable-prototype-when-enough"]
+draft: true
+site: studio
+---
+
+## Prioritize MVP features
+
+To prioritize MVP features, name the single behaviour or commitment you need to observe, list every feature idea on paper, and keep only what must exist for that test to run in real conditions. Everything else waits. An MVP is not a small version of the final product; it is the smallest build that can falsify your riskiest assumption. If a feature does not change what you can learn, it is backlog, even when stakeholders call it «essential».
+
+This is for founders and innovation leads in Switzerland who already have a problem worth testing and are about to scope a first build. If you are still unsure what an MVP is for, start with [what is an MVP](/blog/what-is-an-mvp). If you are choosing between a clickable mock and code, see the related posts on prototype versus MVP in the frontmatter. This page stays on the cut list.
+
+## How to prioritize MVP features in practice
+
+Work from the test backward, not from the roadmap forward. You should be able to finish a first pass in an afternoon if the segment and assumption are already written down.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Write the riskiest assumption</h3><p>One sentence you could disprove with usage or payment, for example «office managers will upload delivery notes weekly» or «tenants will book viewings without a phone call». If you cannot falsify it, you are not ready to prioritize features yet.</p></li>
+  <li data-step="2"><h3>Define the minimum observable outcome</h3><p>What would count as signal in four to eight weeks: repeat visits, a completed workflow, a signed letter of intent, a paid pilot. The outcome picks the features, not the other way around.</p></li>
+  <li data-step="3"><h3>Dump every idea, then tag each line</h3><p>For each feature, ask: without this, can the outcome still be measured honestly? Tag «must for test», «makes test cleaner», or «later». «Nice for launch» is always later in an MVP pass.</p></li>
+  <li data-step="4"><h3>Cut dependencies that do not serve the test</h3><p>Admin dashboards, second roles, integrations, and polish often feel mandatory because you picture the mature product. Keep login only if strangers need accounts for the test. Keep payments only if willingness to pay is the assumption under test.</p></li>
+  <li data-step="5"><h3>Freeze scope against one metric</h3><p>Publish the list and the metric to the team. New ideas go to a parking lot until the test ends or the assumption is falsified. Scope creep is how MVPs become six-month projects with no clearer signal.</p></li>
+</ol>
+
+## What belongs in v1, and what usually waits
+
+«Must for test» covers the path from first visit to the observable outcome once, in production-like conditions. That often means auth, the core workflow, error states that would block the workflow, and enough logging or analytics to see drop-off. It rarely means every edge case, every locale, every export format, or every integration your slide deck mentions.
+
+«Makes test cleaner» is optional unless it changes behaviour. A better empty state can wait if users who need the product will push through a rough one. «Later» is everything that serves retention, compliance depth, or a second customer segment before the first assumption is settled.
+
+<p class="blog-pull">If removing a feature does not change what you can learn, it is not MVP scope.</p>
+
+## What prioritizing features does not prove
+
+A tight feature list does not show product-market fit, a scalable acquisition channel, or that your price is right. It does not protect the idea: ideas as such cannot be protected under Swiss practice; execution and branding can ([IGE overview on ideas](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). It also does not replace legal, security, or data-protection work when you handle sensitive data; scoping down does not make compliance optional, it only defers some systems until the test passes.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Prioritisation cannot fix a vague segment or a soft assumption. If the test metric is «engagement» without a defined action, you will argue about features until the budget is gone. Stop when the list still needs twenty «must» items to feel presentable; the assumption is probably too broad or the outcome is not sharp enough.</p>
+</aside>
+
+## A made-up example: viewing bookings for rental flats
+
+A made-up example: a founder targets small property managers in Zurich and Zug with five to forty units. The riskiest assumption is that qualified tenants will book a viewing slot online without calling. The observable outcome is fifteen completed bookings from paid traffic or direct outreach in six weeks, with at least half from people who were not already in the manager’s phone contacts.
+
+They list twenty features. Must for test: listing detail, available slots, booking form, confirmation email, and basic analytics on the booking step. Makes test cleaner: calendar sync. Later: tenant screening, document upload, owner portal, multi-language, ratings, and automated rent collection. They drop calendar sync when they realise managers can confirm manually for the pilot. They keep payments out because the test is demand for viewings, not rent collection. The MVP is one role, one workflow, one metric. If bookings stay at zero, the falsifier is «online slots are not how this segment chooses viewings», not «we need more features».
+
+## Who should cut hard, and who should skip this exercise
+
+<div class="blog-pair">
+  <div>
+    <h3>Who this is for</h3>
+    <ul>
+      <li>Founders with a written assumption and a date by which they need signal</li>
+      <li>Teams where sales or the board already added «just one more» module</li>
+      <li>SME innovation leads who must explain why v1 is narrow before budget is released</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip or shorten it</h3>
+    <ul>
+      <li>Teams with paying users and repeat usage; their job is iteration on what works, not a greenfield cut</li>
+      <li>Internal tools with a fixed user list and a sponsor who owns the mandate</li>
+      <li>Founders who only need a clickable prototype to test comprehension; code comes after that gate</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-faq">
+  <h3>Is MoSCoW enough on its own?</h3>
+  <p>Labels help, but «must» balloons unless each item is tied to the falsifiable assumption. Run the tag step against the outcome, not against stakeholder rank.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>How many features should an MVP have?</h3>
+  <p>There is no universal number. Count paths to one metric instead. If you need more than one primary metric for v1, you are probably running two tests at once.</p>
+</div>
+
+## When the Product Validation Package fits
+
+The [Product Validation Package](/services/mvp-validation) fits when the cut list is stable enough to build and measure in production: a deployed web app, paid acquisition, session analytics, and up to three pivot iterations on scope before a Go, Pivot, or Stop recommendation. It is a poor fit when you still need the first dozen honest interviews or when a clickable prototype has not yet shown that strangers understand the job. If you are past prioritisation and ready to test behaviour with real usage, book a discovery conversation on the contact page; if not, narrow the assumption before you commit to a twelve-week build.

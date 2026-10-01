@@ -14,17 +14,20 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Des locuteurs manquants dans la transcription apparaissent souvent au moment où vous voulez partager l'export. Vous entendez deux voix sur l'enregistrement et le fichier reste un bloc. C'est normal pour beaucoup d'exports, et ce n'est pas une panne qu'un outil du navigateur répare en devinant. Les noms viennent de ce qui est déjà dans le texte, ou d'une séparation sur le Mac. Un fichier sans noms le reste jusqu'à ce que vous posiez les noms vous-même et que vous les marquiez comme votre ajout.
+
+Des **locuteurs manquants dans la transcription** apparaissent souvent au moment où vous voulez partager l'export. Vous entendez deux voix et le fichier reste un bloc. C'est normal pour beaucoup d'exports. Un outil du navigateur ne répare pas cela en devinant. Les noms viennent de ce qui est déjà dans le texte, ou d'une séparation sur le Mac. Un fichier sans noms le reste jusqu'à ce que vous posiez les noms vous-même et que vous les marquiez comme votre ajout.
+
+Renommer un libellé que vous avez déjà est un autre travail. Cela se fait sur le Mac après l'enregistrement, pas dans un nettoyeur de sous-titres.
 
 <ol class="blog-steps">
-  <li data-step="1"><h3>Renommer dans l'ordre</h3><p>Commencer par celui qui parle le plus; un libellé à la fois.</p></li>
+  <li data-step="1"><h3>Renommer dans l'ordre</h3><p>Commencer par celui qui parle le plus&nbsp;; un libellé à la fois.</p></li>
   <li data-step="2"><h3>Utiliser le contexte</h3><p>Noms de projet et rôles indiquent souvent le locuteur.</p></li>
   <li data-step="3"><h3>Mémoriser les voix (option)</h3><p>Sur l'app Mac, la mémoire locuteur est opt-in et supprimable.</p></li>
 </ol>
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limite</span>
-  <p>Les outils navigateur ne séparent pas les locuteurs. Il faut l'app Mac ou une édition manuelle.</p>
+  <p>En septembre 2026, les outils navigateur transcrivent des fichiers jusqu'à 15 minutes, trois exécutions réussies par semaine, sans séparation des locuteurs. La capture en direct et la diarisation sont dans l'app Mac.</p>
 </aside>
 
 ## Sommaire
@@ -41,93 +44,121 @@ Des locuteurs manquants dans la transcription apparaissent souvent au moment où
 
 Une transcription est du texte plus ce que la source a stocké comme attribut de locuteur. Beaucoup de sources ne stockent rien.
 
+- Un enregistrement Zoom local est souvent `audio_only.m4a`. Pas de VTT, pas de noms. Le chemin depuis le fichier local est dans [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom).
+- Un mémo vocal ou un entretien sur un seul micro est une piste unique. Deux personnes, un fichier, zéro étiquette.
+- Teams peut montrer des noms à l'écran et vous donner un téléchargement sans balises de voix.
+- [Transcrire un audio](/fr/outils/transcrire-audio) écrit les mots dans le navigateur sans envoyer le fichier, et n'ajoute pas de noms.
 
-Un enregistrement Zoom local est souvent `audio_only.m4a`. Pas de VTT, pas de noms. Le VTT cloud n'existe que si la fonction que vous avez vraiment utilisée a écrit une transcription, et même alors les noms dépendent de ce que Zoom a mis dans les cues. Le chemin depuis le fichier local est dans [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom).
-
-Teams peut montrer des noms à l'écran pendant les sous-titres et vous donner quand même un téléchargement sans balises de voix. Voir et exporter ne sont pas le même droit, ni le même fichier. Des sous-titres qui défilent ne sont pas un `<v Nom>` archivé.
-
-Un mémo vocal, un entretien sur un seul micro et l'audio système sans diarisation sont une seule piste. Deux personnes, un fichier, zéro étiquette. Le texte peut être utile. « Qui a dit ça » est une autre question.
+Si vous aviez besoin de noms, le bon moment était une source avec balises ou une diarisation locale. Sur un texte fini sans étiquettes, le navigateur ne rattrape pas.
 
 ## Ce que le navigateur fait et ne fait pas
 
-Les outils du navigateur ne séparent pas les locuteurs à partir de l'audio. [Transcrire un audio](/fr/outils/transcrire-audio) écrit ce qui a été dit, jusqu'à 15 minutes, sans envoyer le fichier, et n'ajoute pas de noms. Si les étiquettes manquent dans un texte que vous avez déjà, elles manquent encore.
+Le [nettoyage de transcription](/fr/outils/nettoyer-transcription) enlève les horodatages et en-têtes de cues. Il garde un locuteur seulement s'il trouve un motif&nbsp;: `<v Nom>`, `Nom&nbsp;:`, `Speaker 1&nbsp;:`, `SPEAKER_01&nbsp;`. Sinon, le texte est traité sans personne. Quand rien correspond, la page indique qu'il n'y avait pas de noms de locuteurs. Vous recevez quand même le texte. Elle ne remplit pas «&nbsp;Speaker A&nbsp;» et «&nbsp;Speaker B&nbsp;» par estimation.
 
+[Qui a tenu la parole](/fr/outils/temps-de-parole) applique la même règle un cran plus loin. Vous collez une transcription avec des noms, la page montre la part de mots par nom. Sur un bloc sans noms, elle s'arrête. Pas de graphique de voix anonymes, car le navigateur ne sépare pas les voix.
 
-Le [nettoyage de transcription](/fr/outils/nettoyer-transcription) garde les motifs déjà présents et vous dit quand il n'y en avait pas. Il n'invente pas un `Speaker 1` pour rendre la page plus jolie. Un procès-verbal collé sans source serait pire qu'une ligne sans nom.
+Les pages n'enregistrent pas la réunion et n'écoutent pas l'onglet. [Transcrire un audio](/fr/outils/transcrire-audio) tourne dans le navigateur sans envoyer votre fichier à Vemoir.
 
-[Notes depuis une transcription](/fr/outils/notes-depuis-transcription) ne peuvent mettre un nom sur une action que si ce nom est dans le texte et porte le fait. Le modèle ne conclut pas du contexte que « la personne des ventes » s'appelle Camille. Si le nom manque, la ligne reste sans responsabilité inventée.
+[Notes depuis une transcription](/fr/outils/notes-depuis-transcription) peuvent résumer un fichier sans noms. Elles ne doivent pas attribuer des citations à des personnes absentes du texte. Relisez le brouillon. Si un nom apparaît sans être dans le fichier, supprimez la ligne.
+
+Vous voulez des étiquettes à la prochaine réunion sans deviner&nbsp;? Vemoir enregistre le micro et l'audio système sur votre Mac. Voir [la capture](/fr#capture). Pour un mauvais nom sur un libellé existant&nbsp;: [corriger les noms de locuteurs](/fr/blog/corriger-noms-de-locuteurs).
 
 ## Les formes qui comptent déjà comme un nom
 
-Ces motifs restent, parce qu'ils sont déjà du texte :
+| Dans le fichier | Ce que vous obtenez |
+| --- | --- |
+| `<v Camille Duval>la phrase</v>` | `Camille Duval&nbsp;: la phrase` |
+| `Camille Duval&nbsp;: la phrase` | Le nom est conservé |
+| `Speaker 1&nbsp;: la phrase` | Placeholder, pas une personne |
+| Phrase seule | Pas de nom |
 
-- `<v Camille Duval>la phrase</v>`
-- `Camille Duval : la phrase`
-- `Speaker 1 : la phrase`
-- `SPEAKER_01 : la phrase`
+<dl class="blog-terms">
+  <div>
+    <dt>Speaker 1</dt>
+    <dd>Libellé de piste de l'outil d'export, pas une identité découverte.</dd>
+  </div>
+  <div>
+    <dt>VTT</dt>
+    <dd>Fichier de sous-titres. Noms seulement si des balises voix sont présentes.</dd>
+  </div>
+  <div>
+    <dt>Diarisation</dt>
+    <dd>Séparer qui parle quand. App Mac en local, pas le navigateur.</dd>
+  </div>
+</dl>
 
-`Speaker 1` est une étiquette, pas une personne. Pour le [temps de parole](/fr/outils/temps-de-parole) cela suffit à calculer une part de mots. Pour un procès-verbal que vous classez, cela ne suffit pas. Vous savez alors qu'une piste a eu plus de mots, pas qui a promis quelque chose lundi.
-
-« Conference Room », « Phone » et un nom d'affichage du locataire comptent aussi. Ils sont ce que la source a stocké. Ils ne sont pas une liste de présence. Vous pouvez renommer si vous savez qui a parlé. Le navigateur ne le cherche pas.
+«&nbsp;Conference Room&nbsp;» compte comme libellé de la source, pas comme liste de présence. Renommez seulement si vous savez qui a parlé, et notez que c'est votre modification.
 
 ## Quand vous ajoutez les noms à la main
 
-Ajoutez les noms à la main quand la conversation était petite et que vous y étiez.
+Des libellés à la main sont honnêtes quand la réunion était courte et que vous y étiez.
 
-- Deux personnes, vous vous souvenez qui a dit le chiffre. Écrivez le nom sur la ligne et marquez-le comme votre ajout, pas comme un export.
-- Un bloc « Conference Room », et vous savez qu'une seule personne était dans la salle. Un renommage, pas une devinette à chaque cue.
-- Un procès-verbal dont l'action a besoin d'un nom propre. Copiez la ligne sur le [modèle de procès-verbal](/fr/outils/modele-proces-verbal) et écrivez la personne là. Cette fiche ne transcrit pas.
+1. Garder le fichier d'origine intact.
+2. Travailler sur une copie.
+3. Quand vous connaissez un passage, le préfixer par `Nom&nbsp;: texte` sur sa propre ligne, même orthographe partout.
+4. En cas de doute, `Inconnu&nbsp;:` ou ligne sans nom. Un mauvais nom est pire qu'un vide.
+5. Coller la copie dans [qui a tenu la parole](/fr/outils/temps-de-parole) seulement quand vous assumez les noms.
 
-Ne le faites pas quand vous ne pouvez pas séparer cinq voix, ou quand le texte devra servir de preuve plus tard et que les noms n'étaient pas dans le fichier. Un nom ajouté pour faire propre est une affirmation. Dites-le dans la note quand vous le posez.
+Cela suffit pour un debrief de dix minutes. Pas pour un atelier de quatre-vingt-dix minutes à six voix&nbsp;: vous vous tromperez au milieu, et le graphique paraîtra précis.
+
+Ne reconstituez pas des noms dans le VTT d'origine puis ne présentez pas ce VTT comme l'export du fournisseur. Montrez l'original si vous devez prouver ce que Teams ou Zoom a livré.
+
+Ne le faites pas si cinq voix ne sont pas séparables, ou si le texte devra servir de preuve et que les noms n'étaient pas dans le fichier. Un nom ajouté est une affirmation&nbsp;: notez-le dans la marge.
 
 ## Quand il vous faut le Mac
 
-L'app Mac sépare les voix sur l'appareil après que vous avez enregistré ou importé un fichier. Les locuteurs inconnus restent anonymes. Vous les renommez ensuite. « Se souvenir de ce locuteur » est un choix explicite, chiffré et supprimable. Ce n'est pas une fonction du navigateur, et ce n'est pas un modèle de dialecte suisse allemand.
+Vemoir sur le Mac sépare les participants en libellés anonymes à relire après l'arrêt. La séparation tourne sur l'appareil. Vous pouvez renommer sans créer de profil vocal. «&nbsp;Se souvenir de ce locuteur&nbsp;» est une étape distincte et explicite&nbsp;: profil chiffré seulement si vous l'approuvez. Les locuteurs inconnus ou ambigus restent anonymes. Vous pouvez désactiver ou supprimer un profil.
 
-S'il vous faut des étiquettes sur un long enregistrement, vous importez sur le Mac du MP3, M4A, WAV, AIFF, CAF ou FLAC. Le navigateur prend MP3, M4A, WAV et MP4, au plus 15 minutes, sans séparation des locuteurs. Opus et OGG ne sont pas dans l'une ou l'autre de ces listes.
+C'est ainsi qu'une piste mixte obtient des noms. Le navigateur n'ajoutera pas cette fonction. La capture en direct, le micro et l'audio système, et la diarisation sont dans l'app. macOS demande le micro et l'**enregistrement audio système**. Audio seulement, pas de capture d'écran.
 
-L'autorisation macOS pour le son des autres apps est l'**enregistrement audio système**. Audio seulement. Pas une capture d'écran.
+Vous relisez quand même les étiquettes. La diarisation peut couper une personne ou fusionner deux voix proches. La transcription brute reste la preuve. Un renommage ne réécrit pas l'historique en fausse identité.
+
+Import si vous avez déjà le fichier&nbsp;: MP3, M4A, WAV, AIFF, CAF ou FLAC dans un projet, même pipeline local qu'un enregistrement direct. Le navigateur prend MP3, M4A, WAV et MP4, au plus 15 minutes, sans séparation. Opus et OGG ne figurent sur aucune des deux listes.
+
+Voir [profils locuteurs sur Mac](/fr/blog/profils-locuteurs-sur-mac) et [corriger les noms de locuteurs](/fr/blog/corriger-noms-de-locuteurs).
 
 ## Un temps de parole sans étiquettes est une impasse
 
-[Qui a tenu la parole](/fr/outils/temps-de-parole) lit une transcription qui a déjà des noms et compte la part des mots, pas des secondes. Sans étiquettes, la page s'arrête. Elle ne pose pas un faux `Speaker 1` devant le texte pour qu'un diagramme apparaisse.
+«&nbsp;Qui a le plus parlé&nbsp;» exige des noms ou des libellés stables avant le décompte. La part de mots n'est pas une horloge. Quelqu'un qui parle vite peut avoir plus de mots que la personne qui a tenu la parole plus longtemps. [Qui a tenu la parole](/fr/outils/temps-de-parole) ne rapporte que des parts lues dans les préfixes.
 
-C'est voulu. Une part de mots sur un bloc sans nom ne dit rien de la réunion. Elle dit qu'un fichier contient du texte. Si vous voulez quand même savoir qui a plus parlé, il vous faut d'abord des noms dans le fichier ou une séparation sur le Mac. Ensuite vient le décompte.
+Sans étiquettes, la page s'arrête. C'est voulu. Une part de mots sur un bloc sans nom ne décrit pas la réunion. Elle dit qu'un fichier contient du texte.
 
-La diarisation sur le Mac n'est toujours pas un procès-verbal. Deux pistes anonymes, vous pouvez les renommer. Les décisions, vous les écrivez à part, avec la personne qui les a portées, pas avec la part de mots la plus haute.
+Si votre question est l'équité dans un atelier, partez d'un audio qui peut être séparé, renommez, puis comptez. À partir d'un collage sans noms, un diagramme «&nbsp;précis&nbsp;» sera une fiction.
+
+Pour un procès-verbal avec responsable, écrivez les participants sur le [modèle de procès-verbal](/fr/outils/modele-proces-verbal) à partir de ce que vous savez. Ne prétendez pas que la transcription a prouvé les citations. Voir aussi [qui a le plus parlé](/fr/blog/qui-a-le-plus-parle).
 
 ## Questions fréquentes
 
-### Pourquoi les étiquettes manquent-elles alors que j'entends deux personnes ?
+### Pourquoi les étiquettes manquent-elles alors que j'entends deux personnes&nbsp;?
 
-Parce qu'entendre et stocker ne sont pas la même chose. Une seule piste audio n'a pas de noms automatiques. Beaucoup d'exports ne gardent que le texte. Le navigateur ne sépare pas les voix après coup.
+Parce qu'entendre et stocker ne sont pas la même chose. Une piste audio n'a pas de noms intégrés.
 
-### Puis-je activer les étiquettes de locuteurs dans l'outil du navigateur ?
+### Puis-je activer les étiquettes de locuteurs dans l'outil du navigateur&nbsp;?
 
-Non. Il n'y a pas d'interrupteur. Si les motifs manquent dans le texte, le texte reste sans noms. Un enregistrement sans étiquettes reste sans étiquettes, même si vous le transcrivez encore une fois.
+Non. Il n'y a pas d'interrupteur. Si les motifs manquent, le texte reste sans noms.
 
-### Zoom met-il toujours les noms dans le VTT ?
+### Zoom met-il toujours les noms dans le VTT&nbsp;?
 
-Non. Un VTT cloud peut avoir des noms si la fonction que vous avez utilisée les a écrits. Un enregistrement local est souvent seulement de l'audio. Vérifiez le fichier que vous avez vraiment, pas celui que vous espériez.
+Non. Un enregistrement local est souvent seulement de l'audio. Vérifiez le fichier que vous avez vraiment.
 
-### Teams montre des noms à l'écran, pas dans le téléchargement. Et alors ?
+### Teams montre des noms à l'écran, pas dans le téléchargement. Et alors&nbsp;?
 
-Alors l'écran a montré plus que le fichier ne contient. Ne gardez que ce qui est dans le téléchargement. Demandez à l'organisateur un format avec balises de voix, si votre locataire l'écrit encore. N'inventez pas les noms dans la copie partagée.
+Ne gardez que ce qui est dans le téléchargement. N'inventez pas les noms dans la copie partagée.
 
-### « Speaker 1 » suffit-il pour un procès-verbal ?
+### «&nbsp;Speaker 1&nbsp;» suffit-il pour un procès-verbal&nbsp;?
 
-Pour un décompte de mots, oui, comme piste. Pour une action avec un responsable, non. Remplacez l'étiquette par un nom que vous pouvez assumer, et dites que vous l'avez posée.
+Pour un décompte de mots, oui comme piste. Pour une action avec responsable, non.
 
-### Un modèle de résumé déduit-il les noms du contexte ?
+### Un modèle de résumé déduit-il les noms du contexte&nbsp;?
 
-Il ne devrait pas, et vous devriez écarter un brouillon qui le fait. Une note peut porter un nom qui est dans le texte. « Quelqu'un de la finance » ne devient pas une personne qui ne s'est jamais proposée.
+Il ne devrait pas. Écartez un brouillon qui le fait.
 
-### Puis-je corriger un mauvais nom sans profil vocal ?
+### Puis-je corriger un mauvais nom sans profil vocal&nbsp;?
 
-Oui. Renommer dans le fichier ou dans la note suffit pour cette preuve-là. Un profil vocal enregistré est une fonction Mac, explicite et supprimable. Vous n'en avez pas besoin pour corriger une ligne de ce procès-verbal.
+Oui. Renommer dans le fichier ou la note suffit pour cette preuve. Le profil mémorisé est optionnel sur le Mac.
 
-### Une étiquette manquante rend-elle la transcription inutile ?
+### Une étiquette manquante rend-elle la transcription inutile&nbsp;?
 
-Non. Vous pouvez lire décisions, dates et questions ouvertes quand la phrase les porte. Vous ne pouvez pas dire honnêtement qui les a dites, sauf si vous y étiez et que vous marquez l'attribution comme la vôtre.
+Non. Le contenu et l'ordre restent. L'attribution seulement avec de vrais noms.
 
-Étape suivante : si le fichier a déjà des noms, ouvrez [qui a tenu la parole](/fr/outils/temps-de-parole). S'il n'est que de l'audio, lisez [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom) ou enregistrez la prochaine réunion sur le Mac quand les étiquettes font partie du travail.
+Étape suivante&nbsp;: si le fichier a déjà des noms, ouvrez [qui a tenu la parole](/fr/outils/temps-de-parole). S'il n'est que de l'audio, lisez [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom) ou enregistrez la prochaine réunion sur le Mac quand les étiquettes font partie du travail.

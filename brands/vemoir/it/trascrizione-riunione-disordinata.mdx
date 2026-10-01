@@ -30,9 +30,11 @@ Una trascrizione di riunione disordinata non la condividi finché numeri di cue 
 ## Contenuti
 
 - [Com'è fatta una trascrizione di riunione disordinata](#comè-fatta-una-trascrizione-di-riunione-disordinata)
+- [VTT, SRT ed export incollati](#vtt-srt-ed-export-incollati)
 - [Togliere l'impalcatura, tenere i nomi](#togliere-limpalcatura-tenere-i-nomi)
 - [Un esempio breve](#un-esempio-breve)
 - [Che cosa resta disordinato dopo i timestamp](#che-cosa-resta-disordinato-dopo-i-timestamp)
+- [Oscurare prima di condividere fuori dal team](#oscurare-prima-di-condividere-fuori-dal-team)
 - [Un ordine di lavoro pratico](#un-ordine-di-lavoro-pratico)
 - [Dove un modello peggiora il disordine](#dove-un-modello-peggiora-il-disordine)
 - [Domande frequenti](#domande-frequenti)
@@ -50,6 +52,18 @@ Apri il file in un editor di testo prima di incollarlo in un documento. Vedi qua
 
 Le parole possono andare bene e il file restare illeggibile. Il disordine è lo strato di metadati. Se le parole stesse sono sbagliate (un nome di prodotto, una persona, un numero), togliere i timestamp non sistema quello. Gli errori di riconoscimento li correggi leggendo, non nascondendo i tempi.
 
+## VTT, SRT ed export incollati
+
+Tutti e tre sono **testo che hai già**. Il pulitore toglie numeri di cue e righe di tempo; non rilancia il riconoscimento vocale.
+
+| Formato | Segnale | Cosa deve restare dopo la pulizia |
+| --- | --- | --- |
+| WebVTT | Intestazione `WEBVTT`, righe con `-->` | Righe del parlante unite se il nome si ripete |
+| SRT | Cue numerata, virgola nel timestamp | Nomi tenuti, tempi via |
+| Word o PDF incollato | A volte senza intestazione, a capo ogni poche parole | Paragrafi leggibili; a volte ancora da unire a mano |
+
+Se hai solo `audio_only.m4a` da una cartella Zoom locale, non c'è ancora nulla da pulire. Il percorso è [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom). La trascrizione nel browser è limitata a **15 minuti** di audio e **tre passaggi riusciti a settimana** (a settembre 2026). Pulire un VTT già esportato non consuma quei passaggi.
+
 ## Togliere l'impalcatura, tenere i nomi
 
 Il [pulitore di trascrizione](/it/strumenti/pulire-trascrizione) gratuito prende un VTT Zoom, un export Teams o un SRT. Lasci il file o incolli il testo. Intestazione, numeri di cue e timestamp cadono. Se un nome è già nel file, resta, nella forma `Nome: testo`. Se due cue di fila appartengono alla stessa persona, vengono unite.
@@ -59,6 +73,8 @@ Se il file non ha nomi, la pagina lo dice. I timestamp cadono lo stesso. I nomi 
 La pulizia non spende uno dei tre passaggi riusciti della settimana. Quei passaggi sono per la voce verso il testo e per le note che chiamano un modello. Un VTT che hai già è testo. Puoi pulire più file nella stessa settimana senza toccare quel contatore.
 
 Un link sulla pagina può passare il testo pulito a [note da una trascrizione](/it/strumenti/note-da-trascrizione) quando vuoi un recap, decisioni e azioni. Fallo dopo aver letto la pagina pulita, non prima. Un modello leviga un file che contiene ancora una battuta o un'idea scartata.
+
+Per la prossima call senza cercare `audio_only.m4a` dopo: [Vemoir registra dalla barra menu del Mac](/it#capture), con trascrizione locale se scegli modelli on-device.
 
 ## Un esempio breve
 
@@ -104,16 +120,27 @@ I timestamp erano solo lo strato evidente. Altre quattro forme di disordine sopr
 
 **Mix di lingue ed errori di riconoscimento.** La pulizia non traduce e non rilancia il riconoscimento vocale. Un nome scritto in tre modi resta in tre modi finché non lo correggi. Sul Mac un glossario di progetto può spingere le trascrizioni successive verso i termini che vuoi. La trascrizione originale resta la prova. Il pulitore del browser non applica un glossario.
 
+## Oscurare prima di condividere fuori dal team
+
+Testo leggibile si inoltra più in fretta, e il rischio di condivisione accidentale sale con lui. Prima di mandare il file pulito per email o chat:
+
+- Togli numeri di conto, telefoni personali e dettagli sanitari detti di passaggio
+- Sostituisci codename clienti se il destinatario non è sotto la stessa riservatezza
+- Tieni internamente una copia completa con le cue originali se devi provare una formulazione
+
+Il pulitore non oscura per te. Il passaggio note neanche. Se solo una parte della riunione è sicura da uscire, copia quei paragrafi in un nuovo documento invece di inoltrare tutta la sessione.
+
 ## Un ordine di lavoro pratico
 
 1. Salva il `.vtt` o il `.srt` originale. Non pulire l'unica copia.
 2. Lascialo su [pulire la trascrizione](/it/strumenti/pulire-trascrizione). Leggi l'avviso se dice che non c'erano nomi.
 3. Scorri doppioni, microfoni di sala e numeri (date, soldi, versioni).
-4. Se ti serve un recap, manda il testo pulito alle note. Controlla ogni responsabile sulle righe che hai appena letto.
-5. Se ti serve un verbale, copia solo decisioni e azioni sul [modello di verbale](/it/strumenti/modello-verbale). La trascrizione non è quella scheda.
-6. Archivia l'originale accanto al testo pulito. Se qualcuno contesta una riga, hai ancora le cue.
+4. Oscura se il pubblico è più ampio della stanza.
+5. Se ti serve un recap, manda il testo pulito alle note. Controlla ogni responsabile sulle righe che hai appena letto.
+6. Se ti serve un verbale, copia solo decisioni e azioni sul [modello di verbale](/it/strumenti/modello-verbale). La trascrizione non è quella scheda.
+7. Archivia l'originale accanto al testo pulito. Se qualcuno contesta una riga, hai ancora le cue.
 
-Un file che è solo audio, non testo, non sta sul pulitore. Una registrazione Zoom locale è spesso `audio_only.m4a` senza alcuna trascrizione. Quel percorso è [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom). I file più lunghi di 15 minuti sono fuori dalla prova di trascrizione nel browser. Pulire un VTT che hai già esportato non è quella prova.
+Un file che è solo audio, non testo, non sta sul pulitore. I file più lunghi di 15 minuti sono fuori dalla prova di trascrizione nel browser. Pulire un VTT che hai già esportato non è quella prova.
 
 ## Dove un modello peggiora il disordine
 
@@ -157,4 +184,6 @@ Puoi passare il testo pulito allo strumento delle note, che abbozza un recap con
 
 No. È ancora ciò che la gente ha detto, solo senza i tempi delle cue. Il verbale è più corto e strutturato. Usa entrambi, e non etichettare l'uno come l'altro.
 
-Passo successivo: lascia l'export su [pulire la trascrizione](/it/strumenti/pulire-trascrizione). Se hai ancora solo audio, parti da [trascrivere audio](/it/strumenti/trascrivere-audio) quando il file dura 15 minuti o meno.
+## Passo successivo
+
+Lascia l'export su [pulire la trascrizione](/it/strumenti/pulire-trascrizione). Se hai ancora solo audio, parti da [trascrivere audio](/it/strumenti/trascrivere-audio) quando il file dura 15 minuti o meno. Per la prossima riunione sul Mac, vedi [acquisizione e modelli](/it#capture) in homepage.

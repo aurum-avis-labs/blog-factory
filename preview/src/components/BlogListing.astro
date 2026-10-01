@@ -1,0 +1,120 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import Pagination from "@/components/Pagination.astro";
+import {
+  blogListingUrl,
+  getBrand,
+  liveSites,
+  siteLabel,
+  worldIdFromSite,
+} from "@/lib/brands";
+import type { CollectionEntry } from "astro:content";
+
+interface ListingPage {
+  data: CollectionEntry<"blog">[];
+  currentPage: number;
+  lastPage: number;
+  total: number;
+}
+
+interface Props {
+  page: ListingPage;
+  brandId: string;
+  brandName: string;
+  lang: string;
+  siteId?: string;
+}
+
+const { page, brandId, brandName, lang, siteId } = Astro.props;
+const brand = getBrand(brandId);
+const languages = brand?.languages ?? [lang];
+const defaultLanguage = brand?.defaultLanguage ?? lang;
+const currentLabel = siteId ? siteLabel(brand, siteId) : undefined;
+const showSiteOnCards = !siteId && liveSites(brand).length > 0;
+---
+
+<BaseLayout
+  title={`${currentLabel ? `${currentLabel} · ` : ""}Blog${page.currentPage > 1 ? ` - Page ${page.currentPage}` : ""} | ${brandName}`}
+  brand={brandId}
+  site={siteId}
+>
+  <main class="min-h-screen bg-background pb-20 pt-12">
+    <div class="container mx-auto px-4">
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-2">
+          {brandName} Blog
+          {
+            currentLabel && (
+              <span class="text-muted-foreground"> · {currentLabel}</span>
+            )
+          }
+          {
+            lang !== defaultLanguage && (
+              <span class="text-muted-foreground text-xl"> ({lang.toUpperCase()})</span>
+            )
+          }
+        </h1>
+        <p class="text-muted-foreground">
+          {
+            lang === defaultLanguage ? (
+              <>
+                Default language: <span class="uppercase font-medium">{lang}</span>
+                {" "}&mdash;{" "}
+              </>
+            ) : null
+          }
+          {page.total} posts
+        </p>
+        <div class="flex gap-2 mt-4">
+          {
+            languages.map((code) => (
+              <a
+                href={blogListingUrl(brandId, code, siteId)}
+                class:list={[
+                  "px-3 py-1 rounded-full text-xs font-medium uppercase transition-colors",
+                  code === lang
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted text-muted-foreground hover:bg-muted/80",
+                ]}
+              >
+                {code}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      {
+        page.data.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-14">
+            {page.data.map((post) => (
+              <BlogCard
+                post={post}
+                brand={brandId}
+                lang={lang}
+                siteLabel={
+                  showSiteOnCards ? siteLabel(brand, worldIdFromSite(post.data.site)) : undefined
+                }
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="text-center py-20 bg-muted/20 rounded-2xl">
+            <p class="text-muted-foreground text-lg">
+              {siteId
+                ? "No blog posts in this blog yet."
+                : "No blog posts found for this language."}
+            </p>
+          </div>
+        )
+      }
+
+      <Pagination
+        currentPage={page.currentPage}
+        totalPages={page.lastPage}
+        baseUrl={`${blogListingUrl(brandId, lang, siteId)}/`}
+      />
+    </div>
+  </main>
+</BaseLayout>

@@ -1,0 +1,95 @@
+---
+title: "Authentifizierung App: was ein MVP wirklich braucht"
+description: "Authentifizierung App im MVP: wann Login Pflicht ist, die kleinsten Wege mit E-Mail oder OAuth, und was Anmeldung nicht über Sicherheit beweist."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["authentifizierung", "mvp", "supabase", "lovable", "startup"]
+funnelStage: interest
+translationKey: authentication-for-an-mvp
+relatedPosts: ["skalierbares-mvp", "tech-stack-startup"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Authentifizierung in einer App im MVP- Stadium heisst: Sie wissen, welches Konto welche Daten sieht, meist per E-Mail oder Social Login, plus serverseitige Regeln, damit ein Nutzer nicht die Zeilen eines anderen liest. Das ist kein Firmen-SSO, keine Rollenmatrix für hundert Berechtigungen und kein Beweis für zahlende Nachfrage.</p>
+
+## Authentifizierung App: wann sie nötig ist
+
+Sie brauchen Login, wenn der Test getrennte Konten verlangt: gespeicherte Arbeit, Nachrichten zwischen Nutzern, Abrechnung pro Kunde oder Analytics, die Personen nicht auf einem gemeinsamen Passwort mischen dürfen. Wenn alle denselben Ablauf ohne Identität ausprobieren können, reicht oft eine Woche lang ein Demo-Zugang oder gar kein Login. Sobald echte E-Mail-Adressen in einer Datenbank liegen, gilt das Schweizer Datenschutzrecht für Speicherung und Löschung, auch wenn die App noch ein Prototyp ist.
+
+Der Text richtet sich an Gründerinnen und Gründer, die mit Lovable, Bolt, v0, Replit, Cursor oder Claude Code schon etwas Veröffentlichtes haben und fragen, ob der generierte Login reicht oder sicher ist. Kein Penetrationstest, keine Rechtsauskunft, kein Vergleich aller Identity-Anbieter. Warum Aurum Auth als Produktionsarbeit sieht, steht in [Warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps). Skalierung und Stackwahl: [Skalierbares MVP](/de/blog/skalierbares-mvp) und [Tech-Stack Startup](/de/blog/tech-stack-startup).
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Authentifizierung</span><strong>Wer</strong><p>Identität beim Login: Konto, Passwort oder OAuth.</p></li>
+  <li><span class="blog-kicker">Autorisierung</span><strong>Was</strong><p>Welche Daten und Aktionen nach dem Login erlaubt sind.</p></li>
+  <li><span class="blog-kicker">Session</span><strong>Token</strong><p>Cookie oder Token hält die Anmeldung, bis die Session endet.</p></li>
+</ul>
+
+## Die kleinsten Wege, die meist reichen
+
+KI-Stacks setzen oft auf Supabase Auth oder Firebase Auth. Beide liefern E-Mail, Magic Link und gängige OAuth-Provider, ohne eigene Kryptografie. Für ein Validierungs-MVP: einen Hauptweg und einen Recovery-Weg festlegen.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Magic Link oder Einmalcode per E-Mail</h3><p>Weniger Passwort-Reibung für frühe Tester. Rate Limits und eine klare Datenschutzerklärung sind trotzdem Pflicht.</p></li>
+  <li data-step="2"><h3>E-Mail und Passwort</h3><p>Vertraut in B2B-Piloten. Mindestlänge, Hashing beim Provider, Passwörter nie in Logs.</p></li>
+  <li data-step="3"><h3>Google oder Apple</h3><p>Schnell auf dem Handy. Provider-ID mit Ihrer Nutzerzeile verknüpfen und klären, was bei geänderter E-Mail passiert.</p></li>
+  <li data-step="4"><h3>Ein gemeinsamer Admin-Login</h3><p>Nur für interne Tools mit ausschliesslich vertrauenswürdigem Personal. Für Mandantendaten ungeeignet.</p></li>
+</ol>
+
+SAML, SCIM, firmenweite MFA-Richtlinien und feine Rollen verschieben Sie, bis eine Käuferin es schriftlich verlangt. Vorher verbrennen sie oft die Wochen, die Sie für Verhalten und Akquise brauchen.
+
+## Die Oberfläche allein reicht nicht
+
+Ein sauberer Lovable-Screen zeigt, dass das Layout funktioniert. Er zeigt nicht, ob ein Fremder mit Ihrem öffentlichen Supabase Anon Key fremde Zeilen lesen kann. Das erzwingen Sie in der Datenbank mit Row Level Security und in Server-Routen, die einen Service Key nutzen. [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757) betraf viele Lovable-Projekte mit fehlender oder wirkungsloser RLS: Login war da, Autorisierung fehlte. Prüfen Sie [Lovable Supabase RLS](/de/blog/lovable-supabase-rls), sobald zwei Testkonten sauber getrennt sind.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Korrekter Login plus RLS auf Nutzertabellen heisst nicht, dass kein Service-Role-Key im Frontend liegt, Uploads privat sind oder jede OWASP-ASVS-Kontrolle erfüllt ist. Es ist die Basis, bevor zahlende Fremde oder sensible Gesundheits- und Finanzdaten ins Spiel kommen.</p>
+</aside>
+
+## Was Sie am ersten Tag verdrahten
+
+Provider-Defaults für Token-Refresh reichen, bis Sie einen Grund zum Umbau haben. In `profiles` oder vergleichbar nur speichern, was nötig ist: Anzeigename, falls nötig ein Rollenflag, Verknüpfung zur Auth-User-ID. Passwort-Reset und Verifikation zuerst über den Provider-Mailer; eigenes SMTP kann warten.
+
+Sign-up und Login in Analytics erfassen, damit Sie sehen, wo Nutzer zwischen «Konto erstellen» und «erster Nutzen» abbrechen. Das ist Validierungssignal, noch kein Umsatz und keine Bindung.
+
+Wenn Tester «Konto löschen» sollen, planen Sie mit, was mit verknüpften Zeilen passiert. Löschen oder Anonymisieren ist in einem Pilot leichter zu erklären als stille Restdaten.
+
+<div class="blog-pair">
+  <div>
+    <h3>Jetzt echte Auth liefern</h3>
+    <ul>
+      <li>Jede Testerin sieht nur eigene Projekte, Nachrichten oder Dateien</li>
+      <li>Öffentliche URL oder Ads über den Freundeskreis hinaus</li>
+      <li>Die Hypothese lautet «Nutzer kehren zu gespeichertem Stand zurück»</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Vorerst weglassen oder faken</h3>
+    <ul>
+      <li>Einmal-Demo mit Wegwerfdaten</li>
+      <li>Sie klären per Interview noch, ob der Job existiert</li>
+      <li>Eine vertraute Person führt die ersten zehn Gespräche selbst</li>
+    </ul>
+  </div>
+</div>
+
+## Was Authentifizierung nicht beweist
+
+Steigende Registrierungen zeigen Interesse am Ausprobieren. Sie zeigen kein Product-Market-Fit, keine sichere Skalierung personenbezogener Daten und keinen wiederholbaren Akquisekanal. Sie ersetzen keine Messung von Kosten pro Lead, Aktivierung oder Abbruch nach Woche eins.
+
+Aufwendige Auth beeindruckt App-Store-Prüferinnen nicht allein. Entscheidend ist, ob die App mehr leistet als eine verpackte Website, unabhängig von Magic Link oder Passwort.
+
+<div class="blog-faq">
+  <h3>Brauche ich Login vor dem ersten Kundengespräch?</h3>
+  <p>Nein. Gespräche testen das Problem. Login zählt, wenn der Versuch persistenten Zustand pro Person braucht oder personenbezogene Daten in einer gemeinsamen Datenbank landen.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Reicht Supabase Auth für einen Schweizer B2B-Pilot?</h3>
+  <p>Oft für Identität, wenn RLS und Hosting zur Datenlage passen. Verträge, Auftragsbearbeitung und Aufbewahrung sind eigene Themen neben dem Login-Button.</p>
+</div>
+
+## Wann das Produkt-Validierungspaket passt
+
+Das [Produkt-Validierungspaket](/de/services/mvp-validation) passt, wenn die offene Frage Verhalten mit Messung ist, nicht ob ein generierter Login-Screen rendert. In den Wochen 1 bis 4 entsteht eine deployte Web-App (plus nativer Wrap zur Einreichung) mit Analytics ab Tag eins; danach folgen Kosten pro Lead, Conversion und Abbruch, mit einer Go-, Pivot- oder Stop-Empfehlung inklusive dem, was die Daten nicht beweisen. Wenn Sie nur lernen wollen, ob jemand auf einer Landingpage auf «Anmelden» klickt, bleiben Sie bei einem leichteren Test. Wenn getrennte Konten und echte Nutzung die Hypothese sind, buchen Sie ein Discovery-Gespräch auf der Kontaktseite, sobald Sie zwölf Wochen einplanen können.

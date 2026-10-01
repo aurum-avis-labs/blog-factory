@@ -30,9 +30,11 @@ Ein unordentliches Meeting-Transkript teilst du nicht, solange Cue-Nummern und Z
 ## Inhalt
 
 - [Was ein unordentliches Meeting-Transkript ausmacht](#was-ein-unordentliches-meeting-transkript-ausmacht)
+- [VTT, SRT und eingefügte Exporte](#vtt-srt-und-eingefügte-exporte)
 - [Das Gerüst streichen, die Namen behalten](#das-gerüst-streichen-die-namen-behalten)
 - [Ein kurzes Beispiel](#ein-kurzes-beispiel)
 - [Was nach den Zeitstempeln noch unordentlich ist](#was-nach-den-zeitstempeln-noch-unordentlich-ist)
+- [Vor dem Teilen nach aussen schwärzen](#vor-dem-teilen-nach-aussen-schwärzen)
 - [Eine praktikable Reihenfolge](#eine-praktikable-reihenfolge)
 - [Wo ein Modell das Chaos grösser macht](#wo-ein-modell-das-chaos-grösser-macht)
 - [Häufige Fragen](#häufige-fragen)
@@ -48,6 +50,18 @@ Ein unordentliches Meeting-Transkript teilst du nicht, solange Cue-Nummern und Z
 
 Die Wörter können in Ordnung sein, und die Datei bleibt unlesbar. Das Durcheinander sitzt in den Metadaten. Sind die Wörter selbst falsch (ein Produktname, eine Person, eine Zahl), repariert das Streichen der Zeitstempel das nicht. Erkennungsfehler korrigierst du durch Lesen, nicht dadurch, dass du die Zeiten versteckst.
 
+## VTT, SRT und eingefügte Exporte
+
+Alle drei Formen sind **Text, den du schon hast**. Der Bereiniger entfernt Cue-Nummern und Zeitzeilen; er startet die Spracherkennung nicht neu.
+
+| Format | Erkennungszeichen | Was nach der Bereinigung bleiben soll |
+| --- | --- | --- |
+| WebVTT | Kopfzeile `WEBVTT`, Zeilen mit `-->` | Sprecherzeilen, zusammengezogen wenn der Name gleich bleibt |
+| SRT | Nummerierter Cue, Komma in den Zeitstempeln | Namen behalten, Zeiten weg |
+| Eingefügtes Word oder PDF | Oft ohne Kopfzeile, aber alle paar Wörter ein Zeilenumbruch | Lesbare Absätze; manchmal noch von Hand zusammenziehen |
+
+Liegt nur `audio_only.m4a` aus einer lokalen Zoom-Aufnahme vor, gibt es noch nichts zu säubern. Der Weg dazu ist [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren). Die Transkription im Browser ist auf **15 Minuten** Audio und **drei erfolgreiche Läufe pro Woche** begrenzt (Stand September 2026). Ein exportiertes VTT zu säubern verbraucht diese Läufe nicht.
+
 ## Das Gerüst streichen, die Namen behalten
 
 Der kostenlose [Transkript-Bereiniger](/de/tools/transkript-bereinigen) nimmt ein Zoom-VTT, einen Teams-Export oder ein SRT. Du lässt die Datei fallen oder fügst den Text ein. Kopfzeile, Cue-Nummern und Zeitstempel fallen weg. Steht ein Name schon in der Datei, bleibt er in der Form `Name: Text`. Gehören zwei Cues hintereinander derselben Person, werden sie zusammengezogen.
@@ -57,6 +71,8 @@ Hat die Datei keine Sprechernamen, sagt die Seite das. Die Zeitstempel fallen tr
 Die Bereinigung verbraucht keinen der drei erfolgreichen Wochenläufe. Die Läufe sind für Sprache zu Text und für Notizen, die ein Modell aufrufen. Ein VTT, das du schon hast, ist Text. Du kannst in derselben Woche mehrere Dateien säubern, ohne den Zähler anzufassen.
 
 Ein Link auf der Seite kann den bereinigten Text an [Notizen aus einem Transkript](/de/tools/notizen-aus-transkript) geben, wenn du eine Zusammenfassung, Entscheide und Massnahmen willst. Das machst du, nachdem du die bereinigte Seite gelesen hast, nicht vorher. Ein Modell glättet eine Datei, in der noch ein Witz oder eine verworfene Idee steckt.
+
+Für das nächste Live-Meeting ohne Suche nach `audio_only.m4a` danach: [Vemoir nimmt von der Mac-Menüleiste auf](/de#capture), mit lokaler Transkription, wenn du On-Device-Modelle wählst.
 
 ## Ein kurzes Beispiel
 
@@ -102,16 +118,27 @@ Die Zeitstempel waren nur die sichtbare Schicht. Vier andere Sorten bleiben nach
 
 **Sprachmix und Erkennungsfehler.** Die Bereinigung übersetzt nicht und startet die Spracherkennung nicht neu. Ein Name, der dreimal anders geschrieben ist, bleibt dreimal anders, bis du ihn änderst. Auf dem Mac kann ein Projektglossar spätere Transkripte zu den Begriffen schieben, die du willst. Das ursprüngliche Transkript bleibt der Beleg. Der Bereiniger im Browser wendet kein Glossar an.
 
+## Vor dem Teilen nach aussen schwärzen
+
+Lesbarer Text lässt sich leichter weiterleiten, und genau dann steigt das Risiko für versehentliches Oversharing. Bevor du die bereinigte Datei per E-Mail oder Slack schickst:
+
+- Entferne Kontonummern, private Telefonnummern und Gesundheitsdetails, die nur nebenbei fielen
+- Ersetze Kundencodenamen, wenn der Empfänger nicht unter derselben Vertraulichkeit steht
+- Behalte intern eine vollständige Kopie mit den Original-Cues, falls du Formulierungen belegen musst
+
+Der Bereiniger schwärzt nicht für dich. Ein Notizen-Durchgang auch nicht. Ist nur ein Teil des Meetings sicher teilbar, kopiere diese Absätze in ein neues Dokument statt die ganze Aufnahme weiterzuleiten.
+
 ## Eine praktikable Reihenfolge
 
 1. Speichere das Original-`.vtt` oder `.srt`. Säubere nicht die einzige Kopie.
 2. Leg sie auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Lies den Hinweis, wenn dort steht, es habe keine Sprechernamen gegeben.
 3. Überflieg Duplikate, Raum-Mikrofone und Zahlen (Daten, Geld, Versionen).
-4. Brauchst du eine Zusammenfassung, schick den bereinigten Text an die Notizen. Prüf jede zuständige Person an den Zeilen, die du gerade gelesen hast.
-5. Brauchst du ein Protokoll, kopiere nur Entscheide und Massnahmen aufs [Sitzungsprotokoll](/de/tools/sitzungsprotokoll). Das Transkript ist nicht dieses Blatt.
-6. Lege das Original neben den bereinigten Text. Bestreitet jemand eine Zeile, hast du die Cues noch.
+4. Schwärze, wenn das Publikum grösser ist als der Raum.
+5. Brauchst du eine Zusammenfassung, schick den bereinigten Text an die Notizen. Prüf jede zuständige Person an den Zeilen, die du gerade gelesen hast.
+6. Brauchst du ein Protokoll, kopiere nur Entscheide und Massnahmen aufs [Sitzungsprotokoll](/de/tools/sitzungsprotokoll). Das Transkript ist nicht dieses Blatt.
+7. Lege das Original neben den bereinigten Text. Bestreitet jemand eine Zeile, hast du die Cues noch.
 
-Eine Datei, die nur Audio ist und kein Text, gehört nicht auf den Bereiniger. Eine lokale Zoom-Aufnahme ist oft `audio_only.m4a` ohne jedes Transkript. Der Weg dazu ist [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren). Dateien länger als 15 Minuten liegen ausserhalb der Transkription im Browser. Ein VTT zu säubern, das du schon exportiert hast, ist nicht dieser Versuch.
+Eine Datei, die nur Audio ist und kein Text, gehört nicht auf den Bereiniger. Dateien länger als 15 Minuten liegen ausserhalb der Transkription im Browser. Ein VTT zu säubern, das du schon exportiert hast, ist nicht dieser Versuch.
 
 ## Wo ein Modell das Chaos grösser macht
 
@@ -155,4 +182,6 @@ Du kannst den bereinigten Text an das Notizen-Werkzeug geben. Es entwirft eine Z
 
 Nein. Es ist immer noch, was Leute gesagt haben, nur ohne Cue-Zeiten. Ein Protokoll ist kürzer und gegliedert. Nutze beides, und beschrifte das eine nicht als das andere.
 
-Nächster Schritt: leg den Export auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Hast du immer noch nur Audio, starte bei [Audio transkribieren](/de/tools/audio-transkribieren), wenn die Datei 15 Minuten oder kürzer ist.
+## Nächster Schritt
+
+Leg den Export auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Hast du immer noch nur Audio, starte bei [Audio transkribieren](/de/tools/audio-transkribieren), wenn die Datei 15 Minuten oder kürzer ist. Für das nächste Live-Meeting auf dem Mac sieh [Aufnahme und Modelle](/de#capture) auf der Startseite.

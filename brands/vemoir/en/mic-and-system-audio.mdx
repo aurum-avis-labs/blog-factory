@@ -13,16 +13,18 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sandrawilliams2025?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sandrawilliams2025</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Mic and system audio** in Vemoir are two local tracks, not one mixed file and not a picture of your screen. The microphone track is you. The system-audio track is whatever the Mac is playing from the meeting app: Teams, Zoom, Google Meet, Slack, Discord, or another app that makes sound.
+**Mic and system audio** on a Mac are two separate local tracks in Vemoir: your microphone, and the audio the meeting app plays through the speakers or headphones. That is how you get your voice and the remote side without mixing them into one file, without screen capture, and without a bot in the roster.
 
-You start and stop the recording. No bot joins the participant list. Both tracks stay on the Mac unless you export them or later choose an optional text model with your own key.
+You start and stop from the menu bar. Both tracks stay on the Mac unless you export them or turn on an optional text model with your own API key.
 
 ## Contents
 
 - [What mic and system audio each capture](#what-mic-and-system-audio-each-capture)
 - [The permission is audio, not the screen](#the-permission-is-audio-not-the-screen)
 - [How a call uses the two tracks](#how-a-call-uses-the-two-tracks)
+- [In-person room vs mic plus system audio](#in-person-room-vs-mic-plus-system-audio)
 - [When one track is the wrong tool](#when-one-track-is-the-wrong-tool)
+- [If the system track is silent](#if-the-system-track-is-silent)
 - [What happens after you stop](#what-happens-after-you-stop)
 - [Frequently asked questions](#frequently-asked-questions)
 
@@ -74,16 +76,29 @@ The same pair of tracks works for any app that plays audio on the Mac. It is not
 
 You can also skip live capture and import a file you already have: MP3, M4A, WAV, AIFF, CAF, or FLAC. An imported file goes through the same local pipeline. It is not split into "you" and "them" unless the file itself already contains that separation. A single mixed export from Zoom is one file, not the two tracks Vemoir records live.
 
+## In-person room vs mic plus system audio
+
+Vemoir's shipped live capture is **microphone plus system audio** for a call the Mac can hear. That is not a dedicated in-person mode that seats everyone at a table and labels them from the room layout. Such a mode is not part of the app today.
+
+If several colleagues sit around one laptop with no remote participants, the system track stays quiet. The mic picks up whoever is loudest near it. Speaker separation after the stop may still cluster voices, but you should expect one dominant local voice, not a boardroom with assigned seats.
+
+For a room-first workflow, a recorder meant for the table, or a file you import afterward, is often clearer. The browser tool at [/tools/transcribe-recording](/tools/transcribe-recording) handles a short clip you already have, up to 15 minutes, with three successful runs a week, and does not upload the file. It does not label speakers. Longer takes and live two-track capture stay in the Mac app.
+
 ## When one track is the wrong tool
 
 Two local tracks are the better fit when you want your voice and the call kept apart, on the Mac, with no extra person in the roster. They are the worse fit in a few common cases.
 
 - You need the meeting vendor's official cloud recording as the record of the meeting. Use that vendor's record button. Vemoir is your local copy, not their archive.
 - Everyone on the team uses Windows or phones, and the point is a shared bot library. A cloud notetaker is built for that. Vemoir is a Mac app on Apple silicon, macOS Sonoma 14.2 or later.
-- You are in a room with several people and no remote audio. The system track will be quiet. The mic hears whoever is near it. That is still a microphone recording of the room, not a special mode that seats everyone and labels the table. For a long interview you already recorded as one file, the browser tool at [/tools/transcribe-recording](/tools/transcribe-recording) can turn a short clip into text without uploading it. It does not label speakers, and it stops at 15 minutes with three successful runs a week.
 - You only wanted your own dictation, not the call. Pause the meeting audio or use a recorder meant for single-voice dictation. The system track will still grab other apps that are playing.
 
 Headphones change the system track in a useful way: the remote voices stay in the system track and are less likely to leak into your mic. That is usually what you want if you later need to hear who was local.
+
+## If the system track is silent
+
+After a call, play the system track first if you kept the audio. You should hear the remote side. Then check the mic track for your voice. That order tells you whether the problem is the call path or your microphone settings.
+
+A flat system track while people were talking on the call usually means the meeting app was muted, output went to another device, or System Audio Recording was denied. Fix setup under [capture](/#capture) or in macOS Privacy settings. It is not solved by switching microphones.
 
 ## What happens after you stop
 

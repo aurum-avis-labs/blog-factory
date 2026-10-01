@@ -11,9 +11,32 @@ image: "@/assets/blog/symptom-to-structure-loop-method/hero.jpg"
 draft: false
 ---
 
+## Wofür Symptom-zu-Struktur-Elicitation da ist
+
 Wenn ein Team die jüngste Spitze immer als neuen Vorfall behandelt, verschiebt **Vom Symptom zur Struktur** das Gespräch zu einer Schleife, die du testen kannst. Fünf Schritte halten Schuld aus den Variablennamen und setzen Verzögerungen dorthin, wo Leute sie schon spüren. Die Methode ist für wiederkehrende Kennzahlen. Ein einmaliger Unfall gehört in eine Vorfallsreview, nicht hierher.
 
-Das Ziel der Folge ist eine kleine, benannte Struktur: ein Ergebnis, das zurückkam, die letzten Fixes, ein oder zwei Schleifen, die die Rückkehr erklären könnten, und eine einzelne Kante, die ihr messt. Keine Wand aus jedem Faktor, den jemand nennen kann.
+Das Ergebnis ist eine kleine, benannte Struktur: ein Ergebnis, das zurückkam, die letzten Fixes, ein oder zwei Schleifen, die die Rückkehr erklären könnten, und eine Kante, die ihr messt. Keine Wand aus jedem Faktor, den jemand nennen kann.
+
+<div class="blog-pair">
+  <div>
+    <h3>Passt, wenn</h3>
+    <ul>
+      <li>Dieselbe KPI oder derselbe Beschwerdecode nach jedem Fix zurückkommt</li>
+      <li>Abteilungen über den Pfeil streiten, nicht über die Zahl</li>
+      <li>Ihr eine testbare Schleife braucht, keine neue Ideenliste</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Weglassen, wenn</h3>
+    <ul>
+      <li>Das Ereignis nicht wiederholt kam und nicht erwartet wird</li>
+      <li>Ihr nur eine Einzelursache für einen Ausfall sucht</li>
+      <li>Namen noch Anklagen sind, keine Beobachtbaren</li>
+    </ul>
+  </div>
+</div>
+
+## Die fünf Schritte im Überblick
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Metrik verankern</h3><p>Ergebnis und die letzten Rückkehren notieren. Keine Rückkehr, Stopp.</p></li>
@@ -25,7 +48,7 @@ Das Ziel der Folge ist eine kleine, benannte Struktur: ein Ergebnis, das zurück
 
 ## Schritt 1: Die wiederkehrende Metrik verankern
 
-Schreib das Ergebnis in den Worten, die die Kennzahl schon benutzt: Backlog über einer Schwelle, dieselbe Fehlerklasse, eine Budgetzeile, die wieder aufgeht, ein Beschwerdecode, der nach jeder Kampagne zurückkommt. Notier die letzten drei Male, und was "zurück" in Zahlen oder einem Datum heisst.
+Schreib das Ergebnis in den Worten, die die Kennzahl schon benutzt: Backlog über einer Schwelle, dieselbe Fehlerklasse, eine Budgetzeile, die wieder aufgeht, ein Beschwerdecode, der nach jeder Kampagne zurückkommt. Notier die letzten drei Male, und was «zurück» in Zahlen oder einem Datum heisst.
 
 Kam es nie zurück, hör auf. Du hast noch keine Strukturfrage. Brainstorming und eine gewöhnliche Nachbereitung reichen. Eine Schleife auf ein einzelnes Ereignis zu zwingen erzeugt ein Diagramm, das du nicht widerlegen kannst, weil nichts wieder erwartet wird.
 
@@ -33,25 +56,30 @@ Schreib auch die Schnellfixes auf, die ihr schon versucht habt, und was jeder an
 
 ## Schritt 2: Symptomwand, dann neutral umbenennen
 
-List die Schmerzen, die Leute wirklich sagen. Benenne jeden um, bevor er ein Knoten wird. "Denen ist es egal" wird zu etwas, das du sehen kannst: Zeit von Alarm bis Reaktion, Anteil wieder geöffneter Tickets, Anteil übersprungener Prüfungen vor einer Deadline. "Die Politik ist gescheitert" wird zu einer Lücke, auf die du zeigen kannst: gemeldetes Volumen, Ausnahmequote, Wartezeit.
+List die Schmerzen, die Leute wirklich sagen. Benenne jeden um, bevor er ein Knoten wird. «Denen ist es egal» wird zu etwas, das du sehen kannst: Zeit von Alarm bis Reaktion, Anteil wieder geöffneter Tickets, Anteil übersprungener Prüfungen vor einer Deadline. «Die Politik ist gescheitert» wird zu einer Lücke, auf die du zeigen kannst: gemeldetes Volumen, Ausnahmequote, Wartezeit.
 
 Neutrale Namen halten andere Funktionen im Raum. Ein Name, der eine Gruppe beschuldigt, beendet die Methode in den ersten zehn Minuten. Kannst du einen Schmerz nicht umbenennen, parkst du ihn als Kontext, nicht als Variable.
+
+<ul class="blog-scenarios">
+  <li><h3>Wenn der Raum sagt, die Stimmung sei schlecht</h3><p>Frag nach einer Zahl, die HR oder Ops schon trackt: Absenzen, interne Wechselwünsche oder Trend eines Survey-Items.</p></li>
+  <li><h3>Wenn der Raum sagt, die Führung sei blind</h3><p>Frag, welcher Report im letzten Quartal zu spät kam und wer darauf gewartet hat.</p></li>
+</ul>
 
 ## Schritt 3: Geschichten vor dem Vorzeichen
 
 Zeichne Pfeile erst, wenn jemand die Geschichte in ein oder zwei Sätzen erzählt: als dies sich bewegte, bewegte sich das, und wir sahen es an diesem Ort. Dann Plus oder Minus. Vorzeichen ohne Geschichte machen aus Karten Spaghetti.
 
-Dissens bleibt auf der Karte als gepunktete Alternative, mit dem Namen der zweifelnden Person. Stimmt kein Vorzeichen per Abstimmung ab. Der spätere Test ist der Grund für das Vorzeichen. Notationsfallen, inklusive fehlendem Vorzeichen und namenlosen Pfeilen, stehen in [Fehler im Kausalschleifen-Diagramm](/de/blog/fehler-kausalschleifen-diagramm). Die Seite, wenn der Entwurf voll wirkt und trotzdem nichts erklärt.
+Dissens bleibt auf der Karte als gepunktete Alternative, mit dem Namen der zweifelnden Person. Stimmt kein Vorzeichen per Abstimmung ab. Der spätere Test ist der Grund für das Vorzeichen. Bevor du Pfeile ergänzt, prüf, dass jede Kante einen Sprecher und einen Beobachtungsort hat. Fehlende Vorzeichen und namenlose Pfeile sind die üblichen Gründe, warum eine volle Karte nichts erklärt.
 
 ## Schritt 4: Schleifen schliessen und Verzögerungen markieren
 
 Folge den Pfeilen, bis du bei der Metrik ankommst. Gib der Schleife einen Klartextnamen, den das Team im Gang benutzen würde: die Überstunden-Schleife, die Ausnahme-Schleife, die Wiedereröffnungs-Schleife. Markiere verstärkend oder ausgleichend erst, wenn du die negativen Kanten zählen kannst. Kannst du keine Schleife schliessen, sag das. Eine offene Kette ist eine Hypothese über die Reihenfolge, keine Struktur, die sich selbst erhält.
 
-Setz eine Verzögerungsnotiz an die längste Verwaltungs-, Einstellungs- oder Vertrauenskante. Diese Notiz ist oft der Grund, warum der letzte Eingriff erfolgreich aussah. Die Metrik sank innerhalb der Verzögerung, dann stellte die Schleife sie wieder her. Sind alle Kanten sofort gezeichnet, empfiehlt die Karte die nächste Sofortmassnahme.
+Setz eine Verzögerungsnotiz an die längste Verwaltungs-, Einstellungs- oder Vertrauenskante. Diese Notiz ist oft der Grund, warum der letzte Eingriff im Chart innerhalb des Verzögerungsfensters gut aussah und die Schleife die Metrik danach wiederherstellte. Sind alle Kanten sofort gezeichnet, empfiehlt die Karte die nächste Sofortmassnahme.
 
 ## Schritt 5: Eine Kante instrumentieren
 
-Wähl eine Kante, deren Vorzeichen oder Verzögerung die nächste Aktion ändern würde. Häng einen Frühindikator dran, den du lesen kannst, bevor die Metrik wieder "zurück" ist, eine verantwortliche Person, und ein Fenster von etwa sechs Wochen. Schreib, was ihr tut, wenn der Indikator die Kante stützt, und was ihr tut, wenn nicht.
+Wähl eine Kante, deren Vorzeichen oder Verzögerung die nächste Aktion ändern würde. Häng einen Frühindikator dran, den du lesen kannst, bevor die Metrik wieder «zurück» ist, eine verantwortliche Person, und ein Fenster von etwa sechs Wochen. Schreib, was ihr tut, wenn der Indikator die Kante stützt, und was ihr tut, wenn nicht.
 
 Instrumentiere nicht die ganze Karte. Eine Auswertung mit fünfzehn neuen Kennzahlen ist ein zweites Projekt. Eine Kante zeigt dem Team, ob die Struktur real genug ist, um zu zählen.
 
@@ -73,21 +101,22 @@ Ein 90-Minuten-Raum für den echten Durchgang steht in der [Workshop-Anleitung](
 
 ## Häufige Fragen
 
-<div class="blog-faq">
-  <h3>Wie unterscheidet sich das von einer Ursachenanalyse?</h3>
-  <p>Eine Ursachenanalyse ist für einen Vorfall gebaut: Ursache finden, eindämmen, diesen Pfad verhindern. Diese Methode ist für eine Kennzahl gebaut, die zurückkommt, inklusive der Art, wie Leute sich an den letzten Eingriff anpassen. Beides nutzen, wenn ein einzelnes Ereignis auch auf einem Muster sitzt, das ihr schon kennt.</p>
-</div>
+### Wie unterscheidet sich das von einer Ursachenanalyse?
 
-<div class="blog-faq">
-  <h3>Muss die ganze Organisation im Raum sein?</h3>
-  <p>Nein. Du brauchst Leute, die die Pfeilgeschichten erzählen können, und jemanden, der die Metrik lesen kann. Eine Menge fügt Namen schneller hinzu als Geschichten.</p>
-</div>
+Eine Ursachenanalyse ist für einen Vorfall gebaut: Ursache finden, eindämmen, diesen Pfad verhindern. Diese Methode ist für eine Kennzahl gebaut, die zurückkommt, inklusive der Art, wie Leute sich an den letzten Eingriff anpassen. Beides nutzen, wenn ein einzelnes Ereignis auch auf einem Muster sitzt, das ihr schon kennt.
 
-<div class="blog-faq">
-  <h3>Was, wenn zwei Schleifen beide plausibel aussehen?</h3>
-  <p>Beide behalten. Instrumentiere die Kante, die sie im Sechs-Wochen-Fenster unterscheidet. Verschmilz sie nicht zu einem namenlosen Knäuel.</p>
-</div>
+### Muss die ganze Organisation im Raum sein?
+
+Nein. Du brauchst Leute, die die Pfeilgeschichten erzählen können, und jemanden, der die Metrik lesen kann. Eine Menge fügt Namen schneller hinzu als Geschichten.
+
+### Was, wenn zwei Schleifen beide plausibel aussehen?
+
+Beide behalten. Instrumentiere die Kante, die sie im Sechs-Wochen-Fenster unterscheidet. Verschmilz sie nicht zu einem namenlosen Knäuel.
+
+### Geht das ohne Software?
+
+Ja. Papier und Wand reichen für Schritte 1 bis 4. Software hilft, wenn ihr Versionshistorie und gemeinsames Bearbeiten nach dem Raum braucht. Holist-IQ passt zu diesem Nachbearbeitungs-Schritt; es ersetzt nicht das Umbenennen im Gespräch.
 
 ## Abschluss
 
-Putz den Entwurf gegen [Fehler im Kausalschleifen-Diagramm](/de/blog/fehler-kausalschleifen-diagramm), bevor du Pfeile ergänzt. Wenn die Struktur stabil ist und du wählen musst, wo du drückst, weiter mit [Hebelpunkten im Systemdenken](/de/blog/hebelpunkte-systemdenken).
+Wenn die Struktur stabil ist und du wählen musst, wo du drückst, weiter mit [Hebelpunkten im Systemdenken](/de/blog/hebelpunkte-systemdenken). Vor einer externen Veröffentlichung der Karte kurz gegen eure eigene Qualitätsliste prüfen, ob jede Kante eine Geschichte und ein Vorzeichen hat.

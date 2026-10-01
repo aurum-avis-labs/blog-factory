@@ -38,6 +38,10 @@ Im Cloud-Portal erscheint ein verarbeitetes Transkript als VTT neben der Aufnahm
 
 Die Sprachabdeckung ist nicht «was auch immer gesprochen wurde». Ältere Zoom-Dokumentation zur Cloud-Audiotranskription nannte Englisch. Neuere Produkte für Zusammenfassung und Transkript listen ihre eigenen Sprachen in den aktuellen Artikeln von Zoom. Prüfe die Seite der Funktion, die du wirklich eingeschaltet hast, bevor du ein deutsches VTT aus einer Einstellung versprichst, die nur Englisch abdeckte.
 
+## Zwei VTT-Dateien in einem Aufnahmeordner
+
+Manche Cloud-Aufnahmen enthalten sowohl ein Audiotranskript-`.vtt` als auch ein separates `cc.vtt` für Untertitel. Länge und Timing können abweichen. Bereinige eine Datei, meist das Audiotranskript, und behalte die andere nur, wenn du Caption-Timing brauchst.
+
 ## Woher ein Cloud-VTT kommt
 
 Ein typisches Audiotranskript-VTT sieht so aus:
@@ -82,6 +86,12 @@ Was sich nicht ändert:
 Diese Bereinigung verbraucht keinen der drei Läufe pro Woche. Die drei Läufe gelten für Sprache-zu-Text und für Notizen, die ein Modell aufrufen. Du kannst ein VTT aufräumen, auch wenn du die Transkriptionsläufe der Woche schon verbraucht hast.
 
 Behalte das Original-VTT. Der Klartext ist zum Lesen und für Notizen. Das VTT ist der Vergleich, wenn eine Zeit oder ein Cue zählt, und es ist das, was Zoom dir gegeben hat, wenn jemand nach dem Export fragt.
+
+Für das nächste Gespräch nimmt [Vemoir aus der Mac-Menüleiste auf](/de), ohne Bot in der Teilnehmerliste, wenn du eine eigene Datei statt eines Cloud-Downloads brauchst.
+
+## VTT von Hand bereinigen, wenn du musst
+
+Öffne die `.vtt` in einem Texteditor. Entferne den `WEBVTT`-Kopf, Cue-Nummern und Zeilen mit `-->`. Behalte `<v Name>`-Tags, wenn sie da sind. Ziehe aufeinanderfolgende Zeilen derselben Person von Hand zusammen. Bei langen Dateien ist der [Transkript-Bereiniger](/de/tools/transkript-bereinigen) schneller und weniger fehleranfällig.
 
 ## Was der Klartext noch enthalten soll
 
@@ -140,5 +150,9 @@ Behalte es, bis du sicher bist, dass du die Cue-Zeiten oder einen frischen Downl
 ### Das VTT ist in der falschen Sprache. Kann der Bereiniger übersetzen?
 
 Nein. Er entfernt nur das Gerüst der Untertitel. Übersetzung ist eine eigene Entscheidung. Ein Sprachmodell, das auf die falsche Sprache gestellt war, wird nicht repariert, indem du Zeitstempel löschst.
+
+### Kann ich ein VTT in Word öffnen?
+
+Word kann eine `.vtt` öffnen, aber Zeitzeilen bleiben, bis du bereinigst. Klartext oder Ausgabe des Bereinigers lässt sich leichter lesen und weitergeben.
 
 Nächster Schritt: beginnt die Datei mit `WEBVTT`, öffne den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Ist die Datei `audio_only.m4a`, nimm [Zoom-Aufnahme transkribieren](/de/tools/zoom-aufnahme-transkribieren) nur, wenn sie 15 Minuten oder kürzer ist.

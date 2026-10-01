@@ -1,0 +1,104 @@
+---
+title: "Authentication for an MVP: what to ship first"
+description: "Authentication for an MVP: when login matters, the smallest options that work, and what a sign-up button does not prove about security or demand."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["authentication", "mvp", "supabase", "lovable", "startup"]
+funnelStage: interest
+translationKey: authentication-for-an-mvp
+relatedPosts: ["how-to-build-a-scalable-mvp", "choosing-a-startup-tech-stack"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Authentication for an MVP is the smallest way to know who is using the product: usually email or a social provider, a session, and server-side rules so one account cannot read another's data. It is not enterprise SSO, not a full role matrix, and not proof that strangers will pay.</p>
+
+## Authentication for an MVP
+
+You add authentication when the test needs separate accounts: saved work, messages between users, billing per customer, or analytics that must not mix people on one login. If everyone can try the same flow without an identity, a shared demo login or no login at all is often enough for the first week. Once real email addresses sit in a database, Swiss data protection applies to how you store and delete them, even when the app is still a prototype.
+
+This is for founders who already shipped something with Lovable, Bolt, v0, Replit, Cursor, or Claude Code and now wonder whether the generated login is safe or complete. It is not a penetration test, not legal advice, and not a guide to every identity provider contract. For why Aurum treats auth as production work rather than a cosmetic screen, see [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps). Stack choices that survive growth sit in [how to build a scalable MVP](/blog/how-to-build-a-scalable-mvp) and [choosing a startup tech stack](/blog/choosing-a-startup-tech-stack).
+
+<dl class="blog-terms">
+  <div>
+    <dt>Authentication</dt>
+    <dd>Proving who the user is: sign-up, sign-in, password reset, or OAuth with Google or Apple.</dd>
+  </div>
+  <div>
+    <dt>Authorisation</dt>
+    <dd>What that identity may do after login: which rows, files, or actions are allowed.</dd>
+  </div>
+  <div>
+    <dt>Session</dt>
+    <dd>The token or cookie the browser sends on later requests so the user stays signed in.</dd>
+  </div>
+</dl>
+
+## The smallest options that usually suffice
+
+Most AI-assisted stacks default to Supabase Auth or Firebase Auth. Both give you email and password, magic links, and common OAuth providers without building crypto yourself. For a validation MVP, pick one primary path and one recovery path.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Email magic link or one-time code</h3><p>Less password friction for early testers. You still need rate limits and a clear privacy notice because you hold the address.</p></li>
+  <li data-step="2"><h3>Email and password</h3><p>Familiar for B2B pilots. Enforce a sensible minimum length, hash on the provider side, and never log the raw password.</p></li>
+  <li data-step="3"><h3>Google or Apple sign-in</h3><p>Fast on mobile. Map the provider id to your user row and decide what happens if the provider email changes.</p></li>
+  <li data-step="4"><h3>One shared admin login</h3><p>Acceptable only for a closed internal tool where every user is staff you trust. It does not scale to multi-tenant customer data.</p></li>
+</ol>
+
+Defer SAML, SCIM, custom MFA policies, and fine-grained roles until a buyer asks for them in writing. Shipping those before you know the core job often burns the weeks you needed for behaviour and acquisition.
+
+## Login in the UI is not the whole story
+
+A polished screen from Lovable proves the layout works. It does not prove that a stranger with your public Supabase anon key cannot read another user's rows. That enforcement belongs in the database through row level security and in any server route that uses a service key. Researchers disclosed [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757) for missing or ineffective RLS on many Lovable-generated projects; the pattern is auth assumed, authorisation skipped. Walk through [Lovable Supabase row level security](/blog/lovable-supabase-row-level-security) after auth works for your two test accounts.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Correct sign-in plus RLS on user tables does not mean your service-role key never leaked into the client, that file uploads are private, or that you meet every control in OWASP ASVS. It is the baseline before you invite paying strangers or store sensitive health or financial data.</p>
+</aside>
+
+## What to wire on day one
+
+Keep the auth provider's defaults for token refresh unless you have a reason to change them. Store only what you need in `profiles` or equivalent: display name, role flag if you must, link to the auth user id. Send password resets and verification through the provider's mailer first; custom SMTP can wait until branding matters.
+
+Log sign-up and sign-in events in your analytics stack so you can see drop-off between «create account» and «first value». That is validation signal. It is not retention and not revenue.
+
+If you add a «delete my account» path for testers, plan what happens to rows in related tables. A hard delete or anonymisation is easier to explain in a pilot than silent orphans.
+
+<div class="blog-pair">
+  <div>
+    <h3>Ship real auth now</h3>
+    <ul>
+      <li>Each tester must see only their own projects, messages, or files</li>
+      <li>You will run ads or a public URL beyond friends and family</li>
+      <li>The hypothesis is «people return to their saved state»</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Skip or fake it for now</h3>
+    <ul>
+      <li>The flow is a single-session demo with throwaway data</li>
+      <li>You are still interviewing on whether the job exists</li>
+      <li>One trusted operator runs every session for the first ten calls</li>
+    </ul>
+  </div>
+</div>
+
+## What authentication does not prove
+
+A rising sign-up count shows interest in trying the product. It does not show product-market fit, safe handling of personal data at scale, or that your acquisition channel repeats. It does not replace measurement on cost per lead, activation, or drop-off after week one.
+
+Fancy auth also does not impress Apple or Google by itself. Store review cares whether the app does more than a bookmarked website; that is a product question, not a choice between magic link and password.
+
+<div class="blog-faq">
+  <h3>Do I need auth before my first customer interview?</h3>
+  <p>No. Interviews test the problem. Auth matters when the experiment needs persistent per-user state or when you put personal data in a shared database.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is Supabase Auth enough for a Swiss B2B pilot?</h3>
+  <p>Often yes for identity, if RLS and hosting choices match your data. Contracts, processor agreements, and retention are separate from which login button you show.</p>
+</div>
+
+## When the Product Validation Package fits
+
+The [Product Validation Package](/services/mvp-validation) fits when the open question is behaviour with measurement, not whether a generated login screen renders. Weeks 1 to 4 deliver a deployed web app (and a native wrap ready to submit) with analytics from day one; later weeks look at cost per lead, conversion, and drop-off, ending in a Go, Pivot, or Stop recommendation that states what the data did not prove. If you only need to learn whether anyone clicks «sign up» on a landing page, stay on a lighter test. If separate accounts and real usage are the hypothesis, book a discovery conversation on the contact page when you are ready to commit twelve weeks.

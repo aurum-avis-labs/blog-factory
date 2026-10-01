@@ -1,6 +1,6 @@
 ---
 title: "The difference between digitalisation, automation and AI"
-description: "Digitalisation, automation and AI explained with one supplier invoice each, and why buying AI rarely fixes a missing digital or rule-based step."
+description: "The difference between digitalisation, automation and AI, on one supplier invoice: a file, a rule, then a model. When to skip AI."
 pubDate: 2026-10-01
 author: "Aurum Avis Labs"
 tags: ["digitalisation", "automation", "ai sme"]
@@ -14,45 +14,99 @@ site: prozess-check
 
 ## The difference between digitalisation, automation and AI
 
-The difference between digitalisation, automation and AI is what each step does with the same piece of work. Digitalisation turns information into data a computer can hold: the supplier invoice arrives as a PDF instead of on paper. Automation lets a fixed rule act on that data without anyone clicking: the PDF is filed and sent to the right person for approval. AI handles the part no rule can describe: it reads an invoice or an email that has no fixed layout and pulls out the fields. Each step needs the one before it.
+The difference between digitalisation, automation and AI is what each step does with the same piece of work. Digitalisation means the information exists as a file the office actually uses. Automation means a rule you can write down does the step the same way every time. AI means a model reads what no rule can describe, and a person checks the result until the step is reliable. Each later step needs the one before it.
 
-This is for owners and office leads in a Swiss SME who have been told to "do something with AI" and want to know which of the three they are actually missing. One office example runs through all three: the supplier invoice.
+This is for owners and office leads in a Swiss SME who have been told to do something with AI and want to know which of the three is actually missing. One supplier invoice runs through all three. It is a running example, not a client story.
 
 <ol class="blog-flow">
   <li><strong>Digitalisation</strong><p>The invoice exists as a file, in a place everyone can find.</p></li>
-  <li><strong>Automation</strong><p>A written rule files it and routes it for approval.</p></li>
-  <li><strong>AI</strong><p>A model reads what the rule cannot: an unfamiliar layout, a line in an email.</p></li>
+  <li><strong>Automation</strong><p>A written rule files it and sends it on for approval.</p></li>
+  <li><strong>AI</strong><p>A model reads a layout the rule does not know. Someone confirms.</p></li>
 </ol>
 
 ## Digitalisation: the invoice becomes a file
 
-Digitalisation means the information exists as data, not that anything happens to it. The paper invoice gets scanned, or the supplier sends a PDF to a shared invoices mailbox instead of a personal one. Nobody walks to the filing cabinet any more. Someone still opens every file, reads it, decides who approves it, and types the amount somewhere.
+English splits a distinction that German folds into one word. Digitisation is the conversion: paper becomes a file, or a scan becomes a PDF. Digitalisation is the office working from that file instead of from the cabinet. Neither is automation yet. Someone still opens every file, reads it, decides who approves it, and types the amount somewhere.
 
-That is already useful: the invoice can be searched, forwarded and kept. It does not save the work around it. In Switzerland part of this step is already done for you. The QR-bill finally replaced the old payment slips on 1 October 2022, and according to [SIX](https://www.six-group.com/en/products-services/banking-services/payment-standardization/standards/qr-bill.html) its Swiss QR code contains all the information needed for the payment in digital form.
+That is already useful. The invoice can be searched, forwarded and kept. The work around it stays.
+
+In Switzerland, part of the conversion is already done for payments. The QR-bill replaced the old payment slips on 1 October 2022. Its Swiss QR code holds the payment details in digital form, next to the text on the paper ([SIX](https://www.six-group.com/en/products-services/banking-services/payment-standardization/standards/qr-bill.html)). A file is not finished forever. SIX says that since 22 November 2025, QR-bill version 2.3 has been in effect, and only the structured address is permitted in the code. A PDF from 2023 can fail the current rule and still be "digital".
 
 ## Automation: a rule moves the file
 
-Automation means a rule you can write down does the step, the same way every time. Every PDF that reaches the invoices mailbox is saved in this month's folder. Invoices from a known supplier go to the person who ordered from them. Above an amount you set, a second person has to approve. When both have approved, the file goes to bookkeeping.
+Automation means a rule does the step, the same way every time. Every PDF that lands in the invoices mailbox is saved in this month's folder. Invoices from a known supplier go to the person who ordered from them. Above an amount you set, a second person has to approve. When both have approved, the file goes to bookkeeping.
 
-The rule does not understand anything. It checks a sender, a folder or an amount and acts. That is its strength: same input, same result, cheap to run, easy to check afterwards. It breaks where the input has no fixed shape. A rule can read the amount from a QR code. It cannot tell from a free-text line which project a delivery belongs to.
+The rule does not understand the content. It checks a sender, a folder or an amount and acts. That is its strength: same input, same result, easy to check afterwards.
+
+Vendors often put another name where people expect the word AI: RPA, robotic process automation. It is software that repeats a fixed sequence of clicks. Open the mailbox, save the attachment, type the amount into a field. That is automation. When the layout changes, the sequence breaks.
+
+A rule can read the amount from a QR code, because the field has a fixed place and a fixed meaning. It cannot tell from a free-text line which project a delivery belongs to. The rule has no fixed field to read.
 
 ## AI: a model reads what has no fixed shape
 
-AI is the step that reads or judges content a rule cannot describe. The [OECD definition](https://oecd.ai/en/wonk/ai-system-definition-update) puts it this way: an AI system "infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions". Inferring is the difference from a rule, which only follows.
+AI, in this split, is the step that infers from the input what a rule cannot fix in advance. The [OECD](https://legalinstruments.oecd.org/en/instruments/oecd-legal-0449), in the recommendation as updated in 2023, defines an AI system as a machine-based system that, for explicit or implicit objectives, infers from the input it receives how to generate outputs such as predictions, content, recommendations or decisions. Inferring is the difference from a rule, which only follows. The definition is a frame, not a product description.
 
-In the invoice example: forty suppliers, forty layouts, some invoices only as text in an email. A model reads each one and returns supplier, amount, due date and a suggested cost centre. It is usually right, not always. So the result goes into the same approval step as before, and a person confirms until you have seen enough runs to trust it.
+In the invoice example: forty suppliers, forty layouts, some invoices only as text in an email. A model returns supplier, amount, due date and a suggested cost centre. It is usually right. Not always. So the result goes into the same approval step as before, and a person confirms until you have seen enough runs.
 
-## The one mistake: buying AI for a missing step
+Pasting an invoice into a chat window and typing the answer into the books is not automation yet, and it is often not a reliable step in the process either. It is a person with a tool. The step is in the business only once the input, the check and the destination are fixed.
 
-The common mistake is to buy "AI" when the real gap is a missing digital or rule-based step. If invoices still land on one person's desk on paper, a model has nothing to read. If nobody has decided who approves which invoice, the model extracts perfect fields that then go nowhere. In both cases the money goes into the third step while the first or second is still missing.
+## The three steps in one view
 
-Ask three questions about the process, in this order. Is the input already a file in a shared place? Is there a rule you could write on one page? Is there a part left that someone has to read and interpret? Only the third answer calls for AI. Many office processes stop at the second: a rule is cheaper per run and gives the same answer every time.
+| | Digitalisation | Automation | AI |
+|---|---|---|---|
+| What arrives | Paper, or a PDF in a personal inbox | A file in a known place | A file with no fixed layout |
+| Who acts | A person | A rule, the same way every time | A model, then a person |
+| Where it fails | The file never lands in one place | The input has no fixed shape | Nobody decided where the result goes |
+
+## The common mistake: a model, while an earlier step is missing
+
+The common mistake is to buy "AI" while invoices still sit on one desk, or while nobody has decided who approves them. In the first case the model has nothing to read. In the second it extracts fields that go nowhere. The money sits in the third step while the first or the second is missing.
+
+Three questions, in this order. Is the input already a file in a shared place? Can the next step be written as a rule on one page? Is there a remainder that someone has to read and interpret? Only the third answer calls for a model. Many office processes stop at the second. The rule is cheaper per run and gives the same answer every time.
+
+Write the three answers next to an invoice that already passed through your hands twice this week. If the first or the second answer is no, a model is the wrong purchase this week. RPA stays in the middle column, even when the brochure prints the word AI on the licence.
 
 <div class="blog-faq">
-  <h3>Is rule-based automation old-fashioned compared with AI?</h3>
-  <p>No. It is the right tool wherever the step can be written as a rule. AI earns its place where input varies too much for a rule, and it still needs the digital input and the rule-based steps around it.</p>
+  <h3>Is a fixed rule old-fashioned once AI exists?</h3>
+  <p>No. It is the right tool wherever the step can be written down. A model earns its place where the input varies too much for a rule. It still needs the file beforehand, and a person who checks the result.</p>
 </div>
+
+<div class="blog-faq">
+  <h3>Does a QR-bill already count as automation?</h3>
+  <p>No. The QR code puts the payment data into the file. That is digitalisation. Automation starts when a rule files the PDF, routes it for approval, or copies the amount across. That rule does not read a free-text line about the project.</p>
+</div>
+
+## Who should skip the third step
+
+<div class="blog-pair">
+  <div>
+    <h3>A rule is enough</h3>
+    <ul>
+      <li>The input is already a file in a shared place</li>
+      <li>Sender, folder or amount decides the next step</li>
+      <li>You want the same answer every time, and you need to check it later</li>
+    </ul>
+  </div>
+  <div>
+    <h3>A model belongs here</h3>
+    <ul>
+      <li>Layouts change, and nobody can write the fields as a rule</li>
+      <li>A person sees the result until the step is reliable</li>
+      <li>The destination and the approval already exist, or the model has nowhere to send the fields</li>
+    </ul>
+  </div>
+</div>
+
+If the invoices are still paper on one desk, skip the model and make one shared place for the file first. If you want a tool list or prompts for marketing copy, this article does not answer that. If you want to build a product or test an idea, that is a different job from one office process.
+
+## What it costs, without a price list
+
+There is no franc figure here for "introducing AI". It depends on how many documents pass through and whether a person still reads the result. A rule has no model fee per invoice. A model does, and the check remains.
+
+What can be priced is the hour in which you sort one process. The [Process Check](/prozess-check) is 60 minutes online and costs CHF 99. You bring one recurring process. If the session takes place and no tangible case comes out of it, the fee comes back. If you later book an implementation, the check price is credited in full. Guide prices for an implementation are not in this article. They do not belong in a page whose job is to separate the three words.
+
+If the team needs to use the same tools under the same rules, that job sits on the [AI in business](/services/ai-in-business) page. That is a workshop. The Process Check hour sorts one process.
 
 ## What to do next
 
-Take one process you do by hand every week and mark which of the three steps is missing. If you want a second opinion on one concrete process: the [Process Check](/prozess-check) looks at exactly that, in 60 minutes.
+Take one process you still do by hand every week and mark which of the three steps is missing. If the three questions above are enough, you do not need anyone for that. If the process is concrete and the answers contradict each other, the hour on the Process Check page is what that is for.

@@ -14,7 +14,10 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Le etichette relatori mancanti saltano fuori spesso proprio quando vuoi condividere l'export. Senti due voci nella registrazione e il file resta un blocco. È normale per molti export, e non è un guasto che uno strumento del browser sistema indovinando. I nomi arrivano da ciò che è già nel testo, o da una separazione sul Mac. Un file senza nomi resta senza nomi finché non li metti tu e li segni come tua aggiunta.
+
+Le **etichette relatori mancanti** saltano fuori spesso quando vuoi condividere l'export. Senti due voci e il file resta un blocco. È normale per molti export. Uno strumento del browser non sistema indovinando. I nomi arrivano da ciò che è già nel testo, o da una separazione sul Mac. Un file senza nomi resta senza nomi finché non li metti tu e li segni come tua aggiunta.
+
+Rinominare un'etichetta che hai già è un lavoro diverso. Va fatto sul Mac dopo la registrazione, non in un pulitore di sottotitoli.
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Rinomina in ordine</h3><p>Inizia da chi parla di più; un'etichetta alla volta.</p></li>
@@ -24,7 +27,7 @@ Le etichette relatori mancanti saltano fuori spesso proprio quando vuoi condivid
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limite</span>
-  <p>Gli strumenti browser non separano i relatori. Serve l'app Mac o editing manuale.</p>
+  <p>A settembre 2026, gli strumenti browser trascrivono file fino a 15 minuti, tre esecuzioni riuscite a settimana, senza separazione dei parlanti. Registrazione live e diarizzazione sono nell'app Mac.</p>
 </aside>
 
 ## Contenuti
@@ -37,97 +40,125 @@ Le etichette relatori mancanti saltano fuori spesso proprio quando vuoi condivid
 - [Il tempo di parola senza etichette è un vicolo](#il-tempo-di-parola-senza-etichette-è-un-vicolo)
 - [Domande frequenti](#domande-frequenti)
 
-
 ## Perché le etichette relatori mancanti sono normali
 
-Una trascrizione è testo più ciò che la fonte ha salvato come attributo del parlante. Molte fonti non salvano niente.
+Diversi export normali non hanno nomi. Non è un bug del tuo incolla.
 
+- Una registrazione Zoom locale è audio. `audio_only.m4a` non contiene parlanti. Il VTT cloud a volte sì, se la trascrizione cloud era attiva per l'account. Il file locale non eredita quei nomi. Vedi [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom).
+- Un memo vocale, una stanza al microfono o una traccia mista è un'onda unica. Il riconoscimento vocale scrive le parole, non i volti.
+- Alcuni download Teams hanno VTT con tag `<v Nome>`. Altri, o alcune policy admin, sono testo senza tag. Se il tag manca, nessun pulitore successivo recupera un nome mai salvato.
+- [Trascrivere audio](/it/strumenti/trascrivere-audio) usa un modello pubblico su un file che hai già. Non separa i parlanti. I nomi compaiono solo se erano già nel media in una forma leggibile, cosa che un M4A semplice quasi mai ha.
 
-Una registrazione Zoom locale è spesso `audio_only.m4a`. Niente VTT, niente nomi. Il VTT cloud esiste solo se la funzione che hai davvero usato ha scritto una trascrizione, e anche allora i nomi dipendono da ciò che Zoom ha messo nelle cue. Il percorso dal file locale è in [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom).
-
-Teams può mostrare i nomi a schermo durante i sottotitoli e darti lo stesso un download senza tag vocali. Vedere ed esportare non sono lo stesso permesso, né lo stesso file. I sottotitoli che scorrono non sono un `<v Nome>` archiviato.
-
-Un memo vocale, un'intervista su un solo microfono e l'audio di sistema senza diarizzazione sono una sola traccia. Due persone, un file, zero etichette. Il testo può essere utile. «Chi l'ha detto» è un'altra domanda.
+Se ti servivano i nomi, il momento giusto era una fonte con tag o uno strumento che diarizza sul dispositivo. Guardare un testo finito senza nomi e sperare è troppo tardi per il browser.
 
 ## Che cosa fa e non fa il browser
 
-Gli strumenti nel browser non separano i parlanti dall'audio. [Trascrivere audio](/it/strumenti/trascrivere-audio) scrive ciò che è stato detto, fino a 15 minuti, senza caricare il file, e non aggiunge nomi. Se le etichette mancano in un testo che hai già, mancano ancora.
+[Pulire la trascrizione](/it/strumenti/pulire-trascrizione) rimuove timestamp e intestazioni cue. Tiene un relatore solo se trova un motivo: `<v Nome>`, `Nome:`, `Speaker 1:`, `SPEAKER_01:`. Il resto è testo senza persona. Se nulla corrisponde, la pagina dice che il file non aveva nomi di parlanti. Restituisci comunque il testo. Non riempie «Speaker A» e «Speaker B» per stima.
 
-[Pulire la trascrizione](/it/strumenti/pulire-trascrizione) tiene i motivi già presenti e ti dice quando non c'erano. Non inventa un `Speaker 1` per rendere la pagina più bella. Un verbale incollato senza fonte sarebbe peggio di una riga senza nome.
+[Chi ha tenuto la parola](/it/strumenti/tempo-di-parola) usa la stessa regola un passo dopo. Incolli una trascrizione con nomi e la pagina mostra la quota di parole per nome. Su un blocco senza nomi si ferma. Nessun grafico di voci anonime, perché il browser non separa le voci.
 
-[Note da una trascrizione](/it/strumenti/note-da-trascrizione) possono mettere un nome su un'azione solo se quel nome è nel testo e regge il fatto. Il modello non conclude dal contesto che «la persona delle vendite» si chiama Giulia. Se il nome manca, la riga resta senza una responsabilità inventata.
+Le pagine non registrano la riunione e non ascoltano la scheda. [Trascrivere audio](/it/strumenti/trascrivere-audio) gira nel browser senza caricare il file su Vemoir.
+
+[Note da una trascrizione](/it/strumenti/note-da-trascrizione) possono riassumere un file senza nomi. Non devono assegnare citazioni a persone assenti dal testo. Rileggi la bozza. Se compare un nome che il file non aveva, cancella la riga.
+
+Vuoi etichette alla prossima call senza indovinare? Vemoir registra microfono e audio di sistema sul Mac. Vedi [la registrazione](/it#capture). Per un nome sbagliato su un'etichetta esistente: [correggere nomi speaker](/it/blog/corriggere-nomi-speaker).
 
 ## Forme che contano già come nome
 
-Questi motivi restano, perché sono già testo:
+| Nel file | Cosa ottieni |
+| --- | --- |
+| `<v Giulia Neri>la frase</v>` | `Giulia Neri: la frase` |
+| `Giulia Neri: la frase` | Il nome resta |
+| `Speaker 1: la frase` | Segnaposto, non una persona |
+| Solo frase | Nessun nome |
 
-- `<v Giulia Neri>la frase</v>`
-- `Giulia Neri: la frase`
-- `Speaker 1: la frase`
-- `SPEAKER_01: la frase`
+<dl class="blog-terms">
+  <div>
+    <dt>Speaker 1</dt>
+    <dd>Etichetta di traccia dall'export, non un'identità scoperta.</dd>
+  </div>
+  <div>
+    <dt>VTT</dt>
+    <dd>File sottotitoli. Nomi solo se ci sono tag voce.</dd>
+  </div>
+  <div>
+    <dt>Diarizzazione</dt>
+    <dd>Separare chi parla quando. App Mac in locale, non il browser.</dd>
+  </div>
+</dl>
 
-`Speaker 1` è un'etichetta, non una persona. Per il [tempo di parola](/it/strumenti/tempo-di-parola) basta a calcolare una quota di parole. Per un verbale che archivi, non basta. Sai allora che una traccia ha avuto più parole, non chi ha promesso qualcosa lunedì.
-
-«Conference Room», «Phone» e un nome a schermo del tenant contano anche loro. Sono ciò che la fonte ha salvato. Non sono una lista presenze. Puoi rinominare se sai chi ha parlato. Il browser non lo cerca.
+«Conference Room» conta come etichetta della fonte, non come lista presenze. Rinomina solo se sai chi ha parlato, e segnala che è una tua modifica.
 
 ## Quando i nomi li metti a mano
 
-Metti i nomi a mano quando la conversazione era piccola e tu c'eri.
+Etichette a mano sono oneste quando la riunione era breve e tu c'eri.
 
-- Due persone, ricordi chi ha detto il numero. Scrivi il nome sulla riga e segnalo come tua aggiunta, non come export.
-- Un blocco «Conference Room», e sai che in sala c'era una sola persona. Una rinomina, non un indovinello a ogni cue.
-- Un verbale in cui l'azione ha bisogno di un nome proprio. Copia la riga sul [modello di verbale](/it/strumenti/modello-verbale) e scrivi la persona lì. Quella scheda non trascrive.
+1. Lasciare il file originale intatto.
+2. Lavorare su una copia.
+3. Quando conosci un tratto, prefissarlo con `Nome: testo` su riga propria, stessa grafia ovunque.
+4. In dubbio, `Sconosciuto:` o riga senza nome. Un nome sbagliato è peggio di un vuoto.
+5. Incollare la copia in [chi ha tenuto la parola](/it/strumenti/tempo-di-parola) solo quando rispondi dei nomi.
 
-Non farlo quando non riesci a separare cinque voci, o quando il testo dovrà valere come prova più tardi e i nomi non erano nel file. Un nome aggiunto per fare ordine è un'affermazione. Dillo nella nota quando lo metti.
+Basta per un debrief di dieci minuti. Non per un workshop di novanta minuti a sei voci: sbaglierai al centro e il grafico sembrerà preciso.
+
+Non rimettere nomi nel VTT originale e poi trattare quel VTT come export del fornitore. Mostra l'originale se devi provare cosa hanno consegnato Teams o Zoom.
+
+Non farlo se cinque voci non sono separabili, o se il testo dovrà valere come prova e i nomi non erano nel file. Un nome aggiunto è un'affermazione: scrivilo nella nota.
 
 ## Quando ti serve il Mac
 
-L'app per Mac separa le voci sul dispositivo dopo che hai registrato o importato un file. I parlanti sconosciuti restano anonimi. Li rinomini dopo. «Ricorda questo parlante» è una scelta esplicita, cifrata e cancellabile. Non è una funzione del browser, e non è un modello di dialetto svizzero tedesco.
+Vemoir sul Mac separa i partecipanti in etichette anonime da rivedere dopo lo stop. La separazione gira sul dispositivo. Puoi rinominare senza creare un profilo vocale. «Ricorda questo parlante» è un passo separato ed esplicito: profilo cifrato solo se lo approvi. Parlanti sconosciuti o ambigui restano anonimi. Puoi disattivare o cancellare un profilo.
 
-Se ti servono etichette su una registrazione lunga, importi sul Mac MP3, M4A, WAV, AIFF, CAF o FLAC. Il browser prende MP3, M4A, WAV e MP4, al massimo 15 minuti, senza separazione dei parlanti. Opus e OGG non stanno in nessuna delle due liste.
+È così che una traccia mista ottiene nomi. Il browser non aggiungerà questa funzione. La registrazione live, microfono e audio di sistema, e la diarizzazione sono nell'app. macOS chiede microfono e **registrazione dell'audio di sistema**. Solo audio, non cattura schermo.
 
-Il permesso macOS per il suono delle altre app è la **registrazione dell'audio di sistema**. Solo audio. Non una cattura dello schermo.
+Rileggi comunque le etichette. La diarizzazione può tagliare una persona o unire due voci simili. La trascrizione grezza resta la prova. Una rinomina non riscrive la storia in falsa identità.
+
+Import se hai già il file: MP3, M4A, WAV, AIFF, CAF o FLAC in un progetto, stessa pipeline locale di una registrazione live. Il browser prende MP3, M4A, WAV e MP4, al massimo 15 minuti, senza separazione. Opus e OGG non sono in nessuna delle due liste.
+
+Vedi [profili speaker su Mac](/it/blog/profili-speaker-su-mac) e [correggere nomi speaker](/it/blog/corriggere-nomi-speaker). La diarizzazione sul Mac non è ancora un verbale firmato: le decisioni le scrivi tu, con i nomi che puoi difendere.
 
 ## Il tempo di parola senza etichette è un vicolo
 
-[Chi ha tenuto la parola](/it/strumenti/tempo-di-parola) legge una trascrizione che ha già i nomi e conta la quota di parole, non di secondi. Senza etichette la pagina si ferma. Non mette un falso `Speaker 1` davanti al testo perché nasca un diagramma.
+«Chi ha parlato di più» richiede nomi o etichette stabili prima del conteggio. La quota di parole non è un orologio. Chi parla veloce può avere più parole di chi ha tenuto la parola più a lungo. [Chi ha tenuto la parola](/it/strumenti/tempo-di-parola) riporta solo quote lette dai prefissi.
 
-È voluto. Una quota di parole su un blocco senza nome non dice niente della riunione. Dice che un file ha del testo. Se vuoi lo stesso sapere chi ha parlato di più, ti servono prima i nomi nel file o una separazione sul Mac. Poi arriva il conteggio.
+Senza etichette la pagina si ferma. È voluto. Una quota su un blocco senza nome non descrive la riunione. Dice che un file contiene testo.
 
-La diarizzazione sul Mac non è ancora un verbale. Due tracce anonime le puoi rinominare. Le decisioni le scrivi a parte, con la persona che le ha portate, non con la quota di parole più alta.
+Se la domanda è equità in un workshop, parti da audio separabile, rinomina, poi conta. Da un incolla senza nomi, un grafico «preciso» sarà finzione.
+
+Per un verbale con responsabile, scrivi partecipanti sul [modello di verbale](/it/strumenti/modello-verbale) da ciò che sai. Non fingere che la trascrizione abbia provato le citazioni. Vedi anche [chi ha parlato di più](/it/blog/chi-ha-parlato-di-piu).
 
 ## Domande frequenti
 
 ### Perché le etichette mancano se sento due persone?
 
-Perché sentire e salvare non sono la stessa cosa. Una sola traccia audio non ha nomi automatici. Molti export tengono solo il testo. Il browser non separa le voci dopo.
+Perché sentire e salvare non sono la stessa cosa. Una traccia audio non ha nomi incorporati.
 
 ### Posso accendere le etichette dei parlanti nello strumento del browser?
 
-No. Non c'è un interruttore. Se i motivi mancano nel testo, il testo resta senza nomi. Una registrazione senza etichette resta senza etichette, anche se la trascrivi un'altra volta.
+No. Non c'è un interruttore. Se i motivi mancano, il testo resta senza nomi.
 
 ### Zoom mette sempre i nomi nel VTT?
 
-No. Un VTT cloud può avere i nomi se la funzione che hai usato li ha scritti. Una registrazione locale è spesso solo audio. Controlla il file che hai davvero, non quello che speravi.
+No. Una registrazione locale è spesso solo audio. Controlla il file che hai davvero.
 
 ### Teams mostra i nomi a schermo, non nel download. E allora?
 
-Allora lo schermo ha mostrato più di quanto contiene il file. Tieni solo ciò che sta nel download. Chiedi a chi organizza un formato con tag vocali, se il tuo tenant lo scrive ancora. Non inventare i nomi nella copia condivisa.
+Tieni solo ciò che sta nel download. Non inventare i nomi nella copia condivisa.
 
 ### «Speaker 1» basta per un verbale?
 
-Per un conteggio di parole, sì, come traccia. Per un'azione con un responsabile, no. Sostituisci l'etichetta con un nome di cui puoi rispondere, e di' che l'hai messo tu.
+Per un conteggio di parole sì, come traccia. Per un'azione con responsabile no.
 
 ### Un modello di riassunto deduce i nomi dal contesto?
 
-Non dovrebbe, e una bozza che lo fa va scartata. Una nota può portare un nome che sta nel testo. «Qualcuno della finanza» non diventa una persona che non si è mai offerta.
+Non dovrebbe. Scarta una bozza che lo fa.
 
 ### Posso correggere un nome sbagliato senza un profilo vocale?
 
-Sì. Rinominare nel file o nella nota basta per quella prova. Un profilo vocale salvato è una funzione Mac, esplicita e cancellabile. Non ti serve per correggere una riga di questo verbale.
+Sì. Rinominare nel file o nella nota basta per quella prova. Il profilo salvato è opzionale sul Mac.
 
 ### Un'etichetta mancante rende la trascrizione inutile?
 
-No. Puoi leggere decisioni, date e domande aperte quando la frase le regge. Non puoi dire onestamente chi le ha dette, se non c'eri e se non segni l'attribuzione come tua.
+No. Contenuto e ordine restano. L'attribuzione solo con nomi reali.
 
-Passo successivo: se il file ha già i nomi, apri [chi ha tenuto la parola](/it/strumenti/tempo-di-parola). Se è solo audio, leggi [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom) oppure registra la prossima riunione sul Mac quando le etichette fanno parte del lavoro.
+Passo successivo: se il file ha già i nomi, apri [chi ha tenuto la parola](/it/strumenti/tempo-di-parola) o [pulire la trascrizione](/it/strumenti/pulire-trascrizione). Se è solo audio senza nomi, la separazione è il percorso [registrazione sul Mac](/it#capture), non il browser. Per file Zoom locali, vedi [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom).

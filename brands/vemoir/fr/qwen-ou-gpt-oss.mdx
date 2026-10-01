@@ -31,24 +31,16 @@ Les deux tournent sur le Mac. Le réseau sert au téléchargement, pas à chaque
 
 Ask, documents, artefacts de réunion et artefacts personnalisés partagent une source de texte active. Choisir le modèle local, Qwen ou gpt-oss, garde cette source sur l’appareil. Si vous aviez activé une clé personnelle, revenir au modèle local ramène les quatre sur le Mac. Un échec ne bascule pas en silence vers l’autre modèle local ni vers la clé cloud.
 
-|  | Qwen (local) | GPT-OSS (local) |
-| --- | --- | --- |
-| Job | On-device writing | On-device writing |
-| Internet | Setup download | Setup download |
-| When off | Local templates only | Local templates only |
+## Modèle de parole et modèle d'écriture&nbsp;: deux téléchargements
 
-|  | Qwen (local) | GPT-OSS (local) |
-| --- | --- | --- |
-| Rôle | Rédaction on-device | Rédaction on-device |
-| Internet | Téléchargement initial | Téléchargement initial |
-| Désactivé | Modèles locaux seuls | Modèles locaux seuls |
+La transcription est un choix à part de Qwen ou gpt-oss. Parakeet v3 et Whisper écoutent la réunion sur le Mac. Qwen et gpt-oss ne lisent que le texte de transcription qui en résulte. Si les mots sont faux, corrigez le modèle de parole, le micro ou le glossaire avant de blâmer le modèle d'écriture. Voir [Parakeet ou Whisper](/fr/blog/parakeet-ou-whisper).
 
 ## Quand Qwen est le meilleur choix
 
 Qwen3 4B est le meilleur choix sur un Mac qui n’est pas à mémoire élevée, quand vous voulez le modèle d’écriture que l’installation présente pour la plupart des machines, et quand vous préférez consacrer disque et mémoire au modèle de parole et à l’enregistrement plutôt qu’au plus gros fichier d’écriture. C’est aussi le meilleur choix si vous hésitez, parce que forcer gpt-oss-20b sur un Mac qui ne lui convient pas n’est pas une hausse de qualité que l’app maquillerait. Les indications d’adéquation sont là pour que vous ne deviniez pas.
 
 
-Vous choisissez toujours le modèle de parole à part. Un résumé Qwen fluide d’une mauvaise transcription reste le résumé d’une mauvaise transcription. Corrigez le modèle de parole, le micro ou le glossaire si les mots sont faux. Passer de Qwen à gpt-oss ne relabelle pas les locuteurs et n’applique pas d’indices de glossaire à l’audio.
+Vous choisissez toujours le modèle de parole à part. Un résumé Qwen fluide d’une mauvaise transcription reste le résumé d’une mauvaise transcription.
 
 ## Quand gpt-oss est le meilleur choix
 

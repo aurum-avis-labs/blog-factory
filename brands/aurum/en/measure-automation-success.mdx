@@ -14,40 +14,42 @@ site: prozess-check
 
 ## Measure whether an automation works
 
-You measure whether an automation works by writing four numbers before it goes live, then counting the same four again after people have used it for a few weeks. The four are time per case, errors, lead time, and the share of cases the automation actually finishes. If those four did not move the way the decision said they would, the automation has not worked yet, however often people open it.
+<p class="blog-lede">Four numbers before go-live and the same four after a few weeks: time per case, errors, lead time and share handled. Logins are not one of them.</p>
 
-The sheet you fill in before you spend anything is [how to calculate the benefit of an automation](/prozess-check/blog/calculate-automation-benefit). This page is the count afterwards. A run that fails overnight is an operations problem, covered in [who runs the automation afterwards](/prozess-check/blog/who-runs-the-automation). What a rebuild would cost is in [what automation costs in Switzerland](/prozess-check/blog/what-automation-costs-switzerland).
+You judge whether an automation works by four measures you write down before it goes live, then count again with the same definitions. If time per case, errors, lead time and the share of cases the automation actually finishes did not move as planned, it has not landed yet, however often people open the tool.
+
+The sheet you fill in before you spend anything is [how to calculate the benefit of an automation](/prozess-check/blog/calculate-automation-benefit). This page is the count afterwards. A run that fails overnight is operations, covered in [who runs the automation afterwards](/prozess-check/blog/who-runs-the-automation). What a rebuild would roughly cost is in [what automation costs in Switzerland](/prozess-check/blog/what-automation-costs-switzerland).
 
 ## Usage is not the result
 
-Logins, prompts and tokens tell you that the tool was touched. They do not tell you that the work got shorter or cleaner.
+Logins, prompts and tokens show the tool was touched. They do not show the work got shorter or cleaner.
 
 <div class="blog-stat">
   <strong>45%</strong>
-  <p>adesso, GenAI Impact Report Switzerland 2026: share of Swiss companies that measure GenAI success by usage rate. In the same survey, 47% name process efficiency. Their survey of executives, not ours. The shares add up past 100%, so firms could name more than one measure.</p>
+  <p>adesso, GenAI Impact Report Switzerland 2026: share of Swiss companies that measure GenAI success by usage rate. In the same survey, 47% name process efficiency. Their executive survey, not ours. The shares add up past 100%, so firms could name more than one measure.</p>
 </div>
 
-That report, from adesso Schweiz, is a February 2026 survey by HEUTE UND MORGEN of 100 Swiss executives (a separate chapter covers 750 end customers). adesso's own comment on the figures is the useful line: the usage measures show whether employees use GenAI, not whether it works. After usage rate (45%) and usage frequency (40%) come cost (32%), customer satisfaction (28%), revenue growth (27%) and fewer complaints (18%). Five percent do not measure at all. Read those as adesso's findings. They are a reason to pick a measure that can move, not a target for your firm.
+That report from adesso Schweiz is a February 2026 survey by HEUTE UND MORGEN of 100 Swiss executives (a separate chapter covers 750 end customers). adesso's useful line: usage measures show whether employees use GenAI, not whether it works. After usage rate (45%) and usage frequency (40%) come cost (32%), customer satisfaction (28%), revenue growth (27%) and fewer complaints (18%). Five percent do not measure at all. Treat those as adesso's findings, not targets for your firm. For recurring office work, a sheet with four numbers is often enough, not a BI project. If your decision only tracks logins, you still will not know after six weeks whether the work got shorter.
 
 ## What to write down before go-live
 
 Count a real stretch, ideally the last four weeks, with the same definitions you will use later. Memory of "it takes ages" will not compare.
 
 <ul class="blog-checklist">
-  <li>Time per case: minutes from the moment someone starts the case until it is done, including corrections and questions. Time three cases, not one.</li>
-  <li>Errors: how many cases last month had to be redone, and what "redone" means. A typo fixed in passing is not the same as a credit note.</li>
-  <li>Lead time: how long the customer or the next colleague waits, from the request to the result leaving. This is calendar time, not the minutes of typing.</li>
-  <li>Share handled: of all cases in the period, how many left on the new path without a person rebuilding them. The rest are still manual.</li>
-  <li>Who still uses the old path: names or roles, not a percentage of licences. Adoption is the condition for the four numbers. It is not itself the result.</li>
+  <li>Time per case: minutes from starting the case until it is done, including corrections and questions. Time three cases, not one.</li>
+  <li>Errors: how many cases last month had to be redone, and what "redone" means.</li>
+  <li>Lead time: calendar time from request to result leaving, not typing minutes.</li>
+  <li>Share handled: of all cases in the period, how many left on the new path without a person rebuilding them.</li>
+  <li>Who still uses the old path: names or roles. Adoption is the condition for the four numbers, not the result itself.</li>
 </ul>
 
-Write the numbers where the date is visible: a spreadsheet row, a notebook line, an email to yourself. If you only start counting after go-live, mark the earlier figure as reconstructed from date stamps, and treat it as weaker.
+Write the numbers where the date stays visible: a spreadsheet row, a notebook line, an email to yourself. If you only start counting after go-live, mark the earlier figure as reconstructed from timestamps and treat it as weaker. Note who counted and which cases were excluded, or the team will argue definitions instead of results two weeks later.
 
 ## A made-up example
 
-A made-up example: a small wholesaler confirms orders by copying lines into a mail. Before go-live they counted four weeks. About 40 confirmations a week. Twelve minutes each, including the check. Six confirmations a month went out wrong and needed a correction. The mail left, on average, two days after the order. They wrote that down.
+A made-up example: small wholesaler confirming orders by copying lines into a mail. Four weeks before go-live: about 40 confirmations a week, twelve minutes each including the check, six corrections in a month, mail leaving on average two days after the order.
 
-Six weeks after go-live the volume is still about 40 a week. A person checks a draft for four minutes. Two corrections in the last month. Same-day sending on the cases that stay on the new path. Of 40 orders in a sample week, 32 left without anyone rebuilding the mail. Eight were still pasted into the old template by two people who did not trust the draft.
+Six weeks later: still about 40 a week. Checking a draft takes four minutes, two corrections in the last month, same-day sending on the new path. In a sample week, 32 of 40 left without anyone rebuilding the mail. Eight were still pasted into the old template by two people who did not trust the draft. Without the share handled you would only see shorter minutes and miss the stubborn cases.
 
 | | Before | After six weeks |
 | --- | --- | --- |
@@ -55,28 +57,36 @@ Six weeks after go-live the volume is still about 40 a week. A person checks a d
 | Minutes of staff time per confirmation | 12 | 4 on the new path |
 | Corrections in a month | 6 | 2 |
 | Days from order to confirmation | 2 | same day, on the new path |
-| Share that left without a rebuild | none, it was all manual | 32 of 40 |
+| Share that left without a rebuild | all manual | 32 of 40 |
 
-The login report would have looked healthy in week one and in week six. It would not have shown that 8 of 40 never took the new path. Those eight are the next conversation, not a reason to declare the automation finished. The minutes saved are only real on the 32. Price them with the benefit sheet if you need francs. Do not invent a customer satisfaction score you did not collect.
+The login report would have looked healthy in week one and week six. It would not have shown the eight cases that never took the new path. Those eight are the next conversation, not a reason to declare the automation finished. Minutes saved apply only to the 32. Price them with the benefit sheet if you need francs; do not invent satisfaction you did not collect. All table figures are invented for the arithmetic; your counts replace them.
 
-All of the figures in the table are invented for the arithmetic. Your counts replace them.
+## When a number stays flat
 
-## When a number did not move
+Time per case barely fell: often "check" became a full redo. That is a design problem, not a reason to cheer the licence. Look at three cases that still take long and note which step stayed manual.
 
-If time per case barely fell, the automation is doing less than the decision assumed. Look at what the person still types. Often the "check" has become a full redo. That is a design problem, not a reason to cheer the licence.
+Errors unchanged: read the source, do not stack features. A wrong product code from the master list survives any new prompt. [Who runs the automation](/prozess-check/blog/who-runs-the-automation) is about failed runs; this count is about cases that completed and were still wrong.
 
-If errors did not fall, stop adding features and read the two that remain. A wrong product code from the source list will survive any new prompt. Fix the source, then count again. [Who runs the automation](/prozess-check/blog/who-runs-the-automation) is about failures of the run itself. This count is about the cases that completed and were still wrong.
+Lead time unchanged: the wait came from approval, a batch or a Friday queue, rarely from typing. Automating typing leaves that wait in place.
 
-If lead time did not fall, the wait was never the typing. It was a missing approval, a daily batch, or a person who looks at the queue on Fridays. Automating the typing leaves that wait in place.
+Share handled stays low: you rarely have a measurement problem. People are staying on the old path. Ask what the outliers do not trust before you scale the same pattern to a second task. Write the answers next to the eight cases in the example, not only in a meeting.
 
-If the share handled stays low, you do not have a measurement problem. People are voting with the old path. Ask those eight, in the example, what they do not trust. Until that is fixed, do not scale the same pattern to a second task.
+## What to leave out
 
-## What not to add
+No dashboard for five cases a month. The checklist above is the whole system. Do not convert a feeling into a percentage. Do not treat a vendor's "hours saved" estimate as your after figure. Do not average the new path with the old and call it the result. Report the share, then minutes on each path separately. A one-off project has no weekly baseline. Judge it once against the points you wrote before the build, then stop. This page is for work that repeats.
 
-Do not add a dashboard for five cases a month. The checklist above is the whole system. Do not convert a feeling into a percentage. Do not treat a vendor's "hours saved" estimate as your after figure. And do not average the new path with the old path and call it the result. Report the share, then the minutes on each path.
+## Common questions
 
-A one-off project has no weekly baseline. Judge it once, against the acceptance points you wrote before the build, and stop. This page is for a task that repeats.
+<div class="blog-faq">
+  <h3>How long should you wait before counting again?</h3>
+  <p>At least one full work cycle, often four to six weeks, so exceptions and habit show up. Earlier you measure adoption only, not effect.</p>
+</div>
 
-## When the count shows the next task
+<div class="blog-faq">
+  <h3>Is IT login data enough?</h3>
+  <p>No, if your goal is shorter or cleaner cases. Logins show touch. The four numbers above show effect, provided the old path was still visible.</p>
+</div>
 
-When one step is still manual, and it repeats, that step is a case for the [Prozess-Check](/prozess-check). You bring that one task. Sixty minutes on Microsoft Teams, CHF 99, paid by card when you book. No VAT is added. You leave with where to start, whether it pays off, a price range, a rough duration and a short written summary. Describing it is enough. If the hour finds nothing worth automating, and the appointment took place, the fee comes back. The hour does not commit you to a build. If the first automation already did what the four numbers required, you do not need a second project to celebrate it.
+## When the count points to the next task
+
+When one step is still manual and repeats, it is a case for the [Prozess-Check](/prozess-check). You bring that one task. Sixty minutes on Microsoft Teams, CHF 99, paid by card when you book. No VAT is added. You leave with where to start, whether it pays off, a price range, a rough duration and a short summary. Describing it is enough. If the hour finds nothing worth automating and the appointment took place, the fee comes back. The hour does not commit you to a build. If the first automation already met the four numbers, you do not need a second project to celebrate.

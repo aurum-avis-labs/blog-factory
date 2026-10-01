@@ -1,0 +1,107 @@
+---
+title: "Web app vs native app vs PWA"
+description: "Web app vs native app vs PWA for an MVP: browser, store install, or installable web, and what the channel choice does not prove."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["web app", "native app", "pwa", "mvp", "capacitor"]
+funnelStage: interest
+translationKey: web-app-vs-native-app-vs-pwa
+relatedPosts: ["how-to-build-a-scalable-mvp", "choosing-a-startup-tech-stack"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Web app vs native app vs PWA is a distribution and capability question, not a badge on a pitch deck. A web app runs in the browser and ships the fastest for most validation work. A native app is installed from a store and reaches deeper device APIs at the cost of review and release friction. A progressive web app (PWA) is still a web app with an install path and offline hooks, useful when home-screen presence matters but a store listing does not yet.</p>
+
+You are in the right place if you already exported something from Lovable, Bolt, v0, Replit, Cursor, or Claude Code and now wonder whether the test belongs in Safari, on the App Store, or both. For why a validation build should still be deployable code rather than a mockup, see [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps).
+
+## Web app vs native app vs PWA
+
+All three can share one React or similar codebase. They diverge on **how users reach the product**, **what the OS gives you on day one**, and **what you must pass before strangers can install from Apple or Google**.
+
+A **web app** is the URL. You deploy, you share the link, you fix bugs on the server. Push notifications, background sync, and some sensors are possible but uneven, especially on iOS. For many B2B and early B2C tests, that is enough.
+
+A **native app** in the strict sense is built for the platform toolchain (Swift, Kotlin) or a cross-platform runtime that still produces a store binary. Users expect an icon, updates through the store, and permissions dialogs that match platform habits.
+
+A **PWA** adds a web app manifest and usually a service worker so the browser can offer install, cache assets, and work offline for defined routes. It is not a separate product category so much as a web app with installability. On Android, PWAs can feel close to a store app. On iOS, install exists, but store apps still win on discovery and some APIs.
+
+| Question | Web app | PWA | Native or wrapped store app |
+| --- | --- | --- | --- |
+| First user path | Link | Link, then optional install | Store search or marketing to store |
+| Update speed | Deploy when ready | Deploy when ready | Review queue per release |
+| Deep device APIs | Browser limits | Similar to web, platform-dependent | Broadest, if you implement them |
+| Store listing | No | Usually no | Yes |
+| Good first test when | Workflow and signup in the browser | Repeat visits, spotty connectivity | Push, offline-first, or «we need an app icon» is the hypothesis |
+
+The table is for **learning**, not for winning a format war. Teams that need a store icon for credibility sometimes ship a wrap before they need every native API.
+
+<div class="blog-pair">
+  <div>
+    <h3>Stay browser-first when</h3>
+    <ul>
+      <li>The job is forms, dashboards, chat in a tab, or a paid landing page with login</li>
+      <li>You change copy and flows weekly during validation</li>
+      <li>Your buyers live on desktop or open links from email and LinkedIn</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Plan for a store build when</h3>
+    <ul>
+      <li>Push, background location, or heavy offline use is core to the value, not a nice extra</li>
+      <li>Partners or procurement expect an App Store or Google Play listing</li>
+      <li>You are ready to maintain review feedback, not only product feedback</li>
+    </ul>
+  </div>
+</div>
+
+## The wrapped web app path
+
+Many vibe-coded MVPs are a **web app plus a native shell** (for example Capacitor), not a rewrite in Swift and Kotlin. The same React bundle can ship to browsers and to store binaries. That is how internal product [Inklets](https://inklets.app) ships: a React app wrapped for iOS and Google Play, with the public site at inklets.app and more detail on the [Inklets portfolio page](/portfolio/inklets).
+
+A wrap is a legitimate shortcut when the product already behaves like an app: accounts, persistent state, clear tasks beyond marketing pages. Apple’s [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) treat **minimum functionality** seriously: guideline 4.2 expects more than a repackaged website, and 4.2.2 rejects pure marketing or web-clipping apps. Google Play has its own bar, including a **closed testing** requirement for many new personal developer accounts (at least 12 testers for 14 continuous days, per Google’s Play Console help). None of that is automatic approval. A wrapped site that only mirrors your landing page is a common rejection pattern, not a validation strategy.
+
+On the client project [do4me](/portfolio/do4me), everyday help in Zurich, the team prepared an iOS and Google Play wrap but **did not** make the store the first test. The first loop was landing page, web app, listings, chat, and measured ads. Holding the store back kept scope on marketplace behaviour, not review timelines.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Choosing a wrap does not promise store approval. Reviewers judge the experience in the binary, not your intent. Treat store submission as a separate risk with its own checklist, especially if the MVP still looks like a responsive website with one form.</p>
+</aside>
+
+<dl class="blog-terms">
+  <div>
+    <dt>Web app</dt>
+    <dd>Your product opened in a browser from a URL, without a store install step.</dd>
+  </div>
+  <div>
+    <dt>PWA</dt>
+    <dd>A web app plus manifest and service worker so the browser can offer install and limited offline use.</dd>
+  </div>
+  <div>
+    <dt>Native wrap</dt>
+    <dd>A store binary that hosts your web UI in a WebView or shared runtime, with plugins for device APIs when needed.</dd>
+  </div>
+</dl>
+
+## What this choice does not prove
+
+Shipping in the browser, as a PWA, or behind a store icon does **not** prove willingness to pay, retention, or that your acquisition channel works. It does **not** replace analytics, session recording, or a Go, Pivot, or Stop read after paid traffic. It does **not** mean the vibe-coded shell is safe for sensitive data without a security review.
+
+If the open question is still «do strangers complete the job?», a fast web deploy usually beats waiting on TestFlight. If the open question is «will users enable push and return daily?», you need the native or wrapped path early enough to measure, not only a slide that says «mobile app».
+
+## Who should not debate formats yet
+
+If you have not spoken to five target users and your artefact is still a Figma file, pick the default your tool exports and measure. If you need regulated health workflows or strict tenant isolation on device, you need architecture input, not a comparison post. If the only reason for a store build is that a competitor has an icon, run a landing page test first and read the signups.
+
+<div class="blog-faq">
+  <h3>Is a PWA enough instead of the App Store?</h3>
+  <p>Often for an early test, yes, when repeat use happens from a link you control and you do not depend on store search. It is a weak fit when push, deep OS integration, or enterprise MDM distribution is part of the hypothesis.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Can one codebase serve web and stores?</h3>
+  <p>Yes, with a shared web UI and a wrap for iOS and Android. The cost moves to plugins, permissions, store policies, and release discipline, not to rewriting every screen on day one.</p>
+</div>
+
+## When the product validation package fits
+
+The [product validation package](/services/mvp-validation) fits when you need a deployed web app, measurement from week one, and optionally iOS and Android as a native wrap ready to submit, while you still care more about behaviour data than about polishing store screenshots. It is a poor fit if you only want a store listing with no plan to run acquisition and read conversion, or if you have not narrowed the job the product must do.

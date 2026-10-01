@@ -1,0 +1,81 @@
+---
+title: "Swiss MVP with EU users: FADP, GDPR, and what to set up first"
+description: "Swiss MVP with EU users: home law is the FADP, GDPR may apply in parallel, and an early stack still needs notices, vendors, and honest limits."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "gdpr", "switzerland", "eu users", "privacy"]
+funnelStage: awareness
+translationKey: swiss-mvp-with-eu-users
+relatedPosts: ["privacy-requirements-swiss-mvp", "app-store-privacy-labels"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">A Swiss MVP with EU users usually runs under the Swiss FADP on your incorporation and hosting choices, and it may also fall under the GDPR when you offer the product to people in the European Union or track their behaviour there, not because the server sits in Zurich.</p>
+
+## Swiss MVP with EU users
+
+You incorporate in Switzerland, you build a first web or mobile product, and your first signups come from Berlin, Amsterdam, or Milan. That pattern is normal for B2B SaaS, marketplaces, and consumer apps that test demand beyond the home market. Home law for processing with Swiss effect remains the [Federal Act on Data Protection](https://www.fedlex.admin.ch/eli/cc/2022/491/de). EU law can sit on top when [Art. 3(2) GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679) applies: offering goods or services to people in the EU, or monitoring their behaviour there. The two frameworks overlap in places but they are not identical, and «we are a Swiss startup» does not switch off EU rules by itself.
+
+This is for founders with an idea or pre-seed budget who plan EU trials, EU ads, or EU app store listings while the product is still small. It is orientation for product and vendor choices, not legal advice. For the yes-or-no scope question on any Swiss firm, see [does the GDPR apply to Swiss companies?](/security/blog/does-the-gdpr-apply-to-swiss-companies). How you scope [startup software development in Switzerland](/blog/startup-software-development-switzerland) is a separate decision from which privacy text you ship on day one.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Swiss baseline</span><strong>FADP</strong><p>Accounts, support mail, and Swiss staff data still sit here.</p></li>
+  <li><span class="blog-kicker">EU reach</span><strong>GDPR may apply</strong><p>EU pricing, language, ads, or monitoring can trigger Art. 3(2).</p></li>
+  <li><span class="blog-kicker">MVP stack</span><strong>Vendors count</strong><p>Auth, email, analytics, and AI APIs are processors, not neutral pipes.</p></li>
+  <li><span class="blog-kicker">Stores</span><strong>Disclosure</strong><p>App privacy labels describe collection; they do not replace law.</p></li>
+</ul>
+
+## Signs your test is aimed at the EU
+
+Indicators matter more than one accidental signup. EU-facing copy on the landing page, euro prices beside CHF, shipping or VAT language for EU countries, LinkedIn or Google campaigns geo-targeted at EU states, and support hours advertised for Central European time zones all point toward «offering» under Art. 3(2). A waitlist that only asks for country and you actively recruit in Germany is a different signal from a Swiss friend who forwards the link.
+
+Monitoring is broader than CCTV. Session replay, remarketing pixels, and behavioural ad networks that profile EU visitors can pull GDPR scope even before you charge money. The [KMU portal on the EU data protection regulation](https://www.kmu.admin.ch/de/eu-regelung-zum-datenschutz-neue-eu-verordnung) explains the bridge in plain language. Use it with counsel once EU traffic is intentional, not accidental.
+
+## What to put in place before EU signups scale
+
+You do not need a full enterprise privacy programme to run a disciplined MVP, but you do need a short list you can defend in a customer call.
+
+Write a privacy notice in plain language that names what you collect in the app and on the marketing site, why, how long you keep it, which vendors see it, and how someone can ask questions. Art. 19 FADP expects transparency; GDPR adds familiar topics such as legal bases and rights for EU users when that law applies. A one-page notice beats a lorem ipsum footer.
+
+Sign or accept data processing terms with vendors that touch personal data: hosting, authentication, email, error tracking, analytics, payment if you take money, and any model API that receives user content. Read whether the vendor offers a GDPR-style addendum even when you pay in dollars. Keep a simple table of subprocessors you can update when you swap tools.
+
+Collect the minimum you need to learn. Full name, company, role, and work email often suffice for B2B trials. Do not copy address books, payroll files, or health notes into a validation build because the demo looks richer. If you process categories that are sensitive under either law, stop and brief a lawyer before you widen the pilot.
+
+For cookies and similar technologies in Switzerland, the EDÖB guide described in the 2025 practice (profiling with high risk, specially protected data, third-party use, cross-site tracking and retargeting) expects consent in those cases; otherwise information and a way to object under Art. 45c FMG. EU visitors may face stricter banner expectations depending on your analytics stack. Align marketing and product on what loads before consent.
+
+Store data where your architecture allows, and be honest about transfers. You can select a [Supabase region in Zurich](https://supabase.com/docs/guides/platform/regions) for the database while a US analytics vendor still processes events. Region choice helps; it does not erase subprocessors in other countries.
+
+## What an MVP privacy setup does not prove
+
+<div class="blog-pair">
+  <div>
+    <h3>It can support</h3>
+    <ul>
+      <li>Honest conversations with early EU customers and investors</li>
+      <li>App store privacy questionnaires answered without guessing</li>
+      <li>A baseline before you sign a large EU buyer's DPA</li>
+    </ul>
+  </div>
+  <div>
+    <h3>It does not prove</h3>
+    <ul>
+      <li>Full GDPR accountability documentation or an audit-ready record</li>
+      <li>That your auth, row-level security, or API keys are secure</li>
+      <li>Product-market fit or willingness to pay</li>
+    </ul>
+  </div>
+</div>
+
+Security and privacy diverge. A missing row-level security rule on a generated backend can expose accounts regardless of how polished your notice reads. Technical due diligence and a structured validation build address different risks. Deeper Swiss MVP privacy topics sit in [privacy requirements for a Swiss MVP](/blog/privacy-requirements-swiss-mvp). Store-facing collection statements are in [app store privacy labels](/blog/app-store-privacy-labels).
+
+## Who should brief counsel early
+
+Brief a lawyer before you scale EU users when you process health data, children's data, or large-scale employee monitoring, when an EU enterprise sends its own GDPR data processing agreement as a gate to pilot, when you need an EU representative under Art. 27 GDPR, or when you are unsure whether your analytics amount to monitoring. Borderline Art. 3(2) cases belong in counsel, not in a blog comment thread.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>This article does not analyse your traffic mix, your contracts, or your analytics configuration. It does not state that your MVP is lawful in the EU or in Switzerland.</p>
+</aside>
+
+When you want a deployed product, measurement, and a Go, Pivot, or Stop read based on real usage rather than policy text alone, see the [product validation package](/services/mvp-validation).

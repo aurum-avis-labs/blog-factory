@@ -11,9 +11,32 @@ image: "@/assets/blog/symptom-to-structure-loop-method/hero.jpg"
 draft: false
 ---
 
-When a team keeps treating the latest spike as a fresh incident, **symptom to structure** elicitation moves the conversation to a loop you can test. Five steps keep blame out of the variable names and put delays where people already feel them. The method is for recurring metrics. A one-off accident belongs in an incident review, not here.
+## What symptom-to-structure elicitation is for
 
-The point of the sequence is a small, named structure: an outcome that returned, the last fixes, one or two loops that could explain the return, and a single link you will measure. It is not a wall of every factor anyone can imagine.
+When a team keeps treating the latest spike as a fresh incident, **symptom to structure** moves the conversation to a loop you can test. Five steps keep blame out of variable names and put delays where people already feel them. The method is for recurring metrics. A one-off accident belongs in an incident review, not here.
+
+The output is a small, named structure: an outcome that returned, the last fixes, one or two loops that could explain the return, and one link you will measure. It is not a wall of every factor anyone can imagine.
+
+<div class="blog-pair">
+  <div>
+    <h3>Use this when</h3>
+    <ul>
+      <li>The same KPI or complaint code returns after each fix</li>
+      <li>Departments disagree on the arrow, not the number</li>
+      <li>You need a testable loop, not another brainstorm list</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Skip it when</h3>
+    <ul>
+      <li>The event has not repeated and is not expected to</li>
+      <li>You only need a single root cause for one outage</li>
+      <li>Names are still accusations, not observables</li>
+    </ul>
+  </div>
+</div>
+
+## The five steps at a glance
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Anchor the metric</h3><p>Write the outcome and the last times it returned. No return, stop.</p></li>
@@ -33,21 +56,26 @@ Also write the quick fixes you already tried and what each one targeted. Three i
 
 ## Step 2: Symptom wall, then neutral rename
 
-List the pains people actually say. Then rename each one before it becomes a node. "They don't care" becomes something you could see: time from alert to response, share of tickets reopened, fraction of checks skipped on a deadline. "The policy failed" becomes a gap you can point at: reported volume, exemption rate, waiting time.
+List the pains people actually say. Rename each one before it becomes a node. "They don't care" becomes something you could see: time from alert to response, share of tickets reopened, fraction of checks skipped on a deadline. "The policy failed" becomes a gap you can point at: reported volume, exemption rate, waiting time.
 
 Neutral names are how other functions stay in the room. A name that accuses a group ends the method in the first ten minutes. If a pain cannot be renamed, park it as context, not as a variable.
+
+<ul class="blog-scenarios">
+  <li><h3>If the room says morale is low</h3><p>Ask for a number HR or ops already tracks: absenteeism, internal transfer requests, or survey item trend.</p></li>
+  <li><h3>If the room says leadership is blind</h3><p>Ask what report arrived late last quarter and who waited on it.</p></li>
+</ul>
 
 ## Step 3: Story links before polarity
 
 Draw arrows only after someone tells the story in one or two sentences: when this moved, that moved, and we saw it in this place. Then mark plus or minus. Polarity without a story is how maps become spaghetti.
 
-Disagreement stays on the map as a dotted alternative, with the doubter's name on it. Do not vote a sign into existence. The later test is what the sign was for. Notation traps, including missing polarity and unnamed arrows, are catalogued in [causal loop diagram mistakes](/blog/causal-loop-diagram-mistakes). Use that page when the draft looks busy and still explains nothing.
+Disagreement stays on the map as a dotted alternative, with the doubter's name on it. Do not vote a sign into existence. The later test is what the sign was for. Before you add arrows, check that every link has a speaker and a place it was observed. Missing polarity and unnamed arrows are the usual reasons a busy map explains nothing.
 
 ## Step 4: Close loops and mark delays
 
 Follow arrows until you return to the metric. Give the loop a plain name the team would use in a hallway: the overtime loop, the exemption loop, the reopen loop. Mark reinforcing or balancing only after you can count the negative links. If you cannot close a loop, say so. An open chain is a hypothesis about sequence, not a structure that maintains itself.
 
-Add a delay note on the longest administrative, hiring, or trust link. That note is often the reason the last fix looked successful. The metric dipped inside the delay, then the loop restored it. If every link is drawn as instant, the map will recommend another instant fix.
+Add a delay note on the longest administrative, hiring, or trust link. That note is often the reason the last fix looked good on the chart inside the delay window, then the loop restored the metric. If every link is drawn as instant, the map will recommend another instant fix.
 
 ## Step 5: Choose one link to instrument
 
@@ -73,21 +101,22 @@ A 90-minute room for the live pass is described in the [causal loop mapping work
 
 ## Frequently asked questions
 
-<div class="blog-faq">
-  <h3>How is this different from root cause analysis?</h3>
-  <p>Root cause analysis is built for an incident: find a cause, contain it, prevent that path. This method is built for a metric that comes back, including the way people adapt to the last fix. Use both when a single event also sits on a pattern you have seen before.</p>
-</div>
+### How is this different from root cause analysis?
 
-<div class="blog-faq">
-  <h3>Do we need the whole organization in the room?</h3>
-  <p>No. You need people who can tell the arrow stories and someone who can read the metric. A crowd adds names faster than stories.</p>
-</div>
+Root cause analysis is built for an incident: find a cause, contain it, prevent that path. This method is built for a metric that comes back, including the way people adapt to the last fix. Use both when a single event also sits on a pattern you have seen before.
 
-<div class="blog-faq">
-  <h3>What if two loops both look plausible?</h3>
-  <p>Keep both. Instrument the link that would tell them apart inside the six-week window. Do not merge them into one unnamed tangle.</p>
-</div>
+### Do we need the whole organization in the room?
+
+No. You need people who can tell the arrow stories and someone who can read the metric. A crowd adds names faster than stories.
+
+### What if two loops both look plausible?
+
+Keep both. Instrument the link that would tell them apart inside the six-week window. Do not merge them into one unnamed tangle.
+
+### Can we run this without software?
+
+Yes. Paper and a wall work for steps 1 to 4. Software helps when you need version history and shared edits after the room. Holist-IQ fits that post-meeting edit pass; it does not replace the rename conversation.
 
 ## Closing next step
 
-Clean the draft against [causal loop diagram mistakes](/blog/causal-loop-diagram-mistakes) before you add arrows. When the structure is stable and you need to choose where to push, continue with [leverage points in systems thinking](/blog/leverage-points-systems-thinking).
+When the structure is stable and you need to choose where to push, continue with [leverage points in systems thinking](/blog/leverage-points-systems-thinking). For notation cleanup after the room, schedule a short review against your own quality checklist before you publish the map externally.

@@ -1,0 +1,122 @@
+---
+title: "Lovable vs Bolt vs v0 vs Replit: data, export, and production"
+description: "Lovable vs Bolt vs v0 vs Replit: compare where data lives, what you can hand off, and what a security review finds, not a vendor feature list."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["lovable", "bolt", "v0", "replit", "vibe coding"]
+funnelStage: interest
+translationKey: lovable-vs-bolt-vs-v0-vs-replit
+relatedPosts: ["building-an-mvp-with-lovable", "lovable-supabase-row-level-security"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Lovable vs Bolt vs v0 vs Replit is less about which editor feels nicest this week and more about where customer data sits, what you can export when the demo works, and whether the stack survives strangers and a second visit. All four can get you to a URL quickly. They diverge on default backends, hosting assumptions, and how painful the move to production engineering becomes.</p>
+
+This is for founders who already shipped something in one of these tools and now compare the others before the next sprint. You do not need a perfect scorecard copied from marketing pages. You need honest answers on residency, keys, and handoff. For which phase each class of tool fits, see [AI-assisted MVP development](/blog/ai-assisted-mvp-development). For Lovable-specific scope and limits, see [building an MVP with Lovable](/blog/building-an-mvp-with-lovable).
+
+## Lovable vs Bolt vs v0 vs Replit: compare the job, not the checkbox list
+
+Treat the four names as four **default paths**, not four interchangeable buttons.
+
+**Lovable** and **Bolt** both push you toward a full-stack web app from prompts: screens, auth, and a managed database are usually part of the first session. In practice that often means Supabase or a similar backend-as-a-service behind the generated front end. The learning curve is low; the security and data model are yours to verify.
+
+**v0** is strongest when the bottleneck is UI: components, layouts, and front-end flows you still wire into your own repo, API, and deploy pipeline. It is less «one button, one product» and more «fast surface, your foundation».
+
+**Replit** blends an in-browser environment with app generation. You see files and runs earlier than in some pure prompt products, but you still inherit the template's database and hosting unless you reconfigure it.
+
+None of that proves demand or retention. It only explains why two founders both say «we built in AI» while one can name the database region and the other cannot.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Data location</dt>
+    <dd>Which country or region stores rows when a user signs up, not where the company's invoice address is.</dd>
+  </div>
+  <div>
+    <dt>Handoff</dt>
+    <dd>Whether code, schema, secrets, and deploy steps can live in your repository and CI, or stay inside the vendor account.</dd>
+  </div>
+  <div>
+    <dt>Production</dt>
+    <dd>Load, authz, backups, monitoring, and repeatable deploys, not «it worked in the demo on Wi-Fi».</dd>
+  </div>
+</dl>
+
+## Swiss data location when the stack includes Supabase
+
+If your Lovable or Bolt build attached Supabase, the **project region is chosen at creation**. Supabase lists Zurich (`eu-central-2`) among available regions ([Supabase regions](https://supabase.com/docs/guides/platform/regions)). That matters for Swiss and EU-facing products when you document processing and contracts. It does not replace legal review, and it does not fix weak access control.
+
+Row level security is not automatic safety because the words appear in a tutorial. Generated policies can be missing or ineffective; public client keys have shown up in exposed projects ([CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757)). The pattern is documented for Lovable-linked Supabase apps in [Lovable, Supabase, and row level security](/blog/lovable-supabase-row-level-security). v0 and Replit paths may use other backends; the same question applies: **where is the database, who holds the service role key, and what can an unauthenticated client read?**
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Picking Zurich at project creation does not prove FADP or GDPR compliance. It only answers one residency question. Policies, subprocessors, logging, and contracts still need a human checklist.</p>
+</aside>
+
+## Handoff to production: what changes after the demo
+
+The demo path optimises for speed. Production optimises for **repeatable change** under stress.
+
+Before you rebrand the prototype as «v1», write down:
+
+- Who owns the Git repository, if there is one, and whether history lives only inside the tool.
+- Whether the database can be migrated or exported without a manual dump you have never tested.
+- Where environment variables and API keys are stored, and who loses access if a founder leaves.
+- Whether deploy is «click publish in the vendor» or a pipeline you control.
+
+Lovable and Bolt often give you a URL before you have staging or rollbacks. v0 usually assumes you already host the generated UI yourself. Replit keeps the loop in one account, which speeds iteration and can delay standardising on a host you control.
+
+That gap is normal for validation. It hurts when paying users expect uptime and the fastest fix is a rewrite, not a prompt.
+
+<ol class="blog-flow">
+  <li><strong>Validate</strong><p>One core loop, friends or paid traffic, analytics on the path you care about.</p></li>
+  <li><strong>Inventory</strong><p>Data region, keys, authz, backups, and what is still only in the vendor UI.</p></li>
+  <li><strong>Decide</strong><p>Harden in place, export and refactor, or rebuild on a production stack with tests and CI.</p></li>
+</ol>
+
+## What a structured review finds (and what it does not)
+
+A **Vibe Code Review** is for teams who already have users or imminent pilots on a vibe-coded base. It walks the app against [OWASP ASVS v5.0](https://owasp.org/www-project-application-security-verification-standard/): authentication and session handling, access control on APIs, secrets, logging, and common misconfigurations in generated stacks. You receive a gap report, roughly eight hours of architecture and code-quality review, and a prioritised P0, P1, and P2 action list, plus a closing conversation under NDA.
+
+A review finds concrete holes: endpoints that trust the UI alone, tables without RLS, secrets in client bundles. It does not prove product-market fit or replace a full validation programme.
+
+<div class="blog-pair">
+  <div>
+    <h3>When comparing tools still helps</h3>
+    <ul>
+      <li>You have not committed yet and need one stack for the next four weeks of tests</li>
+      <li>Your buyer or insurer asked where data lives and you must answer before more signups</li>
+      <li>You want UI speed (v0) versus full-stack speed (Lovable or Bolt) with eyes open</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip the comparison</h3>
+    <ul>
+      <li>You already have paying users on one stack; inventory and review beat tool shopping</li>
+      <li>You only need a landing page and a waitlist; a landing-page test may be enough</li>
+      <li>You are choosing between Cursor and Claude Code for a repo you already own; that is a different article</li>
+    </ul>
+  </div>
+</div>
+
+## What this comparison does not prove
+
+Choosing Lovable over Bolt, or Replit over v0, does not show which idea wins. It does not show whether your CAC is sustainable, whether Apple will accept a wrapped shell, or whether your auth model survives a motivated tester. Tool choice is **infrastructure for the experiment**, not the experiment.
+
+If the open question is behaviour with strangers, narrow scope, deploy, and measure before you polish secondary screens. If the open question is whether the current codebase can carry liability, book review before you scale ads.
+
+<div class="blog-faq">
+  <h3>Is Lovable or Bolt better for a Swiss B2B pilot?</h3>
+  <p>Neither name answers B2B on its own. Compare whether you can put the database in a region you can document, whether you can test RLS with realistic roles, and how you will hand code to an engineer if the pilot succeeds. If those answers are weak, the faster UI tool is not the cheaper one.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>When should I leave the all-in-one tool?</h3>
+  <p>When the riskiest question is no longer «can we show screens?» but «can we change production without breaking paying users?» or «can we prove access control?» That is often the point for a review or a production build, not another week of prompts.</p>
+</div>
+
+## When a Vibe Code Review fits
+
+The [Vibe Code Review](/services/vibe-code-review) fits when you already have a Lovable, Bolt, v0, or Replit build in front of real users and you need a neutral read on security and architecture before you scale traffic, sign enterprise clients, or raise. It is not a course in the tools and not a full rebuild.
+
+If you are still picking a first tool for a smoke test, finish the comparison, ship one loop, and link your analytics first. If the URL is live, strangers use it, and you cannot explain your data map in one page, start on the review page.

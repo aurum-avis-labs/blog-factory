@@ -32,7 +32,7 @@ Slack sagt ausserdem, dass KI-Notizen in Huddles mit externen Personen oder Gäs
 
 Damit teilt sich der Weg. Interner Huddle, bezahltes Slack, keine Gäste: fang bei den Notizen von Slack an. Externe Person, Gratisplan, oder du brauchst die Audiodatei selbst: nimm auf dem Mac auf.
 
-Das Audio eines Huddles ist nicht dasselbe wie ein Slack-Clip. Clips sind Nachrichten, die du absichtlich aufnimmst. Ein Huddle ist das Live-Gespräch. Erwarte keinen Zoom-Ordner mit MP4 und M4A, wenn der Huddle endet.
+Das Audio eines Huddles ist nicht dasselbe wie ein Slack-Clip. Clips sind Nachrichten, die du absichtlich aufnimmst. Ein Huddle ist das Live-Gespräch. Erwarte keinen Zoom-Ordner mit MP4 und M4A, wenn der Huddle endet. Willst du nur einen kurzen Ausschnitt nachreichen, exportierst du ihn später; für das ganze Gespräch startest du die Aufnahme, bevor der erste Satz fällt, den du brauchst.
 
 ## Slack-Huddle auf dem Mac über Systemaudio aufnehmen
 
@@ -44,15 +44,13 @@ Vemoir nimmt Mikrofon und Systemaudio von macOS als zwei lokale Spuren auf. Slac
   <li data-step="3"><h3>Aus der Menüleiste starten</h3><p>Nimm auf, bevor der wichtige Abschnitt beginnt.</p></li>
 </ol>
 
-1. Nutze einen Mac mit Apple Silicon (M1 oder neuer) und macOS Sonoma 14.2 oder neuer. Plane 8 GB Arbeitsspeicher und 10 GB frei für die Modelle. 16 GB sind für lange Huddles angenehmer. Intel-Macs werden nicht unterstützt.
-2. Installiere Vemoir aus dem [Mac App Store](https://apps.apple.com/app/id6794693630). In der Schweiz CHF 20. Der Store zeigt den lokalen Preis.
-3. Erlaube **Mikrofon** und **System Audio Recording**. Über die Systemaudio-Freigabe lässt macOS eine App den Ton anderer Apps hören. Den Bildschirm nimmt sie nicht auf. Beides liegt unter Systemeinstellungen, Datenschutz und Sicherheit. Mehr dazu unter [Aufnahme](/de#capture).
-4. Lade ein lokales Sprachmodell vor dem Huddle, wenn es noch nicht da ist. Parakeet v3 deckt 25 europäische Sprachen ab. Andere Whisper-Modelle haben ihre eigene Abdeckung. Die App tauscht Modelle nicht still aus. Für den Download brauchst du Netz. Danach kann der Ablauf offline laufen.
-5. Öffne Slack und tritt dem Huddle bei, sodass du die anderen über den Mac hörst. Ein Headset, das am Mac vorbeigeht, lässt die Systemspur dünn. Hörst du die anderen im Raum und der Mac nicht, entspricht die Aufnahme dem, was der Mac hört.
-6. Starte in der Menüleiste, wenn du soweit bist. Gehört der Huddle zu einem Kunden, wählst du vorher ein Projekt. Sag im Huddle, dass du aufnimmst. Slack setzt für eine lokale App kein Aufnahmebanner.
-7. Stoppe, wenn der Huddle endet. Vemoir baut das Transkript aus dem fertigen lokalen Audio neu. Die Live-Vorschau während des Gesprächs ist nicht das Transkript, das du behältst.
+Nutze einen Mac mit Apple Silicon (M1 oder neuer), macOS Sonoma 14.2 oder neuer, 8 GB Arbeitsspeicher und 10 GB frei für die Modelle. Installiere aus dem [Mac App Store](https://apps.apple.com/app/id6794693630). Erlaube **Mikrofon** und **System Audio Recording** (nur Audio, nicht der Bildschirm). Mehr unter [Aufnahme](/de#capture). Lade vor dem Huddle ein lokales Sprachmodell, wenn es noch fehlt; danach kann der Ablauf offline laufen.
 
-[Unterstützte Meeting-Apps](/de#platforms) nennen Slack-Huddles neben Teams, Zoom, Meet und Discord. Dasselbe Muster für Microsoft Teams steht in [Teams-Meeting auf dem Mac aufnehmen](/de/blog/teams-meeting-aufnehmen-mac). Teams hat eigene Regeln in der Cloud. Huddles nicht. Eine Teams-Einstellung des Admins überträgst du nicht auf Slack und hoffst, sie erscheine dort.
+Tritt dem Huddle auf diesem Mac bei, starte in der Menüleiste und sag, dass du aufnimmst. Slack zeigt für eine lokale App kein Aufnahmebanner. Stoppe am Ende; das Transkript kommt aus dem fertigen lokalen Audio, nicht aus der Live-Vorschau.
+
+Ein Headset, das am Mac vorbeigeht, lässt die Systemspur dünn. Hörst du die anderen im Raum und der Mac nicht, entspricht die Aufnahme dem, was der Mac hört. Gehört der Huddle zu einem Kunden, wählst du vor dem Start ein Projekt in Vemoir, damit Glossar und Sprecher später zusammenpassen.
+
+[Unterstützte Meeting-Apps](/de#platforms) nennen Slack-Huddles mit Teams, Zoom, Meet und Discord. Für Teams siehe [Teams-Meeting auf dem Mac aufnehmen](/de/blog/teams-meeting-aufnehmen-mac).
 
 ## Was du nach dem Stopp hast
 
@@ -63,7 +61,7 @@ Auf dem Mac hast du Transkript, Protokoll, Entscheide, Aufgaben und einen Entwur
   <p>Slack schreibt vielleicht schon Canvas-Notizen. Exportiere die, wenn das Team in Slack arbeitet. Vemoir ist für ein lokales Protokoll, das du selbst steuerst.</p>
 </aside>
 
-Eine Frage zum Huddle danach kann auf eine Zeile im Transkript zeigen. Notizen, die du während des Huddles getippt hast, fliessen ins Protokoll und behalten ihre Herkunft. Ein Satz von dir erscheint so nicht als Beleg aus dem Slack-Audio.
+Eine Frage zum Huddle danach kann auf eine Zeile im Transkript zeigen. Mit «Ask Vemoir» suchst du im lokalen Transkript, ohne die Aufnahme hochzuladen. Notizen, die du während des Huddles getippt hast, fliessen ins Protokoll und behalten ihre Herkunft. Ein Satz von dir erscheint so nicht als Beleg aus dem Slack-Audio.
 
 Nichts wird hochgeladen, ausser du exportierst es oder schaltest ein Cloud-Textmodell mit deinem eigenen API-Schlüssel ein. Diese Option gilt nur für Text. Das Audio bleibt auf dem Mac. Scheitert ein Cloud-Modell, gibt es keinen stillen Ersatz. Lass die Option aus, wenn der Huddle die Maschine gar nicht verlassen soll.
 

@@ -70,11 +70,11 @@ To avoid duplicates, list the existing slugs and titles yourself: `ls brands/aur
 ## 4. How we worked (reuse this)
 
 1. **Analyse:** existing posts, strategy, landing-page offers and copy, services, the Prozess-Check review report ("what stops buyers: a real case and paying by invoice").
-2. **Plan topics:** one primary query per topic, a query type from `query-map.md` (sets the length floor and ceiling), a funnel stage and a CTA code. We rejected topics that duplicated an existing URL, swapped only a keyword or industry, or sat outside the ICP.
+2. **Plan topics:** one primary query per topic, a query type from `query-map.md` (funnel and outline), a funnel stage and a CTA code. We rejected topics that duplicated an existing URL, swapped only a keyword or industry, or sat outside the ICP.
 3. **Order and link rule:** every post got a `seq` (publication position). **Body links go only to posts with a lower seq**, because future posts return 404. `relatedPosts` may point forward; the site hides them until they are live.
 4. **Brief:** one writer brief (voice, frontmatter, blocks, CTAs, the Aurum facts writers may state, MDX safety) plus one brief per topic (angle, "verify before stating", "keep apart from").
 5. **Research, then write:** each writer saved a research note per topic (verified facts with URLs, what couldn't be verified), then wrote EN, then DE (written as German, not translated), then a hero prompt.
-6. **Validate:** a script checked frontmatter order, description under 160 characters, funnel rules for relatedPosts, the seq link rule, allowed internal paths, block classes, em dash, ß, du/ihr, length floors, and MDX compilation.
+6. **Validate:** a script checked frontmatter order, description under 160 characters, funnel rules for relatedPosts, the seq link rule, allowed internal paths, block classes, em dash, ß, du/ihr, and MDX compilation.
 7. **QA:** an editor agent read every pair, spot-checked about a third of the sources, and kept a risk list (REVIEW.md).
 8. **Heroes:** one Higgsfield image per topic from the prompt file (black and gold, no text), added to the post only once the file existed.
 9. **Schedule:** a script assigned one weekday per post in seq order and rewrote the `pubDate` lines.
@@ -166,6 +166,6 @@ Let at least 8–12 weeks of the cluster be live before deciding volume.
 1. Pull Search Console and GA4 data (section 6) and list the Prozess-Check topics that clients actually brought.
 2. Restore the tooling from `1e47fe0` into `scripts/aurum/` and rebuild `calendar.json` from the real `pubDate`s (seq 1–103 = the current publication order).
 3. Re-read `STRATEGY.md`, `.cursor/skills/seo-blog/` and the live `prozessCheck` copy on the landing page. Take prices and offer facts from there.
-4. Write a batch plan file with one row per topic: query, type, floor, funnel, CTA, owner, "verify", "keep apart from". Include refresh rows next to new topics.
+4. Write a batch plan file with one row per topic: query, type, funnel, CTA, owner, "verify", "keep apart from". Include refresh rows next to new topics.
 5. Run research, then writing, then validation, then QA, then heroes, then scheduling, with at most four writers at a time and a research note per topic.
 6. Continue the calendar after 22 Feb 2027 with `reschedule.py` so the seq order and the link rule hold.

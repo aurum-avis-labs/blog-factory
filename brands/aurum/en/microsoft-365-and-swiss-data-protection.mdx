@@ -1,0 +1,106 @@
+---
+title: "Microsoft 365 and Swiss data protection: what to clarify"
+description: "Microsoft 365 and Swiss data protection: processing agreement, access, MFA, and realistic questions for your IT partner. No invented vendor promises."
+pubDate: 2026-12-02
+author: "Aurum Avis Labs"
+tags: ["microsoft 365", "data protection", "fadp", "sme"]
+funnelStage: awareness
+translationKey: microsoft-365-and-swiss-data-protection
+relatedPosts: ["transferring-personal-data-to-the-united-states", "shared-team-passwords", "clicked-a-phishing-link-at-work"]
+draft: false
+site: security
+---
+
+## Microsoft 365 and Swiss data protection: what to clarify
+
+Microsoft 365 and Swiss data protection meet in almost every SME mailbox: customer mail, contracts, HR attachments, and calendar notes are personal data. You remain responsible under the [FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de) for appropriate security and lawful processing. Microsoft acts as a processor for large parts of the service; your IT partner may be another. The product does not remove your duty to configure access, train staff, or sign the processing terms that apply to your tenant.
+
+This is for owners and the person who manages IT in a Swiss company with roughly 20 to 250 staff. You are not looking for a feature list to paste into an audit. You want a short list of what to verify with your partner and in the admin centre. This is orientation, not legal advice. We do not state that your firm or Microsoft is certified under the Swiss-U.S. Data Privacy Framework unless you have checked the official list for the relevant US entity.
+
+## Processing terms, the DPA addendum, and your folder
+
+Art. 9 FADP requires a contract when someone processes personal data on your behalf. For Microsoft, download the processing terms for the SKU you actually pay for, and store them with your other processor agreements. The same applies to an IT partner who acts as global administrator: their [data processing agreement](/security/blog/data-processing-agreement-under-the-fadp) must match what they may do in the tenant.
+
+Note tenant name, download date, who signed, and which modules are listed (Exchange, SharePoint, Teams, add-ons). If a module you use is missing from that document, treat it as an open point on a customer questionnaire rather than guessing.
+
+Subprocessors and support access appear in vendor documentation, not in a headline about Swiss storage. Read the current list before you sign a statement to a corporate buyer. Whether that is enough for your case is for your adviser, not this page.
+
+## Questions your audit folder should answer
+
+Who is global administrator, and is that count minimal? Is multi-factor authentication required for every user, especially finance and executives? Which third parties have OAuth apps or delegated access to mail? Are retention and litigation hold settings documented, or does everyone keep mail forever by default?
+
+Business email compromise cases reported to [BACS](https://www.bacs.admin.ch/de/business-email-compromise-de) often involve stolen mail accounts and hidden forwarding rules. Technical settings and staff habits belong in the same conversation as Art. 8 organisational measures. Physical access and curiosity at a shared desk matter too: see [found a USB stick and tailgating](/security/blog/found-a-usb-stick-and-tailgating).
+
+<ul class="blog-checklist">
+  <li>MFA enforced for all users with admin roles</li>
+  <li>Guest access and external sharing rules written down</li>
+  <li>Processing terms downloaded for the tenant SKU</li>
+  <li>IT partner DPA aligned with their admin access</li>
+  <li>Procedure to review forwarding rules and inbox rules quarterly</li>
+</ul>
+
+## Legacy sign-in and admin accounts
+
+Many incidents start with an old protocol or a service account nobody can name. Ask your partner whether legacy authentication is off for normal users and whether break-glass accounts are documented. A global administrator without MFA is an open window even when everyone else is protected.
+
+Shared mailboxes still need a clear owner for process: who may send, who reviews forwarding, who changes rules. That is organisation, not only an admin menu item.
+
+## What Microsoft 365 is not
+
+It is not a Swiss-only silo by default. Data location and support paths depend on product edition and configuration; read current vendor documentation rather than assumptions. It is not a replacement for processor contracts with other tools that sync into Teams or SharePoint. It does not stop users from pasting client data into personal AI tools. A subscription alone is not «training after FADP and GDPR» for your team.
+
+## Sharing, guests, and devices
+
+External sharing links turn a folder into a public window if nobody reviews them. Guest accounts for customer projects should expire. Sync clients copy whole libraries to laptops that later get lost; your [lost device process](/security/blog/lost-laptop-with-personal-data) should assume OneDrive holds mail attachments. Legacy POP or forwarding to private Gmail moves data outside your tenant without a project decision.
+
+<div class="blog-stat">
+  <strong>65% / 82%</strong>
+  <p>Deloitte 2026, firms under 250 staff: regular cyber training in small and medium companies respectively. Not our survey.</p>
+</div>
+
+Training does not fix misconfigured sharing, but it gives finance and HR language to refuse unsafe shortcuts.
+
+## Who needs deeper review
+
+<div class="blog-pair">
+  <div>
+    <h3>Worth the extra pass</h3>
+    <ul>
+      <li>Practices with health data</li>
+      <li>Law firms with mandate files</li>
+      <li>Recruiters with candidate pools</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Often enough from the list above</h3>
+    <ul>
+      <li>Internal mail only, no customer personal data in cloud</li>
+      <li>No guest access to sensitive libraries</li>
+      <li>MSP sends a quarterly admin summary</li>
+    </ul>
+  </div>
+</div>
+
+If US processing is in scope for your risk picture, read [transferring personal data to the United States](/security/blog/transferring-personal-data-to-the-united-states) alongside vendor terms. Support access and subprocessors count, not only the storage region on a marketing page.
+
+## What to do first
+
+Book one hour with your IT partner: admin roles, MFA gaps, forwarding rule check, and where logs go if mail is exfiltrated. Store outputs in the same folder as other processor contracts. Add mailbox hygiene to security onboarding. One password for everyone on a shared mailbox is a known risk; fix that before buying more licences.
+
+After a [clicked phishing link](/security/blog/clicked-a-phishing-link-at-work), review forwarding and inbox rules again even if the account looks «safe again».
+
+A [data protection awareness session](/security/datenschutz) covers what may go in mail and chats, breach thresholds, and reporting, in one to two hours live plus follow-up, remote or on site in Switzerland.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Microsoft changes admin labels and data residency options. Confirm names and regions in the current documentation before you answer a customer questionnaire.</p>
+</aside>
+
+<div class="blog-faq">
+  <h3>Is Swiss data residency enough for Art. 16 FADP?</h3>
+  <p>Location is one factor. Support access, subprocessors, and legal requests abroad still matter. Your adviser maps Art. 16 for your case.</p>
+</div>
+
+## Before you return a customer questionnaire
+
+When a corporate buyer sends a form, gather tenant name, admin list, storage location per contract, processing addendum, and date of the last forwarding review. Answer «we review quarterly» only if that date is in the calendar. Missing MFA on an account that can approve payments is an honest open point, not a reason to invent an answer.

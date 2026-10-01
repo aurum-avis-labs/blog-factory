@@ -1,0 +1,116 @@
+---
+title: "Sending personal data by email in Switzerland"
+description: "Sending personal data by email: when ordinary transport is enough, and when it is not. For Swiss SMEs."
+pubDate: 2026-10-19
+author: "Aurum Avis Labs"
+tags: ["data protection", "email", "fadp", "sme", "switzerland"]
+funnelStage: interest
+translationKey: sending-personal-data-by-email
+relatedPosts: ["how-long-to-keep-job-applications-switzerland", "sharing-files-that-contain-personal-data", "clean-desk-and-disposing-of-files"]
+draft: false
+site: security
+---
+
+## Sending personal data by email: what Swiss SMEs should check first
+
+Sending personal data by email is allowed in Switzerland when you have a lawful purpose, you limit what you send, and your technical setup matches the sensitivity of the content. For many routine messages between your company and a customer or partner, transport encryption on the path (TLS between mail servers) plus a clear recipient address is the everyday standard. For health data, full personnel files, or large exports, plain e-mail is often the wrong channel even if TLS is on. The revised Federal Act on Data Protection (FADP) does not ban e-mail; it expects appropriate data security measures ([Art. 8 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de)). This page is for owners, HR, and finance in a company of roughly 20 to 250 people without a data protection officer on staff.
+
+If you are building a baseline list of obligations, see [Swiss FADP obligations for SMEs](/security/blog/swiss-fadp-obligations-for-smes). Sharing spreadsheets, links, and USB sticks is covered in a separate article on sharing files that contain personal data.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Transport</span><strong>TLS in transit</strong><p>Modern business mail usually encrypts the hop between servers. That protects against casual interception, not a compromised mailbox.</p></li>
+  <li><span class="blog-kicker">Content</span><strong>Not encrypted by default</strong><p>Anyone with access to a mailbox, backup, or forward rule can read the body and attachments unless you add end-to-end protection.</p></li>
+  <li><span class="blog-kicker">Wrong recipient</span><strong>Common breach</strong><p>Autofill and reply-all cause many incidents. TLS does not help after the message arrives at the wrong person.</p></li>
+  <li><span class="blog-kicker">Law</span><strong>Organisational duty</strong><p>Rules, training, and channel choice count as measures under Art. 8 FADP. This is orientation, not legal advice.</p></li>
+</ul>
+
+## When TLS on e-mail is usually enough
+
+TLS (STARTTLS or equivalent between providers) means the message is not sent in clear text across the internet path. For a short reply confirming an appointment, a shipping update with a name and address, or an internal note that contains only low-sensitivity contact details, that level often matches what a reasonable SME does in practice, together with double-checking the «To» field and avoiding unnecessary copies.
+
+You still need a purpose and, where required, information for the person under [Art. 19 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de). E-mail is not exempt from the rest of the act because the connection is encrypted.
+
+<div class="blog-pair">
+  <div>
+    <h3>Often acceptable on TLS mail</h3>
+    <ul>
+      <li>Routine customer correspondence without special categories of data</li>
+      <li>Invoices and order confirmations you already send today</li>
+      <li>Internal tasks where the data is already in your systems</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Reconsider the channel</h3>
+    <ul>
+      <li>Medical or health-related documents</li>
+      <li>Full HR or application dossiers as attachments</li>
+      <li>Large exports, passwords, or access codes in the body</li>
+    </ul>
+  </div>
+</div>
+
+## When TLS is not enough
+
+End-to-end encryption (only the intended recipient can read the content with a key or portal login) matters when the impact of disclosure is high, when contracts or professional rules expect it, or when you send bulk personal data as an attachment. TLS protects the wire; it does not stop forwarding, BCC mistakes, malware on a laptop, or a compromised cloud account.
+
+Health-related information, data on criminal proceedings, and other particularly sensitive categories under [Art. 5 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de) deserve stricter handling. Many firms use a patient or client portal, a regulated health network, or encrypted transfer where the recipient must log in. This article does not compare vendors; your industry body or IT partner names the options that fit your canton and profession.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Choosing «encrypted mail» in the subject line without real end-to-end protection gives a false sense of safety. Check what your provider actually encrypts: transport only, or content until the recipient opens it.</p>
+</aside>
+
+## Passwords, PDF protection, and attachments
+
+Passwords in the body rarely count as an appropriate measure on their own. The password often travels with the file, sits in search indexes, or gets forwarded. Better: a separate channel for the password (phone, SMS to a known number, portal), or no password by mail at all.
+
+A password-protected PDF lowers risk slightly but does not fix a wrong recipient. Anyone who receives the file and the password in one message has both. S/MIME or PGP on a managed laptop can work when IT rolls it out and recipients cooperate. For occasional HR or fiduciary cases, a portal is often simpler than certificates per person.
+
+Large customer spreadsheets rarely belong in an attachment. If the recipient has a login, upload to the portal and send mail that only says the document is ready.
+
+## Newsletters and bulk mail are a different job
+
+Sending personal data to many recipients by e-mail usually needs a lawful basis for marketing, opt-in or opt-out, and clean lists, on top of Art. 8 FADP. That is not the same task as a one-to-one HR message. Marketing teams should not treat the internal rule «TLS is enough» as their campaign standard.
+
+## What this is not
+
+This is not a product review of encryption gateways or health networks. It is not a template for mass marketing mail (newsletters follow different rules). It is not guidance on reporting a breach to the FDPIC; wrong recipients and lost attachments are handled in articles on [e-mail sent to the wrong recipient](/security/blog/email-sent-to-the-wrong-recipient).
+
+## A made-up example: HR sends a contract
+
+A made-up example: a services company with 38 employees in Zurich. HR scans a signed employment contract and attaches it to an e-mail to the new hire’s private Gmail address because the person asked for «everything by mail». Transport TLS is active. Two weeks later the person’s phone is stolen without a lock screen. The attachment is readable in the inbox. The company documents the incident, checks whether risk to the person is high enough to notify the FDPIC, and changes the rule: employment documents go through the payroll portal or signed post unless IT sets up recipient-specific encryption. Staff receive a one-page note on checking addresses and using the portal.
+
+The fix was process and channel choice, not buying a new logo.
+
+<ul class="blog-scenarios">
+  <li><h3>Fiduciary, payroll list to a client</h3><p>Small CSV with names and salaries: second person checks the domain, no BCC to unknown addresses. When unsure, portal instead of attachment.</p></li>
+  <li><h3>Medical certificate to an insurer</h3><p>Case number in the subject, not the diagnosis. If the file is large, nobody sends without a second read of the recipient line.</p></li>
+  <li><h3>Support with customer data</h3><p>Ticket system instead of private forwards; mail carries only a ticket ID, not the full dossier in the body.</p></li>
+</ul>
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Classify what you send</h3><p>Mark internally which topics may go by normal business mail and which need a portal, post, or encrypted transfer.</p></li>
+  <li data-step="2"><h3>Fix autofill habits</h3><p>Require a second glance at the domain for external mail; delay send on messages with attachments over a size threshold.</p></li>
+  <li data-step="3"><h3>Align with IT and partners</h3><p>Ask whether TLS is enforced outbound and inbound; note jurisdictions if mail is hosted outside Switzerland.</p></li>
+  <li data-step="4"><h3>Train once, then remind</h3><p>Finance, HR, and anyone with customer exports get the same examples in onboarding and in a short yearly refresh.</p></li>
+</ol>
+
+## Who can keep it simple
+
+A very small team that only sends invoices and support replies, keeps HR on paper in a locked cabinet, and never e-mails health data may document three rules on one page and stop there until the business grows or a customer audit asks for more.
+
+Companies that process health data, act as fiduciaries, or pass supplier audits should not treat «we use Outlook» as a complete answer without classification and channel rules. Anyone who regularly attaches files to external domains should note that in the processing overview you may need for larger customer questions anyway. That saves arguments in an audit.
+
+<div class="blog-faq">
+  <h3>Is personal data by e-mail automatically a GDPR problem?</h3>
+  <p>Swiss law applies to processing in Switzerland. The EU GDPR may also apply if you offer goods or services to people in the EU or monitor their behaviour. Channel choice must satisfy whichever regime applies to that processing. This article focuses on Swiss SME practice.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is TLS enough if the mailbox is hosted in the US?</h3>
+  <p>TLS protects transmission, not storage location or access rights. Hosting abroad can trigger extra duties, including transfers to third countries. Check with IT and advisers whether your setup fits contract and FADP rules. No blanket yes or no here.</p>
+</div>
+
+## Datenschutz training for everyday mail
+
+A live data protection session for your company explains what staff may share by e-mail, when to use another channel, and how wrong sends fit into breach documentation, in one to two hours with room for your real examples. Details are on [Datenschutz awareness training](/security/datenschutz).

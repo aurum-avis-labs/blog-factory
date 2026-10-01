@@ -1,0 +1,110 @@
+---
+title: "Technical debt in an MVP: what to defer and what not to"
+description: "Technical debt in an MVP is a speed trade-off. Learn which shortcuts corrupt validation data and which you can pay down after a clear Go or Pivot."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "technical debt", "founders", "validation", "engineering"]
+funnelStage: awareness
+translationKey: technical-debt-in-an-mvp
+relatedPosts: ["how-to-build-a-scalable-mvp", "choosing-a-startup-tech-stack"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Technical debt in an MVP means shortcuts in code, infrastructure, or process that you accept now to learn faster, with the intention to repay later. That is rational when the debt is labelled, bounded, and does not stop you from reading whether strangers repeat the core behaviour. It is costly when users churn because auth fails, data leaks, or the app cannot be instrumented, and you mistake product rejection for engineering mess.</p>
+
+This page is for founders and innovation leads in Switzerland who already ship or are about to ship a first product build, often without a full-time technical co-founder. If you are still choosing stack and hosting, pair this with [choosing a startup tech stack](/blog/choosing-a-startup-tech-stack). If the question is how much architecture to buy before you have users, see [how to build a scalable MVP](/blog/how-to-build-a-scalable-mvp). Neither replaces a security review when real personal data or money moves through the app.
+
+## Technical debt in an MVP: where the line sits
+
+Debt is not laziness. It is a **documented trade-off**: you skip work that does not change this month’s learning goal. The failure mode is silent debt, where the team forgets what was temporary and investors hear «we will refactor later» without a trigger.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Technical debt</dt>
+    <dd>Work you postpone that will cost more later: schema shortcuts, missing tests, manual ops, or a single deploy path nobody trusts.</dd>
+  </div>
+  <div>
+    <dt>Validation debt</dt>
+    <dd>Debt that changes what your metrics mean, for example flaky login, missing event logging, or no separation between staging and production data.</dd>
+  </div>
+  <div>
+    <dt>Repayment trigger</dt>
+    <dd>A named event that forces pay-down: first paying customer, due diligence, regulatory review, or a second product on the same core.</dd>
+  </div>
+</dl>
+
+<div class="blog-pair">
+  <div>
+    <h3>Debt you can carry through an MVP test</h3>
+    <ul>
+      <li>Ugly UI on the path that already measures the job</li>
+      <li>Manual back-office steps with a calendar end date</li>
+      <li>Features behind flags you never turn on for the first cohort</li>
+      <li>A narrow integration replaced by a spreadsheet export for ten users</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Debt that often poisons the read</h3>
+    <ul>
+      <li>Authentication or permissions that fail under normal use</li>
+      <li>No analytics or session visibility on the loop you claim to test</li>
+      <li>Secrets in the client, missing access control on shared backends</li>
+      <li>One database used for demos, tests, and live users without discipline</li>
+    </ul>
+  </div>
+</div>
+
+Production deployment and real auth are not the opposite of debt. They are how you keep **product signal separate from reliability noise**. [Why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps) goes deeper on measurement integrity; this page is about what you can still defer once the core loop is trustworthy enough to instrument.
+
+## What paying down debt does and does not prove
+
+Refactoring after a weak pilot **can** lower support load, unblock hiring, and make due diligence faster. It **cannot** retroactively prove that the market wanted the offer if every tester was a friend, or if acquisition never reached strangers.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Clean code does not substitute for distribution. If the hypothesis was reach and cost per lead, a polished codebase with no ads spend still leaves the hypothesis open. Name which risk the next sprint addresses.</p>
+</aside>
+
+Likewise, **keeping** debt does not prove capital efficiency. It only makes sense when you can state what you learned while the shortcut was in place, and what breaks if you extend it another quarter without a new metric.
+
+Ideas as such are not protectable in Switzerland; execution and contracts are ([IGE on ideas](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). Who owns the source depends on employment and assignment, not on how fast the repo was generated ([Art. 17 URG](https://www.rentschpartner.ch/ict-law/schutz-von-software)). Debt conversations should include ownership and documentation, not only syntax.
+
+## Vibe-coded MVPs and security debt
+
+Tools such as Cursor, Lovable, v0, or Claude Code can produce a working surface in days. That speed often hides **security debt**: default permissions, copied API keys, or database rules that were never tightened for multi-tenant use.
+
+Public reports have described missing or ineffective row level security on some generated Supabase setups, where a client key could query data without a proper login ([CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757)). You do not need to panic about a headline number of affected apps. You do need to ask whether your MVP stores personal data, whether strangers can reach the API, and whether a review against a recognised baseline is due before you scale testers or investors.
+
+A structured review against OWASP ASVS is one path when the product is already live and the team is non-technical. It produces a prioritised gap list; it does not replace your own decision on what to ship next.
+
+## Who should not optimise for «acceptable debt» yet
+
+<ul class="blog-scenarios">
+  <li><h3>If the test is a landing page or fake door</h3><p>There is no codebase debt to manage. Keep the surface thin and do not call it an MVP.</p></li>
+  <li><h3>If you already promised enterprise security</h3><p>Deferring controls is not a private trade-off. Scope the pilot honestly or postpone the enterprise narrative.</p></li>
+  <li><h3>If due diligence starts in weeks</h3><p>Pay down validation debt and documentation first. Cosmetic refactors rarely satisfy technical reviewers.</p></li>
+</ul>
+
+## A practical repayment order
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Write the open question in one line</h3><p>Everything not needed to answer it is a candidate for debt, manual process, or removal.</p></li>
+  <li data-step="2"><h3>Tag each shortcut</h3><p>Note owner, expiry, and which metric gets unreliable if you extend it.</p></li>
+  <li data-step="3"><h3>Fix signal killers before features</h3><p>Auth, logging, backups, and access control beat a new settings screen.</p></li>
+  <li data-step="4"><h3>Set the repayment trigger</h3><p>First external pilot, first payment, or first hire who maintains the repo, whichever comes first.</p></li>
+</ol>
+
+Scalability choices belong in the same conversation: you do not need hyperscale on day one, but you do need a schema and deploy path that survive a honest pivot without a full rewrite. That is the bridge to [how to build a scalable MVP](/blog/how-to-build-a-scalable-mvp).
+
+<div class="blog-faq">
+  <h3>Is all technical debt bad for an MVP?</h3>
+  <p>No. Bounded debt with a named learning goal is normal. Unbounded debt that changes what your numbers mean is the problem.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Should we rebuild instead of refactoring?</h3>
+  <p>Sometimes, when the codebase never matched the product you are now testing, or when security debt touches live personal data. The rebuild decision is separate from whether the market liked the last version.</p>
+</div>
+
+When the open question needs a deployed product, measurement, and a clear Go, Pivot, or Stop read, see the [product validation package](/services/mvp-validation).

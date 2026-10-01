@@ -1,0 +1,78 @@
+---
+title: "App Datenschutz Angaben App Store und Google Play"
+description: "App Datenschutz Angaben App Store: was Sie in Connect und Play Console deklarieren, welche SDKs zählen, und was Store-Formulare nicht ersetzen."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["app store", "google play", "datenschutz", "mvp", "schweiz"]
+funnelStage: interest
+translationKey: app-store-privacy-labels
+relatedPosts: ["datenschutz-app-startup-schweiz", "cookie-banner-schweiz-pflicht"]
+draft: true
+site: studio
+---
+
+## App Datenschutz Angaben App Store
+
+App Datenschutz Angaben im App Store und die Google-Play-Sektion «Datensicherheit» sind die beiden öffentlichen Fragebögen, die Apple und Google auf Ihrer Store-Seite zeigen. Sie beantworten sie in App Store Connect und der Play Console nach dem Verhalten des ausgelieferten Builds: eigenes Backend, Analytics-SDK, Login-Dienst und Crash-Reporting zählen mit. Für die meisten öffentlichen Apps sind die Angaben Pflicht. Sie ersetzen keine Datenschutzerklärung und nicht die Transparenzpflichten des Schweizer DSG gegenüber den Nutzenden.
+
+Der Beitrag richtet sich an Innovationsverantwortliche und Gründerinnen und Gründer, die ein MVP im nativen Wrap oder einen ersten Store-Build aus der Schweiz einreichen wollen. Login, wenige API-Aufrufe und oft GA4 oder Microsoft Clarity aus Validierungskampagnen sind bereits im Stack. Vertiefung: [Datenschutz beim App-Startup in der Schweiz](/de/blog/datenschutz-app-startup-schweiz), Cookie-Banner Schweiz Pflicht, und wie [Startup-Software-Entwicklung in der Schweiz](/de/blog/startup-software-entwicklung-schweiz) Hosting mit Produktarbeit verbindet. Keine Rechtsauskunft.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Erfassen, was das Gerät verlässt</h3><p>Kontofelder, Nutzungsereignisse, Gerätekennungen, Absturzprotokolle und Support-Anhänge notieren. Drittanbieter-Bibliotheken einbeziehen, nicht nur die eigene API.</p></li>
+  <li data-step="2"><h3>Auf Apple-Kategorien abbilden</h3><p>«App-Datenschutz» in Connect nutzt Datentypen (Kontaktinformationen, Kennungen, Nutzungsdaten und weitere) und Zwecke (Analyse, App-Funktionalität und weitere). Apple beschreibt das unter [App-Datenschutzdetails](https://developer.apple.com/app-store/app-privacy-details/).</p></li>
+  <li data-step="3"><h3>Google «Datensicherheit» ausfüllen</h3><p>Erhebung, Weitergabe, Verschlüsselung unterwegs und Löschoptionen angeben. Google führt durch das [Data-safety-Formular](https://support.google.com/googleplay/android-developer/answer/10787469).</p></li>
+  <li data-step="4"><h3>URL der Datenschutzerklärung angleichen</h3><p>Beide Stores verlinken Ihre Erklärung. Dieselben Anbieter und Zwecke wie in den Formularen nennen. Abweichungen sind Review- und Due-Diligence-Risiko.</p></li>
+  <li data-step="5"><h3>Nach jedem SDK-Wechsel prüfen</h3><p>Neues Chat-Widget, Werbe-SDK oder Session-Replay kann die Antworten ändern, ohne dass die Oberfläche es zeigt.</p></li>
+</ol>
+
+## Was die Stores wissen wollen
+
+Apples «Privacy Nutrition Labels» fassen zusammen, welche Daten mit der Person verknüpft sind oder für Tracking genutzt werden und was erhoben, aber nicht verknüpft ist. Google bündelt ähnliche Fakten unter «Datensicherheit» mit Badges vor dem Installieren. Kein Formular fragt, ob Sie «DSGVO-konform» oder «DSG-ready» sind. Gefragt ist, ob Ihre Antworten zum Binary passen, das Reviewer bedienen können.
+
+Drittanbieter-SDKs sind die typische Lücke. Firebase Analytics, Sentry, PostHog, Stripe, Supabase-Auth und Social-Login-Kits senden oft Kennungen oder Nutzungsdaten, die Sie nicht selbst verdrahtet haben. Ehrlich heisst: Datenblatt des Anbieters lesen, genannte Typen ankreuzen, «verknüpft» und «Tracking» so setzen, wie Apple diese Begriffe definiert. «Wir speichern nur E-Mail» zu behaupten, während das Crash-Tool Geräte-IDs sendet, führt nach dem Launch zu Korrekturen.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Apple</span><strong>App-Datenschutz</strong><p>Deklaration in Connect; sichtbar auf der App-Store-Produktseite.</p></li>
+  <li><span class="blog-kicker">Google</span><strong>Datensicherheit</strong><p>Deklaration in der Play Console; sichtbar im Play Store.</p></li>
+  <li><span class="blog-kicker">Schweizer Recht</span><strong>Getrennt</strong><p>Transparenz nach Art. 19 DSG gehört in Ihre Erklärung und Verträge, nicht nur in Store-UI.</p></li>
+  <li><span class="blog-kicker">Nachweis</span><strong>Keiner</strong><p>Korrekte Angaben belegen kein Product-Market-Fit und keinen Umsatz.</p></li>
+</ul>
+
+## Schweizer Kontext, ohne die Aufgaben zu vermischen
+
+Eine Schweizer GmbH oder Einzelfirma bearbeitet Personendaten nach dem [DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de), sobald die App Namen, nutzungsbezogene Kontodaten oder sensible Felder speichert. Store-Formulare erfüllen Richtlinien von Apple und Google. Sie erfüllen nicht die Pflicht, Betroffene verständlich zu informieren. Läuft parallel eine Marketing-Website, können Cookie- und Analytics-Entscheide im Web anders sein als in der App; der verlinkte Cookie-Beitrag behandelt die Schweizer Praxis.
+
+Hosting im Ausland betrifft Erklärung und Auftragsbearbeitung. Supabase in Zürich ([dokumentierte Region](https://supabase.com/docs/guides/platform/regions)) verschiebt Analytics oder Replay nicht automatisch in die Schweiz. Nennen Sie pro Anbieter, wo verarbeitet wird, in der Erklärung, nicht nur im Store-Häkchen.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Store-Fragebögen sind Produkt- und Policy-Arbeit. Sie sagen nicht, ob Sie für ein SDK in der Schweiz einwilligen müssen, ob eine Datenschutz-Folgenabschätzung nötig ist oder wie Sie einen Enterprise-Fragebogen beantworten.</p>
+</aside>
+
+## Ein erfundenes Beispiel: Angaben vor dem Donnerstag-Submit
+
+Ein erfundenes Beispiel: ein Zwei-Personen-Team in Basel, kein Kunde, liefert eine B2B-Checklisten-App für Facility-Begehungen. Die React-App läuft in einem Capacitor-Wrap. Sie erfassen Geschäfts-E-Mail und Passwort über Supabase-Auth, speichern Antworten in Postgres und senden Seitenaufrufe an GA4. Microsoft Clarity läuft nur auf der Marketing-Website, nicht in der App-WebView, Sentry erfasst Abstürze mit Gerätemodell-String.
+
+Am Montag exportieren sie eine SDK-Liste. Am Dienstag tragen sie Apple App-Datenschutz ein: Kontaktinformationen und Nutzerinhalte für App-Funktionalität, Diagnosedaten für Crashes, Produktinteraktion für GA4-Ereignisse nach Login verknüpft mit dem Konto. Tracking über Apps nach Apples Definition markieren sie als nein, weil keine Apple-Werbe-SDKs im Einsatz sind. Am Mittwoch spiegeln sie dieselben Fakten in Play «Datensicherheit», vermerken Verschlüsselung unterwegs und Löschung in den Einstellungen. Am Donnerstag setzen sie die URL der Datenschutzerklärung, die Supabase, Google und Sentry nennt. Review ohne Datenschutz-Thread. Drei Betriebe pilotieren; die Angaben reichten für die Stores, nicht als Beweis, dass Fremde CHF 29 pro Monat zahlen.
+
+## Wer die Formulare vorerst weglassen kann
+
+Bei Verteilung nur über TestFlight oder ein internes APK bearbeiten Sie trotzdem Personendaten, brauchen aber vielleicht noch keine öffentliche Listing-Pflege. Bei reinem Web-Validierungstest ohne Store-Binary sind App-Datenschutz und Datensicherheit spätere Arbeit. Wenn die Erklärung nicht freigegeben ist und unklar ist, was Clarity aufzeichnet, Store-Einreichung pausieren, bis Inventar und Erklärung zusammenpassen.
+
+## Was korrekte Angaben nicht belegen
+
+Stimmige Store-Angaben senken Ablehnungsrisiko und helfen Nutzenden beim Vergleich. Sie zeigen keine Retention, Zahlungsbereitschaft oder sichere Row-Level-Security. Sicherheitslücken in KI-generiertem Code sind ein anderes Thema. Labels ersetzen auch keine Kontolösch-Flows, die Apple und Google in Reviews zunehmend prüfen.
+
+<div class="blog-faq">
+  <h3>Gelten App-Datenschutzangaben auch für TestFlight?</h3>
+  <p>Öffentliche App-Store-Releases brauchen ausgefülltes App-Datenschutz. TestFlight verarbeitet Daten unter denselben Pflichten; das Inventar sollte gleich bleiben, auch wenn Käufer die Labels noch nicht sehen.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Müssen Google und Apple identisch lauten?</h3>
+  <p>Die Fakten sollen dasselbe App-Verhalten beschreiben. Formulierungen unterscheiden sich, widersprüchliche Angaben zwischen den Stores wecken Fragen bei Partnern und Investoren.</p>
+</div>
+
+## Wann das Product-Validation-Package passt
+
+Das [Product-Validation-Package](/de/services/mvp-validation) passt, wenn Sie auslieferbare Software, Analytics von Tag eins und einen einreichungsfertigen nativen Wrap wollen, während Sie noch aus bezahltem Traffic lernen. Woche 1 bis 4 liefern eine Web-App auf Azure mit React und NestJS; Woche 5 bis 12 ergänzen Landingpage, Akquise, gemessene Conversion und eine Go-, Pivot- oder Stop-Empfehlung. Code und Daten gehören Ihnen. Wenn offen ist, ob jemand den Kernjob erledigt, diesen Test abschliessen, bevor Sie Store-Badge-Formulierungen optimieren.

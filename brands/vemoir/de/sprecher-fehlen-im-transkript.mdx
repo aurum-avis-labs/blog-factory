@@ -14,7 +14,10 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
 **Sprecher fehlen im Transkript** oft genau dann, wenn du den Export teilen willst. Du hörst zwei Stimmen, und die Datei ist trotzdem ein Block. Das ist bei vielen Exporten normal. Ein Werkzeug im Browser behebt das nicht, indem es Namen rät. Namen kommen aus dem, was schon im Text steht, oder aus einer Trennung auf dem Mac. Eine Datei ohne Namen bleibt ohne Namen, bis du die Namen selbst setzt und als deine Ergänzung markierst.
+
+Umbenennen, wenn schon ein Label da ist, ist ein anderer Job. Das gehört in die Mac-App nach der Aufnahme, nicht in einen Bereiniger.
 
 <ol class="blog-steps">
   <li data-step="1"><h3>In Reihenfolge umbenennen</h3><p>Mit der meisten Sprechzeit beginnen, ein Label nach dem anderen.</p></li>
@@ -24,7 +27,7 @@ draft: false
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Grenze</span>
-  <p>Die Browser-Tools trennen keine Sprecher. Dafür brauchst du die Mac-App, oder du setzt die Namen von Hand.</p>
+  <p>Stand September 2026: Browser-Tools transkribieren Dateien bis 15 Minuten, drei erfolgreiche Läufe pro Woche, ohne Sprechertrennung. Live-Aufnahme und Diarisierung gibt es in der Mac-App.</p>
 </aside>
 
 ## Inhalt
@@ -41,91 +44,121 @@ draft: false
 
 Ein Transkript ist Text plus das, was die Quelle an Sprecherangaben gespeichert hat. Viele Quellen speichern nichts.
 
-Eine lokale Zoom-Aufnahme ist oft `audio_only.m4a`. Kein VTT, keine Namen. Das Cloud-VTT entsteht nur, wenn die Funktion, die du wirklich genutzt hast, ein Transkript geschrieben hat. Auch dann hängen die Namen davon ab, was Zoom in die Cues gelegt hat. Der Weg von der lokalen Datei steht in [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
+- Eine lokale Zoom-Aufnahme ist oft `audio_only.m4a`. Kein VTT, keine Namen. Das Cloud-VTT entsteht nur, wenn die Funktion, die du wirklich genutzt hast, ein Transkript geschrieben hat. Der Weg von der lokalen Datei steht in [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren).
+- Sprachnotizen, Interviews an einem Mikrofon und Systemaudio ohne Trennung sind eine Spur. Zwei Personen, eine Datei, keine Labels.
+- Teams kann Namen auf dem Bildschirm zeigen und dir trotzdem einen Download ohne Stimm-Tags geben. Untertitel, die vorbeilaufen, sind kein archiviertes `<v Name>`.
+- [Audio transkribieren](/de/tools/audio-transkribieren) schreibt Wörter im Browser, ohne Upload, und setzt keine Namen dazu.
 
-Teams kann Namen auf dem Bildschirm während der Untertitel zeigen und dir trotzdem einen Download ohne Stimm-Tags geben. Ansehen und Export sind nicht dasselbe Recht und nicht dieselbe Datei. Untertitel, die vorbeilaufen, sind kein archiviertes `<v Name>`.
-
-Sprachnotizen, Interviews an einem einzigen Mikrofon und Systemaudio ohne Sprechertrennung sind eine Spur. Zwei Personen, eine Datei, keine Labels. Der Text kann brauchbar sein. «Wer hat das gesagt» ist eine andere Frage.
+Wenn du Namen brauchst, war der richtige Moment eine Quelle mit Tags oder eine lokale Diarisierung. Auf fertigem Text ohne Labels hilft der Browser nicht.
 
 ## Was der Browser tut und nicht tut
 
-Die Werkzeuge im Browser trennen keine Sprecher aus Audio. [Audio transkribieren](/de/tools/audio-transkribieren) schreibt, was gesagt wurde, bis 15 Minuten, ohne die Datei hochzuladen, und setzt keine Namen dazu. Fehlen die Labels in einem Text, den du schon hast, bleiben sie weg.
+Der [Transkript-Bereiniger](/de/tools/transkript-bereinigen) entfernt Zeitstempel und Cue-Header. Er behält einen Sprecher nur, wenn er ein Muster findet: `<v Name>`, `Name:`, `Speaker 1:`, `SPEAKER_01:`. Alles andere gilt als Text ohne Person. Wenn nichts passt, sagt die Seite, dass die Datei keine Sprechernamen hatte. Du bekommst den Text trotzdem. Die Seite füllt keine «Speaker A» und «Speaker B» als Schätzung ein. Erfundene Labels sehen wie Daten aus, sind es aber nicht.
 
-Der [Transkript-Bereiniger](/de/tools/transkript-bereinigen) behält Muster, die schon da sind, und sagt dir, wenn keine da waren. Er erfindet kein `Speaker 1`, damit die Seite hübscher wirkt. Ein zusammengezogenes Protokoll ohne Quelle wäre schlimmer als eine Zeile ohne Namen.
+[Wer hatte das Wort](/de/tools/wer-hatte-das-wort) gilt dieselbe Regel einen Schritt später. Du fügst ein Transkript mit Namen ein, und die Seite zeigt den Wortanteil pro Name. Bei einem namenlosen Block stoppt sie. Es gibt kein Diagramm anonymer Stimmen, weil der Browser die Stimmen nicht unterscheiden kann.
 
-[Notizen aus einem Transkript](/de/tools/notizen-aus-transkript) dürfen einen Namen in einer Massnahme nur dann verwenden, wenn er im Text steht und den Fakt trägt. Das Modell schliesst nicht aus dem Zusammenhang, dass «die Person aus dem Vertrieb» Mia heisst. Fehlt der Name, bleibt die Zeile ohne erfundene Zuständigkeit.
+Die Seiten nehmen die Sitzung nicht auf und hören nicht auf den Tab. [Audio transkribieren](/de/tools/audio-transkribieren) läuft im Browser, ohne dass deine Datei zu Vemoir hochgeladen wird.
+
+[Notizen aus einem Transkript](/de/tools/notizen-aus-transkript) können ein namenloses Transkript zusammenfassen. Sie sollen keine Zitate Personen zuweisen, die im Text nicht vorkommen. Lies den Entwurf. Wenn ein Name auftaucht, den die Datei nie hatte, streiche die Zeile.
+
+Willst du Labels bei der nächsten Sitzung ohne Raten? Vemoir nimmt Mikrofon und Systemaudio auf dem Mac auf. Siehe [Aufnahme](/de#capture). Für falsche Namen auf einem bestehenden Label: [falsche Sprechernamen korrigieren](/de/blog/falsche-sprechernamen-korrigieren).
 
 ## Formen, die schon als Name zählen
 
-Diese Muster bleiben, weil sie schon Text sind:
+| In der Datei | Was du bekommst |
+| --- | --- |
+| `<v Kim Adler>der Satz</v>` | `Kim Adler: der Satz` |
+| `Kim Adler: der Satz` | Name bleibt |
+| `Speaker 1: der Satz` | Platzhalter, keine Person |
+| Nur Satz ohne Präfix | Kein Name |
 
-- `<v Kim Adler>der Satz</v>`
-- `Kim Adler: der Satz`
-- `Speaker 1: der Satz`
-- `SPEAKER_01: der Satz`
+<dl class="blog-terms">
+  <div>
+    <dt>Speaker 1</dt>
+    <dd>Ein Spur-Label vom Export-Tool, keine erkannte Identität.</dd>
+  </div>
+  <div>
+    <dt>VTT</dt>
+    <dd>Untertiteldatei. Namen nur, wenn Voice-Tags drin stehen.</dd>
+  </div>
+  <div>
+    <dt>Diarisierung</dt>
+    <dd>Wer-wann-sprechen aus Audio. Mac-App lokal, Browser nicht.</dd>
+  </div>
+</dl>
 
-`Speaker 1` ist ein Label, keine Person. Für den [Redeanteil](/de/tools/wer-hatte-das-wort) reicht es, um den Anteil der Wörter zu rechnen. Für ein Protokoll, das du ablegst, reicht es nicht. Du weisst dann, dass eine Spur mehr Wörter hatte, nicht wer am Montag etwas zugesagt hat.
-
-«Conference Room», «Phone» und ein Anzeigename des Kunden zählen ebenfalls. Sie sind das, was die Quelle gespeichert hat. Sie sind keine Anwesenheitsliste. Umbenennen darfst du, wenn du weisst, wer gesprochen hat. Der Browser prüft das nicht nach.
+«Conference Room» und ein Anzeigename zählen als Label der Quelle, nicht als Anwesenheitsliste. Umbenennen darfst du, wenn du weisst, wer gesprochen hat, und es als deine Änderung markierst.
 
 ## Wann du Namen von Hand setzt
 
-Setze Namen von Hand, wenn das Gespräch klein war und du dabei warst.
+Ehrliche Hand-Labels passen, wenn die Sitzung kurz war und du dabei warst.
 
-- Zwei Personen, und du erinnerst dich, wer die Zahl gesagt hat. Schreib den Namen an die Zeile und markiere ihn als deine Ergänzung, nicht als Export.
-- Ein Block «Conference Room», und du weisst, dass nur eine Person im Raum war. Einmal umbenennen, nicht in jedem Cue raten.
-- Ein Protokoll, in dem die Massnahme einen Eigennamen braucht. Kopiere die Zeile aufs [Sitzungsprotokoll](/de/tools/sitzungsprotokoll) und schreib die Person dorthin. Das Blatt transkribiert nicht.
+1. Originaldatei unverändert lassen.
+2. Auf einer Kopie arbeiten.
+3. Wenn du einen Abschnitt kennst, genau `Name: Text` in einer eigenen Zeile schreiben, überall gleiche Schreibweise.
+4. Bei Unsicherheit `Unbekannt:` nutzen oder die Zeile ohne Namen lassen. Ein falscher Name ist schlimmer als eine Lücke.
+5. Die Kopie erst in [wer hatte das Wort](/de/tools/wer-hatte-das-wort) einfügen, wenn du die Namen verantwortest.
 
-Lass es, wenn du fünf Stimmen nicht trennen kannst, oder wenn der Text später als Beleg gelten soll und die Namen nicht in der Datei standen. Ein nachträglich gesetzter Name ist eine Behauptung. Sag das in der Notiz, wenn du ihn setzt.
+Das reicht für ein 10-Minuten-Debriefing. Bei einem 90-Minuten-Workshop mit sechs Stimmen wirst du in der Mitte falsch zuordnen, und das Diagramm wirkt trotzdem präzise.
+
+Fülle keine Namen im Original-VTT nach und behandle dieses VTT dann als Export des Anbieters. Wenn du zeigen musst, was Teams oder Zoom geliefert hat, zeig das Original.
+
+Lass es, wenn fünf Stimmen nicht trennbar sind oder der Text später als Beleg gelten soll und die Namen nie in der Datei standen. Ein nachträglich gesetzter Name ist eine Behauptung. Sag das in der Notiz, wenn du ihn setzt.
 
 ## Wann du den Mac brauchst
 
-Die Mac-App trennt Stimmen auf dem Gerät, nachdem du aufgenommen oder eine Datei importiert hast. Unbekannte Sprecher bleiben anonym. Du benennst sie danach um. «Diesen Sprecher merken» ist freiwillig, verschlüsselt und löschbar. Das ist keine Funktion im Browser, und es ist kein Modell für Schweizerdeutsch.
+Vemoir auf dem Mac trennt Teilnehmer nach dem Stopp in anonyme, überprüfbare Sprecherlabels. Die Trennung läuft auf dem Gerät. Du kannst ein Label umbenennen, ohne ein Stimmprofil anzulegen. «Diesen Sprecher merken» ist ein separater, expliziter Schritt: ein verschlüsseltes Profil nur, wenn du zustimmst. Unbekannte und mehrdeutige Sprecher bleiben anonym. Du kannst ein Profil abschalten oder löschen.
 
-Brauchst du Labels auf einer langen Aufnahme, importierst du auf dem Mac MP3, M4A, WAV, AIFF, CAF oder FLAC. Der Browser nimmt MP3, M4A, WAV und MP4, höchstens 15 Minuten, ohne Sprechertrennung. Opus und OGG stehen auf keiner der beiden Listen.
+So bekommt eine gemischte Spur überhaupt Namen. Der Browser wird diese Funktion nicht nachrüsten. Live-Aufnahme, Mikrofon und Systemaudio als getrennte Wege und Sprechertrennung sind die App. macOS fragt nach Mikrofon und **Systemaudioaufnahme**. Das erfasst nur Audio, nicht den Bildschirm.
 
-Die macOS-Berechtigung für den Ton anderer Apps ist die **Systemaudioaufnahme**. Nur Audio. Keine Bildschirmaufnahme.
+Du prüfst die Labels trotzdem. Diarisierung kann eine Person teilen oder zwei ähnlich klingende Stimmen zusammenlegen. Das Roh-Transkript bleibt der Beleg. Ein Rename schreibt keine falsche Identität in die Historie.
+
+Import, wenn du die Datei schon hast: MP3, M4A, WAV, AIFF, CAF oder FLAC in ein Projekt, dieselbe lokale Pipeline wie bei Live-Aufnahme. Der Browser nimmt MP3, M4A, WAV und MP4, höchstens 15 Minuten, ohne Trennung. Opus und OGG stehen auf keiner der beiden Listen.
+
+Mehr zu Profilen und Umbenennen: [Sprecherprofile auf dem Mac](/de/blog/sprecherprofile-auf-dem-mac) und [falsche Sprechernamen korrigieren](/de/blog/falsche-sprechernamen-korrigieren).
 
 ## Redeanteil ohne Labels ist eine Sackgasse
 
-[Wer hatte das Wort](/de/tools/wer-hatte-das-wort) liest ein Transkript, das schon Namen hat, und zählt den Anteil der Wörter, nicht der Sekunden. Ohne Labels hält die Seite an. Sie setzt kein falsches `Speaker 1` davor, damit ein Diagramm entsteht.
+«Wer hat am meisten gesprochen» braucht Namen oder stabile Labels vor der Zählung. Wortanteil ist keine Uhr. Wer schnell spricht, kann mehr Wörter haben als die Person, die länger das Wort führte. [Wer hatte das Wort](/de/tools/wer-hatte-das-wort) meldet nur Anteile aus Präfixen, die es lesen konnte.
 
-Das ist so gewollt. Der Wortanteil über einen Block ohne Namen sagt nichts über die Sitzung. Er sagt, dass eine Datei Text enthält. Willst du trotzdem wissen, wer mehr gesagt hat, brauchst du zuerst Namen in der Datei oder eine Trennung auf dem Mac. Danach kommt die Zählung.
+Ohne Labels hält die Seite an. Das ist gewollt. Eine Wortquote über einen Block ohne Namen sagt nichts über die Sitzung. Sie sagt, dass eine Datei Text enthält.
 
-Die Sprechertrennung auf dem Mac ist trotzdem kein Protokoll. Zwei anonyme Spuren kannst du umbenennen. Die Entscheide schreibst du getrennt, mit der Person, die sie getragen hat, nicht mit dem höheren Wortanteil.
+Wenn deine Frage Fairness in einem Workshop ist, starte mit Audio, das getrennt werden kann, benenne um, zähle dann. Aus einem namenlosen Paste und einem erwarteten Kreisdiagramm wird entweder nichts oder eine Fiktion.
+
+Brauchst du ein Protokoll mit Zuständigkeit, schreib Teilnehmer und Owner auf dem [Sitzungsprotokoll](/de/tools/sitzungsprotokoll) aus dem, was du weisst. Tu nicht so, als hätte das Transkript die Zitate bewiesen. Mehr zum Thema Redeanteil: [wer hat am meisten gesprochen](/de/blog/wer-hat-am-meisten-gesprochen).
 
 ## Häufige Fragen
 
 ### Warum fehlen Sprecherlabels, wenn ich zwei Personen höre?
 
-Weil Hören und Speichern nicht dasselbe sind. Eine einzelne Audiospur hat keine Namen von selbst. Viele Exporte speichern nur den Text. Der Browser trennt die Stimmen nicht nachträglich.
+Weil Hören und Speichern nicht dasselbe sind. Eine Audiospur hat keine eingebauten Namen.
 
 ### Kann ich Sprecherlabels im Browser einschalten?
 
-Nein. Es gibt keinen Schalter. Fehlen die Muster im Text, bleibt der Text ohne Namen. Eine Aufnahme ohne Labels bleibt ohne Labels, auch wenn du sie noch einmal transkribierst.
+Nein. Es gibt keinen Schalter. Fehlen die Muster, bleibt der Text ohne Namen.
 
 ### Enthält Zoom die Namen immer im VTT?
 
-Nein. Ein Cloud-VTT kann Namen haben, wenn die Funktion, die du genutzt hast, sie geschrieben hat. Eine lokale Aufnahme ist oft nur Audio. Prüfe die Datei, die du wirklich hast.
+Nein. Lokale Aufnahme ist oft nur Audio. Prüfe die Datei, die du wirklich hast.
 
 ### Teams zeigt Namen auf dem Bildschirm, der Download nicht. Was dann?
 
-Dann hat der Bildschirm mehr gezeigt, als in der Datei steht. Nimm nur, was im Download steht. Bitte die Person, die organisiert, um ein Format mit Stimm-Tags, wenn dein Kunde das noch schreibt. Erfinde die Namen nicht in der geteilten Kopie.
+Nur nehmen, was im Download steht. Namen nicht in der geteilten Kopie erfinden.
 
 ### Reicht «Speaker 1» für ein Protokoll?
 
-Für eine Wortzählung ja, als Spur. Für eine Massnahme mit Zuständigkeit nein. Ersetze das Label durch einen Namen, den du verantworten kannst, und sag, dass du ihn gesetzt hast.
+Für Wortzählung als Spur ja. Für Massnahme mit Zuständigkeit nein.
 
 ### Schliesst ein Zusammenfassungsmodell die Namen aus dem Zusammenhang?
 
-Das soll es nicht. Einen Entwurf, der es trotzdem tut, verwirfst du. Eine Notiz darf einen Namen tragen, der im Text steht. «Jemand vom Finanzteam» wird nicht zu einer Person, die sich nie gemeldet hat.
+Das soll es nicht. Einen Entwurf, der es tut, verwirfst du.
 
 ### Kann ich einen falschen Namen korrigieren, ohne ein Stimmprofil?
 
-Ja. In der Datei oder in der Notiz umbenennen reicht für diesen einen Beleg. Ein gespeichertes Stimmprofil ist eine Funktion der Mac-App, freiwillig und löschbar. Für eine Zeile in diesem Protokoll brauchst du es nicht.
+Ja. Umbenennen in Datei oder Notiz reicht für diesen Beleg. Profil merken ist optional in der Mac-App.
 
 ### Heisst ein fehlendes Label, dass das Transkript nutzlos ist?
 
-Nein. Du kannst Entscheide, Daten und offene Fragen lesen, wenn der Satz sie trägt. Du kannst nicht sagen, wer sie gesagt hat, ausser du warst dabei und markierst die Zuordnung als deine.
+Nein. Inhalt und Reihenfolge bleiben. Zuschreibung erst mit echten Namen.
 
-Nächster Schritt: hat die Datei schon Namen, öffne [wer hatte das Wort](/de/tools/wer-hatte-das-wort). Ist sie nur Audio, lies [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren), oder nimm die nächste Sitzung auf dem Mac auf, wenn die Labels dazugehören.
+Nächster Schritt: hat die Datei schon Namen, öffne [wer hatte das Wort](/de/tools/wer-hatte-das-wort). Ist sie nur Audio, lies [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren) oder nimm die nächste Sitzung auf dem Mac auf, wenn Labels dazugehören.

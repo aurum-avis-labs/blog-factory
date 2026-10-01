@@ -1,0 +1,130 @@
+---
+title: "Ransomware first steps for an SME: what to do in the first hours"
+description: "Ransomware first steps for an SME: isolate, preserve evidence, notify insurer, and when BACS mandatory reporting does not apply to typical Swiss firms."
+pubDate: 2026-11-25
+author: "Aurum Avis Labs"
+tags: ["ransomware", "incident response", "sme", "switzerland"]
+funnelStage: interest
+translationKey: ransomware-first-steps-for-an-sme
+relatedPosts: ["invoice-fraud-changed-iban", "internal-incident-reporting", "four-eyes-principle-for-payments"]
+draft: false
+site: security
+---
+
+## Ransomware first steps for an SME: contain before you debate the ransom note
+
+Ransomware first steps for an SME start with isolating affected machines, stopping lateral spread, and calling your incident lead, not with reading the bitcoin demand. A Swiss company with 20 to 250 staff rarely has a 24/7 SOC; the owner, IT partner, and whoever holds backups must know the order of actions. BACS counted [57 ransomware cases](https://www.bacs.admin.ch/de/hjb-25-2-de) in the second half of 2025 in its reporting landscape; fraud still dominated overall reports. Most trading and services firms are not under the [24-hour mandatory reporting duty to BACS](https://www.bacs.admin.ch/de/informationen-zur-meldepflicht); voluntary notification remains possible after you contain damage.
+
+Use your [internal incident reporting](/security/blog/internal-incident-reporting) path so HR and finance hear early. During outage, keep [four-eyes controls](/security/blog/four-eyes-principle-for-payments) and callback rules from [invoice fraud with a changed IBAN](/security/blog/invoice-fraud-changed-iban). Customer communication when personal data may leak touches [privacy notice requirement Switzerland](/security/blog/privacy-notice-requirement-switzerland).
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Isolate</h3><p>Disconnect infected PCs from Wi-Fi and LAN; stop VPN routes if encryption spreads.</p></li>
+  <li data-step="2"><h3>Preserve evidence</h3><p>Photograph ransom screen, note time, export logs; do not wipe yet if police, insurer, or forensics may investigate.</p></li>
+  <li data-step="3"><h3>Notify</h3><p>Call IT partner, cyber insurer, and leadership; assign one spokesperson.</p></li>
+  <li data-step="4"><h3>Assess backups</h3><p>Verify offline or immutable copies before any restore test on production.</p></li>
+  <li data-step="5"><h3>Privacy in parallel</h3><p>If personal data leaked, assess FDPIC notification when likely high risk, separate from BACS duty.</p></li>
+</ol>
+
+## Hour zero to two: who isolates what
+
+Fix names on paper before an event. The first person at the desk is rarely IT.
+
+In the first ten minutes, whoever sees encrypted files pulls the network cable or turns off Wi-Fi on the laptop and leaves the machine powered on. They do not run a «quick fix» or open attachments from the ransom mail. They call the incident lead (owner, internal IT lead, or external partner) with time, device name, and whether other files are renaming live.
+
+The IT partner or admin disables affected VLANs or switch ports in hour one, rather than «cleaning» single PCs while spread continues. They check whether backup servers or NAS are still reachable from the compromised segment and cut that link first. They gather screenshots, last logon times, and firewall logs into one ticket without rebooting production servers.
+
+Leadership decides whether manufacturing or dispatch stops and names one spokesperson for customers. Finance works only on a device not on the same network as the outbreak, ideally paper lists and phone. HR sends team leads one sentence: «IT incident, no passwords by email, reports to …» without attacker detail.
+
+<ul class="blog-checklist">
+  <li>Open an incident record and log every action with time</li>
+  <li>Make backup repositories unreachable from the compromised LAN</li>
+  <li>Do not mass-email passwords or reset links</li>
+  <li>Keep lawyer threads separate from all-staff mail</li>
+  <li>Keep the runbook on paper in the office, not only on file shares</li>
+</ul>
+
+## Should you pay the ransom
+
+Swiss authorities and insurers generally discourage paying; payment does not guarantee decryption and funds crime. Which clause your policy contains is only in your contract. Anyone who pays needs written approval from leadership and contact with insurer and counsel, not the person alone at the screen.
+
+Until decided: do not copy wallet addresses or install «decryptor» tools from attackers. Priority stays restore from a tested backup and recovery of mail, ERP, and telephony in the agreed order.
+
+## What not to do in hour one
+
+Do not use «support» chat with attackers, even if they claim to help. Do not wipe all PCs before you know whether police or the insurer need images. Do not reboot servers if forensics must capture memory.
+
+Do not tell staff that «everyone must report to BACS in 24 hours» unless you are a covered critical infrastructure operator. Do not publish vulnerability detail while containment is still open.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Art. 8 FADP still expects appropriate backup and recovery measures. Ransomware with personal data may trigger FDPIC notification when likely high risk, «as soon as possible», on a separate clock from voluntary BACS reports.</p>
+</aside>
+
+## Payment fraud during the outage
+
+Finance may fall back to manual processes; that is when BEC attempts spike. No transfer, no approval, and no «express payment» because someone writes on Teams, WhatsApp, or email «pay now because of ransomware». That is a separate risk, not a recovery step.
+
+New IBANs, changed account names, or «urgent CEO exceptions» apply only after [four-eyes control](/security/blog/four-eyes-principle-for-payments) and call-back to the number on the contract or last genuine invoice. Payroll week: decide in advance who owns paper contingency and bank cut-offs when ERP is down.
+
+## External and internal communication
+
+One person drafts customer and supplier text; counsel reviews wording when personal data is involved. Internally: a short daily update to leadership and team leads (what works, what is down, where to send questions). Social and website posts only through the same spokesperson. The IT partner does not speak to customers in parallel unless agreed.
+
+## Insurer, police, voluntary BACS
+
+Cyber policies often require prompt notice. Log call time, contact name, and claim reference even if ransom payment is undecided. Police: cybercrime.ch or cantonal police at HQ; number in the runbook.
+
+Voluntary BACS reporting after containment is possible for the national picture. For most SMEs it does not replace a statutory 24-hour duty. Privacy leads assess FDPIC and data subjects in parallel without blocking IT restore.
+
+## Rebuild or restore: order of operations
+
+Leadership confirms in writing which systems return first. Typical SME sequence:
+
+<ol class="blog-flow">
+  <li><strong>Isolate backups</strong><p>Identify last clean copy; test restore on a separate system.</p></li>
+  <li><strong>Identity</strong><p>Directory, MFA, admin accounts; reset privileged passwords.</p></li>
+  <li><strong>Mail and comms</strong><p>Many processes stop without mail; keep reporting phishing during recovery.</p></li>
+  <li><strong>ERP / finance</strong><p>Only after a clean backup; finance back online when four-eyes rules are clear.</p></li>
+  <li><strong>Telephony and customer portals</strong><p>Then; tell customers when SLAs slip.</p></li>
+  <li><strong>Production</strong><p>Last, unless contracts say otherwise.</p></li>
+</ol>
+
+Sometimes fresh VMs beat restore from uncertain backups. Whoever chooses restore documents backup generation date and who approved. After stabilisation: patch, remove weak accounts, MFA everywhere admins work.
+
+## Supply chain and EDI during outage
+
+When EDI, customer portals, or supplier logins fail, tell active partners once delivery dates are at risk. State outage and next update window, not internal forensics detail. That is operational; it is not automatically BACS mandatory reporting.
+
+## Forensics and police alignment
+
+Before mass deletion: agree with the IT partner whether images of affected servers are needed. If yes: no reboots, no «cleanup» at the weekend without coordination. Police often want timestamps and screenshots; the insurer wants ticket history and backup proof. Collect both in parallel.
+
+## Table-top before the event: what to rehearse
+
+Once a year, 45 minutes, attendees: leadership, finance, HR, IT partner. No live hack required. Facilitator reads: «Monday 07:30, accounts sees .locked files, drive H: stops.»
+
+<ul class="blog-checklist">
+  <li>Who pulls which cable, who calls whom first?</li>
+  <li>Where is the paper runbook and who holds backup passwords?</li>
+  <li>Does finance stop payments from chat messages during the outage?</li>
+  <li>Who speaks to customers, who to the insurer?</li>
+  <li>Which three systems return in which order?</li>
+</ul>
+
+Close with three actions and dates (e.g. monthly restore test, police number in runbook, finance contingency). Two weeks after stable operations: short lessons learned without blame.
+
+<div class="blog-faq">
+  <h3>Do we report ransomware to BACS voluntarily?</h3>
+  <p>You may, after containment, if you want to contribute to the national picture. It is not the same as the statutory duty for critical infrastructure operators.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Must we tell customers immediately?</h3>
+  <p>If their personal data may be affected, assess notification to data subjects and the FDPIC separately from IT recovery. Contract deadlines may apply; that is not automatically BACS mandatory reporting.</p>
+</div>
+
+## A made-up example
+
+A made-up example: a supplier with 80 staff finds encrypted files Monday at 06:00. The first person unplugs two desks from the network, photographs the screen, calls the incident lead and IT partner. The partner isolates the finance VLAN and tests Friday’s backup on a spare PC. Finance signs no «express» transfer from mail «because of IT emergency». Restore starts with mail, then ERP; the insurer gets time and ticket reference the same day. A workshop with 30 people sees renamed files on drive S at 07:40: one PC off the network, left on, partner called from a mobile. Nobody pays from the on-screen message.
+
+Regular training appears more often in medium firms than small ones in the [Deloitte 2026 cyber study](https://www.allnews.ch/sites/default/files/ckfinder/userfiles/Deloitte%20Cyber%20Studie%202026_0.pdf); that is someone else’s measurement. A live debrief after an incident or table-top helps reception and finance. See [security awareness training](/security/security-awareness).

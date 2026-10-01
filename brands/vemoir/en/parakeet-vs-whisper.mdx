@@ -17,7 +17,9 @@ draft: false
 
 Neither model writes the minutes. Notes, documents, and Ask use a language model: Qwen3 4B on most Macs, gpt-oss-20b on high-memory Macs, Apple Intelligence where the Mac has it, or a text-only key you activate yourself. The speech model only turns audio into text.
 
-## What Parakeet vs Whisper changes
+If your question is only which speech file to download first, open [capture](/#capture) on the Mac and compare sizes before you queue a second model.
+
+## How glossary hints differ between families
 
 | | Parakeet v3 | Whisper Turbo, Medium, Large-v3 |
 | --- | --- | --- |
@@ -29,6 +31,8 @@ Neither model writes the minutes. Notes, documents, and Ask use a language model
 
 
 The model library shows readiness, storage, and hardware fit. You can remove a model you no longer want. A later meeting does not substitute the other family because you were offline or the file was missing. Fix the download, then process.
+
+Project glossaries help generated minutes and documents spell names and product terms consistently. On compatible Whisper transcription, glossary hints can also reach the speech prompt. Parakeet v3 does not advertise the same speech-pass hints. If your workflow depends on steering the first transcript line, Whisper is the family to read about in the app docs. If you only need correct names in the summary, either family can work once the transcript exists.
 
 The app interface language (English, German, French, Italian, Dutch) is not the transcription language. Set them separately.
 
@@ -78,6 +82,8 @@ The transcript is rebuilt from finalized local audio after you stop. A live prev
 
 Then a writing model drafts minutes. If a name is wrong, the speech model is one place to look (the wrong model for the language, a noisy mic) and the writing model is another (a smooth sentence that was not in the audio). Change the thing that failed. Do not swap Parakeet and Whisper as a guess and expect a published accuracy jump.
 
+Reprocessing the same retained file is fair. Installing a second speech model "just in case" without listening first usually fills disk before it fixes a line.
+
 Noise suppression, Off, Balanced, or Strong, sits on the mic before this choice. It does not pick the speech model.
 
 Both families are in [capture](/#capture).
@@ -94,7 +100,9 @@ Both families are in [capture](/#capture).
 
 A speech model is a large file. Installing Parakeet and every Whisper variant on the same disk is allowed, and it is often unnecessary. Check free space against the size the model screen shows before you queue three downloads. The baseline for the app is 10 GB free, which is not a promise that three speech models plus a writing model will fit inside that margin. If a download fails for space, free space and resume. Do not treat the browser tool as a silent stand-in for a meeting that was supposed to stay in the app. The browser tool is a different path with a 15-minute cap.
 
-When both a Parakeet file and a Whisper file are ready, select one for the next meeting and leave it. Mid-meeting substitution is not a feature. If a bilingual call mixes two languages, expect the limits of whichever model you selected. If the result is unusable, that is a reason to try the other family on purpose and compare with your ears, still without a numeric ranking. Keep the recording if Storage still has it, so the second pass is the same audio and not a new call with new noise. One file, two models, your ears. That is the whole method this page will stand behind. Write down which model you selected and the date, in the project notes if you have them, so a later disagreement is about the audio and not about a forgotten setting. The model library is the record of what was installed. Your note is the record of what you chose for that meeting. If a colleague asks which model "won," the answer is the one you could check against the audio you kept. A number from a benchmark would not help them rerun your call.
+When both a Parakeet file and a Whisper file are ready, select one for the next meeting and leave it. Mid-meeting substitution is not a feature. If a bilingual call mixes two languages, expect the limits of whichever model you selected. If the result is unusable, try the other family on purpose and compare with your ears, still without a numeric ranking. Keep the recording if Storage still has it, so the second pass is the same audio. Note which model you selected and the date in project notes, so a later disagreement is about the audio, not a forgotten setting.
+
+For meetings that must stay offline after models are installed, see [offline transcription on Mac](/blog/offline-transcription-mac).
 
 ## Frequently asked questions
 

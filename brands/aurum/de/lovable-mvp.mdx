@@ -1,0 +1,81 @@
+---
+title: "Lovable MVP: vom Prompt zum ersten Test"
+description: "Lovable MVP: ein Nutzerjob, Supabase sauber absichern, echte Tester, und klar sagen, was der Build beweist und was nicht."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["lovable", "mvp", "supabase", "vibe coding"]
+funnelStage: interest
+translationKey: building-an-mvp-with-lovable
+relatedPosts: ["lovable-supabase-rls", "vibe-coding-sicherheit"]
+draft: true
+site: studio
+---
+
+## Lovable MVP: wann der Weg Sinn ergibt
+
+Ein Lovable MVP entsteht, wenn Sie einen engen Nutzerjob beschreiben, die Plattform Web-App plus Supabase erzeugen lässt und die URL zuerst bei echten Menschen testen, nicht bei weiteren Prompts. Sie kaufen Geschwindigkeit für eine Lernfrage, kein Produktionssystem. Der Text richtet sich an Gründerinnen und Gründer sowie an Innovationsverantwortliche in KMU, die dem Verwaltungsrat oder dem Team ein Verhalten zeigen müssen, nicht nur eine Folie.
+
+Lovable gehört zu den Vibe-Coding-Baukästen: stark für den ersten klickbaren Ablauf, schwach als Endziel für sensible Daten oder massgeschneiderte Architektur. Wo das in eine längere Werkzeugkette passt, steht in [KI-gestützte MVP-Entwicklung](/de/blog/ki-mvp-entwicklung). Row Level Security auf Supabase ist ein eigenes Thema; lesen Sie Lovable Supabase RLS, bevor Sie Fremde mit Login einladen.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Einen Job und ein Erfolgsignal festhalten</h3><p>Ein Satz, was die Nutzerin tut, und eine Zahl, die Sie mitzählen (Anmeldung, Upload, Anfrage, Kaufabsicht). Alles andere wartet.</p></li>
+  <li data-step="2"><h3>In Lovable bauen und den Stack lesen</h3><p>Den kleinsten Ablauf erzeugen, der den Job erledigt. Im Supabase-Dashboard Tabellen, Auth und Policies notieren, die das Tool gesetzt hat.</p></li>
+  <li data-step="3"><h3>Fünf bis zehn begleitete Tests</h3><p>Bildschirm teilen oder neben jemandem sitzen. Festhalten, wo es hakt, nicht wo das Layout gelobt wird.</p></li>
+  <li data-step="4"><h3>Eine Änderung ausrollen, dann eine Woche Pause vom Bauen</h3><p>Nur den grössten Blocker beheben. In der Pause prüfen, ob jemand ohne Erinnerung zurückkommt.</p></li>
+</ol>
+
+## Was ein Lovable MVP in der Praxis leistet
+
+Die Plattform erzeugt aus Beschreibungen eine deployte Web-App mit Anmeldung und Datenbank. Für jemanden mit Branchenwissen und ohne technische Mitgründerin verkürzt das die Zeit bis zum ersten echten Klick massiv. Sie können testen, ob Küchenchefs Bestellentwürfe erfassen, ob Coaches Sitzungen loggen oder ob Einkäufer eine Offerte anfragen, ohne gleich ein Team zu engagieren.
+
+Hintergrund ist meist Supabase. Bei der Projekterstellung können Sie eine Region wählen; Zürich (eu-central-2) ist verfügbar, wenn der Standort der Daten in Gesprächen mit Kunden eine Rolle spielt. Rechtliche Einordnung gehört zur Beratung. Das Frontend liegt zunächst bei Lovable; für zehn warme Kontakte reicht das, für SLAs gegenüber zahlenden Firmen nicht.
+
+Auth funktioniert oft auf dem Standardpfad: Konto, Login, Passwort zurücksetzen. Autorisierung, wer welche Zeile sieht, ist die Schwachstelle vieler öffentlicher MVPs. Policies müssen geprüft und getestet werden, nicht nur weil das Tool «RLS» erwähnt hat.
+
+## Was der Build nicht beweist
+
+Sie sehen, ob eine kleine Gruppe einen Ablauf durchzieht und ob einmal jemand von selbst zurückkehrt. Sie beweisen damit nicht Sicherheit unter Missbrauch, Last bei zehnfacher Nutzerzahl, saubere Code-Eigentümerschaft oder Store-Freigabe für eine dünne Web-Hülle.
+
+Apple verlangt unter Richtlinie 4.2 mehr als eine umverpackte Website; Google Play kennt Closed-Test-Pflichten für viele neue persönliche Entwicklerkonten. Store-Einreichung ist ein späteres Projekt, wenn das Produkt nicht wirklich app-artig ist. Das macht Lovable nicht falsch für Woche eins. Es grenzt ab, was Sie nach Woche eins nicht versprechen sollten.
+
+<div class="blog-pair">
+  <div>
+    <h3>Für wen es passt</h3>
+    <ul>
+      <li>Gründer mit einem Workflow und direkt erreichbaren Testpersonen</li>
+      <li>Innovationsverantwortliche mit Nachweispflicht gegenüber dem Gremium</li>
+      <li>Teams, die vor Paid Launch einen Review oder Rebuild einkalkulieren</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Wer einen anderen Weg wählen sollte</h3>
+    <ul>
+      <li>Produkte mit Gesundheits-, Finanz- oder Kinderdaten ohne Security-Verantwortliche</li>
+      <li>B2B-Mandanten, bei denen Kunden A die Daten von Kunde B nie sehen dürfen</li>
+      <li>Vorgaben für Azure, On-Prem oder festen Stack ab Tag eins in der Beschaffung</li>
+    </ul>
+  </div>
+</div>
+
+## Ein erfundenes Beispiel: Bestellentwurf an Lieferanten
+
+Ein erfundenes Beispiel: Eine Person in Zürich führt ein kleines Catering und fragt sich, ob Küchenchefs aufhören, Bestellungen per SMS zu schicken. In Lovable beschreibt sie einen Bildschirm: Lieferant wählen, wenige Artikel, Entwurf per E-Mail. Supabase speichert Nutzer und Entwürfe. Sechs Köche aus dem Netzwerk werden eingeladen, drei schicken einen Entwurf, und klar wird: Spracheingabe auf dem Handy zählt mehr als ein hübscher Katalog. Nur die Spracheingabe wird nachgebessert, zehn Tage lang wird nichts Neues gebaut, eine Köchin kommt ohne Erinnerung zurück. Das reicht für Kundengespräche. Es reicht nicht für Product-Market-Fit und nicht für offenes Internet ohne Zugriffs- und Datenreview.
+
+## Grenzen, die Sie aussprechen sollten
+
+Bleiben Sie beim Tool neutral: reicht Lovable, stoppen Sie. Ist die nächste Frage, ob die App Kundendaten tragen oder einen Security-Fragebogen überstehen soll, folgen strukturierter Review oder Produktionsbuild auf einem Stack, den Sie kontrollieren, nicht weitere Prompt-Nachmittage.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Aurum baut Kunden-Validierungspakete nicht mit Lovable oder Supabase. Beim verkauften Paket setzen wir auf KI-gestützte Entwicklung mit Azure, React und NestJS. Dieser Beitrag wirbt nicht für diesen Weg; er beschreibt Ihren eigenen ersten Test.</p>
+</aside>
+
+Analytics im generierten Build sind nur dann verlässlich, wenn Sie Ereignisse vor dem Start definiert haben. Ein Spike am ersten Tag durch Ihren LinkedIn-Post ist keine Retention. Notizen aus den Tests gehören neben ein bis zwei Zahlen aus Schritt eins.
+
+Haben Sie bereits zahlende Nutzer oder einen Pilotvertrag mit Security-Klausel, arbeiten Sie die Vibe-Coding-Sicherheitscheckliste ab, bevor Sie den Kreis öffnen. Fehlende Policies merken Sie erst, wenn jemand die Daten abfragt.
+
+## Wann ein Vibe Code Review passt
+
+Ein [Vibe Code Review](/de/services/vibe-code-review) passt, wenn der Lovable-Stand das Asset ist, das Sie bald ausserhalb des engen Kreises zeigen: Investoren mit Fragen zur Datentrennung, ein Konzernpilot oder die erste Marketingseite mit offener Anmeldung. Sie erhalten eine Lückenanalyse nach OWASP ASVS v5.0, fokussierte Stunden zu Architektur und Codequalität, eine priorisierte Massnahmenliste und ein abschliessendes Gespräch unter NDA. Der Schritt ist richtig, wenn Sie den Prototyp nicht wegwerfen wollen, ihn aber nicht mehr «privater Demo» nennen können.
+
+Wenn Sie noch bei Idee drei sind und noch niemanden beim Klicken zugeschaut haben, bleiben Sie in Lovable oder auf Papier, bis ein Signal da ist, das Schutz lohnt.

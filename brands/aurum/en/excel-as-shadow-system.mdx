@@ -39,7 +39,7 @@ This is for finance, ops and office leads in a Swiss SME. Finance has a tool, fi
 
 The spreadsheet is often the only place the firm tells the truth. The CRM has the visit. The accounting tool has the invoice. Neither has "this job is waiting on material that the supplier PDF says is late". Someone pastes both into Excel because a meeting needs one page.
 
-That paste is not a character flaw and it is not shadow IT in the sinister sense. It is the interface the two vendors did not ship. Treat it as a system: name the file, the tab, the columns, and who may overwrite them. If the file is called `Final_v7_USE_THIS.xlsx` and a sibling called `Final_v7_REAL.xlsx` also exists, the interface is undocumented. Fix the name before you point a tool at a folder.
+That paste is the interface the two vendors did not ship. People fill a gap the CRM and finance leave open. Treat the file as a system: name the file, the tab, the columns, and who may overwrite them. If the file is called `Final_v7_USE_THIS.xlsx` and a sibling called `Final_v7_REAL.xlsx` also exists, the interface is undocumented. Fix the name before you point a tool at a folder.
 
 Keep Excel where people think in rows. The goal is to define the glue. Which columns are copies of an export. Which columns are a human input that has no system yet. Which system should be the record afterwards, so you stop maintaining two truths.
 
@@ -55,7 +55,8 @@ Often the Monday management file is exactly that paste. The longer version, with
   <li data-step="1"><h3>Circle the columns that are copies</h3><p>If the value always comes from export A or system B, it should not be typed again.</p></li>
   <li data-step="2"><h3>Circle the columns a person must still decide</h3><p>A judgement, a missing portal figure, an exception. Those stay manual, in a short queue.</p></li>
   <li data-step="3"><h3>Name the record</h3><p>After the run, one system or one file is true. The other is a copy with a date in the name.</p></li>
-  <li data-step="4"><h3>Have a second person run it once from the note</h3><p>If they cannot, the logic is not ready for a script. The note is the work.</p></li>
+  <li data-step="4"><h3>Fix folder, file name and edit rights</h3><p>One path on SharePoint or locally, one name without "final_final", and who may overwrite the tab. Without that, automation points at the wrong workbook.</p></li>
+  <li data-step="5"><h3>Have a second person run it once from the note</h3><p>If they cannot, the logic is not ready for a script. The note is the work.</p></li>
 </ol>
 
 ## A metal workshop on Friday, and the file you leave alone
@@ -66,15 +67,15 @@ The other workbook on the same SharePoint is the estimator's margin model. Named
 
 The Friday file can move without waiting for the margin model to become tidy. Firms stall because they try to "sort out Excel" as one project. Sort out one sheet.
 
-## What you should not automate
+## What you should not automate first
 
-A model that "explains the workbook" is the wrong purchase when the pain is retyping. You still paste. You get a paragraph.
+A model that "explains the workbook" is the wrong purchase when the pain is retyping. You still paste.
 
 A new BI tool is the wrong first purchase when three people need eight columns on Monday. You will spend the project arguing about a dashboard, and the Friday paste continues. If the columns are stable, glue those columns. If they are not, the dashboard has nothing stable to show.
 
 And a ban. Telling the office to stop using Excel, without an interface between the two systems, moves the paste into mail and private files. The sheet was the record. If you remove it, name the replacement in the same week.
 
-## The workbook and the two systems
+## Bring the workbook and the two systems
 
 Bring the file and the two exports to the [Process Check](/prozess-check). Say how often it runs, who may overwrite it, and which cells are judgement. Black out customer names if you like. The hour returns a case on that glue, or a clear stop if the sheet is still the estimator's private model.
 

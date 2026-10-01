@@ -14,17 +14,19 @@ site: prozess-check
 
 ## Handle service appointment requests in a garage
 
-You handle a service appointment request by capturing the job, proposing a slot the ramp can actually take, reserving a courtesy car only if one is free, and confirming the day before. The customer does not book themselves onto a full Saturday. A person at the desk still says yes. The copying from the phone pad and the inbox into the workshop calendar is what a workflow can take.
+<p class="blog-lede">You handle a service request by capturing the job, proposing two slots from the workshop calendar, reserving a courtesy car only if one is free, and confirming the day before.</p>
 
-This is for the service desk of a Swiss garage that takes requests by phone, email and a form on the website, and feels it most in the tyre-change weeks. Quotes, parts orders, the official vehicle test and the invoice after pickup are a different cut of the same office, in [AI for car garages](/prozess-check/blog/ai-for-car-garages). This page is only the appointment.
+The customer does not book themselves onto a full Saturday. A person at the desk still says yes. Copying from the phone pad and the inbox into the calendar is the recurring manual work a workflow can take.
+
+This is for the service desk of a Swiss garage that takes requests by phone, email and a form on the website, and feels it most in the tyre-change weeks. Quotes, parts orders, the official vehicle test and the invoice after pickup are a different cut, in [AI for car garages](/prozess-check/blog/ai-for-car-garages). This page is only the appointment.
 
 ## What the request has to contain
 
-A slot is useless if you do not know the car or the job. Before you propose a time, you need a name and a way to reach them, the registration number, what they want (service, tyres, a noise, an inspection), a wished day, and whether they need a courtesy car or will wait.
+Before you propose a time, you need a name and a way to reach them, the registration number, what they want, a wished day, and whether they need a courtesy car or will wait.
 
 Tyre work needs one more fact: the size, or the statement that the wheels are already in your store. Without that, a "tyre change" can be twenty minutes or a morning. A workflow can read those fields from a form or from a clear email and park anything incomplete in a question list. It should not guess a tyre size from an old visit unless a person checks that it is still the same car.
 
-Emails that land in a shared address, mixed with parts invoices and insurer mail, need sorting first. That sort is in [sorting a shared inbox](/prozess-check/blog/shared-inbox-sort-emails). A service request is one category. This sequence starts once the mail is that category.
+Emails that land in a shared address need sorting first. That sort is in [sorting a shared inbox](/prozess-check/blog/shared-inbox-sort-emails). A service request is one category. This sequence starts once the mail is that category.
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Capture the job</h3><p>Name, phone or email, registration number, work, wished day, courtesy car or waiting. Tyres need a size or "wheels in store".</p></li>
@@ -35,21 +37,21 @@ Emails that land in a shared address, mixed with parts invoices and insurer mail
 
 ## Propose slots from the workshop calendar
 
-The calendar you already pay for is the capacity. [WERBAS//KSR](https://werbas-ksr.com/net-planung/) describes customer appointments and service and wheel scheduling, and says appointments can be entered before a job exists and later turned into job time. If your program works that way, the workflow should write a draft appointment there, not in a second sheet that the mechanics never see.
+The calendar you already pay for is the capacity. [WERBAS//KSR](https://werbas-ksr.com/net-planung/) describes customer appointments and service and wheel scheduling, and says appointments can be entered before a job exists. If your program works that way, the workflow should write a draft appointment there, not in a second sheet the mechanics never see.
 
-In a quiet week, two open mornings are easy to see. In the tyre season the constraint is different. A wheel change is a short bay occupation. A service with an unknown noise is not. The desk needs a rule you write down: how many tyre slots a day, how many open-ended jobs, which days are already promised to fleet customers. The workflow applies that rule and proposes two times. It does not stack a fifth tyre change onto an afternoon you marked as full.
+In a quiet week, two open mornings are easy to see. In the tyre season the constraint is different. A wheel change is a short bay occupation. A service with an unknown noise is not. In the tyre season the desk needs a rule you write down: how many tyre slots a day, how many open-ended jobs, which days are already promised to fleet customers. The workflow applies that rule and proposes two times.
 
-A customer who replies "the other day" goes back to the same list. A customer who does not reply by the time you set, often the next morning in season, releases the draft. Otherwise March fills with holds for people who booked three garages.
+A customer who replies "the other day" goes back to the same list. A customer who does not reply by the time you set, often the next morning in season, releases the draft.
 
 ## The courtesy car and the day before
 
-A courtesy car is a second calendar, smaller than the ramp. The same WERBAS planning page describes an overview of cars you can lend during the service, and a prefilled courtesy-car agreement. Use that if you have it. A workflow can check the request's flag, see whether a car is free for the proposed hours, and fill the agreement from the name and the dates. A person still checks driving licence, insurance and the condition note. The workflow does not hand over keys.
+A courtesy car is a second calendar, smaller than the ramp. The same WERBAS planning page describes cars you can lend during the service, and a prefilled courtesy-car agreement. A person still checks driving licence, insurance and the condition note. The workflow does not hand over keys.
 
 If every car is out, the reply says so and offers a wait or a lift, in your words. Promising a car that is already with another customer is how the morning starts with an argument.
 
-The day before, each confirmed appointment gets one reminder: date, time, registration number, wheels in the boot if that was the agreement, and the courtesy car if one was reserved. The draft is standard. A person sends it, or you send it automatically only for the clean cases, the ones with no open question. A customer who wrote "it also makes a noise when cold" is not a clean case. That appointment stays on a list the advisor looks at, because the reminder must not pretend you already know the job.
+The day before, each confirmed appointment gets one reminder. A customer who wrote "it also makes a noise when cold" is not a clean case. That appointment stays on a list the advisor looks at, because the reminder must not pretend you already know the job.
 
-On the morning, the desk needs the short list of people who did not confirm and the list of courtesy cars due back. Those two lists are the peak-week tool. A full reprint of the calendar is what the mechanics already have.
+On the morning, the desk needs the short list of people who did not confirm and the list of courtesy cars due back. Those two lists are the peak-week tool.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
@@ -58,22 +60,39 @@ On the morning, the desk needs the short list of people who did not confirm and 
 
 ## A made-up example
 
-A made-up example: a garage with two ramps and one courtesy car. It is the second week of October. The rule on the wall, written by the owner for this story, is six tyre changes a day and two longer jobs. The figures are not a benchmark. They only make the limit visible.
+A made-up example: a garage with two ramps and one courtesy car. It is the second week of October. The rule on the wall is six tyre changes a day and two longer jobs.
 
-On Monday evening three emails arrive. The first asks for a tyre change on Wednesday, size stated, wheels not in store, no courtesy car. The calendar still has two tyre slots on Wednesday morning. The workflow drafts 08:00 and 10:30 and a person sends them. The customer takes 08:00. The day-before reminder goes out with the size and a line that the car should be there at 08:00.
+On Monday evening three emails arrive. The first asks for a tyre change on Wednesday, size stated, no courtesy car. The workflow drafts 08:00 and 10:30 and a person sends them. The customer takes 08:00. The day-before reminder goes out with the size and a line that the car should be there at 08:00.
 
-The second email says "service, it knocks when cold, Thursday if possible", and asks for the courtesy car. The workflow does not pick a duration. It puts the mail on the advisor's list. She calls, hears that the car is still driving, books a longer Thursday slot that the calendar shows as open, and sees the courtesy car is already out until 11:00. She offers 13:00 with the car. The agreement draft uses the name and the hours. She checks it before it is sent.
+The second email says "service, it knocks when cold, Thursday if possible", and asks for the courtesy car. The workflow puts the mail on the advisor's list. She calls, hears that the car is still driving, books a longer Thursday slot that the calendar shows as open, and sees the courtesy car is already out until 11:00. She offers 13:00 with the car. The agreement draft uses the name and the hours. She checks it before it is sent.
 
 The third email is a name, a phone number and "tyres". The workflow asks for the registration number and whether the wheels are in store. Nothing is booked.
 
-Wednesday 07:30 the first customer has not answered the reminder. They are on the desk list, not deleted. They arrive at 08:10. The courtesy car for Thursday is still marked out until 11:00, which the morning list shows, so nobody promises it to a walk-in.
+Wednesday 07:30 the first customer has not answered the reminder. They are on the desk list, not deleted. They arrive at 08:10. The courtesy car for Thursday is still marked out until 11:00, so nobody promises it to a walk-in.
 
 ## This is not a paid online booking
 
-Some businesses confirm a slot only after payment. Our own Process Check booking works that way, described in [appointment booking with payment](/prozess-check/blog/booking-with-payment-case). A garage service request is usually the other shape. The customer is not buying a fixed hour. They are asking for time on a ramp, and the price depends on what the car needs. Taking a card payment to hold a tyre slot can be a choice you make. It is not the default this page assumes, and this page does not claim a garage should add Stripe in front of the calendar.
+Some businesses confirm a slot only after payment. Our own Process Check booking works that way, described in [appointment booking with payment](/prozess-check/blog/booking-with-payment-case). A garage service request is usually the other shape. The customer is not buying a fixed hour. The price depends on what the car needs. Taking a card payment to hold a tyre slot can be a choice you make. It is not the default this page assumes, and this page does not claim a garage should add Stripe in front of the calendar.
 
-If your workshop software already lets customers pick a free service slot online, and your team actually keeps that calendar true in the tyre season, you do not need a second path for the clean requests. Keep the workflow for the emails and calls that the widget never sees, and for the courtesy car.
+If your workshop software already lets customers pick a free service slot online, and your team keeps that calendar true in the tyre season, you do not need a second path for the clean requests. Keep the workflow for the emails and calls the widget never sees, and for the courtesy car.
 
 ## When the Process Check fits
 
-If every March and October the same person copies phone notes and emails into the workshop calendar, that one task is a case for the [Process Check](/prozess-check). In 60 minutes on Microsoft Teams you look at that task. You leave with where to start, whether it pays off, a price range and a short written summary. Describing a busy day is enough. You do not bring customer records. What the hour is, in more detail, is in [what the Process Check is](/prozess-check/blog/what-the-process-check-is).
+If every March and October the same person copies phone notes and emails into the workshop calendar, that one task is a case for the [Process Check](/prozess-check). In 60 minutes on Microsoft Teams you look at that task. You leave with where to start, whether it pays off, a price range as a guide and a short written summary. Describing a busy day is enough. You do not bring customer records. What the hour is, in more detail, is in [what the Process Check is](/prozess-check/blog/what-the-process-check-is).
+
+## Frequently asked questions
+
+<div class="blog-faq">
+  <h3>Does the workflow replace the service desk?</h3>
+  <p>No. It drafts slots and reminders. A person sends offers, handles unclear noises and hands over keys.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Do we need new booking software?</h3>
+  <p>Often not. The workshop calendar you already use stays the source. A second system rarely pays off unless your program cannot hold draft appointments at all.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>What if nobody answers the reminder?</h3>
+  <p>The slot stays on a morning list for the desk. It is not silently deleted or auto-confirmed.</p>
+</div>

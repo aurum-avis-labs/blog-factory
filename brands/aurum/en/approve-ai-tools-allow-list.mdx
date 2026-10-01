@@ -16,7 +16,7 @@ site: prozess-check
 
 To approve AI tools at work, take five steps: find out what the team already uses, pick one or two tools, move work onto business accounts instead of free consumer accounts, check the settings in the suite you already pay for, and announce the list. For most Swiss SMEs the first candidate is already in the subscription: the AI chat in Microsoft 365, or Gemini in Google Workspace. The allow-list is clause 2 of an [AI usage policy](/prozess-check/blog/ai-policy-template-sme). This article is how you fill that clause.
 
-It is written for the managing director or office lead who is, in practice, also the IT department, or who has an external IT partner for admin work. It is not a tool ranking. It also gives no admin-console click paths. Those move with every release, and the vendors' own help pages linked below are where your admin should look.
+It is written for the managing director or office lead who is, in practice, also the IT department, or who has an external IT partner. It is not a tool ranking and it gives no admin-console click paths. Use the vendors' help pages linked below for switches and policies.
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Take stock</h3><p>Ask which tools people use for work, on which account, and for what.</p></li>
@@ -44,13 +44,13 @@ Microsoft has renamed its products: Microsoft 365 Copilot is now Microsoft Copil
 
 Copilot Chat is [included for organisations with a Microsoft 365 subscription](https://learn.microsoft.com/en-us/copilot/faq), and users reach it after signing in with their Entra account, the work account. Microsoft then applies what it calls enterprise data protection: use is covered by the Data Protection Addendum and the Product Terms, with Microsoft acting as processor, and prompts and responses are not used to train the foundation models. A green shield next to the New Chat button shows that it is active ([Microsoft Learn](https://learn.microsoft.com/en-us/copilot/privacy-and-protections)). Tell people to look for it.
 
-Two limits to know. Web queries that Copilot sends to Bing fall under the Microsoft Services Agreement, with Microsoft as an independent controller. Admins can switch web search off with the policy "Allow web search in Copilot" ([Microsoft Learn](https://learn.microsoft.com/en-us/copilot/manage)). And Copilot Chat does not reason over your work data in Microsoft Graph, meaning mailboxes and files. Microsoft places that in the paid Microsoft Copilot licence.
+Web queries through Bing run under different terms from the chat itself. Admins can switch web search off with the policy "Allow web search in Copilot" ([Microsoft Learn](https://learn.microsoft.com/en-us/copilot/manage)). Copilot Chat does not read your mailboxes and files in Microsoft Graph. That requires the paid Microsoft Copilot licence.
 
 ### Google Workspace
 
 With a qualifying Workspace edition, Google's commitment is that your content is not human-reviewed or used for generative AI model training outside your domain without permission, under the Cloud Data Processing Addendum. That covers Gemini in Gmail, Docs, Sheets, Drive and Meet, and the Gemini app ([Google Workspace Privacy Hub](https://knowledge.workspace.google.com/admin/generative-ai/generative-ai-in-google-workspace-privacy-hub)).
 
-The Gemini app is on by default for licensed users. Admins can turn it on or off for everyone, or for an organisational unit or group. Users without a qualifying Workspace edition fall under different terms: their chats may be reviewed by human reviewers and used to improve Google's products ([Google Workspace Help](https://knowledge.workspace.google.com/admin/generative-ai/gemini-app/turn-the-gemini-app-on-or-off)). Same rule as with Microsoft: the work account is the approved tool, the private Google account is not.
+Admins turn the Gemini app on or off per organisational unit ([Google Workspace Help](https://knowledge.workspace.google.com/admin/generative-ai/gemini-app/turn-the-gemini-app-on-or-off)). Without a qualifying edition, different terms apply. The work account is the approved tool, the private Google account is not.
 
 ### ChatGPT
 
@@ -70,32 +70,32 @@ An example: a property management firm with around 15 people, everything on Micr
 | ChatGPT Business | Company workspace | Public and internal, no personal data | Three people who draft notices and letters |
 | Private ChatGPT, Gemini, translation sites | Private | None | Nobody, for work |
 
-Web search gets a decision too. Tenant correspondence is the main use, and the web part runs under different terms, so the IT partner switches web search off for now. The firm reviews that at the next policy review. Health details from tenants stay out of every tool, as clause 3 of the policy says.
+Web search gets a decision too. The IT partner switches it off for now. Health details from tenants stay out of every tool.
 
 ## Settings to check, without click paths
 
-Three checks: people sign in with work accounts, the business terms really apply, and access and web search are set on purpose rather than by default.
-
-- **Microsoft 365:** staff open Copilot Chat with the work account and see the green shield. Someone has decided on "Allow web search in Copilot". If only some people should use it, access can be limited to users or groups.
-- **Google Workspace:** the Gemini app is on for the organisational units that should have it and off for the rest. Everyone on the list has a qualifying edition.
-- **ChatGPT Business:** whoever administers the workspace adds people when they join and removes them when they leave. Work content goes into the workspace, not into a private account.
-
-Where exactly each switch sits changes. Your admin works from the help pages linked above, not from a screenshot in a blog.
+Three checks: work-account sign-in, business terms active, access and web search set on purpose. Switches and policies live in the linked help pages, not in blog screenshots.
 
 ## Step 5: announce the list
 
 One page, a short meeting and a name. The list goes into the policy and wherever people actually look, for example a pinned post in the Teams channel.
 
-Say what is off and why: private accounts, because the company has no contract there, not because anyone did something wrong. Give the approved replacement in the same breath as the "no". Name the person who decides on new tools and how fast they answer, a week is reasonable. Put the next review date on the page.
+Say what is off and why: private accounts, because the company has no contract there. Name the approved tool, who decides on new tools, and the next review date.
+
+## Allow-list or block-list?
+
+An allow-list names what is permitted; everything else stays out until someone requests it. A block-list bans named tools and leaves the rest open. For SMEs with shadow AI, an allow-list is usually faster: less grey area, a clearer business account.
+
+## Who waits and who lists now
+
+Wait if nobody uses AI for work yet and the board or clients are not asking. List now if private ChatGPT accounts already hold client or customer data, or if you pay for M365 or Workspace and nobody knows which chat is approved.
 
 ## Where an allow-list stops
 
-An approved tool is not approval for every kind of data. The business account does not make health data, salaries or client dossiers fine to paste. That is the data-class clause, and it stays in force.
-
-The list does not teach anyone to check a draft, and it does not build a workflow between systems. Stop evaluating when the comparison reaches its third meeting. By then you are comparing features, not deciding. Start with the suite tool and at most one more. If your firm handles health data or works in a regulated field, have your data-protection adviser look at the list before you announce it.
+An approved tool is not approval for every kind of data. Health data, salaries and client dossiers stay outside the permitted classes. The list does not replace draft checks or build integrations. Stop tool comparisons by the third meeting. If your firm handles health data or regulated fields, have your data-protection adviser review the list before you announce it.
 
 ## Next step: the team uses the list the same way
 
-Once the list exists, the team has to use it the same way: which approved tool fits which task, what AI does reliably and where it breaks, how to check an output before it leaves. That is the [AI in Business workshop](/services/ai-in-business): half a day or a full day, up to 20 participants, practised on real tasks from your team, on site or hybrid in Switzerland. Your list and your policy are good material for the preparation call.
+Once the list exists, the team needs practice: which tool fits which task, where AI fails, how to check a draft. That is the [AI in Business workshop](/services/ai-in-business): half or full day, up to 20 participants, on site or hybrid in Switzerland.
 
-If the real issue is one recurring task rather than the whole team, the [Process Check](/prozess-check) is the smaller step: one task, 60 minutes, a case and a price range. How the two differ: [workshop or implementation](/prozess-check/blog/workshop-or-implementation).
+If the real issue is one recurring task rather than the whole team, the [Process Check](/prozess-check) is the smaller step: one task, 60 minutes, CHF 99 flat, a case and a price range. How that differs from the workshop: [workshop or implementation](/prozess-check/blog/workshop-or-implementation).

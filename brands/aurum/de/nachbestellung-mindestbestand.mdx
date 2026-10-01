@@ -14,11 +14,11 @@ site: prozess-check
 
 ## Nachbestellung bei Mindestbestand automatisieren
 
-Eine Nachbestellung bei Mindestbestand automatisieren heisst: eine Menge, die Sie vorher festlegen, ein Bestand, der stimmt, und ein Bestellentwurf pro Lieferant, den eine Person freigibt, bevor etwas rausgeht. Der Meldebestand ist die Menge, bei der Sie bestellen, früh genug, damit die Ware ankommt, bevor das Regal leer ist. Der Sicherheitsbestand ist das, was bei der Ankunft noch da sein soll. Wenn in Ihrem Programm ein einziges Feld beide Aufgaben macht, stimmt die Menge nicht, auch wenn die Software jede Nacht läuft.
+Nachbestellen beim Mindestbestand heisst: eine Menge, die Sie vorher festlegen, ein Bestand, dem Sie trauen, und pro Lieferant ein Entwurf, den eine Person freigibt, bevor etwas rausgeht. Der Meldebestand ist die Schwelle, bei der Sie bestellen, früh genug, damit die Ware ankommt, bevor das Regal leer ist. Der Sicherheitsbestand ist das, was bei Ankunft noch da sein soll. Wenn ein einziges Feld in Ihrem Programm beides abbildet, stimmt die Menge nicht, auch wenn die Software jede Nacht läuft.
 
-Das gilt für Geschäftsleitung und Einkauf in einem Schweizer KMU, das dieselben Teile, Materialien oder Verbrauchsgüter bei wenigen Lieferanten nachbestellt. Es ist nicht die Seite, auf der Kundschaft Ihnen eine Bestellung mailt. Die steht in [Bestellungen per E-Mail erfassen](/de/prozess-check/blog/bestellungen-per-e-mail-erfassen).
+Das gilt für Geschäftsleitung und Einkauf in einem Schweizer KMU, das dieselben Teile, Materialien oder Verbrauchsgüter bei wenigen Lieferanten nachbestellt. Kundschaft, die Ihnen eine Bestellung mailt, ist ein anderes Thema: [Bestellungen per E-Mail erfassen](/de/prozess-check/blog/bestellungen-per-e-mail-erfassen).
 
-[kmu.admin.ch](https://www.kmu.admin.ch/de/kennzahlen-zur-unternehmensueberwachung) fasst die Spannung so: eine kürzere durchschnittliche Lagerdauer bindet weniger Kapital, und die Lieferbereitschaft muss trotzdem hoch bleiben. Dafür braucht es eine Lagerbuchhaltung, die Umschlag und Lagerdauer zeigt. Eine Mindestmenge ohne diese Zahlen ist eine Schätzung mit Termin.
+[kmu.admin.ch](https://www.kmu.admin.ch/de/kennzahlen-zur-unternehmensueberwachung) fasst die Spannung zusammen: kürzere Lagerdauer bindet weniger Kapital, die Lieferbereitschaft muss trotzdem hoch bleiben. Dafür braucht es eine Lagerbuchhaltung mit Umschlag und Lagerdauer. Eine Mindestmenge ohne diese Zahlen ist eine Schätzung mit Termin.
 
 <ul class="blog-scenarios">
   <li><h3>Wenn das Programm schon nachbestellt</h3><p>Nutzen Sie diese Regel. Keine zweite daneben.</p></li>
@@ -26,61 +26,61 @@ Das gilt für Geschäftsleitung und Einkauf in einem Schweizer KMU, das dieselbe
   <li><h3>Wenn Fahrzeug oder Konsignation mitschwingt</h3><p>Diese Mengen trennen, bevor eine Mindestgrenze gilt.</p></li>
 </ul>
 
-## Wenn das Programm, das Sie schon nutzen, das kann
+## Wenn Ihr Programm das schon kann
 
-Wenn Ihr Auftrags- oder Lagerprogramm schon einen Mindest- und einen Zielbestand hat, fangen Sie dort an. Ein zweiter Ablauf, der dieselben Artikel auch beobachtet, bestellt doppelt.
+Hat Ihr Auftrags- oder Lagerprogramm Mindest- und Zielbestand, fangen Sie dort an. Ein zweiter Ablauf auf denselben Artikeln bestellt doppelt.
 
-Odoo 17, nur als dokumentiertes Beispiel und nicht als Beschreibung jedes Programms, kann mit einer Nachbestellregel einen Einkaufsauftrag anlegen, wenn der Bestand unter ein Minimum fällt, und ihn gegen ein Maximum auffüllen. Das Handbuch rechnet selbst vor: Minimum 5, Maximum 25, Bestand 4, daraus ein Auftrag über 21 Stück. Eine Einstellung für Bestellvielfache kann die Menge über das Maximum hinausschieben. Dieselbe Produktdoku unterscheidet einen automatischen Auslöser, der einen Einkaufs- oder Fertigungsauftrag anlegt, wenn der prognostizierte Bestand unter das Minimum fällt, von einem manuellen Auslöser, der den Artikel nur auf einer Auffüllliste zeigt. Andere Programme heissen das anders, und manche können nur eines von beiden. Was Ihr Programm bietet, klären wir im Check. Eine Lageranbindung an ein bestimmtes Schweizer Buchhaltungsprogramm haben wir nicht gebaut, und diese Seite behauptet keine.
+Odoo 17 ist nur ein dokumentiertes Beispiel, keine Beschreibung jedes Programms. Eine Nachbestellregel kann einen Einkaufsauftrag anlegen, wenn der Bestand unter ein Minimum fällt, und bis zum Maximum auffüllen. Das Handbuch rechnet vor: Minimum 5, Maximum 25, Bestand 4, Auftrag über 21 Stück. Bestellvielfache können die Menge über das Maximum schieben. Dieselbe Doku unterscheidet einen automatischen Auslöser von einem manuellen, der den Artikel nur auf einer Auffüllliste zeigt. Andere Programme heissen das anders; manche bieten nur eine Variante. Was Ihr Programm kann, klären wir im Check. Eine Lageranbindung an ein bestimmtes Schweizer Buchhaltungsprogramm haben wir nicht gebaut, und diese Seite behauptet keine.
 
-Lassen Sie das automatische Versenden aus, bis die Mengen ein paar Wochen gestimmt haben. Ein Entwurf oder eine Liste, die der Einkauf freigibt, ist die brauchbare Einstellung. Ein Auftrag, der rausgeht, während die Mindestmenge noch vom letzten Jahr stammt, ist es nicht.
+Automatisches Versenden lassen Sie aus, bis die Mengen ein paar Wochen gestimmt haben. Ein Entwurf, den der Einkauf freigibt, ist die brauchbare Einstellung. Ein Auftrag, der rausgeht, während die Mindestmenge noch vom letzten Jahr stammt, ist es nicht.
 
-Prüfen Sie drei Felder, bevor Sie dem Lauf trauen. Die Lieferzeit muss zu diesem Lieferanten passen, nicht zum Standard, mit dem die Software ausgeliefert wurde. Der Lieferant am Artikel muss der sein, bei dem Sie heute kaufen. Reservierte Mengen, schon einem Auftrag oder einer Kundenbestellung versprochen, gehören nicht in den freien Bestand. Vergleicht die Mindestmenge eine Zahl, in der Reserviertes steckt, bestellen Sie Teile, die Sie nicht anfassen dürfen.
+Prüfen Sie drei Felder, bevor Sie dem Lauf trauen. Die Lieferzeit muss zu diesem Lieferanten passen, nicht zum Standard der Software. Der Lieferant am Artikel muss der sein, bei dem Sie heute kaufen. Reservierte Mengen, schon einem Auftrag oder einer Kundenbestellung versprochen, gehören nicht in den freien Bestand. Vergleicht die Regel eine Zahl mit eingerechnetem Reserviertem, bestellen Sie Teile, die Sie nicht anfassen dürfen.
 
 ## Wenn der Bestand in Excel liegt
 
-Viele kleine Firmen haben kein Lagermodul, oder sie haben eines, in das niemand bucht. Die echte Zahl ist eine Arbeitsmappe: eine Zeile pro Artikel, eine Spalte, die jemand ändert, wenn eine Schachtel kommt und wenn eine geht. Manchmal am Freitag. Manchmal nicht.
+Viele kleine Firmen haben kein Lagermodul, oder eines, in das niemand bucht. Die führende Zahl ist eine Arbeitsmappe: eine Zeile pro Artikel, eine Spalte, die jemand ändert, wenn Ware kommt und geht. Manchmal am Freitag. Manchmal nicht.
 
-Automatisieren Sie die Bestellung nicht, solange das Blatt keinen Verantwortlichen und keinen Rhythmus hat. Nennen Sie die Person, die eine Menge ändern darf. Entscheiden Sie, ob Entnahmen am selben Tag gebucht werden oder gesammelt beim Geschäftsschluss. Eine Mindestmenge auf einem Blatt, das drei Wochen hinterherhinkt, bestellt, was schon im Regal steht, und verpasst, was schon verbraucht ist.
+Automatisieren Sie die Bestellung nicht, solange das Blatt keinen Verantwortlichen und keinen Rhythmus hat. Nennen Sie die Person, die Mengen ändern darf. Entscheiden Sie, ob Entnahmen am selben Tag gebucht werden oder gesammelt beim Geschäftsschluss. Ein Meldebestand auf einem Blatt, das drei Wochen hinterherhinkt, bestellt Vorrat, den Sie schon haben, und übersieht Verbrauch.
 
-Sobald das Blatt die führende Zahl ist, kann ein Ablauf es zeitgesteuert lesen, die Zeilen behalten, bei denen der freie Bestand auf oder unter dem Meldebestand liegt, und sie nach Lieferant gruppieren. Das Ergebnis ist ein Entwurf, einer pro Lieferant, keine Mail an den Lieferanten. Der Einkauf prüft Preis, Gebinde und ob ein Auftrag nächste Woche die Menge ändert.
+Ist das Blatt die führende Zahl, kann ein Ablauf es zeitgesteuert lesen, Zeilen behalten, bei denen der freie Bestand auf oder unter dem Meldebestand liegt, und nach Lieferant gruppieren. Das Ergebnis ist ein Entwurf pro Lieferant, keine Mail an den Lieferanten. Der Einkauf prüft Preis, Gebinde und ob ein Auftrag nächste Woche die Menge ändert.
 
-Kundenbestellungen, die per E-Mail reinkommen, gehören nicht in diesen Ablauf. Sie senken den Bestand erst, wenn jemand die Entnahme bucht. Wer die beiden Arbeiten mischt, bestellt auf ein PDF, das noch niemand gelesen hat.
+Kundenbestellungen per E-Mail gehören nicht in diesen Ablauf. Sie senken den Bestand erst nach gebuchter Entnahme. Wer beides mischt, bestellt auf ein PDF, das noch niemand gelesen hat.
 
-## Konsignationslager und Bestand im Fahrzeug
+## Konsignation und Fahrzeugbestand
 
-Konsignationsware steht in Ihrem Regal und gehört dem Lieferanten, bis Sie sie entnehmen. Zählen Sie diese Menge zum eigenen Bestand dazu, sieht die Mindestgrenze ein volles Regal und bestellt die Ware nicht, die Sie kaufen müssen. Lassen Sie sie umgekehrt weg, bestellen Sie, obwohl das Konsignationsregal voll ist. Führen Sie eine eigene Zahl, und legen Sie die Mindestmenge nur auf den Bestand, der Ihnen gehört. Die Vereinbarung mit diesem Lieferanten sagt, wer wie viel entnehmen darf. Der Ablauf erfindet diese Vereinbarung nicht.
+Konsignationsware steht in Ihrem Regal und gehört dem Lieferanten, bis Sie entnehmen. Zählen Sie sie zum eigenen Bestand, sieht die Mindestgrenze ein volles Regal und bestellt die Ware nicht, die Sie kaufen müssen. Lassen Sie sie weg, bestellen Sie trotz vollem Konsignationsregal. Führen Sie eine eigene Zahl, und legen Sie die Mindestmenge nur auf Bestand, der Ihnen gehört. Die Vereinbarung mit dem Lieferanten sagt, wer wie viel entnehmen darf. Der Ablauf erfindet sie nicht.
 
-Der Bestand im Servicewagen ist dieselbe Trennung. Teile im Fahrzeug sind nicht im Werkstattschrank, solange niemand eine Umbuchung erfasst hat. Eine Mindestmenge nur auf dem Schrank ignoriert, was schon unterwegs ist. Tippt jemand die Fahrzeugmengen in dieselbe Zelle, werden sie doppelt gezählt. Geben Sie dem Fahrzeug eine eigene Spalte oder einen eigenen Lagerort. Die Werkstatt bestellen Sie aus der Werkstattzahl nach. Das Fahrzeug füllen Sie mit einer Umbuchung, nicht mit einer Lieferantenbestellung, ausser Sie kaufen direkt ins Fahrzeug ein.
+Teile im Servicewagen sind nicht im Werkstattschrank, solange niemand eine Umbuchung erfasst hat. Eine Mindestmenge nur auf dem Schrank ignoriert, was unterwegs ist. Tippt jemand Fahrzeugmengen in dieselbe Zelle, zählt er doppelt. Geben Sie dem Fahrzeug eine eigene Spalte oder einen eigenen Lagerort. Die Werkstatt bestellen Sie aus der Werkstattzahl. Das Fahrzeug füllen Sie per Umbuchung, ausser Sie kaufen direkt ins Fahrzeug ein.
 
-Artikel, die Sie nur für einen genannten Auftrag kaufen, bleiben von der Mindestliste weg. Das ist Bedarf, kein Regalstand. Die gehören auf die Bestellung zum Auftrag, wenn der Auftrag fest ist.
+Artikel, die Sie nur für einen genannten Auftrag kaufen, bleiben von der Mindestliste weg. Das ist Bedarf, kein Regalstand. Sie gehören auf die Auftragsbestellung, wenn der Auftrag fest ist.
 
-## Ein Entwurf pro Lieferant, und eine Person gibt frei
+## Ein Entwurf pro Lieferant, Freigabe durch eine Person
 
-Das brauchbare Ergebnis ist ein Entwurf pro Lieferant, nicht eine Mail pro Artikel und nicht eine Tabelle, die niemand verschickt. Gruppieren Sie nach dem Lieferanten am Artikel. Nehmen Sie Artikel, Menge, Einheit, Gebindegrösse, wenn Sie in Gebinden kaufen, und einen kurzen Grund mit: unter dem Meldebestand, oder eine Auftragsnummer, wenn die Zeile extra ist. Den Preis lassen Sie als letzten Einkaufspreis oder als vereinbarten Preis stehen, und markieren Sie die Zeile, wenn Sie nicht sagen können, welcher gilt.
+Das brauchbare Ergebnis ist ein Entwurf pro Lieferant, keine Mail pro Artikel und keine Tabelle, die niemand verschickt. Gruppieren Sie nach dem Lieferanten am Artikel. Nehmen Sie Artikel, Menge, Einheit, Gebindegrösse und einen kurzen Grund: unter Meldebestand, oder eine Auftragsnummer bei Extra-Zeilen. Preis als letzter Einkaufspreis oder vereinbarter Preis; markieren Sie Zeilen, wenn Sie nicht wissen, welcher gilt.
 
-Eine Person liest den Entwurf und schickt ihn, oder hält ihn zurück. Günstige Verbrauchsgüter, die Sie ohne Blick nachbestellen wollen, können später eine Ausnahme sein, wenn die Entwürfe eine Weile langweilig waren. Bis dahin wartet alles. Mindestbestellwert und Liefertag gehören in diese Prüfung: ein Entwurf unter dem Mindestbestellwert des Lieferanten kann auf den nächsten Lauf warten, statt halb leer rauszugehen.
+Eine Person liest den Entwurf und schickt ihn oder hält ihn zurück. Günstige Verbrauchsgüter ohne Blick können später eine Ausnahme werden, wenn die Entwürfe eine Weile langweilig waren. Bis dahin wartet alles. Mindestbestellwert und Liefertag gehören in diese Prüfung: ein Entwurf unter dem Mindestbestellwert kann auf den nächsten Lauf warten.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Grenze</span>
-  <p>Der Ablauf bereitet den Lieferantenentwurf vor. Er verschickt die Bestellung nicht. Das Verschicken entscheidet eine Person, auf einer Menge aus einem Bestand, dem jemand traut.</p>
+  <p>Der Ablauf bereitet den Lieferantenentwurf vor. Er verschickt die Bestellung nicht. Das Verschicken entscheidet eine Person auf einer Menge aus einem Bestand, dem jemand traut.</p>
 </aside>
 
-Ein echter Fall von Entwürfen pro Lieferant, in der Gastronomie und nicht im allgemeinen Lager, ist [KitchenCrew](/de/prozess-check/blog/kitchencrew-bestellungen-per-chat). Die Küche tippt eine Liste, und pro Lieferant kommt ein Entwurf zurück, den eine Person prüft und schickt. Die Seite handelt von der Küchenliste, nicht von einem Lager-Mindestbestand. Sie nennt keine Zeiten und keine Ersparnis. Diese Seite auch nicht.
+Ein echter Fall von Entwürfen pro Lieferant, in der Gastronomie, ist [KitchenCrew](/de/prozess-check/blog/kitchencrew-bestellungen-per-chat). Die Küche tippt eine Liste; pro Lieferant kommt ein Entwurf zurück zur Prüfung. Die Seite handelt von der Küchenliste, nicht von Lager-Mindestbestand. Sie nennt keine Zeiten und keine Ersparnis. Diese Seite auch nicht.
 
 ## Ein erfundenes Beispiel
 
-Ein erfundenes Beispiel: eine Sanitärwerkstatt, sechs Personen, zwei Lieferanten für Formstücke und einer für Dichtungen und Verbrauchsmaterial. Es gibt kein Lagermodul. Eine Arbeitsmappe hat Artikel, Menge im Schrank, Menge im Fahrzeug, Meldebestand, Lieferant und Gebinde. Das Büro bucht den Schrank, wenn Ware eingeht. Jeder Monteur meldet am Abend, was das Fahrzeug verlassen hat, und das Büro bucht das am selben Abend. Konsignations-Kupferrohre, die dem Grossisten gehören, stehen in einer eigenen Spalte und werden nie zum eigenen Bestand gezählt.
+Ein erfundenes Beispiel: eine Sanitärwerkstatt, sechs Personen, zwei Lieferanten für Formstücke, einer für Dichtungen. Kein Lagermodul. Die Mappe hat Artikel, Schrank, Fahrzeug, Meldebestand, Lieferant, Gebinde. Das Büro bucht den Schrank bei Wareneingang. Monteure melden abends Fahrzeugentnahmen; das Büro bucht am selben Abend. Konsignations-Kupferrohre stehen in einer eigenen Spalte und zählen nie zum eigenen Bestand.
 
-Am Montag liest der Ablauf das Blatt. Zwölf Zeilen im Schrank liegen auf oder unter dem Meldebestand. Daraus werden zwei Entwürfe, einer pro Formstück-Lieferant, Mengen auf das Gebinde gerundet. Tiefe Fahrzeugzeilen werden zu einer Umlagerungsliste für die Werkstatt, nicht zu einer Lieferantenbestellung. Zwei Kupferzeilen wären bestellt worden, wenn die Konsignationsspalte mitgezählt hätte. Sie fallen weg. Der Einkauf streicht eine Zeile, weil eine Baustelle nächste Woche Reste eines anderen Auftrags braucht, und schickt die beiden Entwürfe. Keine dieser Firmen ist ein Kunde von uns. Die Zahlen sind erfunden, um die Trennung zu zeigen.
+Am Montag liest der Ablauf das Blatt. Zwölf Schrankzeilen liegen auf oder unter dem Meldebestand. Zwei Entwürfe entstehen, Mengen auf Gebinde gerundet. Tiefe Fahrzeugzeilen werden zur Umlagerungsliste, nicht zur Lieferantenbestellung. Zwei Kupferzeilen wären bestellt worden, hätte die Konsignationsspalte mitgezählt. Der Einkauf streicht eine Zeile wegen Restmaterial auf einer Baustelle und schickt die Entwürfe. Keine dieser Firmen ist Kunde von uns. Die Zahlen sind erfunden.
 
 ## Was Sie liegen lassen sollten
 
-Lassen Sie es liegen, wenn weniger als ein Dutzend Artikel wirklich zählen und jemand sie aus dem Kopf nachbestellt, ohne dass es schiefgeht. Eine Mindestmenge auf Papier reicht. Lassen Sie es liegen, wenn der Bestand eine Summe von Meinungen ist. Die Bestellung zu automatisieren gibt dann Geld für die falsche Menge aus, nur schneller. Den grossen saisonalen Einkauf lassen Sie auch liegen. Eine Mindestmenge ist für den Artikel, der immer wieder kommt. Das Holz fürs Jahr oder die Aktionsware ist eine Entscheidung, keine Schwelle.
+Lassen Sie es, wenn weniger als ein Dutzend Artikel zählen und jemand sie aus dem Kopf nachbestellt, ohne Fehler. Lassen Sie es, wenn der Bestand eine Summe von Meinungen ist: dann beschleunigt Automatisierung nur die falsche Menge. Den grossen saisonalen Einkauf lassen Sie ebenfalls weg. Mindestmengen sind für wiederkehrende Artikel; Jahresholz oder Aktionsware sind eine Entscheidung, keine Schwelle.
 
-Wenn in diesem Quartal ohnehin ein richtiges Lagerprogramm geplant ist, bauen Sie keine langlebige Umsetzung auf die Arbeitsmappe. Das Blatt ist nur eine Brücke. Den Ablauf stellen Sie in der Woche ab, in der das Programm übernimmt.
+Steht in diesem Quartal ein richtiges Lagerprogramm an, bauen Sie keine langlebige Umsetzung auf die Mappe. Das Blatt ist eine Brücke bis zur Übernahme durch das Programm.
 
 ## Wann ein Prozess-Check passt
 
-Ein Prozess-Check passt, wenn die Nachbestellung eine wiederkehrende Arbeit ist, dieselben Artikel und dieselben Lieferanten, und Sie eine Preisspanne wollen, bevor jemand einen Entwurfsablauf umsetzt. Es sind 60 Minuten über Microsoft Teams, pauschal CHF 99, Zahlung per Karte bei der Buchung. Sie beschreiben die Arbeit. Lagerlisten oder Lieferantendateien brauchen Sie nicht mitzubringen.
+Ein Prozess-Check passt, wenn Nachbestellen eine wiederkehrende Arbeit ist, dieselben Artikel und Lieferanten, und Sie eine Preisspanne wollen, bevor jemand einen Entwurfsablauf umsetzt. Es sind 60 Minuten über Microsoft Teams, pauschal CHF 99, Zahlung per Karte bei der Buchung. Sie beschreiben die Arbeit. Lagerlisten oder Lieferantendateien brauchen Sie nicht mitzubringen.
 
-Sie gehen mit einem schriftlichen Fall, einer Einschätzung, ob es sich lohnt, und einer Preisspanne. Die Stunde verpflichtet zu nichts. Findet sich nichts, das sich zu automatisieren lohnt, kommt das Geld zurück. Das Angebot steht auf der Seite zum [Prozess-Check](/de/prozess-check).
+Sie gehen mit einem schriftlichen Fall, einer Einschätzung, ob es sich lohnt, und einer Preisspanne. Die Stunde verpflichtet zu nichts. Findet sich nichts, das sich lohnt, kommt das Geld zurück. Das Angebot steht auf der Seite zum [Prozess-Check](/de/prozess-check).

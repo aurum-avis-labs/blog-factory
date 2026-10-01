@@ -13,9 +13,10 @@ draft: false
 ---
 
 <p><em>Hero photo by <a href="https://unsplash.com/@jakubzerdzicki?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">jakubzerdzicki</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-La **trascrizione riunione bilingue** è la ricerca che fai dopo una call passata da una lingua all’altra, spesso italiano e tedesco, o italiano e francese, a volte tre nella stessa ora. Il limite onesto è il cambio di lingua **dentro** una battuta: modelli solidi su italiano, tedesco, francese o inglese scrivono ancora testo disordinato quando qualcuno cambia lingua a metà frase, infila un nome prodotto in inglese e chiude in francese. Ottieni note usabili quando una lingua porta e l’altra compare come prestiti brevi. Non ottieni uno script bilingue a due colonne, opponibile.
 
-Questa pagina parla di quella mescolanza, non di un dialetto. Non rivendica output dialettale. Non classifica i modelli per percentuali. L’elaborazione locale (app Mac o Whisper nel browser) resta preferibile se il file non deve lasciare la macchina. Per un clip breve, lo [strumento trascrivere audio](/it/strumenti/trascrivere-audio): 15 minuti, 3 esecuzioni a settimana, niente etichette speaker, niente cattura live.
+La **trascrizione riunione bilingue** è la ricerca che fai dopo una call passata da una lingua all’altra, spesso italiano e tedesco, o italiano e francese, a volte tre nella stessa ora. Modelli solidi su italiano, tedesco, francese o inglese scrivono ancora testo disordinato quando qualcuno cambia lingua a metà frase, infila un nome prodotto in inglese e chiude in francese. Ottieni note usabili quando una lingua porta e l’altra compare come prestiti brevi. Non ottieni uno script bilingue a due colonne, opponibile.
+
+Questa pagina parla di quella mescolanza, non di un dialetto. Non classifica i modelli per percentuali. L’elaborazione locale (app Mac o Whisper nel browser) resta preferibile se il file non deve lasciare la macchina. Per un clip breve, lo [strumento trascrivere audio](/it/strumenti/trascrivere-audio): 15 minuti, 3 esecuzioni a settimana, niente etichette speaker, niente cattura live.
 
 - [Cosa può fare in modo ragionevole una trascrizione riunione bilingue](#cosa-può-fare-in-modo-ragionevole-una-trascrizione-riunione-bilingue)
 - [Cambio di lingua contro due file monolingue](#cambio-di-lingua-contro-due-file-monolingue)
@@ -25,7 +26,7 @@ Questa pagina parla di quella mescolanza, non di un dialetto. Non rivendica outp
 
 ## Cosa può fare in modo ragionevole una trascrizione riunione bilingue
 
-I modelli vocali sono addestrati per lingua (o su dati multilingual che comunque preferiscono una lingua dominante per spezzone). In una call di lavoro svizzera o europea tipica ottieni:
+I modelli vocali preferiscono spesso una lingua dominante per spezzone. In una call di lavoro svizzera o europea tipica ottieni:
 
 <ul class="blog-facts">
   <li><span class="blog-kicker">Un file</span><strong>Lingue miste</strong><p>I modelli cambiano lingua, non traducono.</p></li>
@@ -33,14 +34,13 @@ I modelli vocali sono addestrati per lingua (o su dati multilingual che comunque
   <li><span class="blog-kicker">Browser</span><strong>15 minuti</strong><p>Niente etichette parlante nel tool gratuito.</p></li>
 </ul>
 
-
 - tratti lunghi di una lingua abbastanza puliti da editare
 - nomi, numeri e termini da correggere comunque
-- code-switching (la stessa frase in due lingue) scritto in una lingua sola, come pappa, o come una proposizione caduta
+- code-switching nella stessa frase scritto in una lingua sola, come pappa, o come una proposizione caduta
 
 Basta per un verbale interno: chi deve cosa entro quando, nella lingua in cui si è deciso. Non basta se devi conservare ogni inciso francese in francese e ogni risposta tedesca in tedesco per una pubblicazione o una disputa.
 
-La separazione speaker (solo app Mac) non risolve la lingua. Dice chi ha parlato, non in quale lingua. Il browser non etichetta nessuno.
+La separazione speaker (solo app Mac) dice chi ha parlato, non in quale lingua. Il browser non etichetta nessuno.
 
 ## Cambio di lingua contro due file monolingue
 
@@ -51,60 +51,57 @@ Se l’ordine del giorno è «italiano fino al punto 3, poi inglese con i colleg
 3. Trascrivi ciascuna metà aspettandoti una lingua.
 4. Unisci le note tu. Il verbale può essere bilingue anche se ogni fetta audio è stata trattata come monolingue.
 
-Se la gente cambia ogni pochi secondi, tagliare non ti salva. Allora accetti una trascrizione rumorosa e riscrivi le decisioni a mano, oppure prendi un verbalizzante bilingue per quell’ora.
+Se la gente cambia ogni pochi secondi, tagliare non ti salva. Riscrivi le decisioni a mano, oppure prendi un verbalizzante bilingue per quell’ora.
 
-Non far votare tre modelli sullo stesso file misto. Passi il pomeriggio a riconciliare tre frasi sbagliate. Un modello installato, lettura dei passaggi di decisione, versione pulita digitata.
+Non far votare tre modelli sullo stesso file misto. Un modello installato, lettura dei passaggi di decisione, versione pulita digitata.
 
 ## App Mac: modelli, lingua dell’interfaccia, glossario
 
-L’interfaccia Vemoir può essere in italiano, inglese, tedesco, francese o olandese. Quel settaggio non sceglie la lingua parlata. La trascrizione usa il modello vocale installato: Parakeet v3 (25 lingue europee) o Whisper Turbo, Medium o Large-v3, ciascuno con la propria copertura. Questa pagina non dirà quale «vince» su IT/DE mescolato.
+L’interfaccia Vemoir può essere in italiano, inglese, tedesco, francese o olandese. Quel settaggio non sceglie la lingua parlata. La trascrizione usa il modello vocale installato: Parakeet v3 (25 lingue europee) o Whisper Turbo, Medium o Large-v3.
 
 Cosa puoi fare sul Mac:
 
 - Registrare microfono e audio di sistema in locale, senza bot ([cattura](/it#capture), [lingue](/it#languages)).
 - Importare MP3, M4A, WAV, AIFF, CAF o FLAC e lanciare la stessa pipeline locale.
-- Tenere un glossario di progetto (grafie e alias) così le note generate scrivono il prodotto come il team. La trascrizione originale resta la prova.
+- Tenere un glossario di progetto così le note generate scrivono il prodotto come il team.
 - Rinominare gli speaker dopo. I profili vocali sono opt-in e cifrati.
 
-I modelli testo cloud con la tua chiave API (OpenAI o Anthropic) possono aiutare a riscrivere un verbale **dal testo** se attivi quella via in modo esplicito. Non trascrivono l’audio e non sono un fallback silenzioso. L’audio grezzo resta sul Mac per il riconoscimento.
+I modelli testo cloud con la tua chiave API possono riscrivere un verbale **dal testo** se attivi quella via in modo esplicito. Non trascrivono l’audio. L’audio grezzo resta sul Mac.
 
 Una volta scaricati i modelli, il flusso può girare offline. I Mac Intel non sono supportati.
+
+Per la prossima call bilingue senza bot, Vemoir registra audio di sistema e microfono dalla barra dei menu.
 
 Se il file bilingue è un’intervista che non deve essere caricata: [trascrivere un’intervista senza caricarla](/it/blog/trascrivere-intervista-senza-caricarla).
 
 ## Limiti dello strumento browser su una call mista
 
-Lo strumento gratuito arriva dopo la call. Depositi un file. Whisper pubblico nella scheda. Nulla va a Vemoir. La scheda Rete per mostrarlo.
+Lo strumento gratuito arriva dopo la call. Whisper pubblico nella scheda. Nulla va a Vemoir. La scheda Rete per mostrarlo.
 
 <aside class="blog-callout">
   <span class="blog-kicker">Nota</span>
   <p>Lo svizzero tedesco con Whisper pubblico diventa di solito tedesco standard. Non è trascrizione dialettale.</p>
 </aside>
 
-
-Non farà:
-
-- registrare la riunione bilingue in diretta
-- marcare chi ha parlato
-- promettere una lingua per frase
-- accettare file oltre 15 minuti (3 esecuzioni andate a buon fine a settimana)
+Non registra la riunione in diretta, non marca chi ha parlato, non promette una lingua per frase, e non accetta file oltre 15 minuti (3 esecuzioni andate a buon fine a settimana).
 
 Mescolanza lieve e clip breve: prova. Mescolanza densa: la scheda non diventa una cabina da interprete.
 
-Un file misto breve senza upload da fornitore? [Strumento trascrivere audio](/it/strumenti/trascrivere-audio).
-
 ## Quando una trascrizione umana bilingue è migliore
 
-Paga una persona, o prendi note in diretta in entrambe le lingue, quando:
+Paga una persona, o prendi note in diretta in entrambe le lingue, quando citerai persone in entrambe le lingue in un testo pubblicato, quando la riunione è una trattativa in cui un «invece» mancato nella seconda lingua cambia l’accordo, quando etica o cliente vietano ogni elaborazione macchina, o quando ti serve un verbatim attribuito su cui ti impegni.
 
-- citerai persone in entrambe le lingue in un testo pubblicato
-- la riunione è una trattativa in cui un «invece» mancato nella seconda lingua cambia l’accordo
-- etica o cliente vietano ogni elaborazione macchina, locale o no
-- ti serve un verbatim attribuito, bilingue, su cui ti impegni
-
-La trascrizione macchina locale va bene quando vuoi una bozza privata delle decisioni dopo una sessione di lavoro, il Mac ha riprodotto la call, e editerai. I bot cloud vanno bene quando tutta l’azienda vive già in un notetaker e un partecipante extra è permesso. Sono scelte operative, non magia di modello.
+La trascrizione macchina locale va bene per una bozza privata delle decisioni dopo una sessione di lavoro sul Mac che ha riprodotto la call. I bot cloud vanno bene quando tutta l’azienda vive già in un notetaker e un partecipante extra è permesso.
 
 Il consenso resta tuo. Una trascrizione bilingue resta un dato personale. Questa pagina non chiama l’output certificato, privilegiato o certificato GDPR. In Svizzera il quadro è la **nLPD**.
+
+## Una call svizzera con cambio punto all’ordine del giorno
+
+Schema tipico: 25 minuti in italiano con il team locale, poi 20 minuti in inglese con il gruppo US, un Meet su questo Mac. Registri una volta, tagli al cambio punto, trascrivi ogni metà con una lingua attesa, poi unisci il verbale.
+
+Evita di far passare un file da 45 minuti non tagliato per tre modelli. Una frase come «prendiamo the Q3 number, sì esatto» non uscirà pulita in due lingue. La digiti tu.
+
+Lo strumento browser aiuta solo con due clip sotto 15 minuti e esecuzioni settimanali disponibili.
 
 ## Domande frequenti
 
@@ -114,7 +111,7 @@ No. Il rilevamento, quando un modello lo offre, è grossolano. I cambi a metà f
 
 ### Posso mettere l’interfaccia in italiano e la trascrizione in inglese?
 
-Interfaccia e modello vocale sono indipendenti. Interfaccia nella lingua che leggi. Modello vocale che copra le lingue davvero parlate. Nessuna tabella di accuratezza qui.
+Interfaccia e modello vocale sono indipendenti. Scegli un modello vocale che copra le lingue davvero parlate. Nessuna tabella di accuratezza qui.
 
 ### Lo strumento browser marca la lingua di ogni frase?
 
@@ -122,14 +119,14 @@ No. Un solo flusso di testo, niente etichette speaker, niente tag di lingua per 
 
 ### Parakeet v3 rende perfette le riunioni svizzere miste?
 
-Parakeet v3 copre 25 lingue europee. La copertura non è una promessa che il code-switching sia pulito. Solo lingue standard; nessuna rivendicazione dialettale.
+Parakeet v3 copre 25 lingue europee. La copertura non promette code-switching pulito. Solo lingue standard; nessuna rivendicazione dialettale.
 
 ### Devo invitare un notetaker cloud perché «supporta 30 lingue»?
 
-L’elenco lingue di un fornitore non decide dove va l’audio né se un bot può entrare. Se il vincolo è nessun partecipante extra e nessun upload, un bot cloud multilingual è lo strumento sbagliato anche se la brochure cita entrambe le lingue. Se il vincolo è una libreria di team condivisa, il bot può essere la scelta giusta indipendentemente dalla mescolanza.
+L’elenco lingue di un fornitore non decide dove va l’audio né se un bot può entrare. Se il vincolo è nessun partecipante extra e nessun upload, un bot cloud multilingual è lo strumento sbagliato anche se la brochure cita entrambe le lingue.
 
 ### Posso trascrivere in diretta nel browser mentre la gente cambia lingua?
 
-No. La cattura live non è nel browser. Il cambio di lingua non cambia questo.
+No. La cattura live non è nel browser.
 
 Passo successivo: taglia un file breve se puoi, poi lancia lo [strumento trascrivere audio](/it/strumenti/trascrivere-audio), o tieni tutta la riunione sul Mac e leggi [lingue](/it#languages).

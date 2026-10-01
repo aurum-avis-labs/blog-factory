@@ -1,0 +1,126 @@
+---
+title: "Zugänge entziehen wenn jemand geht"
+description: "Zugänge entziehen beim Austritt: Offboarding-Checkliste für Konten, Mail, VPN und geteilte Passwörter in Schweizer KMU."
+pubDate: 2026-12-15
+author: "Aurum Avis Labs"
+tags: ["offboarding", "zugriff", "security", "hr"]
+funnelStage: interest
+translationKey: remove-access-when-someone-leaves
+relatedPosts: ["auftragsbearbeitung-vertrag-schweiz", "datenschutz-folgenabschaetzung-wann", "datenschutz-und-security-in-der-praxis"]
+draft: false
+site: security
+---
+
+## Zugänge entziehen wenn jemand geht
+
+Zugänge entziehen, wenn jemand geht, heisst zum vereinbarten Zeitpunkt Konten sperren, nicht «wenn IT nächste Woche Zeit hat». Ehemalige mit aktivem VPN, Postfach oder Admin-Rechten sind eine häufige Quelle für Datenabfluss, Rechnungsbetrug und spätere Passwort-Reset-Mails. Nach [Art. 8 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de) gehört dazu, dass nur Personen mit Aufgabe auf Daten zugreifen. Das ist eine organisatorische Massnahme neben Firewalls und Schulung.
+
+Der Text richtet sich an HR, IT und die Geschäftsleitung in Betrieben mit etwa 20 bis 250 Personen. Es geht um Offboarding, nicht um den ersten Arbeitstag. Einordnung, keine Rechtsberatung.
+
+<ul class="blog-checklist">
+  <li>Entra-ID- oder AD-Konto zum vereinbarten Zeitpunkt deaktivieren; alle Sitzungen widerrufen</li>
+  <li>Postfach in gemeinsames Postfach umwandeln oder nach Policy weiterleiten; kein stiller Zugriff auf private Adressen</li>
+  <li>MFA, VPN, WLAN-Gästezugang, Cloud-Admin und Gebäude-Badges entziehen</li>
+  <li>Passwörter rotieren, die die Person kannte: geteilte Shop-Logins, WLAN, Lieferantenportale, API-Schlüssel in Notizen</li>
+  <li>Geräte einsammeln; Firmengerät zurücksetzen oder neu zuweisen</li>
+  <li>Aus Slack, Teams, CRM, Lohn-Admin, Backup-Benachrichtigungen und geteilten Kalendern entfernen</li>
+  <li>Externe Auftragsbearbeiter in SaaS-Listen prüfen; Nutzer in Mailchimp, Buchhaltung, Zeiterfassung löschen</li>
+  <li>Abschluss dokumentieren: HR und IT mit Datum, Uhrzeit und Liste der gesperrten Systeme</li>
+</ul>
+
+## Warum Verzug schadet
+
+Eine entlassene Person kann abends noch die Kundenliste exportieren, wenn das Konto offen bleibt. Ein Freelancer liest in Teams weiter, bis jemand die Lizenz bemerkt. Eine ehemalige Buchhalterin erhält sechs Monate später Passwort-Reset-Mails und nutzt sie, wenn niemand das Konto geschlossen hat. Das BACS beschreibt bei [Business E-Mail Compromise](https://www.bacs.admin.ch/de/business-email-compromise-de) unter anderem Weiterleitungsregeln in übernommenen Postfächern als typisches Risiko. Schulung schliesst Konten nicht; Offboarding tut es.
+
+## Was das nicht ist
+
+<div class="blog-pair">
+  <div>
+    <span class="blog-kicker">Dieser Artikel</span>
+    <p>Leaver-Prozess: wann sperren, was dokumentieren, welche Systeme oft vergessen werden.</p>
+  </div>
+  <div>
+    <span class="blog-kicker">Nachbar-Thema</span>
+    <p>Die [Security-Onboarding-Checkliste](/de/security/blog/security-onboarding-neue-mitarbeitende) für Eintritte. Kein vollständiger Legal-Hold-Leitfaden; Beratung kann Mail ohne Login des Nutzers verlangen.</p>
+  </div>
+</div>
+
+## Wann sperren: letzter Tag, Kündigungsfrist oder Sofort
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Termin mit HR festhalten</h3><p>Letzter Arbeitstag, Uhrzeit der Kündigungsmitteilung bei Sofortkündigung, ob Konfliktpotenzial besteht. IT braucht das schriftlich, nicht nur mündlich im Gang.</p></li>
+  <li data-step="2"><h3>Zugang zur Minute sperren</h3><p>Bei normalem Austritt zum Ende des letzten Arbeitstags. Bei Sofortkündigung parallel zum Gespräch, wenn die Geschäftsleitung und HR das so vereinbaren. Lesemodus für sensible Rollen während der Kündigungsfrist nur nach Rücksprache mit Beratung.</p></li>
+  <li data-step="3"><h3>Postfach und Weiterleitungen</h3><p>Gemeinsames Postfach mit Manager-Zugriff und Enddatum. Nach Austritt in der Buchhaltung [E-Mail-Weiterleitungsregeln prüfen](/de/security/blog/e-mail-weiterleitungsregeln-pruefen): Austretende richten manchmal Wochen zuvor private Weiterleitungen ein.</p></li>
+  <li data-step="4"><h3>Nachweis ablegen</h3><p>Checkliste mit Unterschrift HR und IT. Mindestens zwei Jahre aufbewahren, analog zur internen Pannendokumentation nach Art. 24 DSG.</p></li>
+</ol>
+
+## Ein erfundenes Beispiel: Freitag 17:00 Kündigung
+
+Ein erfundenes Beispiel: eine Sales-Leitung wird freitags um 17:00 gekündigt. HR meldet IT um 16:30 mit Ticket. Um 17:05 sind Konten deaktiviert, Sitzungen widerrufen, Laptop wird am Montag abgeholt, das gemeinsame CRM-Passwort rotiert, weil das Team einmal «Fruehling2024» für alle nutzte. Die Sales-Leitung prüft offene Opportunities im CRM. Kein Drama, nur ein Formular mit zwei Unterschriften und Zeitstempel in der IT-Dokumentation.
+
+## HR und IT: wer was auslöst
+
+HR eröffnet ein Pflicht-Ticket mit letztem Tag, Uhrzeit und Hinweis auf mögliche Streitigkeit. IT liefert die ausgefüllte Checkliste zurück. Zwischen Kündigung und Austritt kopieren Personen Dateien auf private Speicher; das ist kein Ersatz für spätere Sperre, aber ein Grund, sensible Exporte in dieser Phase zu beobachten, wenn Beratung das erlaubt.
+
+Freelancer, Praktikantinnen, Hauswarte und Recruiting-Agenturen mit Produktionszugang brauchen denselben Prozess wie Festangestellte. Oft fehlen sie in der Entra-Gruppe «Mitarbeitende», stehen aber noch in VPN oder im Badge-System der Liegenschaft.
+
+## SaaS und Schatten-IT
+
+Marketing vergisst Mailchimp. Sales die Test-CRM. Die Leaver-Liste sollte die Onboarding-Liste rückwärts spiegeln. Wer Zugang zu einem Tool mit Personendaten hatte, muss auch aus dem [Auftragsbearbeitungsvertrag](/de/security/blog/auftragsbearbeitung-vertrag-schweiz)-Umfeld des Anbieters entfernt werden, wenn dort noch ein Nutzerkonto auf Ihren Namen läuft.
+
+Passwörter auf Zetteln für «Tools, die wir später kündigen» halten Zugang am Leben. Beim Austritt rotieren Sie geteilte Logins für Shop, Social Media oder Lieferantenportale, auch wenn nur eine Person das Passwort kannte.
+
+## Physische Zutritt und Geräte
+
+Schlüssel, Alarmcodes, Parkkarten und Serverraum-Badges gehören zur gleichen Checkliste wie Entra ID. BYOD kann noch Mail-Profile auf dem privaten Handy haben. Remote-Löschung nur, wo die Policy es erlaubt; dokumentieren, was entfernt wurde.
+
+Sammeln Sie Laptops, Tokens und Firmenhandy ein. Bei geteilten Geräten in Teilzeit klären Sie vor dem Austritt, welches Profil Firmendaten enthält und ob ein Reset nötig ist.
+
+## Datenschutz und besonders schützenswerte Daten
+
+Wer Schüler-, Patienten- oder Mandantendaten bearbeitet hat: prüfen, ob private USB- oder Cloud-Kopien plausibel sind, und intern festhalten, was Sie geprüft haben. Schulen und Kursanbieter finden Branchenhinweise unter [Datenschutz Schulen und Kursanbieter](/de/security/blog/datenschutz-schulen-und-kursanbieter). In Arztpraxen gelten zusätzliche Pflichten; siehe [Datenschutz und Security in der Arztpraxis](/de/security/blog/datenschutz-und-security-in-der-praxis).
+
+Eine [Datenschutz-Folgenabschätzung](/de/security/blog/datenschutz-folgenabschaetzung-wann) ist beim Austritt selten das erste Thema. Sie wird relevant, wenn der Austritt zeigt, dass jemand Jahre lang breiten Zugriff ohne Protokoll hatte.
+
+## Teamverhalten und Meldung
+
+Weisen Sie das Team an, keine Mail «zur Hilfe» an private Adressen der austretenden Person zu schicken. Das ist ein Datenabflussweg. Wenn Ehemalige noch in Chat-Kanälen auftauchen, ist das ein Zeichen, dass die Sperre unvollständig war.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Arbeitsrecht kann Zugriff auf Lohnabrechnungen oder Arbeitszeugnisse verlangen. Trennen Sie das von operativen Systemen und klären Sie mit HR, welche Dokumente ausserhalb von Mail bereitgestellt werden.</p>
+</aside>
+
+## Externer IT-Partner und MSP
+
+Viele Betriebe haben keinen Vollzeit-IT-Mitarbeitenden. Der Managed-Service-Provider braucht dann eine schriftliche Offboarding-Anweisung mit Uhrzeit, bevor HR die Kündigung kommuniziert. Klären Sie im Dienstvertrag, wer innerhalb welcher Frist Konten sperrt und wer bei Ferien des Partners eskaliert. Wenn der MSP Admin-Zugang über ein eigenes Konto hat, prüfen Sie, ob die austretende Person jemals Passwörter des Partners kannte oder geteilte Break-Glass-Konten nutzte.
+
+## Prozess einmal pro Jahr testen
+
+Legen Sie ein Pflicht-Ticket im PSA-Tool an, das HR ohne IT-Bestätigung nicht schliessen kann. Testen Sie einmal jährlich mit einem fiktiven Namen, bevor ein echter Konfliktfall die Nerven strapaziert. Zeigen Sie der Geschäftsleitung jährlich das Leaver-Paket neben dem Onboarding-Paket, damit der Prozess bei HR-Wechsel sichtbar bleibt.
+
+Bei Austritt aus der Geschäftsleitung soll ein externer IT-Partner oder die Treuhand die Sperre bestätigen, damit kein Interessenkonflikt entsteht.
+
+Halten Sie eine einseitige Vorlage bereit: Name, letzter Tag, Uhrzeit Sperre, Liste der Systeme mit Häkchen, Unterschriften HR und IT. Ohne Vorlage wird bei jedem Austritt improvisiert, und genau dann bleiben SaaS-Konten offen.
+
+Wer nach Offboarding-Vorfällen merkt, dass niemand Phishing meldet, kann [Security Awareness](/de/security/security-awareness) auffrischen, damit Teams verdächtige Logins von ehemaligen Adressen melden.
+
+<div class="blog-faq">
+  <h3>Gleicher Tag oder letzter Arbeitstag?</h3>
+  <p>Zugang zur vereinbarten Minute sperren. Bei Konfliktaustritt Timing mit HR und Beratung abstimmen, nicht improvisieren.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Postfach für Übergabe behalten?</h3>
+  <p>In ein gemeinsames Postfach mit Manager-Zugriff und festem Enddatum, keine stille Weiterleitung auf private Mail.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Freelancer gestern fertig?</h3>
+  <p>Gleiche Checkliste bei Produktionszugriff. VPN und SaaS werden oft vergessen, weil die Person nie in «Mitarbeitende» stand.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Wer unterschreibt, wenn HR und IT dieselbe Person sind?</h3>
+  <p>In kleinen Betrieben kann die Geschäftsleitung die IT-Sperre bestätigen oder ein externer Partner. Wichtig ist ein zweiter Name und ein Zeitstempel, nicht zwei Abteilungen auf dem Papier.</p>
+</div>

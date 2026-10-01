@@ -1,0 +1,105 @@
+---
+title: "Developer account as a company: Apple and Google"
+description: "Developer account as a company: when the legal entity enrolls, what Apple and Google check, and what store access still does not prove."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["app store", "google play", "mvp", "startup", "switzerland"]
+funnelStage: interest
+translationKey: developer-account-as-a-company
+relatedPosts: ["publish-an-app-on-the-app-store", "app-store-guideline-4-2"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">A developer account as a company means the legal entity, not a founder's personal login, owns App Store Connect and Google Play Console, appears as the seller, and can add teammates. You still need a real organisation, verification, and someone with authority to sign.</p>
+
+## Developer account as a company
+
+You register a company developer account when the product belongs to the firm and the App Store seller name should match the GmbH or AG in the commercial register, not a private individual. Google Play asks for an account type when you create the console profile.
+
+This is for founders in Switzerland who already have a web MVP or wrapped app and are deciding whose name goes on the store before the first submission. For why Aurum ships deployable apps before measuring demand, see [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps). Submission and guideline 4.2 sit in [publish an app on the App Store](/blog/publish-an-app-on-the-app-store) and [App Store guideline 4.2](/blog/app-store-guideline-4-2).
+
+<dl class="blog-terms">
+  <div>
+    <dt>Organisation account (Apple)</dt>
+    <dd>Enrollment where the legal entity name is verified and shown as the App Store seller.</dd>
+  </div>
+  <div>
+    <dt>D-U-N-S Number</dt>
+    <dd>A nine-digit business identifier Dun & Bradstreet assigns; Apple uses it to verify organisations.</dd>
+  </div>
+  <div>
+    <dt>Play Console account type</dt>
+    <dd>Google's choice between personal and organisation profiles; it affects verification and some policy paths.</dd>
+  </div>
+</dl>
+
+## When a company account is worth the admin
+
+A personal Apple enrollment suits some sole proprietors. Once a registered company will own the IP or employ contractors, a personal seller name clashes with company contracts. Agencies should not enroll in their own name; Apple expects the client organisation to enroll and add the agency to the team.
+
+<div class="blog-pair">
+  <div>
+    <h3>Enroll as a company</h3>
+    <ul>
+      <li>The GmbH or AG will own the code, brand, and revenue</li>
+      <li>More than one person must upload builds or manage TestFlight</li>
+      <li>Investors or partners asked for the seller name to match the cap table entity</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Stay personal for now</h3>
+    <ul>
+      <li>You are still testing demand in the browser only</li>
+      <li>No legal entity exists yet and you are not ready to bind one to Apple’s agreements</li>
+      <li>A single founder sole prop is acceptable with their legal name as seller for an early pilot</li>
+    </ul>
+  </div>
+</div>
+
+## Apple Developer Account for an organisation
+
+For an organisation, Apple requires legal entity status (no trade name or branch alone), a D-U-N-S Number, a work email on the company domain, a public website, and a person with authority to bind the company. D-U-N-S Numbers are free in most jurisdictions per Apple’s enrollment page. Membership is 99 USD per year where listed ([enrollment support](https://developer.apple.com/support/enrollment/)).
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Match names to the register</h3><p>Use the exact legal entity name from your commercial register entry, not a product nickname.</p></li>
+  <li data-step="2"><h3>Resolve D-U-N-S before you start</h3><p>Search whether your entity already has a number; a new request can take days. Apple’s page describes lookup and request, not third-party expedite fees.</p></li>
+  <li data-step="3"><h3>Prepare domain email and site</h3><p>A placeholder registrar page or only a social profile is unlikely to pass Apple’s website check.</p></li>
+  <li data-step="4"><h3>Enrol on the web or in the Developer app</h3><p>Organisations complete verification before purchase; follow the email from Apple Developer Support.</p></li>
+  <li data-step="5"><h3>Add developers, not a shadow owner</h3><p>Contractors get roles in your team; the organisation remains seller if you distribute on the App Store.</p></li>
+</ol>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>A paid organisation membership does not bypass App Store Review. Guideline 4.2 still asks for more than a repackaged website ([Apple guidelines](https://developer.apple.com/app-store/review/guidelines/)). Account type and review outcome are separate questions.</p>
+</aside>
+
+## Google Play with a business profile
+
+Plan who owns the Google account tied to Play Console long term. Check the registration fee on Google’s signup flow before you budget; fees vary by account type and region and are not stated here.
+
+Many new personal accounts need a closed test with at least twelve testers for fourteen continuous days before some production releases ([Play Console help](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en)). That rule is one reason to set up a stable company profile once Android is in scope.
+
+## A made-up example: two founders before launch
+
+A made-up example: two technical co-founders, not a client. Their GmbH sits in the register under a long legal name while the product brand is shorter. They request a D-U-N-S on the legal name, wait eight working days, and enrol with a director’s firm email. A contractor gets App Manager access instead of the director’s Apple ID password. Google Play uses a company account forwarded to finance. No store listing is live; the step only cleared admin blockers, not demand.
+
+## What a company developer account does not prove
+
+Verified seller identity is housekeeping, not validation. You can still fail review under 4.2 or stall in closed testing. Store access does not replace data protection paperwork or payment design.
+
+If the question is still landing-page conversion, store accounts spend calendar time without measurement. If the hypothesis needs installs or mobile-only flows, accounts belong in the experiment early.
+
+<div class="blog-faq">
+  <h3>Can our agency use its Apple account and list our startup as seller?</h3>
+  <p>No for App Store distribution. Apple expects your organisation to enroll and add the agency to your team. The agency’s name would be seller on their account, not yours.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Do we need the company account before we build?</h3>
+  <p>No. Xcode installs on devices for development without membership. Enrol when you are ready to distribute, use TestFlight with external testers at scale, or ship production builds you intend to measure.</p>
+</div>
+
+## When the Product Validation Package fits
+
+The [Product Validation Package](/services/mvp-validation) fits when mobile is part of the test. Weeks 1 to 4 deliver a deployed web app and native wrap ready to submit; later weeks measure cost per lead, conversion, and drop-off, with a Go, Pivot, or Stop recommendation. If you only need browser traffic first, stay lighter. If store builds and usage are the hypothesis, book a discovery conversation on the contact page when twelve weeks are realistic.

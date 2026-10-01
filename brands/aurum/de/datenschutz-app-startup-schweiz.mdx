@@ -1,0 +1,101 @@
+---
+title: "Datenschutz App Startup Schweiz: was vor dem Pilot nötig ist"
+description: "Datenschutz App Startup Schweiz: Dateninventar, Hinweise, Auftragsverträge und Store-Angaben. Produktseite, keine Rechtsauskunft."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["datenschutz", "mvp", "startup", "schweiz", "app"]
+funnelStage: interest
+translationKey: privacy-requirements-swiss-mvp
+relatedPosts: ["app-datenschutz-angaben-app-store", "cookie-banner-schweiz-pflicht"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Datenschutz bei einem App-Startup in der Schweiz heisst: Sie wissen, welche Personendaten Ihr MVP erfasst, Sie informieren darüber, Sie sperren Zugriffe im Produkt, und Sie haben schriftliche Aufträge bei jedem Dienst, der diese Daten bearbeitet. Landingpage mit E-Mail-Feld und App mit Login gelten gleichermassen. Es geht um Produkt und Lieferanten, nicht um den Büroablauf, wenn jemand eine Kopie der eigenen Akte verlangt.</p>
+
+## Datenschutz App Startup Schweiz
+
+Das revidierte Datenschutzgesetz gilt, sobald Sie Personendaten bearbeiten, die sich auf identifizierbare Personen beziehen. In einem Validierungs-MVP sind das typischerweise E-Mail-Adressen, Namen, Nutzungsprotokolle zu einem Konto, Support-Nachrichten, Zahlungsmetadaten falls Sie verrechnen, und alles, was Analyse- oder Session-Werkzeuge speichern. Sie brauchen kein juristisches Lehrbuch vor dem ersten Piloten. Sie brauchen eine kurze Landkarte: was liegt wo, wer im Team sieht es, und welche Anbieter bearbeiten im Auftrag.
+
+Der Text richtet sich an Gründerinnen und Gründer sowie Produktverantwortliche, die aus der Schweiz einen ersten Web- oder Mobile-Test shippen, oft ohne eigene Rechtsabteilung. Er ist keine Rechtsauskunft, kein Leitfaden für Auskunftsbegehren im Büro und kein Ersatz für Beratung bei Gesundheitsdaten, Personalakten oder Kindern. Vertiefung zu KMU-Pflichten steht im Security-Blog unter [nDSG-Pflichten für KMU](/de/security/blog/ndsg-pflichten-fuer-kmu). Wie Entwicklung und Datenschutz zusammenhängen, gehört zu [Startup-Software-Entwicklung in der Schweiz](/de/blog/startup-software-entwicklung-schweiz).
+
+<dl class="blog-terms">
+  <div>
+    <dt>Verantwortlicher</dt>
+    <dd>Sie entscheiden über Zweck und Mittel der Bearbeitung. Das Startup ist es in der Regel, auch wenn ein Freelancer den Code schrieb.</dd>
+  </div>
+  <div>
+    <dt>Auftragsbearbeiter</dt>
+    <dd>Ein Anbieter, der Daten nur nach Ihren Weisungen speichert oder auswertet: Hosting, E-Mail, Analyse, Login.</dd>
+  </div>
+  <div>
+    <dt>Personendaten</dt>
+    <dd>Angaben, die sich auf eine identifizierte oder identifizierbare Person beziehen, einschliesslich einer E-Mail nur für den Login.</dd>
+  </div>
+</dl>
+
+## Checkliste vor dem öffentlichen Pilot
+
+Die Punkte unten sind eine Arbeitsliste für Produkt und die Landingpage, die darauf verweist. Lücken sind am Anfang normal. Eine öffentliche URL ohne Antworten auf die Kernfragen sollten Sie dennoch vermeiden.
+
+<ul class="blog-checklist">
+  <li>Eine Datenschutzerklärung ohne Login erreichbar: wer Sie sind, was Sie erfassen, warum, wie lange, und wie man Sie erreicht. Inhaltliche Details: [Datenschutzerklärung Pflicht Schweiz](/de/security/blog/datenschutzerklaerung-pflicht-schweiz).</li>
+  <li>Schriftliche Auftragsbearbeitung mit jedem Dienst, der Personendaten in Ihrem Auftrag bearbeitet, inklusive Cloud, Auth, E-Mail, Fehlertracking und Analyse mit Identifikatoren. Siehe [Auftragsbearbeitungsvertrag Schweiz](/de/security/blog/auftragsbearbeitung-vertrag-schweiz).</li>
+  <li>Ein Dateninventar, das das Team pflegen kann: Tabellen und Felder, Uploads, Drittanbieter-Ids, und welche Umgebung Produktion ist.</li>
+  <li>Zugriffskontrolle im Produkt: Konten sehen nicht die Daten anderer Konten; Admin-Rollen nur für Personen, die sie brauchen.</li>
+  <li>Eine benennbare Hosting-Region für Verkaufsgespräche und die Erklärung. Bei Supabase lässt sich unter anderem Zürich (eu-central-2) bei der Projekterstellung wählen.</li>
+  <li>Aufbewahrung in verständlicher Sprache, auch wenn die erste Version «Testnutzer auf Anfrage löschen» heisst statt automatischer Fristen.</li>
+  <li>Store-Angaben passend zur Realität: App Datenschutz Angaben App Store und Google Play Data safety, wenn Sie einen Wrap ausliefern.</li>
+  <li>Cookies und ähnliche Technologien auf der Marketingseite: In der Schweiz gibt es kein generelles Opt-in für jedes Analyse-Cookie. Einwilligung ist in den vom EDÖB beschriebenen Fällen nötig, etwa bei hohem Profiling-Risiko, besonders schützenswerten Daten, bestimmter Weitergabe an Dritte zu deren Zwecken sowie Cross-Site-Tracking und Retargeting; sonst Information und Widerspruch nach dem Rahmen des Fernmeldegesetzes (Art. 45c FMG). Praxis für eine Validierungs-Landingpage: Cookie-Banner Schweiz Pflicht.</li>
+</ul>
+
+## Ein erfundenes Beispiel: Warteliste und Pilot-App
+
+Ein erfundenes Beispiel: Zwei Gründer in Zürich testen ein Workflow-Werkzeug für kleine Architekturbüros. Die Landingpage erfasst Geschäfts-E-Mail und Firmenname über ein Formular in einer EU-gehosteten Datenbank. Google Analytics 4 und Microsoft Clarity laufen auf der Seite mit anonymisierter IP; Werbe-Personalisierung und Meta-Pixel bleiben aus. Die Pilot-App nutzt Magic Links per E-Mail, speichert Projekttitel und hochgeladene PDFs und versendet Transaktionsmail über einen europäischen SMTP-Anbieter. Bevor sie zehn Büros über einen LinkedIn-Post einladen, veröffentlichen sie eine einseitige Datenschutzerklärung auf Deutsch und Englisch, verlinken sie in Footer und App-Einstellungen, akzeptieren die Standard-Auftragsklauseln des Hosters und schliessen eine zweite Vereinbarung mit dem Mail-Anbieter. Sie führen eine interne Tabelle der Auftragsbearbeiter mit Region und Zweck. Row-Level-Regeln sorgen dafür, dass ein Bürokonto die Projekte eines anderen nicht öffnet. Ein automatisierter «Daten exportieren»-Button fehlt noch; sie wissen, welche Tabellen sie bei einer Anfrage abfragen. Die App-Store-Angaben erwähnen Upload und E-Mail-Felder. Die Liste beweist kein «GDPR-Zertifikat» für EU-Kunden; sie macht den Pilot erklärbar, wenn eine Büroleiterin fragt, wo Dateien liegen.
+
+## Was die Arbeit nicht beweist
+
+Hinweis, Verträge und technische Grundabsicherung zeigen weder Produkt-Markt-Fit noch sicheren Code noch einen wiederholbaren Akquisitionskanal. Sie ersetzen kein Security-Review bei generiertem Code. Sie erlauben nicht jede Datenkategorie; Gesundheits- oder besonders schützenswerte Daten brauchen eigene Beratung. Sie reichen nicht für jede Einkaufsfragebogen einer Bank oder Versicherung.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Dieser Beitrag ist eine Gründer-Landkarte häufiger Produktpflichten nach Schweizer Recht. Er sagt nicht, dass Ihre Idee zulässig ist, dass Sie die EU-DSGVO ignorieren dürfen, weil Sie in der Schweiz sitzen, oder wie Sie ein aufgebrachtes Auskunftsbegehren im Büro beantworten. Dafür gehören Beratung oder der Security-Blog, nicht diese Seite.</p>
+</aside>
+
+<div class="blog-pair">
+  <div>
+    <h3>Jetzt Datenschutz im Produkt priorisieren</h3>
+    <ul>
+      <li>Sie erfassen E-Mail oder Namen auf einer öffentlichen Landingpage</li>
+      <li>Nutzer loggen sich ein und speichern eigene Inhalte</li>
+      <li>Sie betreiben Analyse oder Session-Aufzeichnungen in Produktion</li>
+      <li>Ein Pilotkunde fragt vor der Unterschrift nach dem Hosting-Standort</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Verschieben oder eng halten</h3>
+    <ul>
+      <li>Interviews laufen offline und Sie speichern noch keine Identifikatoren</li>
+      <li>Die Demo nutzt ein gemeinsames Konto nur mit erfundenen Daten</li>
+      <li>Sie testen Texte auf Papier ohne Formular-Backend</li>
+    </ul>
+  </div>
+</div>
+
+## Ausland und EU-Nutzer
+
+Viele Schweizer MVPs hosten in der Schweiz oder der EU und nutzen US-Anbieter für E-Mail oder Fehlerberichte. Sie sollen wissen, wann Daten Ihre gewählte Region verlassen und welche Garantien der Vertrag nennt. «Alles in der Schweiz» dürfen Sie nicht behaupten, wenn Tracker oder Mail-Relay in den USA liegen. Zahlen erste Kunden in der EU, kommen DSGVO-Fragen zusätzlich zum DSG; die Checkliste überlappt, ist aber nicht identisch.
+
+<div class="blog-faq">
+  <h3>Brauche ich eine Datenschutzerklärung vor dem ersten Beta-Tester?</h3>
+  <p>Sobald Sie Personendaten zu identifizierbaren Testern bearbeiten, ja. Ein kurzer Hinweis mit Link in App und Anmeldefluss ist das übliche Minimum, plus Auftragsverträge zu den speichernden Diensten.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Reicht Supabase in Zürich für die Compliance?</h3>
+  <p>Die Regionswahl beantwortet, wo die Datenbank steht. Hinweis, Verträge mit Supabase und weiteren Auftragsbearbeitern, Zugriffskontrolle und ehrliche Store-Angaben bei Mobile-Builds bleiben trotzdem nötig.</p>
+</div>
+
+## Wann das Product Validation Package passt
+
+Das [Product Validation Package](/de/services/mvp-validation) passt, wenn die offene Frage gemessenes Verhalten mit einem ausgelieferten Produkt ist, nicht ob ein Datenschutzabsatz in Notion gut klingt. In den Wochen 1 bis 4 entsteht eine produktionsnahe Web-App mit Analyse und Session-Einblick von Tag eins, mit Hosting- und Zugriffsmustern, die Sie einem Pilotkunden erklären können; danach folgen Akquisition und Conversion, abschliessend mit Go, Pivot oder Stop und dem, was die Daten nicht bewiesen haben. Reicht ein Rauchtest auf einer einzelnen Landingpage, genügt oft ein leichteres Angebot. Wenn sich Fremde einloggen, Dateien hochladen und zahlen sollen, starten Sie das Erstgespräch auf der Kontaktseite, wenn Sie zwölf Wochen Validierungsarbeit einplanen können.

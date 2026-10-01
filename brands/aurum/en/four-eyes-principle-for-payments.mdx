@@ -1,0 +1,126 @@
+---
+title: "Four-eyes principle for payments: a checklist for Swiss finance teams"
+description: "Four-eyes principle for payments means a second person checks outbound money. Thresholds, roles, and daily checks for Swiss SMEs with lean finance."
+pubDate: 2026-11-03
+author: "Aurum Avis Labs"
+tags: ["four-eyes", "payments", "finance controls", "switzerland"]
+funnelStage: interest
+translationKey: four-eyes-principle-for-payments
+relatedPosts: ["invoice-fraud-changed-iban", "internal-incident-reporting", "password-policy-for-a-small-business"]
+draft: false
+site: security
+---
+
+## Four-eyes principle for payments: what finance should enforce
+
+The four-eyes principle for payments means no outbound transfer or master-data change is released by one person alone. In a Swiss SME with 20 to 250 staff, finance is often two or three people; the rule still applies through written thresholds, role separation, and a second signature in the bank tool or ERP. [BACS](https://www.bacs.admin.ch/en/business-email-compromise-en) lists clear payment processes among the controls against business email compromise, alongside phone verification and staff awareness. It does not replace calling a supplier when the IBAN changes; that playbook sits in our article on [invoice fraud with a changed IBAN](/security/blog/invoice-fraud-changed-iban). Here the focus is who may prepare, who may approve, and what you log when someone tries to skip the second pair of eyes.
+
+If you are tightening controls after a near-miss, pair this checklist with how staff [report phishing in Switzerland](/security/blog/how-to-report-phishing-in-switzerland) so odd payment requests reach IT early.
+
+<ul class="blog-checklist">
+  <li>Define amount thresholds that always need a second approver</li>
+  <li>Separate «prepare payment» from «release payment» in the bank or ERP</li>
+  <li>Block master-data IBAN changes without a second role</li>
+  <li>Keep an out-of-band callback rule for any new beneficiary</li>
+  <li>Log exceptions with name, time, and reason</li>
+</ul>
+
+## What «four eyes» means in practice
+
+Preparation and approval must be two different people for payments above your threshold. The preparer uploads invoices, matches PO numbers, and schedules the batch. The approver sees the same totals and beneficiary list but did not build the batch alone. In e-banking, that may mean four-eyes signing, dual authorisation, or a second login. In ERP, it may mean workflow states. The names differ; the idea is unchanged.
+
+A made-up example: a services firm with 45 staff sets CHF 5'000 as the line where a second approver is mandatory. The accountant prepares a CHF 12'000 run every Friday. The managing director approves in the bank app after scanning beneficiaries, not only the total. When a «new supplier» line appears, both pause and use the verification path in the IBAN article before releasing.
+
+## Thresholds and what belongs inside four-eyes
+
+Set thresholds in writing. Common choices: all payments above a fixed franc amount, all first-time beneficiaries, all changes to supplier bank details, and all payroll files above a headcount cutoff. Below the threshold, some firms allow one person for petty cash or small recurring rent, but document that exception so auditors know it is intentional, not a gap.
+
+<div class="blog-pair">
+  <div>
+    <h3>Usually inside four-eyes</h3>
+    <ul>
+      <li>Supplier payments above your CHF limit</li>
+      <li>New IBAN or new beneficiary</li>
+      <li>Manual overrides of duplicate warnings</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Often outside, if documented</h3>
+    <ul>
+      <li>Small recurring items with fixed beneficiaries</li>
+      <li>Petty cash replenishment under a low cap</li>
+      <li>Card payments with separate merchant controls</li>
+    </ul>
+  </div>
+</div>
+
+## Who can be the second pair of eyes
+
+The approver should not report to the preparer on the same payment line without oversight. In tiny teams, the owner approves what the bookkeeper prepared; that is acceptable if the owner actually reads beneficiaries. Avoid «I approve my own batch» by sharing one e-banking user. Shared logins destroy four-eyes and complicate incident response.
+
+When the usual approver travels, name a deputy in advance. «Anyone with access» is not a policy. HR and the management assistant need to know that urgent CEO messages do not replace the approver role, which overlaps with [CEO fraud](/security/blog/ceo-fraud-switzerland) training.
+
+## Write the rule on one page
+
+Finance, the owner, and IT should share a single page, not a thread in someone's inbox. State the franc threshold, name the roles (preparer and approver), list what always needs both people, and point to where master data is changed. Add the date the bank or ERP settings were last checked. When a new hire gets e-banking rights, they read that page before their first payment run.
+
+If invoice capture is already structured in ERP, a separate [invoice approval workflow](/prozess-check/blog/invoice-approval-workflow) can reduce retyping on the process side. Security still needs a human approver who compares beneficiaries to master data before release.
+
+## Turn on dual control in the bank and ERP
+
+Product names differ; the pattern is the same. One identity prepares, another releases, and the tool refuses a single step for amounts above your limit.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Map current rights</h3><p>List who can create payments, who can sign, and who can edit supplier bank details today.</p></li>
+  <li data-step="2"><h3>Enable dual signing</h3><p>In e-banking, switch on four-eyes or dual authorisation for outbound payments above your threshold.</p></li>
+  <li data-step="3"><h3>Lock master data</h3><p>Require a second role for IBAN and beneficiary changes in ERP or master-data screens.</p></li>
+  <li data-step="4"><h3>Test with a small payment</h3><p>Run a low-franc batch through prepare and release before you raise limits on live suppliers.</p></li>
+  <li data-step="5"><h3>Remove combined rights</h3><p>After role changes, check that no one still holds both preparer and releaser on the same account.</p></li>
+</ol>
+
+## Master-data changes use the same second person
+
+A changed IBAN in master data is as sensitive as a large payment. If one person can edit the account number and release the next run, four-eyes on the payment alone is hollow. Pair master-data edits with the same approver role you use for high-value batches, or block edits until a second login confirms.
+
+When master data and the invoice disagree, stop the batch and follow verification in the IBAN fraud article. Four-eyes catches «two people signed»; it does not replace the callback to the supplier.
+
+## What four-eyes is not
+
+It is not a full segregation-of-duties audit for a listed group. It is not a substitute for verifying bank details by phone. It is not automatic in every Swiss bank product; you must enable dual signing or workflow. It also does not stop an insider who controls both roles unless someone else reviews logs.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>BACS recommends clear payment processes and educating finance staff. Four-eyes is a process control, not a legal formality that replaces verification calls.</p>
+</aside>
+
+## When someone tries to bypass the rule
+
+Treat urgency as a stop signal. If a message says «skip approver today», hold the payment and use your [internal incident reporting](/security/blog/internal-incident-reporting) path. Document the attempt even when no money moved. Insurance and later audits ask whether controls were live or only on paper.
+
+<div class="blog-scenarios">
+  <li><h3>CEO mail asks to pay today</h3><p>Hold the batch. The approver calls the CEO on a known number. No release from the email alone.</p></li>
+  <li><h3>Supplier thread says new IBAN</h3><p>Do not release until master data matches a verified account. Four-eyes does not skip the callback.</p></li>
+  <li><h3>«Only this once» on a Friday run</h3><p>Log the exception with amount, beneficiary, and who gave verbal OK. «Only once» without a log becomes the new normal.</p></li>
+</div>
+
+## Logging exceptions without eroding the rule
+
+When the owner approves an urgent run while the deputy is away, record amount, beneficiary, reason, and who performed the out-of-band check. Store the log where finance and audit can find it, not in a private chat. Review exceptions each quarter. If the same name appears every month, the threshold or the deputy rule needs a fix, not another verbal waiver.
+
+## Rolling the rule out without blocking payroll
+
+Start with the bank: enable dual authorisation, test a small payment, then raise thresholds gradually. Train approvers to open beneficiary lists, not only totals. Review once a quarter whether anyone still has both preparer and releaser rights after role changes. Run payroll on the new rule only after a dry run with a test file, so a signing error does not stop salaries on the live date.
+
+<div class="blog-faq">
+  <h3>Does Swiss law require four-eyes for every company?</h3>
+  <p>There is no single federal rule that every KMU must use dual signing. Contract, insurance, and sector expectations push many firms to adopt it. BACS guidance treats clear payment processes as a core BEC control.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Can the same person prepare and approve small amounts?</h3>
+  <p>Many firms allow that below a written threshold for recurring rent or petty cash. Document the exception. Everything above the line stays two people.</p>
+</div>
+
+## Where awareness training fits
+
+Finance, assistants, and owners often sit in the same live session on payment fraud, phishing, and stop rules. The Aurum format includes a prep look at your situation, a one to two hour session, and a follow-up conversation a few weeks later, remote or on site in Switzerland. Details are on the [security awareness training page](/security/security-awareness).

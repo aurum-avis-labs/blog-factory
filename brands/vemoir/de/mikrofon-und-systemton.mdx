@@ -13,16 +13,18 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sandrawilliams2025?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sandrawilliams2025</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-**Mikrofon und Systemton** sind in Vemoir zwei lokale Spuren, keine gemischte Datei und kein Bild deines Bildschirms. Die Mikrofonspur bist du. Die Systemtonspur ist das, was der Mac aus der Meeting-App abspielt: Teams, Zoom, Google Meet, Slack, Discord oder eine andere App mit Ton.
+**Mikrofon und Systemton** auf dem Mac sind in Vemoir zwei getrennte lokale Spuren: dein Mikrofon und der Ton, den die Meeting-App über Lautsprecher oder Headset abspielt. So hast du deine Stimme und die Gegenstelle ohne eine gemischte Datei, ohne Bildschirmaufnahme und ohne Bot in der Teilnehmerliste.
 
-Du startest und stoppst die Aufnahme. Kein Bot erscheint in der Teilnehmerliste. Beide Spuren bleiben auf dem Mac, bis du sie exportierst oder später ein optionales Textmodell mit eigenem Schlüssel einschaltest.
+Du startest und stoppst in der Menüleiste. Beide Spuren bleiben auf dem Mac, bis du sie exportierst oder ein optionales Textmodell mit eigenem API-Schlüssel einschaltest.
 
 ## Inhalt
 
 - [Was Mikrofon und Systemton jeweils hören](#was-mikrofon-und-systemton-jeweils-hören)
 - [Die Berechtigung gilt für Ton, nicht für den Bildschirm](#die-berechtigung-gilt-für-ton-nicht-für-den-bildschirm)
 - [Wie ein Call die zwei Spuren nutzt](#wie-ein-call-die-zwei-spuren-nutzt)
+- [Präsenz im Raum vs Mikrofon und Systemton](#präsenz-im-raum-vs-mikrofon-und-systemton)
 - [Wann eine Spur das falsche Werkzeug ist](#wann-eine-spur-das-falsche-werkzeug-ist)
+- [Wenn die Systemspur still ist](#wenn-die-systemspur-still-ist)
 - [Was nach dem Stopp passiert](#was-nach-dem-stopp-passiert)
 - [Häufige Fragen](#häufige-fragen)
 
@@ -74,18 +76,29 @@ Dasselbe Paar gilt für jede App, die auf dem Mac Ton abspielt. Es hängt nicht 
 
 Du kannst die Live-Aufnahme auch auslassen und eine Datei importieren, die du schon hast: MP3, M4A, WAV, AIFF, CAF oder FLAC. Eine importierte Datei läuft durch dieselbe lokale Verarbeitung. Sie wird nicht in «du» und «die anderen» getrennt, wenn die Datei diese Trennung nicht schon enthält. Ein gemischter Zoom-Export ist eine Datei, nicht die zwei Spuren, die Vemoir live aufnimmt.
 
+## Präsenz im Raum vs Mikrofon und Systemton
+
+Die ausgelieferte Live-Aufnahme ist **Mikrofon plus Systemton** für einen Call, den der Mac hören kann. Das ist kein eigener Präsenzmodus, der alle am Tisch platziert und benennt. Ein solcher Modus gehört heute nicht zur App.
+
+Sitzen mehrere Kolleginnen und Kollegen um einen Laptop, ohne Gegenstelle online, bleibt die Systemspur leise. Das Mikrofon nimmt auf, wer in der Nähe lauter ist. Sprechertrennung nach dem Stopp kann Stimmen gruppieren, du solltest aber eine dominante lokale Stimme erwarten, kein Sitzungszimmer mit festen Plätzen.
+
+Für den Raum zuerst eignet sich oft ein Recorder für den Tisch oder eine Datei, die du später importierst. Das Browser-Tool unter [/de/tools/audio-transkribieren](/de/tools/audio-transkribieren) verarbeitet einen kurzen Clip, den du schon hast, bis 15 Minuten, drei erfolgreiche Läufe pro Woche, ohne Upload. Es setzt keine Sprechernamen. Längere Aufnahmen und Live-Zwei-Spuren-Aufnahme liegen in der Mac-App.
+
 ## Wann eine Spur das falsche Werkzeug ist
 
 Zwei lokale Spuren passen besser, wenn du Stimme und Call getrennt auf dem Mac halten willst, ohne zusätzliche Person in der Liste. Sie passen schlechter in ein paar gewöhnlichen Fällen.
 
 - Du brauchst die offizielle Cloud-Aufnahme des Meeting-Anbieters als Sitzungsakte. Nutze dessen Aufnahmeknopf. Vemoir ist deine lokale Kopie, nicht dessen Archiv.
 - Das Team arbeitet auf Windows oder auf dem Telefon, und das Ziel ist eine geteilte Bot-Bibliothek. Dafür ist ein Cloud-Notetaker gebaut. Vemoir ist eine Mac-App auf Apple Silicon, macOS Sonoma 14.2 oder neuer.
-- Ihr sitzt im Raum, mehrere Personen, kein Ton von aussen. Die Systemspur bleibt leise. Das Mikrofon hört, wer nahe ist. Das ist eine Mikrofonaufnahme des Raums, kein eigener Modus, der Sitzplätze vergibt und alle benennt. Für ein langes Interview, das du schon als eine Datei hast, kann das Browser-Tool unter [/de/tools/audio-transkribieren](/de/tools/audio-transkribieren) einen kurzen Ausschnitt in Text wandeln, ohne Upload. Es setzt keine Sprechernamen, und es endet bei 15 Minuten und drei erfolgreichen Läufen pro Woche.
 - Du wolltest nur deine eigene Ansage, nicht den Call. Pausiere den Sitzungston oder nimm ein Gerät für Einzelsprache. Die Systemspur greift weiter andere Apps, die gerade spielen.
 
 Ein Headset verändert die Systemspur nützlich: die Gegenstimmen bleiben auf der Systemspur und fallen weniger ins Mikrofon. Das willst du meist, wenn du später hören willst, wer lokal war.
 
-Wenn du beide Spuren behältst, kannst du nach der Sitzung zuerst den Systemton prüfen und dann das Mikrofon. So hörst du, ob der Call überhaupt angekommen ist, bevor du die Rauschstufe an deiner Stimme änderst. Eine leere Systemspur bei laufendem Call heisst fast immer: die Meeting-App war stumm, das Ausgabegerät war ein anderes, oder die Berechtigung fehlt. Das ist ein Thema der Einrichtung, kein zweites Mikrofon.
+## Wenn die Systemspur still ist
+
+Behältst du das Audio, spiele nach dem Call zuerst die Systemspur ab. Dort solltest du die Gegenstelle hören. Danach die Mikrofonspur für deine Stimme. So siehst du, ob der Fehler im Call-Pfad oder am Mikrofon liegt.
+
+Eine leere Systemspur, obwohl im Call gesprochen wurde, heisst meist: Meeting-App stumm, Ausgabe auf einem anderen Gerät, oder System Audio Recording verweigert. Einrichtung unter [Aufnahme](/de#capture) oder in den macOS-Datenschutzeinstellungen. Ein anderes Mikrofon löst das nicht.
 
 ## Was nach dem Stopp passiert
 

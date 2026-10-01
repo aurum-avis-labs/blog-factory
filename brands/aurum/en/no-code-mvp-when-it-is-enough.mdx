@@ -1,0 +1,95 @@
+---
+title: "No-code MVP, when it is enough"
+description: "A no-code MVP is enough when one behaviour must repeat with real users, scope is narrow, and you accept what the stack cannot prove about security or scale."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["no-code", "mvp", "lovable", "validation", "vibe coding"]
+funnelStage: interest
+translationKey: no-code-mvp-when-it-is-enough
+relatedPosts: ["building-an-mvp-with-lovable", "lovable-supabase-row-level-security"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">A no-code MVP is enough when you need strangers to complete one core loop in a deployed product, you can name that loop in one sentence, and you are willing to treat security, scale, and store rules as open questions until the learning is done.</p>
+
+You already shipped something with Lovable, Bolt, v0, Replit, Cursor, or Claude Code. That is not a failure of seriousness. It is a valid way to learn whether the job is worth automating. The mistake is calling every working URL an MVP, or keeping a no-code stack when the question has moved from «will anyone do this twice?» to «can we run this for paying customers every week?».
+
+This page is for that handover point: when the no-code build still matches the hypothesis, when to stop polishing, and what it never proves. For the partner question after the tool phase, see [when to get a real tech partner](/blog/when-to-get-a-real-tech-partner). Tool setup and Supabase basics sit in [building an MVP with Lovable](/blog/building-an-mvp-with-lovable) and [Lovable, Supabase, and row level security](/blog/lovable-supabase-row-level-security).
+
+## No-code MVP, when it is enough
+
+Treat the no-code stack as **enough** when all of the following are true:
+
+<ul class="blog-checklist">
+  <li>One primary behaviour defines success (sign up, submit, return, pay a test price, or finish one workflow end to end)</li>
+  <li>Real auth and a real database back that behaviour, not a slide deck or a form that emails you CSV rows</li>
+  <li>Analytics and session recording are live from the first external user, so drop-off is visible</li>
+  <li>Scope is written down as «in» and «out», and the «out» list includes modules you already know you are deferring</li>
+  <li>You accept that friends-and-family usage is pilot data, not market proof</li>
+  <li>You have a fixed window (weeks, not quarters) after which you read the numbers and choose go, pivot, or stop</li>
+</ul>
+
+That is closer to an MVP than a landing page with a waitlist. It is still not a production platform. Aurum’s sold validation package builds and deploys on Azure with React and NestJS precisely because many teams eventually need measurement and code they own; that path is separate from staying on a no-code host for the first loop. The tools stay neutral: they are often the fastest honest test.
+
+<div class="blog-pair">
+  <div>
+    <h3>Usually enough on no-code</h3>
+    <ul>
+      <li>Concierge or wizard-of-oz back office with a thin self-serve front</li>
+      <li>B2B workflow with ten to fifty invited accounts and one integration</li>
+      <li>Mobile-friendly web app before you commit to App Store review and closed testing</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Usually not enough on no-code alone</h3>
+    <ul>
+      <li>Multi-tenant data where one misconfigured policy exposes another customer’s rows</li>
+      <li>Payments, health data, or regulated advice where audit and recovery matter on day one</li>
+      <li>Marketplace liquidity where both sides must trust uptime and disputes from week one</li>
+    </ul>
+  </div>
+</div>
+
+## What a no-code MVP can and cannot prove
+
+A disciplined no-code MVP **can** show whether strangers tolerate friction, whether support explodes on a thin slice, and whether a single acquisition channel produces repeatable sign-ups at a cost you can read.
+
+It **cannot** show full unit economics, defensibility, or that your generated auth and database rules are safe under attack. Misconfigured row level security on generated Supabase projects is a documented class of issue; [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757) affected many Lovable-linked apps where the public client key allowed queries without login. Choosing a Swiss Supabase region ([eu-central-2](https://supabase.com/docs/guides/platform/regions)) helps residency conversation; it does not replace policy review.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>A no-code MVP is not a security review. Passing your own click-through test does not mean row level security, secrets, or admin routes were checked the way production expects. Treat «we have not been breached yet» as absence of evidence, not proof.</p>
+</aside>
+
+Store packaging is another limit. Apple’s guidelines expect more than a repackaged website ([4.2](https://developer.apple.com/app-store/review/guidelines/)); Google Play may require a closed test with at least twelve testers for fourteen days on new personal developer accounts ([Play Console help](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en)). A wrapped no-code site can still fail review if it behaves like marketing, not an app. None of that blocks learning in the browser first.
+
+Ideas as such are not protectable in Switzerland ([IGE](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). Shipping a narrow no-code pilot does not hide the concept. It buys time to read behaviour before you fund the next layer.
+
+## Who should skip the «stay on no-code» advice
+
+<ul class="blog-scenarios">
+  <li><h3>If the core question is still «do people want this at all?»</h3><p>A fake door or interview sprint may be cheaper than another week of generated screens. Do not upgrade tool cost into product proof.</p></li>
+  <li><h3>If you already promised reliability to paying customers</h3><p>Load, backup, and incident response belong in the offer. Patching a prototype under revenue pressure is how data incidents happen.</p></li>
+  <li><h3>If compliance blocks the real loop</h3><p>Shrinking UX does not replace legal design. Scope the test with your adviser, then pick the stack.</p></li>
+</ul>
+
+## When to stop extending the no-code build
+
+Stop when additional features no longer change the metric tied to your one-sentence hypothesis, or when the same bug class appears twice (auth edge cases, leaking lists, brittle integrations). That is the moment to export what you learned, not necessarily to export all code unchanged.
+
+<p class="blog-pull">The no-code phase ends when the cost of being wrong on reliability exceeds the cost of a proper build.</p>
+
+Read [is your vibe-coded app production ready?](/blog/is-your-vibe-coded-app-production-ready) if strangers already pay or sensitive data is in scope.
+
+<div class="blog-faq">
+  <h3>Is no-code the same as an MVP?</h3>
+  <p>No. No-code describes how you built. An MVP is sized for one learning goal with instrumentation. You can fail both by shipping a large no-code app that still does not measure one behaviour.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>When is no-code enough for investors?</h3>
+  <p>When you show repeatable behaviour and honest limits, not when the demo has every roadmap module. Investors differ; the article does not promise a checklist they all accept.</p>
+</div>
+
+When the open question is behaviour with measurement and you want a deployed product, analytics from day one, and a structured go, pivot, or stop recommendation on code you own, the [product validation package](/services/mvp-validation) is built for that stage. It is not a three-day build and it is not implemented on Lovable or Supabase; it is the next step when the no-code MVP has answered its narrow question and the team is ready to learn with production intent.

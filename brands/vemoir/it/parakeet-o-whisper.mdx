@@ -17,7 +17,9 @@ draft: false
 
 Nessuno dei due modelli scrive il verbale. Note, documenti e Ask usano un modello di lingua per scrivere: Qwen3 4B sulla maggior parte dei Mac, gpt-oss-20b sui Mac con tanta memoria, Apple Intelligence dove il Mac ce l'ha, o una chiave solo testo che attivi tu. Il modello vocale trasforma solo l'audio in testo.
 
-## Che cosa cambia tra Parakeet o Whisper
+Per capire quale file vocale scaricare per primo, apri [cattura](/it#capture) sul Mac e confronta le dimensioni prima di metterne un secondo in coda.
+
+## Come differiscono i suggerimenti del glossario
 
 | | Parakeet v3 | Whisper Turbo, Medium, Large-v3 |
 | --- | --- | --- |
@@ -30,13 +32,9 @@ Nessuno dei due modelli scrive il verbale. Note, documenti e Ask usano un modell
 
 La libreria dei modelli mostra stato, spazio e aderenza all'hardware. Puoi togliere un modello che non vuoi più. Una riunione successiva non sostituisce l'altra famiglia perché eri offline o mancava il file. Sistema il download, poi elabora.
 
-La lingua dell'interfaccia (inglese, tedesco, francese, italiano, olandese) non è la lingua di trascrizione. Impostale separatamente.
+I glossari di progetto aiutano a scrivere nomi e termini prodotto in modo coerente nei verbali generati. Su una trascrizione Whisper compatibile, i suggerimenti del glossario possono raggiungere anche il prompt vocale. Parakeet v3 non promette gli stessi suggerimenti nel passaggio vocale. Se il tuo flusso dipende dalla prima riga di trascrizione, leggi Whisper nella documentazione dell'app. Se ti servono soprattutto nomi corretti nel riassunto, entrambe le famiglie possono bastare quando il testo c'è.
 
-|  | Parakeet v3 | Whisper |
-| --- | --- | --- |
-| Languages | 25 European (Vemoir docs) | Depends on model size |
-| Runs on | Apple silicon Mac | Mac or browser download |
-| Swiss German | Standard German text | Standard German text |
+La lingua dell'interfaccia (inglese, tedesco, francese, italiano, olandese) non è la lingua di trascrizione. Impostale separatamente.
 
 |  | Parakeet v3 | Whisper |
 | --- | --- | --- |
@@ -84,6 +82,8 @@ La trascrizione viene ricostruita dall'audio locale chiuso dopo lo stop. Un'ante
 
 Poi un modello di scrittura abbozza il verbale. Se un nome è sbagliato, il modello vocale è un posto dove guardare (modello sbagliato per la lingua, microfono rumoroso) e il modello di scrittura un altro (una frase liscia che non era nell'audio). Cambia ciò che ha fallito. Non scambiare Parakeet e Whisper a caso aspettandoti un salto di precisione pubblicato.
 
+Rielaborare lo stesso file tenuto è lecito. Installare un secondo modello vocale «per ogni evenienza» senza ascoltare prima riempie spesso il disco prima di correggere una riga.
+
 La soppressione del rumore, Off, Balanced o Strong, sta sul microfono prima di questa scelta. Non sceglie il modello vocale.
 
 Entrambe le famiglie sono in [cattura](/it#capture).
@@ -96,13 +96,17 @@ Entrambe le famiglie sono in [cattura](/it#capture).
 4. Registra una chiamata che puoi controllare. Se hai tenuto l'audio, ascolta un minuto confuso e leggi la riga. Se è usabile, tieni il modello. Se la lingua era fuori copertura, cambia di proposito e rielabora. È una decisione di copertura, non una classifica.
 5. Lascia il modello di scrittura su Qwen3 4B salvo che questo Mac abbia tanta memoria e tu abbia scelto gpt-oss-20b. Quella scelta non riapre Parakeet o Whisper.
 
+6. Annota nelle note di progetto quale modello vocale ha usato il file. Al secondo tentativo confronti i modelli sullo stesso audio, non su due chiamate diverse.
+
 ## Lo spazio prima di installarli entrambi
 
 Un modello vocale è un file grande. Installare Parakeet e ogni variante Whisper sullo stesso disco è permesso, e spesso inutile. Controlla lo spazio libero rispetto alla dimensione che mostra lo schermo dei modelli prima di mettere in coda tre download. La base dell'app è 10 GB liberi, e non è una promessa che tre modelli vocali più un modello di scrittura ci stiano dentro. Se un download fallisce per spazio, libera spazio e riprendi. Non trattare lo strumento nel browser come un sostituto silenzioso di una riunione che doveva restare nell'app. È un altro percorso, con un tetto di 15 minuti.
 
-Quando un file Parakeet e un file Whisper sono pronti, selezionane uno per la riunione successiva e lascialo. La sostituzione a metà riunione non esiste. Se una chiamata bilingue mescola due lingue, aspettati i limiti del modello scelto. Se il risultato è inutilizzabile, è un motivo per provare l'altra famiglia di proposito e confrontare con le orecchie, sempre senza un numero. Tieni la registrazione se lo spazio ce l'ha ancora, così il secondo passaggio è lo stesso audio e non una chiamata nuova con rumore nuovo. Un file, due modelli, le tue orecchie. È tutto il metodo che questa pagina sostiene. Annota modello e data nelle note di progetto, se le hai, così un disaccordo successivo riguarda l'audio e non un'impostazione dimenticata. La libreria dei modelli è il registro di ciò che è installato. La tua nota è il registro di ciò che hai scelto per quella riunione. Se un collega chiede quale modello ha «vinto», la risposta è quello che hai potuto controllare sull'audio tenuto. Un numero di benchmark non gli farebbe ripetere la tua chiamata.
+Quando un file Parakeet e un file Whisper sono pronti, selezionane uno per la riunione successiva e lascialo. Se il risultato è inutilizzabile, prova l'altra famiglia di proposito e confronta con le orecchie, senza un numero. Tieni la registrazione per rielaborare lo stesso audio. Annota modello e data nelle note di progetto.
 
-Prima di toccare il secondo modello, ascolta un minuto che hai tenuto e confrontalo con la riga. Se la riga regge la frase, il download è finito. Se non la regge perché la lingua era fuori copertura, cambia di proposito e rielabora lo stesso file.
+La dimensione di ogni variante è nello schermo modelli; questo testo non cita megabyte, perché i download possono cambiare con gli aggiornamenti dell'app. A settembre 2026: leggi la dimensione, poi scarica.
+
+Per riunioni che devono restare offline dopo l'installazione dei modelli, vedi [trascrizione offline su Mac](/it/blog/trascrizione-offline-mac).
 
 ## Domande frequenti
 

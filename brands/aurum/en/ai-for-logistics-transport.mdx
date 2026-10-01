@@ -14,13 +14,15 @@ site: prozess-check
 
 ## AI for small logistics and transport companies
 
-AI for a small logistics or transport company pays off on the office around the trip, not on the truck. Orders arrive by email, with a pickup, a delivery, a time window and a reference that someone retypes. A customer asks where the goods are, and the answer is a guess. A signed delivery note comes back as a photo, or not at all, and the invoice waits. Driver papers expire on a date that lives in a folder. Those are the jobs. Choosing a route on a map, or filing a road charge, is not this article.
+<p class="blog-lede">AI for a small logistics or transport firm pays off on the office work around the trip: the email order, the status reply, the proof of delivery, the invoice. Not on picking a route on a map.</p>
 
-This is for owners and dispatchers of Swiss firms with a few vehicles, carrying other people's goods. The transport software you already use stays. The question is what still happens in the inbox and on paper beside it.
+Orders arrive by email, with a pickup, a delivery, a time window and a reference that someone retypes. A customer asks where the goods are, and the answer is often a guess. A signed delivery note comes back as a photo, or not at all, and the invoice waits. Driver papers expire on a date that lives in a folder. Road charges and customs forms are a different topic. This page stays with the inbox and the paper beside your transport software.
+
+This is for owners and dispatchers of Swiss firms with a few vehicles, carrying other people's goods. The software you already use stays. The question is which tasks still run beside it.
 
 ## What the transport system already does
 
-If every order is entered once, the driver sees it on the tour, the customer gets a status you trust, and the invoice is created from deliveries that have a signed note, there is nothing to rebuild on that stretch. Many small fleets are halfway there. The regular customers send orders in a portal. The rest send an email, a PDF, or a phone note the dispatcher writes down. The invoice is then typed again from the paper that came back.
+If every order is entered once, the driver sees it on the tour, the customer gets a status you trust, and the invoice is created from deliveries that have a signed note, there is nothing to rebuild on that stretch. Many small fleets are halfway there. Regular customers send orders in a portal. The rest send an email, a PDF, or a phone note the dispatcher writes down. The invoice is then typed again from the paper that came back.
 
 Typing the same order twice, from the mail into the system, is the pattern in [stopping double entry](/prozess-check/blog/stop-double-data-entry). Here the fields are pickup, delivery, date, time window, reference, and a short description of the goods. A workflow fills them and parks what it cannot read. It does not invent a weight, a floor, or a tail-lift.
 
@@ -53,7 +55,7 @@ A shipper writes: collect here, deliver there, by Thursday morning, reference on
 
 ### Where is the delivery
 
-Customers ask the same question. The useful reply quotes the status you actually have: collected, on the tour, delivered, or not yet planned. It does not promise an arrival minute the tour does not show. If the driver has not reported, the draft says that, and names the person who will look. A guessed clock time, sent because the customer sounded urgent, is how you create a complaint. The proof that the goods were received, the signed note, is a separate piece of work. This article only says the invoice should wait for it.
+Customers ask the same question. The useful reply quotes the status you actually have: collected, on the tour, delivered, or not yet planned. It does not promise an arrival minute that the tour and vehicle status do not support. If the driver has not reported, the draft says that, and names the person who will look. A guessed clock time, sent because the customer sounded urgent, is how you create a complaint. The signed note is separate work. This section only says the invoice should wait for it.
 
 ### Papers the driver has to carry
 
@@ -61,16 +63,38 @@ Licence, medical certificate if you require one, permits for the vehicle: each h
 
 ### The invoice after the trip
 
-A trip is billable when it was done, at the rate on the order or on the customer agreement, with the signed note attached or at least filed against the order. Deliveries without that note stay open. Partial deliveries bill what was delivered if the agreement says so, and they say what is still open. The price, the waiting time you will charge, and a refusal at the door stay with a person. The copying of lines from the note into the invoice is the dull part.
+A trip is billable when it was done, at the rate on the order or on the customer agreement, with the signed note attached or at least filed against the order. Deliveries without that note stay open. Partial deliveries bill what was delivered if the agreement says so, and they say what is still open. The price, the waiting time you will charge, and a refusal at the door stay with a person. Copying lines from the note into the invoice is the dull part.
+
+## When the proof of delivery arrives as a photo
+
+In many fleets the note does not come from a desk scanner but as a photo by email or app. The image often shows only part of the reference, sometimes just a signature and a date. Dispatch then searches by hand for the right order while the invoice is already due.
+
+A workflow can attach the photo to the right order when you have clear rules: reference in the subject, order number on the note, or a tour number that lives in your software. It reads the visible fields, suggests a match, and marks "unclear" when two orders fit. It does not decide whether the signature counts, and it does not replace a missing acceptance. If the note still has no match, it goes on a Monday list, not on the invoice.
+
+<div class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Personal data on photos (name of the receiver, phone number on the delivery note) should not go into a free chat tool to "summarise" the case. Store them where you already keep orders, with access limited to dispatch.</p>
+</div>
+
+## Groupage and several stops on one tour
+
+One tour with five drops produces five notes and five possible status emails. A shipper asks about "their" delivery while everything sits on the same vehicle. Without a split per stop, replies land in the wrong thread or the note from the third drop hangs on the first order.
+
+A workflow helps when it reads stops and references from the tour, not from dispatch memory. Per stop: reference, planned status, and whether the note is already in. You do not need one bulk mail to five customers with bespoke text. Often one draft per stop, checked by a person before it goes out, is enough. Which vehicle leaves when stays with you.
 
 ## What stays with dispatch
 
-Whether to accept the order, which vehicle, a delay you will tell the customer about, and any damage or shortage: those stay with a person. A workflow may draft the order and the status reply. It should not send a truck, and it should not tell a customer the goods are delivered because a photo arrived that nobody has matched to the order.
+Whether to accept the order, which vehicle, a delay you will tell the customer about, and any damage or shortage: those stay with a person. A workflow may draft the order and the status reply. It should not send a truck. It should not tell a customer the goods are delivered because a photo arrived that nobody has matched to the order.
 
 [Which process to automate first](/prozess-check/blog/which-process-to-automate-first) fits a fleet as well as an office: the work repeats, it hurts on Monday, it ends in an order or an invoice, and the message is already in the inbox. A firm with a few trips a week, all from two customers who already use your portal, will not repay a new route for email orders.
 
+<div class="blog-faq">
+  <h3>Is AI worth it for route planning in a small fleet?</h3>
+  <p>Often only after orders, notes and invoices already line up. If the proof of delivery never meets the order, a better route only speeds up the mess. Start with the office work that comes back every Monday.</p>
+</div>
+
 ## Where to start
 
-Count one ordinary week: orders retyped from mail, status calls, delivery notes you chased, invoices held because the signature was missing, papers you almost forgot. If one of those dominates, that is the case.
+Count one ordinary week: orders retyped from mail, status calls, delivery notes you chased, invoices held because the signature was missing, papers you almost forgot, notes that arrived with no order number. If one of those dominates, that is the case.
 
 If you want that one recurring task looked at with you, the [Process Check](/prozess-check) is an hour on it. You leave with a case and a price range, or you hear that it is not worth it.

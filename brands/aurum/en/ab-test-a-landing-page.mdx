@@ -1,0 +1,105 @@
+---
+title: "A/B test a landing page: one change, one metric"
+description: "A/B test a landing page by splitting traffic between two versions, changing one element, and scoring one primary action. Steps, limits, and when to stop."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["a/b test", "landing page", "startup validation", "conversion"]
+funnelStage: interest
+translationKey: ab-test-a-landing-page
+relatedPosts: ["fake-door-test", "smoke-test-landing-page"]
+draft: true
+site: studio
+---
+
+## A/B test a landing page
+
+You A/B test a landing page by showing two versions to comparable visitors at the same time, changing only one element between them, and measuring one primary action you defined before traffic starts. The winner is the variant that moves more strangers toward that action under the same channel and budget, not the headline your team prefers in a meeting.
+
+This is for founders and innovation leads in Switzerland who already have a live page, some targeted traffic, and a specific disagreement to settle. If you have never measured a single action on a page, start with [how to validate a startup idea](/blog/how-to-validate-a-startup-idea) and a [smoke test landing page](/blog/smoke-test-landing-page) before you split variants.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Control</dt>
+    <dd>The version that matches what you run today, or your best current guess before the test.</dd>
+  </div>
+  <div>
+    <dt>Variant</dt>
+    <dd>The single deliberate change you want evidence for, everything else held constant.</dd>
+  </div>
+  <div>
+    <dt>Primary metric</dt>
+    <dd>The one rate or count you will use to pick a winner, usually completion of your main form or button.</dd>
+  </div>
+</dl>
+
+## How to A/B test a landing page
+
+Treat the test like a small study, not a design review.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Write the disagreement in one sentence</h3><p>Example shape: «Headline A names the job; headline B names the pain. We expect B to raise form starts from cold LinkedIn traffic.» If both could be true, you are not ready to split.</p></li>
+  <li data-step="2"><h3>Pick one primary metric</h3><p>Form submit, calendar booking, or first click on the main button. Secondary metrics can inform replays, but only one decides the winner.</p></li>
+  <li data-step="3"><h3>Build two URLs or one tool split</h3><p>Two static pages with the same layout and different copy are enough. Route half of each ad click to each URL, or use your analytics tool's experiment feature if setup is clean.</p></li>
+  <li data-step="4"><h3>Run both variants together</h3><p>Same dates, same budget, same targeting. Sequential weeks confuse seasonality and ad learning.</p></li>
+  <li data-step="5"><h3>Log traffic and spend per variant</h3><p>UTM parameters or ad-set labels should make it obvious which visits belong where when you reconcile numbers.</p></li>
+  <li data-step="6"><h3>Apply the stop rule you wrote first</h3><p>End on a fixed calendar date or when each variant has the minimum visits in your rule. Do not keep the test open until a favourite wins.</p></li>
+</ol>
+
+On an internal service page we once compared three hook headlines with a simple GA4 funnel: one entry message, one downstream action. We do not publish those results as benchmarks.
+
+## What an A/B test can show, and what it cannot
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Shows</span><strong>Relative preference</strong><p>Which of two honest promises moves more people toward the action you chose, under the traffic you bought.</p></li>
+  <li><span class="blog-kicker">Shows</span><strong>Where copy fails</strong><p>Session recordings on both variants often reveal hesitation on one field even when clicks look similar.</p></li>
+  <li><span class="blog-kicker">Does not show</span><strong>Absolute demand</strong><p>Both variants can lose. A winner among weak results is still weak.</p></li>
+  <li><span class="blog-kicker">Does not show</span><strong>Product fit</strong><p>You tested words on a page, not usage, retention, or payment.</p></li>
+</ul>
+
+A [fake door test](/blog/fake-door-test) asks whether people click as if a product existed. An A/B test assumes the page structure is settled and argues about one lever. Neither replaces a build when the risk is behaviour inside software.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>An A/B test on a landing page compares messages, not business models. If you change headline, image, price hint, and form length at once, you learn nothing reproducible. If traffic is so low that a handful of sessions decides the outcome, wait or widen the channel before you declare a winner.</p>
+</aside>
+
+## A made-up example: two headlines for a compliance checklist
+
+A made-up example: a founder in Basel sells a downloadable checklist for GDPR-style documentation to Swiss SMEs. The page already earns a steady trickle of form fills from Google search ads. The team disagrees on the hero line. Version A leads with «Document your processing activities in one afternoon». Version B leads with «Stop guessing what regulators expect in your privacy folder». Layout, form, and price mention stay identical. Each ad click lands on one URL or the other with even rotation for three weeks.
+
+They set a rule: if one variant beats the other on form submits by a margin they wrote down, they retire the loser and only then test the button label. After three weeks, B wins on submit rate but total submits are only slightly above the prior month. Session replays show many visitors on both pages stop at the industry dropdown. They keep B, fix the form, and schedule a new test on the dropdown copy instead of doubling ad spend on a headline that merely beat a weaker headline.
+
+## Who should run a page A/B test, and who should skip
+
+<div class="blog-pair">
+  <div>
+    <h3>Who this is for</h3>
+    <ul>
+      <li>Teams with two concrete copy options and enough parallel traffic to apply a written stop rule</li>
+      <li>Founders who already ran a smoke test and need to choose between messages that both sound plausible</li>
+      <li>Innovation leads who must show the board a controlled comparison, not another opinion poll</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip or wait</h3>
+    <ul>
+      <li>Pages that still lack a baseline action count from real strangers</li>
+      <li>Tests that would change layout, offer, and audience at the same time</li>
+      <li>Marketplaces or two-sided products where one page cannot stand in for both sides</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-faq">
+  <h3>Is an A/B test the same as multivariate testing?</h3>
+  <p>No. Multivariate designs change several elements at once. They need more traffic and more discipline. For most early-stage landing pages, one change between two variants is enough.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>How long should the test run?</h3>
+  <p>Long enough to meet the rule you wrote before launch, often two to four weeks for small ad budgets. There is no universal conversion figure worth citing here; low traffic with clear abandonment on one field is still useful.</p>
+</div>
+
+## When the landing page package fits
+
+The [landing page package](/services/landing-page-package) fits when you want a measured demand page with GA4 and Microsoft Clarity, code you own, and a stable base for honest A/B splits, but you are not ready for a twelve-week product validation build. It is the right scale while the open question is still which message moves strangers, and you are willing to stop or pivot when both variants underperform. It does not replace usage data from a deployed app. If strangers already complete your action and the bottleneck is behaviour inside the product, move to a build conversation on the contact page instead of another headline round.

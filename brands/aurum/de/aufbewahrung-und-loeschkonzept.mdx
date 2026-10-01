@@ -1,0 +1,122 @@
+---
+title: "Aufbewahrungsfristen Kundendaten und Löschkonzept"
+description: "Aufbewahrungsfristen und Löschkonzept für Kundendaten in KMU: Tabelle, Verantwortliche, Routine."
+pubDate: 2026-11-28
+author: "Aurum Avis Labs"
+tags: ["datenschutz", "dsg", "kmu", "schweiz", "privacy"]
+funnelStage: interest
+translationKey: retention-periods-and-a-deletion-concept
+relatedPosts: ["personendaten-per-e-mail-senden", "bewerbungsunterlagen-aufbewahren", "dateien-mit-personendaten-teilen"]
+draft: false
+site: security
+---
+
+## Aufbewahrungsfristen Kundendaten: wozu ein Löschkonzept dient
+
+Aufbewahrungsfristen für Kundendaten legen Sie fest, damit Personendaten nicht ewig in CRM, Mail und Ablagen liegen bleiben. Das [DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de) verlangt, dass Daten nur so lange bearbeitet werden, wie es für den Zweck nötig ist ([Art. 6 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de)), und dass Betroffene bei der Erhebung informiert werden ([Art. 19 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de)). Ein Löschkonzept ist die interne Übersicht: welche Kundendaten Sie wo halten, wie lange, wer löscht und wann Sie die Regeln prüfen. Der Text richtet sich an Betriebe mit etwa 20 bis 250 Personen ohne Vollzeit-Datenschutzbeauftragten. Es ist Einordnung, keine Rechtsberatung. Newsletter-Einwilligungen haben eigene Regeln, siehe [Newsletter-Einwilligung Schweiz](/de/security/blog/newsletter-einwilligung-schweiz).
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Geltungsbereich</span><strong>Kundendaten</strong><p>Leads, Verträge, Support, Marketing. Kein Personaldossier.</p></li>
+  <li><span class="blog-kicker">Recht</span><strong>DSG</strong><p>Speicherbegrenzung und Transparenz. DSGVO zusätzlich bei EU-Kontakten.</p></li>
+  <li><span class="blog-kicker">Nachweis</span><strong>Tabelle plus Memo</strong><p>Wer entscheidet, wer ausführt, nächstes Review-Datum.</p></li>
+  <li><span class="blog-kicker">Rhythmus</span><strong>Quartal oder Jahr</strong><p>Löschläufe und Stichprobe, nicht nur ein PDF im Schrank.</p></li>
+</ul>
+
+## Was hier nicht steht
+
+Fristen im [Personaldossier und bei Bewerbungen](/de/security/blog/bewerbungsunterlagen-aufbewahren) sind ein eigener Artikel. Dieses Löschkonzept ersetzt keine gesetzliche Aufbewahrungspflicht aus dem Obligationenrecht oder der Buchführung, wenn Ihre Treuhand längere Fristen verlangt. Es ersetzt auch keinen «Legal Hold», wenn ein Streit oder eine Untersuchung läuft. Grenzfälle gehören in die Beratung.
+
+<div class="blog-pair">
+  <div>
+    <h3>Meist im Scope</h3>
+    <ul>
+      <li>CRM, Support-Tickets, Marketinglisten</li>
+      <li>Rechnungs- und Vertragsdaten mit Kundenbezug</li>
+      <li>Exporte und geteilte Dateien mit Kundennamen</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Meist ausserhalb</h3>
+    <ul>
+      <li>Lohn- und Bewerbungsakten</li>
+      <li>Vollständige EDÖB-Tabelle für jede Branche</li>
+      <li>Produktvergleiche oder Tool-Rankings</li>
+    </ul>
+  </div>
+</div>
+
+## Die Fristentabelle anlegen
+
+Eine praktikable Tabelle hat sechs Spalten: Datentyp, Rechts- oder Geschäftsgrundlage, Frist, System, verantwortliche Person, Löschmethode. Starten Sie mit zehn Zeilen, nicht mit einem leeren Enterprise-Projekt.
+
+| Datentyp | Grundlage | Frist (Orientierung) | System | Verantwortlich | Löschung |
+| --- | --- | --- | --- | --- | --- |
+| Rechnung mit Kundenadresse | Buchführung, Vertrag | Oft zehn Jahre nach Treuhand | Buchhaltung | Finanz | Archivregel, kein Mail-Export |
+| Aktiver Vertrag | Vertrag | Bis Ende plus kurze Nachweiszeit | CRM | Vertrieb | Status «inaktiv», dann Löschjob |
+| Support-Ticket | Vertrag, berechtigtes Interesse | z. B. 24 Monate nach Abschluss | Ticketsystem | Support | Export prüfen, dann löschen |
+| Newsletter-Kontakt | Einwilligung | Bis Widerruf plus kurzer Nachweis | Marketing-Tool | Marketing | Liste bereinigen, siehe Newsletter-Artikel |
+| Lead ohne Auftrag | Einwilligung oder Interesse | z. B. 12 Monate ohne Kontakt | CRM | Vertrieb | Löschen oder anonymisieren |
+
+Die Jahre in der Tabelle sind Orientierung. Ihre Treuhand nennt die verbindlichen Fristen für Buchhaltung. Marketing braucht oft eine kürzere Frist als die Buchhaltung für dieselbe Person, weil der Zweck anders ist.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
+  <p>Die Frist in der Datenschutzerklärung und in der Tabelle muss zusammenpassen. Wenn die Erklärung «bis Widerruf» sagt, darf das CRM nicht still fünf Jahre weiter sammeln.</p>
+</aside>
+
+## Wo Kundendaten versteckt sind
+
+Ohne Speicherortliste löschen Sie nur das CRM und lassen Kopien in Mail, Excel und Cloud-Links. Notieren Sie mindestens: Haupt-CRM, gemeinsame Postfächer, Buchhaltung, Dateiablage, Tools für [Personendaten per E-Mail](/de/security/blog/personendaten-per-e-mail-senden) und [geteilte Dateien](/de/security/blog/dateien-mit-personendaten-teilen). Jeder Export in eine Tabelle ist ein neuer Speicherort mit eigener Zeile.
+
+Alte Handys, USB-Sticks vom Messestand und «nur kurz» gespeicherte Screenshots zählen mit. IT kann Ihnen sagen, welche Systeme noch synchronisieren, wenn Sie einen Account sperren. Die Fachseite entscheidet, ob der Inhalt geschäftlich relevant ist und in die Tabelle gehört.
+
+## Löschung versus Aufbewahrungspflicht
+
+Buchhaltung darf Rechnungen länger halten als Marketing Kontakte sammelt. Das ist kein Widerspruch, wenn die Zwecke in der Tabelle getrennt stehen. Widersprüchlich wird es, wenn dieselbe Person in fünf Tools mit unterschiedlichen Fristen geführt wird, ohne dass jemand weiss, welches System «führt». Markieren Sie ein System als führend für Kundenstammdaten und verweisen Sie in den anderen nur noch auf die ID oder den Vertragslink.
+
+Läuft ein Streit oder eine Untersuchung, pausiert die routinemässige Löschung für die betroffenen Datensätze. Notieren Sie im Memo, wer die Pause auslöst und wann der normale Rhythmus wieder startet. Das ist kein Ersatz für anwaltliche Anweisung im Einzelfall.
+
+## Löschkonzept in fünf Schritten
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Verantwortliche benennen</h3><p>Pro Datentyp eine Person aus Fachbereich und IT. Sie genehmigt Löschungen und meldet im Quartalsmeeting.</p></li>
+  <li data-step="2"><h3>Fristen schriftlich festhalten</h3><p>Ein Memo mit Tabelle, Datum und Name der Geschäftsleitung. Kein Reglement von zwanzig Seiten.</p></li>
+  <li data-step="3"><h3>Technische Löschung planen</h3><p>CRM-Status, Ticket-Archiv, Marketing-Liste. IT liefert Reports; Fachseite bestätigt.</p></li>
+  <li data-step="4"><h3>Backups einbeziehen</h3><p>Notieren, ob alte Backups Daten nach einer Löschung zurückbringen können und wie lange Rotation läuft.</p></li>
+  <li data-step="5"><h3>Review terminieren</h3><p>Kalendereintrag für jährliche Prüfung und bei neuem Modul im CRM oder Firmenkauf.</p></li>
+</ol>
+
+## Ein erfundenes Beispiel
+
+Ein erfundenes Beispiel: ein Dienstleistungsbetrieb mit 40 Personen im Aargau stellt fest, dass Leads nach drei Jahren noch im CRM stehen, obwohl die Datenschutzerklärung zwölf Monate ohne Auftrag nennt. Die Admin ergänzt die Tabelle, setzt einen vierteljährlichen Report «inaktiv seit 12 Monaten» und schult den Empfang, keine Kundendaten mehr in private Notiz-Apps zu kopieren. Keine neue Software, nur klare Rollen.
+
+<ul class="blog-checklist">
+  <li>Tabelle mit mindestens Rechnungen, Verträge, Leads, Newsletter, Support</li>
+  <li>Speicherorte inklusive Mail und Exporte notiert</li>
+  <li>Nächstes Review-Datum im Kalender</li>
+  <li>Datenschutzerklärung auf dieselben Fristen geprüft</li>
+</ul>
+
+## Löschläufe dokumentieren
+
+Ein Quartalslauf braucht kein Protokoll von zwanzig Seiten. Genügt oft: Datum, System, Anzahl gelöschter oder anonymisierter Datensätze, Name der freigebenden Person, kurzer Hinweis auf Ausnahmen («drei Verträge in Klärung, nicht gelöscht»). So können Sie bei einer Kundenfrage oder einer Prüfung zeigen, dass Löschung mehr ist als guter Wille.
+
+Wenn IT meldet, dass ein Backup die gelöschten Zeilen noch enthält, notieren Sie die Rotationsdauer. Viele KMU akzeptieren eine dokumentierte Restlaufzeit, solange aktive Systeme sauber sind und die Datenschutzerklärung das erklärt.
+
+## Wann Sie externe Hilfe brauchen
+
+Neue Verarbeitung mit sensiblen Daten, Streit mit einer Kundin über Löschung oder ein Kundenaudit mit abweichenden Fristen: dann Beratung vor dem nächsten Massenlöschlauf. Für den Alltag reicht oft die interne Tabelle plus Schulung.
+
+<div class="blog-faq">
+  <h3>Brauchen wir für jede Zeile einen Anwalt?</h3>
+  <p>Nein für die übliche KMU-Hygiene. Beratung bei Untersuchungen, Streit oder wenn ein Kundenvertrag strengere Löschfristen verlangt als Ihre Tabelle.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Was ist mit Anfragen «alles löschen»?</h3>
+  <p>Das Recht auf Löschung ist ein eigenes Thema. Ihre Fristentabelle zeigt, was routinemässig gelöscht wird. Einzelbegehren brauchen einen separaten Ablauf und ggf. Ausnahmen wegen Buchhaltung.</p>
+</div>
+
+## Schulung mit Ihren Systemen
+
+In einer live Datenschutzschulung gehen wir Fristentabelle, CRM und typische Fehler an Ihren Beispielen durch, in ein bis zwei Stunden. Details unter [Datenschutz Awareness](/de/security/datenschutz).

@@ -1,0 +1,104 @@
+---
+title: "Tech Stack Startup: Entscheide, die später teuer werden"
+description: "Tech Stack Startup: Oberfläche, Daten, Auth und Hosting an eine Lernfrage koppeln, nicht an eine Modelliste auf Social Media."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["tech stack", "mvp", "vibe coding", "architektur", "gründung"]
+funnelStage: interest
+translationKey: choosing-a-startup-tech-stack
+relatedPosts: ["skalierbares-mvp", "web-app-oder-native-app"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Beim Tech Stack Startup geht es darum, welche Schicht für die Hypothese jetzt echt sein muss: Browser-Oberfläche, API und Datenbank, Login, und wo alles läuft. Der passende Stack erlaubt Ihnen, in Wochen zu lernen, ohne sich in die falsche Datenform oder das falsche Sicherheitsmodell für die nächste Phase zu verrennen.</p>
+
+Sie haben bereits etwas aus Lovable, Bolt, v0, Replit, Cursor oder Claude Code exportiert. Die Stack-Frage ist nicht «React oder etwas anderes auf einer Folie». Sie lautet, ob die Voreinstellungen Ihres Werkzeugs noch zum Job passen, sobald Fremde das Produkt nutzen. Warum Messung und Deployment neben dem Stack zählen, steht in [warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps). Zur Oberfläche (Browser, Store, Wrap) passen [ein skalierbares MVP](/de/blog/skalierbares-mvp) und Web App oder native App.
+
+## Tech Stack Startup: vier Schichten statt Modelliste
+
+Betrachten Sie den Stack als vier Entscheide, die Sie im Gespräch benennen können, nicht als Einkaufsliste trendiger Namen.
+
+<ol class="blog-flow">
+  <li><strong>Oberfläche</strong><p>Mobiles Web, Desktop-Web, native Shell oder gewrappte Seite. Store-Regeln und Offline-Bedarf folgen daraus.</p></li>
+  <li><strong>Daten</strong><p>Relationale Zeilen, Dokumente, Dateien oder vor allem Events. Später wechseln heisst neu bauen, nicht ein Schalter umlegen.</p></li>
+  <li><strong>Login und Berechtigungen</strong><p>Wer welche Datensätze lesen und schreiben darf. Ein ausgeblendeter Button in der Oberfläche ist keine Autorisierung.</p></li>
+  <li><strong>Hosting und Betrieb</strong><p>Region, Backups, Geheimnisse, und wer am Sonntag erreichbar ist, wenn etwas ausfällt.</p></li>
+</ol>
+
+Der Vibe-Coding-Weg landet oft bei React vorne und gehostetem Postgres (zum Beispiel Supabase), weil die Werkzeuge das schnell verkabeln. Das ist ein seriöser Weg zum Lernen. Ebenso eine eigene API auf einer Cloud, die Sie kontrollieren. Ebenso im Browser bleiben, bis klar ist, ob ein Store-Upload den Aufwand lohnt. Keine dieser Wahlentscheidungen beweist allein Nachfrage.
+
+## Entscheide, die später Geld und Zeit kosten
+
+**Datenmodell zuerst.** Wenn Ihr MVP Bestellungen, Mitgliedschaften, Rechnungen oder mehrstufige Formulare mit Beziehungen hat, passt eine relationale Datenbank und SQL meist zu Ihrem Denken. Wenn der Prototyp Feeds, Anwesenheit oder Chat-artige Threads ist, können Dokumentenspeicher und Realtime-SDKs schneller sein. Wählen Sie die Form, die zum getesteten Verhalten passt, und rechnen Sie damit, dass ein Pivot Daten mitnimmt.
+
+**Auth dort, wo die Daten liegen.** Backend-as-a-Service legt Regeln an die Datenbank: Row Level Security auf Postgres, Security Rules auf Firestore. Generierte Regeln aus einem Werkzeug sind ein Entwurf. [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757) beschrieb fehlende oder wirkungslose RLS bei vielen Lovable-verknüpften Supabase-Projekten, bei denen der öffentliche Client-Key ohne Login abfragen konnte. Ihr Stack ist nicht sicher, weil die Demo funktioniert, solange Sie selbst eingeloggt sind.
+
+**Hosting und Schweizer Fragen.** Wenn Partner fragen, wo Daten liegen, können Sie bei Supabase die Region Zürich (eu-central-2) bei der Projekterstellung wählen ([Regionen-Dokumentation](https://supabase.com/docs/guides/platform/regions)). Andere Anbieter haben eigene Regionenlisten; bestätigen Sie im Console statt in der Pitch-Deck-Zeile zu raten. Der Standort ersetzt weder Zugriffskontrolle noch Verträge unter dem DSG.
+
+**Code, den Sie behalten.** Software von Arbeitnehmenden gehört dem Arbeitgeber ([Art. 17 URG](https://www.rentschpartner.ch/ict-law/schutz-von-software)); Werk von externen Autorinnen und Autoren bleibt bei ihnen, bis eine schriftliche Abtretung vorliegt. Für ein Startup sollte «wir besitzen das Repo» vor dem nächsten Bau schriftlich klar sein. Der Stack sollte Sie nicht in einem Host festhalten, aus dem Sie nicht exportieren können.
+
+<div class="blog-pair">
+  <div>
+    <h3>Bei Werkzeug-Default bleiben, wenn</h3>
+    <ul>
+      <li>Ein Verhalten den Erfolg definiert und Sie in einem festen Validierungsfenster sind</li>
+      <li>Nutzer eingeladen sind oder das Volumen gering ist, und Sie offenlegen, welche Sicherheit Sie nicht geprüft haben</li>
+      <li>Die offene Frage Produkt ist, nicht Plattformbetrieb</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Einen bewussten Stack-Wechsel planen, wenn</h3>
+    <ul>
+      <li>Zahlende Kundschaft oder sensible Felder Audit, Recovery und Review über generierte Regeln hinaus brauchen</li>
+      <li>Integrationen, Reporting oder Rollen die BaaS-Konsole bekämpfen</li>
+      <li>Die gleiche Auth- oder Datenleck-Klasse nach dem zweiten Symptom-Patch wieder auftaucht</li>
+    </ul>
+  </div>
+</div>
+
+## Ein Produktionsweg unter mehreren
+
+Das verkaufte Produktvalidierungs-Paket von Aurum deployt auf **Azure mit React und NestJS**, weil viele Gründerinnen und Gründer später einen messbaren Bau, Code in eigenem Besitz und Pivot-Raum ohne No-Code-Decke brauchen. Das ist ein ehrlicher Stack für zwölf Wochen Validierung, nicht der einzige Stack für ein Schweizer Startup. Teams liefern Lernprodukte täglich auf Supabase, Firebase, Rails, .NET oder nativ mobil. Der Fehler ist, ein Lieblingsdreieck aus Blogs als Schicksal zu behandeln oder einen Vibe-Export ohne Plan als fertige Architektur zu verkaufen.
+
+Ideen als solche sind in der Schweiz nicht schützbar ([IGE](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). Der Stack verbirgt das Konzept nicht. Er beeinflusst nur, wie schnell Sie Verhalten lesen und wie teuer die nächste Schicht wird.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Die Wahl eines Tech Stacks ersetzt kein Security-Review, kein Datenschutz-Design und keinen Beweis, dass Fremde zahlen. Ein laufendes Deploy und ein beliebtes Framework sind kein Beleg, dass Row Level Security, Geheimnisse oder Admin-Routen unter Angriff stimmen.</p>
+</aside>
+
+## Was die Stack-Wahl nicht beweist
+
+Ein stimmiger Stack erlaubt Instrumentierung von Anmeldungen, Sitzungen, Abbrüchen und Support-Last. Er beweist **nicht** Preis macht, Marktplatz-Liquidität oder dass Ihre gewrappte Webseite [App-Store-Richtlinie 4.2](https://developer.apple.com/app-store/review/guidelines/) oder [Google-Play-Closed-Test-Regeln](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en) erfüllt, sobald Sie einen Store-Build hinzufügen. Das sind parallele Entscheide, keine automatische Stufe nach «wir haben Postgres gewählt».
+
+<dl class="blog-terms">
+  <div>
+    <dt>Tech Stack</dt>
+    <dd>Die Sprachen, Frameworks, Datenbanken und Hosts, mit denen Sie das Produkt betreiben, nicht das Geschäftsmodell.</dd>
+  </div>
+  <div>
+    <dt>BaaS</dt>
+    <dd>Backend-as-a-Service: Login, Datenbank und SDKs, ohne am ersten Tag einen eigenen Server zu betreiben.</dd>
+  </div>
+  <div>
+    <dt>Lock-in</dt>
+    <dd>Kosten und Zeit, einen Anbieter oder eine Datenform zu verlassen, wenn die Hypothese kippt.</dd>
+  </div>
+</dl>
+
+## Wer keine Woche mit Framework-Vergleichen verbringen sollte
+
+Wenn Sie noch nicht mit fünf Personen in der Zielrolle gesprochen haben und das Produkt noch eine Landingpage ist, nehmen Sie den Default Ihres Werkzeugs und messen Sie. Wenn regulierte Gesundheitsdaten oder strikte Mandantenisolation schon im Scope sind, brauchen Sie Architekturhilfe, keine weitere Vergleichstabelle. Wenn das Team über Lint-Regeln streitet, während niemand die App nutzt, ist der Stack Ablenkung.
+
+<div class="blog-faq">
+  <h3>Soll man für Recruiting optimieren?</h3>
+  <p>Erst, wenn das Lernziel klar ist. Ein verbreitetes Framework hilft später beim Einstellen; es validiert die Idee nicht. Für den ersten Test optimieren Sie auf schnelles, instrumentiertes Verhalten und ehrliche Grenzen.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Ist «skalierbar» eine Stack-Eigenschaft?</h3>
+  <p>Teilweise. Skalierung ist auch Produktumfang, Abfragen und Betriebsdisziplin. Ein kleines Team auf einem schlichten Monolithen lernt oft schneller als ein Microservice-Diagramm, das niemand betreibt. Skalierbarkeit im MVP heisst meist «können wir die Meinung ändern ohne ein halbjähriges Rewrite», nicht «eine Million Nutzer morgen».</p>
+</div>
+
+Wenn die offene Frage Verhalten mit Messung, bezogener Akquise und einer Go-, Pivot- oder Stop-Empfehlung auf Code in eigenem Besitz ist, passt das [Produktvalidierungs-Paket](/de/services/mvp-validation) zu dieser Phase. Woche 1 bis 4 liefern eine deployte Web-App mit Analytics vom ersten Tag; spätere Wochen betrachten Cost per Lead, Conversion und Abbrüche, mit eingebautem Pivot-Raum. Es passt schlecht, wenn Sie nur einen Fake Door brauchen oder eine Framework-Debatte ohne benannte Hypothese führen wollen. Buchen Sie ein Erstgespräch auf der Kontaktseite, wenn zwölf Wochen strukturiertes Lernen zum Risiko passt, das Sie eingehen.

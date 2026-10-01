@@ -12,11 +12,17 @@ draft: false
 site: prozess-check
 ---
 
-## Automate Google Workspace with Apps Script, AppSheet and Gemini
+## Automate Google Workspace: which tool does what?
 
-To automate Google Workspace, an SME uses three tools that do different jobs. Apps Script is JavaScript that runs on Google's servers and works with Sheets, Gmail, Drive, Calendar and Forms, so it is the tool that moves data when nobody is typing. AppSheet builds small apps without code. Gemini helps a person write, summarise and search, but it does not run a process by itself. The limits are daily quotas, scripts that belong to one person's account, and the fact that someone has to read the code later.
+To automate Google Workspace, a Swiss SME usually mixes three Google tools. Apps Script moves data on a schedule or after a form submit. AppSheet gives non-developers a small app on top of Sheets. Gemini drafts and searches inside Docs and Gmail. None of the three replaces the others, and only Apps Script runs a process while nobody is at the keyboard.
 
-This is for owners, office and finance leads in Swiss SMEs that already work in Gmail, Drive and Sheets. If your firm runs on Microsoft 365, the counterpart is [automating Microsoft 365 with what you already have](/prozess-check/blog/automate-microsoft-365). Whether an assistant such as Gemini is the right purchase is a separate question. [A Copilot licence or a built workflow](/prozess-check/blog/copilot-or-build-a-workflow) is about Copilot, but the fork is the same: an assistant helps a person draft, a workflow moves data when nobody is typing.
+This is for owners, office and finance leads in Swiss SMEs that already work in Gmail, Drive and Sheets.
+
+<ol class="blog-flow">
+  <li><strong>Apps Script</strong><p>JavaScript on Google's servers: triggers, mail, Sheets, Drive, published web apps.</p></li>
+  <li><strong>AppSheet</strong><p>Forms and mobile views on data you already store in Sheets, included in many Workspace editions.</p></li>
+  <li><strong>Gemini</strong><p>Assistance inside Gmail and Docs from Business Standard upward; not a nightly job.</p></li>
+</ol> If your firm runs on Microsoft 365, the counterpart is [automating Microsoft 365 with what you already have](/prozess-check/blog/automate-microsoft-365). Whether an assistant such as Gemini is the right purchase is a separate question. [A Copilot licence or a built workflow](/prozess-check/blog/copilot-or-build-a-workflow) is about Copilot, but the fork is the same: an assistant helps a person draft, a workflow moves data when nobody is typing.
 
 ## What Apps Script can do
 
@@ -75,6 +81,11 @@ Quotas are per user and reset 24 hours after the first request. Google adds that
 In our download gate, each request costs a handful of outgoing requests: the reCAPTCHA check and the calls to Microsoft. The 100,000 limit is far away, and the mail limit does not apply because we do not send through Gmail.
 
 The limit to plan around is the six minutes. A job that reads a large Sheet row by row can run out of time. Google's [best practices](https://developers.google.com/apps-script/guides/support/best-practices) advise reading all data into an array with one command and writing it back with one command, and give an example that drops from about 70 seconds to about 1 second.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>One Apps Script execution stops at six minutes on Workspace accounts. Batch reads and writes before you schedule a heavy morning job.</p>
+</aside>
 
 ## Who owns the scripts
 

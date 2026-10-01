@@ -1,0 +1,97 @@
+---
+title: "App neu entwickeln: wann Refactoring reicht"
+description: "App neu entwickeln oder refactoren? Neu bauen, wenn Architektur blockiert; refactoren, wenn Nutzung steht und der Stack tragfähig ist."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "refactoring", "architektur", "startup", "vibe coding"]
+funnelStage: consideration
+translationKey: rebuild-or-refactor-an-mvp
+relatedPosts: ["fake-door-test-oder-mvp", "briefing-app-entwicklung-vorlage"]
+draft: true
+site: studio
+---
+
+## App neu entwickeln
+
+**App neu entwickeln** heisst in der Praxis oft: den ersten MVP-Code wegwerfen und mit klarem Brief neu implementieren, statt weiter zu flicken. Das ist sinnvoll, wenn Reviewerinnen den Datenfluss nicht nachvollziehen, Geschäftsregeln im Browser statt auf einem Server liegen oder Beschaffung und Pilot einen Stack verlangen, den Ihr Generator nie geliefert hat. **Refactoren** heisst: dasselbe Produkt behalten, Auth, Datenzugriff, Module und Betrieb reparieren, während echte Nutzerinnen den Kernjob schon erledigen. Beides ist Technik nach Validierung, kein Ersatz für die Frage, ob überhaupt Nachfrage da ist.
+
+Der Text richtet sich an Gründerinnen, Gründer und Innovationsverantwortliche in der Schweiz, die mit Lovable, Bolt, v0, Replit oder Cursor etwas Live haben und jetzt Pilotvertrag, Sicherheitsfrage oder Due Diligence spüren. Wer noch zwischen Fake-Door und erstem Build wählt, liest zuerst [Fake-Door oder MVP](/de/blog/fake-door-test-oder-mvp). Warum Messung trotzdem ein Produkt braucht, das Sie trauen, steht in [warum produktionsqualitative MVPs](/de/blog/warum-produktionsqualitative-mvps).
+
+<ol class="blog-flow">
+  <li><strong>Verhalten lesen</strong><p>Sessions, Rückkehr, Abschluss des Kernjobs, nicht nur Registrierungen.</p></li>
+  <li><strong>Repo und Recht</strong><p>Gehört Ihnen der Code? Können Sie deployen?</p></li>
+  <li><strong>Risiko sortieren</strong><p>Sicherheit und Architektur oder falsches Segment?</p></li>
+  <li><strong>Pfad wählen</strong><p>Refactor, Rebuild, oder Review vor der Entscheidung.</p></li>
+</ol>
+
+## App neu entwickeln oder am Code bleiben?
+
+| Ihre Lage | Zuerst refactoren | eher neu entwickeln |
+| --- | --- | --- |
+| Fremde haben den Kernjob geschafft | Ja, wenn der Stack erlaubt ist | Nur wenn Architektur blockiert |
+| Policies und Secrets sind unklar | Oft reparierbar | Wenn Regeln nicht ins Backend wandern |
+| IT verlangt Azure, NestJS, On-Prem | Selten ohne Bruch | Häufig ja |
+| Eine Person pflegt Supabase und React | Passt | Rebuild braucht dauerhafte Kapazität |
+
+Viele Teams suchen «App neu entwickeln», weil der erste Lieferant oder das KI-Tool «schnell» war und der Code jetzt peinlich wirkt. Peinlich allein ist kein Grund. Ein Grund ist, wenn Sie den Pilot schon verkauft haben und unter Zeitdruck keine ehrliche Sicherheitsprüfung am Repo schaffen. Ein anderer ist, wenn jede neue Funktion zwei alte bricht, obwohl das Briefing stabil ist.
+
+## Refactoren: wenn das Produkt die Investition verdient
+
+Refactoren lohnt, wenn das Segment und Versprechen seit Wochen gleich bleiben und die Mängel einer Liste entsprechen: fehlende Tests, schwache Row-Level-Policies, Schlüssel im Frontend-Bundle, kein CI, Hosting im Builder statt bei Ihnen. Öffentliche Vorfälle bei generierten Supabase-Projekten betrafen fehlende oder wirkungslose Row Level Security ([CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757)). Wer wöchentlich SQL und TypeScript lesen kann, behebt diese Klasse oft ohne Greenfield.
+
+Prüfen Sie vor dem Refactor, ob Sie den Code bearbeiten dürfen. Software, die Ihr Team für die Firma baut, gehört in der Regel dem Arbeitgeber ([Art. 17 URG](https://www.rentschpartner.ch/ict-law/schutz-von-software), allgemein auf der verlinkten Seite). Externe Autorinnen ohne schriftliche Abtretung können Rechte behalten. Refactoren ohne Repository-Recht verschwendet Zeit.
+
+<div class="blog-pair">
+  <div>
+    <h3>Refactoren, wenn</h3>
+    <ul>
+      <li>Fremde den Kernjob mehrfach abgeschlossen haben</li>
+      <li>Einkauf oder IT den Stack akzeptiert</li>
+      <li>Die Lücken auf einer kurzen Sicherheitsliste stehen</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Neu entwickeln, wenn</h3>
+    <ul>
+      <li>Niemand den Datenfluss an einem Tag erklärt</li>
+      <li>Regeln dauerhaft auf Ihrem Server leben müssen</li>
+      <li>Die nächste Phase einen anderen Stack erzwingt</li>
+    </ul>
+  </div>
+</div>
+
+## App neu entwickeln: wenn der erste Stack nur Gerüst war
+
+Neu entwickeln ist ehrlich, wenn der MVP bewusst ein **Gerüst** war: Concierge hinter der Oberfläche, manuelle Tabellen, Marketing-UI vor Engineering. Tragen Sie diese Abkürzungen in einen bezahlten Pilot, kostet Flicken oft mehr als ein fokussierter Neubau auf Azure mit React und NestJS, so wie Aurum Validierungsprojekte für Kundinnen baut, nicht so wie Vibe-Tools standardmässig liefern.
+
+Auch ein **Scope-Sprung** rechtfertigt Neuentwicklung: von gemeinsamen Entwürfen zu Provisionen, Mandantentrennung oder Integrationen, die das erste Werkzeug nicht sauber modelliert. Patch auf Patch sieht nach Fortschritt aus und verhält sich wie Schulden.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Neu entwickeln oder refactoren beantwortet nicht, ob jemand Ihr Produkt will. Beides setzt voraus, dass das Experiment schon Nutzung gezeigt hat. Bei dünnen Sessions und nur Bekannten im Login zuerst das Experiment schärfen, nicht den Stack tauschen.</p>
+</aside>
+
+## Was keiner der Wege beweist
+
+Ein gehärtetes Repo kann Review bestehen und trotzdem nach Preisänderung Nutzer verlieren. Eine neue Oberfläche auf gleichem Segment wiederholt denselben Fehler. Ideen als solche sind nicht schützbar ([IGE zu Ideen](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). Weder Refactor noch Rebuild ersetzen Retention, Vertrag oder klares Briefing, wie in der [Briefing-Vorlage für App-Entwicklung](/de/blog/briefing-app-entwicklung-vorlage).
+
+## Ein erfundenes Beispiel: Lieferant will Isolation
+
+Ein erfundenes Beispiel: ein Team in Bern trackt Baustellen-Freigaben in v0, acht Bauleiterinnen loggen sich zweimal ein. Ein Grosslieferant will einen Pilot auf Subdomain und fragt nach Kundendaten-Isolation. Die Liste: keine Tests, Policies aus Vorlage, ein Edge-Function mit Service-Key, drei Screens in einer Datei mit über neunhundert Zeilen. Schätzung: drei Wochen Härtung versus zehn Wochen Neubau mit API, die Einkauf schon freigegeben hat. Sie refactoren zuerst, weil Verhalten echt ist und Supabase in Zürich ([Region laut Supabase-Dokumentation](https://supabase.com/docs/guides/platform/regions)) akzeptiert ist. Vor breiterem Signup buchen sie ein strukturiertes Review. Zeigt das Review Regeln nur im Client ohne Server-Pfad, stoppen sie Refactor und planen Neuentwicklung mit demselben Pilot-Brief.
+
+## Wer beide Optionen verschieben sollte
+
+Nicht neu entwickeln, um einen **Fake-Door** zu umgehen, den Sie nie gefahren sind. Nicht refactoren, weil die UI rotiert, während niemand ausser dem Netzwerk den Job beendet. Angebote für Komplett-Rewrite ohne Nutzungsdaten verkaufen Beruhigung, keine Strategie.
+
+Ohne Person, die den Ziel-Stack betreibt, ist Neuentwickeln kein Zauber. Kapazität hiren, Review mit priorisierter Liste kaufen, oder Experiment verkleinern.
+
+<div class="blog-faq">
+  <h3>Ist «App neu entwickeln» immer der richtige Suchbegriff?</h3>
+  <p>Oft meinen Sie Refactor plus Review. Suchen Sie neu entwickeln, wenn Refactor unter Zeitdruck scheitert oder Beschaffung einen Bruch verlangt. Die Worte sind nicht wichtiger als die offene Architekturfrage.</p>
+</div>
+
+## Wann ein Vibe Code Review passt
+
+Ein [Vibe Code Review](/de/services/vibe-code-review) passt, wenn Sie **App neu entwickeln** oder refactoren mit Belegen entscheiden, nicht mit Bauchgefühl. Das Repository bleibt bei Ihnen. Sie erhalten eine Lückenanalyse gegen OWASP ASVS v5.0, acht fokussierte Stunden zu Architektur und Codequalität, eine priorisierte P0/P1/P2-Liste, ein abschliessendes Gespräch und eine NDA. Buchen lohnt sich, wenn Pilot oder Investorin das Repo bald liest und Sie wissen wollen, was Refactor rettet und was einen Neubau braucht.
+
+Beschreiben Sie auf der Kontaktseite beim [Vibe Code Review](/de/services/vibe-code-review) Pilotdatum, Stack und ob Traffic schon ausserhalb des Builders läuft. **Nicht buchen**, wenn es kein Repository gibt, wenn Sie nur Landingpage-Nachfrage testen, oder wenn Sie einen Rewrite innerhalb von Lovable erwarten. Wenn Refactor nicht reicht und Sie den Validierungsbau mit Analytics und Paid Acquisition brauchen, ist das Produkt-Validierungspaket der nächste Schritt, nicht dieses Review. Beides in derselben Anfrage benennen, statt Review als verstecktes Neubau-Angebot zu nutzen.

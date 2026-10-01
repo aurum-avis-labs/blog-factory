@@ -1,0 +1,93 @@
+---
+title: "Transferring personal data to the United States from Switzerland"
+description: "Transferring personal data to the US from Switzerland needs a legal basis under the FADP. Swiss-U.S. Data Privacy Framework applies only to certified US firms."
+pubDate: 2026-11-30
+author: "Aurum Avis Labs"
+tags: ["data protection", "fadp", "international", "cloud"]
+funnelStage: awareness
+translationKey: transferring-personal-data-to-the-united-states
+relatedPosts: ["microsoft-365-and-swiss-data-protection", "shared-team-passwords", "clicked-a-phishing-link-at-work"]
+draft: false
+site: security
+---
+
+## Transferring personal data to the United States from Switzerland
+
+Transferring personal data to the United States happens whenever a Swiss company uses US-hosted software, US support staff can read mailboxes, or a backup lands in an American data centre. Under the [Swiss FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de), disclosure abroad is only permitted if the Federal Council has decided adequate protection exists, appropriate safeguards apply, or a narrow legal exception applies ([Art. 16 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de)). For many SMEs the practical question is whether the vendor participates in the Swiss-U.S. Data Privacy Framework and whether your contract matches reality. Statutory cyber reporting to BACS usually does not apply to a standard office, see [cyberattack reporting obligation Switzerland](/security/blog/cyberattack-reporting-obligation-switzerland).
+
+This article is for owners and finance leads in Swiss firms with about 20 to 250 employees who run Microsoft 365, US CRM tools, or marketing platforms. It is orientation, not legal advice. Certification under the framework is a property of the US recipient, not something you claim about your own company.
+
+## When data actually leave Switzerland
+
+A Swiss tenant in a cloud product may still be processed in the US if the provider's architecture, support, or disaster recovery routes traffic there. Employee names in Slack, customer mail in Google Workspace, applicant CVs in a US ATS, and newsletter lists in Mailchimp are all transfers if the recipient organisation or its subprocessors are subject to US law. «We only have an office in Zurich» does not stop transfer when the contract says processing may occur in the United States.
+
+Domestic hosting in Switzerland with a US parent company can still involve group-wide access from abroad. Read the processing agreement and subprocessor list, not only the marketing map on the website.
+
+<div class="blog-stat">
+  <strong>52%</strong>
+  <p>Share of cases reported to BACS in the second half of 2025 classified as fraud, in BACS's [half-year report](https://www.bacs.admin.ch/de/hjb-25-2-de). Cloud misuse is not the same as fraud, but mail and payment data are common targets.</p>
+</div>
+
+## Swiss-U.S. Data Privacy Framework in plain terms
+
+The Swiss-U.S. Data Privacy Framework is a mechanism the Swiss authorities recognise for certain US organisations that self-certify and commit to defined principles. It applies to certified US companies as recipients, not to your Swiss firm as sender. Before you tell a customer «our supplier is covered», check the current certification list published by the US Department of Commerce and any FDPIC guidance. A vendor's blog post is not proof.
+
+If the recipient is not certified, you need another recognised safeguard such as standard contractual clauses adapted for Switzerland, or you must assess whether an exception in law applies. That assessment belongs with counsel for sensitive health, legal, or employee data.
+
+<ul class="blog-scenarios">
+  <li><h3>US CRM with customer contacts</h3><p>Check the vendor's framework entry, subprocessors in the DPA, and treat Excel exports as a second transfer.</p></li>
+  <li><h3>Microsoft 365 in daily use</h3><p>Clarify tenant region and support access. A dedicated Microsoft 365 and Swiss data protection article follows in the cluster; here the transfer question is general.</p></li>
+  <li><h3>US analytics on the website</h3><p>IP and behaviour can be personal data. Document consent or another basis plus the transfer.</p></li>
+</ul>
+
+## What this is not
+
+It is not the same as signing a data processing agreement under Art. 9 FADP. You need both where a US processor handles data on your behalf. It is not GDPR «adequacy» for the EU; Swiss rules are separate even when contract text looks similar. It does not remove your duty to secure accounts: shared passwords and missing MFA still cause incidents regardless of transfer paperwork.
+
+## Who can worry less for now
+
+A firm that processes personal data only on servers physically operated in Switzerland, with no US subprocessors in the chain, has a simpler map. That is rare once mail and collaboration are cloud-based. Micro-businesses with only paper files and a local accountant may have few transfers until they adopt SaaS tools.
+
+Freelancer tools on US servers for one-off projects can still be a transfer even when the main contract says «Switzerland only». List those exceptions in the inventory instead of running them in the shadows.
+
+## GDPR customers and contracts
+
+If you process people in the EU, customers often expect GDPR-style clauses as well as Swiss rules. That does not remove your own FADP assessment for US transfers. Two contract frameworks can apply in parallel; the technical reality in your tools should match both where agreed.
+
+## What to do first
+
+Inventory which tools hold personal data and where the vendor says processing occurs. For each US-facing service, note processing agreement, subprocessors, and whether the recipient appears on the framework list if they claim it. Ask your IT partner how admin support is delivered. Align with customer questionnaires honestly: «we rely on vendor X's certification» only after you verified it.
+
+After a near-miss on mail fraud, technical hygiene matters as much as transfer law. [What to do if someone clicked a phishing link at work](/security/blog/clicked-a-phishing-link-at-work) covers the first internal steps. A [data protection awareness session](/security/datenschutz) helps staff understand what may not go into US tools without a decision.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Framework status and Art. 16 FADP exceptions change with politics and court practice. Verify lists and contracts before audits, do not copy this paragraph into a legal memo.</p>
+</aside>
+
+<div class="blog-pair">
+  <div>
+    <h3>Reasonable next step</h3>
+    <ul>
+      <li>Subprocessor list plus certification check for main US tools</li>
+      <li>Document who verified and when</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should stop and ask counsel</h3>
+    <ul>
+      <li>Health data, legal mandates, or large-scale employee monitoring to US analytics</li>
+      <li>Customer contract forbids US processing</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-faq">
+  <h3>Is every email through a US host already a transfer?</h3>
+  <p>If the provider processes data in the US or is subject to US law, it belongs on your risk list. Whether a specific configuration is permitted is for counsel with your contract and Art. 16 FADP.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Does a Swiss data centre on the website suffice?</h3>
+  <p>Only if contract, subprocessors, and support access tell the same story. US parent companies and global admin teams are a frequent reason auditors ask follow-up questions.</p>
+</div>

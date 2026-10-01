@@ -1,0 +1,104 @@
+---
+title: "MVP Launch Checkliste"
+description: "MVP Launch Checkliste vor echten Nutzenden: Kernflow, Messung, Datenschutz, Stores. Was sie belegt, was nicht, und wer warten kann."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "launch", "checkliste", "analytics", "app store"]
+funnelStage: interest
+translationKey: mvp-launch-checklist
+relatedPosts: ["app-im-app-store-veroeffentlichen", "app-store-abgelehnt-4-2"]
+draft: true
+site: studio
+---
+
+## MVP Launch Checkliste
+
+Eine **MVP Launch Checkliste** ist der kurze Durchlauf, bevor Fremde sich anmelden können, bevor bezahlte Anzeigen auf eine Live-URL zeigen oder bevor eine Pilotkundin Kolleginnen einlädt. Sie polieren nicht für eine Investorinnen-Demo. Sie stellen sicher, dass das Produkt nutzbar, messbar und erreichbar ist, ohne Lücken, die jede Kennzahl zur Geschichte über kaputte Software machen.
+
+Der Text richtet sich an Gründerinnen, Gründer und Innovationsverantwortliche in der Schweiz, die bereits etwas Deploybares haben, keinen Klickdummy. Testen Sie Nachfrage nur mit einer Landingpage, sind die meisten Punkte unten zu früh. Warum Deploy-Qualität Teil der Validierung ist, steht in [warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps).
+
+<div class="blog-pair">
+  <div>
+    <h3>Checkliste laufen lassen, wenn</h3>
+    <ul>
+      <li>Fremde ausserhalb von Freunden und Familie Konten anlegen oder Daten einreichen können</li>
+      <li>Sie in den nächsten Wochen bezahlte Akquise oder einen Store-Eintrag planen</li>
+      <li>Ein B2B-Pilot eine stabile URL, eine Datenschutzerklärung und eine erreichbare Ansprechperson erwartet</li>
+      <li>Sie zwei Wochen Verhaltensdaten brauchen, die Sie Woche für Woche vergleichen können</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Kürzen oder überspringen, wenn</h3>
+    <ul>
+      <li>Sie nur einen Fake-Door- oder Wartelistentest ohne Produktlogin fahren</li>
+      <li>Nur Sie lokal bauen und keine Personendaten Ihren Rechner verlassen</li>
+      <li>Die Beratung diesen Monat bereits ein reguliertes Launch-Paket freigegeben hat</li>
+    </ul>
+  </div>
+</div>
+
+## Was die Liste belegt und was nicht
+
+Alle Punkte abhaken heisst: Sie haben Startblocker gefunden, die Sie in ein bis zwei Tagen beheben konnten, und offene Risiken notiert. Es beweist kein Product-Market-Fit, keinen wiederholbaren Akquisekanal und keinen richtigen Preis. Ein sauberer Start heisst nur, dass das Signal eher zur Leistung gehört als zu einem fehlenden Passwort-Reset oder einem leeren Analytics-Tag.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Die Liste ist technische und Go-to-Market-Hygiene, keine Rechtsauskunft. Gesundheitsdaten, Personalakten oder Produkte für Kinder brauchen Beratung, bevor Sie den Zugang erweitern, auch wenn die App «funktioniert».</p>
+</aside>
+
+## Die Checkliste vor dem Go-Live
+
+Von oben nach unten arbeiten. Ist ein Punkt nicht anwendbar, eine Zeile warum notieren, damit eine externe Person nicht annimmt, Sie hätten ihn vergessen.
+
+<ul class="blog-checklist">
+  <li><strong>Ein Kernjob, durchgängig.</strong> Eine neue Nutzerin kann das Hauptversprechen ohne Sie im Raum erledigen: anmelden, handeln, Ergebnis sehen. Nebenscreens dürfen warten; der Pfad, den Sie messen, darf nicht von einem versteckten Admin-Schalter abhängen.</li>
+  <li><strong>Produktions-Host, keine Dev-URL.</strong> Der Link in Anzeige oder Mail ist dieselbe Umgebung wie im Test. HTTPS steht, Sitzungen überleben Reload, und Sie wissen, wer deployt und zurückrollt.</li>
+  <li><strong>Analytics und Sitzungskontext.</strong> Seitenaufrufe allein reichen für ein Produkt selten. Events definieren, an denen Sie den Test beurteilen (Anmeldung, Aktivierung, Kernaktion, Abbruchstelle), und in einem privaten Browser prüfen. Sitzungsaufzeichnungen erklären Stillstand; in der Schweiz nur mit klarer Information einschalten, wenn Ihr Traffic hier liegt.</li>
+  <li><strong>Datenschutz und Kontakt.</strong> Veröffentlichen, wer Daten bearbeitet, wozu, und wie man Sie erreicht. Deckung mit der Landingpage. Ein generelles Cookie-Banner ist in der Schweiz nicht für jede Site Pflicht; Profiling, bestimmte Weitergaben und Cross-Site-Tracking brauchen Einwilligung, sonst informieren und Widerspruch ermöglichen (Art. 45c FMG). Im Zweifel Beratung statt deutsche Vorlage kopieren.</li>
+  <li><strong>Fehler für Sie sichtbar, nicht nur für Nutzende.</strong> Bewusst einen Fehler auslösen. Prüfen, ob Ihr Team Alarm oder Log sieht, ohne den Bildschirm der Nutzerin zu lesen. Rohe Stacktraces im Browser sind ein Leck; vor Skalierung maskieren oder beheben.</li>
+  <li><strong>Supportweg.</strong> Ein überwachtes Postfach oder Formular für «es geht nicht». Intern ist für die ersten 48 Stunden nach dem Start jemand benannt, auch wenn es die Gründerin ist.</li>
+  <li><strong>Versprechen stimmt überein.</strong> Headline, Store-Screenshot und erster Screen beschreiben denselben Job. Ein Überraschungs-Upsell oder eine andere Zielgruppe am ersten Tag verdirbt Interview- und Retention-Daten.</li>
+  <li><strong>Daten, die Sie nicht verlieren dürfen.</strong> Speichern Nutzende Inhalte oder Nachrichten, festhalten ob Backup und Export existieren und ob Sie eine Wiederherstellung getestet haben. «Der Host sichert» ist nicht «wir haben Restore probiert».</li>
+  <li><strong>Store-Reife, wenn Sie einen Wrap schicken.</strong> Apple Guideline 4.2 erwartet mehr als eine verpackte Website; 4.2.2 lehnt reine Marketing-Shells ab. App-ähnliche Funktion vor dem Review planen. Bei Google Play brauchen neue persönliche Entwicklerkonten nach dem 13. November 2023 einen geschlossenen Test mit mindestens 12 Testpersonen über 14 durchgehende Tage vor Produktion. Details in [App im App Store veröffentlichen](/de/blog/app-im-app-store-veroeffentlichen) und [App Store abgelehnt 4.2](/de/blog/app-store-abgelehnt-4-2).</li>
+  <li><strong>Erfolgskriterien schriftlich.</strong> Ein Absatz: was Sie in den nächsten zwei bis vier Wochen ansehen, was «Stopp» bedeutet, und was Sie aus einer kleinen Stichprobe nicht schliessen. Ohne das fühlt sich jeder Peak nach Traktion an und jeder ruhige Tag nach Scheitern.</li>
+  <li><strong>Launch-Log.</strong> Datum, Version, wer deployt hat, was geprüft wurde, bekannte offene Risiken. Das brauchen Sie, wenn der erste Bugreport um Mitternacht kommt.</li>
+</ul>
+
+## Ein erfundenes Beispiel: ein B2B-Dienstplan-Tool am Mittwoch
+
+Ein erfundenes Beispiel: Zwei Personen bringen eine Dienstplan-Web-App für kleine Pflegeheime in der Deutschschweiz live. Keine Zahlungen in v1; Leitung lädt Mitarbeitende per E-Mail ein. Am folgenden Montag starten sie einen bescheidenen LinkedIn-Test.
+
+Am Mittwoch laufen sie die Checkliste. Anmeldung und Einladung funktionieren in mobilem Safari, aber «Woche veröffentlichen» scheitert still, wenn die Sitzung älter als eine Stunde ist; sie beheben Token-Refresh vor Anzeigenbudget. Analytics-Events fehlten beim Einladungsschritt; sie ergänzen ein benanntes Event und prüfen in der Debug-Ansicht. Die Datenschutzseite erwähnt noch ein Produkt aus der Beta; sie schreiben den Zweck neu. Sie reichen noch keinen iOS-Wrap ein, weil das Produkt browser-first bleibt und Guideline 4.2 ein Risiko wäre. Erfolgskriterien: zehn aktivierte Heime mit mindestens einer veröffentlichten Woche innert 21 Tagen, sonst Anzeigen pausieren und fünf Leitungen interviewen, die bei der Einladung abgebrochen sind. Das Launch-Log ist eine gemeinsame Notiz mit Version 0.9.3 und «Restore ungetestet».
+
+Der Durchlauf dauerte einen Tag. Er bewies nicht, dass Heime zahlen. Er verhinderte Klicks, solange Einladungen kaputt waren.
+
+## Typische Lücken, die wie «keine Nachfrage» aussehen
+
+Kaputte E-Mail-Zustellung, falsche Sprache auf dem Login und Analytics, die Anmeldungen doppelt zählen, erzeugen Kurven wie Ablehnung. Dasselbe gilt für eine Store-Ablehnung, die Sie erst nach dem angekündigten Datum sehen. Planen Sie Store-Vorlauf in den Kalender, wenn Mobile im Scope ist, nicht in die Nacht vor dem Ankündigungstermin.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Launch</dt>
+    <dd>Der Moment, in dem Fremde das Produkt unter einer URL oder im Store nutzen können, die Sie bewerben.</dd>
+  </div>
+  <div>
+    <dt>MVP</dt>
+    <dd>Der kleinste Build, der eine Geschäftshypothese testet, nicht jede Roadmap-Funktion.</dd>
+  </div>
+  <div>
+    <dt>Aktivierung</dt>
+    <dd>Die erste Handlung, die zeigt, dass die Nutzerin Nutzen hatte, definiert bevor Sie für Anzeigen ausgeben.</dd>
+  </div>
+</dl>
+
+<div class="blog-faq">
+  <h3>Erst Web, Stores später?</h3>
+  <p>Oft ja, wenn die Hypothese Workflow und Retention im Browser ist. Stores bringen Review-Zeit und Richtlinienrisiko. Einen Wrap ergänzen, wenn Mobile Teil des Tests ist oder Einkäuferinnen ein Icon auf dem Homescreen erwarten.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Reicht die Checkliste vor Enterprise-Einkauf?</h3>
+  <p>Sie ist ein Minimum. Grössere Kundinnen fragen nach Security-Fragebögen, Datenstandort und Subprozessoren. Liste abschliessen, dann entscheiden, ob Review oder Produktionsbuild der nächste Schritt ist.</p>
+</div>
+
+Das [Produktvalidierungs-Paket](/de/services/mvp-validation) passt, wenn die Checkliste steht und die offene Frage lautet, ob echte Nutzende zurückkommen, konvertieren und profitabel erreichbar sind. In den Wochen 1 bis 4 liegt ein deploytes Produkt auf Azure in ihren Händen, mit Analytics und Sitzungsaufzeichnungen ab Tag eins; danach folgen Positionierung, Landingpage, bezahlte Akquise auf Google und LinkedIn und gemessene Pivots bis zu einer Go-, Pivot- oder Stop-Empfehlung, inklusive dem, was die Daten noch nicht beweisen. Es passt schlecht, wenn Sie nur eine Smoke-Test-Seite brauchen oder nicht bereit sind, die Richtung zu ändern, wenn die Zahlen der Story widersprechen.

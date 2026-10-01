@@ -1,0 +1,129 @@
+---
+title: "Check mailbox forwarding rules in Microsoft 365 and Exchange"
+description: "Check mailbox forwarding rules after BEC warnings: hidden forwards, inbox rules, and a practical review for Swiss SMEs."
+pubDate: 2026-12-11
+author: "Aurum Avis Labs"
+tags: ["email security", "microsoft 365", "bec", "switzerland"]
+funnelStage: interest
+translationKey: check-mailbox-forwarding-rules
+relatedPosts: ["data-processing-agreement-under-the-fadp", "when-a-dpia-is-required-in-switzerland", "data-protection-and-security-for-a-medical-practice"]
+draft: false
+site: security
+---
+
+## Check mailbox forwarding rules in Microsoft 365 and Exchange
+
+You check mailbox forwarding rules because attackers who compromise an account often add hidden forwards and inbox rules that copy mail to an external address while the mailbox still looks normal. [BACS guidance on business email compromise](https://www.bacs.admin.ch/de/business-email-compromise-de) lists forwarding review alongside two-factor authentication and payment discipline. The habit belongs next to password resets and offboarding, not only after a fraud attempt.
+
+This is for IT partners and the person who runs mail in Swiss firms with about 20 to 250 staff. Orientation for Microsoft 365 and Exchange Online, not a vendor manual.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Plan an export or central audit</h3><p>In the Microsoft 365 admin centre under Exchange, list high-risk mailboxes: finance, leadership, info@, shared function mailboxes. Ask your MSP for a monthly or quarterly report: mailbox, rule name, action, destination, last modified.</p></li>
+  <li data-step="2"><h3>Review per-user mailbox forwarding</h3><p>For each mailbox open forwarding settings. Flag external targets at gmail.com, proton.me, or unknown domains without written approval. Forward-only with no copy left in the mailbox is especially risky.</p></li>
+  <li data-step="3"><h3>Walk inbox rules</h3><p>Outlook rules can delete mail, move security alerts to RSS folders, or forward externally. Short rule names, odd characters, or creation dates right after a phishing click are suspicious. Check delegates and send-as in the same pass.</p></li>
+  <li data-step="4"><h3>Check organisation transport rules</h3><p>Exchange transport rules can override user settings or copy mail elsewhere. Hybrid setups with on-prem connectors add another leak point. Document both layers.</p></li>
+  <li data-step="5"><h3>If rules are malicious, assume compromise</h3><p>Reset password and sessions, review sent items and payment instructions, inform finance. Then incident log and repeat the rule check after seven days.</p></li>
+</ol>
+
+## What you are looking for
+
+Legitimate forwards exist: a function mailbox copied to a team lead, or temporary leave forwarding with HR approval. Risky patterns include external forward with no copy kept, rules that hide security warnings, and personal forwards on shared addresses like info@.
+
+Separate mailbox-wide forwarding from inbox rules that match only certain senders or subjects. Attackers often combine both: one rule forwards invoices, another deletes Microsoft alerts. SMTP forwarding at server level is rarer in pure Microsoft 365 tenants but still appears after migrations.
+
+<ul class="blog-checklist">
+  <li>Store each export with date and reviewer name</li>
+  <li>Reconcile external forwards with management or finance</li>
+  <li>Prioritise rules with delete, move to RSS, or blank names</li>
+  <li>After a find: password, MFA, sent items, then re-check</li>
+</ul>
+
+<div class="blog-stat">
+  <strong>52%</strong>
+  <p>Fraud share among cases reported to BACS in H2 2025, per the BACS half-year report. Mail takeover often precedes [invoice IBAN fraud](/security/blog/invoice-fraud-changed-iban).</p>
+</div>
+
+## What this is not
+
+Not a replacement for MFA or for your full payment approval process. Not legal advice on whether forwarding personal data requires [FDPIC](https://www.edoeb.admin.ch/) notification. The FADP expects appropriate technical and organisational measures ([Art. 8 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de)); this article describes one of them.
+
+## A made-up example: rule named «..»
+
+A made-up example: a bookkeeper clicks a fake invoice link. Two days later an IT check finds a forward to a free mail provider and a rule that deletes messages containing «password reset». Finance verifies open payables by phone; MFA is enforced. No known bulk exfiltration, but the forward may have run for weeks.
+
+<div class="blog-pair">
+  <div>
+    <h3>Who can start with manual checks</h3>
+    <ul>
+      <li>Few mailboxes and one IT person who knows each user</li>
+      <li>Monthly look in the admin centre with a dated log</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who needs reports</h3>
+    <ul>
+      <li>Larger tenants with many shared mailboxes</li>
+      <li>Firms with payment mail and frequent finance staff turnover</li>
+    </ul>
+  </div>
+</div>
+
+## Shared mailboxes and client mail
+
+In [data protection for property managers](/security/blog/data-protection-for-property-managers) and [fiduciary mailboxes](/security/blog/data-protection-for-fiduciaries-and-law-firms), lease or mandate PDFs arrive daily. Review rules there first. Shared info@ with delegation beats forgotten personal forwards.
+
+## Personal data and records
+
+Forwarded mail may hold health, payroll, or client data. If a forward ran a long time, counsel helps decide whether high risk requires notification. Document internally even when no external report is needed: date, mailboxes checked, findings, actions.
+
+## Finance and callback
+
+After the technical review, remind payment approvers to call back on changed bank details. BACS lists phone verification; forwarding review ensures attackers are not reading your replies.
+
+<ol class="blog-flow">
+  <li><strong>Week 1</strong><p>Request MSP export, finance mailboxes first, remove unapproved external forwards.</p></li>
+  <li><strong>Week 2</strong><p>Close MFA gaps, book a quarterly calendar slot, file the log.</p></li>
+  <li><strong>Ongoing</strong><p>Re-run after any accounts payable exit and after phishing on a finance mailbox.</p></li>
+</ol>
+
+## Log for audit and insurance
+
+A usable log needs fewer than ten columns: date, mailbox, rule type (forward, inbox, transport), destination, verdict (OK, removed, open), reviewer name, ticket or incident reference. Without «open» rows the report looks all-clear when you deliberately skipped a locked client mailbox. Store the file beside annual access reviews.
+
+## Add awareness
+
+Users sometimes add forwards in mobile Outlook themselves. A [security awareness](/security/security-awareness) session for finance and reception covers phishing, reporting, and why «for testing» is not a reason for an external forward. Live session about one to two hours, remote or on site in Switzerland, with a follow-up conversation a few weeks later.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Microsoft 365 menu paths change. Confirm steps in current documentation or with your MSP.</p>
+</aside>
+
+<div class="blog-faq">
+  <h3>How often should we check mailbox forwarding rules?</h3>
+  <p>Quarterly when payment mail is in scope. Immediately after suspected compromise or a phishing click on a finance mailbox.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Include shared mailboxes?</h3>
+  <p>Yes. Delegates and hidden user rules on info@ and finance@ every quarter.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>What if we find a malicious rule?</h3>
+  <p>Assume compromise: passwords, sessions, sent mail, payment instructions, then your incident process.</p>
+</div>
+
+## Working with your MSP
+
+Ask for a recurring report: mailbox, rule name, action, external address, last modified. If the MSP cannot deliver it, schedule a screen-share audit in the admin centre. After mergers, inherited tenants often hide years of legacy forwards. Log organisation transport rules and shared mailboxes with no personal owner in the same file.
+
+## After finance staff leave
+
+When someone leaves accounts payable, re-check their mailbox and any delegates on info@ and finance@. Former staff sometimes leave personal forwards in place. That fits the rhythm of [security onboarding for new staff](/security/blog/security-onboarding-for-new-staff), even though this article only covers mail.
+
+## CEO fraud and readable replies
+
+BACS reports rising CEO fraud; a compromised mailbox can read your callback replies. Forwarding review is not a payment control, but it closes a gap beside the [four-eyes principle for payments](/security/blog/four-eyes-principle-for-payments). Pair the technical check with a short reminder of fraud patterns from BACS guidance, without alarm.
+
+Keep the review log beside access reviews and offboarding. Insurers increasingly ask how you detect mailbox compromise; a dated rule log answers part of that without invented metrics. In hybrid setups with on-prem Exchange still running, check connector rules and journal archives; old rules may stay active after cloud migration. Store the export for at least a year for insurer and client audits if your retention policy allows.

@@ -1,0 +1,96 @@
+---
+title: "Marketplace MVP and the demand side: test job posters first"
+description: "A marketplace MVP must stress the demand side, not only helper signups. Scope, measures, and limits from a Zurich client build."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["marketplace mvp", "demand side", "startup validation", "zurich", "two-sided market"]
+funnelStage: interest
+translationKey: marketplace-mvp-demand-side
+relatedPosts: ["a-launch-is-not-validated-demand", "testing-a-niche-product-before-revenue"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">A marketplace MVP and the demand side belong in the same sentence: if you only measure how many helpers, hosts, or sellers sign up, you can ship a polished product and still fail the business, because liquidity needs people who post real jobs, listings, or requests without you chasing them.</p>
+
+## Marketplace MVP and the demand side
+
+Two-sided markets look symmetric in a deck. In the first test one side is usually easier: students, freelancers, hosts. The harder bet is residents who trust a stranger, employers who post shifts, buyers who pay before supply is obvious. A **marketplace MVP** should surface that gap early, with tracking and without hiding behind payments and dispute flows before a genuine post exists.
+
+For founders and innovation leads in Switzerland scoping a local marketplace, the frame is in [how Aurum Avis validates MVPs](/blog/how-aurum-avis-validates-mvps). Here: which side to stress, what to defer, and how to read signups when demand still comes from your network.
+
+<div class="blog-pair">
+  <div>
+    <h3>What a demand-side test can show</h3>
+    <ul>
+      <li>Whether strangers post tasks, shifts, or listings with enough detail to match</li>
+      <li>Which channels reach job posters, not only applicants</li>
+      <li>Where people hesitate before they publish (trust, pricing language, effort)</li>
+      <li>Whether supply signups convert when a real post exists nearby</li>
+    </ul>
+  </div>
+  <div>
+    <h3>What it does not prove</h3>
+    <ul>
+      <li>Marketplace liquidity at scale</li>
+      <li>Unit economics once you add payments, insurance, or commissions</li>
+      <li>That a wrapped mobile app will pass store review</li>
+      <li>Repeat behaviour after the first friendly post</li>
+    </ul>
+  </div>
+</div>
+
+## How to stress-test the demand side before you add marketplace plumbing
+
+Keep the first loop narrow: enough surface for both sides to meet, enough measurement to see who moved, and a written rule for what would count as demand failure.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Name the scarcer side in one line</h3><p>Write who must post first for the other side to care. If you are wrong, you will still learn which side actually moved.</p></li>
+  <li data-step="2"><h3>Ship the smallest path from post to match</h3><p>Listings, profiles, categories, applications or chat, and a landing page that speaks to job posters as clearly as to suppliers.</p></li>
+  <li data-step="3"><h3>Instrument from day one</h3><p>Tag poster versus applicant events, use UTM links and session recordings, and separate warm traffic from paid or QR-led traffic in your notes.</p></li>
+  <li data-step="4"><h3>Run acquisition on the demand story</h3><p>Ads, flyers, and direct outreach should test whether residents or buyers arrive without you manually filling the marketplace.</p></li>
+  <li data-step="5"><h3>Defer heavy marketplace mechanics</h3><p>Payments, commissions, contracts, KYC, ratings, and dispute tooling add weight. Leave them out until demand signal is worth the operational cost.</p></li>
+  <li data-step="6"><h3>Read the ratio, then choose the next bet</h3><p>Count posters and applicants separately, label friends and family, and decide whether the next phase is distribution, trust, or scope change.</p></li>
+</ol>
+
+## What do4me did in Zurich
+
+do4me is a **client project**, not an internal Aurum product. The idea was everyday help in Zurich: residents with small tasks and students who could take them on. The founder needed a real MVP without building a full marketplace stack before the market had spoken.
+
+In **2.5 days** Aurum Avis Labs delivered a landing page, web app, listings with profiles and categories, student applications, direct chat, Google Ads setup, Google Tag Manager, Microsoft Clarity, and QR links with UTM parameters. A wrapped path for iOS and Google Play was prepared but was **not** the first test, so the team could learn on the web before store timelines and review rules entered the picture.
+
+Deliberately left out of v1: in-app payments, platform commissions, fixed prices, contracts, KYC, ratings, disputes, and an insurance layer. That was a **scoping choice** for speed and learning, not legal advice on what a marketplace must implement in Switzerland.
+
+After launch, **17 students** signed up; **four people** posted jobs, mostly friends and family. Supply moved faster than demand from residents who did not already know the founder. **Marketplace liquidity was not validated**. The next bet was job-poster acquisition, not admin features. Details are on the [do4me portfolio page](/portfolio/do4me).
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Build window</span><strong>2.5 days</strong><p>Core web surface, tracking, and launch assets before the first measured traffic.</p></li>
+  <li><span class="blog-kicker">Supply signal</span><strong>17 students</strong><p>Early signups during the test phase.</p></li>
+  <li><span class="blog-kicker">Demand signal</span><strong>4 posters</strong><p>Job offerers, largely friends and family.</p></li>
+  <li><span class="blog-kicker">Liquidity</span><strong>Not shown</strong><p>Too thin to claim a working two-sided market.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Signup counts from one city and one launch window are not benchmarks. They only answer whether your next spend should chase more posters, change the promise, or stop the current wedge. Do not present supply-heavy ratios to investors as proof of product-market fit.</p>
+</aside>
+
+## Who should test demand differently
+
+B2B marketplaces with procurement or security review often need design partners before open ads. Niche consumer tests pair with [testing a niche product before revenue](/blog/testing-a-niche-product-before-revenue); launch hype with [a launch is not validated demand](/blog/a-launch-is-not-validated-demand).
+
+Skip this test if the scarce side is still unclear, if your team would enter every post, or if escrow is mandatory on day one for the job to be legal.
+
+<div class="blog-faq">
+  <h3>Should we always launch supply first because it is easier?</h3>
+  <p>Often teams recruit supply because students or freelancers respond to a signup form. That is useful only if you can observe whether supply stays active when real demand appears. If posters never come, more supply pages do not answer the business question.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>When is deferring payments reasonable?</h3>
+  <p>When your learning goal is whether strangers post and match without you in the middle, and when payment plumbing would dominate the build calendar. Deferral is a scope decision for the test; it does not tell you what you must implement before you charge.</p>
+</div>
+
+## When the Product Validation Package fits
+
+The [Product Validation Package](/services/mvp-validation) fits when you need a deployed product, positioning, paid acquisition on Google and LinkedIn, and measured conversion over twelve weeks, ending in a Go, Pivot, or Stop read with what the data did not prove. It is aimed at teams ready to treat a thin demand signal as a real result, not as a failure of engineering. If you are still choosing the wedge or have not named which side is scarce, stay in discovery before you book a build conversation on the [contact page](/contact).

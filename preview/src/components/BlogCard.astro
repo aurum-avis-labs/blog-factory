@@ -8,9 +8,10 @@ interface Props {
   post: CollectionEntry<"blog">;
   brand: string;
   lang: string;
+  siteLabel?: string;
 }
 
-const { post, brand, lang } = Astro.props;
+const { post, brand, lang, siteLabel } = Astro.props;
 
 // Strip brand/lang prefix from ID to get slug
 // ID format: {brand}/{lang}/slug.mdx
@@ -82,6 +83,14 @@ const getInitials = (name: string) =>
       <span>{readTime}</span>
       <span>&bull;</span>
       <span class="uppercase text-xs">{lang}</span>
+      {
+        siteLabel && (
+          <>
+            <span>&bull;</span>
+            <span>{siteLabel}</span>
+          </>
+        )
+      }
     </div>
 
     <h3

@@ -14,47 +14,67 @@ site: prozess-check
 
 ## Lieferschein und Rechnung an der Bestellung abgleichen
 
-Gleichen Sie eine Lieferantenrechnung mit der Bestellung und dem Lieferschein ab, bevor jemand die Zahlung freigibt. Menge und Preis innerhalb einer Toleranz, die Sie aufgeschrieben haben, können weiter. Eine unvollständige Lieferung, ein Preis, der nicht auf der Bestellung steht, und ein fehlender Lieferschein gehen an eine genannte Person. Das PDF zu zahlen, weil es bekannt aussieht, ist der Weg, Ware zu bezahlen, die nie angekommen ist.
+<p class="blog-lede">Beim Drei-Wege-Abgleich vergleichen Sie pro Zeile Bestellung, Wareneingang und Lieferantenrechnung, bevor die Zahlung freigegeben wird.</p>
 
-Das ist Einkauf. Kundenbestellungen, die per E-Mail ankommen und Ihre eigenen Aufträge werden, sind ein anderes Dokument. Das steht in [Bestellungen per E-Mail erfassen](/de/prozess-check/blog/bestellungen-per-e-mail-erfassen). Eine Lieferantenrechnung zu lesen, die die Buchhaltung schon erfasst, steht in [Belege erfassen](/de/prozess-check/blog/belege-erfassen-was-software-nicht-uebernimmt). Die Rechnung freizugeben, wenn der Abgleich steht, steht in der [Rechnungsfreigabe](/de/prozess-check/blog/rechnungsfreigabe-automatisieren). Wenn Sie der Transporteur sind und Ihre Kundschaft aus dem eigenen Ablieferbeleg verrechnen, ist das eine andere Arbeit. Hier geht es um Ware, die Sie gekauft haben.
+Gleichen Sie Lieferantenrechnungen mit der Bestellung und dem Lieferschein ab, bevor jemand bezahlt. Menge und Preis innerhalb einer Toleranz, die Sie schriftlich festgehalten haben, dürfen weiter in die Freigabe. Eine Teillieferung ohne offene Restmenge, ein Preis ausserhalb der Bestellung und ein fehlender Eingangsbeleg gehen an eine benannte Person. Wer das PDF zahlt, weil der Lieferant vertraut wirkt, bezahlt leicht Ware, die nie im Lager war.
 
-Kein Menü eines Programms wird hier beschrieben. Ob Ihr Programm schon abgleicht, sehen Sie in diesem Programm. Tut es das, und die Leute nutzen es, bleiben Sie dort. Die übliche Lücke ist der Papier- oder PDF-Lieferschein, der nie auf die Bestellung trifft.
+Hier geht es um **Einkauf**, nicht um Kundenaufträge aus dem Postfach. Das beschreibt [Bestellungen per E-Mail erfassen](/de/prozess-check/blog/bestellungen-per-e-mail-erfassen). Wenn die Buchhaltung die Rechnung schon erfasst hat, aber niemand sie mit der Bestellung vergleicht, lesen Sie [Belege erfassen](/de/prozess-check/blog/belege-erfassen-was-software-nicht-uebernimmt). Die Freigabe nach erfolgreichem Abgleich steht in [Rechnungsfreigabe automatisieren](/de/prozess-check/blog/rechnungsfreigabe-automatisieren). Wer als Transporteur aus dem eigenen Ablieferbeleg verrechnet, braucht einen anderen Ablauf.
 
-## Drei Dokumente, eine Zeile
+Kein Menü eines Programms wird hier beschrieben. Ob Ihr System schon abgleicht, sehen Sie dort. Nutzen die Leute den eingebauten Abgleich, bleiben Sie dabei. Die typische Lücke ist der Papier- oder PDF-Lieferschein, der nie auf die Bestellzeile trifft.
 
-Eine Zeile lässt sich abgleichen, wenn derselbe Artikel, dieselbe Einheit und eine Menge auf der Bestellung und auf dem Wareneingang stehen und die Rechnung nicht mehr verlangt, als angekommen ist, zu einem Preis, den die Bestellung erlaubt. Ein Zweierabgleich, Bestellung gegen Rechnung, ist das, was Sie haben, wenn niemand den Eingang erfasst. Er verpasst den Fall, in dem die Rechnung die Bestellung kopiert und die Ware noch auf dem Lastwagen ist. Der Dreierabgleich nimmt den Lieferschein oder den Wareneingang dazu.
+## Drei Belege, eine Zeile
+
+Eine Zeile passt, wenn derselbe Artikel, dieselbe Einheit und eine Menge auf Bestellung und Wareneingang stehen und die Rechnung nicht mehr verlangt, als angekommen ist, zum Preis, den die Bestellung erlaubt. **Zweierabgleich** (Bestellung gegen Rechnung) reicht nur, wenn niemand den Eingang erfasst. Dann kann die Rechnung die Bestellung spiegeln, während die Palette noch unterwegs ist. **Dreierabgleich** zieht Lieferschein oder Wareneingang dazu.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Wareneingang</dt>
+    <dd>Die Menge, die Sie am Ankunftstag auf die Bestellung buchen, nicht die Unterschrift auf dem Transportpapier allein.</dd>
+  </div>
+  <div>
+    <dt>Teillieferung</dt>
+    <dd>Ein Teil der Bestellmenge ist da. Der Rest bleibt auf der Bestellung offen, bis er kommt oder jemand ihn storniert.</dd>
+  </div>
+  <div>
+    <dt>Toleranz</dt>
+    <dd>Der Spielraum in Menge oder Franken, den eine Person vorher festgelegt hat. Der Ablauf erfindet keine.</dd>
+  </div>
+</dl>
 
 <ol class="blog-flow">
-  <li><strong>Bestellung</strong><p>Artikel, Menge, Einheit, Preis, Lieferant. Ohne das gibt es nichts zum Abgleichen.</p></li>
-  <li><strong>Eingang</strong><p>Was angekommen ist, gezählt am Tag der Ankunft, auf diese Bestellung.</p></li>
-  <li><strong>Rechnung</strong><p>Was der Lieferant bezahlt haben will. Verglichen mit beiden, nicht mit dem Gedächtnis.</p></li>
+  <li><strong>Bestellung</strong><p>Artikel, Menge, Einheit, Preis, Lieferant. Ohne Referenz gibt es nichts zum Vergleichen.</p></li>
+  <li><strong>Eingang</strong><p>Was am Tag der Ankunft gezählt wurde, dieser Bestellung zugeordnet.</p></li>
+  <li><strong>Rechnung</strong><p>Was der Lieferant verlangt. Verglichen mit beiden, nicht mit dem Gedächtnis.</p></li>
   <li><strong>Abweichung</strong><p>Ausserhalb der Toleranz entscheidet eine Person. Innerhalb kann die Zeile in die Freigabe.</p></li>
 </ol>
 
-Der Eingang wird geschrieben, wenn die Ware ankommt, nicht wenn die Rechnung drei Wochen später kommt. Dann ist die Palette im Regal, geöffnet, und niemand zählt sie zurück. Eine Unterschrift auf dem Papier des Transporteurs ist nützlich. Eine Menge auf der Bestellung ist sie erst, wenn jemand diese Menge am selben Tag auf die Bestellzeile überträgt.
+Den Eingang schreiben Sie, wenn die Ware da ist, nicht wenn die Rechnung drei Wochen später im Postfach liegt. Dann ist die Palette geöffnet und niemand zählt sie zurück. Mehrere Lieferscheine zur selben Bestellzeile addieren auf die offene Menge, bis sie null ist oder jemand den Rest storniert. Liegt der Lieferschein als PDF im Postfach, ist die Aufgabe des Ablaufs, Artikel, Menge und Bestellnummer in den Eingang zu lesen. Was nicht lesbar ist, bleibt leer und geht an eine Person. Eine geratene Menge, die der Bestellung «ähnlich» sieht, gleicht perfekt ab und ist trotzdem falsch. Ein Ablauf, der nur die Rechnung liest, ohne Eingang, bleibt Zweierabgleich mit dem Risiko «bezahlt ohne Ware».
 
-Liegt der Lieferschein als PDF im Postfach, ist die Arbeit des Ablaufs, Artikel, Menge und Bestellnummer in den Eingang zu bringen. Was er nicht lesen kann, bleibt leer und geht an eine Person. Eine geratene Menge, die «wie» die Bestellung aussieht, gleicht perfekt ab und ist trotzdem falsch.
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Ein Abgleich ersetzt keine Bestellung. Ohne Bestellzeilen mit Artikel, Menge und Preis gibt es keine Referenz, auch wenn der Lieferschein lesbar ist.</p>
+</aside>
 
 ## Toleranzen und Teillieferungen
 
-Schreiben Sie die Toleranz auf, bevor Sie automatisieren. Eine Mengentoleranz und eine Preistoleranz, in Einheiten oder in Franken, klein genug, dass Sie den Einkauf dafür nicht anrufen würden. Eine Rundungsdifferenz von ein paar Rappen ist kein Projekt. Ein Preis, der sich ohne neue Bestellung bewegt hat, schon. Es gibt keinen allgemeinen gesetzlichen Prozentsatz für «nahe genug». Steht einer im Vertrag, nehmen Sie den. Sonst setzt die Person, die eine Differenz annehmen darf, die Zahl. Der Ablauf erfindet keine.
+Schreiben Sie Mengen- und Preistoleranz auf, bevor Sie automatisieren. Klein genug, dass Sie den Einkauf dafür nicht anrufen würden. Ein paar Rappen Rundung sind kein Projekt. Ein Preis, der sich ohne neue Bestellung verschoben hat, schon. Es gibt keinen allgemeinen gesetzlichen Prozentsatz für «nahe genug». Steht einer im Vertrag, gilt der. Sonst legt die Person, die Differenzen annehmen darf, die Zahl fest.
 
-Eine Teillieferung bleibt offen. Sie haben 80 von 100 erhalten. Die Rechnung über 80 kann abgleichen. Die restlichen 20 bleiben auf der Bestellung, bis sie kommen oder jemand sie streicht. Eine Rechnung über 100 bei einem Eingang von 80 wird nicht «aufgerundet». Sie ist eine Abweichung: die 80 zahlen, nach den 20 fragen, oder die Rechnung zurückweisen. Die Bestellung zu schliessen, weil die Rechnung «vollständig» sagt, versteckt den Fehlbestand bis zur Inventur.
+Bei 80 von 100 Stück bleibt die Bestellung offen. Die Rechnung über 80 kann abgleichen. Eine Rechnung über 100 bei Eingang 80 wird nicht aufgerundet. Sie ist eine Abweichung: die 80 freigeben, nach den 20 fragen oder die Rechnung zurückweisen. Die Bestellung zu schliessen, weil die Rechnung «vollständig» sagt, versteckt den Fehlbestand bis zur Inventur.
 
-Zusatzzeilen auf der Rechnung, Fracht, ein Zuschlag oder ein Mindermengenzuschlag, gleichen nur ab, wenn Bestellung oder Vertrag sie vorsehen. Sonst sind sie eine Abweichung mit der Rechnung im Anhang, keine stille Buchung auf «übrige Kosten».
+Fracht, Mindermengenzuschlag oder Zusatzzeilen gleichen nur ab, wenn Bestellung oder Vertrag sie vorsehen. Sonst sind sie eine Abweichung mit Rechnung im Anhang, keine stille Buchung auf «übrige Kosten».
 
 <div class="blog-pair">
   <div>
-    <h3>Das Programm kann das schon</h3>
+    <h3>Das Programm deckt es ab</h3>
     <ul>
-      <li>Bestellungen, Eingänge und Rechnungen liegen in einem System, und der Eingang wird dort erfasst</li>
-      <li>Ihre Arbeit ist, diesen Abgleich zu nutzen und die Ausnahmeliste zu leeren</li>
+      <li>Bestellung, Eingang und Rechnung liegen in einem System, Eingang wird dort erfasst</li>
+      <li>Ihre Arbeit: den Match nutzen und die Ausnahmeliste leeren</li>
     </ul>
   </div>
   <div>
     <h3>Der Papierbeleg ist die Lücke</h3>
     <ul>
-      <li>Die Rechnung ist in der Buchhaltung, der Lieferschein in einer Ablage oder im Postfach</li>
+      <li>Rechnung in der Buchhaltung, Lieferschein in Ablage oder Postfach</li>
       <li>Ein Ablauf kann den Beleg auf die Bestellung lesen. Er ersetzt die Bestellung nicht</li>
     </ul>
   </div>
@@ -62,20 +82,36 @@ Zusatzzeilen auf der Rechnung, Fracht, ein Zuschlag oder ein Mindermengenzuschla
 
 ## Wer die Abweichung entscheidet
 
-Innerhalb der Toleranz kann die abgeglichene Rechnung in die Freigabe, die Sie schon haben. Ausserhalb sieht eine Person im Einkauf, oder die Person, die bestellt hat, die drei Mengen: bestellt, erhalten, verrechnet, und die zwei Preise. Diese Person nimmt an, nimmt teilweise an oder schickt die Rechnung zurück. Der Ablauf hält diesen Entscheid neben der Rechnung fest. Er schreibt dem Lieferanten keine Reklamation im Namen der Firma, solange diese Person sie nicht abgeschickt hat.
+Innerhalb der Toleranz geht die abgeglichene Rechnung in die Freigabe, die Sie schon haben. Ausserhalb sieht eine Person im Einkauf oder die Bestellerin die Mengen bestellt, erhalten, verrechnet und die Preise dazu. Sie nimmt an, nimmt teilweise an oder schickt die Rechnung zurück. Der Ablauf hält den Entscheid neben der Rechnung fest. Eine Reklamation an den Lieferanten geht erst raus, wenn diese Person sie abgeschickt hat. Kosten für einen Abgleich hängen vom Volumen und davon ab, ob der Eingang schon digital ist. Richtwerte für Umsetzungen nennen wir im Check, nicht in einem Awareness-Text.
 
-Eine wiederkehrende Abweichung beim selben Artikel verdient einen Vermerk zum Lieferanten, keine weitere Toleranz. Die Toleranz zu weiten, bis die Liste leer ist, macht Überverrechnen zum Normalfall.
+Wiederholt sich dieselbe Abweichung beim selben Artikel, verdient das einen Vermerk beim Lieferanten, keine weitere Toleranz. Die Toleranz zu weiten, bis die Liste leer ist, macht Überverrechnen zum Normalfall.
 
 ## Ein erfundenes Beispiel
 
-Ein erfundenes Beispiel: eine Bestellung über 100 Schachteln desselben Artikels zu CHF 4.20. Der Lieferschein am Dienstag sagt 80 Schachteln. Jemand erfasst 80 am Nachmittag auf der Bestellung. Die Rechnung am Montag darauf verlangt 100 Schachteln zu CHF 4.35. Der Abgleich zeigt eine Mengenlücke von 20 und eine Preislücke von 15 Rappen pro Schachtel. Beides liegt ausserhalb der Toleranz, die das Büro aufgeschrieben hat: ein paar Rappen und keine nicht bestellten Schachteln. Der Einkauf zahlt nichts automatisch. Er akzeptiert 80 Schachteln zum Bestellpreis, verlangt eine korrigierte Rechnung und lässt 20 auf der Bestellung offen. Die Freigabe sieht nur die vereinbarten 80, nach dieser Korrektur. Die ursprüngliche Rechnung bleibt mit dem Vermerk, sie wird nicht gelöscht.
+Ein erfundenes Beispiel: Bestellung über 100 Schachteln zu CHF 4.20. Lieferschein am Dienstag: 80 Schachteln, am Nachmittag als Eingang gebucht. Rechnung am Montag darauf: 100 Schachteln zu CHF 4.35. Der Abgleich zeigt 20 Stück Differenz und 15 Rappen pro Schachtel ausserhalb der Bürotoleranz (wenige Rappen, keine unbestellten Schachteln). Der Einkauf zahlt nichts automatisch. Er akzeptiert 80 zum Bestellpreis, verlangt eine korrigierte Rechnung und lässt 20 auf der Bestellung offen. Die Freigabe sieht nach Korrektur nur die vereinbarten 80. Die Originalrechnung bleibt mit Vermerk archiviert.
 
-## Wer das weglassen sollte
+## Wer einen neuen Ablauf weglassen sollte
 
-Lassen Sie einen neuen Ablauf weg, wenn das Programm, das Sie schon bezahlen, Bestellung, Eingang und Rechnung abgleicht und der Eingang am selben Tag erfasst wird. Ein zweiter Abgleich verdoppelt die Ausnahmen. Lassen Sie ihn weg, wenn Sie im Monat eine Handvoll Bestellungen machen und eine Person jedes Paket öffnet. Lassen Sie ihn weg, wenn Sie keine Bestellungen schreiben. Ein Abgleich braucht eine Referenz. Schreiben Sie zuerst die Bestellung, auch eine kurze, mit Artikel, Menge und Preis. Lassen Sie ihn weg, wenn der Schmerz Kundenbestellungen per E-Mail sind. Das ist das andere Dokument.
+<ul class="blog-scenarios">
+  <li><h3>Das ERP gleicht schon ab</h3><p>Bestellung, Eingang und Rechnung in einem System, Eingang am Ankunftstag. Ein zweiter Matcher verdoppelt Ausnahmen.</p></li>
+  <li><h3>Wenige Bestellungen pro Monat</h3><p>Eine Person öffnet jedes Paket. Der manuelle Blick reicht, solange die Bestellung existiert.</p></li>
+  <li><h3>Schmerz liegt beim Kundenpostfach</h3><p>Dann ist es Einkauf versus Verkauf: das andere Dokument in Bestellungen per E-Mail.</p></li>
+</ul>
 
-Die wiederkehrende Arbeit, die sich zu beschreiben lohnt, ist der Beleg, der nie auf die Rechnung trifft: eine Ablage voller Lieferscheine, oder ein PDF, das das Lager gezeichnet hat und die Buchhaltung nie gesehen hat.
+Die wiederkehrende Arbeit, die sich zu beschreiben lohnt: Lieferscheine stapeln sich, Rechnungen warten, oder jemand tippt Mengen vom Papier in die Bestellung.
+
+## Kurz gefragt
+
+<div class="blog-faq">
+  <h3>Braucht jedes KMU einen Drei-Wege-Abgleich?</h3>
+  <p>Nein. Gesetzlich vorgeschrieben ist er in der Regel nicht. Sinnvoll wird er, wenn Sie regelmässig fremde Ware einkaufen, Bestellungen schreiben und trotzdem Rechnungen ohne Eingang bezahlen könnten.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Was, wenn der Lieferschein nur als Scan im Postfach liegt?</h3>
+  <p>Dann muss jemand die Menge am Ankunftstag in den Eingang bringen, per Hand oder mit einem Ablauf, der Artikel, Menge und Bestellnummer ausliest. Ohne Eingang bleibt nur Zweierabgleich mit dem Risiko «Rechnung ohne Ware».</p>
+</div>
 
 ## Wann der Prozess-Check passt
 
-Ein [Prozess-Check](/de/prozess-check) passt, wenn diese Lücke jede Woche da ist: Rechnungen warten, weil der Lieferschein im Lieferwagen liegt, oder jemand tippt Mengen vom Papier in die Bestellung. Sie bringen diese eine wiederkehrende Arbeit mit. Der Termin dauert 60 Minuten per Microsoft Teams. Danach haben Sie einen konkreten Fall, ob er sich lohnt, eine Preisspanne und eine ungefähre Dauer. Die Stunde verpflichtet Sie zu nichts.
+Ein [Prozess-Check](/de/prozess-check) passt, wenn diese Lücke jede Woche zurückkommt: Rechnungen warten auf Lieferscheine, oder Mengen wandern vom Papier in die Bestellung. Sie bringen diese eine wiederkehrende Arbeit mit. Der Termin dauert 60 Minuten per Microsoft Teams. Danach haben Sie einen konkreten Fall, ob er sich lohnt, eine Preisspanne und eine ungefähre Dauer. Die Stunde verpflichtet Sie zu nichts.

@@ -1,0 +1,109 @@
+---
+title: "App Store abgelehnt 4.2: was die Richtlinie meint"
+description: "App Store abgelehnt 4.2 heisst oft: Ihre App wirkt wie eine Website in einem Container. So lesen Sie die Mail und was Sie vor dem neuen Upload ändern."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["app store", "capacitor", "mvp", "mobile"]
+funnelStage: interest
+translationKey: app-store-guideline-4-2
+relatedPosts: ["app-im-app-store-veroeffentlichen", "google-play-12-tester"]
+draft: true
+site: studio
+---
+
+## App Store abgelehnt 4.2
+
+Wenn der App Store Ihre Einreichung mit Richtlinie 4.2 ablehnt, stuft Apple Ihr Produkt als zu nah an einer Website in einem nativen Container ein: wenig app-typische Funktion, dünner Inhalt oder ein Erlebnis, das auf dem Gerät keinen eigenen Nutzen hat. In der Mail steht oft [Minimum Functionality](https://developer.apple.com/app-store/review/guidelines/) (4.2) oder die verwandte Regel gegen reine Marketing-Apps und Web-Clippings (4.2.2). Das ist kein Urteil über Ihre Geschäftsidee. Es ist eine Entscheidung über die Produktform. Sie passen die Form an, beschreiben die Änderung und reichen neu ein, oder Sie testen weiter im Browser, bis das Produkt einen Store-Slot verdient.
+
+Der Text richtet sich an Gründerinnen, Gründer und Produktverantwortliche, die eine Web-App mit Capacitor oder einer ähnlichen Brücke verpackt haben oder ein Validierungspaket mit Store-fähigem Wrap gekauft haben und die Ablehnung sachlich lesen wollen, bevor sie eine weitere Woche in Icons investieren. Den Ablauf bis zur ersten Einreichung behandelt [App im App Store veröffentlichen](/de/blog/app-im-app-store-veroeffentlichen). Für Google Play gelten eigene Closed-Test-Regeln für viele neue Konten: Google Play 12 Tester.
+
+<dl class="blog-terms">
+  <div>
+    <dt>4.2</dt>
+    <dd>Mindestfunktionalität: die App soll mehr leisten als eine verpackte Website.</dd>
+  </div>
+  <div>
+    <dt>4.2.2</dt>
+    <dd>Warnung vor Apps, die vor allem Werbung, Marketing oder abgeschnittene Webseiten sind.</dd>
+  </div>
+  <div>
+    <dt>Capacitor-Wrap</dt>
+    <dd>Ihre Web-Oberfläche läuft in einem nativen Container mit Zugriff auf einige Geräte-APIs.</dd>
+  </div>
+</dl>
+
+## Woran Apple bei 4.2 anknüpft
+
+Reviewer veröffentlichen kein Punktesystem für Ihr Repository. In der Praxis taucht 4.2 auf, wenn die Binary sich mit Safari austauschbar anfühlt: Login und ein paar Web-Views, kein Offline-Verhalten, kein Grund für Benachrichtigungen oder On-Device-Funktionen, oder Inhalt identisch zur Marketing-Website. Eine responsive Site mit Splash-Screen ist das klassische Muster. Ebenso eine App, deren einzige «Funktion» das Öffnen des Blogs ist.
+
+Das ist getrennt von Abstürzen, Datenschutzlabels oder Kontolöschung. Solche Ablehnungen zitieren andere Abschnitte. Steht in der Mail nur 4.2, beginnen Sie mit Produktionstiefe, nicht mit Juristendeutsch.
+
+Aurum betreibt [Inklets](https://inklets.app) als React-App in einem Capacitor-Wrap für iOS und Google Play. Dieser Weg ist real, wenn das Produkt sich wie eine App verhält. Er bedeutet nicht, dass jedes Wrap beim ersten Versuch durchgeht. Ein dünner Wrapper um eine Landingpage scheitert an 4.2, auch wenn die Technik sauber ist.
+
+<div class="blog-pair">
+  <div>
+    <h3>Anzeichen für 4.2-Risiko</h3>
+    <ul>
+      <li>Jeder Screen ist eine Web-View ohne native Navigationslogik</li>
+      <li>Ohne Netz funktioniert nichts Sinnvolles</li>
+      <li>Die App wiederholt eine öffentliche Site, die man bookmarken könnte</li>
+      <li>Push, Kamera, Dateien oder Hintergrundtasks fehlen, obwohl der Job sie bräuchte</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Wer 4.2 noch nicht bekämpfen sollte</h3>
+    <ul>
+      <li>Sie brauchen zehn Tester und eine URL reicht</li>
+      <li>Die «App» ist noch ein Nachfragetest mit Warteliste</li>
+      <li>Niemand hat den Kernjob auf dem Telefon vor Ihnen durchgespielt</li>
+    </ul>
+  </div>
+</div>
+
+## Nach der Ablehnungsmail: sinnvolle Schritte
+
+Lesen Sie die genaue Stelle in App Store Connect. Screenshot aus dem Resolution Center. Vergleichen Sie Ihre Binary mit dem Richtlinientext, nicht mit einem Konkurrenz-Icon im Store.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Den Kernjob auf dem Gerät benennen</h3><p>Ein Satz: Was macht die Person in Ihrer App, was im Browser-Tab schlechter geht? Wenn Sie keinen finden, gehört das Produkt vielleicht vorerst ins Web.</p></li>
+  <li data-step="2"><h3>App-typisches Verhalten statt Dekoration</h3><p>Offline-Lesen aktueller Daten, Push nur für Zustände, die die Person wollte, native Teilen-Dialoge, Kamera oder Dateiauswahl wo der Ablauf es braucht, Navigation die sich wie eine App anfühlt.</p></li>
+  <li data-step="3"><h3>Marketing-Screens kürzen</h3><p>Lange Erklärer auf die Website. Die Binary soll beim Job starten, nicht bei einer Hero-Section.</p></li>
+  <li data-step="4"><h3>Im Resolution Center konkret antworten</h3><p>Auflisten, was sich geändert hat. Ein Absatz schlägt das Argument, Sie «bräuchten» Store-Präsenz.</p></li>
+  <li data-step="5"><h3>Einen fokussierten Build neu einreichen</h3><p>Keine unzusammenhängenden Features nur für Masse. Reviewer erkennen Füllmaterial.</p></li>
+</ol>
+
+## Ein erfundenes Beispiel: eine Buchungs-Hülle
+
+Ein erfundenes Beispiel: Eine Gründerin in Bern verpackt eine Next.js-Site mit Dienstleistungen und Kontaktformular. TestFlight geht an Bekannte. Apple lehnt mit 4.2 ab: Mindestfunktionalität. Die öffentliche Site erledigt denselben Job. Sie entfernt die Marketing-Startseite aus dem App-Einstieg, zeigt angemeldeten Nutzenden eine Liste kommender Termine aus der API, erlaubt Offline-Ansicht der letzten drei Buchungen und nutzt den Teilen-Dialog, damit eine Kundin den Termin im Kalender speichern kann. Im Resolution Center schreibt sie, die App richte sich an wiederkehrende Kundschaft mit Terminverwaltung auf dem Telefon. Die zweite Einreichung wird angenommen. Das ist plausibel, nicht garantiert. Ein anderer Reviewer oder eine andere Kategorie kann mehr verlangen.
+
+## Was eine 4.2-Korrektur nicht beweist
+
+Eine Freigabe zeigt, dass Apple diese Binary unter den heutigen Regeln akzeptiert hat. Sie beweist keine Retention, keine Unit Economics und nicht, dass Sie eine native Binary weiter pflegen müssen. Sie ersetzt nicht die Testpflichten von Google Play auf Android. Sie schützt nicht vor neuen Fragen nach einem OS-Update.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Keine ehrliche Agentur und kein Studio kann eine 4.2-Freigabe vor dem Review versprechen. Ein Capacitor-Wrap ist eine Lieferoption, wenn das Produkt sich schon wie eine App verhält. Er ist kein Trick, um Store-Platz für eine dünne Site zu gewinnen.</p>
+</aside>
+
+## Häufige Fragen
+
+<div class="blog-faq">
+  <h3>Gilt 4.2 nur für Capacitor-Apps?</h3>
+  <p>Nein. Jeder Stack kann 4.2 scheitern, wenn das Erlebnis im Kern eine Website oder Marketing-Hülle ist. Native Code hilft nicht, wenn es keinen app-typischen Job gibt.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Soll ich Einspruch einlegen statt die App zu ändern?</h3>
+  <p>Einsprüche helfen manchmal, wenn Apple die Kategorie falsch las oder eine Funktion in den Review-Notizen fehlte. Spiegelt die App wirklich nur Ihre Site, gelingt Einspruch ohne Produktänderung selten. Zuerst den Job auf dem Gerät stärken, dann mit Fakten Einspruch.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Kann ich im Web bleiben und den Store weglassen?</h3>
+  <p>Ja. Viele Validierungstests brauchen nie einen Store-Eintrag. Den Store nehmen Sie, wenn Distribution oder Geräte-APIs zählen, nicht weil eine Präsentation «Mobile App» sagt.</p>
+</div>
+
+Wer MVPs ernst nimmt, plant Store-Tauglichkeit in den Scope, nicht als Überraschung in Woche zwölf. [Warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps) beschreibt, wie wir deploybare Software von Mockups trennen.
+
+## Wann das Produktvalidierungspaket passt
+
+Das [Produktvalidierungspaket](/de/services/mvp-validation) passt, wenn Sie eine deployte Web-App, Messung und bezahlte Akquise in einem Mandat wollen, inklusive iOS- und Android-Wrap zur Einreichung, sobald das Produkt app-genug ist. In den Wochen eins bis vier entsteht lauffähige Software auf Azure mit React und NestJS, keine Landingpage mit Fake-Button. In den Wochen fünf bis zwölf kommen Positionierung, Traffic und eine Go-, Pivot- oder Stop-Empfehlung mit dem, was die Daten noch nicht beweisen. Buchen Sie das Erstgespräch auf dieser Seite, wenn die Ablehnung Symptom für zu frühes Store-Ziel ist, nicht für Pech allein.

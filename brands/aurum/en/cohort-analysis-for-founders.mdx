@@ -1,0 +1,121 @@
+---
+title: "Cohort analysis for founders"
+description: "Cohort analysis for founders: group signups by week, read retention, and see what cohort tables cannot prove before you call it PMF."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["cohort analysis", "founders", "analytics", "retention", "mvp"]
+funnelStage: interest
+translationKey: cohort-analysis-for-founders
+relatedPosts: ["analytics-setup-for-an-mvp", "event-tracking-plan-for-an-mvp"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Cohort analysis for founders means grouping people by when they started using your product, then watching whether they come back, activate, or pay in the weeks that follow. It turns a flat user count into a pattern you can compare across launch weeks.</p>
+
+## Cohort analysis for founders, in one pass
+
+You pick a start event, usually account creation or first visit, and a calendar bucket, often signup week. Everyone who started in that bucket is one cohort. You then read the same metric for each later week: did they log in again, finish onboarding, or hit a limit you care about. The table answers whether last month’s signups behave better than the month before, not whether you are «winning» in the abstract.
+
+This is for a founder with a live MVP or a narrow beta who already logs signups somewhere trustworthy. If you only have a landing page and a waitlist, cohort analysis waits until people can use the product more than once. If you have hundreds of daily active users and a finance team, you likely outgrow this article and need proper product analytics ownership.
+
+Cohort curves sit next to interviews and funnel metrics when you ask whether anyone sticks. [How to find product-market fit](/blog/product-market-fit-how-to-find-it) covers the wider evidence mix. Instrumentation belongs in [analytics setup for an MVP](/blog/analytics-setup-for-an-mvp) and an [event tracking plan](/blog/event-tracking-plan-for-an-mvp) before the cohort table means anything.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Cohort</dt>
+    <dd>Users who share the same start period, such as the week they signed up.</dd>
+  </div>
+  <div>
+    <dt>Retention</dt>
+    <dd>The share of that cohort who perform a chosen action again in a later week or day.</dd>
+  </div>
+  <div>
+    <dt>Activation</dt>
+    <dd>The first meaningful action you defined before launch, not «opened the app once» unless you meant that.</dd>
+  </div>
+  <div>
+    <dt>Start event</dt>
+    <dd>The timestamp that puts someone into a cohort. Change it and the story changes.</dd>
+  </div>
+</dl>
+
+## What to put in a first cohort table
+
+Keep the first version small. One start event, weekly buckets for the first eight to twelve weeks, and two or three outcome rows.
+
+<ul class="blog-checklist">
+  <li>Define activation in writing before you read the sheet</li>
+  <li>Use the same timezone for every user, usually Europe/Zurich for a Swiss launch</li>
+  <li>Exclude internal accounts and obvious test emails from the cohort</li>
+  <li>Log week zero as the signup week, then week one as the first full week after</li>
+  <li>Track return visits, activation, and one revenue or limit event if it exists</li>
+  <li>Store cohort labels in your analytics tool or export, not only in a slide</li>
+</ul>
+
+A spreadsheet is enough at twenty to two hundred signups if events are reliable. GA4 explorations or a product database query work once events are named consistently. Session recordings help explain a cliff in week two; they do not replace the table.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Name the start event</h3><p>Account created, trial started, or first project saved. Write it in the tracking plan.</p></li>
+  <li data-step="2"><h3>Pick the bucket</h3><p>Weekly cohorts are easier to read early on than daily noise.</p></li>
+  <li data-step="3"><h3>Choose two readouts</h3><p>Example: percent activated by end of week zero, percent with a second session in week one.</p></li>
+  <li data-step="4"><h3>Compare cohorts, not heroes</h3><p>Ask whether the 12 March cohort beats the 5 March cohort on the same rows, not whether one number «sounds good».</p></li>
+</ol>
+
+## What cohort analysis does not prove
+
+A rising week-one return rate is not product-market fit. It is one lagging signal among many. Cohorts do not show whether strangers will pay at scale, whether your channel is repeatable, or whether support cost stays sane.
+
+Small numbers lie quietly. Ten signups in a cohort means one person is ten percent. Founders and friends inflate early weeks. A product change mid-month splits a cohort unless you note the release date.
+
+Cohort analysis does not protect the idea. Under Swiss practice, ideas as such are not protectable; execution and contracts are ([IGE on ideas](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). Treat the table as input to a Go, Pivot, or Stop conversation, not as a deck title.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>If activation was undefined until after you looked at the data, you are fitting a story to noise. Redefine the events, wait for a fresh cohort, and write the rule before the next launch week.</p>
+</aside>
+
+<div class="blog-pair">
+  <div>
+    <h3>What it helps with</h3>
+    <ul>
+      <li>Seeing whether onboarding changes move week-one return</li>
+      <li>Comparing launch weeks after a positioning shift</li>
+      <li>Giving a board a chart that is not vanity totals</li>
+    </ul>
+  </div>
+  <div>
+    <h3>What it cannot do alone</h3>
+    <ul>
+      <li>Prove willingness to pay from free users</li>
+      <li>Replace qualitative why from interviews</li>
+      <li>Fix a broken acquisition channel</li>
+    </ul>
+  </div>
+</div>
+
+## A made-up example: eight weeks after a narrow launch
+
+A made-up example: a two-person team ships a B2B tool for event organisers in Switzerland. Signup week is the cohort. Activation means «created one event with at least three sessions». Week-one retention means «logged in on two different days in the seven days after signup».
+
+Weeks one to three after public beta: each cohort has twelve to eighteen signups, mostly from the founders’ network. Activation sits between forty and fifty percent. Week-one retention wobbles between twenty and thirty-five percent with no clear trend. They ship clearer empty states and a checklist on day one.
+
+Weeks four to six: a podcast mention brings colder traffic. The 14 April cohort has twenty-two signups, activation drops to thirty percent, week-one retention to eighteen percent. Session recordings show people stall on venue permissions they do not have yet. They add a demo event and email one nudge on day three.
+
+Weeks seven and eight: the 28 April cohort returns to forty-five percent activation and twenty-eight percent week-one retention, still below their bar for paid plans, but warm and cold cohorts diverge in one table. They schedule fifteen buyer calls and keep the sheet for the next release.
+
+## Who should skip cohort tables for now
+
+Skip cohort views if nobody can log in twice yet, if every user is internal testing, or if the start event changes weekly. Pick one definition and hold it for a month.
+
+<div class="blog-faq">
+  <h3>Is cohort analysis the same as retention in GA4?</h3>
+  <p>Retention reports in analytics tools are one way to draw cohorts. The method is the grouping by start period and the later readout. The tool is interchangeable if events are correct.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>How many signups do I need per cohort?</h3>
+  <p>Enough that one person does not move the percentage by ten points. There is no universal minimum. Treat single-digit cohorts as directional and pair them with conversations.</p>
+</div>
+
+When strangers use the product repeatedly and the open question is cost per lead, onboarding drop-off, and scope, the [product validation package](/services/mvp-validation) connects a deployed Azure build to measured cohorts, up to three pivot iterations, and a Go, Pivot, or Stop recommendation with what the data still cannot prove.

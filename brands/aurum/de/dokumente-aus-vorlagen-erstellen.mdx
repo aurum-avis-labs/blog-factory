@@ -14,9 +14,26 @@ site: prozess-check
 
 ## Dokumente automatisch aus Vorlagen erstellen: die kurze Antwort
 
-Wer Dokumente automatisch aus Vorlagen erstellen will, geht in fünf Schritten vor, für Offerten, Verträge, Briefe und Auftragsbestätigungen gleichermassen. Der feste Text steht einmal in einer Vorlage mit benannten Feldern. Die Felder werden aus einer einzigen Datenquelle gefüllt, etwa aus einem Formular, dem CRM oder einer Tabelle. Ein Skript oder Ablauf exportiert ein PDF und legt es an einem festen Ort ab. Eine Person prüft es, bevor es hinausgeht. Preise, Daten und rechtliche Formulierungen kommen aus Vorlage und Daten. KI schreibt, wenn überhaupt, nur einen markierten Freitext, und immer als Entwurf.
+<p class="blog-lede">Dokumente automatisch aus Vorlagen erstellen heisst: fester Text einmal schreiben, Felder aus einer Quelle füllen, PDF exportieren, prüfen, dann senden.</p>
 
-Der Beitrag ist für Inhaberinnen, Inhaber und Büroleitungen in Schweizer KMU, die mehrmals pro Woche dieselbe Art von Dokument schreiben. Die letzte Offerte öffnen, unter neuem Namen speichern, den Kunden ersetzen, die Zahlen anpassen und hoffen, dass in der Fusszeile nichts vom alten Kunden stehen bleibt. Wer im Jahr zwei Verträge schreibt, für den lohnt sich nichts davon.
+Wer Offerten, Briefe oder Auftragsbestätigungen automatisch aus Vorlagen erstellen will, arbeitet in fünf Schritten. Der feste Text steht in einer Vorlage mit benannten Feldern. Die Felder kommen aus einer einzigen Datenquelle, Formular, CRM oder Tabelle. Ein Skript oder Ablauf exportiert ein PDF und legt es an einem festen Ort ab. Eine Person prüft, bevor etwas hinausgeht. Preise, Daten und rechtliche Formulierungen kommen aus Vorlage und Daten. KI schreibt höchstens einen markierten Freitext, immer als Entwurf.
+
+Für Inhaberinnen, Inhaber und Büroleitungen in Schweizer KMU, die mehrmals pro Woche dieselbe Art von Dokument schreiben. Die letzte Offerte öffnen, unter neuem Namen speichern, Kunde ersetzen, Zahlen anpassen, in der Fusszeile noch der alte Kunde. Wer im Jahr zwei Verträge schreibt, braucht davon nichts.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Vorlage</dt>
+    <dd>Die Datei mit festem Text und benannten Feldern für alles, was sich ändert.</dd>
+  </div>
+  <div>
+    <dt>Platzhalter</dt>
+    <dd>Ein Feldname in der Vorlage, der aus der Datenquelle befüllt wird.</dd>
+  </div>
+  <div>
+    <dt>Seriendruck</dt>
+    <dd>Word oder Docs füllt viele Briefe aus einer Tabelle, ohne separaten Ablauf.</dd>
+  </div>
+</dl>
 
 ## Die fünf Schritte von den Daten zum geprüften PDF
 
@@ -34,9 +51,9 @@ An Schritt 2 scheitern die meisten Vorhaben. Steht derselbe Kunde in zwei Progra
 
 Die Prüfung in Schritt 5 dauert eine Minute: Beträge, Adresse und Anrede, Anhänge, der Freitext. Sie sorgt dafür, dass keine falsche Zahl bei der Kundschaft ankommt.
 
-## Word oder Google Docs: was Ihre Vorlagen schon können
+## Word-Vorlage automatisch ausfüllen: Seriendruck, Power Automate, Google Docs
 
-Für ein paar Dokumente pro Woche reicht oft der Seriendruck, den Sie schon haben. Für die vollständige Automatisierung braucht es zusätzlich einen Ablauf.
+Für ein paar Dokumente pro Woche reicht oft der Seriendruck, den Sie schon haben. Eine Offerte automatisch erstellen mit wechselnder Positionstabelle braucht meist einen Ablauf darüber.
 
 In Word füllt der Seriendruck Briefe aus einer Excel-Tabelle. Laut der Hilfeseite von Microsoft müssen die Spaltennamen zu den Feldnamen passen, und das Seriendruckdokument bleibt mit der Datenquelle verbunden ([Microsoft Support](https://support.microsoft.com/de-de/office/seriendruck-mithilfe-einer-excel-tabelle-858c7d7f-5cc0-4ba1-9a7b-0a948fa3d7d3)). Das passt für Serien von Briefen, weniger für eine Offerte, deren Honorartabelle jedes Mal eine andere Zahl Zeilen hat.
 
@@ -44,9 +61,7 @@ In Microsoft 365 bietet Power Automate den Connector Word Online (Business) mit 
 
 In Google Workspace füllen Variablen-Chips in Google Docs mehrere Felder mit demselben Text und exportieren Vorlagen mit anderen Werten. Sie stehen nur für berechtigte Konten von Unternehmen oder Bildungseinrichtungen zur Verfügung, und Sie füllen sie von Hand ([Google Docs-Hilfe](https://support.google.com/docs/answer/13584275?hl=de)). Für das automatische Füllen braucht es ein Skript: Apps Script ersetzt Textmuster in einem Dokument mit [replaceText](https://developers.google.com/apps-script/reference/document/body) und wandelt eine Datei mit [getAs](https://developers.google.com/apps-script/reference/base/blob) in ein PDF um.
 
-Unser eigenes Download-Formular nutzt ähnliche Bausteine: Ein Google Apps Script hält die Anfrage in einer Tabelle fest, holt ein PDF aus einem privaten Drive-Ordner und verschickt es per Microsoft Graph als Mail.
-
-Erstellt Ihr Branchenprogramm die Offerte schon aus einer eigenen Vorlage, nutzen Sie diese zuerst. Die Lücke liegt meist bei den Dokumenten drumherum. Was Ihre Programme an Schnittstellen bieten, klären wir im Check.
+Unser eigenes Download-Formular nutzt ähnliche Bausteine: Ein Google Apps Script hält die Anfrage in einer Tabelle fest, holt ein PDF aus einem privaten Drive-Ordner und verschickt es per Microsoft Graph als Mail. Erzeugt Ihr Branchenprogramm die Offerte schon selbst, starten Sie dort.
 
 ## Wo KI hilft und wo feste Formulierungen sicherer sind
 
@@ -70,7 +85,7 @@ Die meisten Dokumente brauchen keine Unterschrift, die das Gesetz vorschreibt. W
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Grenze</span>
-  <p>Laut dem Bundesamt für Kommunikation (BAKOM) gilt im Schweizer Vertragsrecht der Grundsatz der Formfreiheit, deshalb braucht nur eine kleine Zahl von Geschäften überhaupt eine qualifizierte elektronische Signatur. Wo eine eigenhändige Unterschrift verlangt ist, ist nur die qualifizierte elektronische Signatur nach ZertES gleichgestellt: Sie beruht auf einem qualifizierten Zertifikat einer anerkannten Anbieterin und trägt einen qualifizierten Zeitstempel. Andere elektronische Signaturen sind zulässig, wo keine eigenhändige Unterschrift erforderlich ist.</p>
+  <p>Laut BAKOM gilt im Schweizer Vertragsrecht Formfreiheit. Wo eine eigenhändige Unterschrift verlangt ist, ist nur die qualifizierte elektronische Signatur nach ZertES gleichgestellt. Andere elektronische Signaturen sind zulässig, wo keine eigenhändige Unterschrift erforderlich ist.</p>
 </aside>
 
 Das ist die Regel nach Art. 14 Abs. 2bis OR, wie sie das [BAKOM erklärt](https://www.bakom.admin.ch/de/23-welche-rechtskraft-haben-elektronische-signaturen). Die Schweizerische Akkreditierungsstelle führt eine Liste der anerkannten Anbieterinnen, die qualifizierte Zertifikate ausstellen dürfen ([BAKOM](https://www.bakom.admin.ch/de/elektronische-signatur-2)).

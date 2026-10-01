@@ -1,0 +1,88 @@
+---
+title: "LLM Kosten App: Budget im MVP"
+description: "LLM Kosten App im MVP: API-Verbrauch, Embeddings, Limits und was ein kleiner Test nicht über Skalierung sagt."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["mvp", "llm", "api", "kosten", "startup"]
+funnelStage: interest
+translationKey: cost-of-ai-features-in-an-mvp
+relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
+draft: true
+site: studio
+---
+
+## LLM Kosten App: worauf es im MVP ankommt
+
+LLM Kosten in einer App entstehen vor allem durch laufenden API-Verbrauch und Speicher für Embeddings, nicht durch eine einmalige «KI-Lizenz». Jeder Aufruf zählt Tokens oder Anfragen, lange Kontexte und wiederholte Versuche vervielfachen den Betrag, und die Arbeit um das Modell herum (Logging, Limits, manuelle Freigabe) kostet Engineering-Zeit. Der Text richtet sich an Gründerinnen, Gründer und Innovationsverantwortliche in der Schweiz, die vor dem ersten Pilot ein realistisches Budget brauchen.
+
+Anbieter ändern Listenpreise regelmässig. Was OpenAI, Anthropic, Google oder Azure heute pro Modell verlangen, steht nur auf deren Preisseiten; lesen Sie sie in der Woche, in der Sie deployen, und rechnen Sie Puffer für Tests, längere Prompts und Fehlversuche ein. Konkrete Frankenbeträge pro Token stehen hier nicht. Für den Verwaltungsrat bauen Sie eine Tabelle aus Ihren echten Prompts, erwarteten Sitzungen und der aktuellen Anbieterseite.
+
+## Drei Posten auf der Rechnung
+
+**Inferenz.** Die meisten APIs unterscheiden Eingabe- und Ausgabe-Tokens. Eine kurze Klassifikation ist billig. Eine Funktion, die bei jedem Klick ein ganzes PDF in den Kontext legt, ist es nicht.
+
+**Embeddings und Suche.** Text wird in Vektoren umgewandelt, gespeichert und abgefragt. Für fünfzig Dokumente im Pilot reicht oft ein kleiner Managed-Service. Für viele Mandanten mit getrennten Datenbeständen entscheidet die Architektur über den Preis stärker als das Modell-Logo.
+
+**Leitplanken.** Rate Limits, Protokollierung, Budget-Warnungen und eine menschliche Freigabe erscheinen nicht als eigene Zeile auf der API-Rechnung, verhindern aber, dass ein viraler Post die Woche sprengt.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Variabel</span><strong>Pro Aufruf</strong><p>Die Hauptkosten skalieren mit Nutzung, nicht mit der App-Lizenz.</p></li>
+  <li><span class="blog-kicker">Speicher</span><strong>Embeddings</strong><p>Vektoren und Index kosten neben dem Chat-Modell.</p></li>
+  <li><span class="blog-kicker">Fix im Kopf</span><strong>Engineering</strong><p>Caps, Logs und Fallback ohne KI sind Teil des Features.</p></li>
+  <li><span class="blog-kicker">Preise</span><strong>Wöchentlich prüfen</strong><p>Listen auf den Anbieterseiten, nicht in Blogartikeln.</p></li>
+</ul>
+
+## Checkliste vor dem ersten echten Nutzer
+
+<ul class="blog-checklist">
+  <li>Kürzester Prompt, der in zehn echten Fällen funktioniert; Tokens messen, nicht mit Fülltext.</li>
+  <li>Pro Aufruf Request-ID, Nutzer-ID, Modellname und Token-Zahlen loggen.</li>
+  <li>Monatsalarm im Cloud-Konto und hartes Tageslimit pro Nutzer im Code.</li>
+  <li>Identische Fragen kurz cachen, wenn das Produkt es erlaubt.</li>
+  <li>Kernjob ohne Modell absichern, falls die API langsam ist oder ausfällt.</li>
+  <li>Festlegen, was passiert bei Halluzinationen; lieber Stopp als stille Falschangaben.</li>
+</ul>
+
+## Ein erfundenes Beispiel: Bestellvorschlag fürs Catering
+
+Ein erfundenes Beispiel: Eine Person in Luzern testet, ob kleine Event-Caterer KI-Vorschläge für Lieferantenbestellungen aus einer kurzen Menüliste nutzen. Zehn Betriebe erhalten zwei Wochen Zugang. Jeder Entwurf ruft die API zweimal auf: einmal für Zeilenpositionen aus drei Stichworten, einmal für den E-Mail-Text. Frühe Versionen trugen lange System-Prompts aus einem Blog; nach dem Logging halbierten sie den Systemblock und legten Statisches in Code. Die durchschnittlichen Tokens pro Entwurf sanken, doch ein Nutzer fügte ein ganzes Hochzeitsbriefing ins Freitextfeld ein und verbrauchte an einem Nachmittag das Tagesbudget. Sie ergänzten Zeichenlimit, Hinweis und einen «trotzdem senden»-Weg ohne Modell. Der Pilot zeigte, dass Köchinnen und Köche «Entwurf senden» klicken, nicht dass fünfhundert aktive Nutzer unter CHF 500 pro Monat Inferenz blieben. Das braucht Caching, Modellwahl und Lastannahmen.
+
+## Was LLM Kosten in der App im MVP nicht belegen
+
+Ein Pilot mit wenigen vertrauten Nutzerinnen und Nutzern zeigt, ob jemand den KI-Pfad nutzt und ob die Qualität für den nächsten Schritt reicht. Er belegt keine Stückkosten bei Skalierung, keine Branchen-Compliance und nicht, dass ein App-Store-Wrapper die richtige Oberfläche ist.
+
+<div class="blog-pair">
+  <div>
+    <h3>Für wen die Einordnung passt</h3>
+    <ul>
+      <li>Gründer mit einem KI-Schritt in einem Validierungsprodukt</li>
+      <li>Innovationsverantwortliche, die Nutzung und Treiber zeigen müssen</li>
+      <li>Teams, die Limits vor offenem Sign-up einplanen</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Wer jetzt keine Detailkalkulation braucht</h3>
+    <ul>
+      <li>Wer noch prüft, ob überhaupt ein Modell nötig ist</li>
+      <li>Wo Regeln oder Vorlagen den Job schon erledigen</li>
+      <li>Wer Kundendaten exponiert, ohne den Stack geprüft zu haben</li>
+    </ul>
+  </div>
+</div>
+
+Ist die App vibe-coded und der Kreis wird grösser, lesen Sie [ist Ihre vibe-coded App produktionsreif](/de/blog/ist-deine-vibe-coded-app-produktionsreif), bevor Werbung auf den neuen Endpunkt läuft. Ein günstiges Modell ohne Auth hinter einer öffentlichen URL bleibt ein teures Risiko.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Anbieterseiten zeigen den Preis pro Modell am heutigen Tag. Nicht eingerechnet sind Wiederholungen, riesige Einfügungen durch Tester oder Traffic aus Anzeigen. Jede Zahl aus einem älteren Artikel gilt als veraltet. Prüfen Sie die Anbieterseite in der Build-Woche und planen Sie Reserve ein.</p>
+</aside>
+
+## Weniger Kontext, kleineres Modell, seltener aufrufen
+
+Typisch überteuert wird es, wenn auf jeden Klick das grösste Modell läuft, nicht weil die Marke falsch wäre. Starten Sie mit dem kleinsten Modell, das Ihre zwanzig echten Testfälle besteht. Schicken Sie den relevanten Absatz, nicht die ganze Historie. Für viele B2B-MVPs in der Schweiz reicht «Entwurf vorschlagen» mit manuellem Senden, nicht vollautomatischer Ausgangspost.
+
+Wenn Kundinnen und Kunden nach Datenschutz fragen: Die Region der Datenbank (zum Beispiel Supabase in Zürich) ist getrennt davon, wo der Modellanbieter Text verarbeitet. Vertrag und Beratung klären beides; hier nur der Hinweis auf zwei getrennte Entscheide.
+
+## Wann das Produktvalidierungs-Paket passt
+
+Das [Produktvalidierungs-Paket](/de/services/mvp-validation) passt, wenn die offene Frage Verhalten und messbare Akquise ist, nicht ob ein Button einmal eine API aufruft. In den ersten vier Wochen entsteht eine echte Web-App mit Analytics von Anfang an; danach folgen Kosten pro Lead, Conversion und Abbrüche, mit einer Go-, Pivot- oder Stop-Empfehlung inklusive Grenzen der Daten. Reicht Ihnen der Nachweis, dass jemand einen KI-Entwurf im Workflow nutzt, den Sie vorher per E-Mail simulieren konnten, bleiben Sie auf einem leichteren Prototyp. Ist der KI-Pfad die Hypothese, bauen Sie ihn mit Caps und Logging in ein Paket für echte Tester und vereinbaren Sie über die Kontaktseite ein Gespräch, wenn zwölf Wochen fest eingeplant werden sollen.

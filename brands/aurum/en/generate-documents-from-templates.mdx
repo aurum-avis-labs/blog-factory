@@ -14,9 +14,26 @@ site: prozess-check
 
 ## Generate documents from templates automatically: the short answer
 
-To generate documents from templates automatically, you make five moves, and they are the same for quotes, contracts, letters and order confirmations. The fixed wording lives in one template with named fields. The fields are filled from one data source, such as a form, the CRM or a spreadsheet. A script or flow exports a PDF and saves it in a fixed place. A person checks it before it goes out. Prices, dates and legal wording come from the template and the data. AI, if you use it at all, writes one marked free-text part, always as a draft.
+<p class="blog-lede">Generate documents from templates automatically by filling named fields from one data source, exporting a PDF, checking it, then sending.</p>
 
-This is for owners and office leads in Swiss SMEs who write the same kind of document several times a week. Open last month's quote, save it under a new name, replace the customer, change the figures, hope nothing from the old customer is left in the footer. If you write two contracts a year, none of this pays off.
+To generate documents from templates automatically, you follow five steps for quotes, contracts, letters and order confirmations. Fixed wording lives in one template with named fields. Fields are filled from one data source: a form, the CRM or a spreadsheet row. A script or flow exports a PDF and saves it in a fixed place. A person checks before anything goes out. Prices, dates and legal wording come from the template and the data. AI, if you use it, writes one marked free-text part only, always as a draft.
+
+This is for owners and office leads in Swiss SMEs who write the same kind of document several times a week. Open last month's quote, save under a new name, swap the customer, change figures, hope nothing from the old customer remains in the footer. If you write two contracts a year, skip this article.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Template</dt>
+    <dd>The file with fixed wording and named fields for everything that changes.</dd>
+  </div>
+  <div>
+    <dt>Placeholder</dt>
+    <dd>A field name in the template filled from the data source.</dd>
+  </div>
+  <div>
+    <dt>Mail merge</dt>
+    <dd>Word or Docs fills many letters from one table without a separate flow.</dd>
+  </div>
+</dl>
 
 ## The five steps from data to a checked PDF
 
@@ -34,9 +51,9 @@ Step 2 is where most projects stall. If the same customer sits in two programs w
 
 The check in step 5 takes a minute: amounts, address and salutation, attachments, the free-text part. It is why a wrong number does not reach a customer.
 
-## Word or Google Docs: what your templates can already do
+## Fill a Word template automatically: mail merge, Power Automate, Google Docs
 
-For a few documents a week, the mail merge you already have is often enough. Full automation needs a flow on top of it.
+For a few documents a week, the mail merge you already have is often enough. A quote that needs a different fee table each time usually needs a flow on top.
 
 In Word, a mail merge fills letters from an Excel table. Microsoft's help page says the column names must match the field names, and that the merge document stays connected to its data source ([Microsoft Support](https://support.microsoft.com/en-us/office/mail-merge-using-an-excel-spreadsheet-858c7d7f-5cc0-4ba1-9a7b-0a948fa3d7d3)). That suits batches of letters, less a quote whose fee table has a different number of rows each time.
 
@@ -44,9 +61,7 @@ In Microsoft 365, Power Automate has a Word Online (Business) connector with the
 
 In Google Workspace, variable chips in Google Docs fill several fields with the same text and export templates with different values. They are available only for eligible work or school accounts, and you fill them by hand ([Google Docs Help](https://support.google.com/docs/answer/13584275?hl=en)). For automatic filling you need a script: Apps Script can replace text patterns in a document with [replaceText](https://developers.google.com/apps-script/reference/document/body) and convert a file to PDF with [getAs](https://developers.google.com/apps-script/reference/base/blob).
 
-Our own download form uses similar pieces: a Google Apps Script logs the request in a Sheet, fetches a PDF from a private Drive folder and sends it by email through Microsoft Graph.
-
-If your business software already produces the quote from its own template, use that first. The gap is usually the documents around it. What your programs offer as interfaces, we clarify in the Check.
+If your business software already produces the quote from its own template, start there. What your programs offer as interfaces, we clarify in the Check.
 
 ## Where AI helps and where fixed wording is safer
 
@@ -70,7 +85,7 @@ Most documents need no signature that the law prescribes. Where one is required,
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>According to the Federal Office of Communications (BAKOM), Swiss contract law follows freedom of form, so few transactions need a qualified electronic signature at all. Where a handwritten signature is required, only a qualified electronic signature under ZertES is treated as equal: one based on a qualified certificate from a recognised provider and carrying a qualified time stamp. Other electronic signatures can be used where no handwritten signature is required.</p>
+  <p>According to BAKOM, Swiss contract law follows freedom of form. Where a handwritten signature is required, only a qualified electronic signature under ZertES is treated as equal. Other electronic signatures can be used where no handwritten signature is required.</p>
 </aside>
 
 That is the position in Art. 14 para. 2bis of the Code of Obligations, as [BAKOM explains it](https://www.bakom.admin.ch/de/23-welche-rechtskraft-haben-elektronische-signaturen). The Swiss accreditation body keeps a list of the providers that may issue qualified certificates ([BAKOM](https://www.bakom.admin.ch/de/elektronische-signatur-2)).
@@ -87,13 +102,13 @@ Accounting records and vouchers such as invoices must be kept for ten years from
 
 An example, not a client: a planning office with about twelve people. It sends around ten fee quotes a month for renovation projects, and an order confirmation for each one that is accepted.
 
-Today, the project lead opens the last quote, saves it under a new name, swaps customer and address, retypes the fee table and exports a PDF. Everyone names the file differently, and now and then a previous customer's name survives in the footer.
+Today, the project lead opens the last quote, saves under a new name, swaps customer and address, retypes the fee table and exports a PDF. Names differ, and a previous customer sometimes survives in the footer.
 
-The build: one Word template for the quote and one for the confirmation. A form for the project lead writes one row per quote into a spreadsheet: customer, address, scope modules from a fixed list, hours or a lump sum. The rates sit in a second sheet that the office manager maintains. Terms and payment conditions never change, so they stay in the template. One field is free text, how the office understood the project.
+One Word template for quotes and one for confirmations. A form writes one row per quote: customer, address, modules from a fixed list, hours or a lump sum. Rates sit in a second sheet the office manager maintains. Terms stay in the template. One field is free text.
 
-When a row is marked «create draft», a flow fills the template, exports the PDF, files it in the project folder under a fixed name and mails it to the project lead, not to the customer. The free-text paragraph is drafted by an AI service from the project lead's own notes and marked as a draft. The project lead corrects it and sets the row to «approved». Only then does the flow send the mail from the office mailbox and write the send date into the row. That date is where a reminder can start: see [how to follow up on quotes without losing them](/prozess-check/blog/quote-follow-ups).
+When a row is marked «create draft», a flow fills the template, exports the PDF, files it and mails it to the project lead. She corrects the AI draft and sets «approved». Only then does mail go to the customer and the send date is written back. Reminders can start from that date: see [how to follow up on quotes without losing them](/prozess-check/blog/quote-follow-ups).
 
-For scale: one document type with one data source is the kind of clearly bounded task the guide price of CHF 3'200–4'800 is meant for. Several document types or systems move towards the larger packages. The fixed price comes in writing after the Check.
+For scale: one document type with one data source matches the guide price of CHF 3'200–4'800. Several types move towards larger packages. The fixed price comes in writing after the Check.
 
 ## When not to automate documents
 

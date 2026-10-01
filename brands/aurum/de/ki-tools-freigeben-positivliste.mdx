@@ -16,7 +16,7 @@ site: prozess-check
 
 KI-Tools im Unternehmen freigeben Sie in fünf Schritten: erheben, was das Team heute schon nutzt, ein oder zwei Tools auswählen, die Arbeit von kostenlosen Privatkonten auf Firmenkonten holen, die Einstellungen in der Suite prüfen, die Sie ohnehin bezahlen, und die Liste bekanntgeben. Für die meisten Schweizer KMU steckt der erste Kandidat schon im Abo: der KI-Chat in Microsoft 365 oder Gemini in Google Workspace. Die Positivliste ist Punkt 2 einer [KI-Richtlinie](/de/prozess-check/blog/ki-richtlinie-vorlage-kmu). Hier steht, wie Sie diesen Punkt füllen.
 
-Der Text ist für die Geschäftsführerin oder den Büroleiter, die in der Praxis auch die IT sind, oder die für die Verwaltung einen externen IT-Partner haben. Eine Tool-Rangliste ist er nicht. Klickpfade in Verwaltungskonsolen stehen hier auch keine. Die ändern sich mit jeder Version, und die Hilfeseiten der Anbieter, unten verlinkt, sind der Ort, an dem Ihr Admin nachschaut.
+Der Text ist für die Geschäftsführerin oder den Büroleiter, die in der Praxis auch die IT sind, oder die einen externen IT-Partner haben. Keine Tool-Rangliste und keine Klickpfade in Admin-Konsolen. Die Hilfeseiten der Anbieter, unten verlinkt, sind der Ort für Schalter und Richtlinien.
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Bestand erheben</h3><p>Fragen, wer welches Tool für die Arbeit nutzt, mit welchem Konto, wofür.</p></li>
@@ -44,13 +44,13 @@ Microsoft hat umbenannt: Microsoft 365 Copilot heisst jetzt Microsoft Copilot, M
 
 Copilot Chat ist [für Organisationen mit einem Microsoft-365-Abonnement enthalten](https://learn.microsoft.com/de-ch/copilot/faq). Die Leute öffnen ihn, nachdem sie sich mit ihrem Entra-Konto angemeldet haben, also mit dem Firmenkonto. Dann gilt, was Microsoft Unternehmensdatenschutz nennt: Die Nutzung fällt unter das Data Protection Addendum und die Product Terms, Microsoft handelt als Auftragsbearbeiter, und Eingaben und Antworten werden nicht zum Trainieren der Basismodelle verwendet. Ein grünes Schild neben der Schaltfläche für einen neuen Chat zeigt an, dass der Schutz aktiv ist ([Microsoft Learn](https://learn.microsoft.com/de-de/copilot/privacy-and-protections)). Sagen Sie den Leuten, dass sie darauf achten sollen.
 
-Zwei Grenzen sollten Sie kennen. Websuchen, die Copilot an Bing schickt, fallen unter den Microsoft-Servicevertrag, und Microsoft handelt dort als eigenständig Verantwortlicher. Admins können die Websuche mit der Richtlinie «Allow web search in Copilot» abschalten ([Microsoft Learn](https://learn.microsoft.com/de-de/copilot/manage)). Und Copilot Chat arbeitet nicht mit Ihren Arbeitsdaten in Microsoft Graph, also Postfächern und Dateien. Das ordnet Microsoft der kostenpflichtigen Lizenz Microsoft Copilot zu.
+Websuchen über Bing laufen unter anderen Bedingungen als der Chat selbst. Admins können sie mit «Allow web search in Copilot» abschalten ([Microsoft Learn](https://learn.microsoft.com/de-de/copilot/manage)). Copilot Chat liest Ihre Postfächer und Dateien in Microsoft Graph nicht. Dafür braucht es die kostenpflichtige Lizenz Microsoft Copilot.
 
 ### Google Workspace
 
 Mit einer berechtigten Workspace-Edition sagt Google zu, dass Ihre Inhalte ohne Erlaubnis weder von Menschen geprüft noch ausserhalb Ihrer Domain zum Trainieren generativer KI-Modelle verwendet werden. Grundlage ist das Cloud Data Processing Addendum. Das gilt für Gemini in Gmail, Docs, Sheets, Drive und Meet sowie für die Gemini-App ([Privacy Hub für generative KI in Google Workspace](https://knowledge.workspace.google.com/admin/generative-ai/generative-ai-in-google-workspace-privacy-hub?hl=de)).
 
-Die Gemini-App ist für lizenzierte Nutzer standardmässig eingeschaltet. Admins können sie für alle ein- oder ausschalten, oder nur für eine Organisationseinheit oder Gruppe. Wer keine berechtigte Workspace-Edition hat, fällt unter andere Bedingungen: Chats können von Menschen geprüft und zur Verbesserung der Google-Produkte genutzt werden ([Google Workspace-Hilfe](https://knowledge.workspace.google.com/admin/generative-ai/gemini-app/turn-the-gemini-app-on-or-off)). Es gilt dieselbe Regel wie bei Microsoft: Das Firmenkonto ist das erlaubte Tool, das private Google-Konto nicht.
+Admins schalten die Gemini-App pro Organisationseinheit ein oder aus ([Google Workspace-Hilfe](https://knowledge.workspace.google.com/admin/generative-ai/gemini-app/turn-the-gemini-app-on-or-off)). Ohne berechtigte Edition gelten andere Bedingungen. Das Firmenkonto ist das erlaubte Tool, das private Google-Konto nicht.
 
 ### ChatGPT
 
@@ -70,32 +70,32 @@ Ein Beispiel: eine Liegenschaftsverwaltung mit rund 15 Personen, alles auf Micro
 | ChatGPT Business | Firmen-Workspace | Öffentlich und intern, keine Personendaten | Drei Personen, die Mitteilungen und Briefe entwerfen |
 | Privates ChatGPT, Gemini, Übersetzungs-Websites | Privat | Keine | Niemand, für die Arbeit |
 
-Auch die Websuche bekommt einen Entscheid. Die Korrespondenz mit Mietern ist der Hauptzweck, und der Web-Teil läuft unter anderen Bedingungen. Also schaltet der IT-Partner die Websuche vorerst ab, überprüft wird das bei der nächsten Überprüfung der Richtlinie. Gesundheitsangaben von Mietern bleiben aus jedem Tool draussen, so steht es in Punkt 3 der Richtlinie.
+Auch die Websuche bekommt einen Entscheid. Der IT-Partner schaltet sie vorerst ab. Gesundheitsangaben von Mietern bleiben aus jedem Tool draussen.
 
 ## Einstellungen prüfen, ohne Klickpfade
 
-Drei Prüfungen: Die Leute melden sich mit dem Firmenkonto an, die Firmenbedingungen gelten wirklich, und Zugriff und Websuche sind bewusst eingestellt, nicht bloss so, wie sie ab Werk waren.
-
-- **Microsoft 365:** Copilot Chat wird mit dem Firmenkonto geöffnet, das grüne Schild ist sichtbar. Jemand hat über «Allow web search in Copilot» entschieden. Sollen nur einzelne Personen den Chat nutzen, lässt sich der Zugriff auf Benutzer oder Gruppen beschränken.
-- **Google Workspace:** Die Gemini-App ist für die Organisationseinheiten eingeschaltet, die sie haben sollen, und für die anderen aus. Alle auf der Liste haben eine berechtigte Edition.
-- **ChatGPT Business:** Wer den Workspace verwaltet, nimmt Leute beim Eintritt auf und beim Austritt heraus. Arbeitsinhalte gehen in den Workspace, nicht in ein Privatkonto.
-
-Wo welcher Schalter genau sitzt, ändert sich. Ihr Admin arbeitet mit den oben verlinkten Hilfeseiten, nicht mit einem Screenshot aus einem Blog.
+Drei Prüfungen: Firmenkonto, Firmenbedingungen aktiv, Zugriff und Websuche bewusst gesetzt. Bei Microsoft 365 achten Sie auf das grüne Schild im Copilot Chat. Bei Google Workspace schalten Sie Gemini nur für die Organisationseinheiten ein, die die Liste brauchen. Die Positivliste ersetzt keine Ampel für Personendaten aus Punkt 3 der Richtlinie. Schalter und Richtlinien stehen in den verlinkten Hilfeseiten.
 
 ## Schritt 5: die Liste bekanntgeben
 
 Eine Seite, eine kurze Sitzung und ein Name. Die Liste gehört in die Richtlinie und dorthin, wo die Leute tatsächlich nachschauen, zum Beispiel als angehefteter Beitrag im Teams-Kanal.
 
-Sagen Sie, was nicht erlaubt ist und warum: Privatkonten, weil die Firma dort keinen Vertrag hat, nicht weil jemand etwas falsch gemacht hat. Nennen Sie im selben Atemzug das erlaubte Tool. Nennen Sie die Person, die über neue Tools entscheidet, und wie schnell sie antwortet, eine Woche ist vernünftig. Das Datum der nächsten Überprüfung steht auf der Seite.
+Sagen Sie, was nicht erlaubt ist und warum: Privatkonten, weil die Firma dort keinen Vertrag hat. Nennen Sie das erlaubte Tool, die Ansprechperson für neue Tools, das Datum der nächsten Überprüfung und eine Frist für Antworten, eine Woche genügt meist.
+
+## Positivliste oder Verbotsliste?
+
+Eine Positivliste nennt, was erlaubt ist, und alles andere bleibt draussen, bis jemand es beantragt. Eine Verbotsliste verbietet einzelne Tools und lässt den Rest offen. Für KMU mit Schatten-KI ist die Positivliste meist schneller: weniger Grauzone, klareres Firmenkonto.
+
+## Wer zuerst wartet und wer sofort listet
+
+Warten Sie, wenn noch niemand KI für die Arbeit nutzt und kein Druck von VR oder Kundschaft kommt. Listet sofort, wenn private ChatGPT-Konten schon in Mandats- oder Kundendaten stecken, oder wenn M365 oder Workspace schon bezahlt ist und niemand weiss, welcher Chat erlaubt ist.
 
 ## Wo eine Positivliste aufhört
 
-Ein erlaubtes Tool heisst nicht, dass jede Art von Daten hinein darf. Das Firmenkonto macht Gesundheitsdaten, Löhne oder Mandatsdossiers nicht zu Inhalten, die man einfach einfügt. Dafür gibt es die Datenklassen, und die gelten weiter.
-
-Die Liste bringt niemandem bei, einen Entwurf zu prüfen, und sie verbindet keine Systeme miteinander. Hören Sie mit dem Vergleichen auf, wenn er in die dritte Sitzung geht. Dann vergleichen Sie Funktionen, statt zu entscheiden. Beginnen Sie mit dem Tool aus der Suite und höchstens einem weiteren. Bearbeitet Ihr Betrieb Gesundheitsdaten oder arbeitet er in einem regulierten Bereich, lassen Sie die Liste vor der Bekanntgabe von Ihrer Datenschutzberatung anschauen.
+Ein erlaubtes Tool heisst nicht, dass jede Art von Daten hinein darf. Gesundheitsdaten, Löhne oder Mandatsdossiers bleiben ausserhalb der erlaubten Klassen. Die Liste ersetzt keine Prüfung von Entwürfen und baut keine Schnittstellen. Stoppen Sie Tool-Vergleiche spätestens in der dritten Sitzung. Bearbeitet Ihr Betrieb Gesundheitsdaten oder regulierte Bereiche, lassen Sie die Liste vor der Bekanntgabe von der Datenschutzberatung prüfen.
 
 ## Nächster Schritt: das Team nutzt die Liste gleich
 
-Steht die Liste, muss das Team sie gleich anwenden: welches erlaubte Tool zu welcher Arbeit passt, was KI zuverlässig kann und wo sie danebenliegt, wie man eine Ausgabe prüft, bevor sie rausgeht. Dafür gibt es den [Workshop «KI im Unternehmen»](/de/services/ai-in-business): ein halber oder ganzer Tag, bis zu 20 Teilnehmende, geübt an echten Aufgaben aus Ihrem Team, vor Ort oder hybrid in der Schweiz. Ihre Liste und Ihre Richtlinie sind gutes Material für das Vorbereitungsgespräch.
+Steht die Liste, braucht das Team Übung: welches Tool zu welcher Arbeit, wo KI scheitert, wie man Entwürfe prüft. Dafür gibt es den [Workshop «KI im Unternehmen»](/de/services/ai-in-business): ein halber oder ganzer Tag, bis zu 20 Teilnehmende, vor Ort oder hybrid in der Schweiz.
 
-Geht es eigentlich um eine wiederkehrende Arbeit und nicht ums ganze Team, ist der [Prozess-Check](/de/prozess-check) der kleinere Schritt: eine Arbeit, 60 Minuten, ein Case und eine Preisspanne. Wie sich beides unterscheidet: [Workshop oder Umsetzung](/de/prozess-check/blog/workshop-oder-umsetzung).
+Geht es um eine wiederkehrende Arbeit statt ums ganze Team, ist der [Prozess-Check](/de/prozess-check) der kleinere Schritt: eine Arbeit, 60 Minuten, CHF 99 pauschal, ein Case und eine Preisspanne. Unterschied zum Workshop: [Workshop oder Umsetzung](/de/prozess-check/blog/workshop-oder-umsetzung).

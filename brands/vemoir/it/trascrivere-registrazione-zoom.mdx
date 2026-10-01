@@ -1,6 +1,6 @@
 ---
 title: "Trascrivere una registrazione Zoom locale (senza upload)"
-description: "Trascrivere una registrazione Zoom dal M4A locale: percorsi su Mac e Windows e testo nel browser senza inviare l'audio."
+description: "Trascrivere una registrazione Zoom dal M4A locale: cartelle su Mac e Windows, e testo nel browser senza inviare l'audio."
 pubDate: 2026-10-02
 author: "Vemoir Team"
 tags: ["zoom", "trascrizione", "privacy"]
@@ -10,133 +10,145 @@ relatedPosts: ["alternativa-a-fireflies", "alternativa-a-granola", "alternativa-
 tool: "transcribe-zoom-recording"
 image: "@/assets/blog/zoom-local-recording-transcript/hero.jpg"
 draft: false
-
 ---
-Se devi **trascrivere una registrazione Zoom** dopo la call, nella cartella sul Mac trovi spesso audio o video, non un verbale pronto. Zoom crea un file di trascrizione separato solo quando la riunione è stata **registrata nel cloud** con un **piano a pagamento**, cloud recording e trascrizione audio attivi. Se scegli **Registra su questo computer** (comune su account gratuiti e su molti piani pagati), ottieni file MP4 e M4A in locale. Il testo lo produci tu dalla traccia audio.
 
-Questa guida spiega dove Zoom salva quei file su Mac e Windows, cosa distingue un VTT cloud da un M4A locale, e come ottenere il testo nel browser **senza caricare** l'audio su un server.
+Per trascrivere una registrazione Zoom dopo la riunione, parti dal file audio sul computer che ha premuto registra. Zoom scrive una trascrizione separata solo per una registrazione cloud, su un piano a pagamento, con registrazione cloud e trascrizione audio attive. La registrazione sul computer, che la guida in inglese chiama **Record on this Computer**, è video e audio sul disco. In quella cartella non c'è un VTT.
 
-## Perché nella cartella Zoom non c'è una trascrizione
+Se aspettavi una mail con la trascrizione e hai registrato in locale, la mail manca per la stessa regola. [La guida Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0065911) dice: la trascrizione audio vale per le registrazioni cloud, non per le registrazioni sul computer.
 
-Dopo una registrazione locale, Zoom crea una cartella datata con file come `video*.mp4`, `audio*.m4a` e spesso anche `audio_only.m4a`, a seconda di versione e opzioni. Non c'è un file **`.vtt`**, perché la [trascrizione audio per registrazioni cloud](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064927) vale solo quando il meeting viene salvato nel cloud Zoom, non sul dispositivo. L'articolo Zoom su [abilitare la trascrizione audio](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0065911) dice che la trascrizione si applica **solo alle registrazioni cloud**, non a quelle su computer.
+## Indice
 
-Su account Pro, Business, Education o Enterprise con cloud recording, dopo l'elaborazione può comparire un file **VTT**, come in [formati file di registrazione](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394). In locale hai soprattutto **MP4** e **M4A**. Se ti aspettavi un'email con trascrizione ma hai registrato in locale, il comportamento è coerente con la documentazione Zoom: hai già l'audio, non il testo.
+- [Perché nella cartella c'è audio, non una trascrizione](#perché-nella-cartella-cè-audio-non-una-trascrizione)
+- [Dove Zoom salva la registrazione locale](#dove-zoom-salva-la-registrazione-locale)
+- [Quale file aprire](#quale-file-aprire)
+- [VTT cloud e M4A locale](#vtt-cloud-e-m4a-locale)
+- [Trascrivere il M4A senza caricarlo](#trascrivere-il-m4a-senza-caricarlo)
+- [Controllare che non ci sia stato un upload](#controllare-che-non-ci-sia-stato-un-upload)
+- [Quando lo strumento nel browser non basta](#quando-lo-strumento-nel-browser-non-basta)
+- [Domande frequenti](#domande-frequenti)
 
-## Dove Zoom salva le registrazioni locali su Mac e Windows
+## Perché nella cartella c'è audio, non una trascrizione
 
-Di default tutto sta sotto **Documenti/Zoom**, con una sottocartella per riunione (spesso data e titolo). Zoom documenta i percorsi in [Trovare registrazioni su computer e cloud](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0058006):
+La guida su [come si usa la trascrizione audio](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064927) mette tre condizioni: account Pro, Business, Education o Enterprise, registrazione cloud attiva, trascrizione audio attiva. Dopo una registrazione cloud, Zoom manda una mail quando la registrazione è pronta, e un'altra quando la trascrizione è pronta. Quella trascrizione è un file VTT sulla registrazione cloud.
 
-- **Mac:** `/Users/[Nome utente]/Documents/Zoom`
-- **Windows:** `C:\Users\[Nome utente]\Documents\Zoom`
+La pagina per [attivare la trascrizione](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0065911) dice che vale solo per le registrazioni cloud, e che la trascrizione audio cloud supporta l'inglese. La pagina d'uso dice che puoi cambiare la lingua di una trascrizione cloud e farla rifare a Zoom. Se le due pagine non coincidono sul tuo account, conta l'interruttore che vedi nel portale Zoom. Nessuna delle due assegna un VTT a una registrazione locale.
 
-Il percorso può cambiare se hai modificato **Posizione archiviazione registrazione locale** nell'app Zoom: foto profilo → **Impostazioni** → **Registrazione** → **Apri** o **Modifica** (stesso articolo). Se manca una registrazione, la [guida risoluzione problemi Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0083769) consiglia di aprire la cartella dalle impostazioni e verificare se il meeting è finito nel cloud.
+Un account gratuito può comunque registrare sul computer. [Trovare le registrazioni](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0058006) dice che la registrazione sul computer c'è per gli account gratuiti e a pagamento. Quello che manca su questa strada è la trascrizione di Zoom.
 
-In quella cartella usa il file **solo audio** per la trascrizione. La documentazione formati chiama l'audio locale `audio[numero casuale].m4a`; molte installazioni mostrano anche **`audio_only.m4a`**. Conserva l'intera cartella finché il testo non ti convince: una registrazione locale esiste solo su quel computer, Zoom non tiene una copia sui suoi server.
+## Dove Zoom salva la registrazione locale
 
-## VTT cloud vs M4A o MP4 locale
+Registra chi ospita la riunione, oppure dà il permesso a un'altra persona. [Avviare una registrazione sul computer](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0076922) dice: nella riunione clicca **Record**, poi **Record on this Computer** se compare un menu. Nell'app in italiano è l'opzione computer sotto Registra. Chi entra da telefono sente un avviso, a meno che chi ospita non l'abbia disattivato.
 
-| Cosa hai | File tipici | Trascrizione da Zoom? |
+A fine riunione Zoom converte la registrazione. Lascia il portatile sveglio fino alla fine. La guida Zoom dice che una conversione interrotta (sospensione, spegnimento, coperchio chiuso) può lasciare file danneggiati, senza recupero. Se la conversione riesce, la cartella si apre da sola.
+
+Percorsi predefiniti, stesso articolo sul ritrovo dei file, settembre 2026:
+
+- Mac: `/Users/[Nome]/Documents/Zoom`
+- Windows: `C:\Users\[Nome]\Documents\Zoom`
+- Linux: `home/[Nome]/Documents/Zoom`
+
+Ogni riunione ha la sua sottocartella. Se il percorso è stato cambiato, l'app desktop lo conosce ancora: foto del profilo, **Impostazioni**, **Registrazione**, poi **Apri** o **Cambia** accanto alla posizione locale. Zoom consiglia un disco locale. Una cartella sincronizzata (Dropbox, Google Drive, OneDrive), un disco esterno o un'unità di rete possono bloccare il salvataggio e la conversione.
+
+Se la cartella sembra vuota, controlla di non aver registrato nel cloud. Nel portale Zoom: **Registrazioni e trascrizioni**, scheda **Registrazioni sul computer**. La colonna della posizione dice dove quel computer ha scritto. Le registrazioni cloud stanno sull'altra scheda. Lì ci sarebbe un VTT.
+
+Su un Mac con il Finder in italiano la cartella si chiama spesso Documenti, ma il percorso reale resta `Documents` dentro `/Users`. Aprilo dalle impostazioni di Zoom invece di tradurre il percorso a mano. È lo stesso trabocchetto che incontri in Ticino con un Mac in italiano e una cartella Zoom creata dall'app in inglese.
+
+## Quale file aprire
+
+L'[articolo sui formati](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394) indica i nomi attuali:
+
+- `video[numero].mp4` per immagine e audio
+- `audio[numero].m4a` solo audio
+- `chat.txt` se la chat della riunione è stata salvata
+- `audio[Nome][numero].m4a` se è attiva una traccia audio separata per persona
+
+Prendi il M4A. È la voce, senza il video. Trascrivi un file audio mischiato, non una pila di tracce singole, a meno che tu non le voglia proprio separate.
+
+Cartelle più vecchie, e molte guide universitarie, mostrano ancora `audio_only.m4a` e `zoom_0.mp4`. L'articolo attuale di Zoom su i formati non usa questi nomi. Se nella cartella c'è `audio_only.m4a`, è quello il file. Se c'è `audio`, un numero e `.m4a`, è quello. Tieni tutta la cartella finché il testo ti convince. Una registrazione locale esiste solo su quel computer. Zoom non ne tiene una copia.
+
+## VTT cloud e M4A locale
+
+| Cosa hai registrato | File tipici | Trascrizione da Zoom? |
 | --- | --- | --- |
-| Registrazione cloud (piano a pagamento + cloud attivo) | MP4, M4A, **VTT** opzionale | Sì, dopo l'elaborazione, se trascrizione audio attiva |
-| Registrazione su computer | **M4A**, **MP4**, `chat.txt` opzionale | Nessun VTT automatico; trascrivi dall'audio |
+| Cloud, piano a pagamento adatto, trascrizione audio attiva | MP4, M4A e un VTT | Sì, dopo l'elaborazione di Zoom |
+| Computer (**Record on this Computer**) | `audio[numero].m4a` oppure, nelle cartelle vecchie, `audio_only.m4a`, più un MP4, a volte `chat.txt` | No |
 
-Il VTT è testo con timestamp, utile per sottotitoli e ricerca. Se hai già scaricato un VTT cloud da Zoom, lo [strumento pulire trascrizione](/it/strumenti/pulire-trascrizione) lo normalizza nel browser prima di incollarlo nel verbale. Il M4A locale basta per il riconoscimento vocale. Il video non serve per un verbale testuale, a meno che tu non voglia allineare immagine e voce in seguito.
+Un VTT è testo con i tempi. Se ne hai già scaricato uno da una registrazione cloud, [pulire la trascrizione](/it/strumenti/pulire-trascrizione) toglie numeri di cue e timestamp nel browser. Non trascrive l'audio e non consuma una delle tre elaborazioni settimanali. Un M4A locale ha ancora bisogno del riconoscimento vocale. Il MP4 non serve per il testo.
 
-## Account gratuito, piano a pagamento e «Registra su questo computer»
+## Trascrivere il M4A senza caricarlo
 
-La registrazione locale è disponibile su account gratuiti e a pagamento ([registrazioni su computer](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0058006)). Cloud recording con trascrizione automatica dipende da licenza e impostazioni admin. Durante il meeting, **Registra su questo computer** invece di **Registra nel cloud** decide se troverai un VTT nel portale web o M4A/MP4 su disco. Team attenti alla nLPD e ai clienti spesso preferiscono cattura locale più trascrizione nel **proprio** browser: il file resta sul portatile e puoi verificare il comportamento nella scheda Rete.
+<ol class="blog-steps">
+  <li data-step="1"><h3>Conferma che era una registrazione sul computer</h3><p>Nell'app Zoom, Impostazioni, Registrazione, segna il percorso. Cerchi una cartella recente sotto Documents/Zoom, o il percorso che mostra Apri.</p></li>
+  <li data-step="2"><h3>Aspetta la fine della conversione</h3><p>Se la riunione è appena finita, lascia che Zoom apra la cartella. Un file convertito a metà non dà un testo pulito.</p></li>
+  <li data-step="3"><h3>Scegli il file audio</h3><p><code>audio_only.m4a</code> se quel nome c'è, altrimenti <code>audio</code>, un numero e <code>.m4a</code>.</p></li>
+  <li data-step="4"><h3>Controlla la durata</h3><p>Lo strumento gratuito su vemoir.ch accetta fino a 15 minuti, e tre elaborazioni riuscite a settimana. Le riunioni più lunghe stanno sotto.</p></li>
+  <li data-step="5"><h3>Apri lo strumento e avvialo</h3><p>Vai su <a href="/it/strumenti/trascrivere-registrazione-zoom">trascrivere una registrazione Zoom</a>. Aggiungi il M4A (vanno bene anche MP3, WAV e MP4). Il modello gira nella scheda. Il file non viene caricato.</p></li>
+</ol>
 
-Vuoi evitare di cercare cartelle dopo ogni call? [Vemoir registra la prossima riunione sul tuo Mac](/it#how) dalla barra menu mentre resti in Zoom, senza bot nella lista partecipanti (vedi anche [note di riunione senza bot](/it/blog/note-riunione-senza-bot)).
-
-## Passo passo: trascrivere l'audio Zoom locale nel browser
-
-1. **Conferma registrazione locale.** Nell'app Zoom apri **Impostazioni** → **Registrazione** e annota il percorso. Dovresti vedere una cartella recente sotto `Documents/Zoom` (o il percorso personalizzato).
-2. **Scegli il file audio.** Nella cartella prendi `audio_only.m4a` se c'è, altrimenti il file `audio*.m4a` ([formati](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394)).
-3. **Controlla la durata.** Lo strumento gratuito su vemoir.ch accetta fino a **15 minuti** per file. Oltre serve un altro flusso (sotto).
-4. **Apri lo strumento Zoom.** Vai su [/it/strumenti/trascrivere-registrazione-zoom](/it/strumenti/trascrivere-registrazione-zoom) e trascina la M4A (o MP3, WAV, MP4 supportati).
-5. **Avvia la trascrizione.** L'elaborazione avviene nella scheda. Il file **non viene caricato** su Vemoir; il modello si scarica nel browser, poi le esecuzioni successive possono funzionare offline con il modello in cache.
-6. **Copia il testo** per note, email o archivio progetto.
-
-Quando `audio_only.m4a` o `audio*.m4a` è pronto, puoi [trascrivere la registrazione Zoom nel browser](/it/strumenti/trascrivere-registrazione-zoom) senza inviare l'audio della riunione.
-
-Per altri file, l'hub [/it/strumenti](/it/strumenti) elenca strumenti correlati. Se hai già testo grezzo e vuoi note strutturate, vedi [/it/strumenti/note-da-trascrizione](/it/strumenti/note-da-trascrizione).
-
-## Verificare che nulla venga caricato
-
-Poiché il file resta sulla macchina, puoi controllare con gli strumenti per sviluppatori del browser:
-
-1. Apri la pagina dello strumento e avvia la trascrizione con la M4A Zoom.
-2. Apri **Strumenti per sviluppatori** (Chrome o Edge: **Visualizza** → **Sviluppatore** → **Strumenti per sviluppatori**, oppure clic destro → **Ispeziona**).
-3. Scheda **Rete**, filtro **Fetch/XHR** se disponibile.
-4. Ripeti se serve e osserva se compare una richiesta che invia i byte della registrazione a un host remoto.
-
-Al primo utilizzo dovresti vedere download di modello o asset, non un upload multipart del meeting. Se l'organizzazione exige elaborazione locale per qualsiasi durata, l'[app Mac Vemoir](https://apps.apple.com/app/id6794693630) tiene la trascrizione sul dispositivo, supporta riunioni lunghe, profili speaker e verbali completi ([cattura e modelli](/it#capture), [verbale](/it#record)). Vemoir registra audio di sistema e microfono dalla barra menu; **nessun bot** entra nella call Zoom.
-
-## Quando basta il browser vs l'app Mac
-
-Il browser conviene per un **breve estratto Zoom locale** già esportato, fino a **15 minuti**, **tre esecuzioni riuscite a settimana**, **senza etichette speaker** e **senza registrazione live** nella scheda. Lo svizzero tedesco e altre varianti nei modelli Whisper pubblici di solito escono in **tedesco standard**, non in grafia dialettale.
-
-Passa all'app Mac quando:
-
-- La riunione è durata **più di 15 minuti** e non vuoi tagliare la M4A a mano.
-- Vuoi **separazione speaker**, glossari e **Ask Vemoir** su meeting passati.
-- Preferisci **registrare la prossima call sul Mac** (Teams, Zoom, Meet e altre app che riproducono audio sul dispositivo) invece di cercare cartelle dopo. Vedi [app per riunioni](/it#platforms).
-
-## Prova lo strumento gratuito o l'app Mac
-
-**Breve estratto locale (15 minuti o meno):** apri lo [strumento gratuito per registrazioni Zoom](/it/strumenti/trascrivere-registrazione-zoom) e trascina la M4A. L'elaborazione resta nella scheda del browser; usa la scheda Rete sopra se devi dimostrare che non c'è upload.
-
-**Riunioni più lunghe, speaker o prossima call live:** importa il file locale completo nell'[app Mac Vemoir](https://apps.apple.com/app/id6794693630), oppure [registra la prossima riunione sul Mac](/it#how) dalla barra menu mentre resti in Zoom. Nessun bot nella lista partecipanti.
-
-<ul class="blog-facts">
-  <li><span class="blog-kicker">Trascrizione cloud</span><strong>Piani a pagamento</strong><p>Testo solo con registrazione cloud attiva.</p></li>
-  <li><span class="blog-kicker">File locale</span><strong>audio_only.m4a</strong><p>La registrazione locale gratuita è audio, non testo.</p></li>
-  <li><span class="blog-kicker">Tool browser</span><strong>15 min</strong><p>Trascrivere nel tab senza caricare il file.</p></li>
-</ul>
+La prima elaborazione scarica il modello vocale. Le successive possono funzionare senza rete, quando il modello è in cache. Gli strumenti nel browser usano modelli Whisper pubblici. Non mettono i nomi di chi parla. Il tedesco svizzero esce di solito come tedesco standard.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limite</span>
-  <p>I registratori integrati seguono la licenza dell'host. Un'app menu bar non sostituisce gli avvisi di Teams o Zoom.</p>
+  <p>Quindici minuti, tre elaborazioni riuscite a settimana, niente nomi, niente cattura dal vivo nella scheda. Oltre i 15 minuti serve l'app per Mac, oppure un taglio che fai tu.</p>
 </aside>
+
+Vuoi la prossima riunione senza questa caccia alla cartella? [Vemoir registra dalla barra dei menu del Mac](/it#how) mentre resti in Zoom. Nessun bot entra nell'elenco dei partecipanti. Lo stesso tema, dal lato del problema: [note di riunione senza bot](/it/blog/note-riunione-senza-bot).
+
+## Controllare che non ci sia stato un upload
+
+1. Apri lo strumento e avvia un'elaborazione con il tuo M4A di Zoom.
+2. Apri gli strumenti per sviluppatori. In Chrome: Vista, Sviluppatore, Strumenti per sviluppatori. Oppure clic destro sulla pagina, Ispeziona.
+3. Apri la scheda Rete. Filtra per Fetch/XHR se vedi quel filtro.
+4. Guarda le richieste mentre l'elaborazione va.
+
+Alla prima volta devi vedere il modello o i suoi file in download. Non devi vedere l'audio della riunione inviato come upload di un file. Se un controllo interno chiede una prova, è questo registro. È quello del tuo browser, non un certificato nostro.
+
+La nLPD non si risolve con la scheda Rete. La scheda mostra solo dove è andato il file. Dire alle persone presenti che stai registrando, e decidere per quanto tieni il testo, resta compito tuo. Questo non è un parere legale.
+
+## Quando lo strumento nel browser non basta
+
+Resta nel browser per un clip locale corto che hai già: 15 minuti o meno, non ti servono i nomi, e il tedesco standard al posto del tedesco svizzero ti basta se la riunione era in dialetto.
+
+Passa all'[app Vemoir per Mac](https://apps.apple.com/app/id6794693630) quando la registrazione supera i 15 minuti, quando vuoi la separazione di chi parla sul Mac, o quando preferisci registrare la prossima riunione dalla barra dei menu invece di riaprire Documents/Zoom. L'app prende il microfono e l'audio di sistema. macOS lo permette solo con il permesso Registrazione schermo. Vemoir lo usa per l'audio della riunione e non registra lo schermo. Importi un M4A che hai già (anche MP3, WAV, AIFF, CAF e FLAC). Non c'è cattura dal vivo nel browser. I Mac Intel e Windows non sono supportati.
+
+Se il testo che ti serve è già un VTT cloud di Zoom, non trascrivere di nuovo il M4A. Pulisci il VTT.
 
 ## Domande frequenti
 
-### Zoom trascrive automaticamente le registrazioni locali?
+### Zoom trascrive da solo le registrazioni locali?
 
-No. La **trascrizione audio** cloud produce un VTT solo per registrazioni **cloud** con funzione attiva su account a pagamento idoneo. **Registra su questo computer** lascia audio e video su disco, senza transcript Zoom ([help Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0065911)).
+No. La trascrizione audio produce un VTT per le registrazioni cloud quando la funzione è attiva, su un account a pagamento adatto. **Record on this Computer** lascia audio e video sul disco ([guida Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0065911)).
 
-### Dove trovo la registrazione Zoom su Mac?
+### Dov'è la mia registrazione Zoom su Mac?
 
-Di default: `/Users/[Il tuo nome]/Documents/Zoom`, poi la cartella del meeting ([help Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0058006)). Usa **Impostazioni** → **Registrazione** → **Apri** se hai cambiato percorso.
+Guarda in `/Users/[il tuo nome]/Documents/Zoom`, poi la cartella di quella riunione ([guida Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0058006)). Se hai cambiato la posizione: Impostazioni, Registrazione, Apri.
 
-### Dove salva Zoom su Windows?
+### Dove salva Zoom in locale su Windows?
 
-Percorso predefinito: `C:\Users\[Nome utente]\Documents\Zoom` ([help Zoom](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0058006)). Una sottocartella per riunione.
+Il percorso predefinito è `C:\Users\[il tuo nome]\Documents\Zoom`. Ogni riunione ha la sua sottocartella. La scheda Registrazioni sul computer nel portale mostra la colonna della posizione se la cartella è stata spostata.
 
-### Trascrivo MP4 o M4A?
+### Trascrivo il MP4 o il M4A?
 
-Usa **M4A** solo audio se possibile (`audio_only.m4a` o `audio*.m4a`). Più leggero, senza decodificare video. MP4 va se è tutto ciò che hai ([formati](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064394)).
+Il M4A. L'articolo sui formati di Zoom lo chiama `audio[numero].m4a`. Molte cartelle usano ancora `audio_only.m4a`. Il MP4 solo se non c'è un file solo audio.
 
-### Lo strumento gratuito è davvero locale e privato?
+### Mi serve un piano Zoom a pagamento per trascrivere da me?
 
-Il file Zoom viene elaborato nel browser e non è inviato a Vemoir. Al primo run si scarica il modello; la scheda Rete permette di ispezionare il traffico. Serve internet per quel download iniziale; poi la cache consente passaggi offline. Niente etichette speaker né registrazione live nel browser.
+No. La registrazione sul computer c'è su account gratuiti e a pagamento. Un piano a pagamento con registrazione cloud aggiunge la trascrizione di Zoom, e solo per la copia cloud.
 
-### Cosa significa il limite di 15 minuti?
+### Lo strumento gratuito è privato?
 
-Oltre **15 minuti** lo strumento browser gratuito non basta. Importa la registrazione completa nell'**app Mac Vemoir**, oppure dividi la M4A (rispetta consenso e conservazione per ogni copia).
+Il file Zoom viene elaborato nel browser e non viene caricato su Vemoir. La prima elaborazione scarica il modello. La scheda Rete serve a vederlo. Nomi di chi parla e registrazione dal vivo non fanno parte degli strumenti nel browser.
 
-### Posso ottenere i nomi degli speaker da un M4A Zoom locale nel browser?
+### E se il file dura più di 15 minuti?
 
-No. I modelli pubblici nel browser non separano gli speaker. Per diarizzazione su Mac usa i profili speaker Vemoir ([cattura e modelli](/it#capture)).
+Lo strumento gratuito si ferma a 15 minuti e a tre elaborazioni riuscite a settimana. Importa l'intero file locale nell'app per Mac, oppure taglia il M4A se devi restare nel browser. Ogni copia resta la tua registrazione: da conservare, e da spiegare alle persone nella riunione.
 
-### Serve un piano Zoom a pagamento per trascrivere da solo una registrazione locale?
+### Lo svizzero tedesco resta svizzero tedesco?
 
-No. La registrazione locale c'è su account gratuiti e a pagamento ([registrazioni su computer](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0058006)). I piani a pagamento aggiungono transcript Zoom per il **cloud**, non sostituiscono la tua trascrizione locale.
+Di solito no, nel browser. I modelli Whisper pubblici scrivono spesso tedesco standard a partire dallo svizzero tedesco. Tienine conto se citi il testo.
 
-### Lo svizzero tedesco resta svizzero tedesco nel browser?
+### La cartella non si è mai aperta. La registrazione è persa?
 
-Di solito no. Gli strumenti browser basati su Whisper pubblico tendono a produrre **tedesco standard** da parlato svizzero tedesco. Tienilo presente per citazioni e documenti clienti.
+Spesso la conversione non è finita, oppure la posizione non è Documents/Zoom. Guarda Impostazioni, Registrazione. Se il portatile è andato in sospensione durante la conversione, Zoom avvisa che il file può essere danneggiato. La scheda Registrazioni sul computer dice se Zoom conosce un file locale, e dove.
 
-## Prossimo passo
-
-Apri [/it/strumenti/trascrivere-registrazione-zoom](/it/strumenti/trascrivere-registrazione-zoom) con la tua `audio_only.m4a` o `audio*.m4a` da `Documents/Zoom`. Per call ricorrenti confronta [prezzi](/it#pricing) e [/it/faq](/it/faq) per l'app Mac, o leggi [come Vemoir trasforma le registrazioni in verbali](/it#record) senza aggiungere un partecipante alla riunione.
+Apri [trascrivere una registrazione Zoom](/it/strumenti/trascrivere-registrazione-zoom) con il M4A da Documents/Zoom quando il clip dura 15 minuti o meno. Per la prossima riunione, [registra sul Mac](/it#how) invece di cercare la cartella, oppure leggi [come nasce il verbale](/it#record) se vuoi decisioni e attività e non solo il testo grezzo.

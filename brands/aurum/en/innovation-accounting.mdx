@@ -1,0 +1,124 @@
+---
+title: "Innovation accounting: show progress before revenue"
+description: "Innovation accounting tracks learning with cohort metrics and falsifiers, not vanity totals, so founders and innovation leads can report honest progress."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["innovation accounting", "metrics", "mvp", "validation", "startup"]
+funnelStage: interest
+translationKey: innovation-accounting
+relatedPosts: ["analytics-setup-for-an-mvp", "event-tracking-plan-for-an-mvp"]
+draft: true
+site: studio
+---
+
+## Innovation accounting
+
+**Innovation accounting** is how you report progress on a new product when revenue and profit are not there yet. You name the riskiest assumption, pick one or two metrics that would change your mind if they move the wrong way, record a baseline, run a bounded experiment, and show what you learned compared with what you predicted. The audience is often a board, a grant body, or your future self before the next build month. It is not a substitute for statutory accounts, and it does not replace interviews when the question is still «does anyone have this job to be done».
+
+This is for pre-seed founders and innovation leads in Swiss firms who must show evidence, not only activity. You already know that page views and slide decks are weak currency. Wiring the numbers is in [analytics setup for an MVP](/blog/analytics-setup-for-an-mvp). Naming events is in [event tracking plan for an MVP](/blog/event-tracking-plan-for-an-mvp). What metrics can and cannot say about fit is in [how to find product-market fit](/blog/product-market-fit-how-to-find-it).
+
+<dl class="blog-terms">
+  <div>
+    <dt>Baseline</dt>
+    <dd>What you believe or measure before the experiment, written down so later you cannot rewrite history.</dd>
+  </div>
+  <div>
+    <dt>Leap-of-faith assumption</dt>
+    <dd>The claim that kills the plan if it is wrong, for example that a segment will pay or that a channel reaches them.</dd>
+  </div>
+  <div>
+    <dt>Leading indicator</dt>
+    <dd>A metric that should move within days or weeks if the assumption is partly true, such as repeat use in a cohort.</dd>
+  </div>
+  <div>
+    <dt>Vanity metric</dt>
+    <dd>A total that only goes up as you spend or wait, such as cumulative sign-ups without retention.</dd>
+  </div>
+</dl>
+
+## Innovation accounting in practice: a short cycle
+
+Eric Ries grouped the idea into stages: establish the baseline, tune the engine with actionable metrics, then decide whether to scale. You do not need every slide from the book. You need one page per learning cycle.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>State the assumption in one sentence</h3><p>If this sentence is false, you stop or pivot. Vague goals such as «grow awareness» are not assumptions.</p></li>
+  <li data-step="2"><h3>Pick one leading indicator and a falsifier</h3><p>Write what you must see, and what would force a rethink, before you launch the test.</p></li>
+  <li data-step="3"><h3>Record the baseline</h3><p>Zero is a valid baseline. «We have never asked» is also a baseline if you then run structured interviews.</p></li>
+  <li data-step="4"><h3>Run a bounded experiment</h3><p>Time box, budget cap, and a single channel where possible so the read is interpretable.</p></li>
+  <li data-step="5"><h3>Report learning, not theatre</h3><p>Compare result to the falsifier. Name what you will try next, including stop.</p></li>
+</ol>
+
+Good innovation accounting metrics are cohort-based where it matters, actionable by a team this week, accessible without a data engineer, and auditable so someone else can recompute them from raw exports. Totals that mix old and new users, or metrics you cannot tie to the experiment window, belong in the appendix at most.
+
+## What innovation accounting does not prove
+
+A clean chart does not show product-market fit, defensible margins, or that you can hire a sales team. It shows whether one assumption survived contact with behaviour in a defined period. Protecting the idea is a separate topic: ideas as such are not protectable in Switzerland; execution and brand are ([IGE: can ideas be protected?](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)).
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Innovation accounting is for learning under uncertainty. It does not satisfy tax, audit, or grant reporting rules on its own. If Innosuisse or your board template asks for financial fields, use their forms for money and this discipline for validated learning.</p>
+</aside>
+
+<p class="blog-pull">Report the assumption you could be wrong about, not the metric that always rises.</p>
+
+## Vanity metrics versus learning metrics
+
+<div class="blog-pair">
+  <div>
+    <h3>Weak for a board update</h3>
+    <ul>
+      <li>Cumulative registrations since launch</li>
+      <li>Total impressions without cost and cohort</li>
+      <li>Features shipped without usage on the risky step</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Stronger for one cycle</h3>
+    <ul>
+      <li>Week-one activation rate for users who arrived from one campaign</li>
+      <li>Share of interviewees who describe the problem unprompted</li>
+      <li>Repeat sessions within 14 days for the same account ids</li>
+    </ul>
+  </div>
+</div>
+
+If you cannot explain how a number would change your decision, it is decoration. That is true whether the tool is GA4, PostHog, or a spreadsheet.
+
+## A made-up example: one board slide
+
+A made-up example: an innovation lead in Basel tests whether office managers will forward supplier emails into a new workflow tool. Assumption: at least three of ten managers in target firms will try it once without IT project status. Baseline: zero trials, five discovery calls where four said IT would block external tools. Falsifier: fewer than two trials in four weeks after personal outreach. Experiment: ten managers invited, manual onboarding, analytics events `trial_started` and `second_use_within_7d` on a tracking plan shared with finance. After four weeks, three start, one returns twice, six never reply. The slide shows the falsifier almost met but retention failed. Recommendation: pause build, run two more interviews on on-premise constraints, not another feature sprint. No revenue line appears on the slide. The next cycle gets a new assumption.
+
+## Who should use it, and who should skip the framework
+
+<div class="blog-pair">
+  <div>
+    <h3>Use innovation accounting</h3>
+    <ul>
+      <li>You report to a board or sponsor before revenue exists</li>
+      <li>More than one experiment runs and you need a common language</li>
+      <li>Paid acquisition is live or about to go live</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Skip or keep it lighter</h3>
+    <ul>
+      <li>The product already has recurring revenue and the question is efficiency</li>
+      <li>You are still choosing a segment and have not written assumptions down</li>
+      <li>Only friends have used the build and you can ask them directly</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-faq">
+  <h3>Is innovation accounting the same as a KPI dashboard?</h3>
+  <p>No. A dashboard can display innovation accounting if the metrics tie to assumptions and falsifiers. Most dashboards default to vanity totals unless you design them around cohorts and decisions.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>How often should you report?</h3>
+  <p>Match the experiment length. A two-week test deserves a two-week note. A quarterly board pack can summarise three cycles if each cycle kept its own baseline and falsifier.</p>
+</div>
+
+## When the Product Validation Package fits
+
+The [Product Validation Package](/services/mvp-validation) fits when the open question is behaviour under real acquisition, not whether a slide template looks credible. Weeks 1 to 4 deliver a deployed product with analytics and session recordings from day one; later weeks look at cost per lead, conversion, and drop-off, with up to three pivot iterations before a Go, Pivot, or Stop recommendation that states what the data did not prove. If you only need a one-page learning log for interviews, you may not need twelve weeks. If paid traffic, cohort metrics, and a documented recommendation are what your board expects, start a discovery conversation on the contact page when you are ready to commit the quarter.

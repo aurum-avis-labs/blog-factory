@@ -1,0 +1,97 @@
+---
+title: "Privacy requirements for a Swiss MVP"
+description: "Privacy requirements for a Swiss MVP: what to document, which vendors need contracts, and what a launch checklist does not prove."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["privacy", "mvp", "switzerland", "fadp", "startup"]
+funnelStage: interest
+translationKey: privacy-requirements-swiss-mvp
+relatedPosts: ["app-store-privacy-labels", "cookie-rules-swiss-landing-page"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Privacy requirements for a Swiss MVP boil down to knowing what personal data you collect, telling users why, securing access in the product, and putting written terms in place with every processor that touches that data. A landing page with email capture and a login-backed app both count. This is product and vendor work, not the inbox procedure when someone asks for a copy of their file.</p>
+
+## Privacy requirements for a Swiss MVP
+
+The Swiss Federal Act on Data Protection applies once you process personal data about identifiable people. For a validation build that usually means email addresses, names, usage logs tied to an account, support messages, payment metadata if you charge, and anything your analytics or session tools store. You do not need a perfect legal treatise before the first pilot. You do need a short map: what you hold, where it lives, who can see it in the team, and which suppliers process it on your behalf.
+
+This is for founders and product leads shipping a first web or mobile test from Switzerland, often without an in-house lawyer. It is not legal advice, not a guide to answering access requests in the back office, and not a substitute for counsel when you process health data, employee records, or children. Deeper FADP context for small firms sits on the security site in [Swiss FADP obligations for SMEs](/security/blog/swiss-fadp-obligations-for-smes). How engineering choices interact with privacy is part of [startup software development in Switzerland](/blog/startup-software-development-switzerland).
+
+<dl class="blog-terms">
+  <div>
+    <dt>Controller</dt>
+    <dd>You decide why and how the data are processed. The startup is usually the controller, even if a freelancer wrote the code.</dd>
+  </div>
+  <div>
+    <dt>Processor</dt>
+    <dd>A supplier that stores or analyses data only on your instructions: hosting, email, analytics, auth.</dd>
+  </div>
+  <div>
+    <dt>Personal data</dt>
+    <dd>Information that relates to an identified or identifiable person, including an email used only for login.</dd>
+  </div>
+</dl>
+
+## What to have in place before strangers use the build
+
+Treat the list below as a working checklist for the product and the landing page that points to it. Tick items as you learn the answers; gaps are normal early on, but you should not launch a public URL while every box is blank.
+
+<ul class="blog-checklist">
+  <li>A privacy notice users can reach without logging in: who you are, what you collect, why, how long you keep it, and how to contact you. Content detail is in [privacy notice requirement in Switzerland](/security/blog/privacy-notice-requirement-switzerland).</li>
+  <li>A written processing agreement with each processor that handles personal data on your behalf, including cloud hosting, auth, email, error tracking, and analytics if they receive identifiers. See [data processing agreement under the FADP](/security/blog/data-processing-agreement-under-the-fadp).</li>
+  <li>A data inventory your team can maintain: tables or fields, file uploads, third-party ids, and which environment is production.</li>
+  <li>Access control in the app: accounts cannot read each other's rows; admin roles are limited to people who need them.</li>
+  <li>A named hosting region you can state in the notice and in sales calls. Supabase and other providers let you select Zurich (eu-central-2) or another region when you create the project.</li>
+  <li>Retention you can explain in plain language, even if the first version is «delete test users on request» rather than automated expiry.</li>
+  <li>Store disclosures aligned with what you actually collect: App Store privacy labels and Google Play data safety when you ship a wrap, not only a web URL.</li>
+  <li>Cookie and similar technology handling on the marketing site, including when you need consent versus information only. Practical choices for a validation landing page are in cookie rules for a Swiss landing page.</li>
+</ul>
+
+## A made-up example: a B2B waitlist plus a pilot app
+
+A made-up example: two founders in Zurich test a workflow tool for small architecture studios. The landing page collects work email and firm name into a EU-hosted database; GA4 and Clarity run with anonymised IP and no retargeting pixels. The pilot app uses magic links, stores project titles and PDF uploads, and sends mail through a European SMTP provider. Before ten studios join from a LinkedIn post, they publish a bilingual privacy notice in the footer and app settings, sign processing terms with host and mail vendor, list processors with region and purpose, and enable row-level rules so accounts stay separate. There is no automated export button yet, but they know which tables to query. Store privacy answers mention uploads and email. That does not make them «GDPR certified»; it makes the pilot explainable when a buyer asks where files sit.
+
+## What this work does not prove
+
+Shipping a notice and processor contracts does not show product-market fit, safe code, or that your acquisition channel repeats. It does not replace a security review of generated apps. It does not mean you may process any category of data; sensitive health or biometric use needs a separate legal review. It does not satisfy every buyer's procurement questionnaire, especially banks or insurers, who will ask for more than an MVP checklist.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>This article is a founder-facing map of common product obligations under Swiss law. It does not say your specific idea is lawful, that you may ignore the EU GDPR because you are Swiss, or how to respond to an angry access request. For the office workflow on access requests, use your adviser's materials or the security blog, not this page.</p>
+</aside>
+
+<div class="blog-pair">
+  <div>
+    <h3>Prioritise privacy setup now</h3>
+    <ul>
+      <li>You collect email or names on a public landing page</li>
+      <li>Users log in and store their own content</li>
+      <li>You run analytics or session recordings on production</li>
+      <li>A pilot customer asks where data are hosted before signing</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Defer or keep scope minimal</h3>
+    <ul>
+      <li>Interviews are offline and you hold no identifiers yet</li>
+      <li>The demo is a single shared account with fake data only</li>
+      <li>You are still testing copy on paper without a form backend</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-faq">
+  <h3>Do I need a privacy notice before my first beta tester?</h3>
+  <p>Once you process personal data about identifiable testers, yes. A short notice linked from the app and the signup flow is the usual minimum, plus processor terms for the tools that store the data.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is choosing Supabase in Zurich enough for compliance?</h3>
+  <p>Region choice helps you answer where the database sits. You still need access control, notices, contracts with Supabase and any other processors, and honest store disclosures if you ship mobile binaries.</p>
+</div>
+
+## When the Product Validation Package fits
+
+The [Product Validation Package](/services/mvp-validation) fits when the open question is measured behaviour with a deployed product, not whether a privacy paragraph sounds good in Notion. Weeks 1 to 4 deliver a production-oriented web app with analytics and session insight from day one, with hosting and access patterns you can describe to a pilot buyer; later weeks focus on acquisition and conversion, ending in a Go, Pivot, or Stop call that states what the data did not prove. If you only need a smoke test on a single landing page, a lighter offer may suffice. If strangers will log in, upload files, and pay, start the discovery conversation on the contact page when you are ready to commit twelve weeks of validation work.

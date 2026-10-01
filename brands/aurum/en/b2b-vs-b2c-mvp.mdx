@@ -1,0 +1,92 @@
+---
+title: "B2B vs B2C MVP: what to build first and what to measure"
+description: "B2B vs B2C MVP: different buyers, proof, and scope. What each model tests, what it cannot prove, and who should not compare them on one slide."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["b2b", "b2c", "mvp", "product validation", "startup"]
+funnelStage: interest
+translationKey: b2b-vs-b2c-mvp
+relatedPosts: ["poc-vs-prototype-vs-mvp", "prioritize-mvp-features"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">A B2B vs B2C MVP is not two sizes of the same app. B2B tests whether a buyer with a budget will change a workflow, often after demos and trust checks. B2C tests whether a person will return, share, or pay without a sales call. The build can look similar in Cursor or Lovable; the hypothesis and the metrics rarely are.</p>
+
+## B2B vs B2C MVP: the split that matters before you ship
+
+If you already shipped a prototype with Bolt, v0, Replit, or Claude Code, you may have a login screen, a dashboard, and a polished UI. That is still not proof for either model until you name who must say yes, what they do on day two, and what would count as failure. For the wider definition of minimum viable product, see [what is an MVP](/blog/what-is-an-mvp). This page is about how the same word points at different tests.
+
+<div class="blog-pair">
+  <div>
+    <h3>B2B MVP usually tests</h3>
+    <ul>
+      <li>Whether a defined role completes one job without your team doing it by hand</li>
+      <li>Whether a champion will book a second session or invite a colleague</li>
+      <li>Whether procurement blockers are unknown or already fatal</li>
+    </ul>
+  </div>
+  <div>
+    <h3>B2C MVP usually tests</h3>
+    <ul>
+      <li>Whether a stranger activates and comes back without a reminder</li>
+      <li>Whether distribution (ads, store, community) can reach people who match the job</li>
+      <li>Whether monetisation fits the habit you are trying to create</li>
+    </ul>
+  </div>
+</div>
+
+## Scope: what you cut, and what you cannot fake
+
+**B2B** MVPs often keep integrations, exports, and audit-friendly logs out of week one on purpose. The test is whether the core workflow is worth a pilot, not whether you match Salesforce on day one. Multi-tenant permissions, SSO, and contract-ready data residency sound like «later» until a buyer asks on the first call. You still need a honest line on what is manual behind the scenes.
+
+**B2C** MVPs cut admin, roles, and sales tooling. They keep onboarding brutal and short. One happy path beats a settings page. If the product only works when you explain it in person, you are closer to concierge validation than to a consumer test.
+
+A vibe-coded stack can ship either shape quickly. The risk is copying a B2C template (feed, profile, checkout) for a B2B job, or bolting on «teams» and «billing» for a consumer app before anyone returns alone. The tool does not choose the model. The buyer does.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>An MVP for either side shows behaviour under a stated hypothesis. It does not prove market size, defensibility, or that you can outspend an incumbent. Ideas as such cannot be protected; execution and distinct assets are a separate conversation with your adviser.</p>
+</aside>
+
+## Proof: sessions, pilots, and who you are allowed to count
+
+**B2B** signal is slow and lumpy. Five serious sessions over four minutes, three people returning, and two users hitting a free limit without buying credits is early interest, not revenue. That pattern matches an internal modelling tool we built (Holist-IQ): constrained agents, not a free chat, with paid acquisition that produced clicks and signups but friction on mobile and on buying credits. The lesson was which user type stayed, not vanity traffic.
+
+**B2C** signal needs volume or habit. Seventeen students and four people posting jobs, mostly from friends and family, was enough to see that a local marketplace test (do4me) had a demand-side bottleneck. Holding back payments was a scoping choice for the first test, not a legal opinion. A consumer city-tour product (CitySage) saw attention from a launch and light ads, but not a repeatable acquisition channel. None of those outcomes were «failure of the code». They were narrow answers about liquidity, channel, and segment.
+
+Do not merge B2B pilot quotes with B2C ad clicks on one dashboard and call it validation. Pick one primary metric per model and write what would make you stop.
+
+<ul class="blog-scenarios">
+  <li><h3>If you sell to teams in Switzerland</h3><p>Measure completed workflows and second meetings. Treat «looks great in demo» as noise until someone uses it without you in the room.</p></li>
+  <li><h3>If you sell to individuals</h3><p>Measure activation and return within a week. A waitlist alone rarely answers whether the product earns a second open.</p></li>
+  <li><h3>If you are genuinely both</h3><p>Run two hypotheses in sequence, not one MVP that serves everyone. The dual-sided build is usually two tests, not one compromise screen.</p></li>
+</ul>
+
+## Distribution and the build you already have
+
+**B2B** distribution in early tests is often warm: intros, events, a narrow vertical, one integration partner. Paid LinkedIn can work when the job title is crisp. Google search works when the problem is already named in the query.
+
+**B2C** distribution leans on stores, creators, communities, or broad search. A wrapped mobile app can matter for habit; Apple’s minimum functionality rules still expect more than a repackaged website. A web-first test is often enough before you invest in store review cycles.
+
+If you built only for mobile because the tutorial did, ask whether your buyer ever installs an app before they trust you. If you built only a web admin because templates default to dashboards, ask whether a consumer ever sees that screen.
+
+## Who should skip a B2B vs B2C comparison
+
+Skip the comparison if you have not written one job sentence and one buyer sentence. Skip it if you are copying a competitor’s pricing page without stating what you will measure in twelve weeks. Skip it if you already have paying users and the argument is internal politics, not learning.
+
+Teams that only need a ranking slide for the board should not scope an MVP yet. Teams that need a deployed product, landing page, paid acquisition on Google and LinkedIn, and honest drop-off data over several weeks are closer to a structured validation run.
+
+<div class="blog-faq">
+  <h3>Can one MVP serve B2B and B2C at once?</h3>
+  <p>Sometimes later, rarely at the start. Shared infrastructure is not the same as one hypothesis. If both sides must work for either side to get value, you are building a marketplace or platform test with two metrics, not a single MVP.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Does a Lovable or Cursor prototype count as an MVP?</h3>
+  <p>It counts as a prototype until real users perform the behaviour you named, under conditions you can observe. The generator stack does not change whether the buyer is a team or a person on a phone.</p>
+</div>
+
+## When the product validation package fits
+
+When you have chosen B2B or B2C for the first test, narrowed the wedge, and still need production deployment, analytics from day one, and measured conversion with room to pivot a few times, the [product validation package](/services/mvp-validation) matches that sequence. It fits founders who already have a prototype or a vibe-coded draft and need a Go, Pivot, or Stop recommendation grounded in data, not another feature pass. It is a poor fit if you only wanted a side-by-side slide or if you are not willing to stop when the metric stays flat.

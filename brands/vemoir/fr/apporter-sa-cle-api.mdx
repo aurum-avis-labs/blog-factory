@@ -13,14 +13,16 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@zoshuacolah?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zoshuacolah</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
 **Apporter sa clé API** quand vous voulez qu’OpenAI ou Anthropic écrive du texte pour vous, et que ce choix soit énoncé. Vemoir stocke l’identifiant dans le Trousseau de protection des données de macOS. Enregistrer ou vérifier une clé ne l’allume pas. Vous confirmez une activation qui oriente Ask Vemoir, les documents, les artefacts de réunion et les artefacts personnalisés vers ce seul prestataire. L’audio et la séparation des locuteurs restent sur le Mac. Si la clé manque, le point de terminaison a changé, le prestataire est indisponible ou l’appel échoue, l’opération s’arrête. Rien ne choisit en silence un autre backend.
 
-L’app Mac elle-même est un achat unique sur l’App Store&nbsp;: CHF 20 en Suisse. L’App Store affiche le prix local, environ 24,99&nbsp;€ en Allemagne, Autriche, France et Italie, 22,99&nbsp;$ aux États-Unis. Le prestataire facture ce que son API demande pour le texte que vous envoyez. Ces tarifs sont les siens, et ils bougent. Vérifiez chez le prestataire. Vemoir peut garder un reçu sans contenu, avec prestataire, modèle, horodatage, résultat, usage et une estimation de coût datée lorsque des prix compatibles existent. Le reçu ne contient ni l’invite, ni la transcription, ni les noms, ni la clé.
+L’app Mac elle-même est un achat unique sur l’App Store&nbsp;: CHF 20 en Suisse. L’App Store affiche le prix local, environ 24,99&nbsp;€ en Allemagne, Autriche, France et Italie, 22,99&nbsp;$ aux États-Unis. Le prestataire facture l'API pour le texte envoyé. Vérifiez les tarifs chez lui, en septembre 2026. Vemoir peut garder un reçu sans contenu, avec prestataire, modèle, horodatage, résultat, usage et une estimation de coût datée lorsque des prix compatibles existent. Le reçu ne contient ni l’invite, ni la transcription, ni les noms, ni la clé.
 
 ## Ce que la clé API apportée a le droit de voir
 
 La génération externe est du texte seulement. L’audio brut, les fichiers, les images et les URL distantes ne font pas partie de la requête. Le texte de transcription et les notes déjà sur le Mac peuvent être ce que vous choisissez de traiter comme texte, parce que c’est ainsi qu’un résumé s’écrit. L’enregistrement lui-même ne part pas pour de la parole vers texte. Parakeet ou Whisper l’ont déjà fait en local, ou ils le feront. La séparation des locuteurs ne bascule pas chez le prestataire.
 
+Quand vous produisez un compte rendu ou une réponse Ask, l’app envoie le contexte texte nécessaire, y compris des extraits de transcription et vos notes. Elle n’envoie pas l’audio. La conservation chez le prestataire figure dans sa documentation. Vemoir ne revendique pas la conformité pour vous.
 
 Une source active à la fois. Activer la clé envoie Ask, documents, artefacts de réunion et artefacts personnalisés vers elle. Sélectionner un modèle de langue local, Qwen3 4B ou gpt-oss-20b, ramène les quatre sur le Mac. Vous n’obtenez pas un mélange où Ask utilise Anthropic et le compte rendu utilise Qwen, sauf si vous changez la source active entre les deux.
 
@@ -32,6 +34,12 @@ L’installation peut ignorer complètement le prestataire. Les modèles locaux 
   <li><span class="blog-kicker">Fournisseur</span><strong>Votre compte</strong><p>Facturation chez ce fournisseur.</p></li>
 </ul>
 
+Vous voulez un compte rendu sans envoyer de texte à un prestataire&nbsp;? Laissez la clé éteinte et écrivez en local. Le même flux est dans [questions sur la transcription de réunion](/fr/blog/questions-sur-transcription-reunion).
+
+## Qui paie l’usage API
+
+Le prix App Store couvre l’app Mac, pas les jetons du prestataire. L’usage Ask peut apparaître sur sa facture tant que la clé est active. Les reçus sans contenu dans Confidentialité aident à rapprocher l’usage sans y stocker le texte de réunion.
+
 ## L’allumer sans vous surprendre
 
 1. Ouvrez Réglages, IA. Le même flux existe dans l’installation avancée, et vous pouvez le refuser là.
@@ -39,7 +47,6 @@ L’installation peut ignorer complètement le prestataire. Les modèles locaux 
 3. Vérifiez si vous voulez savoir que la clé fonctionne. La vérification n’est pas l’activation.
 4. Lisez l’avis d’activation et confirmez-le. Cette confirmation est le moment où le texte de réunion sélectionné peut partir chez le prestataire.
 5. Après une réunion, cherchez la marque visible de traitement externe sur la sortie qui a utilisé la clé. Un résumé local ne porte pas cette marque.
-
 
 Retirer la clé arrête les nouvelles requêtes et annule le travail enregistré pour ce prestataire. Cela ne supprime pas le texte déjà généré. Les reçus s’exportent ou se suppriment dans Confidentialité et données. Ils sont sans contenu exprès.
 
@@ -69,9 +76,7 @@ Le réglage se trouve avec les autres choix de modèles dans [la capture](/fr#ca
 
 ## Un client qui interdit le texte dans le cloud
 
-Vous avez enregistré l’appel en local. La transcription est sur le Mac. L’accord dit que le contenu de réunion n’allait pas chez un fournisseur de modèles. Vous ne collez pas la clé, vous n’«&nbsp;essayez&nbsp;» pas l’activation juste pour voir l’avis. L’avis est le point où le texte peut partir. Laissez l’activation éteinte et laissez Qwen ou gpt-oss, ou Apple Intelligence là où le Mac l’a, écrire le brouillon. Si un paragraphe est faible, éditez-le. C’est plus lent qu’un modèle de frontière et cela correspond à l’accord.
-
-Sur un autre mandat, l’accord autorise la clé API de votre société. Vous activez, générez la relance, exportez le texte, puis retirez la clé ou revenez au modèle local avant le client suivant qui ne l’autorise pas. Les reçus montrent qu’une requête a eu lieu, sans stocker la transcription dans le reçu. Gardez ou supprimez ces reçus dans les réglages de confidentialité. C’est une trace du choix, pas une seconde copie de la réunion.
+Vous avez enregistré en local et l'accord interdit un fournisseur de modèles. N'activez pas la clé seulement pour lire l'avis. Laissez-la éteinte et écrivez en local. Si un autre mandat autorise la clé de votre société, activez, exportez, puis retirez la clé avant le client suivant qui l'interdit.
 
 ## Questions fréquentes
 

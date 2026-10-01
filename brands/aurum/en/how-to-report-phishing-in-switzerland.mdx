@@ -1,0 +1,121 @@
+---
+title: "How to report phishing in Switzerland"
+description: "How to report phishing in Switzerland: internal escalation first, then voluntary BACS report. Steps for SMEs, with what to attach and what not to expect."
+pubDate: 2026-11-01
+author: "Aurum Avis Labs"
+tags: ["phishing", "reporting", "bacs", "switzerland"]
+funnelStage: interest
+translationKey: how-to-report-phishing-in-switzerland
+relatedPosts: ["clicked-a-phishing-link-at-work", "phishing-simulations-allowed-switzerland", "security-awareness-training-topics"]
+draft: false
+site: security
+---
+
+## How to report phishing in Switzerland
+
+You report phishing in Switzerland in two layers: first inside your company so IT can protect mailboxes and payments, then optionally to the National Centre for Cybersecurity (BACS, still often called NCSC in English) so analysts can warn others. Most SMEs are not legally required to report every suspicious mail to BACS. Voluntary reports still matter. In the second half of 2025, BACS received about 29'006 voluntary reports and 145 under the mandatory cyberattack duty; fraud made up about 52 % of submissions ([BACS semi-annual report 2025/2](https://www.bacs.admin.ch/de/hjb-25-2-de)). Start with your employer's channel. External reporting comes after you preserved headers and stopped spreading live links.
+
+This how-to is for office staff and the person who «does IT» in a Swiss firm of roughly 20 to 250 employees. It does not repeat the first hour after a click; see [clicked a phishing link at work](/security/blog/clicked-a-phishing-link-at-work). If personal data may have left the firm, documentation habits overlap with [data breach logs](/security/blog/data-breach-log-template).
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Report internally the same day</h3><p>Use the phishing mailbox, ticket system, or MSP address your company published. Include time, subject, and whether anyone clicked or typed credentials.</p></li>
+  <li data-step="2"><h3>Preserve evidence safely</h3><p>Forward as attachment or use «report message» in Outlook so headers stay. Do not click links again. IT may ask for the original .eml file.</p></li>
+  <li data-step="3"><h3>Block and warn</h3><p>IT blocks sender domains or signs, and sends a short internal warning without naming individuals unless a payment left the account.</p></li>
+  <li data-step="4"><h3>Report voluntarily outside if useful</h3><p>After internal handling, use antiphishing.ch or the BACS reporting page. Check bacs.admin.ch before you submit; form URLs move.</p></li>
+</ol>
+
+## What to send internally
+
+<ul class="blog-checklist">
+  <li>Full message with headers (or IT's reporting button in Microsoft 365)</li>
+  <li>List of people who clicked, if known</li>
+  <li>Any related SMS or voicemail number</li>
+  <li>Whether a payment or new IBAN was requested</li>
+  <li>Ticket or mailbox name you used, for later insurer or audit questions</li>
+</ul>
+
+Finance must know if the mail mentioned invoices or IBAN changes, even when nobody paid. Business e-mail compromise often chains mail with follow-up calls ([BACS on BEC](https://www.bacs.admin.ch/en/business-email-compromise-en)).
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Mandatory cyberattack reporting applies to operators of critical infrastructure, not typical SMEs ([BACS on the duty](https://www.bacs.admin.ch/de/25-mp-de)). Voluntary BACS and antiphishing.ch reports are still useful.</p>
+</aside>
+
+## BACS, antiphishing.ch, and when to use which
+
+External reporting is voluntary for most companies. It helps block fake sites, especially on .ch or .swiss domains, and feeds national warnings.
+
+<div class="blog-stat">
+  <strong>52 %</strong>
+  <p>Share of BACS submissions in H2 2025 classified as fraud, per the semi-annual report. Not our survey.</p>
+</div>
+
+**Quick path, no reply needed:** forward the suspicious mail to reports@antiphishing.ch or submit the link at [antiphishing.ch](https://www.antiphishing.ch). That channel is aimed at phishing and fake websites.
+
+**Path when you want BACS to see full context:** start from the [BACS reporting page](https://www.bacs.admin.ch/de/melden-sie-an-das-bacs). The page is in German. The exact form address changes; the reporting page is the stable entry BACS lists.
+
+Do both only if IT asks you to. A duplicate with stripped headers does not help analysts. One clean .eml with headers is enough.
+
+CEO-style payment requests are common in the same statistics stream: BACS counted 719 CEO-fraud reports in 2024 and 971 in 2025 ([BACS week 4/2026](https://www.bacs.admin.ch/de/26w4-de)). Mention payment pressure in the internal report even when you skip external filing.
+
+## What not to forward
+
+<ul class="blog-checklist">
+  <li>Do not forward the live mail into WhatsApp, Teams chat, or a group thread. You copy active links to people who have not clicked yet.</li>
+  <li>Do not click «just to see» whether the page still loads. IT needs the message, not another visit.</li>
+  <li>Do not send only a screenshot of the subject line. Headers carry return-path, authentication results, and routing IT uses for blocks.</li>
+  <li>Do not mail the sample to your private Gmail «to keep a copy». Use the ticket or security mailbox.</li>
+  <li>Do not attach passwords, one-time codes, or card numbers in the same ticket as the phishing mail.</li>
+  <li>Do not wait until Monday if the mail asks for an urgent transfer the same afternoon.</li>
+</ul>
+
+If someone already entered credentials, say that in the first sentence of the internal report so resets happen before you draft an external note.
+
+## What BACS reporting is not
+
+It is not a substitute for a police report when money left the account. It is not an FDPIC data-breach notification. It does not automatically trigger an investigation of your firm. Analysts aggregate campaigns to issue warnings. A voluntary report does not replace your internal ticket.
+
+## A made-up example: Friday afternoon reporting chain
+
+A made-up example: a 60-person logistics firm near Basel. On Friday at 14:40 an accountant receives a fake SBB refund mail. She reports via the «security@» address, attaches the .eml, and states she did not click. By 15:10 IT blocks the domain in the filter and sends a three-line note to all staff. On Monday the office lead files a voluntary report through the BACS reporting page with the same attachment and notes the domain. No customer data left the firm; no FDPIC filing follows. The internal ticket closes with «blocked» and is kept for audit.
+
+## Who can skip external reporting
+
+If IT already sees the same campaign nationally, your duplicate helps less, but it still does not hurt when headers are clean. If you lack headers and only have a screenshot, fix internal process first. External reporting never replaces the internal one.
+
+<div class="blog-pair">
+  <div>
+    <h3>Report inside when</h3>
+    <ul>
+      <li>Any suspicious mail or SMS</li>
+      <li>After a click or password entry</li>
+      <li>When payment instructions change</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Consider BACS or antiphishing.ch when</h3>
+    <ul>
+      <li>New domain or large wave at your firm</li>
+      <li>Impersonation of Swiss brands</li>
+      <li>You have a .eml or full headers to share</li>
+    </ul>
+  </div>
+</div>
+
+## Headers and the .eml file
+
+When you export a message, include full headers so analysts see originating IP and authentication results. IT can show staff how to use «Report message» in Microsoft 365 rather than forward a stripped copy. If someone already clicked, reporting still helps block the domain for colleagues who have not.
+
+## Legal and insurance context
+
+Reporting phishing internally supports Art. 8 FADP organisational measures ([fedlex](https://www.fedlex.admin.ch/eli/cc/2022/491/de#art_8)); it does not by itself notify the FDPIC. If credentials or customer files leaked, privacy leads use a separate breach process. Cyber insurers may ask whether you have a reporting culture; keep ticket IDs, not only verbal «we told IT». This is orientation, not legal advice.
+
+## Phishing simulations elsewhere
+
+If your company later runs simulations, staff must know beforehand and results must not target individuals for discipline ([FDPIC on workplace monitoring](https://www.edoeb.admin.ch/de/technische-mittel-zur-uberwachung-am-arbeitsplatz)). That topic has its own article; here the focus is real malicious mail.
+
+## Common mistakes
+
+Paying an invoice because the phishing mail arrived the same day as a real one mixes two threads; finance must separate them on the phone. Punishing the reporter hides the next wave. Publishing click league tables from simulations is a different mistake; see [measuring security awareness](/security/blog/measuring-security-awareness) for what to track instead.
+
+[Security awareness training](/security/security-awareness) covers internal reporting, smishing, and when to involve finance, in a live one- to two-hour session for your team.

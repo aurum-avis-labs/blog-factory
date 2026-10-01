@@ -14,11 +14,11 @@ site: prozess-check
 
 ## Automatic reordering at minimum stock
 
-Automatic reordering at minimum stock means a quantity you set in advance, a stock figure that is actually true, and a draft order per supplier that a person approves before anything is sent. The reorder point is the level at which you start an order, early enough that the goods can arrive before you run out. Safety stock is what you still want on the shelf when that delivery lands. If one field in your system is doing both jobs, the draft quantity will be wrong even when the software runs every night.
+Reordering at minimum stock means a quantity you set in advance, a stock figure you trust, and a draft order per supplier that a person approves before anything is sent. The reorder point is the level at which you start an order, early enough that goods can arrive before you run out. Safety stock is what you still want on the shelf when that delivery lands. If one field in your system does both jobs, the draft quantity will be wrong even when the software runs every night.
 
-This is for owners and buyers in a Swiss SME who reorder the same parts, materials or consumables from a short list of suppliers. It is not the inbound side, where customers email you an order. That job is in [capture customer orders from email](/prozess-check/blog/capture-email-orders).
+This is for owners and buyers in a Swiss SME who reorder the same parts, materials or consumables from a short list of suppliers. Customers emailing you an order is a different job: [capture customer orders from email](/prozess-check/blog/capture-email-orders).
 
-[kmu.admin.ch](https://www.kmu.admin.ch/de/kennzahlen-zur-unternehmensueberwachung) puts the tension in one place: a shorter average time in stock ties up less capital, and you still have to be able to deliver. That needs stock records that show turnover and how long goods sit. A minimum rule without those records is a guess with a schedule.
+[kmu.admin.ch](https://www.kmu.admin.ch/de/kennzahlen-zur-unternehmensueberwachung) puts the tension in one place: shorter time in stock ties up less capital, and you still have to be able to deliver. That needs records that show turnover and how long goods sit. A minimum rule without those records is a guess with a schedule.
 
 <ul class="blog-scenarios">
   <li><h3>If the system already reorders</h3><p>Use that rule. Do not add a second one beside it.</p></li>
@@ -26,61 +26,61 @@ This is for owners and buyers in a Swiss SME who reorder the same parts, materia
   <li><h3>If vans or consignment mix in</h3><p>Split those quantities out before any minimum is applied.</p></li>
 </ul>
 
-## When the system you already use can do this
+## When your system can already do this
 
-If your order or stock system already has a minimum and a target, start there. A second flow that also watches the same items will order twice.
+If your order or stock system already has a minimum and a target, start there. A second flow on the same items will order twice.
 
-Odoo 17, as one documented example and not a description of every product, lets a reorder rule create a purchase order when the quantity on hand falls below a minimum, topping up toward a maximum. The documentation's own illustration is a minimum of 5, a maximum of 25 and a stock level of 4, which produces a purchase order for 21 units. A setting for order multiples can push that quantity above the maximum. The same product line distinguishes an automatic trigger, which creates a purchase order or a manufacturing order when forecast quantity falls below the minimum, from a manual trigger, which only lists the product on a replenishment screen. Other programs use other names, and some only do one of the two. What your program offers is something we clarify in the Check. We have not built a stock integration for a named Swiss accounting package, and this page does not claim one.
+Odoo 17 is one documented example, not a description of every product. A reorder rule can create a purchase order when quantity on hand falls below a minimum, topping up toward a maximum. The documentation's illustration uses a minimum of 5, a maximum of 25 and stock of 4, which produces a purchase order for 21 units. Order multiples can push that above the maximum. The same line distinguishes an automatic trigger from a manual one that only lists the product on a replenishment screen. Other programs use other names; some only offer one variant. What your program can do is something we clarify in the Check. We have not built a stock integration for a named Swiss accounting package, and this page does not claim one.
 
-Turn the automatic send off until the quantities have been right for a few weeks. A draft that a buyer releases is the useful setting.
+Leave automatic sending off until the quantities have been right for a few weeks. A draft the buyer releases is the useful setting. An order that goes out while the minimum still reflects last year is not.
 
-Check three fields before you trust the run. Lead time has to match what that supplier actually takes, not the default the software shipped with. The supplier on the item has to be the one you buy from now. Reserved quantities, already promised to a job or a customer order, have to sit outside the free stock. If the minimum is compared with a figure that includes reserved goods, you will reorder parts you cannot touch.
+Check three fields before you trust the run. Lead time must match what that supplier actually takes, not the software default. The supplier on the item must be the one you buy from now. Reserved quantities, already promised to a job or a customer order, must sit outside free stock. If the rule compares the minimum with reserved goods included, you will reorder parts you cannot touch.
 
 ## When the stock figure lives in Excel
 
-Many small firms have no stock module, or they have one that nobody posts to. The real count is a workbook: one row per item, a column someone updates when a box arrives and when a box leaves. Sometimes the column is updated on Friday. Sometimes it is not.
+Many small firms have no stock module, or one that nobody posts to. The record is a workbook: one row per item, a column someone updates when a box arrives and when a box leaves. Sometimes on Friday. Sometimes not.
 
-Do not automate the order until that sheet has an owner and a rhythm. Name the person who may change a quantity. Decide whether issues are posted the same day or in one batch at a close of business. A minimum rule on a sheet that is three weeks late will order what you already have, and miss what you have already used.
+Do not automate the order until the sheet has an owner and a rhythm. Name the person who may change a quantity. Decide whether issues are posted the same day or in one batch at close of business. A reorder point on a sheet that is three weeks late will order stock you already have and miss what you have already used.
 
-Once the sheet is the record, a flow can read it on a schedule, keep the rows where free stock is at or below the reorder point, and group them by supplier. The output is a draft, one per supplier, not an email to the supplier. The buyer still checks price, pack size and whether a job next week changes the quantity.
+Once the sheet is the record, a flow can read it on a schedule, keep rows where free stock is at or below the reorder point, and group by supplier. The output is one draft per supplier, not an email to the supplier. The buyer still checks price, pack size and whether a job next week changes the quantity.
 
-Customer orders that arrive by email do not belong in this flow. They reduce stock only after someone posts the issue. Mixing the two jobs produces a reorder that reacts to an unread PDF.
+Customer orders by email do not belong in this flow. They reduce stock only after someone posts the issue. Mixing the two jobs produces a reorder that reacts to an unread PDF.
 
 ## Consignment and van stock
 
-Consignment stock sits on your shelf and still belongs to the supplier until you withdraw it. If that quantity is added to stock you own, the minimum sees a full shelf and does not order the goods you have to buy. If it is ignored the other way, you can reorder while the consignment shelf is full. Keep a separate figure, and point the minimum only at the stock you own. The agreement with that supplier says who may withdraw what. The automation does not invent that agreement.
+Consignment stock sits on your shelf and still belongs to the supplier until you withdraw it. Add it to stock you own and the minimum sees a full shelf and skips the goods you must buy. Ignore it the other way and you can reorder while the consignment shelf is full. Keep a separate figure, and point the minimum only at stock you own. The agreement with that supplier says who may withdraw what. The automation does not invent it.
 
-Van stock is the same kind of split. Parts on a service van are not in the workshop cupboard unless a transfer was posted. A minimum on the cupboard alone ignores what is already on the road, or, if someone typed the van counts into the same cell, it double-counts. Give the van its own column or its own location. Reorder the workshop from the workshop figure. Replenish the van with a transfer, not with a supplier order, unless the van is the place you buy into.
+Parts on a service van are not in the workshop cupboard unless a transfer was posted. A minimum on the cupboard alone ignores what is on the road, or double-counts if van quantities sit in the same cell. Give the van its own column or location. Reorder the workshop from the workshop figure. Replenish the van with a transfer, unless the van is where you buy into.
 
 Items you only buy for a named job stay off the minimum list. They are demand, not a shelf level. Put them on the job order when the job is confirmed.
 
-## One draft per supplier, and a person approves
+## One draft per supplier, one person approves
 
-The useful output is one draft per supplier, not one email per item and not a single spreadsheet nobody will send. Group by the supplier on the item. Carry article, quantity, unit, pack size if you buy in packs, and a short reason: below minimum, or a job reference if the line is extra. Leave price as your last purchase price or the agreed price, and flag a line when you cannot tell which.
+The useful output is one draft per supplier, not one email per item and not a spreadsheet nobody will send. Group by the supplier on the item. Carry article, quantity, unit, pack size if you buy in packs, and a short reason: below minimum, or a job reference for an extra line. Leave price as last purchase or agreed price, and flag a line when you cannot tell which.
 
-A person reads the draft and sends it, or holds it. Cheap consumables that you are happy to reorder without a look can be a later exception, after the drafts have been dull for a while. Until then, everything waits. Minimum order values and delivery days belong in that read: a draft that is under the supplier's minimum order can wait for the next run instead of being sent half-empty.
+A person reads the draft and sends it, or holds it. Cheap consumables you are happy to reorder without a look can be a later exception, after the drafts have been dull for a while. Until then, everything waits. Minimum order values and delivery days belong in that read: a draft under the supplier's minimum can wait for the next run.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>The flow prepares the supplier draft. It does not send the order. Sending is a person's decision, on a quantity that came from a stock figure someone trusts.</p>
+  <p>The flow prepares the supplier draft. It does not send the order. Sending is a person's decision on a quantity from a stock figure someone trusts.</p>
 </aside>
 
-A real case of drafts per supplier, in restaurants rather than in a general stock room, is [KitchenCrew](/prozess-check/blog/kitchencrew-supplier-ordering-case). The kitchen types one list, and one draft per supplier comes back for a person to check and send. That page is about the kitchen list, not about a warehouse minimum. It does not publish times or savings, and neither does this one.
+A real case of drafts per supplier, in restaurants rather than a general stock room, is [KitchenCrew](/prozess-check/blog/kitchencrew-supplier-ordering-case). The kitchen types one list; one draft per supplier comes back for a person to check and send. That page is about the kitchen list, not a warehouse minimum. It does not publish times or savings, and neither does this one.
 
 ## A made-up example
 
-A made-up example: a plumbing workshop, six people, two suppliers for fittings and one for seals and consumables. There is no stock module. A workbook has item, cupboard quantity, van quantity, reorder point, supplier and pack size. The office updates the cupboard when goods are booked in, and each technician texts what left the van, which the office posts the same evening. Consignment copper fittings, which the wholesaler still owns, sit in a separate column and are never added to the owned count.
+A made-up example: a plumbing workshop, six people, two fittings suppliers and one for seals and consumables. No stock module. The workbook has item, cupboard, van, reorder point, supplier and pack size. The office updates the cupboard when goods are booked in. Technicians report van issues; the office posts the same evening. Consignment copper fittings sit in a separate column and are never added to the owned count.
 
-On Monday the flow reads the sheet. Twelve cupboard lines are at or below the reorder point. They become two drafts, one per fittings supplier, with quantities rounded to the pack size. Van lines that are low become a transfer list for the workshop, not a supplier order. Two copper lines would have been ordered if the consignment column had been included. They are not. The buyer deletes one line because a site next week will use leftovers from another job, and sends the two drafts. None of these firms are clients, and the counts are invented to show the split.
+On Monday the flow reads the sheet. Twelve cupboard lines are at or below the reorder point. They become two drafts, quantities rounded to pack size. Low van lines become a transfer list, not a supplier order. Two copper lines would have been ordered if the consignment column had been included. The buyer deletes one line because a site next week will use leftovers from another job, and sends the two drafts. None of these firms are clients, and the counts are invented.
 
 ## What to leave alone
 
-Leave it alone when fewer than a dozen items are worth watching and someone already orders them from memory without mistakes. A minimum on paper is enough. Leave it alone when the count is a pile of opinions. Automating the order then spends money on the wrong quantity, faster. Leave the big seasonal buy alone too. A minimum is for the repeated item. The annual timber or the campaign stock is a decision, not a threshold.
+Leave it when fewer than a dozen items matter and someone already orders them from memory without mistakes. Leave it when the count is a pile of opinions: automation then spends money on the wrong quantity, faster. Leave the big seasonal buy alone too. Minimum rules are for repeated items; annual timber or campaign stock is a decision, not a threshold.
 
-If a proper stock system is already the plan for this quarter, do not build a long-lived automation on the workbook. Use the workbook only as a bridge, and stop the flow the week the system takes over.
+If a proper stock system is already planned for this quarter, do not build a long-lived automation on the workbook. Use the sheet only as a bridge until the system takes over.
 
 ## When a Prozess-Check fits
 
-A Prozess-Check fits when reordering is one recurring job, the same items and the same suppliers, and you want a price range before anyone builds a draft flow. It is 60 minutes on Microsoft Teams, CHF 99, paid by card when you book. You describe the task. You do not need to bring stock lists or supplier files.
+A Prozess-Check fits when reordering is one recurring job, the same items and suppliers, and you want a price range before anyone builds a draft flow. It is 60 minutes on Microsoft Teams, CHF 99, paid by card when you book. You describe the task. You do not need to bring stock lists or supplier files.
 
 You leave with a written case, a view on whether it pays off, and a price range. The hour commits you to nothing. If it finds nothing worth automating, the fee comes back. The offer is on the [Prozess-Check](/prozess-check) page.

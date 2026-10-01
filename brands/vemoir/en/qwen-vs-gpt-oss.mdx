@@ -26,23 +26,19 @@ The app shows storage, hardware fit, and which model is selected. A meeting uses
 | License of weights | Apache 2.0, via the pinned local runtime, with bundled attribution | Apache 2.0, same idea |
 | If it is missing | Download it on purpose, or processing cannot pretend it is there | Same. No silent substitute |
 
-
 Both run on the Mac. Internet is for the download, not for each sentence of a finished meeting once the model is installed. You can remove either from the model library. You can inspect readiness and storage there.
 
 Ask, documents, meeting artifacts, and custom artifacts share one active text source. Selecting the local model, Qwen or gpt-oss, keeps that source on the device. If you had activated a bring-your-own key, switching back to the local model routes those four back on-device. A failure does not quietly pick the other local model or the cloud key.
 
-|  | Qwen (local) | GPT-OSS (local) |
-| --- | --- | --- |
-| Job | On-device writing | On-device writing |
-| Internet | Setup download | Setup download |
-| When off | Local templates only | Local templates only |
+## Speech model and writing model are two downloads
+
+Transcription is a separate choice from Qwen vs gpt-oss. Parakeet v3 and Whisper hear the meeting on the Mac. Qwen and gpt-oss only read the transcript text that results. If words are wrong, fix the speech model, the mic, or the glossary before you blame the writing model. See [Parakeet vs Whisper](/blog/parakeet-vs-whisper) for that split.
 
 ## Where Qwen is the better choice
 
 Qwen3 4B is the better choice on a Mac that is not high-memory, when you want the writing model that the setup presents for most machines, and when you would rather spend disk and memory on the speech model and the recording than on the largest writing file. It is also the better choice if you are unsure, because forcing gpt-oss-20b onto a Mac that does not fit it is not a quality upgrade the app will paper over. The device-fit guidance is there so you do not guess.
 
-
-You still pick the speech model separately. A fluent Qwen summary of a bad transcript is still a summary of a bad transcript. Fix the speech model, the mic, or the glossary if the words are wrong. Changing from Qwen to gpt-oss does not relabel speakers and does not apply glossary hints to the audio.
+You still pick the speech model separately. A fluent Qwen summary of a bad transcript is still a summary of a bad transcript.
 
 ## Where gpt-oss is the better choice
 

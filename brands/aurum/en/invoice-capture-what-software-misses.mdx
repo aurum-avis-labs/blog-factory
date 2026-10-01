@@ -14,32 +14,32 @@ site: prozess-check
 
 ## Invoice capture: the gap beside the accounting tool
 
-Accounting software in a Swiss SME often already reads the invoice. bexio, Abacus, Sage, DeepCloud: a PDF or a photo, fields pulled off the page, a coding suggestion, often a match to the bank line. The gap that still costs a morning is the path into that tool. Mail attachments, PDFs from portals, an approval in Teams or on paper, and a purchase order that lives somewhere else. A second OCR product on documents the accounting tool already reads is usually wasted money.
+Accounting software in a Swiss SME often already reads the invoice. bexio, Abacus, Sage, DeepCloud: PDF or photo, fields from the page, coding suggestion, often a match to the bank line. The gap that still costs a morning is the path into that tool: mail attachments, PDFs from portals, approval in Teams or on paper, and a purchase order that lives somewhere else. A second OCR product on documents the accounting tool already reads is usually wasted money.
 
-This is for the office lead or finance person who keys supplier invoices, and for the owner who hears "we should automate bookkeeping". The reader is a firm with office work, not a pitch to replace the trustee. Closing, odd cases and the annual accounts stay with the trustee or with the person who already signs them. A workflow can propose fields and queue a document. The booking, once coding, period or input VAT is unclear, stays a human decision.
+This is for the office lead or finance person who keys supplier invoices, and for the owner who hears «we should automate bookkeeping». The reader is a firm with office work, not a pitch to replace the trustee. Closing, odd cases and the annual accounts stay with the trustee or with the person who already signs them. A workflow can propose fields and queue a document. Once coding, period or input VAT is unclear, a human decides.
 
 One of three office workflows, beside the Monday report and quote follow-up: [three workflows worth automating](/prozess-check/blog/three-workflows-worth-automating).
 
 ## What the software often already does
 
-If the invoice is already in the tool, a lot of the "AI" pitch has shipped. Drop a PDF, or mail it to the inbox the vendor gave you. The tool reads supplier, date, amount and tax. It suggests an account. It suggests a payment. The bank import then lines up against what you booked.
+If the invoice is already in the tool, much of the «AI» pitch has shipped. Drop a PDF or mail it to the inbox the vendor gave you. The tool reads supplier, date, amount and tax, suggests an account and often a payment. The bank import then lines up against what you booked.
 
-Use that path for every invoice that can reach it without a person playing courier. Turning on the vendor's own capture, and teaching suppliers to send mail to that address, is the first fix, and it does not need a project. If you already do this properly, keep it. Do not layer another reader on top "because of AI".
+Use that path for every invoice that can reach it without a courier. Turn on the vendor's capture and teach suppliers to mail the tool directly: that is the first fix and it does not need a project.
 
-The trustee remains the right owner of the close and of the cases the suggestion cannot see: a mixed bill, a foreign VAT knot, a document that is not an invoice. Say that out loud when a vendor offers to "replace the fiduciary work". The capture gap and the close are different jobs.
+The trustee remains owner of the close and of cases the suggestion cannot see: a mixed bill, a foreign VAT knot, a document that is not an invoice. Say that out loud when a vendor offers to «replace the fiduciary work». The capture gap and the close are different jobs.
 
 <div class="blog-pair">
   <div>
     <h3>Already in the tool</h3>
     <ul>
-      <li>OCR, a coding suggestion, often the bank match</li>
+      <li>OCR, coding suggestion, often the bank match</li>
       <li>The inbox or upload the vendor already gave you</li>
     </ul>
   </div>
   <div>
     <h3>Still on someone's morning</h3>
     <ul>
-      <li>Portals, a Teams or paper approval, a purchase order in another system</li>
+      <li>Portals, Teams or paper approval, purchase order elsewhere</li>
       <li>A holding sheet because there is no interface</li>
     </ul>
   </div>
@@ -51,49 +51,54 @@ Walk last month's invoices and mark how each one arrived. In a typical small off
 
 A share already hits the accounting inbox and comes back as a suggestion. Leave those on that rail.
 
-The rest are the gap. A utility or telecom PDF behind a login, downloaded by whoever remembers the portal. A supplier cockpit. A scan that arrived in a personal inbox and was forwarded once. An "ok to pay" that lives in Teams, in a chat, or on the paper clipped to the printout. A match to a purchase order or a project code that sits in Excel or in a job tool, not in the accounting system. Five inboxes, three portals, and a clipboard workbook because nobody has the interface: that workbook is often a shadow system in Excel. The sheet is a queue. It should not be a second set of books.
+The rest is the gap: utility or telecom PDF behind a login, supplier cockpit, scan in a personal inbox, «ok to pay» in Teams or on paper, match to a purchase order or project code in Excel or a job tool. Five inboxes, three portals, and a clipboard workbook: often a shadow system in Excel. The sheet is a queue, not a second set of books.
 
-A useful build starts where the document becomes a file a flow can see: a shared mailbox, or a folder the person drops the portal PDF into after they download it. Scraping a portal that forbids it, or storing the password in a note, is not the design. If the portal has no export, the download stays a person. The flow starts at the drop folder.
+A useful build starts where the document becomes a file a flow can see: shared mailbox or folder where the person drops the portal PDF after download. Scraping a forbidden portal or storing passwords in notes is not the design. If the portal has no export, the download stays a person. The flow starts at the drop folder.
 
-Approval stays a person with a name. The flow can show amount, supplier and project code and wait. It should not treat a thumbs-up emoji in a busy channel as a booking, unless you have deliberately decided that emoji is the control, and you would be comfortable explaining that to the trustee.
+Approval stays a person with a name. The flow can show amount, supplier and project code and wait. A thumbs-up in a busy channel is not a booking unless you deliberately chose that control and could explain it to the trustee.
 
 ## A suggestion is not a booking
 
-The model, or the accounting tool's own reader, may fill supplier, date, amount, tax and a proposed account. Someone who knows the chart of accounts confirms or edits, then the booking happens. Practically that is a queue: documents waiting, documents done. The status "the AI posted it" is how a wrong input-VAT code reaches the books and waits there until the close.
+The model may fill supplier, date, amount, tax and a proposed account. Someone who knows the chart of accounts confirms or edits, then the booking exists. Practically that is a queue: waiting documents and done documents. The status «the AI posted it» is how a wrong input-VAT code reaches the books until the close.
 
-Write the rule for when the queue may not auto-accept. Unclear period, split lines, a supplier you have never seen, a total that does not match the purchase order, anything with personal data beyond the invoice itself. Those wait. The boring, single-line, known-supplier PDF can be the one you later allow through with a lighter check, after a month of the queue has shown the error rate. You earn the lighter check. You do not start with it.
+Write when the queue may not auto-accept: unclear period, split lines, unknown supplier, total mismatch with the PO, personal data beyond the invoice. The boring single-line PDF from a known supplier can later get a lighter check after a month of the queue shows the error rate. You do not start there.
 
-If every document is a project bill with a dozen exceptions, it is not a first automation case. You would encode last month's exceptions and still review every line. Same questions as [which process to automate first](/prozess-check/blog/which-process-to-automate-first): it has to repeat, it has to hurt, it needs an edge (document in, confirmed fields out), and the file has to exist already.
+If every document is a project bill with many exceptions, it is not a first automation case. Same questions as [which process to automate first](/prozess-check/blog/which-process-to-automate-first): it repeats, it hurts, it has an edge (document in, confirmed fields out), and the file must exist already.
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Count one month</h3><p>How many invoices, and how each arrived: vendor inbox, portal, personal mail, paper.</p></li>
-  <li data-step="2"><h3>Turn on the rail you already pay for</h3><p>Accounting inbox, upload, bank match. Suppliers who can mail the tool directly should do that.</p></li>
-  <li data-step="3"><h3>One drop folder for the portals</h3><p>The person downloads. The flow picks up the file. No second OCR on PDFs the accounting tool already reads.</p></li>
-  <li data-step="4"><h3>A queue with a named approver</h3><p>Suggestion on the left, booking on the right, after a person confirms coding, period and input VAT.</p></li>
+  <li data-step="2"><h3>Turn on the rail you already pay for</h3><p>Accounting inbox, upload, bank match. Suppliers who can mail the tool directly should.</p></li>
+  <li data-step="3"><h3>One drop folder for portals</h3><p>The person downloads. The flow picks up the file. No second OCR on PDFs the accounting tool already reads.</p></li>
+  <li data-step="4"><h3>A queue with a named approver</h3><p>Suggestion on one side, booking on the other, after a person confirms coding, period and input VAT.</p></li>
 </ol>
 
 ## An architecture office, about forty invoices a month
 
-Picture a 12-person architecture office in Bern. The books are on bexio. The trustee does the close. About forty supplier invoices a month.
+Picture a 12-person architecture office in Bern. Books on bexio. The trustee does the close. About forty supplier invoices a month.
 
-Roughly half already arrive by mail in the bexio inbox. Coding comes back as a suggestion. The office confirms and moves on. That half is not the project.
+Roughly half arrive by mail in the bexio inbox. Coding comes back as a suggestion. The office confirms and moves on. That half is not the project.
 
-The other half: PDFs from two utility portals and a mobile-account login, downloaded by the office manager; a materials supplier that only publishes the invoice inside its cockpit; an approval that is a Teams message ("ok for the model workshop"); and a project code that lives on the job list, not on the invoice. She keeps a holding sheet so nothing is forgotten, then keys the portal pile on Thursday. That sheet is the glue. The pain is Thursday, not the absence of OCR. The tool already has OCR for the files that reach it.
+The other half sits with the office manager: PDFs from two utility portals and a mobile login, materials supplier only in a cockpit, approval as a Teams message («ok for the model workshop»), project code on the job list not on the invoice. She keeps a holding sheet and keys the portal pile on Thursday. OCR already works for files that reach the tool. The pain is Thursday.
 
-A sensible case is the drop folder plus the queue. She still downloads the portals, because they do not send a file. She drops the PDFs in one folder. A flow files them into the review list with the fields the reader could see, and an empty project code when it could not match the job list. She fills the code, checks VAT on anything with more than one rate, and only then does the booking exist. The Teams "ok" becomes a field on that queue, or it stays a habit you accept as manual. The trustee still sees the month as a set of confirmed bookings, not as a model's guess.
+A sensible case is the drop folder plus the queue. She still downloads portals. PDFs go in one folder. A flow files them into the review list with fields the reader saw and an empty project code when the job list did not match. She fills the code, checks VAT on multi-rate bills, then the booking exists. The Teams «ok» becomes a field on the queue or stays manual habit. The trustee sees confirmed bookings.
 
-What you do not build: a second OCR subscription, a promise that Thursday disappears, or a flow that posts the portal pile overnight. If a quarter of the pile is split project bills, those stay in the human queue forever, and that is the design.
+What you do not build: a second OCR subscription, a promise that Thursday disappears, or a flow that posts the portal pile overnight. If a quarter of the pile is split project bills, those stay in the human queue.
 
 ## When to stop
 
-Stop when the volume is a few invoices a week and the vendor inbox already catches them. The Thursday habit is not long enough to justify a build.
+Stop when volume is a few invoices a week and the vendor inbox already catches them. The Thursday habit is not long enough to justify a build.
 
 Stop when you wanted the trustee removed from the relationship. The capture path can be shorter. The judgement at the close is still theirs or yours.
 
-Stop when the "process" is twelve special suppliers and no standard PDF. Write the exceptions down. Automate the standard pile first, or leave the whole thing manual until a standard pile exists.
+Stop when the «process» is twelve special suppliers and no standard PDF. Write the exceptions down. Automate the standard pile first, or stay manual until one exists.
 
 ## Bring the path, not a software shortlist
 
-Who sends what, to which inbox or folder, how often, which tool should hold the booking, who approves, and where the purchase order or project code sits. One month of that, in a list, is enough for the [Process Check](/prozess-check). You leave with a case and a package size, or with "turn on the vendor inbox and stop there".
+Who sends what, to which inbox or folder, how often, which tool holds the booking, who approves, where the purchase order or project code sits. One month of that in a list is enough for the [Process Check](/prozess-check). You leave with a case and a package size, or with «turn on the vendor inbox and stop there».
 
-What the hour is: [what the Process Check is](/prozess-check/blog/what-the-process-check-is).
+What the hour covers: [what the Process Check is](/prozess-check/blog/what-the-process-check-is).
+
+<div class="blog-faq">
+  <h3>Does automatic invoice capture replace the trustee?</h3>
+  <p>No. OCR, coding suggestions and often bank matching can stay in the tool you already use. A workflow may propose fields and queue a document. When coding, period or input VAT is unclear, a person decides. The close and odd cases stay with whoever already signs them.</p>
+</div>

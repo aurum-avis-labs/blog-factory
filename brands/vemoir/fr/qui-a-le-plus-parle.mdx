@@ -14,12 +14,13 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@creatopy?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Creatopy</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Qui a le plus parlé ne se défend que si le texte dit déjà qui a prononcé les mots. La page gratuite pour ce compte est [temps de parole](/fr/outils/temps-de-parole). Vous collez une transcription avec des noms. Vous obtenez chaque nom et sa part des mots. S'il n'y a pas de noms, la page s'arrête. Le navigateur ne sépare pas les voix, et il n'invente pas « Locuteur A » pour que le graphique ait l'air fini.
 
-La part de mots n'est pas des minutes d'antenne. Quelqu'un qui parle vite peut dépasser une personne qui a tenu la salle plus longtemps avec moins de mots. Le chiffre décrit le texte collé, pas un chronomètre.
+Qui a le plus parlé ne se défend que si le texte dit déjà qui a prononcé les mots. Collez une transcription avec des noms dans [temps de parole](/fr/outils/temps-de-parole) pour obtenir la part de mots de chaque nom. S'il n'y a pas de noms, la page s'arrête. Le navigateur ne sépare pas les voix et n'invente pas « Locuteur A » pour finir un graphique.
+
+La part de mots n'est pas des minutes d'antenne. Quelqu'un qui parle vite peut dépasser une personne qui a tenu la parole plus longtemps avec moins de mots. Le chiffre décrit le texte collé, pas un chronomètre.
 
 <ul class="blog-facts">
-  <li><span class="blog-kicker">Outil navigateur</span><strong>Pas de libellés</strong><p>Pas de classement des locuteurs dans l'onglet.</p></li>
+  <li><span class="blog-kicker">Outil navigateur</span><strong>Pas de libellés</strong><p>Pas de classement sans noms dans le collage.</p></li>
   <li><span class="blog-kicker">App Mac</span><strong>Diarisation locale</strong><p>Séparation des locuteurs sur le Mac.</p></li>
   <li><span class="blog-kicker">Usage</span><strong>Animation</strong><p>Le temps de parole est un indice, pas une note.</p></li>
 </ul>
@@ -31,92 +32,94 @@ La part de mots n'est pas des minutes d'antenne. Quelqu'un qui parle vite peut d
 
 ## Ce qu'il vous faut avant de compter
 
-Il vous faut une transcription où les locuteurs sont déjà marqués sous une forme que la page sait lire :
+Il vous faut une transcription où les locuteurs sont déjà marqués sous une forme que la page sait lire&nbsp;:
 
+- `Nom&nbsp;: ce qui a été dit`, sur sa propre ligne
+- `Speaker 1&nbsp;:` ou `SPEAKER_01&nbsp;:`, si un outil en amont a laissé des étiquettes
+- une balise de voix WebVTT, `<v Nom>texte</v>`, comme Teams et certains fichiers cloud Zoom
 
-- `Nom : ce qui a été dit`, sur sa propre ligne
-- `Speaker 1 :` ou `SPEAKER_01 :` si un outil en amont a séparé les voix et laissé ces étiquettes
-- une balise de voix WebVTT, `<v Nom>texte</v>`, du genre que Teams et certains fichiers cloud Zoom écrivent
+Un enregistrement Zoom local `audio_only.m4a` n'a pas ces lignes. La transcription dans le navigateur ne les ajoute pas. Tant que vous n'avez que l'audio, le compte n'existe pas encore. Séparer et renommer les locuteurs se fait sur le Mac après enregistrement ou import. Voir [capture](/fr#capture). Cette page ne fait pas cette étape.
 
-Un enregistrement Zoom local `audio_only.m4a` n'a pas ces lignes. Un fichier micro brut non plus. La transcription dans le navigateur ne les ajoute pas. Tant que vous n'avez que l'audio, le compte n'existe pas encore. Séparer les locuteurs, poser des étiquettes anonymes et les renommer, c'est l'app Mac, après un enregistrement ou un import. Le fonctionnement de la capture est sur [capture](/fr#capture). Cette page ne fait pas cette étape.
+Retirer les horodatages est permis et ne dépense pas un passage hebdomadaire. Le [nettoyage de transcription](/fr/outils/nettoyer-transcription) garde les noms déjà présents. Si vous tenez un VTT, nettoyez d'abord, puis collez le texte dans temps de parole. La part de mots ne télécharge pas de modèle de parole.
 
-Retirer les horodatages est permis et ne dépense pas un passage hebdomadaire. Le [nettoyage de transcription](/fr/outils/nettoyer-transcription) garde les noms déjà présents et vous dit quand il n'y en avait pas. Si vous tenez un VTT, nettoyez d'abord, puis collez le texte dans temps de parole. La part de mots ne dépense pas non plus un passage. Aucun modèle de parole n'est téléchargé. La salle n'est pas enregistrée.
+Vous voulez des libellés sans chasse aux exports&nbsp;? [Vemoir](/fr#capture) enregistre la prochaine réunion sur votre Mac et sépare les locuteurs localement.
+
+## Part de mots ou temps de parole&nbsp;?
+
+Beaucoup confondent « le plus parlé » et le plus long au micro. Ici seuls comptent les mots collés. Les pauses disparaissent. Un monologue court peut battre dix minutes de réponses brèves. Pour des secondes d'audio, prenez un autre outil.
 
 ## Qui a le plus parlé, en part de mots
 
 Vous obtenez un nom et une part des mots. Lisez-la avec la réunion que vous avez vraiment eue.
 
+- Une personne à soixante pour cent dans un point d'avancement avait souvent les diapositives.
+- Un atelier qui voulait entendre tout le monde, avec un nom qui porte la plus grande part des mots, est un signal pour l'animation. La liste ne dit pas pourquoi le texte est inégal.
+- `Speaker 2` n'est pas un collègue tant que vous ne l'avez pas associé. « Speaker 2 a dominé » n'a pas sa place dans un mail comme s'il s'agissait d'une personne.
+- `Conference Room` ou `iPhone` est souvent un nom d'appareil. Cette ligne absorbe plusieurs voix.
+- Les courts accords pèsent peu. Un long monologue pèse lourd, parce que l'outil compte des mots.
 
-- Une personne à soixante pour cent dans un point d'avancement avait souvent simplement les diapositives. Ce n'est pas automatiquement un problème.
-- Un atelier qui voulait entendre tout le monde, et un nom qui porte la plus grande part des mots, est un fait de facilitation. La liste ne dit pas pourquoi. Elle dit que le texte est inégal.
-- `Speaker 2` n'est pas un collègue tant que vous ne l'avez pas associé. Vous pouvez compter l'étiquette. « Speaker 2 a dominé » n'a pas sa place dans un mail comme s'il s'agissait d'une personne.
-- `Conference Room` ou `iPhone` est un nom d'appareil que l'app de réunion a stocké. Cette ligne absorbe une part qui appartient à plusieurs humains. Ce n'est pas une personnalité.
-- Les courts accords (« oui », « vas-y ») pèsent peu. Un long monologue pèse beaucoup. L'outil compte des mots, donc le monologue gagne même si les phrases courtes portaient les décisions.
-
-Deux orthographes de la même personne (`Jon` et `Jonathan`) ne fusionnent pas. Corrigez la copie, puis comptez à nouveau. La page ne connaît pas votre organigramme.
+Deux orthographes (`Jon` et `Jonathan`) ne fusionnent pas. Corrigez la copie, puis recomptez.
 
 ## Quand le chiffre est la mauvaise question
 
-Un procès-verbal n'a pas besoin du temps de parole. Il a besoin de décisions, de responsables et de dates. Qui a le plus parlé est un mauvais substitut de qui a décidé. La personne silencieuse a pu dire le « non » qui a fermé une option. Cela va dans la ligne de décision du [modèle de procès-verbal](/fr/outils/modele-proces-verbal). Vous laissez la part de mots hors du dossier de conseil, sauf si la séance portait vraiment sur la participation.
+Un procès-verbal a besoin de décisions, de responsables et de dates. Qui a le plus parlé est un mauvais substitut de qui a décidé. La personne silencieuse a pu dire le « non » qui a fermé une option. Cela va dans la ligne de décision du [modèle de procès-verbal](/fr/outils/modele-proces-verbal). Laissez la part de mots hors du dossier de conseil, sauf si la séance portait sur la participation.
 
-La recherche et les entretiens se soucient parfois de qui a tenu la parole. Même là, vous codez des noms auxquels vous faites confiance. Un graphique issu d'une transcription automatique sans noms n'est pas un codage. C'est l'image d'une voix mélangée, ou rien, si l'outil refuse correctement.
-
-Un modèle de résumé est le mauvais compteur. Il écrira « Alex a mené la discussion » parce que la prose donnait cette impression. Cette phrase n'est pas une part de mots. Si vous voulez le compte, prenez le compte. Si un brouillon a nommé quelqu'un que le fichier n'a jamais nommé, vous supprimez.
+Un modèle de résumé est le mauvais compteur. Il écrira « Alex a mené la discussion » parce que la prose donnait cette impression. Si vous voulez le compte, prenez le compte.
 
 ## Si le fichier n'a pas d'étiquettes
 
-Arrêtez-vous. Ne dessinez pas des pourcentages de mémoire pour les attribuer à un outil. Trois voies honnêtes :
+Arrêtez-vous. Ne dessinez pas des pourcentages de mémoire.
 
-1. Pour un court appel auquel vous étiez, préfixez une copie du texte avec `Nom :` sur les passages dont vous êtes sûr. Les trous restent sans étiquette. Puis comptez la copie, pas l'export d'origine.
-2. Pour un enregistrement plus long ou à plusieurs voix, enregistrez ou importez sur le Mac. La diarisation produit des étiquettes anonymes. Vous les renommez. « Se souvenir de ce locuteur » est une étape distincte, facultative, et n'est pas nécessaire pour compter une seule réunion. Les inconnus restent anonymes.
-3. Passez le graphique. Écrivez le procès-verbal à partir de ce que vous pouvez assumer. Une attribution que vous ne pouvez pas soutenir n'a pas sa place dans les notes que vous partagez.
+1. Pour un court appel auquel vous étiez, préfixez une copie avec `Nom&nbsp;:` sur les passages sûrs. Comptez la copie.
+2. Pour un enregistrement long, enregistrez ou importez sur le Mac. Renommez les étiquettes anonymes.
+3. Passez le graphique. Écrivez le procès-verbal à partir de ce que vous pouvez assumer.
 
-Ne découpez pas un paragraphe sans nom en tours fictifs pour que l'outil rende un camembert. Le camembert aura l'air précis. Ce sera votre fiction.
+Ne découpez pas un paragraphe sans nom en tours fictifs pour obtenir un camembert.
 
 ## Une petite procédure
 
 1. Gardez la transcription d'origine intacte.
-2. Si c'est un VTT ou un SRT, nettoyez-le. Voyez si les noms ont survécu.
+2. Si c'est un VTT ou un SRT, nettoyez-le et vérifiez les noms.
 3. Uniformisez les orthographes sur une copie.
 4. Collez dans [temps de parole](/fr/outils/temps-de-parole).
 5. Si la page dit qu'il n'y a pas de noms de locuteurs, croyez-la.
-6. Une phrase que vous pourriez dire à voix haute : « Dans ce texte, Jordan a la plus grande part des mots. » N'en faites pas « Jordan a coupé tout le monde » sauf si vous l'avez vu.
+6. Une phrase défendable&nbsp;: « Dans ce texte, Jordan a la plus grande part des mots. »
 7. Participation et décisions restent séparées. Le [modèle de procès-verbal](/fr/outils/modele-proces-verbal) sert aux décisions.
 
-Une capture en direct suppose que les gens savent qu'ils sont enregistrés. Un graphique de participation ne change pas le consentement. Ce n'est pas, à lui seul, un entretien d'évaluation, et ce n'est pas un rapport de conformité.
+Une capture en direct suppose que les gens savent qu'ils sont enregistrés. Un graphique de participation n'est pas un entretien d'évaluation ni un rapport de conformité.
 
 ## Questions fréquentes
 
-### « Le plus parlé » veut-il dire le plus de minutes ?
+### « Le plus parlé » veut-il dire le plus de minutes&nbsp;?
 
-Pas ici. L'outil dans le navigateur rapporte la part des mots de chaque nom dans le collage. Il ne mesure pas les secondes d'audio. Une personne rapide peut passer devant quelqu'un qui a tenu la parole plus longtemps en parlant plus lentement.
+Pas ici. L'outil rapporte la part des mots de chaque nom, pas les secondes d'audio.
 
-### Pourquoi la page refuse-t-elle ma transcription ?
+### Pourquoi la page refuse-t-elle ma transcription&nbsp;?
 
-Elle n'a trouvé aucun préfixe de locuteur qu'elle reconnaît. Les horodatages seuls ne sont pas des noms. Le nettoyage n'ajoute pas de noms non plus. Il vous faut des étiquettes déjà dans le texte, une diarisation sur le Mac, ou un fichier que vous étiquetez à la main.
+Elle n'a trouvé aucun préfixe de locuteur reconnu. Il vous faut des étiquettes dans le texte, une diarisation sur le Mac, ou un fichier étiqueté à la main.
 
-### Puis-je compter les locuteurs d'un enregistrement Zoom local ?
+### Puis-je compter les locuteurs d'un enregistrement Zoom local&nbsp;?
 
-Pas tant que ce n'est pas du texte avec des noms. `audio_only.m4a` est de l'audio. Un VTT cloud a parfois des noms, l'audio local non. Si vous avez encore besoin des mots, voyez [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom).
+Pas tant que ce n'est pas du texte avec des noms. Si vous avez encore besoin des mots, voyez [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom).
 
-### Est-ce que cela consomme l'un de mes trois passages de la semaine ?
+### Est-ce que cela consomme l'un de mes trois passages de la semaine&nbsp;?
 
-Non. La part de mots ne lance pas le modèle de parole. Nettoyer un VTT non plus. Transcrire de l'audio, oui. Rédiger des notes à partir d'une transcription, oui.
+Non. La part de mots et le nettoyage VTT ne lancent pas le modèle de parole.
 
-### Et si une personne a rejoint depuis une salle de réunion ?
+### Et si une personne a rejoint depuis une salle de réunion&nbsp;?
 
-L'export peut étiqueter chaque mot de cette salle comme étant la salle. La part ne veut alors plus rien dire comme personne. Ne la séparez à la main que si vous connaissez les tours. Sinon, ne la rapportez pas.
+L'export peut étiqueter chaque mot comme la salle. Ne le rapportez pas comme une personne sans connaître les tours.
 
-### Dois-je mettre le graphique dans les notes que j'envoie ?
+### Dois-je mettre le graphique dans les notes que j'envoie&nbsp;?
 
-Seulement si la participation était le sujet et si les noms sont réels. Sinon, il détourne des responsables et des dates, et une mauvaise étiquette devient un fait dans la boîte de quelqu'un d'autre.
+Seulement si la participation était le sujet et si les noms sont réels.
 
-### L'app Mac peut-elle le faire sans le navigateur ?
+### L'app Mac peut-elle le faire sans le navigateur&nbsp;?
 
-L'app Mac sépare les locuteurs en étiquettes que vous pouvez renommer, sur la machine. La page de part de mots est l'outil navigateur pour un texte que vous avez déjà. L'app obtient les étiquettes. La page compte un collage. N'attendez pas du navigateur qu'il écoute l'appel.
+L'app sépare les locuteurs sur la machine. La page compte un collage. N'attendez pas du navigateur qu'il écoute l'appel.
 
-### Une part élevée est-elle un problème ?
+### Une part élevée est-elle un problème&nbsp;?
 
-Seulement dans une réunion où vous vouliez un plus large éventail de voix. Dans un briefing, une personne doit avoir la plupart des mots. Le chiffre ne s'interprète pas tout seul.
+Seulement dans une réunion où vous vouliez plus de voix.
 
-Étape suivante : collez une transcription étiquetée dans [temps de parole](/fr/outils/temps-de-parole). Si les noms manquent, réglez cela avant de compter quoi que ce soit.
+Étape suivante&nbsp;: collez une transcription étiquetée dans [temps de parole](/fr/outils/temps-de-parole). Si les noms manquent, réglez cela avant de compter quoi que ce soit.

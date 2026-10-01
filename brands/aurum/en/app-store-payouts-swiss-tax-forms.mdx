@@ -1,0 +1,109 @@
+---
+title: "App Store payouts and tax forms for Swiss companies"
+description: "App Store payouts and tax forms for Swiss companies: US W-8 forms in Connect, bank details, Swiss VAT on Play, and what store money does not prove."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["app store", "google play", "tax forms", "switzerland", "founders"]
+funnelStage: interest
+translationKey: app-store-payouts-swiss-tax-forms
+relatedPosts: ["publish-an-app-on-the-app-store", "app-store-guideline-4-2"]
+draft: true
+site: studio
+---
+
+## App Store payouts and tax forms for Swiss companies
+
+App Store payouts and tax forms for Swiss companies start in the store consoles, not in your bookkeeping software. Apple and Google pay the legal entity on the developer account after you sign the paid-apps agreement, add a bank account they accept, and submit the US tax paperwork they require from every merchant, including Swiss firms. The forms address US withholding and reporting on money Apple or Google treats as US-source income. They do not replace Swiss income tax, VAT registration, or the conversation with your fiduciary about how to book the first franc that lands.
+
+This is for founders and innovation leads who already ship or plan to ship on the stores and need a calm map of admin work, not for teams still debating whether the product belongs in a browser first. The submission path itself is in [publish an app on the App Store](/blog/publish-an-app-on-the-app-store). Whether the binary will survive [guideline 4.2](/blog/app-store-guideline-4-2) is a separate gate. Production quality before you chase revenue is set out in [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps).
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Match the legal entity everywhere</h3><p>Use the same GmbH, Einzelfirma, or association name on the developer enrolment, the bank account, and the tax questionnaires. A mismatch is how payouts stall for weeks.</p></li>
+  <li data-step="2"><h3>Sign paid distribution and add banking</h3><p>In App Store Connect, complete the Paid Apps Agreement under Agreements, then add payment information Apple accepts for Switzerland. Google uses a payments profile linked to Play Console.</p></li>
+  <li data-step="3"><h3>Complete the US tax interview</h3><p>Apple states that all developers must file a US tax form for the Paid Apps Agreement. Non-US accounts are guided to W-8BEN (individual) or W-8BEN-E (entity) or W-8ECI after questions in Connect.</p></li>
+  <li data-step="4"><h3>Mirror the step on Google Play</h3><p>Open Payments profile, edit Switzerland tax info, and submit the W-8 series form Google prompts for. Play’s help centre describes withholding if information is missing or invalid.</p></li>
+  <li data-step="5"><h3>Hand monthly reports to your adviser</h3><p>Download finance and tax summaries from both consoles. Your fiduciary maps gross sales, store commission, foreign VAT lines, and the net bank transfer into Swiss accounts.</p></li>
+</ol>
+
+## What the US forms are for
+
+Apple and Google act as withholding agents under US rules on payments to non-US persons. W-8BEN-E is for entities: it documents non-US status and any treaty claim on income they pay you. Apple routes non-US developers through questions in Connect; some corrections need Apple support after submission.
+
+Google’s payments centre states that without a valid tax form it may apply backup withholding at 24% or chapter 3 withholding at 30% on applicable payments, and that a treaty may reduce the rate when you submit a valid form with a treaty claim that matches the income type.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Payout</dt>
+    <dd>The bank transfer after store fees, taxes, and adjustments for a fiscal period, not the list price a customer saw.</dd>
+  </div>
+  <div>
+    <dt>W-8BEN-E</dt>
+    <dd>US IRS certificate for foreign entities; platforms use it for withholding and reporting, not for Swiss tax returns.</dd>
+  </div>
+  <div>
+    <dt>Proceeds report</dt>
+    <dd>Console export that reconciles units sold, refunds, commissions, and tax lines before the wire.</dd>
+  </div>
+  <div>
+    <dt>MWST / VAT</dt>
+    <dd>Value-added tax on Swiss customer purchases may be your job to charge and remit on Play; Google documents Swiss VAT on its own service fees in some cases.</dd>
+  </div>
+</dl>
+
+## W-8BEN-E in practice (experience, not tax advice)
+
+Founders often complete the electronic questionnaire in App Store Connect or the Google payments profile, declare Switzerland as tax residence, enter the Swiss UID or other identifier requested, and tick treaty benefits only when their adviser says the income type matches. Apple’s vendor guidance states that a valid treaty exemption on W-8BEN-E requires a US or foreign tax identification number and that the form generally expires three years after signature.
+
+That workflow is operational experience, not tax advice. Treaty articles, beneficial ownership, and income characterisation belong with your adviser. If you are unsure about a checkbox, stop before submit: Apple notes that some fields cannot be changed later inside Connect.
+
+## Swiss side: VAT and income tax
+
+Google Play’s VAT help lists Switzerland among countries where you are responsible for VAT on paid app and in-app purchases by customers in Switzerland, and states that Google may apply Swiss VAT on its service fees to Swiss developers in some circumstances. Apple’s country annex in Connect focuses on other jurisdictions; Swiss accounts still file the US forms and use monthly finance reports for local VAT.
+
+App turnover is ordinary business income for most Swiss companies. VAT registration is mandatory from CHF 100'000 turnover in many cases. An accepted W-8BEN-E does not replace MWST filing. Your fiduciary needs every proceeds report, not only the net wire.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>This page is not tax, legal, or accounting advice. It does not state that a given GmbH may claim a particular US treaty rate, how to complete Part III of W-8BEN-E, or whether your pricing must show Swiss VAT. Bring console exports to your adviser before you rely on cash flow forecasts.</p>
+</aside>
+
+## What store payouts do not prove
+
+A arriving payout shows that someone paid Apple or Google, that the platform processed refunds and commissions, and that your bank details worked. It does not prove product-market fit, retention, or that strangers will find the app without paid acquisition. It does not prove your MWST filings are complete or that US and Swiss numbers reconcile without manual adjustments. First revenue is a finance milestone, not validation on its own.
+
+<div class="blog-pair">
+  <div>
+    <h3>Who should set this up early</h3>
+    <ul>
+      <li>A Swiss entity already on the stores or about to submit a paid build</li>
+      <li>Teams with a fiduciary who asked for «the Apple reports» before year-end</li>
+      <li>Founders selling subscriptions or paid downloads to Swiss customers on Play</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who can wait</h3>
+    <ul>
+      <li>Products still free-only while you test in TestFlight or a closed Play track</li>
+      <li>Ideas with no legal entity yet; enrol the firm before you promise investors «store revenue»</li>
+      <li>Teams that have not read Play’s Swiss VAT paragraph and have no one to file MWST</li>
+    </ul>
+  </div>
+</div>
+
+## A made-up example: first wire in March
+
+A made-up example: a Zürich GmbH with a niche B2B tool ships on iOS and Android. The account holder signs the Paid Apps Agreement, adds a CHF business account, and completes Connect’s tax questions for a Swiss entity; Google’s payments profile gets a parallel W-8 the same week. February sales are modest. In March, Apple’s finance report shows gross charges, commission, and a small foreign VAT line; the net wire matches the report. Play’s export adds a reminder that Swiss VAT on domestic sales is the developer’s job. Both PDFs go to the fiduciary, who books gross turnover and fees and asks whether MWST registration is still voluntary. Nobody treats the wire as proof that ads will scale.
+
+<div class="blog-faq">
+  <h3>Do sole proprietors file W-8BEN-E?</h3>
+  <p>Individuals usually file W-8BEN. Apple and Google route you by whether the beneficial owner is a person or an entity.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Can I fix a wrong treaty claim myself?</h3>
+  <p>Apple’s help states that after some submissions you cannot edit tax data in App Store Connect and must contact Apple. Dry-run with your adviser before submit.</p>
+</div>
+
+## When a conversation on the contact page fits
+
+Use the [contact page](/contact) when store admin blocks a validation programme: you need a production build and measured conversion, but payouts and tax forms are the bottleneck with your fiduciary. Describe entity type, live stores, and exports you already have. Skip booking if you are pre-revenue and only exploring store fit, or if you need generic tax coaching without a release timeline.

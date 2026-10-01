@@ -1,0 +1,110 @@
+---
+title: "Laptop verloren: Datenschutz-Schritte in der Schweiz"
+description: "Laptop verloren mit Personendaten im KMU: Remote-Löschung, Verschlüsselung, interne Meldung und wann der EDÖB informiert wird."
+pubDate: 2026-10-29
+author: "Aurum Avis Labs"
+tags: ["gerät verloren", "laptop", "datenpanne", "dsg", "schweiz"]
+funnelStage: interest
+translationKey: lost-laptop-with-personal-data
+relatedPosts: ["e-mail-an-falschen-empfaenger", "datenpanne-an-den-edoeb-melden", "datenschutzschulung-mitarbeitende"]
+draft: false
+site: security
+---
+
+## Laptop verloren: was tun beim Datenschutz?
+
+Ein verlorener Laptop mit Personendaten ist eine der häufigsten physischen Pannen in Schweizer KMU. Jemand lässt eine Tasche im Zug, ein Einbruch nimmt Hardware mit, nach dem Kundenbesuch fehlt das Handy. Die ersten Stunden zählen für Sperren, Versicherungsnachweise und die Frage, ob der EDÖB bei hohem Risiko informiert wird. Schweizer Recht kennt keine 72-Stunden-DSGVO-Uhr; es fragt nach wahrscheinlich hohem Risiko und erwartet Meldung [so rasch als möglich](https://www.edoeb.admin.ch/de/meldung-von-datensicherheitsverletzungen).
+
+Diese Anleitung richtet sich an Mitarbeitende, Vorgesetzte und IT-Partner in Betrieben mit 20 bis 250 Personen. Sie ist praktische Einordnung, keine Rechtsauskunft. Den vollständigen EDÖB-Weg beschreibt [Datenpanne an den EDÖB melden](/de/security/blog/datenpanne-an-den-edoeb-melden); hier geht es um Laptop, Tablet und Firmenhandy mit Betriebsdaten.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Sicherheitsvorfall</span><strong>Ja, wenn Personendaten betroffen sind</strong><p>Verlust von unverschlüsselten oder noch zugänglichen Daten ist eine Datensicherheitsverletzung.</p></li>
+  <li><span class="blog-kicker">EDÖB</span><strong>Bei hohem Risiko</strong><p>Meldung nur, wenn ein hohes Risiko für die betroffenen Personen wahrscheinlich ist ([Art. 24 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de)).</p></li>
+  <li><span class="blog-kicker">Verschlüsselung</span><strong>Ändert die Einschätzung</strong><p>Sie ersetzt weder Dokumentation noch die Prüfung von Mail-Cache und lokalen Exporten.</p></li>
+  <li><span class="blog-kicker">Meldepflicht Cyberangriffe</span><strong>Meist nein</strong><p>Die BACS-Meldepflicht für kritische Infrastrukturen ist ein anderes Thema als Art. 24 DSG.</p></li>
+</ul>
+
+## Wer in der ersten Stunde informiert werden sollte
+
+Die Mitarbeitende meldet nicht «irgendwann an IT», sondern an eine feste Kontaktstelle, die Sie vorher benannt haben: HR, die nebenamtliche Datenschutz-Verantwortliche, der IT-Partner oder eine Kombination aus beiden. Vorgesetzte und Geschäftsleitung gehören dazu, sobald klar ist, dass Personendaten auf dem Gerät lagen oder der Remote-Wipe scheitert.
+
+IT oder der externe Partner braucht sofort Seriennummer, Benutzerkonto, letzten bekannten Ort und ob das Gerät eingeschaltet war. Finanz und Versicherung kommen später; Polizei parallel bei Diebstahl. Den EDÖB informieren Sie erst nach einer kurzen Risikoanalyse, nicht in der ersten Viertelstunde.
+
+## Erste Stunde: sperren, löschen, Passwörter
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Intern melden</h3><p>Telefon an die feste Kontaktstelle, nicht nur Chat. Uhrzeit und Ort notieren.</p></li>
+  <li data-step="2"><h3>Remote-Sperre oder Löschung</h3><p>MDM, Microsoft Intune, Jamf oder Find My Device prüfen und Wipe auslösen.</p></li>
+  <li data-step="3"><h3>Konten absichern</h3><p>Passwörter ändern und App-Sitzungen widerrufen für Mail, Cloud und VPN, die auf dem Gerät angemeldet blieben.</p></li>
+  <li data-step="4"><h3>Inhalt grob erfassen</h3><p>Sync-Ordner, Outlook-Cache, lokale PDF-Exporte, gespeicherte Passwörter im Browser.</p></li>
+  <li data-step="5"><h3>Risiko vorläufig einstufen</h3><p>Verschlüsselung aktiv, sensible Kategorien, Anzahl Betroffene. Bei Unklarheit Management am selben Tag einbeziehen.</p></li>
+</ol>
+
+Scheitert die Fernlöschung oder war das Gerät dauerhaft offline, steigt die Dringlichkeit. Ein gestohlener, unverschlüsselter Laptop mit offenem Outlook-Cache ist ein anderer Fall als ein verschlüsseltes Gerät, das Sie um Mitternacht erfolgreich gewischt haben. Beides dokumentieren Sie.
+
+## Verschlüsselung: was sie ändert und was nicht
+
+Vollverschlüsselung auf Firmen-Laptops (FileVault auf dem Mac, BitLocker unter Windows) ist übliche Art.-8-Praxis. Ohne sie kann ein Finder die Festplatte auslesen, sobald das Gerät eingeschaltet ist. Mit aktiver Verschlüsselung und starkem Geräte-Passwort sinkt das Risiko unbefugten Lesezugriffs, solange niemand das Passwort kannte und das Gerät nicht entsperrt war.
+
+Verschlüsselung befreit Sie nicht von der Akte. Mail-Cache, OneDrive-Sync und lokale HR-Exporte können trotzdem relevant sein, wenn das Gerät vor dem Verlust entsperrt war oder die Cloud-Konten ohne MFA erreichbar bleiben. Für Audits hilft ein Nachweis, dass Verschlüsselung per Richtlinie aktiv war: Intune-Compliance, MDM-Bericht oder Screenshot des Status vor dem Wipe. Nach erfolgreicher Löschung: Seriennummer und Wipe-Bestätigung ins Log.
+
+MFA auf Cloud-Konten begrenzt Schaden, wenn jemand das Gerät einschaltet und noch angemeldete Sessions nutzt. Regel für den Betrieb: keine dauerhaften Kundendatenbanken lokal, wenn Cloud und Zugriffskontrolle reichen.
+
+## Welche Daten betroffen sein können
+
+Typisch sind Outlook-Cache, OneDrive- oder SharePoint-Sync, gespeicherte PDFs, Browser-Passwörter ohne zentrale Verwaltung und VPN-Zertifikate. Gesundheitsakten, Lohnlisten oder Mandantendossiers erhöhen die Schwere schneller als allgemeine Korrespondenz. Gleichen Sie ab mit [besonders schützenswerten Personendaten](/de/security/blog/besonders-schuetzenswerte-personendaten).
+
+Tablets im Showroom oder gemeinsame Empfangs-PCs vergessen Teams leicht. War ein Demo-CRM synchronisiert, behandeln Sie den Verlust wie einen Laptop. BYOD-Handys mit Firmenmail: Zugriff entziehen (Passwort, Sitzungen), Fernlöschung auf Privatgeräten ist oft begrenzt.
+
+## EDÖB melden oder intern dokumentieren?
+
+Melden Sie an den EDÖB, wenn unbefugter Zugriff auf Personendaten wahrscheinlich ist und ein hohes Risiko für Persönlichkeit oder Grundrechte folgt. Ein gewischter, verschlüsselter Firmen-Laptop ohne sensible lokale Exporte kann intern bleiben, wenn die Analyse das schriftlich festhält. Ein unverschlüsselter Laptop mit tausenden Kundendatensätzen spricht eher für eine Meldung über [databreach.edoeb.admin.ch](https://www.edoeb.admin.ch/de/meldung-von-datensicherheitsverletzungen). Verwechseln Sie das nicht mit der separaten BACS-Meldepflicht für Betreiber kritischer Infrastrukturen; die trifft die meisten KMU nicht.
+
+Ob ein verschlüsseltes Gerät in jedem Einzelfall meldefrei bleibt, hängt von den Tatsachen ab; behaupten Sie das pauschal nicht. Im Zweifel Risikoanalyse dokumentieren und Beratung einholen. Betroffene Personen informieren Sie, wenn sie etwas tun müssen, auch wenn der EDÖB nicht gemeldet wird. Formulierungen vor Versand rechtlich prüfen.
+
+Polizeianzeige bei Diebstahl und Versicherungsmeldung laufen parallel; sie ersetzen keine Datenschutz-Dokumentation nach [Art. 15 DSV](https://www.fedlex.admin.ch/eli/cc/2022/568/de) (mindestens zwei Jahre aufbewahren, auch ohne EDÖB-Meldung).
+
+## IT-Partner und parallele Konten-Massnahmen
+
+Externe IT-Partner entziehen Geräte-Compliance und bestätigen Wipe-Logs oft schneller als die Mitarbeitende vom Privathandy. Geben Sie Seriennummer und Konto sofort durch und verlangen Sie ein schriftliches Wipe-Protokoll für die Akte. Neben Datenschutz prüft IT verdächtige Anmeldungen in Microsoft Entra ID, sperrt VPN-Zertifikate und hängt Lizenzen um. Security und Datenschutz arbeiten am selben Vorfall mit verschiedenen Checklisten; eine Vorfallnummer für beide Akten vermeidet Widersprüche nach aussen.
+
+<ul class="blog-checklist">
+  <li>Datum, Uhrzeit, Ort, wer den Verlust entdeckte</li>
+  <li>Gerätetyp, Seriennummer, Verschlüsselungsstatus vor dem Wipe</li>
+  <li>Welche Datenkategorien und wie viele Betroffene (Schätzung)</li>
+  <li>Remote-Wipe: gestartet, abgeschlossen oder fehlgeschlagen</li>
+  <li>Entscheid EDÖB ja/nein mit kurzer Begründung</li>
+  <li>Massnahmen für Betroffene und Nachbereitung im Team</li>
+</ul>
+
+## Ein erfundenes Beispiel: Heimweg im Zug
+
+Ein erfundenes Beispiel: eine Projektleiterin verliert ein Firmen-MacBook im SBB-Abendzug. Sie meldet innert 30 Minuten der Büroleitung. IT bestätigt FileVault per MDM, startet Remote-Löschung, abgeschlossen um Mitternacht. Lokal lagen nur Folien ohne Personendaten; Mail blieb in Exchange online. Die Geschäftsleitung protokolliert Vorfall, Massnahmen und Entscheid «keine EDÖB-Meldung». Parallel meldet sie den Fund beim SBB Fundbüro. In der nächsten [Security-Awareness-Sitzung, wie oft schulen](/de/security/blog/security-awareness-wie-oft), kommt ein Kurzreminder zu Pendlerregeln, nicht nur eine Einzelmassnahme nach dem Vorfall.
+
+## Nachbereitung ohne Schuldzuweisung
+
+Hardware ersetzen, prüfen wer lokale Exporte laden darf, Reisegewohnheiten in der Teamsitzung kurz festhalten. Zweites verlorenes Gerät im selben Team innert einem Jahr gehört ins Pannen-Log und in Awareness, nicht in eine öffentliche Rüge. Kanzleien und Treuhänder: Partner informieren, wenn Mandantendaten offline lagen; Berufsgeheimnis und DSG laufen parallel.
+
+Mit [Datenschutzschulung für Mitarbeitende](/de/security/blog/datenschutzschulung-mitarbeitende) normalisieren Sie Meldewege, bevor der nächste Vorfall passiert.
+
+<div class="blog-faq">
+  <h3>Muss jeder verlorene Laptop gemeldet werden?</h3>
+  <p>Nein. EDÖB nur bei wahrscheinlich hohem Risiko. Intern dokumentieren Sie trotzdem.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Reicht Verschlüsselung allein?</h3>
+  <p>Sie senkt oft das Risiko, ersetzt aber keine Prüfung von Cache, Exporten und Konten. Entscheid schriftlich festhalten.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Gilt die DSGVO-72-Stunden-Frist?</h3>
+  <p>Nicht als Schweizer Standard. Bei Bearbeitung von EU-Daten können zusätzliche Pflichten gelten; FADP zuerst einhalten.</p>
+</div>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Einordnung für Schweizer KMU unter dem DSG. Sie ersetzt keine Einzelfallberatung. Grenzfälle: EDÖB-Leitfaden und Beratung.</p>
+</aside>
+
+Schulung zu Geräten, Meldewege und Datenpannen: [Datenschutz Awareness Training](/de/security/datenschutz).

@@ -30,9 +30,11 @@ Une transcription de réunion désordonnée ne se partage pas tant que les numé
 ## Sommaire
 
 - [À quoi ressemble une transcription de réunion désordonnée](#à-quoi-ressemble-une-transcription-de-réunion-désordonnée)
+- [VTT, SRT et exports collés](#vtt-srt-et-exports-collés)
 - [Retirer l'échafaudage, garder les noms](#retirer-léchafaudage-garder-les-noms)
 - [Un court exemple](#un-court-exemple)
 - [Ce qui reste désordonné après les horodatages](#ce-qui-reste-désordonné-après-les-horodatages)
+- [Caviarder avant de partager à l'extérieur](#caviarder-avant-de-partager-à-lextérieur)
 - [Un ordre de travail pratique](#un-ordre-de-travail-pratique)
 - [Où un modèle aggrave le désordre](#où-un-modèle-aggrave-le-désordre)
 - [Questions fréquentes](#questions-fréquentes)
@@ -49,6 +51,18 @@ Ouvrez le fichier dans un éditeur de texte avant de le coller dans un document.
 
 Les mots peuvent être corrects et le fichier rester illisible. Le désordre, c'est la couche de métadonnées. Si les mots eux-mêmes sont faux (un nom de produit, une personne, un chiffre), retirer les horodatages ne répare pas ça. Les erreurs de reconnaissance se corrigent en lisant, pas en cachant les temps.
 
+## VTT, SRT et exports collés
+
+Les trois restent du **texte que vous avez déjà**. Le nettoyeur retire les numéros de cue et les lignes de temps ; il ne relance pas la reconnaissance vocale.
+
+| Format | Signe distinctif | Ce qui doit rester après nettoyage |
+| --- | --- | --- |
+| WebVTT | En-tête `WEBVTT`, lignes avec `-->` | Lignes de locuteur jointes si le nom se répète |
+| SRT | Cue numérotée, virgule dans l'horodatage | Noms conservés, temps retirés |
+| Word ou PDF collé | Parfois sans en-tête, sauts de ligne tous les quelques mots | Paragraphes lisibles ; parfois encore à joindre à la main |
+
+Si vous n'avez que `audio_only.m4a` depuis un dossier Zoom local, il n'y a rien à nettoyer. Le chemin est [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom). La transcription dans le navigateur est limitée à **15 minutes** d'audio et **trois passages réussis par semaine** (en septembre 2026). Nettoyer un VTT déjà exporté ne consomme pas ces passages.
+
 ## Retirer l'échafaudage, garder les noms
 
 Le [nettoyage de transcription](/fr/outils/nettoyer-transcription) gratuit prend un VTT Zoom, un export Teams ou un SRT. Vous déposez le fichier ou vous collez le texte. L'en-tête, les numéros de cue et les horodatages partent. Si un nom est déjà dans le fichier, il reste, sous la forme `Nom : texte`. Si deux cues de suite appartiennent au même locuteur, ils sont joints.
@@ -59,6 +73,8 @@ Si le fichier n'a pas de noms, la page le dit. Les horodatages partent quand mê
 Le nettoyage ne dépense pas l'un des trois passages réussis de la semaine. Ces passages sont pour la parole vers le texte et pour les notes qui appellent un modèle. Un VTT que vous avez déjà est du texte. Vous pouvez nettoyer plusieurs fichiers dans la même semaine sans toucher ce compteur.
 
 Un lien sur la page peut remettre le texte nettoyé à [notes depuis une transcription](/fr/outils/notes-depuis-transcription) quand vous voulez un récap, des décisions et des actions. Faites-le après avoir lu la page nettoyée, pas avant. Un modèle lisse un fichier qui contient encore une blague ou une idée rejetée.
+
+Pour la prochaine visio sans chercher `audio_only.m4a` après coup : [Vemoir enregistre depuis la barre de menus du Mac](/fr#capture), avec transcription locale si vous choisissez des modèles sur l'appareil.
 
 ## Un court exemple
 
@@ -104,16 +120,27 @@ Les horodatages n'étaient que la couche évidente. Quatre autres sortes de dés
 
 **Mélange de langues et erreurs de reconnaissance.** Le nettoyage ne traduit pas et ne relance pas la reconnaissance vocale. Un nom orthographié de trois façons reste de trois façons jusqu'à ce que vous le corrigiez. Sur le Mac, un glossaire de projet peut pousser les transcriptions suivantes vers les termes que vous voulez. La transcription d'origine reste la preuve. Le nettoyeur du navigateur n'applique pas de glossaire.
 
+## Caviarder avant de partager à l'extérieur
+
+Un texte lisible se transmet plus vite, et le risque de partage accidentel monte avec lui. Avant d'envoyer le fichier nettoyé par e-mail ou messagerie :
+
+- Retirez les numéros de compte, les lignes téléphoniques personnelles et les détails de santé dits en passant
+- Remplacez les noms de code clients si le destinataire n'est pas sous la même confidentialité
+- Gardez en interne une copie complète avec les cues d'origine si vous devez prouver une formulation
+
+Le nettoyeur ne caviarde pas pour vous. Le passage notes non plus. Si seule une partie de la réunion peut sortir, copiez ces paragraphes dans un nouveau document plutôt que de transférer toute la séance.
+
 ## Un ordre de travail pratique
 
 1. Enregistrez le `.vtt` ou le `.srt` d'origine. Ne nettoyez pas la seule copie.
 2. Déposez-le sur le [nettoyage de transcription](/fr/outils/nettoyer-transcription). Lisez la note si elle dit qu'il n'y avait pas de noms.
 3. Parcourez les doublons, les micros de salle et les chiffres (dates, sommes, versions).
-4. S'il vous faut un récap, envoyez le texte nettoyé vers les notes. Vérifiez chaque responsable sur les lignes que vous venez de lire.
-5. S'il vous faut un procès-verbal, copiez seulement les décisions et les actions sur le [modèle de procès-verbal](/fr/outils/modele-proces-verbal). La transcription n'est pas cette fiche.
-6. Classez l'original à côté du texte nettoyé. Si quelqu'un conteste une ligne, vous avez encore les cues.
+4. Caviardez si le public est plus large que la salle.
+5. S'il vous faut un récap, envoyez le texte nettoyé vers les notes. Vérifiez chaque responsable sur les lignes que vous venez de lire.
+6. S'il vous faut un procès-verbal, copiez seulement les décisions et les actions sur le [modèle de procès-verbal](/fr/outils/modele-proces-verbal). La transcription n'est pas cette fiche.
+7. Classez l'original à côté du texte nettoyé. Si quelqu'un conteste une ligne, vous avez encore les cues.
 
-Un fichier qui n'est que de l'audio, pas du texte, n'a pas sa place sur le nettoyeur. Un enregistrement Zoom local est souvent `audio_only.m4a` sans aucune transcription. Ce chemin est [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom). Les fichiers de plus de 15 minutes sont hors de l'essai de transcription du navigateur. Nettoyer un VTT que vous avez déjà exporté n'est pas cet essai.
+Un fichier qui n'est que de l'audio, pas du texte, n'a pas sa place sur le nettoyeur. Les fichiers de plus de 15 minutes sont hors de l'essai de transcription du navigateur. Nettoyer un VTT que vous avez déjà exporté n'est pas cet essai.
 
 ## Où un modèle aggrave le désordre
 
@@ -157,4 +184,6 @@ Vous pouvez remettre le texte nettoyé à l'outil de notes, qui rédige un réca
 
 Non. C'est encore ce que les gens ont dit, seulement sans les temps de cue. Le procès-verbal est plus court et structuré. Utilisez les deux, et n'étiquetez pas l'un comme l'autre.
 
-Étape suivante : déposez l'export sur le [nettoyage de transcription](/fr/outils/nettoyer-transcription). S'il ne vous reste que de l'audio, partez de [transcrire un audio](/fr/outils/transcrire-audio) quand le fichier dure 15 minutes ou moins.
+## Étape suivante
+
+Déposez l'export sur le [nettoyage de transcription](/fr/outils/nettoyer-transcription). S'il ne vous reste que de l'audio, partez de [transcrire un audio](/fr/outils/transcrire-audio) quand le fichier dure 15 minutes ou moins. Pour la prochaine réunion sur Mac, voyez [capture et modèles](/fr#capture) sur la page d'accueil.

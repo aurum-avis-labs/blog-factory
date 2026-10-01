@@ -21,6 +21,23 @@ Pendant un temps, le seul moyen pratique pour une app Mac d'entendre une autre a
 
 La capture est un tap Core Audio. Elle prend le son de la réunion. Elle laisse les pixels tranquilles. Elle exclut aussi la sortie de Vemoir, pour que l'app ne s'enregistre pas elle-même.
 
+<div class="blog-pair">
+  <div>
+    <h3>Enregistrement audio système (Vemoir)</h3>
+    <ul>
+      <li>Son des réunions Teams, Zoom, Meet et apps similaires</li>
+      <li>Pas de vidéo d'écran enregistrée</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Enregistrement de l'écran (autres outils)</h3>
+    <ul>
+      <li>Vidéo de l'affichage, parfois avec le son en plus</li>
+      <li>Pas l'autorisation que Vemoir demande</li>
+    </ul>
+  </div>
+</div>
+
 ## Activer l'enregistrement audio système
 
 1. Installez Vemoir depuis le [Mac App Store](https://apps.apple.com/app/id6794693630). Il faut une puce Apple, macOS Sonoma 14.2 ou plus récent, et de la place pour les modèles locaux. Les Mac Intel ne sont pas pris en charge.
@@ -36,7 +53,7 @@ La capture est un tap Core Audio. Elle prend le son de la réunion. Elle laisse 
 </ol>
 
 
-Si l'audio système est autorisé et que les personnes à distance restent silencieuses, les contrôles suivants sont le mute dans l'app de réunion, le mauvais périphérique de sortie, et un enregistrement qui n'a armé que le micro. Ce sont les cas sans son. L'enregistrement de l'écran ne les règle pas.
+Si l'audio système est autorisé et que les personnes à distance restent silencieuses, les contrôles suivants sont le mute dans l'app de réunion, le mauvais périphérique de sortie, et un enregistrement qui n'a armé que le micro. Ce sont les cas sans son. L'enregistrement de l'écran ne les règle pas. Voir [enregistrement de réunion sans son sur Mac](/fr/blog/enregistrement-reunion-pas-de-son-mac).
 
 ## Ce qui est gardé
 
@@ -62,7 +79,7 @@ Les étiquettes de locuteurs de cette capture sont produites sur le Mac, puis vo
 - Pas Windows, pas un iPhone, pas un Mac Intel.
 - Pas le navigateur. Aucune page Vemoir n'enregistre l'audio système dans un onglet.
 
-QuickTime et d'autres apps Mac utilisent encore la capture d'écran quand vous voulez un film de l'affichage. Le son peut être un effet secondaire de la vidéo. Si votre but est une transcription d'appel, un film d'écran est le chemin lourd vers le son, et vous n'avez toujours pas de compte rendu tant que quelque chose ne transcrit pas. L'enregistrement audio système, tel que Vemoir l'utilise, laisse le film de côté.
+QuickTime enregistre l'écran quand vous voulez une vidéo du bureau. Pour une transcription d'appel, l'enregistrement audio système évite ce détour.
 
 ## Questions fréquentes
 
@@ -86,13 +103,6 @@ Pas par défaut. Les pistes restent sur le Mac, sauf si vous les exportez ou si 
 
 Non. Les outils gratuits prennent un fichier que vous avez déjà, jusqu'à 15 minutes, ou du texte que vous collez. Ils ne capturent pas l'audio système en direct et ne demandent pas cette autorisation à macOS.
 
-### Est-ce que cela enregistre un téléphone qui ne passe pas par le Mac ?
-
-Non. L'audio système est le son que le Mac joue. Un combiné à l'oreille, ou un haut-parleur de téléphone que le Mac n'entend jamais, est hors de ce tap. Le micro peut capter un haut-parleur fort dans la pièce. C'est le son de la pièce, pas la piste d'audio système.
-
-### L'autorisation couvre-t-elle chaque app de réunion ?
-
-Elle couvre le son que ces apps jouent sur le Mac. Ce n'est pas une intégration Teams ni un plugin Zoom. Si le son est audible dans vos écouteurs ou vos haut-parleurs, le tap peut prendre cette sortie. Si l'app est en mute, il n'y a rien à prendre.
 
 ### L'écran est-il jamais stocké par erreur ?
 

@@ -20,6 +20,7 @@ If you are not on that plan, or the note should not depend on a Notion page, the
 
 - [What Notion AI meeting notes require](#what-notion-ai-meeting-notes-require)
 - [Desktop, browser, and phone are not the same](#desktop-browser-and-phone-are-not-the-same)
+- [Stop, resume, and retry the summary](#stop-resume-and-retry-the-summary)
 - [Consent, citations, and who can open the page](#consent-citations-and-who-can-open-the-page)
 - [When staying in Notion is the better choice](#when-staying-in-notion-is-the-better-choice)
 - [When the note should not be a Notion page](#when-the-note-should-not-be-a-notion-page)
@@ -42,7 +43,14 @@ On desktop you need the Notion app at version 4.7.0 or higher. On a Mac, macOS 1
 
 You type `/meet` on a page, or you start from the Upcoming events tile. You can write agenda lines under Notes before the call. Notion says the summary takes those lines into account. You press Start transcribing, which the help text treats as your confirmation that everyone has consented. You press Stop. A summary needs at least one minute of audio.
 
-That is a page in a workspace you already use. The value is the page, the permissions, and the database you may already have for meetings. The value is not a private tape on one laptop.
+That is a page in a workspace you already use. You get the page, the permissions, and the database you may already have for meetings. A private tape on one laptop lives somewhere else entirely.
+
+<ul class="blog-checklist">
+  <li>Confirm Business, Enterprise, or an eligible mobile plan before the call</li>
+  <li>Install Notion desktop 4.7.0 or newer on the Mac you will use</li>
+  <li>Accept microphone, system audio, and screen recording prompts if you need remote voices</li>
+  <li>Tell the room or paste consent in chat before you press Start transcribing</li>
+</ul>
 
 ## Desktop, browser, and phone are not the same
 
@@ -59,33 +67,41 @@ The help page draws this carefully, and it is the part people skip.
 
 **Browser.** Mic only. System audio is not captured. If you wear headphones, audio from Meet, Zoom, or Teams is not captured. If the room hears the call from speakers and the volume is high enough, some of that sound may reach the mic. Do not plan a headphones call in the browser and expect the other side in the transcript.
 
-**Notion mobile.** The phone mic. Notion says this works best in person, or when meeting audio plays out loud from another device. A call on the phone with earbuds will not include the other participants, because the app cannot capture audio playing from the phone itself.
+**Notion mobile.** The phone mic. Notion says this works best in person, or when meeting audio plays out loud from another device. A call on the phone with earbuds will not include the other participants.
 
-Speaker labels, on desktop, work best for a virtual one-to-one where Notion has both your mic and system audio, and better still if the note is tied to a calendar event so the other person can be named. Notion says labels may be weak in person, in a group on one microphone, in the browser, and on mobile. A Google Meet add-on in Chrome can add speaker labels for Meet, including groups, on desktop only.
+Speaker labels, on desktop, work best for a virtual one-to-one where Notion has both your mic and system audio, and better still if the note is tied to a calendar event so the other person can be named. Notion says labels may be weak in person, in a group on one microphone, in the browser, and on mobile. A Google Meet add-on in Chrome can add speaker labels for Meet on desktop only.
 
 You can upload an existing recording into a meeting notes block: AAC, M4A, MP3, and WAV. Notion's help says MOV, MP4, and Loom files are not supported for that upload. If your file is a video, you need audio extracted first, or another tool.
+
+## Stop, resume, and retry the summary
+
+Notion keeps the transcript block open while you record. When you press Stop, the page holds the raw transcript and can generate a summary. Notion's help says a summary needs at least one minute of audio. Shorter clips may leave you with text only.
+
+You can resume transcribing on the same page when the meeting continues. Notion treats that as one session tied to the block, not a fresh upload. If the summary missed a decision, change custom instructions or the template, then retry the summary on the existing transcript. Retry does not re-record the call.
+
+Custom instructions (sales call, standup, your template) apply to new recordings or when you resume. Changing them does not rewrite an old summary until you retry it.
 
 ## Consent, citations, and who can open the page
 
 Before you start, Notion reminds you to tell people. You can paste a consent line into the meeting chat, play a spoken consent message through your computer speakers (headphones off, speakers on, or they will not hear it), or say it yourself. Workspace owners can enforce an audio consent message for everyone under Settings, Notion AI, AI Meeting Notes.
 
-The summary can include citations. Hover shows a snippet. Click jumps to the line in the transcript. That is Notion's evidence inside the page. It is not a file you can replay from outside Notion unless you also kept the audio somewhere else.
+The summary can include citations. Hover shows a snippet. Click jumps to the line in the transcript.
 
 By default, meeting notes you create are private to you. A setting can auto-share notes that were started from a Notion calendar event with participants who are members of the workspace. Auto-share is personal: each member sets it. People outside the workspace do not become editors because they were on the call.
 
 You can pick a default database so new meeting pages land in one place. Sharing still has to be right on each page, or the database is a private pile.
 
-Instructions for the summary (sales call, standup, a custom template) apply to new recordings or when you resume. Changing them does not rewrite an old summary until you retry it. Custom instruction pages are private unless you add a shared one to your list.
-
 ## When staying in Notion is the better choice
 
 Stay if most of these are true.
 
-The workspace is already Business or Enterprise, so the feature is not a new bill. The team looks for decisions on Notion pages, not in a separate app. You want the note next to the project doc you already have. You accept Notion's permissions, including screen and system audio access on the desktop app, because the page is the point. A one-to-one on Meet or Zoom, captions or not, with the desktop app, matches the setup Notion says labels handle best.
+The workspace is already Business or Enterprise. The team looks for decisions on Notion pages. You want the note next to the project doc you already have. You accept Notion's desktop permissions because the page is the point. A one-to-one on Meet or Zoom with the desktop app matches the setup Notion says labels handle best.
 
-Uploading a WAV or MP3 you already exported, into a page the team can comment on, is also a Notion-shaped job. A local recorder that never creates the page makes you paste anyway.
+Uploading a WAV or MP3 you already exported into a page the team can comment on is also a Notion-shaped job.
 
 If the call is in the room and someone has the phone, Notion's own help says mobile is the fit, with the limits above. You do not need a second product to hold up a phone.
+
+Want the note on a Notion page without hunting for a file afterward? Start from `/meet` in the desktop app when the plan already includes the feature.
 
 ## When the note should not be a Notion page
 
@@ -106,6 +122,10 @@ You are in a group in one room and you expected named speakers. Notion says that
 ### Do Notion AI meeting notes work on the free plan?
 
 Notion's help says Business or Enterprise, or an eligible mobile subscription that includes Notion AI. Check your workspace plan before the meeting, not during it.
+
+### Can I resume Notion AI meeting notes after I stop?
+
+Yes, on the same page. Resume transcribing continues the block. Retry the summary if the wording was wrong. You do not need a new `/meet` block for a pause in the same call.
 
 ### Can I use Notion in the browser with headphones?
 
@@ -129,6 +149,6 @@ Not by default. Notes start private. Auto-share applies to notes started from No
 
 ### What if I only need text from a file I already have?
 
-You do not need Notion AI meeting notes for that. Use a local transcriber or the browser tool for a short file, then paste the result into the page if the page is still where the team reads.
+Use a local transcriber or the browser tool for a short file, then paste into the page if the team still reads there.
 
 If the workspace already pays for the feature and the page is home, start from `/meet` and read Notion's help for the permission prompts. If the recording should stay on the Mac, the app is on the [Mac App Store](https://apps.apple.com/app/id6794693630).

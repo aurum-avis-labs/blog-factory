@@ -1,0 +1,95 @@
+---
+title: "Lovable Supabase row level security: what to check"
+description: "Lovable Supabase row level security: enable RLS on every table, test with the anon key, and read policies like production code, not a one-time setup."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["lovable", "supabase", "security", "mvp"]
+funnelStage: interest
+translationKey: lovable-supabase-row-level-security
+relatedPosts: ["building-an-mvp-with-lovable", "vibe-coding-security-checklist"]
+draft: true
+site: studio
+---
+
+## Lovable Supabase row level security
+
+Lovable Supabase row level security is the Postgres layer that decides which rows a signed-in user (or a stranger with your public key) can read and write. Lovable wires your app to Supabase and often creates tables and policies for you. That is fast for a prototype. It is not a guarantee that every table is locked down, that policies match how your screens work, or that a direct API call cannot bypass the UI. You treat RLS as part of the product, check it before real users arrive, and re-check it whenever the data model changes.
+
+This is for founders who shipped a Lovable MVP on Supabase and now need to know whether user A can see user B's rows. It is not a penetration test, not legal advice on Swiss data law, and not a tutorial on every Supabase policy syntax variant. For the wider production bar, see [is your vibe-coded app production ready](/blog/is-your-vibe-coded-app-production-ready).
+
+<dl class="blog-terms">
+  <div>
+    <dt>RLS</dt>
+    <dd>Row Level Security in Postgres: each row is allowed or denied by policy, not only by hiding buttons in React.</dd>
+  </div>
+  <div>
+    <dt>Anon key</dt>
+    <dd>The public Supabase client key in your front end. Anyone can copy it from the browser and call the API.</dd>
+  </div>
+  <div>
+    <dt>Policy</dt>
+    <dd>A rule on a table, usually tied to `auth.uid()`, that filters selects, inserts, updates, and deletes.</dd>
+  </div>
+</dl>
+
+## Why the UI login is not enough
+
+Lovable can give you a working login screen quickly. Authorization is what happens after login: can this account load only its own projects, messages, or invoices? In Supabase, that enforcement belongs in the database when you use the client SDK. If RLS is off on a table, or a policy is too permissive, the anon key plus a guessed table name can expose data even when your app never showed a link to it.
+
+Generated policies often follow the happy path of the first feature you described. A second role, a shared workspace, or a join table can leave an old policy allowing `select` on rows that should stay private. Each new server route or edge function needs the same question: who can touch which rows?
+
+## What went wrong in the public CVE case
+
+In 2025, researchers reported [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757): missing or ineffective row level security on Lovable-generated Supabase projects, where the public client key allowed queries without login. The record lists more than 170 affected apps, reported in March 2025 and published on 29 May 2025. That is one disclosed pattern, not a forecast for your project today. It is a reminder that «connected to Supabase» and «RLS correctly enforced on every table» are different statements. Your job is to prove the second on your schema, not to assume the template already did.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Passing your own RLS checks does not prove GDPR compliance, Swiss residency choices, or safe handling of service-role keys on a server. Region selection (for example Zurich, eu-central-2, where Supabase offers it) is a deployment choice; policies are what stop cross-account reads.</p>
+</aside>
+
+## A practical check sequence
+
+Work in the Supabase dashboard for the project Lovable created, or in SQL if you prefer. Use a test project copy if you already have production data.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>List tables with RLS off</h3><p>In the table editor or `pg_tables`, confirm RLS is enabled on every table that holds user or tenant data. Storage metadata and auth tables have their own rules; do not skip «small» tables you added by hand.</p></li>
+  <li data-step="2"><h3>Read policies like application code</h3><p>For each policy, ask who `select`, `insert`, `update`, and `delete` apply to. `using true` on `select` for the `anon` role is a red flag unless the data is intentionally public.</p></li>
+  <li data-step="3"><h3>Call the API as a stranger</h3><p>With only the anon key (the same one in your built app), try to read another user's row id from a table. If you get data, the UI never mattered.</p></li>
+  <li data-step="4"><h3>Repeat for two test users</h3><p>Create two accounts. User A must not read or write user B's rows on any table, including join tables and attachment metadata.</p></li>
+  <li data-step="5"><h3>Re-run after each schema change</h3><p>New column, new table, or new Lovable prompt that «just adds a feature» can ship without a matching policy. Make RLS part of the same checklist as «does the button work».</p></li>
+</ol>
+
+## A made-up example: a booking side project
+
+A made-up example: a founder builds a room-booking tool in Lovable for a co-working space pilot, not a client. Tables `spaces`, `bookings`, and `members` hold names and email addresses. The app shows «my bookings» correctly when logged in. In Supabase, `bookings` still has RLS disabled because an early prompt created the table before policies were added. Anyone with the anon key from the deployed URL can request all rows in `bookings` and see every member's slots. The founder enables RLS, adds a `select` policy where `member_id` matches `auth.uid()`, and repeats the anon-key test. `members` still needs a tighter `select` so one member cannot enumerate colleagues' emails. The pilot can go ahead for learning; the founder does not yet call it production-ready for paying venues.
+
+## Who should do this work, and who can wait
+
+<div class="blog-pair">
+  <div>
+    <h3>Do the checks now</h3>
+    <ul>
+      <li>You store personal data, messages, files, or anything one user must not see from another account</li>
+      <li>You plan a public URL, ads, or a waitlist beyond friends and family</li>
+      <li>You already copied the Supabase keys into another tool or a mobile build</li>
+    </ul>
+  </div>
+  <div>
+    <h3>You can defer a deep pass</h3>
+    <ul>
+      <li>The prototype is offline, fake data only, and you will throw the schema away</li>
+      <li>A single shared admin login is the whole model and everyone is trusted staff</li>
+      <li>You have not connected a real Supabase project yet</li>
+    </ul>
+  </div>
+</div>
+
+Deferral is not permission to ship customer data with RLS off. A half-day audit can wait until the idea survives first contact with users.
+
+## What a clean RLS pass does not prove
+
+Green checks on policies do not show that your service-role key is never in the browser, that storage buckets are private, that rate limits exist, or that backups and monitoring are in place. They do not replace a structured review against a standard such as OWASP ASVS when strangers pay you or regulators ask questions. They also do not fix a bad data model: RLS on a table you should never have created is still the wrong product decision.
+
+## When Vibe Code Review fits
+
+If you built with Lovable (or similar) and need an independent read on auth, data access, and the gap between prototype and something you can defend to a customer, [Vibe Code Review](/services/vibe-code-review) is built for that moment. We review the app against OWASP ASVS v5.0, spend focused time on architecture and code quality, and leave you with a prioritised action list and a closing conversation under NDA. It fits when you are past the demo and need to know what must change before wider launch, not when you only wanted a feature checklist from the AI tool itself.

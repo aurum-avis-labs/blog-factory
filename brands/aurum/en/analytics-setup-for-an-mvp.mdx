@@ -1,0 +1,103 @@
+---
+title: "Analytics setup for an MVP"
+description: "Analytics setup for an MVP: GA4, PostHog, or Clarity, what to wire first, Swiss cookie basics, and what page views do not prove."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["analytics", "mvp", "ga4", "clarity", "startup"]
+funnelStage: interest
+translationKey: analytics-setup-for-an-mvp
+relatedPosts: ["event-tracking-plan-for-an-mvp", "measure-activation-and-retention"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Analytics setup for an MVP means one web analytics tool on the landing page and the product, a short list of events that match your hypothesis, and session replay only when you will actually watch sessions. You do not need every dashboard on day one.</p>
+
+## Analytics setup for an MVP
+
+You set up analytics so you can answer a few questions with numbers: where people arrive, whether they reach the first valuable action, and where they stop. For a pre-seed founder without a technical co-founder, the goal is a small stack you can explain to an adviser, not a data warehouse. Google Analytics 4 (GA4), PostHog, and Microsoft Clarity are common choices. They overlap in places; picking two roles (traffic plus behaviour, or traffic plus replay) is usually enough before you have paying users.
+
+This is for founders who already have a URL or a first build and need measurement before they spend on ads. It is not a guide to enterprise BI, not legal advice on cookies, and not a substitute for interviews. What numbers can and cannot say about fit is in [how to find product-market fit](/blog/product-market-fit-how-to-find-it). Which events to name comes next in event tracking plan for an MVP and measure activation and retention.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Web analytics</dt>
+    <dd>Counts visits, sources, and page paths. GA4 is the usual default when you run Google Ads.</dd>
+  </div>
+  <div>
+    <dt>Product analytics</dt>
+    <dd>Tracks named events inside the app: sign-up finished, project saved, checkout started.</dd>
+  </div>
+  <div>
+    <dt>Session replay</dt>
+    <dd>Records anonymised clicks and scrolls so you can see where the UI confuses people. Clarity is a free option.</dd>
+  </div>
+</dl>
+
+## What to wire first
+
+Start with one measurement id on every public page, including the landing page you use for ads. Add the same container or script to the authenticated app so you do not lose the path from ad click to first session inside the product.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Create one GA4 property</h3><p>One property per product. Use Google Tag Manager if you expect to add conversion tags later without redeploying code.</p></li>
+  <li data-step="2"><h3>Mark the landing page and the app host</h3><p>Configure domains so a visit on www and app does not split into two unrelated users unless you intend that.</p></li>
+  <li data-step="3"><h3>Send three to five custom events</h3><p>Align names with your hypothesis, for example <code>signup_complete</code> and <code>first_project_saved</code>. Log them in a one-page tracking plan before you add more.</p></li>
+  <li data-step="4"><h3>Add session replay only if someone will review it</h3><p>Clarity is quick to install. Without a weekly habit of watching five sessions, skip it until traffic exists.</p></li>
+  <li data-step="5"><h3>Check data in an incognito window</h3><p>Click through your own funnel once. If your test events do not appear within an hour, fix tags before you turn on spend.</p></li>
+</ol>
+
+PostHog fits when you want product analytics, funnels, and optional feature flags in one place, including self-hosting if your adviser asks where data lives. GA4 fits when acquisition is mostly Google and you want free reporting out of the box. Clarity fits when the open question is «why do people leave on this screen» and you are willing to watch replays. You can run GA4 and Clarity together; PostHog can replace or complement GA4 depending on how much you rely on Google's ad reports.
+
+## Cookies and Switzerland
+
+Swiss law does not require a cookie banner for every analytics script. Consent matters when processing is high risk, when specially protected data is involved, when data goes to a third party for their own purposes, or for cross-site tracking and retargeting. For many MVPs, basic GA4 or Clarity without advertising features is handled with information on the site and a way to object, under Art. 45c FMG. The moment you turn on remarketing, heavy profiling, or pixels that follow people across sites, treat consent seriously and ask your adviser. Do not copy a German GDPR banner word for word and assume it matches a Swiss landing page.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Correct tags show that events fired. They do not show that the product is secure, that personal data is lawfully processed in every table, or that a stranger who finds your API keys cannot read another user's rows. Analytics sits beside auth and hosting choices, not instead of them.</p>
+</aside>
+
+## What analytics does not prove
+
+A spike in landing page views after you spend on ads shows attention, not repeat use. Completed sign-ups show that the form works, not that anyone returns next week. Session replay shows confusion on one screen, not willingness to pay. None of that is [product-market fit](/blog/product-market-fit-how-to-find-it); it is input for the next experiment.
+
+<div class="blog-pair">
+  <div>
+    <h3>Set up analytics now</h3>
+    <ul>
+      <li>You will run Google or LinkedIn ads within a few weeks</li>
+      <li>The hypothesis needs counts, not only interview quotes</li>
+      <li>More than ten strangers may use the product</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Wait or stay lighter</h3>
+    <ul>
+      <li>You are still testing the problem in calls only</li>
+      <li>Traffic is five friends and you can ask them what they did</li>
+      <li>You have no landing page URL yet, only slides</li>
+    </ul>
+  </div>
+</div>
+
+## A made-up example: a weekend SaaS draft
+
+A made-up example: a solo founder in Bern ships a small B2B tool with Cursor and Supabase. The landing page lives on the marketing domain; the app on a subdomain. On Monday they create a GA4 property, paste the tag through Tag Manager on both hosts, and define four events in a spreadsheet: `cta_click`, `signup_complete`, `onboarding_step_2`, and `export_csv`. They add Clarity on the landing page only because drop-off before sign-up is the worry. They open an incognito window, click the ad preview link, sign up with a test address, and export a dummy file. Real-time reports show the path; Clarity shows that mobile users miss the primary button below the fold. They do not install PostHog yet because GA4 events are enough until retention matters. They note in the footer that analytics cookies are used and link a one-paragraph privacy page. No customer names appear in this example.
+
+## Common mistakes
+
+Installing three tools before the first event is named produces three half-empty dashboards. Tracking every click creates noise and makes funnels unreadable. Comparing week-one numbers to blog posts about «good» conversion rates invents certainty. Leaving analytics out of the production build and only adding it after launch loses the first ad cohort entirely.
+
+<div class="blog-faq">
+  <h3>Is GA4 enough for an MVP?</h3>
+  <p>Often yes for acquisition and simple funnels, especially with Google Ads. Add product analytics or a tracking plan when you need reliable in-app steps or retention by cohort.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Does Aurum install PostHog in the validation package?</h3>
+  <p>The Product Validation Package includes analytics and session recordings from day one on a deployed app. The exact tools follow what the service page describes for that engagement; treat PostHog as one option you might choose yourself earlier, not as a promise in this article.</p>
+</div>
+
+## When the Product Validation Package fits
+
+The [Product Validation Package](/services/mvp-validation) fits when the open question is behaviour under real acquisition, not whether a tracking snippet pasted in localhost works. Weeks 1 to 4 deliver a deployed product with analytics and session recordings from day one; later weeks look at cost per lead, conversion, and drop-off, with up to three pivot iterations before a Go, Pivot, or Stop recommendation that states what the data did not prove. If you only need a smoke test on a single landing page, a lighter package may suffice. If paid traffic and measured usage are the hypothesis, start a discovery conversation on the contact page when you are ready to commit twelve weeks.

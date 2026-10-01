@@ -1,0 +1,98 @@
+---
+title: "Vibe Coding Sicherheit: Checkliste vor echten Nutzenden"
+description: "Vibe Coding Sicherheit prüfen: Schlüssel, Login, Zeilenzugriff, Speicher, Logs. Was die Checkliste beweist, was nicht, und wann ein Review passt."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["vibe coding", "sicherheit", "mvp", "supabase", "schweiz"]
+funnelStage: interest
+translationKey: vibe-coding-security-checklist
+relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
+draft: true
+site: studio
+---
+
+## Vibe Coding Sicherheit in einer Checkliste
+
+**Vibe Coding Sicherheit** prüfen Sie mit einer kurzen, wiederholbaren Checkliste, bevor Fremde ein Konto anlegen, bevor Zahlungsdaten im Spiel sind oder bevor eine Pilotkundin eine Frage zu Datenschutz und Zugriff stellt. Gemeint ist der Stand nach Lovable, Bolt, v0, Replit, Cursor oder Claude Code: funktionsfähig im Browser, oft mit Supabase oder ähnlichem Backend, selten mit durchgetesteten Grenzfällen.
+
+Sie streben keine Zertifizierung an. Sie suchen typische Lücken: Schlüssel im Client, Regeln in der Datenbank, die im Dashboard grün wirken und im Test nicht halten, Admin-Pfade ohne echte Prüfung. Wer Last, Monitoring und Deploy diszipliniert sehen will, ergänzt diese Liste mit [ist Ihre vibe-coded App produktionsreif](/de/blog/ist-deine-vibe-coded-app-produktionsreif).
+
+<div class="blog-pair">
+  <div>
+    <h3>Checkliste laufen lassen, wenn</h3>
+    <ul>
+      <li>Nutzende ausserhalb Ihres engen Kreises Konten erstellen können</li>
+      <li>Personendaten, Dateien oder Nachrichten von Kundschaft gespeichert werden</li>
+      <li>eine B2B-Kundin, ein Treuhänder oder die IT nach Standort und Zugriff fragt</li>
+      <li>Sie den Code behalten und später an Entwicklung übergeben wollen</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Überspringen oder kürzen, wenn</h3>
+    <ul>
+      <li>nur eine Demo mit Fake-Daten und ohne Login existiert</li>
+      <li>nur Sie lokal arbeiten und nichts das Gerät verlässt</li>
+      <li>dieses Quartal bereits ein externes Review gegen einen veröffentlichten Standard lief</li>
+    </ul>
+  </div>
+</div>
+
+## Was die Prüfung beweist und was nicht
+
+Eine abgearbeitete Checkliste heisst: offensichtliche Lücken sind behoben oder als Restrisiko dokumentiert, bevor Sie Zugang erweitern. Sie beweist nicht OWASP ASVS, keinen Penetrationstest und keine Rechtsberatung. Sie ersetzt keinen Auftragsbearbeitungsvertrag mit dem Host und keine Datenschutzerklärung auf der Website.
+
+<div class="blog-stat">
+  <strong>170+</strong>
+  <p>In CVE-2025-48757 genannte Apps, bei denen fehlende oder wirkungslose Row-Level-Security auf Supabase-Projekten aus Lovable-Stacks den öffentlichen Client-Schlüssel Abfragen ohne Login erlaubte. Gemeldet März 2025, veröffentlicht 29. Mai 2025. Nicht jeder Vibe-Stack hat dieselbe Default-Konfiguration; Zeilenzugriff verdient einen bewussten Test, keinen Blick nur auf generierte Policies.</p>
+</div>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Dieser Text ist technische Hygiene, keine Rechtsauskunft. Bei Gesundheitsdaten, Personalakten oder Daten von Minderjährigen die Checkliste als Einstieg behandeln und Beratung sowie Spezialreview früh einplanen.</p>
+</aside>
+
+## Die Checkliste (gleicher Tag)
+
+Der Reihe nach abarbeiten. Ist ein Punkt «nicht anwendbar», eine Zeile Begründung notieren, damit niemand später annimmt, Sie hätten aus Unachtsamkeit übersprungen.
+
+<ul class="blog-checklist">
+  <li><strong>Oberflächen inventarisieren.</strong> Alle Wege für Daten rein und raus: Web-UI, Mobile-Wrap, Serverless-Funktionen, Webhooks, E-Mail-Auslöser, jede «Admin»-URL aus der Entwicklung.</li>
+  <li><strong>Geheimnisse nur serverseitig.</strong> Repository und gebautes Client-Bundle nach Service-Role-Keys, Signaturgeheimnissen und Tokens durchsuchen. Nichts, was fremde Zeilen lesen kann, gehört in Front-end-Code oder in ein öffentliches Git-Repo.</li>
+  <li><strong>Authentifizierung auf jedem schreibenden Pfad.</strong> Login in der UI reicht nicht. Jede API-Route oder Edge-Funktion ohne Session, mit abgelaufenem Token und mit Token eines anderen Kontos aufrufen. Unglückliche Pfade sollen hart abbrechen.</li>
+  <li><strong>Autorisierung wie im Produktversprechen.</strong> Wenn nur die Eigentümerin ein Projekt sieht, mit zwei Testkonten belegen. UI-Verstecken ist keine Sicherheit. Row-Level-Security, Policy-Regeln oder Serverprüfungen müssen zu dem passen, was Sie schriftlich zusagen.</li>
+  <li><strong>Storage-Buckets und öffentliche Links.</strong> Welche Buckets sind öffentlich? «Private» Datei-URL im ausgeloggten Browser öffnen. Upload-Pfade dürfen nicht erlauben, dass Nutzende fremde Objekte per erratener ID überschreiben.</li>
+  <li><strong>Datenregion und Unterauftragnehmer.</strong> Region notieren (bei Supabase ist unter anderem Zürich, eu-central-2, wählbar) und jede Stelle, die Personendaten speichert oder bearbeitet. Das brauchen Sie für Kundenfragen und Verträge.</li>
+  <li><strong>Abhängigkeiten.</strong> Audit-Befehl der Plattform auf die Lockdatei laufen lassen, die Sie wirklich deployen. Kritische Findings triagieren, bevor Sie den Kreis erweitern, auch wenn der Prototyp «letzte Woche noch lief».</li>
+  <li><strong>Logging und Fehler.</strong> Einen Fehler absichtlich auslösen. Prüfen, was in Logs oder Toasts landet. Stacktraces und Rohdaten in der Browser-Konsole sind bei generierten Apps häufig.</li>
+  <li><strong>Backup und Export.</strong> Festhalten, ob Sie die Datenbank von gestern wiederherstellen können und ob Kundschaft mit eigenen Daten gehen kann. «Die Plattform sichert» ist nicht dasselbe wie «Wir haben Restore getestet».</li>
+  <li><strong>Ergebnis festhalten.</strong> Eine Seite: Datum, wer geprüft hat, was fehlschlug, was behoben wurde, was offen bleibt. Diese Seite geben Sie an die nächste Entwicklung oder an ein strukturiertes Review weiter.</li>
+</ul>
+
+## Ein erfundenes Beispiel: Raumbuchung nach dem ersten Pilot
+
+Ein erfundenes Beispiel: Eine Gründerin betreibt mit Lovable und Supabase eine Raumbuchung für drei Zürcher Coworking-Standorte. Zwölf echte Mitglieder nutzen sie. Noch keine Zahlungen, aber Namen, E-Mail-Adressen und Buchungsnotizen sind live.
+
+Am Donnerstag läuft die Checkliste. Im Client-Bundle steht noch eine auskommentierte Zeile mit einem alten Anon-Key aus einem frühen Experiment; sie entfernt sie und rotiert Schlüssel im Dashboard. Zwei Testkonten zeigen: Jede eingeloggte Person kann eine fremde Buchungs-ID per geänderter Zahl in der URL öffnen; sie ergänzt eine Policy, die Zeilen an die Organisations-ID des Mitglieds bindet. Ein als öffentlich markierter Bucket liefert Profilfotos; sie stellt ihn privat und liefert Bilder über signierte URLs. In der Ein-Seiten-Notiz steht: Backup «Plattform-Standard, Restore ungetestet»; Fehler-Toasts geben auf einem Admin-Screen noch Rohtext aus der Datenbank wieder, Fix vor dem vierten Standort.
+
+Der Nachmittag stoppte einen einfachen Mandanten-Übergriff und lieferte etwas Ehrliches für die nächste Standortleiterin, die nach Prüfung fragt. «Bankentauglich» war das nicht. «Bewusst geprüft» schon.
+
+## Wann ein strukturiertes Review passt
+
+Bleiben mehrere Punkte offen oder verlangt eine Kundin Nachweise gegen einen Standard, lohnt sich ein strukturiertes Review mehr als ein weiterer Abend Raten. Das [Vibe Code Review](/de/services/vibe-code-review) von Aurum richtet sich an Apps aus Cursor, Lovable, v0 oder Claude Code. Die Arbeit wird an OWASP ASVS v5.0 gespiegelt. Sie erhalten einen Gap-Report, rund acht Stunden zu Architektur und Codequalität, eine priorisierte P0/P1/P2-Massnahmenliste, ein abschliessendes Gespräch und eine NDA.
+
+Das passt, wenn Sie den Code behalten, zahlende B2B-Nutzende in der Schweiz onboarden oder das Projekt an ein internes Team ohne Wochen Archäologie übergeben wollen. Bei Fake-Daten und fünf Bekannten zum Texttesten reicht Discovery. Ein Review buchen Sie, wenn Zugriff und Datenstandort Umsatz oder eine Partnerschaft blockieren, nicht wenn nur noch ein Feature-Prompt fehlt.
+
+<div class="blog-faq">
+  <h3>Ist Vibe Coding per se unsicher?</h3>
+  <p>Nein. Das Muster ist bekannt: schnelle Oberfläche, generierter Datenzugriff, wenig Zeit für Randfälle. Dieselbe Checkliste gilt für handgeschriebene MVPs in kleinen Teams.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Reicht die Supabase-Region Schweiz für Compliance?</h3>
+  <p>Die Region beantwortet, wo die Primärdaten liegen. Sie ersetzt keine Verträge, Zweckbindung, Aufbewahrung oder sichere Konfiguration. Region dokumentieren und Policies sowie Schlüssel trotzdem testen.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Wann ist Neubau sicherer als Patchen?</h3>
+  <p>Wenn Autorisierung über viele Routen uneinheitlich ist, Geheimnisse verstreut liegen und niemand die Live-Umgebung sicher benennen kann. Enges Patchen kann reichen; manchmal ist Neubau günstiger als generierter Wildwuchs. Der verlinkte Produktionsreife-Beitrag rahmt den Trade-off ohne eine einzige Pflichtantwort.</p>
+</div>

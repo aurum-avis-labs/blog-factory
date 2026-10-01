@@ -14,9 +14,10 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@walls_io?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Walls.io</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
 Speaker labels missing from a transcript means the file has words and no reliable "who." You can still read it. You cannot honestly answer who agreed, who owned a task, or who spoke most. The fix is not a button that guesses. A browser page does not run a speaker-separation model. If the names were not in the export, they stay missing until a person or a local diarization pass adds them.
 
-This is the unlabeled-file problem. Renaming a label you already have is a different job, and it belongs on the Mac after a recording, not in a caption cleaner.
+Renaming a label you already have is a different job on the Mac after a recording, not in a caption cleaner.
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Rename in order</h3><p>Start with whoever spoke most; fix one label at a time.</p></li>
@@ -26,7 +27,7 @@ This is the unlabeled-file problem. Renaming a label you already have is a diffe
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>The free browser tools do not separate speakers. That job needs the Mac app or manual editing.</p>
+  <p>As of September 2026, the free browser tools transcribe files up to 15 minutes, allow three successful runs per week, and do not separate speakers. Live capture and diarization are in the Mac app.</p>
 </aside>
 
 ## Contents
@@ -43,7 +44,6 @@ This is the unlabeled-file problem. Renaming a label you already have is a diffe
 
 Several normal exports are nameless. That is not a bug in your paste.
 
-
 - A local Zoom recording is audio. `audio_only.m4a` has no speakers in it. Zoom's cloud VTT sometimes does, when cloud transcription was on and the account allows it. The local file does not inherit those names. See [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording).
 - A microphone recording of a room, a voice memo, or a single mixed track is one waveform. Speech-to-text can write the words. It does not know the faces.
 - Some Teams downloads are speaker-attributed VTT, with `<v Name>` tags. Others, and some admin settings, are text without those tags. If the tag is absent, no later cleaner can recover a name that was not stored.
@@ -55,14 +55,15 @@ If you needed names, the moment to get them was a source that had them, or a too
 
 The [transcript cleaner](/tools/transcript-cleaner) removes timestamps and cue headers. It keeps a speaker only when it finds one. The patterns it understands include a WebVTT voice tag (`<v Jane>`), a line like `Jane: text`, `Speaker 1:`, or `SPEAKER_01:`. Anything else is treated as words without a person.
 
-
 When nothing matches, the page tells you the file had no speaker names. It still returns the text. It does not fill in "Speaker A" and "Speaker B" as a guess. Invented labels look like data, and they are not.
 
 [Who held the floor](/tools/who-held-the-floor) is the same rule, one step later. Paste a transcript that already has names, and it shows each name's share of the words. Paste a nameless block, and it stops. There is no chart of anonymous voices, because the browser cannot tell the voices apart.
 
-Neither of those pages spends a weekly model run. They also do not record the meeting, and they do not listen to the tab.
+Neither page records the meeting or listens to the tab. [Transcribe a recording](/tools/transcribe-recording) runs the speech model in the browser tab without uploading your file.
 
 A notes draft from [meeting notes from a transcript](/tools/meeting-notes-from-transcript) can still summarize a nameless file. It should not assign quotes to people who are not in the text. Read the draft. If it names someone the file never named, delete that line.
+
+Want labels on the next call without guessing? Vemoir records microphone and system audio on your Mac. See [how capture works](/#capture).
 
 ## Shapes that already count as a name
 
@@ -75,6 +76,21 @@ You may have labels and not recognize them.
 | `Speaker 2: text` | The placeholder is kept. It is not a person until you rename it |
 | `SPEAKER_00: text` | Same idea, a label without an identity |
 | Plain sentence, no prefix | No name. The page says so |
+
+<dl class="blog-terms">
+  <div>
+    <dt>Speaker 1</dt>
+    <dd>A thread label from an upstream diarization tool, not a discovered identity.</dd>
+  </div>
+  <div>
+    <dt>VTT</dt>
+    <dd>A caption file format. Names appear only if the exporter wrote voice tags.</dd>
+  </div>
+  <div>
+    <dt>Diarization</dt>
+    <dd>Splitting audio into who-spoke-when. The Mac app does this locally; the browser does not.</dd>
+  </div>
+</dl>
 
 `Speaker 2` is useful only as a thread. It means "this stretch is the same unknown voice as the other Speaker 2 lines," when the upstream tool actually diarized. It does not mean the browser discovered that. If your file has those prefixes, who-held-the-floor can count them. You still have to map Speaker 2 to a human if the name matters.
 

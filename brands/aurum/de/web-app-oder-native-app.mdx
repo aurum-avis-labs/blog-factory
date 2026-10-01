@@ -1,0 +1,107 @@
+---
+title: "Web App oder native App"
+description: "Web App oder native App für ein MVP: Browser, Store oder installierbares Web, und was die Kanalwahl nicht über Nachfrage beweist."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["web app", "native app", "pwa", "mvp", "capacitor"]
+funnelStage: interest
+translationKey: web-app-vs-native-app-vs-pwa
+relatedPosts: ["skalierbares-mvp", "tech-stack-startup"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">Web App oder native App entscheidet sich an Verteilung und Gerätefunktionen, nicht am Logo auf der Pitchfolie. Eine Web App läuft im Browser und ist für die meiste Validierungsarbeit am schnellsten live. Eine native App kommt aus dem Store, erreicht tiefere System-APIs und kostet Review- und Release-Reibung. Eine Progressive Web App (PWA) bleibt technisch eine Web App mit Installationspfad und Offline-Bausteinen, sinnvoll wenn das Homescreen-Icon zählt, ein Store-Eintrag aber noch nicht.</p>
+
+Der Text richtet sich an Sie, wenn Sie bereits aus Lovable, Bolt, v0, Replit, Cursor oder Claude Code exportiert haben und nun klären wollen, ob der Test in Safari, im App Store oder in beiden Welten laufen soll. Warum ein Validierungsbuild deploybarer Code bleiben soll und kein Mockup, steht in [warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps).
+
+## Web App, native App oder PWA
+
+Alle drei Formen können dieselbe React- oder vergleichbare Codebasis teilen. Sie unterscheiden sich darin, **wie Nutzer das Produkt erreichen**, **was das Betriebssystem sofort hergibt** und **was Sie erfüllen müssen**, bevor Unbekannte über Apple oder Google installieren.
+
+Eine **Web App** ist die URL. Sie deployen, teilen den Link, korrigieren auf dem Server. Push, Hintergrundsynchronisation und manche Sensoren sind möglich, auf iOS aber lückenhaft. Für viele B2B- und frühe B2C-Tests reicht das.
+
+**Native** im engen Sinn heisst: Plattform-Toolchain (Swift, Kotlin) oder ein Cross-Platform-Laufzeitmodell, das trotzdem ein Store-Binary erzeugt. Nutzer erwarten ein Icon, Updates über den Store und Berechtigungsdialoge im gewohnten Muster.
+
+Eine **PWA** ergänzt Manifest und meist einen Service Worker, damit der Browser Installation anbieten, Assets cachen und definierte Routen offline ausliefern kann. Auf Android wirkt das oft nah an einer Store-App. Auf iOS gibt es Installation, Store-Apps behalten aber Vorteile bei Auffindbarkeit und einigen APIs.
+
+| Frage | Web App | PWA | Native oder gewrappte Store-App |
+| --- | --- | --- | --- |
+| Erster Zugang | Link | Link, optional Install | Store-Suche oder Marketing zum Store |
+| Update-Tempo | Deploy wenn bereit | Deploy wenn bereit | Review-Warteschlange pro Release |
+| Tiefe Geräte-APIs | Browser-Grenzen | Wie Web, plattformabhängig | Am breitesten, wenn umgesetzt |
+| Store-Listing | Nein | Meist nein | Ja |
+| Guter erster Test wenn | Ablauf und Login im Browser | Wiederkehrende Nutzung, schwaches Netz | Push, Offline-Kern oder «wir brauchen ein App-Icon» ist die Hypothese |
+
+Die Tabelle dient dem **Lernen**, nicht dem Gewinnen einer Formatdebatte. Teams, die ein Store-Icon für Glaubwürdigkeit brauchen, shippen manchmal einen Wrap, bevor jede native API nötig ist.
+
+<div class="blog-pair">
+  <div>
+    <h3>Im Browser bleiben, wenn</h3>
+    <ul>
+      <li>Formulare, Dashboards, Chat im Tab oder Landingpage mit Login im Zentrum stehen</li>
+      <li>Sie während der Validierung wöchentlich Texte und Abläufe ändern</li>
+      <li>Ihre Käufer am Desktop arbeiten oder Links aus E-Mail und LinkedIn öffnen</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Store-Build einplanen, wenn</h3>
+    <ul>
+      <li>Push, Standort im Hintergrund oder starker Offline-Kern zum Wert gehören, nicht als Extra</li>
+      <li>Partner oder Einkauf einen App-Store- oder Google-Play-Eintrag erwarten</li>
+      <li>Sie Review-Feedback pflegen können, nicht nur Produktfeedback</li>
+    </ul>
+  </div>
+</div>
+
+## Gewrappte Web App statt Neuschreibung
+
+Viele Vibe-Coding-MVPs sind **Web App plus nativer Hülle** (zum Beispiel Capacitor), kein Rewrite in Swift und Kotlin. Derselbe React-Bundle kann Browser und Store-Binaries bedienen. So veröffentlicht das interne Produkt [Inklets](https://inklets.app): React-App mit Wrap für iOS und Google Play, öffentlich unter inklets.app, Details auf der [Inklets-Portfolio-Seite](/de/portfolio/inklets).
+
+Ein Wrap ist ein fairer Shortcut, wenn das Produkt sich wie eine App verhält: Konten, persistenter Zustand, klare Aufgaben jenseits von Marketingseiten. Apples [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) prüfen **Mindestfunktionalität** ernst: Richtlinie 4.2 verlangt mehr als eine umverpackte Website, 4.2.2 lehnt reine Marketing- oder Web-Clipping-Apps ab. Google Play setzt eigene Hürden, unter anderem **Closed Testing** für viele neue persönliche Entwicklerkonten (mindestens 12 Tester an 14 aufeinanderfolgenden Tagen, laut Google-Hilfe zur Play Console). Das ist keine automatische Freigabe. Eine gewrappte Landingpage mit einem Formular ist ein häufiges Ablehnungsmuster, keine Validierungsstrategie.
+
+Beim Kundenprojekt [do4me](/de/portfolio/do4me), Alltagshelfer in Zürich, war ein Wrap für iOS und Google Play vorbereitet, **nicht** aber der erste Test. Die erste Schleife war Landingpage, Web App, Inserate, Chat und gemessene Ads. Der Store blieb zurück, damit der Scope auf Marktplatz-Verhalten lag, nicht auf Review-Zeiten.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Ein Wrap verspricht keine Store-Freigabe. Prüfer bewerten die Erfahrung im Binary, nicht Ihre Absicht. Behandeln Sie die Einreichung als eigenes Risiko mit eigener Checkliste, besonders wenn das MVP noch wie eine responsive Website mit einem Formular wirkt.</p>
+</aside>
+
+<dl class="blog-terms">
+  <div>
+    <dt>Web App</dt>
+    <dd>Ihr Produkt im Browser über eine URL, ohne Installation aus dem Store.</dd>
+  </div>
+  <div>
+    <dt>PWA</dt>
+    <dd>Web App plus Manifest und Service Worker, damit der Browser Installation und begrenztes Offline-Nutzen anbietet.</dd>
+  </div>
+  <div>
+    <dt>Nativer Wrap</dt>
+    <dd>Store-Binary, das Ihre Web-Oberfläche in einer WebView oder gemeinsamen Laufzeit hostet, mit Plugins für Geräte-APIs bei Bedarf.</dd>
+  </div>
+</dl>
+
+## Was die Kanalwahl nicht beweist
+
+Ob Browser, PWA oder Store-Icon: Es beweist **nicht** Zahlungsbereitschaft, Retention oder einen funktionierenden Akquisitionskanal. Es ersetzt **nicht** Analytics, Session-Aufzeichnungen oder eine Go-, Pivot- oder Stop-Empfehlung nach bezahltem Traffic. Es heisst **nicht**, dass die Vibe-Coded-Oberfläche für sensible Daten ohne Sicherheitsreview reicht.
+
+Ist die offene Frage noch «erledigen Fremde den Job?», schlägt ein schneller Web-Deploy meist Warten auf TestFlight. Ist die Frage «aktivieren Nutzer Push und kommen täglich zurück?», brauchen Sie den nativen oder gewrappten Pfad früh genug zum Messen, nicht nur eine Folie mit «Mobile App».
+
+## Wer das Format noch nicht vergleichen sollte
+
+Haben Sie noch nicht mit fünf Zielpersonen gesprochen und liegt nur ein Figma vor, nehmen Sie den Standard-Export Ihres Tools und messen Sie. Brauchen Sie regulierte Gesundheitsabläufe oder strikte Mandantenisolation auf dem Gerät, brauchen Sie Architekturberatung, keinen Vergleichsartikel. Ist der einzige Grund für den Store, dass die Konkurrenz ein Icon hat, testen Sie zuerst die Landingpage und lesen Sie die Anmeldungen.
+
+<div class="blog-faq">
+  <h3>Reicht eine PWA statt App Store?</h3>
+  <p>Oft ja im frühen Test, wenn wiederholte Nutzung über einen Link läuft, den Sie kontrollieren, und Sie nicht auf Store-Suche angewiesen sind. Schwach, wenn Push, tiefe OS-Integration oder MDM-Verteilung Teil der Hypothese sind.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Kann eine Codebasis Web und Stores bedienen?</h3>
+  <p>Ja, mit gemeinsamer Web-UI und Wrap für iOS und Android. Der Aufwand wandert zu Plugins, Berechtigungen, Store-Richtlinien und Release-Disziplin, nicht zum Neuschreiben jedes Screens am ersten Tag.</p>
+</div>
+
+## Wann das Produktvalidierungs-Paket passt
+
+Das [Produktvalidierungs-Paket](/de/services/mvp-validation) passt, wenn Sie eine deploybare Web App, Messung ab Woche eins und optional iOS und Android als nativen Wrap zur Einreichung brauchen, während Sie Verhaltensdaten wichtiger finden als polierte Store-Screenshots. Es passt schlecht, wenn Sie nur einen Store-Eintrag ohne Plan für Akquisition und Conversion wollen, oder wenn der Job des Produkts noch nicht eng genug definiert ist.

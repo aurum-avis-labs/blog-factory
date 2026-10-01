@@ -36,19 +36,31 @@ Quelques fichiers que les gens tentent et qui ne sont pas sur cette liste&nbsp;:
 
 Les mémos vocaux iPhone arrivent souvent en M4A après AirDrop. Une fois le fichier local, c’est un import ordinaire.
 
-Prérequis de l’app Mac&nbsp;: Apple silicon (M1 ou plus récent), macOS Sonoma 14.2 ou plus récent, de la place pour les modèles. Les Mac Intel ne sont pas pris en charge. Le réseau sert à l’installation et aux téléchargements. Ensuite le traitement peut tourner hors ligne.
+Prérequis de l’app Mac&nbsp;: Apple silicon (M1 ou plus récent), macOS Sonoma 14.2 ou plus récent, de la place pour les modèles. Les Mac Intel ne sont pas pris en charge. Le réseau sert à l’installation et aux téléchargements. Ensuite le traitement peut tourner hors ligne. Voir [transcription hors ligne sur Mac](/fr/blog/transcription-hors-ligne-mac) pour tout le flux sans réseau.
 
 ## Importer un fichier audio sur Mac dans Vemoir
 
-1. Placez le fichier sur le Mac. Nommez-le pour le retrouver le mois prochain. Une date et un code client valent mieux que `enregistrement(3).m4a`.
-2. Ouvrez Vemoir. Créez ou choisissez un **projet** si l’appel appartient à un client. Vous pouvez classer l’import avant le traitement, comme une capture live avant Enregistrer.
-3. Utilisez le sélecteur, ou glissez le fichier sur l’app. Un fichier devient un enregistrement dans la bibliothèque.
-4. Laissez la transcription locale se terminer. La transcription de référence est construite à partir de l’audio importé. La séparation des locuteurs tourne sur le Mac. Vous renommez ensuite. Les profils «&nbsp;mémoriser ce locuteur&nbsp;» sont opt-in et chiffrés&nbsp;; les voix inconnues restent anonymes.
-5. Modifiez le compte rendu, les décisions et les actions sur le Mac. Les notes tapées rejoignent ce dossier. Partagez via les partages natifs de macOS, uniquement les parties que vous choisissez.
+<ol class="blog-steps">
+  <li data-step="1"><h3>Mettre le fichier sur le Mac</h3><p>Date et code client plutôt que <code>enregistrement(3).m4a</code>.</p></li>
+  <li data-step="2"><h3>Choisir ou créer un projet</h3><p>Classer l’import avant le traitement si le client est déjà connu.</p></li>
+  <li data-step="3"><h3>Sélectionner ou glisser le fichier</h3><p>Un fichier devient un enregistrement dans la bibliothèque.</p></li>
+  <li data-step="4"><h3>Attendre la transcription locale</h3><p>Séparation des locuteurs sur le Mac. Les profils «&nbsp;mémoriser ce locuteur&nbsp;» sont opt-in.</p></li>
+  <li data-step="5"><h3>Modifier le compte rendu</h3><p>Décisions et actions restent sur le Mac. Partagez seulement les parties choisies.</p></li>
+</ol>
 
 Rien dans cette liste n’envoie l’audio à Vemoir. Les modèles texte cloud (OpenAI ou Anthropic avec votre clé) sont opt-in pour la prose générée. Ils ne transcrivent pas le fichier, et l’app ne bascule pas vers eux en silence.
 
 Si vous voulez une transcription sans installer l’app et que l’extrait est court, passez à la section navigateur. Si le fichier est un enregistrement Zoom local, la chasse au dossier est dans [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom).
+
+Un fichier déjà là, sans envoi chez un prestataire&nbsp;? [Ouvrir l’outil transcrire audio](/fr/outils/transcrire-audio).
+
+## Trois fichiers importés après un appel
+
+**Dossier Zoom local.** Après «&nbsp;Enregistrer sur cet ordinateur&nbsp;», `audio_only.m4a` se trouve souvent à côté de la vidéo. Importez le M4A, pas le film MP4. Au-delà de 15 minutes, restez dans l’app Mac&nbsp;; huit minutes peuvent rester dans le navigateur pour du texte brut une fois.
+
+**Mémo vocal AirDrop.** Le téléphone envoie du M4A. Le contenu est ce que le micro du téléphone a entendu&nbsp;: conversation en salle oui, appel Zoom sur un autre ordinateur non. Plus de détail Finder dans [transcrire une note vocale sur Mac](/fr/blog/transcrire-note-vocale-mac).
+
+**Export dictaphone.** WAV et FLAC passent dans l’app Mac. Écoutez dix secondes avant l’import. Certains appareils écrivent un premier fichier silencieux si vous avez démarré avant que quelqu’un parle.
 
 ## Import contre enregistrement de l’appel vous-même
 
@@ -56,7 +68,7 @@ L’import sert à l’audio qui existe déjà&nbsp;: l’enregistrement Zoom lo
 
 La capture live sert à la prochaine réunion sur **ce** Mac&nbsp;: micro plus audio système, pas de bot dans la liste. L’import n’ajoute pas d’audio système qui n’était pas dans le fichier. Si le M4A n’a déjà que le micro, vous ne récupérez pas le côté distant en l’important dans une «&nbsp;meilleure&nbsp;» app.
 
-N’importez pas un fichier muet en espérant une transcription. Si la lecture est vide, le prochain sujet est la capture, pas l’import.
+N’importez pas un fichier muet en espérant une transcription. Si la lecture est vide, le prochain sujet est la capture, pas l’import. Voir [enregistrement de réunion sans son sur Mac](/fr/blog/enregistrement-reunion-pas-de-son-mac).
 
 ## Chemin navigateur&nbsp;: fichiers courts, pas d’installation
 
@@ -71,8 +83,6 @@ Limites en septembre 2026&nbsp;:
 
 Coupez un fichier long si vous restez dans l’onglet, ou utilisez l’app Mac pour l’enregistrement entier. Entretiens et consentement&nbsp;: [transcrire un entretien sans l’envoyer](/fr/blog/transcrire-entretien-sans-envoi).
 
-Un fichier déjà là, sans envoi chez un prestataire&nbsp;? [Ouvrir l’outil transcrire audio](/fr/outils/transcrire-audio).
-
 ## Après l’import&nbsp;: ce que vous pouvez partager
 
 L’export utile est en général le compte rendu, les décisions et les actions, pas l’audio. Gardez ou supprimez l’enregistrement selon votre choix de conservation. Vemoir peut retirer le dossier audio après un passage réussi si le stockage est réglé ainsi. Le texte peut encore pointer vers des lignes de transcription sur le Mac.
@@ -81,10 +91,7 @@ N’appelez pas la sortie transcription certifiée, ni certifiée RGPD, ni confi
 
 ## Quand un autre chemin est meilleur
 
-- **Le fichier officiel doit vivre dans Teams ou Zoom.** Un téléchargement personnel ne remplace pas l’enregistrement du tenant.
-- **Il vous faut aujourd’hui une bibliothèque d’entreprise.** Un fichier sur un Mac n’est pas un espace partagé. Exportez les notes.
-- **Le fichier fait 12 minutes et vous n’avez besoin que du texte brut une fois.** Moins de réglages dans le navigateur.
-- **Pas d’Apple silicon.** L’app Mac ne tournera pas. Autre outil pour votre OS, ou le navigateur pour un court extrait.
+Gardez l’enregistrement de la plateforme si le juridique exige le fichier du tenant. Le navigateur suffit pour un extrait unique sous 15 minutes. Sans Apple silicon, l’app Mac ne tourne pas.
 
 ## Questions fréquentes
 

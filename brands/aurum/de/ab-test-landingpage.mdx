@@ -1,0 +1,105 @@
+---
+title: "A/B Test Landingpage: eine Variable, eine Kennzahl"
+description: "A/B Test Landingpage: Traffic auf zwei Versionen teilen, ein Element ändern, eine primäre Aktion messen. Ablauf, Grenzen, wann stoppen."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["a/b test", "landingpage", "validierung", "conversion"]
+funnelStage: interest
+translationKey: ab-test-a-landing-page
+relatedPosts: ["fake-door-test", "landingpage-nachfrage-testen"]
+draft: true
+site: studio
+---
+
+## A/B Test Landingpage
+
+Einen A/B Test auf einer Landingpage führen Sie, indem Sie zwei Versionen parallel vergleichbaren Besucherinnen und Besuchern zeigen, zwischen den Versionen genau ein Element ändern und eine primäre Aktion messen, die Sie vor dem Traffic festgelegt haben. Gewinnt die Variante, die unter gleichem Kanal und Budget mehr Fremde zu dieser Aktion bewegt, nicht die Überschrift, die im Meeting besser klingt.
+
+Der Text richtet sich an Gründerinnen, Gründer und Innovationsverantwortliche in der Schweiz mit einer live Seite, erklärbarem Traffic und einem konkreten Streitpunkt. Wenn Sie noch nie eine Aktion auf einer Seite gemessen haben, starten Sie mit [Startup-Idee validieren](/de/blog/startup-idee-validieren) und [Landingpage Nachfrage testen](/de/blog/landingpage-nachfrage-testen), bevor Sie Varianten splitten.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Kontrolle</dt>
+    <dd>Die Version, die heute läuft, oder Ihre beste aktuelle Annahme vor dem Test.</dd>
+  </div>
+  <div>
+    <dt>Variante</dt>
+    <dd>Die eine bewusste Änderung, für die Sie Belege wollen; alles andere bleibt gleich.</dd>
+  </div>
+  <div>
+    <dt>Primäre Kennzahl</dt>
+    <dd>Die eine Rate oder Zahl, mit der Sie die Variante wählen, meist Abschluss des Hauptformulars oder des Hauptbuttons.</dd>
+  </div>
+</dl>
+
+## A/B Test Landingpage Schritt für Schritt
+
+Behandeln Sie den Lauf wie eine kleine Studie, nicht wie ein Design-Review.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Den Streitpunkt in einem Satz festhalten</h3><p>Beispielform: «Hook A nennt den Job; Hook B nennt den Schmerz. Wir erwarten mehr Formularabschlüsse von B bei kaltem LinkedIn-Traffic.» Wenn beide plausibel sind, ist es zu früh für einen Split.</p></li>
+  <li data-step="2"><h3>Eine primäre Kennzahl wählen</h3><p>Formularabschluss, Terminbuchung oder erster Klick auf den Hauptbutton. Sekundäre Werte dürfen Aufzeichnungen erklären, aber nur eine Kennzahl entscheidet.</p></li>
+  <li data-step="3"><h3>Zwei URLs oder ein sauberes Tool-Split aufsetzen</h3><p>Zwei statische Seiten mit gleichem Layout und unterschiedlichem Text reichen. Leiten Sie jeden zweiten Anzeigenklick auf die andere URL, oder nutzen Sie die Experiment-Funktion Ihrer Analytics-Lösung, wenn die Einrichtung stimmt.</p></li>
+  <li data-step="4"><h3>Beide Varianten gleichzeitig laufen lassen</h3><p>Gleiche Tage, gleiches Budget, gleiches Targeting. Aufeinanderfolgende Wochen vermischen Saison, Lernphase der Anzeigen und Zufall.</p></li>
+  <li data-step="5"><h3>Traffic und Spend pro Variante protokollieren</h3><p>UTM-Parameter oder Anzeigengruppen-Labels sollen zeigen, welche Besuche wohin gehören, wenn Sie die Zahlen abgleichen.</p></li>
+  <li data-step="6"><h3>Die Stop-Regel anwenden, die Sie vorher geschrieben haben</h3><p>Ende an einem festen Datum oder wenn jede Variante die Mindestbesuche aus Ihrer Regel erreicht hat. Halten Sie den Test nicht offen, bis die Lieblingsvariante gewinnt.</p></li>
+</ol>
+
+Als Methode kennen wir auch einen Hook-Test mit drei Varianten und einem einfachen GA4-Funnel auf einer eigenen Dienstleistungsseite. Daraus veröffentlichen wir keine Kennzahlen als Benchmark.
+
+## Was ein A/B Test zeigt und was nicht
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Zeigt</span><strong>Relative Präferenz</strong><p>Welches von zwei ehrlichen Versprechen mehr Personen zur gewählten Aktion bewegt, mit dem Traffic, den Sie gekauft haben.</p></li>
+  <li><span class="blog-kicker">Zeigt</span><strong>Wo Text scheitert</strong><p>Session-Aufzeichnungen auf beiden Varianten zeigen oft Zögern an einem Feld, auch wenn Klicks ähnlich aussehen.</p></li>
+  <li><span class="blog-kicker">Zeigt nicht</span><strong>Absolute Nachfrage</strong><p>Beide Varianten können verlieren. Eine Siegerin unter schwachen Resultaten bleibt schwach.</p></li>
+  <li><span class="blog-kicker">Zeigt nicht</span><strong>Produkt-Fit</strong><p>Sie haben Worte auf einer Seite getestet, nicht Nutzung, Wiederkehr oder Zahlung.</p></li>
+</ul>
+
+Ein [Fake Door Test](/de/blog/fake-door-test) prüft, ob Personen klicken, als läge ein Produkt dahinter. Ein A/B Test setzt voraus, dass Struktur und Angebot stehen, und streitet über einen Hebel. Beides ersetzt keinen Build, wenn das Risiko im Verhalten in der Software liegt.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Ein A/B Test auf einer Landingpage vergleicht Botschaften, nicht Geschäftsmodelle. Wer Hook, Bild, Preishinweis und Formularlänge gleichzeitig ändert, lernt nichts Reproduzierbares. Ist der Traffic so dünn, dass wenige Sessions entscheiden, warten oder den Kanal verbreitern, bevor Sie eine Siegerin erklären.</p>
+</aside>
+
+## Ein erfundenes Beispiel: zwei Hooks für eine Compliance-Checkliste
+
+Ein erfundenes Beispiel: Eine Gründerin in Basel verkauft eine herunterladbare Checkliste für dokumentationsnahe Arbeit an KMU in der Schweiz. Die Seite bringt bereits einen gleichmässigen Strom an Formularabschlüssen über Google-Anzeigen. Im Team streiten zwei Hero-Zeilen. Version A: «Bearbeitungsverzeichnis an einem Nachmittag». Version B: «Schluss mit Raten, was der Datenschutzordner verlangt». Layout, Formular und Preishinweis bleiben identisch. Drei Wochen lang landet jeder zweite Anzeigenklick auf der anderen URL.
+
+Die Stop-Regel: Wenn eine Variante die andere bei Abschlüssen nach der vorher notierten Schwelle schlägt, wird die Verliererin abgeschaltet; erst danach testen sie den Button-Text. Nach drei Wochen gewinnt B bei der Abschlussrate, die Gesamtzahl liegt aber nur knapp über dem Vormonat. In den Aufzeichnungen brechen viele Besucherinnen und Besucher auf beiden Seiten beim Branchen-Dropdown ab. Sie behalten B, passen das Formular an und planen einen neuen Test am Dropdown-Text, statt das Anzeigenbudget zu verdoppeln, nur weil eine Überschrift eine schwächere geschlagen hat.
+
+## Für wen der A/B Test passt und wer warten sollte
+
+<div class="blog-pair">
+  <div>
+    <h3>Passt gut</h3>
+    <ul>
+      <li>Teams mit zwei konkreten Textoptionen und genug parallelem Traffic für eine schriftliche Stop-Regel</li>
+      <li>Gründerinnen und Gründer nach einem Smoke Test, die zwischen plausiblen Botschaften wählen müssen</li>
+      <li>Innovationsverantwortliche, die dem Verwaltungsrat einen kontrollierten Vergleich zeigen sollen, keine weitere Meinungsrunde</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Besser warten oder weglassen</h3>
+    <ul>
+      <li>Seiten ohne Basiszahl an Aktionen von echten Fremden</li>
+      <li>Tests, die Layout, Angebot und Zielgruppe gleichzeitig verschieben</li>
+      <li>Zweiseitige Märkte, die eine Seite nicht für Angebot und Nachfrage gleichzeitig abbilden kann</li>
+    </ul>
+  </div>
+</div>
+
+<div class="blog-faq">
+  <h3>Ist A/B Test dasselbe wie Multivariant-Test?</h3>
+  <p>Nein. Multivariante Designs ändern mehrere Elemente zugleich. Sie brauchen mehr Traffic und mehr Disziplin. Für die meisten frühen Landingpages reicht eine Änderung zwischen zwei Varianten.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Wie lange soll der Test laufen?</h3>
+  <p>So lange, bis die Regel von vor dem Start erfüllt ist, oft zwei bis vier Wochen bei kleinem Anzeigenbudget. Es gibt hier keine universelle Conversion-Zahl; wenig Traffic mit klarem Abbruch an einem Feld ist trotzdem ein Befund.</p>
+</div>
+
+## Wann das Landingpage-Paket passt
+
+Das [Landingpage-Paket](/de/services/landing-page-package) passt, wenn Sie eine messbare Nachfrageseite mit GA4 und Microsoft Clarity wollen, Code in Ihrem Eigentum und eine stabile Basis für ehrliche A/B-Splits, ohne gleich ein zwölfwöchiges Produktvalidierungsprogramm zu buchen. Der richtige Massstab, solange die Frage lautet, welche Botschaft Fremde bewegt und Sie stoppen oder pivotieren, wenn beide Varianten schwach bleiben. Es ersetzt keine Nutzungsdaten aus einer deployten App. Wenn Fremde Ihre Aktion schon ausführen und der Engpass im Produktverhalten liegt, gehört das Gespräch auf die Kontaktseite in Richtung Build, nicht in die nächste Hook-Runde.

@@ -31,6 +31,8 @@ Menu names move. The steps below follow Microsoft Support as of September 2026: 
 
 ## Contents
 
+- [Transcription on versus recording only](#transcription-on-versus-recording-only)
+- [Town halls and webinar-style meetings](#town-halls-and-webinar-style-meetings)
 - [Check that a transcript exists](#check-that-a-transcript-exists)
 - [Export a Teams transcript from Recap](#export-a-teams-transcript-from-recap)
 - [What the download actually contains](#what-the-download-actually-contains)
@@ -38,12 +40,38 @@ Menu names move. The steps below follow Microsoft Support as of September 2026: 
 - [When you cannot export, and what to do instead](#when-you-cannot-export-and-what-to-do-instead)
 - [Frequently asked questions](#frequently-asked-questions)
 
+## Transcription on versus recording only
+
+Teams stores a downloadable transcript only when **transcription** ran during the meeting. Cloud recording without transcription does not create the Recap file this article describes. If Recap shows a recording but no transcript tab, you need another path: ask the organizer to enable transcription next time, or [record a Teams meeting on Mac](/blog/record-teams-meeting-mac) while you are in the call.
+
+## Town halls and webinar-style meetings
+
+Town halls, large broadcasts, and some webinar layouts use different panes for recordings and transcripts. Microsoft support articles call out separate controls for those formats. If the meeting used a production link instead of a standard calendar invite, expect labels to differ. When in doubt, open the same meeting from **Chat** and from the calendar entry and compare what Recap shows.
+
+<div class="blog-pair">
+  <div>
+    <h3>Export from Teams when</h3>
+    <ul>
+      <li>You are organizer or co-organizer and transcription was on</li>
+      <li>Policy allows download and you only need text</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Record on the Mac when</h3>
+    <ul>
+      <li>You may not get Recap download as a guest</li>
+      <li>You need your own copy regardless of OneDrive retention</li>
+    </ul>
+  </div>
+</div>
+
+Need a file that does not depend on the organizer’s OneDrive? [Vemoir records microphone and system audio on the Mac](/blog/record-teams-meeting-mac) with no bot in the participant list.
+
 ## Check that a transcript exists
 
-Teams can transcribe a meeting only if transcription ran. Turning on a recording does not always mean a transcript was stored for you to download later. If the button was never available, an admin may have disabled transcription, or the meeting type may not support it. Guests and people outside the organizer’s org often cannot download even when they could see captions on screen.
+Teams can transcribe a meeting only if transcription ran. Recording alone does not always create a downloadable transcript. Guests and people outside the organizer’s org often cannot download even when they saw captions on screen.
 
-
-Live captions during the call are not the same artifact as the file. Captions scroll away. The transcript, when it exists, is kept with the meeting. Microsoft says transcripts for meetings with recording or transcription are stored in the meeting organizer’s OneDrive for Business, and that people reach them through the meeting chat and the Recap tab until the organizer deletes them.
+Live captions scroll away. The transcript, when it exists, stays with the meeting in the organizer’s OneDrive until they delete it, reachable through **Chat** and **Recap**, per Microsoft Support as of September 2026.
 
 Before you follow a five-step guide, open the past meeting and see whether Recap shows a transcript at all. If it does not, no export procedure will create one from memory.
 
@@ -58,11 +86,11 @@ On desktop Teams, Microsoft documents this path:
 4. Select **Transcript**.
 5. Open the dropdown next to **Download** and choose the file type, typically `.docx` or `.vtt`.
 
-You can also start from the calendar event for that meeting and look for recordings and transcripts, depending on the build. Town halls and some webinar-style meetings use a different recordings pane. If Download is missing, you are probably not an organizer or co-organizer, or the policy blocks downloads for attendees even inside the tenant.
+You can also start from the calendar event and look for recordings and transcripts, depending on the build. Town halls use a different recordings pane. If Download is missing, you are probably not an organizer or co-organizer, or policy blocks attendee downloads.
 
-The Teams mobile app can show a transcript after the meeting from the chat. Microsoft notes that downloading is a desktop task. Do not expect the phone to hand you the VTT.
+The mobile app can show a transcript after the meeting. Download stays a desktop task per Microsoft.
 
-Save the file somewhere you control. The name Teams chooses is easy to confuse with the video. Keep the transcript next to a note of the meeting date, and do not drop the only copy into a chat with the whole company "so everyone has it" unless that was the point.
+Save the file somewhere you control, with the meeting date in the filename.
 
 ## What the download actually contains
 
@@ -70,9 +98,9 @@ A `.vtt` is a caption file. It starts with `WEBVTT`, then cue times, then lines 
 
 A `.docx` is the same conversation in a document, easier to forward, worse to parse if you still need the times. Some tenants and some older documentation disagree about Word downloads. If you only see one format, take that format. Do not install a random "Teams transcript converter" to force the other.
 
-Neither file is the meeting video. The recording, if one exists, is a separate download and lives under the organizer’s OneDrive. Sharing the transcript is not the same as sharing the video, and sharing either one may be more than the attendees agreed to. This article is not legal advice.
+Neither file is the meeting video. Sharing the transcript or the recording may exceed what attendees agreed to. This article is not legal advice.
 
-If you needed a transcript and the meeting was not transcribed, Teams will not reconstruct it from the video inside the Recap button. People sometimes get captions later from Stream on a recording. That is a different Microsoft feature, with its own delay and its own permissions. It is not a promise that yesterday’s untranscribed call now has a VTT.
+If the meeting was not transcribed, Teams will not reconstruct a transcript from the video inside Recap.
 
 ## Turn the export into readable text
 
@@ -133,5 +161,13 @@ Not from the Recap transcript control, if transcription never ran. A recording c
 ### Is a Teams transcript the same as minutes?
 
 No. It is what was said, plus timestamps and whatever names Teams stored. Minutes are the decisions and the actions. Clean the export, then write the short page.
+
+### Can I edit the VTT before I share it?
+
+Yes. Clean the format with the [transcript cleaner](/tools/transcript-cleaner) or a plain-text editor. Editing your copy does not change what Microsoft stored in OneDrive.
+
+### Does Copilot replace the Recap export?
+
+No. Copilot summaries are separate artifacts. When you need the full wording, export the transcript file from Recap.
 
 Next step: if Recap gave you a VTT, open the [transcript cleaner](/tools/transcript-cleaner). If the next Teams call will not give you a download, read [record a Teams meeting on Mac](/blog/record-teams-meeting-mac) before you rely on the organizer’s OneDrive.

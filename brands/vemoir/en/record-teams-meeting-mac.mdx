@@ -1,6 +1,6 @@
 ---
-title: "How to Record a Microsoft Teams Meeting on Your Mac"
-description: "Record a Teams meeting on Mac with Teams cloud recording, macOS capture, or local system audio. Compare options, consent, and where files land."
+title: "Record a Teams Meeting on Mac: Cloud, Screen, or Local"
+description: "Record a Teams meeting on Mac with cloud recording, a screen video, or local audio. Who can press Record, and where the file is stored."
 pubDate: 2026-10-01
 author: "Vemoir Team"
 tags: ["microsoft teams", "meeting recording", "mac"]
@@ -10,150 +10,123 @@ relatedPosts: ["best-meeting-notes-app-mac", "fireflies-alternative", "granola-a
 tool: "recording-to-notes"
 image: "@/assets/blog/record-teams-meeting-mac/hero.jpg"
 draft: false
-
 ---
-You can **record a Teams meeting on Mac** in three common ways: Teams’ own cloud recording (when your license and role allow it), a macOS screen capture that saves a video file, or a Mac app that records system audio and your microphone without joining a bot to the call. The right choice depends on who must receive the official file, whether you need a transcript inside Teams, and whether the audio should stay on your Mac.
 
-This guide walks through each path with steps, storage locations from Microsoft’s documentation, and honest limits. It is not legal advice. Tell participants you are recording and follow your organization’s rules before you start.
+## Record a Teams meeting on Mac
 
-## What Teams cloud recording gives you
+You can **record a Teams meeting on Mac** in three ways. Teams cloud recording, when your license and role allow it, stores the official file in the organizer's OneDrive or in the channel's SharePoint. macOS screen capture saves a video of the window. A Mac app can record system audio and your microphone locally, with no extra person in the participant list. Pick by where the file must live, and by whether you are allowed to start the tenant recording at all.
 
-Teams can record a scheduled or Meet-now meeting to the cloud when your tenant enables meeting recording and your account has a supported license. As of September 2026, Microsoft lists cloud recording and related features under Teams Premium and several Microsoft 365 and Office 365 plans; your admin can restrict who may start a recording.
+This is not legal advice. Tell people you are recording before you start.
 
-Typical roles that can start recording include the meeting organizer and, when policy allows, presenters. Guests and anonymous joiners usually cannot start a cloud recording unless an organizer grants it. Check your tenant’s meeting policy if the Record button is missing.
+## Who can start a Teams cloud recording
 
-When recording finishes, Microsoft stores the file in the organizer’s OneDrive for private meetings, or in the channel’s SharePoint folder for channel meetings. The recording also appears in the meeting chat (or channel) with a link. Playback uses the Teams player; download permissions depend on admin settings.
+As of September 2026, Microsoft's help page says one person records at a time. In the desktop app, including on a Mac, open `More actions`, then `Record and transcribe`, then `Start recording`, then `Confirm`. The same menu can record audio only. Everyone in the meeting is notified when a cloud recording starts.
 
-Teams can generate a transcript for cloud recordings when transcription is enabled for your organization and the spoken language is supported. That transcript lives with the recording in Teams and is not the same as a local audio file on your Mac. For Microsoft’s current storage and playback details, see [Play and share a meeting recording in Teams](https://support.microsoft.com/en-us/office/play-and-share-a-meeting-recording-in-teams-7d7e5dc5-9ae4-4b94-858a-0a1820c564a3) and [Teams cloud meeting recording](https://learn.microsoft.com/en-us/microsoftteams/cloud-recording).
+A person in the same organization can start it when the organizer's cloud-recording policy is on, an admin has allowed recording, and both the organizer and the person who presses Record hold a supported license. Microsoft lists Office 365 Enterprise E1, E3, E5, F3, A1, A3 and A5, plus Microsoft 365 Business, Business Premium and Business Essentials. The organizer does not have to be in the meeting. Guests, anonymous joiners, and people from another organization cannot start a meeting recording. If Record is missing, check three things before you blame the Mac: the organizer's meeting policy allows cloud recording, both of you have one of the licenses above, and you are not a guest. Microsoft's troubleshooting note adds that federated users can record calls, but not meetings.
 
-### When Teams recording is the better fit
+With a Teams Premium or Copilot license, the organizer can narrow who may record and transcribe: organizers and co-organizers, those people plus presenters, or no one. If the organizer turns Copilot off for that meeting, Microsoft also turns recording and transcription off. There is a separate admin switch that can require everyone to agree inside Teams before cloud recording or transcription starts. That prompt is Teams only.
 
-Choose Teams cloud recording when everyone expects the official copy in SharePoint or OneDrive, when you need the built-in Teams transcript and sharing inside your tenant, and when IT has already approved cloud storage for meeting content. You do not install extra software, and participants see the standard recording notification in Teams.
+The recording keeps going if the person who started it leaves. It stops when everyone has left. If someone stays in the meeting, Microsoft says the recording ends and restarts every four hours until the last person leaves.
 
-## Why macOS screen recording is a weak default
+A cloud recording does not keep everything on screen. Microsoft says it will not capture more than four people's video at once, whiteboards and annotations, shared notes, content shared by an app, or videos and animations embedded in a PowerPoint Live deck.
 
-macOS can record the screen (and often the meeting window) through the Screenshot toolbar or QuickTime Player. You choose **Record Selected Portion** or **Record Entire Screen**, select Teams, and save a `.mov` file to your Mac.
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Who may start</span><strong>Same org</strong><p>Policy on, supported license for organizer and recorder. Guests cannot start a meeting recording.</p></li>
+  <li><span class="blog-kicker">Where it lands</span><strong>OneDrive</strong><p>The organizer's Recordings folder, even if they never joined. Channel meetings go to SharePoint.</p></li>
+  <li><span class="blog-kicker">Planning size</span><strong>400 MB</strong><p>Microsoft's figure for one hour, for storage planning. Not a measurement from Vemoir.</p></li>
+  <li><span class="blog-kicker">Transcript</span><strong>Separate switch</strong><p>Organizer and starter both need transcription allowed. German (Switzerland) is on Microsoft's language list.</p></li>
+</ul>
 
-That approach has clear limits for meeting records:
+Sources, checked September 2026: [Start, stop, and find meeting recordings](https://support.microsoft.com/en-us/office/record-a-meeting-in-microsoft-teams-34dfbe7f-b07d-4a27-b4c6-de62f1348c24), [recording policies](https://learn.microsoft.com/en-us/microsoftteams/cloud-recording), [storage in OneDrive and SharePoint](https://learn.microsoft.com/en-us/microsoftteams/tmr-meeting-recording-change), and [transcription and captions](https://learn.microsoft.com/en-us/microsoftteams/meeting-transcription-captions).
 
-- You capture **video**, not a structured transcript. macOS does not turn the call into searchable text.
-- File size grows quickly, especially on long calls or retina displays.
-- You must keep the Teams window visible and unobstructed; notifications and window moves show up in the video.
-- Remote participants’ video tiles and shared slides are mixed into one screen recording, which is awkward to quote later.
-- System audio capture depends on macOS version and settings; mic-only recordings miss other speakers on the call.
+## Where the file and the transcript go
 
-Screen recording is reasonable for a short demo you will edit once. It is a poor default when you need minutes, decisions, and action items from a working meeting.
+For a scheduled or Meet now meeting, the file is saved to the organizer's OneDrive, in a folder named Recordings, even when the organizer did not attend. A channel meeting is stored in that channel's SharePoint library, under Documents/Recordings. A link shows up in the meeting chat, or in the channel. A 1:1 or group call is different: the file goes to the OneDrive of the person who pressed Record.
 
-## Record Teams audio on your Mac with local capture
+People invited from the same organization can view the meeting recording. Guests and external attendees see it only if someone shares it with them. Microsoft's help page says that, by default, the organizer and co-organizers are the ones who can download or delete it.
 
-A Mac app such as [Vemoir](https://apps.apple.com/app/id6794693630) records **system audio and your microphone** while Teams (or any meeting app) plays sound on the Mac. No bot joins the participant list. You start and stop recording from the menu bar.
+A transcript is not automatic. Transcription has to be allowed for the organizer and for the person who starts it. The transcript is stored with the recording in OneDrive or SharePoint. It is not dropped on your Mac as a local text file. If recording is on and transcription is off, there is no transcript beside the video. Live captions during the meeting are not saved. German (Switzerland) is one of the languages Microsoft lists for live transcription. The consent prompt an admin can require inside Teams does not appear for a recording that never goes through Teams.
 
-That model fits when:
+## Why a screen recording is a weak default
 
-- IT or clients disallow third-party notetaker bots.
-- You want transcription and summaries on the Mac with local models by default.
-- You need a record even when Teams cloud recording is off or you are not the organizer.
+The Screenshot toolbar (`Shift-Command-5`) or QuickTime can record the screen and save a movie. That is a reasonable way to keep a short demo you will edit once. It is a poor way to keep minutes.
 
-As of September 2026, Microsoft Teams administrators can detect and block external meeting bots in the tenant (see [Manage external bots in Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/manage-external-bots) and Message Center update MC1459141). That policy applies to third-party notetaker bots on the roster, not to local capture on your Mac. Vemoir records system audio from the menu bar without joining as a bot participant. If you already have a Teams VTT transcript export, the [transcript cleaner](/tools/transcript-cleaner) can normalize it in the browser before you paste into minutes.
+You get video, not decisions. The Teams window has to stay visible, so notifications and window moves are part of the file. The movie grows quickly on a long call. Turning it into text is a second job. If the only audio input is the microphone, the other people on the call are easy to lose.
 
-Vemoir asks for **Screen Recording** permission because macOS routes other apps’ audio through that gate. Vemoir uses it for meeting audio only and does not record screen contents. You also allow microphone access so your voice is on the track. See how capture works on [Capture and models](/#capture) and which apps are supported on [Meeting app support](/#platforms).
+## Record Teams audio on the Mac without a bot
 
-After the call, Vemoir transcribes on the Mac, then builds minutes, decisions, action items, and a follow-up draft. You can export or share only the parts you choose. Pricing is a one-time App Store purchase (CHF 20 in Switzerland; the store shows your local price elsewhere).
+[Vemoir](https://apps.apple.com/app/id6794693630) records system audio and the microphone while Teams plays sound on the Mac. Nothing joins the participant list. You start and stop from the menu bar. That fits when you are a guest and cannot start the tenant recording, when the Record button is off, when a client does not want a bot or a cloud copy, or when the audio should stay on the machine.
 
-### Steps: local Teams recording with Vemoir
+macOS asks for Screen Recording permission because that is how the system lets an app hear other apps. Vemoir uses it for meeting audio and does not record the screen. You also allow the microphone so your voice is on the track. See [capture and models](/#capture) and [meeting app support](/#platforms).
 
-1. Before the meeting, install Vemoir from the Mac App Store and open it once so you can grant **Screen Recording** and **Microphone** in **System Settings → Privacy & Security**.
-2. In Teams, join the meeting with headphones if echo is a problem. Confirm speakers output to the Mac (not a disconnected Bluetooth device).
-3. When the meeting starts, click **Record** in the Vemoir menu bar. Optional: type short notes in Vemoir during the call; they fold into the generated record.
-4. Stop recording when the meeting ends. Let on-device models finish transcription and summary generation (works offline after models are installed).
-5. Review the transcript, edit minutes if needed, and export or share from Vemoir. Cloud AI models, if you enable them, use your own API key and are opt-in.
+After you stop, local models on the Mac write a transcript and a record: summary, decisions, action items, and a follow-up draft. Notes you type during the call are folded in. You export only the parts you choose ([export and share](/#exports)). Cloud models are opt-in and use your own API key. Once the models are installed, capture and transcription can run offline. Requirements: Apple silicon (M1 or newer), macOS Sonoma 14.2 or later, 8 GB of memory (16 GB is the recommendation for long meetings), about 10 GB free for models. Intel Macs are not supported.
 
-If you already have an audio file instead of a live call, use the free [recording to notes](/tools/recording-to-notes) browser tool for short files, or import longer audio into the Mac app (MP3, M4A, WAV, and other supported formats).
+As of September 2026 the Mac App Store price is CHF 20 in Switzerland and $22.99 in the US. One purchase, no per-meeting fee, every feature included.
 
-Want minutes without waiting for a cloud recording link? [Vemoir records the next Teams call from your Mac menu bar](/#how).
-
-## Tell participants and get consent
-
-Recording a meeting affects everyone on the call, not only the person who clicks Record in Teams or Vemoir.
-
-Practical steps many teams use:
-
-- State at the start that the meeting is being recorded and why (minutes, client file, training).
-- Mention recording in the calendar invite or agenda when possible.
-- If someone objects, stop recording or leave the call, according to your internal policy.
-- Store files only as long as your retention rules require, and limit access to people who need the record.
-
-Vemoir does not make a recording lawful or compliant by itself. Consent and retention remain your responsibility.
-
-## Compare the three approaches
-
-| Approach | Who sees it | Typical output | Transcript |
-| --- | --- | --- | --- |
-| Teams cloud recording | Tenant users with access to OneDrive or SharePoint link | Stream plus optional download in Teams | Teams transcript when enabled and licensed |
-| macOS screen recording | Anyone with the `.mov` file | Large video of the screen | None built in |
-| Vemoir local capture | You (unless you share exports) | Audio on Mac, then minutes and actions in Vemoir | On Mac, local models by default |
-
-Teams is strongest when the organization wants one shared cloud artifact. Local capture is strongest when the audio should stay on your Mac and you want a structured record without a bot.
-
-For the next call where Teams recording is unavailable, [Vemoir can record from the menu bar on your Mac](/#how) while you stay in Teams.
-
-## Strong next step
-
-If you need a Teams meeting record that stays on your Mac, with transcription and minutes you control, download Vemoir and run a short test call with a colleague before an important client meeting. One-time pricing, no per-meeting fee, and every feature is included. [Get Vemoir on the Mac App Store](https://apps.apple.com/app/id6794693630) or read [how the record is built](/#record) from a capture.
+Microsoft documents admin controls that detect external meeting bots and can hold them in the lobby until someone admits them ([Manage external bots](https://learn.microsoft.com/en-us/microsoftteams/manage-external-bots)). That control is about a bot on the roster. A menu-bar recording does not join the meeting, so the lobby rule does not see it. You still tell the other people.
 
 <ol class="blog-steps">
-  <li data-step="1"><h3>Announce recording</h3><p>Tell participants before you press Record in the menu bar.</p></li>
-  <li data-step="2"><h3>Grant audio permission</h3><p>macOS needs Screen Recording permission for system audio capture.</p></li>
-  <li data-step="3"><h3>Stop at the end</h3><p>Export minutes from the Mac when the call ends.</p></li>
+  <li data-step="1"><h3>Say you are recording</h3><p>Teams will not show its cloud-recording banner for a menu-bar capture. Say it at the start, and in the invite when you can.</p></li>
+  <li data-step="2"><h3>Allow audio</h3><p>System Settings, Privacy and Security: Screen Recording and Microphone. Screen Recording here is the gate for other apps' audio.</p></li>
+  <li data-step="3"><h3>Record from the menu bar</h3><p>Join Teams with sound coming out of the Mac. Start and stop in Vemoir. Headphones help if you hear echo.</p></li>
+  <li data-step="4"><h3>Edit, then export</h3><p>Check names and decisions on the Mac. Share only the sections the other party should have.</p></li>
 </ol>
+
+If you already have a short audio file, the browser tool [recording to notes](/tools/recording-to-notes) takes MP3, M4A, WAV or MP4 up to 15 minutes, three successful runs a week, with no upload of the file, no live capture and no speaker labels. Longer files import into the Mac app: MP3, M4A, WAV, AIFF, CAF and FLAC.
+
+Want the next Teams call written up without waiting for a OneDrive link? [Vemoir records it from the menu bar](/#how).
+
+## When Teams cloud recording is the better choice
+
+Use Teams when the organization wants one file in OneDrive or SharePoint, when people who missed the meeting should play it inside Teams, and when IT has already allowed that storage. You do not install another app, and participants see the standard recording notice.
+
+Stay on Teams, and skip a local tool, if you need that tenant copy with Teams' own permissions. Skip Vemoir on Windows, on an Intel Mac, or when you cannot tell participants a recording is running. Vemoir does not make a recording lawful. Consent and retention stay with you.
+
+| Approach | Who can start | Typical file | Transcript |
+| --- | --- | --- | --- |
+| Teams cloud | Same-org user, if policy and license allow | Organizer's OneDrive, or the channel's SharePoint | With the recording, when transcription is allowed |
+| macOS screen capture | Whoever is at the Mac | A large movie of the screen | None in the recording |
+| Vemoir on the Mac | You, from the menu bar | Audio on the Mac, then minutes you edit | On the Mac, local models by default |
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>Built-in meeting recorders follow the host's licence. A menu-bar app does not replace Teams or Zoom policy banners.</p>
+  <p>A local recording does not replace the Teams banner, the license check, or your duty to tell people. If someone objects, stop, unless your own rule says otherwise.</p>
 </aside>
 
 ## Frequently asked questions
 
 ### Can anyone record a Teams meeting on Mac?
 
-Only if policy and license allow it. Organizers and permitted presenters can start cloud recording when the feature is enabled. Other participants may see a notification but cannot start the tenant recording unless roles allow it.
+Not the cloud recording. Guests, anonymous joiners, and people from another organization cannot start it. Someone in the organizer's organization can, when policy and the supported licenses line up. The organizer does not have to be present.
 
 ### Where does a Teams cloud recording go?
 
-Microsoft stores it in the organizer’s OneDrive for a private meeting, or in the channel SharePoint library for a channel meeting. The meeting chat or channel posts a link for playback.
+Meetings go to the organizer's OneDrive Recordings folder, even if the organizer never joined. Channel meetings go to the channel's SharePoint Documents/Recordings folder. Calls go to the OneDrive of the person who pressed Record.
 
 ### Does Teams always create a transcript?
 
-No. Transcription requires the right license and admin settings, and supported languages. The transcript is tied to the cloud recording, not exported automatically as a local text file on your Mac.
+No. Transcription is its own policy, and both the organizer and the person who starts it need it turned on. The transcript stays with the cloud recording. German (Switzerland) is on Microsoft's supported list. Live captions are not saved as a file.
 
-### Is QuickTime or Screenshot enough for meeting minutes?
+### Is Screenshot or QuickTime enough for minutes?
 
-Usually no. You get a video file without structured minutes, speaker-aware text, or decisions unless you transcribe elsewhere. It can work for short visual demos, not for ongoing meeting records.
+For a short visual demo, sometimes. For decisions and action items, no. You get a movie. You still have to turn speech into text somewhere else.
 
-### Why does Vemoir need Screen Recording permission?
+### Why does Vemoir ask for Screen Recording?
 
-macOS uses that permission gate for capturing audio from other apps, including Teams. Vemoir records meeting audio, not your screen pixels.
+macOS uses that permission for audio from other apps, including Teams. Vemoir records meeting audio, not the pixels on the screen.
 
-### Will participants see a bot if I use Vemoir?
+### Will people see a bot?
 
-No. Vemoir does not join the meeting as a participant. You should still tell people you are recording, same as with any other method.
+No. Vemoir does not join the participant list. Teams will also not show the cloud-recording banner. Say it yourself.
 
-### Can I record Teams on Mac without an organizer role?
+### What if the tenant blocks notetaker bots?
 
-You often cannot start **Teams cloud** recording without permission. You can still capture audio locally on your Mac if your policy allows personal records and you have consent from participants.
+Microsoft's external-bot control can keep a detected bot in the lobby. It does not apply to audio captured on your Mac, because that capture is not a participant. You still need consent and your organization's rules.
 
-### What file formats can I import after a Teams call?
+### What Mac does Vemoir need?
 
-If you receive an audio or video export you are allowed to use, Vemoir imports common audio formats (MP3, M4A, WAV, AIFF, CAF, FLAC) on the Mac app. Browser tools on vemoir.ch accept shorter files and do not record live meetings.
-
-### Does Vemoir work offline?
-
-After you download the on-device models, capture, transcription, and summary generation can run without internet. Initial setup and model downloads need a connection.
-
-### What hardware does Vemoir require?
-
-Apple silicon Mac (M1 or newer), macOS Sonoma 14.2 or later, 8 GB RAM minimum (16 GB recommended for long meetings), and about 10 GB free storage for models. Intel Macs are not supported.
+Apple silicon, M1 or newer, macOS Sonoma 14.2 or later, at least 8 GB of memory and about 10 GB free. 16 GB is the recommendation for long meetings. Intel Macs are not supported.
 
 ## Next step
 
-Pick the path that matches your IT rules: Teams cloud when you need the tenant copy, local capture when the audio should remain on your Mac. For structured minutes from the next Teams call, set up Vemoir once, announce recording at the start, and review the generated [minutes and exports](/#exports) before you share anything externally.
+If the organization needs the file in OneDrive or SharePoint, use Teams cloud recording and check the license before the meeting. If the audio should stay on your Mac, set up Vemoir once, tell people at the start, and review [minutes and exports](/#exports) before you send anything. The record itself is described under [minutes and record](/#record). The App Store page is [Vemoir](https://apps.apple.com/app/id6794693630).

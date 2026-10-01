@@ -14,7 +14,7 @@ site: prozess-check
 
 ## E-Mails im Sammelpostfach automatisch zuordnen: die Reihenfolge
 
-Ein Sammelpostfach wie info@ lässt sich in fünf Schritten automatisch zuordnen: Kategorien mit einer zuständigen Person festlegen, zuerst einfache Regeln nach Absender, Adresse und Betreff, KI nur für die Mails, bei denen die Regeln scheitern, Antwortentwürfe statt automatischem Versand, und jede Woche zählen, wie viele Mails falsch gelandet sind. In Microsoft 365 reichen dafür ein freigegebenes Postfach, Posteingangsregeln und Power Automate oder Microsoft Graph. In Google Workspace sind es Filter, Labels und eine Gruppe mit gemeinsamem Posteingang.
+Ein Sammelpostfach wie info@ ordnen Sie in fünf Schritten zu: Kategorien mit Zuständigkeit festlegen, zuerst Regeln nach Absender, Adresse und Betreff, KI nur für den Rest, Antwortentwürfe statt automatischem Versand, und jede Woche Fehlzuordnungen zählen. In Microsoft 365 reichen ein freigegebenes Postfach, Posteingangsregeln und Power Automate oder Microsoft Graph. In Google Workspace sind es Filter, Labels und eine Gruppe mit gemeinsamem Posteingang.
 
 Der Beitrag ist für KMU, in denen eine oder zwei Personen jeden Morgen info@ leeren und Mails an Verkauf, Buchhaltung, Service und Geschäftsleitung weiterleiten. Wie das in einer Branche aussieht, die es jeden Tag macht, zeigt [Mieteranfragen und Schadenmeldungen zuordnen](/de/prozess-check/blog/mieteranfragen-schadenmeldungen-zuordnen).
 
@@ -28,23 +28,23 @@ Der Beitrag ist für KMU, in denen eine oder zwei Personen jeden Morgen info@ le
 
 ## Schritt 1: Kategorien, für die jemand zuständig ist
 
-Eine Kategorie ist nur dann eine Kategorie, wenn eine Person dafür zuständig ist und klar ist, was mit der Mail passiert.
+Eine Kategorie zählt nur, wenn eine Person sie besitzt und klar ist, was mit der Mail passiert.
 
-Beginnen Sie mit den Mails einer normalen Woche. Sortieren Sie sie von Hand in Stapel und benennen Sie die Stapel. In vielen KMU kommen acht bis zehn Kategorien heraus, etwa Bestellung, Offertanfrage, Lieferantenrechnung, Reklamation, Terminanfrage, Frage zu einer bestehenden Rechnung, Bewerbung, Werbung und Newsletter, Sonstiges. Schreiben Sie zu jeder Kategorie die zuständige Person und die erwartete Handlung dazu: beantworten, erfassen, weiterleiten oder ablegen.
+Nehmen Sie die Mails einer normalen Woche. Sortieren Sie sie von Hand in Stapel und benennen Sie die Stapel. In vielen KMU sind es acht bis zehn Kategorien: Bestellung, Offertanfrage, Lieferantenrechnung, Reklamation, Terminanfrage, Frage zu einer bestehenden Rechnung, Bewerbung, Werbung und Newsletter, Sonstiges. Zu jeder Kategorie notieren Sie die zuständige Person und die Handlung: beantworten, erfassen, weiterleiten oder ablegen.
 
-«Sonstiges» muss es geben, und jemand leert diesen Ordner jeden Tag. Er fängt alles auf, was weder Regel noch KI sicher zuordnen. Wird er grösser als die anderen, stimmen die Kategorien nicht.
+«Sonstiges» fängt alles auf, was weder Regel noch KI sicher zuordnen. Jemand leert diesen Ordner täglich. Wächst er schneller als die anderen, passen die Kategorien nicht.
 
-Legen Sie auch fest, welche Kategorie bei Mischfällen gewinnt. Eine Mail, die eine Reklamation und eine Nachbestellung enthält, geht zum Beispiel immer zuerst an den Service.
+Legen Sie fest, welche Kategorie bei Mischfällen gewinnt. Enthält eine Mail Reklamation und Nachbestellung, geht sie zum Beispiel immer zuerst an den Service.
 
-Bewerbungen und Arztzeugnisse bekommen eine eigene Regel. Sie gehen direkt an die zuständige Person und laufen nicht durch den KI-Schritt. Warum, steht im Abschnitt zum Datenschutz.
+Bewerbungen und Arztzeugnisse laufen über eine eigene Regel direkt an die zuständige Person, ohne KI-Schritt. Der Abschnitt zum Datenschutz erklärt warum.
 
 ## Schritt 2: Einfache Regeln zuerst
 
-Ein grosser Teil der Mails lässt sich ohne KI zuordnen, allein nach Absender, Empfängeradresse und Betreff.
+Viele Mails lassen sich ohne KI zuordnen, allein nach Absender, Empfängeradresse und Betreff.
 
-Lieferantenrechnungen kommen von bekannten Adressen. Mitteilungen aus Portalen haben feste Betreffzeilen. Newsletter tragen immer denselben Absender. Dafür brauchen Sie keine KI, sondern Regeln, die jede Person lesen und prüfen kann. Oft hilft eine zweite Adresse mehr als jede Automatisierung: rechnungen@ für Lieferanten, info@ für alles andere.
+Lieferantenrechnungen kommen von bekannten Adressen. Portale nutzen feste Betreffzeilen. Newsletter denselben Absender. Dafür brauchen Sie lesbare Regeln, keine KI. Oft hilft rechnungen@ für Lieferanten mehr als jede Automatisierung, info@ für den Rest.
 
-In Microsoft 365 ist info@ meist ein [freigegebenes Postfach](https://learn.microsoft.com/de-ch/microsoft-365/admin/email/about-shared-mailboxes). Bis 50 GB braucht es keine eigene Lizenz, und Microsoft nennt 25 Personen als Obergrenze für den gleichzeitigen Zugriff. Posteingangsregeln verschieben Mails in Ordner oder vergeben Kategorien. In Gmail erledigen [Filter](https://support.google.com/mail/answer/6579?hl=de) dasselbe und vergeben [Labels](https://support.google.com/mail/answer/118708?hl=de). Für ein gemeinsames info@ in Google Workspace gibt es Gruppen mit [gemeinsamem Posteingang](https://support.google.com/a/answer/167430?hl=de), in denen Sie Unterhaltungen einer Person zuweisen und als abgeschlossen markieren.
+In Microsoft 365 ist info@ meist ein [freigegebenes Postfach](https://learn.microsoft.com/de-ch/microsoft-365/admin/email/about-shared-mailboxes). Bis 50 GB braucht es keine eigene Lizenz; Microsoft nennt 25 Personen als Obergrenze für gleichzeitigen Zugriff. Posteingangsregeln verschieben Mails oder vergeben Kategorien. In Gmail erledigen [Filter](https://support.google.com/mail/answer/6579?hl=de) dasselbe und vergeben [Labels](https://support.google.com/mail/answer/118708?hl=de). Für gemeinsames info@ in Google Workspace gibt es Gruppen mit [gemeinsamem Posteingang](https://support.google.com/a/answer/167430?hl=de): Unterhaltungen zuweisen, als abgeschlossen markieren.
 
 | Baustein | Microsoft 365 | Google Workspace |
 | --- | --- | --- |
@@ -55,58 +55,56 @@ In Microsoft 365 ist info@ meist ein [freigegebenes Postfach](https://learn.micr
 
 ## Schritt 3: KI nur dort, wo Regeln scheitern
 
-Die KI bekommt nur die Mails, die nach den Regeln übrig bleiben, und sie wählt aus Ihrer Kategorienliste, nicht frei.
+Die KI sieht nur Mails nach den Regeln und wählt aus Ihrer Kategorienliste.
 
-Übrig bleiben meist die Mails von Kundschaft und Interessenten: eine Frage, die gleichzeitig Bestellung und Reklamation ist, eine Offertanfrage ohne das Wort «Offerte», eine weitergeleitete Mail mit drei Anhängen. Hier liest die KI Betreff und Text, wählt eine Kategorie und gibt an, wie sicher sie ist. Unter einer Schwelle, die Sie festlegen, geht die Mail zu «Sonstiges» und damit zu einem Menschen. Im selben Schritt kann sie Kundennummer, Bestellnummer oder Wunschtermin herauslesen und als Notiz an die Mail hängen.
+Übrig bleiben meist Kundschaft und Interessenten: eine Frage, die gleichzeitig Bestellung und Reklamation ist, eine Offertanfrage ohne das Wort «Offerte», eine weitergeleitete Mail mit drei Anhängen. Die KI liest Betreff und Text, wählt eine Kategorie und gibt die Sicherheit an. Unter Ihrer Schwelle landet die Mail in «Sonstiges». Im selben Schritt kann sie Kundennummer, Bestellnummer oder Wunschtermin als Notiz anhängen.
 
-Technisch gibt es zwei Wege. In Power Automate startet der Ablauf mit dem Auslöser für neue Mails in einem [freigegebenen Postfach](https://learn.microsoft.com/de-ch/connectors/office365/), ruft den KI-Dienst auf und verschiebt oder kategorisiert die Mail. Über [Microsoft Graph](https://learn.microsoft.com/de-ch/graph/outlook-mail-concept-overview) liest ein kleines Programm Mails auch in freigegebenen Postfächern, vergibt Kategorien und legt Posteingangsregeln an. Graph braucht mehr Entwicklungsarbeit und gibt Ihnen dafür mehr Kontrolle, etwa beim Umgang mit Fehlern. In Google Workspace übernimmt Apps Script mit dem [Gmail-Dienst](https://developers.google.com/apps-script/reference/gmail/gmail-app) diese Rolle: Unterhaltungen lesen, Labels verwalten, Entwürfe anlegen.
+In Power Automate startet der Ablauf beim Auslöser für neue Mails in einem [freigegebenen Postfach](https://learn.microsoft.com/de-ch/connectors/office365/), ruft den KI-Dienst auf und verschiebt oder kategorisiert. Über [Microsoft Graph](https://learn.microsoft.com/de-ch/graph/outlook-mail-concept-overview) liest ein Programm auch freigegebene Postfächer, vergibt Kategorien und legt Regeln an. Graph braucht mehr Entwicklung, gibt mehr Kontrolle bei Fehlern. In Google Workspace übernimmt Apps Script mit dem [Gmail-Dienst](https://developers.google.com/apps-script/reference/gmail/gmail-app) Lesen, Labels und Entwürfe.
 
 ## Schritt 4: Antwortentwürfe, kein automatischer Versand
 
 Am Anfang schreibt die KI Entwürfe. Verschickt wird von einer Person.
 
-Der Entwurf liegt im Entwurfsordner, in der Sprache des Absenders, mit dem nächsten Schritt: Eingang bestätigt, Rückfrage gestellt, Termin vorgeschlagen. Die zuständige Person liest ihn, korrigiert und schickt ihn ab. Das geht schneller als Schreiben und verhindert, dass eine falsche Zusage bei einer Kundin landet.
+Der Entwurf liegt im Entwurfsordner, in der Sprache des Absenders, mit dem nächsten Schritt: Eingang bestätigt, Rückfrage gestellt, Termin vorgeschlagen. Die zuständige Person korrigiert und schickt ab. Das ist schneller als Schreiben von null und verhindert falsche Zusagen.
 
-Automatisch versenden können Sie später, und nur in engen Fällen, etwa bei einer reinen Eingangsbestätigung ohne inhaltliche Aussage. Nie automatisch: Antworten auf Reklamationen, Preise, Liefertermine, Kündigungen und alles Rechtliche.
+Automatisch versenden später nur in engen Fällen, etwa einer reinen Eingangsbestätigung ohne inhaltliche Aussage. Nie automatisch: Reklamationen, Preise, Liefertermine, Kündigungen, alles Rechtliche.
 
 ## Schritt 5: Weiterleiten und Fehlzuordnungen messen
 
-Zugeordnet ist eine Mail erst, wenn sie bei der richtigen Person liegt. Wie gut das klappt, wissen Sie erst nach einigen Wochen.
+Zugeordnet ist eine Mail, wenn sie bei der richtigen Person liegt. Ob das klappt, sehen Sie nach einigen Wochen.
 
-Weiterleiten heisst je nach Betrieb: in den Ordner der Abteilung verschieben, eine Outlook-Kategorie vergeben, eine Unterhaltung in der Google-Gruppe zuweisen oder eine Aufgabe anlegen. Wählen Sie den Weg, den Ihre Leute schon benutzen. Ein neues Ticket-System für zwanzig Mails am Tag schafft mehr Arbeit, als es spart.
+Weiterleiten heisst je nach Betrieb: Ordner der Abteilung, Outlook-Kategorie, Zuweisung in der Google-Gruppe oder Aufgabe. Nehmen Sie den Weg, den Ihre Leute schon nutzen. Ein neues Ticket-System für zwanzig Mails am Tag frisst oft mehr Zeit als es spart.
 
-Messen ist einfach, wenn es von Anfang an eingerichtet ist. Wer eine falsch zugeordnete Mail in den richtigen Ordner verschiebt, setzt zusätzlich die Kategorie «falsch zugeordnet». Einmal pro Woche zählen Sie: wie viele Mails pro Kategorie, wie viele davon falsch, wie viele in «Sonstiges». Legen Sie vorher fest, welche Quote Sie akzeptieren. Sinkt die Quote einer Kategorie nach einem Monat nicht, nehmen Sie diese Kategorie aus dem KI-Schritt und sortieren sie wieder mit Regeln oder von Hand.
+Messen funktioniert, wenn es von Anfang an sitzt. Wer eine falsch zugeordnete Mail verschiebt, setzt die Kategorie «falsch zugeordnet». Einmal pro Woche zählen Sie: Mails pro Kategorie, davon falsch, Anzahl in «Sonstiges». Legen Sie die akzeptable Quote vorher fest. Sinkt die Quote einer Kategorie nach einem Monat nicht, nehmen Sie diese Kategorie aus dem KI-Schritt.
 
-## Ein Beispiel: ein info@ mit Bestellungen und Reklamationen
+## Ein erfundenes Beispiel: info@ mit Bestellungen und Reklamationen
 
-Ein Beispiel: ein Handelsbetrieb mit rund 25 Personen, Kundschaft in der ganzen Deutschschweiz, ein info@ auf Microsoft 365, das bisher die Person am Empfang jeden Morgen von Hand sortiert.
+Ein erfundenes Beispiel: Handelsbetrieb mit rund 25 Personen, Kundschaft in der Deutschschweiz, info@ auf Microsoft 365, bisher jeden Morgen manuell sortiert.
 
-Die Geschäftsleitung legt neun Kategorien fest, mit je einer zuständigen Person. Regeln übernehmen die Lieferantenrechnungen, die Mitteilungen der Spedition und die Newsletter. Die Buchhaltung bekommt dafür eine eigene Adresse, die künftig auf den Bestellungen steht. Übrig bleiben die Mails der Kundschaft.
+Die Geschäftsleitung legt neun Kategorien mit Zuständigkeit fest. Regeln übernehmen Lieferantenrechnungen, Speditionsmitteilungen und Newsletter. Die Buchhaltung erhält rechnungen@ auf den Bestellungen. Übrig bleibt Kundenpost.
 
-Diese liest die KI. Eine Kundin schreibt, die Lieferung sei unvollständig, und fragt im selben Satz nach einer Nachbestellung. Die KI ordnet «Reklamation» zu, weil Reklamationen bei Mischfällen gewinnen, liest die Bestellnummer heraus und schreibt einen Entwurf: Eingang bestätigt, die fehlende Position wird geprüft, Rückmeldung bis zum nächsten Arbeitstag. Die Mail landet im Ordner Service. Die Person dort prüft die Bestellung im ERP, passt den Entwurf an und verschickt. Die Nachbestellung gibt sie an den Verkauf weiter.
+Eine Kundin schreibt, die Lieferung sei unvollständig, und fragt im selben Satz nach einer Nachbestellung. Die KI ordnet «Reklamation» zu (Mischfälle gehen an den Service), liest die Bestellnummer und schreibt einen Entwurf: Eingang bestätigt, fehlende Position wird geprüft, Rückmeldung bis zum nächsten Arbeitstag. Service prüft im ERP, passt an, verschickt. Die Nachbestellung geht an den Verkauf.
 
-Nach vier Wochen zeigt die Zählung, dass Offertanfragen und Bestellungen oft verwechselt werden. Die Geschäftsleitung legt beide vorerst zusammen, und der Verkauf trennt sie von Hand. Der Rest bleibt, wie er ist.
+Nach vier Wochen verwechselt die Zählung oft Offertanfragen und Bestellungen. Beide Kategorien werden vorübergehend zusammengelegt; der Verkauf trennt von Hand.
 
 ## Datenschutz: Auftragsbearbeiter und Datenstandort
 
 Der KI-Dienst, der Ihre Mails liest, bearbeitet Personendaten in Ihrem Auftrag. Verantwortlich bleiben Sie.
 
-Der [EDÖB hält fest](https://www.edoeb.admin.ch/de/outsourcing-auftragsdatenbearbeitung), dass Sie sich nach Art. 9 DSG vergewissern und vertraglich absichern müssen, dass ein Auftragsbearbeiter die Datensicherheit gewährleistet und Unteraufträge nur mit Ihrer Genehmigung vergibt. Für den KI-Schritt heisst das: ein Geschäftskonto mit Vertrag, kein privates Konto, und Sie wissen, welche Anbieter dahinter die Daten sehen.
+Der [EDÖB hält fest](https://www.edoeb.admin.ch/de/outsourcing-auftragsdatenbearbeitung), dass Sie sich nach Art. 9 DSG vergewissern und vertraglich absichern müssen, dass ein Auftragsbearbeiter die Datensicherheit gewährleistet und Unteraufträge nur mit Ihrer Genehmigung vergibt. Für den KI-Schritt: Geschäftskonto mit Vertrag, kein privates Konto, und Sie wissen, welche Anbieter die Daten sehen.
 
-Beim Standort lohnt ein genauer Blick. Microsoft führt die Schweiz als Region, in der [Daten von Exchange Online gespeichert](https://learn.microsoft.com/de-ch/microsoft-365/enterprise/m365-dr-overview) werden können. Power Automate ist ein eigener Dienst: Wo die Daten eines Ablaufs liegen, hängt laut Microsoft von der [Region der Umgebung](https://learn.microsoft.com/de-ch/power-platform/admin/regions-overview) ab. Und der KI-Dienst, den der Ablauf aufruft, kann wieder an einem anderen Ort rechnen. Prüfen Sie alle drei einzeln.
+Beim Standort drei Ebenen prüfen. Microsoft führt die Schweiz als Region, in der [Exchange Online-Daten gespeichert](https://learn.microsoft.com/de-ch/microsoft-365/enterprise/m365-dr-overview) werden können. Power Automate hängt von der [Region der Umgebung](https://learn.microsoft.com/de-ch/power-platform/admin/regions-overview) ab. Der KI-Dienst im Ablauf kann wieder woanders rechnen.
 
-Deshalb laufen Bewerbungen und Arztzeugnisse nicht durch den KI-Schritt. Diese Einordnung ist keine Rechtsberatung. Bei Gesundheitsdaten oder wenn der Datenstandort unklar ist, fragen Sie Ihre Datenschutzberatung.
+Bewerbungen und Arztzeugnisse laufen nicht durch den KI-Schritt. Diese Einordnung ist keine Rechtsberatung. Bei Gesundheitsdaten oder unklarem Standort fragen Sie Ihre Datenschutzberatung.
 
 ## Wann sich das nicht lohnt
 
-Nicht jedes info@ braucht KI.
+Leert eine Person das Postfach in einer Viertelstunde pro Tag, reichen Regeln und eine zweite Adresse. Sind die meisten Mails persönliche Gespräche mit Stammkunden, gehört die Mail zur Person, nicht in eine Kategorie. Will niemand die Kategorien besitzen, verschiebt die Automatisierung in leere Ordner.
 
-Leert eine Person das Postfach in einer Viertelstunde pro Tag, reichen Regeln und eine zweite Adresse. Sind die meisten Mails persönliche Gespräche mit Stammkunden, gehört die Mail zu dieser Person und nicht in eine Kategorie. Und will niemand für die Kategorien zuständig sein, verschiebt die Automatisierung Mails in Ordner, die niemand öffnet.
-
-Ob das Sammelpostfach bei Ihnen der richtige erste Ablauf ist, klären die vier Fragen in [welchen Ablauf Sie zuerst automatisieren](/de/prozess-check/blog/welchen-ablauf-zuerst-automatisieren).
+Ob info@ Ihr erster Ablauf ist, klären die vier Fragen in [welchen Ablauf Sie zuerst automatisieren](/de/prozess-check/blog/welchen-ablauf-zuerst-automatisieren).
 
 ## Wann der Prozess-Check passt
 
-Wenn bei Ihnen jeden Tag jemand info@ von Hand sortiert und weiterleitet, ist das ein typischer Fall für den [Prozess-Check](/de/prozess-check). In 60 Minuten per Microsoft Teams schauen wir das Postfach zusammen an: welche Kategorien, welche Regeln, wo die KI hilft und wo nicht. Die Mails selbst müssen Sie nicht zeigen, beschreiben genügt.
+Wenn täglich jemand info@ von Hand sortiert, ist das ein typischer [Prozess-Check](/de/prozess-check)-Fall. In 60 Minuten per Microsoft Teams schauen wir das Postfach an: Kategorien, Regeln, wo KI hilft und wo nicht. Die Mails selbst müssen Sie nicht zeigen.
 
-Danach haben Sie einen konkreten Fall, eine Preisspanne und die ungefähre Dauer der Umsetzung, kurz schriftlich zusammengefasst. Der Check kostet CHF 99 und wird angerechnet, wenn Sie danach umsetzen lassen. Termin wählen: [Prozess-Check buchen](/de/prozess-check/buchen).
+Danach haben Sie einen konkreten Fall, eine Preisspanne und die ungefähre Dauer der Umsetzung, kurz schriftlich. Der Check kostet CHF 99 und wird angerechnet, wenn Sie danach umsetzen lassen. Termin: [Prozess-Check buchen](/de/prozess-check/buchen).

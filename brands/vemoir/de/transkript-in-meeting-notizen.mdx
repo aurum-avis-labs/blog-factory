@@ -34,6 +34,8 @@ Ein Transkript in Meeting-Notizen zu verwandeln heisst: du ziehst Entscheide, Ve
 - [Was die Notizenseite entwerfen darf](#was-die-notizenseite-entwerfen-darf)
 - [Den Entwurf an den Zeilen lesen](#den-entwurf-an-den-zeilen-lesen)
 - [Das Behaltene aufs Protokoll](#das-behaltene-aufs-protokoll)
+- [Wann der Browser reicht und wann die Mac-App](#wann-der-browser-reicht-und-wann-die-mac-app)
+- [Was in die Mail gehört und was im Archiv bleibt](#was-in-die-mail-gehört-und-was-im-archiv-bleibt)
 - [Häufige Fragen](#häufige-fragen)
 
 ## Ein Transkript in Meeting-Notizen verwandeln
@@ -48,15 +50,21 @@ Du brauchst keinen zweiten Recorder, wenn Teams oder Zoom dir schon Text gegeben
 
 [Notizen aus einem Transkript](/de/tools/notizen-aus-transkript) ist Schritt drei. Dieser Durchgang ruft ein Modell auf und verbraucht einen der drei erfolgreichen Wochenläufe. Eine sehr lange Einfügung kann gekürzt werden. Was du im Entwurf nicht siehst, ist nicht mitentschieden. Lies das Ende der Quelle, bevor du den Entwurf für vollständig hältst.
 
-Eine lokale Zoom-Aufnahme ist oft noch Audio, kein Transkript. Dann ist der erste Schritt [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren), nicht die Notizenseite.
+Eine lokale Zoom-Aufnahme ist oft noch Audio, kein Transkript. Dann ist der erste Schritt [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren), nicht die Notizenseite. Ein unordentlicher Export ohne klare Sprecher ist in [unordentliches Meeting-Transkript](/de/blog/unordentliches-meeting-transkript) beschrieben.
 
 ## Die Datei säubern, bevor du Notizen verlangst
 
-Ein VTT voller Cue-Zeiten verleitet das Modell, Zeiten als Inhalt zu behandeln oder sie still zu schlucken und dabei Bedingungen zu verlieren. Leg den Export zuerst auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Kopf, Nummern und Zeitstempel fallen weg. Namen bleiben, wenn sie als `<v Name>`, `Name:`, `Speaker 1:` oder `SPEAKER_01:` schon da waren. Dieser Schritt verbraucht keinen Wochenlauf.
+Ein VTT voller Cue-Zeilen verleitet das Modell, Zeiten als Inhalt zu behandeln oder sie still zu schlucken und dabei Bedingungen zu verlieren. Leg den Export zuerst auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen). Kopf, Nummern und Zeitstempel fallen weg. Namen bleiben, wenn sie als `<v Name>`, `Name:`, `Speaker 1:` oder `SPEAKER_01:` schon da waren. Dieser Schritt verbraucht keinen Wochenlauf.
 
 Fehlen die Namen, sagt die Seite das. Schick den Text trotzdem nur weiter, wenn du Entscheide ohne erfundene Personen willst. Die Notizenseite setzt niemanden ein, der im Text nicht steht.
 
 Ist die Datei schon Fliesstext, kannst du den Bereiniger überspringen. Lies trotzdem einmal Zahlen, Daten und Produktnamen, bevor das Modell sie glättet.
+
+<ul class="blog-checklist">
+  <li>VTT oder SRT zuerst bereinigen, wenn Cues im Text stehen</li>
+  <li>Kleines Gespräch und Agenda-Kopf von Hand streichen</li>
+  <li>Ende der Quelle lesen, wenn der Entwurf dort dünn wirkt</li>
+</ul>
 
 ## Was die Notizenseite entwerfen darf
 
@@ -93,6 +101,24 @@ Auf dem Mac bleiben Transkript und erzeugtes Protokoll getrennt. Du korrigierst 
 
 Hast du nur Audio und ist es 15 Minuten oder kürzer, ist [Audio transkribieren](/de/tools/audio-transkribieren) der Schritt davor. Länger als 15 Minuten gehört die Datei auf den Mac. Zerleg sie nicht in Stücke, damit jedes Stück einen Wochenlauf verbraucht. Lies das Ende der Quelle noch einmal, wenn der Entwurf dort dünn wirkt.
 
+## Wann der Browser reicht und wann die Mac-App
+
+Der Browser eignet sich für einen einzelnen Export, den du heute verschicken musst: VTT bereinigen, Notizen-Entwurf, Zeilen prüfen, Protokollblatt füllen. Drei erfolgreiche Läufe pro Woche teilen sich alle Transkript-Werkzeuge. Bereinigen und Protokollblatt zählen nicht dazu.
+
+Die Mac-App lohnt sich, wenn du regelmässig Sitzungen aufnimmst, Sprecher trennen willst, längere Dateien importierst oder offline arbeiten musst. Vemoir nimmt aus der Menüleiste auf, ohne Bot in Teams oder Zoom. Transkription und Zusammenfassung laufen standardmässig lokal auf dem Mac. Willst du den nächsten Termin direkt erfassen, statt Dateien zu jagen, sieh dir [Aufnahme und Modelle](/de#capture) an.
+
+## Was in die Mail gehört und was im Archiv bleibt
+
+In die Mail gehören Entscheide, Massnahmen mit Owner und Datum, offene Punkte und ein Satz zum Ablageort des Transkripts für Berechtigte. Nicht dazu gehören der volle Cue-Block, Nebensächlichkeiten und Formulierungen, die niemand übernommen hat.
+
+Das Transkript bleibt intern oder bei Personen, die den Wortlaut brauchen. Einwilligung und Aufbewahrung regelst du selbst. Ordentliche Notizen ersetzen keine Datenschutzprüfung.
+
+<ul class="blog-scenarios">
+  <li><h3>Einmaliger Kunden-Call</h3><p>Browser-Entwurf, geprüfte Zeilen, Mail heute, VTT im Projektordner.</p></li>
+  <li><h3>Wöchentliches Standup</h3><p>Mac-Aufnahme, Sprecher im Team, Protokoll aus der Bibliothek statt wöchentlichem Export-Jagen.</p></li>
+  <li><h3>Verwaltungsrat</h3><p>Strikte Zeilenprüfung, Protokollblatt wie in [Sitzungsprotokoll richtig schreiben](/de/blog/sitzungsprotokoll-richtig-schreiben), Transkript nur für Berechtigte.</p></li>
+</ul>
+
 ## Häufige Fragen
 
 ### Muss ich neu transkribieren, wenn ich schon ein VTT habe?
@@ -126,5 +152,9 @@ Nein. Wenn der Entwurf einen Entscheid glättet, korrigierst du den Entwurf. Das
 ### Lädt die Seite mein Transkript hoch?
 
 Du fügst Text in die Seite ein. Es ist kein Upload einer Aufnahme an ein Sprachmodell, weil du keine Aufnahme gibst. Behalte das Original auf deinem Rechner. Kopiere danach nur die Notizen, die du vertreten kannst.
+
+### Zählt jeder Klick auf «Notizen» als Wochenlauf?
+
+Ja, sobald der Durchgang erfolgreich war. Bereinigen und Ausfüllen des Protokollblatts verbrauchen keinen Lauf. Plane deshalb: erst lesen, dann generieren.
 
 Nächster Schritt: VTT zuerst auf den [Transkript-Bereiniger](/de/tools/transkript-bereinigen), dann [Notizen aus einem Transkript](/de/tools/notizen-aus-transkript). Die Zeilen, die du behältst, landen auf dem [Sitzungsprotokoll](/de/tools/sitzungsprotokoll).

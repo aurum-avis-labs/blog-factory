@@ -12,59 +12,93 @@ draft: false
 site: prozess-check
 ---
 
-## eBill for a business is a channel, not a new approval policy
+## eBill for a business: channel, not a new approval rule
 
-eBill, for a Swiss business, is a way to receive a supplier invoice in online banking or in the invoicing software, and a way to send your own invoices if a network partner connects you. It is run by SIX for the banks. It does not decide whether the goods arrived, and it does not replace the person who may release a payment. A PDF that still has to be typed into the bank is the channel it replaces. The check on the invoice is the channel it does not replace.
+<p class="blog-lede">eBill delivers supplier invoices into online banking or your invoicing software in a structured form. The check before you pay stays with you.</p>
 
-This is for the office that pays suppliers and, sometimes, wants customers to pay without a mail attachment. Reading invoices that the accounting program already captures is in [invoice capture](/prozess-check/blog/invoice-capture-what-software-misses). Releasing a bill once it is checked is in [invoice approval](/prozess-check/blog/invoice-approval-workflow). Matching it to an order and a delivery note is in [matching delivery notes](/prozess-check/blog/delivery-note-invoice-matching). eBill is only the pipe.
+For a Swiss business, eBill is a way to receive supplier invoices and to send your own invoices when a network partner connects you. SIX runs the infrastructure for the banks. The service does not decide whether goods arrived, and it does not replace whoever may release a payment. What often disappears is retyping a PDF from the mailbox into the bank. What remains is matching to the order and the delivery note when you buy goods.
 
-## How it differs from an invoice in the mailbox
+This is for the office that pays suppliers and sometimes wants customers to pay without a mail attachment. How accounting captures bills is in [invoice capture](/prozess-check/blog/invoice-capture-what-software-misses). Releasing after a check is in [invoice approval](/prozess-check/blog/invoice-approval-workflow). Matching to order and delivery note is in [matching delivery notes](/prozess-check/blog/delivery-note-invoice-matching). eBill is the pipe between them.
 
-SIX describes the difference this way: an eBill invoice arrives in online banking, where it can be checked and released for payment. An invoice by email arrives in the mailbox, and someone has to transfer the document or its details into the bank. That transfer, the PDF, the payment part, the copy filed in the accounts, is the work eBill is meant to skip for the billers who offer it.
+## How it differs from email and PDF
 
-It does not skip the question "is this invoice right?". A file that lands in the bank can still be the wrong amount, a duplicate, or a bill for goods you have not received. Release in online banking is a payment instruction. It is not a match against the order.
+SIX describes the difference this way: an eBill invoice appears in online banking, where you check it and release it for payment. An invoice by email lands in the mailbox, and someone transfers the document or its details into the bank. That transfer, the payment instruction, and filing in the accounts is the manual work eBill can skip for billers who offer it.
+
+A file in the bank can still be wrong: wrong amount, duplicate, invoice for goods you never received. Release in online banking is a payment instruction, not goods receipt.
 
 <ul class="blog-facts">
-  <li><span class="blog-kicker">Receive in online banking</span><strong>Free</strong><p>SIX states that receiving eBill invoices there costs nothing.</p></li>
-  <li><span class="blog-kicker">Send</span><strong>Ask the partner</strong><p>You need a network partner. That partner sets the price. There is no extra eBill transaction fee on top.</p></li>
-  <li><span class="blog-kicker">Your bank</span><strong>Ask them</strong><p>Business receipt is not offered by every bank. The setup differs.</p></li>
+  <li><span class="blog-kicker">Receive in banking</span><strong>Free</strong><p>SIX: receiving eBill invoices in online banking costs nothing (as of September 2026, [business FAQ](https://www.ebill.ch/de/home/business/faq.html)).</p></li>
+  <li><span class="blog-kicker">Send</span><strong>Ask the partner</strong><p>Connection via a certified network partner. Price from the partner. SIX states no extra eBill transaction fee on top.</p></li>
+  <li><span class="blog-kicker">Your bank</span><strong>Ask them</strong><p>Business receipt is not offered by every bank. Setup differs by institution.</p></li>
 </ul>
 
-Those three lines are from SIX's [business FAQ](https://www.ebill.ch/de/home/business/faq.html). If your bank says it does not offer receipt for firms, the next step is the bank, not a workflow around a channel you cannot open.
+If your bank does not offer business receipt, the next step is the business adviser at the bank, not a workflow around a channel you cannot open.
 
 ## Two ways to receive
 
-You can receive in online banking, with no extra system, if the bank offers it. Several employees can be allowed to see the firm's invoices, release them for payment on the chosen account, or reject them. They can also register the firm with further billers, so later invoices from those billers arrive as eBill. Settings such as a standing approval can be adjusted. SIX describes a standing approval as a maximum amount or an exact amount that may be paid without a fresh click. Use that only for billers and amounts you would pay without looking. A standing approval on a supplier who changes quantities is how a wrong invoice gets paid.
+**Online banking only:** If the bank offers it, authorised staff see the firm's invoices, release them for payment or reject them. Several people can work on the same invoices on the account you choose. They can register the firm with further billers so later invoices from those billers arrive as eBill without hunting for a PDF each time. Settings such as standing approval are adjustable. SIX describes standing approval as a maximum or exact amount without a fresh click. Use that only for billers and amounts you would pay without looking. On a supplier who changes quantities, that is how a wrong invoice gets paid. Online banking alone is not your archive: file what accounting needs even when payment runs in the bank.
 
-Or the bank passes the invoice into the invoicing software you already use, as a file transfer, and you also receive the PDF. Booking and payment then follow the process you already have. SIX says that path does not require you to invent a new process. It also says not every bank offers the service, and the setup is different at each bank. Start with the business adviser at your bank. We have not built a connection into eBill. If your program's side of it is unclear, that is a question for the software provider or, in a check, for what the bank actually delivers.
+**Hand-off to software:** The bank passes the invoice into the invoicing software, often as a file transfer with PDF. Booking and payment follow your existing process. SIX says that path does not require a new process. Not every bank offers the service, and setup differs. Start with the business adviser at the bank. We have not built an eBill connection. Unclear software behaviour is a question for the provider or, in a check, for what the bank actually delivers. If your program already captures supplier bills, the question is whether eBill only changes the source or whether you approve twice.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Standing approval</dt>
+    <dd>Automatic payment up to a cap or fixed amount you set per biller. It is not a substitute for goods receipt.</dd>
+  </div>
+  <div>
+    <dt>Notice (Avisierung)</dt>
+    <dd>A message with no pay button, or about a credit note. Information, not a payment.</dd>
+  </div>
+</dl>
 
 ## What you still approve
 
-Authorised staff can view, check, release or reject. That release is the approval of payment, not the approval of the underlying delivery. If you buy goods, the order and the delivery note still have to match before someone should release, just as they did when the PDF sat in the mailbox. The nice part of eBill is that the payment details are already in the bank. The dangerous part is releasing because the bank screen looks complete.
+Authorised people view, check, release or reject. That is payment approval, not delivery approval. When you buy goods, the order and the delivery note still have to match before someone releases in the bank, as they did when the PDF sat in the mailbox. The upside: payment details are already in the bank. The risk: releasing because the screen looks complete.
 
-A rejected invoice should be a task for the person who owns the supplier, with the reason, not a silent no. A workflow can open that task when the status is rejected. It should not release on your behalf, and it should not set a standing approval.
+A rejected invoice becomes a task for the person who owns the supplier, with the reason. A workflow can open that task when the status is rejected. It should not release on your behalf or set a standing approval.
 
-Credit notes and reminders can also travel on eBill. SIX lists single invoices, instalments, donation requests, reminders, information notices and credit notes. A notice, an Avisierung, can be an invoice with no pay button, or a note about a credit. Treat a notice as information. Do not "pay" it. If you already have a dunning process for money customers owe you, a reminder you receive as a customer is the mirror image: it belongs on the open supplier item, not in a new inbox rule that pays it.
+Credit notes and reminders can travel on eBill. SIX lists single invoices, instalments, donation requests, reminders, notices and credit notes. A notice can be an invoice with no pay button, or a note about a credit. Treat notices as information. Do not pay them. If you already dunning customers who owe you, a reminder you receive as a customer belongs on the open supplier item, not in a new inbox rule that pays it. A rejected invoice with no task is a silent no: the supplier waits while the bank shows "rejected".
 
-## Sending is a network partner, not a button you already own
+## Sending: network partner, not a new button
 
-To send eBill to your customers you need a network partner. SIX says the partner connects you to the infrastructure and that you ask them for a price. The list of certified partners is on ebill.ch. Private customers pay no eBill fee. That does not mean your customers have switched. They still have to be reachable on eBill. Keep the PDF invoice for the ones who are not, until you know otherwise from your own debtor list.
+To send eBill to customers you need a network partner. SIX: the partner connects you to the infrastructure; you ask them for a price. Certified partners are listed on [ebill.ch](https://www.ebill.ch/de/home/business/faq.html). Private customers pay no eBill fee. That does not mean your debtors have switched. They must be reachable on eBill. Keep the PDF invoice for everyone who is not, until your debtor list shows otherwise.
 
-Do not turn off the mailbox invoice on day one. Run both until the customers who matter actually pay via eBill, and you can see those payments in the accounts without a manual match. A second channel that nobody reconciles is a new kind of missing receipt.
+Do not turn off mailbox invoices on day one. Run both channels until the customers who matter actually pay via eBill and you see those payments in the accounts without a manual match. A second channel nobody reconciles is a new kind of missing receipt. If you only track debtors in your head, you notice at month-end.
 
 ## Direct debit is a different switch
 
-eBill Direct Debit is a pull payment, introduced by SIX in June 2025, not the standing approval above. SIX describes the standing approval as capped at a maximum or an exact amount, and the direct-debit mandate as not limited by amount. The customer authorises collection in advance. The biller submits the amount. That is a credit decision and a contract, not an office shortcut for paying every invoice without looking. Do not turn it on to avoid the approval step this page is about. Read the current description in the same SIX FAQ before anyone signs a mandate.
+eBill Direct Debit is a pull payment SIX introduced in June 2025. It is not the same setting as standing approval. SIX: standing approval is capped at a maximum or exact amount; the direct-debit mandate is not limited by amount. The customer authorises in advance; the biller submits the amount. That is contract and credit decision, not an office shortcut. Read the current description in the SIX FAQ before anyone signs.
 
 ## A made-up example
 
-A made-up example: an office pays about thirty supplier invoices a month. Twelve billers already offer eBill, and the bank shows those twelve in online banking. Two people in the office may release amounts up to a figure the owner set. Above that figure, the invoice waits for the owner. One of the twelve is a goods supplier. Those invoices are matched to the delivery note before anyone releases them in the bank. The other eighteen suppliers still send a PDF by email. Those stay on the existing capture path. Nobody deletes the PDF for the eBill ones either: the software path is supposed to deliver a PDF you can file, and the online-banking path is not your archive. A standing approval is on for one telecom biller with a stable monthly amount. It is not on for the goods supplier.
+A made-up example: an office pays about thirty supplier invoices a month. Twelve billers already offer eBill; the bank shows them in online banking. Two people may release up to a limit the owner set; above that, the owner waits. One of the twelve is a goods supplier: match to the delivery note before release in the bank. Eighteen suppliers still send PDF by email on the existing capture path. Nobody deletes the PDF for eBill ones: the software path should deliver a file you can archive. Standing approval only for one telecom biller with a stable monthly amount, not for the goods supplier.
 
 ## Who should skip the project
 
-Skip it if the bank does not offer business eBill. There is nothing to automate until they do. Skip it if you already receive into the accounting program through the bank and a person still approves there. A second release in online banking means two yeses, or one yes in the bank that bypasses the match. Skip it if you pay a handful of invoices a month and the PDF path is calm. The channel is a convenience, not a duty.
+<ul class="blog-scenarios">
+  <li><h3>No business eBill at your bank</h3><p>Without the channel, there is nothing to automate.</p></li>
+  <li><h3>Already receiving into accounting</h3><p>A second release only in online banking can bypass the match.</p></li>
+  <li><h3>Few invoices per month</h3><p>The PDF path is enough if it stays calm.</p></li>
+</ul>
 
-The recurring task worth describing is the split book: some invoices in the bank, some in the mailbox, and no rule for which ones may be released before the delivery is checked.
+The recurring task: a split book, some invoices in the bank, some as PDF in the mailbox, with no clear rule for when release is allowed.
+
+## Quick questions
+
+<div class="blog-faq">
+  <h3>Is eBill mandatory for businesses?</h3>
+  <p>No. It is an optional channel. Whether your bank or your customers use it is separate from «must we».</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Does receiving eBill cost anything?</h3>
+  <p>SIX states that receipt in online banking costs nothing. Sending and connection go through a network partner with its own price. See the official FAQ, as of September 2026.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is standing approval the same as direct debit?</h3>
+  <p>No. Standing approval caps amounts per biller in online banking. eBill Direct Debit (since June 2025) is a mandate with no amount limit. Read the current SIX description before anyone signs.</p>
+</div>
 
 ## When a Prozess-Check fits
 

@@ -1,0 +1,107 @@
+---
+title: "Clicked a phishing link at work: what now"
+description: "Clicked a phishing link at work: disconnect, tell IT, and let them reset the mailbox. First hour for a Swiss team, not a private inbox."
+pubDate: 2026-10-01
+author: "Aurum Avis Labs"
+tags: ["phishing", "incident response", "sme", "switzerland"]
+funnelStage: interest
+translationKey: clicked-a-phishing-link-at-work
+relatedPosts: ["how-to-report-phishing-in-switzerland", "phishing-simulations-allowed-switzerland", "security-awareness-training-topics"]
+draft: false
+site: security
+---
+
+## Clicked a phishing link at work: what now
+
+If you clicked a phishing link at work, what now is a one-hour job, and it is not the same job as on a private phone. Disconnect the laptop if you can do it safely, stop typing, and tell the person who runs IT the same day. You do not need to decide whether a crime was committed before you report.
+
+Consumer pages, including the [BACS phishing note](https://www.bacs.admin.ch/en/phishing-en), tell a private person to change the password immediately, and to change every service tied to that email address. That order is right for a personal account. On a company mailbox it leaves a step out. Microsoft lists revoking sign-in sessions separately: that is what invalidates refresh tokens an attacker may already hold. A new password does not replace that step. Do not email the new password to the user while the mailbox may still be open ([Microsoft Learn](https://learn.microsoft.com/en-us/defender-office-365/responding-to-a-compromised-email-account)). Your IT partner does that reset. You do not do it alone on the same laptop.
+
+This is for employees and line managers in a Swiss company of roughly 20 to 250 people, often without a security team. It covers the first hour. How to spot the mail before anyone clicks is a different article.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Stop and disconnect</h3><p>Unplug Ethernet or turn off Wi-Fi on the affected laptop if IT has not told you otherwise. Leave the tab open if someone needs a screenshot. Do not download another file, and do not open the link a second time.</p></li>
+  <li data-step="2"><h3>Report inside the company, the same day</h3><p>Use the channel you already have: a ticket, a shared mailbox, or the number in your incident note. Say what you clicked, what time, and whether you typed a password, a code, or approved a sign-in on your phone.</p></li>
+  <li data-step="3"><h3>Reset with IT, not alone</h3><p>Microsoft's preferred first step is to disable the account while it is checked, then revoke sessions, then set a new password. A rushed reset on the wrong account locks colleagues out or misses the mailbox the attacker took.</p></li>
+  <li data-step="4"><h3>Have rules and payments checked</h3><p>BACS describes a forwarding rule as a typical next move after a business mailbox is taken. Finance and IT look at rules, recent sign-ins, and payments waiting to go out before anything is released.</p></li>
+</ol>
+
+## Click only, password entered, or an attachment opened
+
+The three cases look the same from across the office. They do not take the same hour.
+
+Link only, nothing typed, no attachment: report the sender and the time. IT can block the domain. BACS describes the harm of phishing mainly as credentials or card details handed over, not as every click. Do not announce that the laptop is certainly infected, and do not clear the history before someone has looked.
+
+Password, one-time code, or an approve tap on the phone: treat the mailbox as open until IT says otherwise. That includes a Microsoft 365 password. IT disables the account for the check or resets it, revokes sessions, reviews registered sign-in methods, and looks for rules, including hidden ones, that forward mail out or move it to Notes, Junk, or RSS. Those are the folders Microsoft names. The new password is said by phone or in the room, not mailed back to the same inbox.
+
+If the fake page also got a private password or a card number, that is a second call the same day. BACS says to change that password everywhere it was reused, and to call the card company so the card can be blocked. That is your private account. It does not replace the report at work.
+
+An attachment you opened is a different risk from a copied login page. Say so explicitly, stop working on that machine, and do not plug it into another network to finish the invoice. This article does not include a malware-removal procedure. IT decides whether the device is examined.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>If the mail asked for a new IBAN or an urgent transfer, treat that as payment fraud as well as a click. If money has already left, finance calls the bank at once. BACS says the payment can sometimes still be stopped. Confirm any new account by phone, never by replying to the same mail.</p>
+</aside>
+
+## What a supervisor does in the first hour
+
+Thank the person for reporting. A reprimand before the facts are known teaches the next person to stay quiet. Keep them off the affected machine, and get IT or your external partner in the same day.
+
+Ask for a short note: time, sender or link, whether any credential was entered, whether an attachment was opened. Do not forward the original mail to a personal address or a WhatsApp group. Use the ticket or the channel you already have.
+
+On a taken business mailbox, [BACS on invoice fraud](https://www.bacs.admin.ch/en/business-email-compromise-en) lists a password change, a look at the IT environment, a check of filters and forwarding rules, and a warning to people who might receive fraudulent messages. It also recommends a police report, including when money has already been lost. Management files that report. If money is moving and nobody can reach the bank, call 117 or 112. One click with no payment is not that emergency.
+
+Mails that say "your account was hacked, click here" are a common lure of their own. BACS says not to open those links, and to type the service's real address by hand ([account hacked](https://www.bacs.admin.ch/en/account-hacked)).
+
+## Reporting to BACS, the FDPIC, and the police
+
+The internal process comes first. A report to BACS (still often searched under its earlier name, NCSC) is voluntary for most companies and helps get the page blocked, especially on a .ch or .swiss domain. If you do not need a reply, forward the mail to reports@antiphishing.ch or submit the link at [antiphishing.ch](https://www.antiphishing.ch). If you want a reply, start from the [BACS reporting page](https://www.bacs.admin.ch/de/melden-sie-an-das-bacs). That page is in German. The exact form address moves.
+
+The cyberattack reporting duty in force since 1 April 2025 applies to operators of critical infrastructure, not to a typical SME ([BACS on the duty](https://www.bacs.admin.ch/de/25-mp-de)). There is no 24-hour clock you can miss tonight.
+
+A click alone is not automatically a report to the Federal Data Protection and Information Commissioner (FDPIC). The revised Federal Act on Data Protection requires a report only when a high risk to the people concerned is likely, and then as soon as possible. It does not set a 72-hour deadline of the GDPR kind. Whether the mailbox held customer, staff, or applicant data, and whether anyone could read it, is a judgement for management. Write down the facts, the effects, and what was changed. This is practical orientation, not legal advice ([Art. 24 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de#art_24)).
+
+The act expects appropriate organisational measures and does not literally require training ([Art. 8 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de#art_8)). Fines of up to CHF 250,000 apply to natural persons and require intent ([FDPIC on criminal provisions](https://www.edoeb.admin.ch/de/strafbestimmungen)). An accidental click is not that offence.
+
+The same semi-annual count is 29,006 voluntary reports and 145 under the reporting duty. Deloitte's 2026 survey of 924 people at firms under 250 staff names phishing as the most common attack, at 25 percent ([Deloitte, PDF](https://www.allnews.ch/sites/default/files/ckfinder/userfiles/Deloitte%20Cyber%20Studie%202026_0.pdf)). That is their measurement.
+
+<div class="blog-stat">
+  <strong>52%</strong>
+  <p>Share of voluntary reports to BACS in the second half of 2025 classed as fraud, in the <a href="https://www.bacs.admin.ch/de/hjb-25-2-de">semi-annual report</a>. Their count, not a figure for your company.</p>
+</div>
+
+## A made-up example: Tuesday morning
+
+A made-up example: a company with 45 staff in the canton of Bern, no client names. On Tuesday at 09:15 an employee opens a message that looks like a parcel notice, clicks the link, types their Microsoft 365 password on a copied login page, and taps Approve on their phone. At 09:22 they unplug the cable and call the office manager. By 09:40 the IT partner disables the account, revokes sessions, then sets a new password and reads it out by phone. The rules include a hidden forwarder sending copies of invoices to an outside address. Finance holds two payments that were only approved by email until a colleague confirms the IBAN by phone. The note is half a page and stays inside the firm. Later that week BACS receives a voluntary report with the sender domain and no names.
+
+## Who can skip the long version
+
+You only opened the mail, did not click, did not open an attachment, and typed nothing: note the sender and use the normal report channel.
+
+On your own phone, with no company mailbox: follow the BACS steps for private individuals. A sole trader with no staff does the same hygiene without an internal IT contact.
+
+## Questions after the click
+
+<div class="blog-faq">
+  <h3>Should I change the password myself right now?</h3>
+  <p>On a private account, yes. That is what BACS tells individuals, including everywhere the same password was reused. On the company mailbox, IT does it: disable or reset the account, revoke sessions, and inspect the rules. Do not email the new password back to that mailbox.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is the click already a report to the FDPIC?</h3>
+  <p>No, not by itself. A report is due when a high risk to the people concerned is likely, as soon as possible. Whether the mailbox held personal data, and whether anyone could read it, is a separate judgement. Write the incident down either way.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Do we have to tell BACS within 24 hours?</h3>
+  <p>A typical SME does not. The duty since 1 April 2025 applies to operators of critical infrastructure. You can still report voluntarily afterwards, via antiphishing.ch or the BACS reporting page. Containment inside the company comes first.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>I only opened the message. Does the same sequence apply?</h3>
+  <p>No. Note the sender and report it internally so the domain can be blocked. Disconnecting, revoking sessions, and holding payments belong to a click with input, an approved sign-in, or an opened attachment.</p>
+</div>
+
+## Live training, after this hour is over
+
+A live security awareness session spends one to two hours on how your company recognises phishing, smishing, and vishing, how people report internally, and what still applies after a click. The first hour belongs to IT. The session is a later appointment, not a substitute for today's report. Format and scope are on the [security awareness](/security/security-awareness) page.

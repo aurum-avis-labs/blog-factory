@@ -1,0 +1,131 @@
+---
+title: "Rolling out MFA to staff: a practical rollout for Swiss SMEs"
+description: "Rolling out MFA to staff without chaos: phases, MFA fatigue, exceptions, and communication for Microsoft 365 or Google in a 20 to 250 person firm."
+pubDate: 2026-11-13
+author: "Aurum Avis Labs"
+tags: ["mfa", "multi-factor authentication", "rollout", "switzerland"]
+funnelStage: interest
+translationKey: rolling-out-mfa-to-staff
+relatedPosts: ["invoice-fraud-changed-iban", "internal-incident-reporting", "four-eyes-principle-for-payments"]
+draft: false
+site: security
+---
+
+## Rolling out MFA to staff: start with admins, then mail, then the rest
+
+Rolling out MFA to staff means every account that can read email or change payment data needs a second factor before an attacker with a stolen password gets in. For a Swiss SME on Microsoft 365 or Google Workspace, the project is as much communication as technology. MFA cuts business email compromise that leads to [invoice fraud with a changed IBAN](/security/blog/invoice-fraud-changed-iban). It does not replace [four-eyes payment controls](/security/blog/four-eyes-principle-for-payments). Plan phases, name a help window, and train people on MFA fatigue attacks where criminals spam approval prompts until someone taps approve.
+
+Before you flip the switch, align with how staff [report internal security incidents](/security/blog/internal-incident-reporting) so locked-out users know where to call.
+
+## What to decide before week one
+
+Inventory global admins, billing owners, finance mailboxes, and shared inboxes that still use a password only. Pick an authenticator app or passkey method your tenant supports. You are not choosing between ten products; you are picking what Microsoft or Google already offers.
+
+Name an internal owner and your IT partner role: who writes conditional access policies, who answers the phone on go-live day, who escalates to leadership if an executive refuses enrollment. Finance should know MFA is coming the same week you publish the [password policy for a small business](/security/blog/password-policy-for-a-small-business), so identity rules read as one story.
+
+<ul class="blog-checklist">
+  <li>List admin and finance mailboxes that must enroll first</li>
+  <li>Pick go-live dates outside month-end payment peaks if possible</li>
+  <li>Prepare a one-page setup guide with screenshots for your chosen app</li>
+  <li>Book double helpdesk coverage for the first rollout day</li>
+  <li>Draft the fatigue rule: deny unknown prompts, never read codes to a caller</li>
+</ul>
+
+## Phased rollout that staff can follow
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Enforce MFA on admins</h3><p>Global admins, billing owners, and anyone who can reset passwords. Block legacy authentication where the tenant allows it.</p></li>
+  <li data-step="2"><h3>Pilot one department</h3><p>Choose a team that will tolerate friction. Fix helpdesk scripts from their feedback before you widen the policy.</p></li>
+  <li data-step="3"><h3>Require MFA on all mail users</h3><p>Apply conditional access or security defaults to every mailbox that can receive external mail.</p></li>
+  <li data-step="4"><h3>Roll out VPN and line-of-business apps</h3><p>Same identity provider where possible. Document each exception with an expiry date.</p></li>
+  <li data-step="5"><h3>Close the gap on new hires</h3><p>MFA registration becomes part of day-one onboarding, not a ticket three weeks later.</p></li>
+</ol>
+
+A made-up example: a logistics firm with 120 Microsoft 365 mailboxes enables the Authenticator app for IT and finance in week one, pilots operations in week two, and requires MFA for all mail users in week three. Helpdesk hours run 08:00 to 18:00 on rollout day. Two users call because they approved a prompt at lunch without logging in; IT resets sessions, blocks the foreign sign-in, and sends a short note on fatigue.
+
+## MFA fatigue: the attack your rollout must mention
+
+After MFA is on, attackers who stole a password may send repeated push notifications or call the user pretending to be IT. Staff should know: if you did not just log in, deny the prompt and report it through the internal channel. Never read codes to a caller. That overlaps with [deepfake CEO voice call fraud](/security/blog/deepfake-ceo-voice-call-fraud) when «IT» asks for a code on the phone.
+
+Put the fatigue rule in the same email as the setup link. One sentence in a team chat on go-live day is not enough.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>SMS as a second factor is better than nothing but weaker than an authenticator app or passkey. Prefer app-based MFA for finance and leadership mailboxes.</p>
+</aside>
+
+## Who may need a temporary exception
+
+Legacy scanners, shared kiosk PCs, and one old line-of-business app sometimes lack modern authentication. Document each exception with owner, review date, and a compensating control such as network isolation.
+
+<div class="blog-pair">
+  <div>
+    <h3>Reasonable exceptions</h3>
+    <ul>
+      <li>Service account with certificate-based auth in progress</li>
+      <li>Kiosk PC on an isolated VLAN with no mail access</li>
+      <li>Scanner sending mail through a relay you are replacing</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Not exceptions</h3>
+    <ul>
+      <li>Executive preference without a technical barrier</li>
+      <li>Shared finance login because «we always did it this way»</li>
+      <li>Permanent SMS-only for payment approvers</li>
+    </ul>
+  </div>
+</div>
+
+Review the exception list quarterly with leadership. Finance mailboxes should not stay on the list.
+
+## Communication that reduces lockouts
+
+Two weeks before go-live, send the date, helpdesk hours, and a link to the setup guide. On the day, remind people in the chat tool they already use, not only an IT ticket. After one week, publish how many accounts still lack MFA and who owns follow-up.
+
+<ul class="blog-scenarios">
+  <li><h3>If finance is in a payment run</h3><p>Schedule enrollment after the run or extend helpdesk hours for approvers.</p></li>
+  <li><h3>If many staff work remotely</h3><p>Use self-service enrollment; avoid posting QR codes on paper that anyone in the post room could scan.</p></li>
+  <li><h3>If the CEO has not enrolled</h3><p>Enroll leadership in the pilot so approval discipline is visible before the wider mail policy.</p></li>
+</ul>
+
+## Technical sequence in Microsoft 365 and Google Workspace
+
+In Microsoft 365, apply Security Defaults or conditional access in stages: block legacy auth, enforce MFA on admins, then on all users who reach Exchange Online. Review shared mailboxes separately; many still need a named delegate with MFA rather than a shared password.
+
+In Google Workspace, use 2-Step Verification enforcement from the admin console with the same order: super admins first, then organizational units. Test whether legacy IMAP clients break before you announce a cut-off date.
+
+Service accounts and integrations should move toward certificates or managed identities where the vendor allows. Mail-enabled service accounts that cannot use MFA need a written exception, not an open-ended waiver.
+
+Admins should store backup codes sealed offline. Losing a phone should not mean bypassing MFA with a shared password. External IT partners need a written role before go-live: who sets policies, who runs the helpdesk, who reports incidents to leadership.
+
+Guest accounts and contractors get MFA before VPN access is granted. Guest Wi-Fi does not replace identity controls. Contractor mailboxes with client data belong in the same policy as internal users.
+
+One week after go-live, review sign-in logs for foreign countries, legacy auth, and repeated failures. A short phishing simulation can follow optionally, without scoring individuals; this is orientation on Swiss labour practice, not legal advice.
+
+## Measuring success without vanity metrics
+
+Track the percentage of users with registered MFA, the number of fatigue reports handled, and time to enroll new hires. Sign-in logs two weeks after go-live should show fewer legacy authentication attempts.
+
+<div class="blog-stat">
+  <strong>65% / 82%</strong>
+  <p><a href="https://www.allnews.ch/sites/default/files/ckfinder/userfiles/Deloitte%20Cyber%20Studie%202026_0.pdf">Deloitte Cyber Study 2026</a>, firms under 250 staff: regular training in small versus medium firms. Not our survey. Pair MFA rollout with a short live session if your firm is below the medium-firm line.</p>
+</div>
+
+Rollout is complete when registration hits your target, legacy auth drops, and finance has been briefed on rejecting prompts during payment approval unless they just logged in themselves.
+
+## Training that covers MFA and payment fraud
+
+Finance and management benefit from one live hour on MFA, phishing, and payment verification. Callback habits for customer data reinforce security habits; see [verifying identity on the phone](/security/blog/verifying-identity-on-the-phone) for the privacy-side pattern. The Aurum session format for phishing and payment fraud is described on [security awareness training](/security/security-awareness).
+
+<div class="blog-faq">
+  <h3>Can we roll out MFA during holiday season?</h3>
+  <p>Prefer a quiet week with helpdesk coverage. If you must go live before year-end invoice peaks, extend support hours for finance users.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Should we rank authenticator apps against each other?</h3>
+  <p>No. Use what your tenant supports and document one standard method. This article is about rollout and fatigue, not a product shoot-out.</p>
+</div>
+
+Start with finance and mail administrators. The rest of the team follows in the same month, with a named person to call when the prompt fails.

@@ -1,11 +1,39 @@
 ---
-import { brands } from "@/lib/brands";
+import {
+  blogListingUrl,
+  brands,
+  getBrand,
+  liveSites,
+  parsePreviewBlogPath,
+  worldIdFromSite,
+} from "@/lib/brands";
+import { getCollection } from "astro:content";
 
 interface Props {
   currentBrand?: string;
+  currentSite?: string;
 }
 
-const { currentBrand } = Astro.props;
+const { currentBrand, currentSite } = Astro.props;
+const brand = getBrand(currentBrand ?? "");
+const sites = liveSites(brand);
+const parsed = parsePreviewBlogPath(Astro.url.pathname);
+const lang = parsed.lang ?? brand?.defaultLanguage ?? "en";
+const activeSite = currentSite ?? parsed.siteId;
+
+let counts: Record<string, number> = {};
+if (sites.length > 0 && currentBrand) {
+  const posts = await getCollection(
+    "blog",
+    ({ data, id }) => !data.draft && id.startsWith(`${currentBrand}/${lang}/`),
+  );
+  counts.all = posts.length;
+  for (const site of sites) {
+    counts[site.id] = posts.filter(
+      (post) => worldIdFromSite(post.data.site) === site.id,
+    ).length;
+  }
+}
 ---
 
 <nav class="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -14,19 +42,61 @@ const { currentBrand } = Astro.props;
       Blog Factory
     </a>
     <div class="flex items-center gap-1 overflow-x-auto">
-      {brands.map((brand) => (
-        <a
-          href={`/${brand.id}/blog`}
-          class:list={[
-            "px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap",
-            currentBrand === brand.id
-              ? "bg-primary text-primary-foreground"
-              : "text-muted-foreground hover:text-foreground hover:bg-muted",
-          ]}
-        >
-          {brand.displayName}
-        </a>
-      ))}
+      {
+        brands.map((item) => (
+          <a
+            href={`/${item.id}/blog`}
+            class:list={[
+              "px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap",
+              currentBrand === item.id
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted",
+            ]}
+            aria-current={currentBrand === item.id ? "page" : undefined}
+          >
+            {item.displayName}
+          </a>
+        ))
+      }
     </div>
   </div>
+  {
+    sites.length > 0 && currentBrand && (
+      <div class="border-t border-border">
+        <div class="container mx-auto px-4 flex flex-wrap items-center gap-2 py-2">
+          <span class="text-xs font-medium text-muted-foreground shrink-0 pr-1">
+            Blog
+          </span>
+          <a
+            href={blogListingUrl(currentBrand, lang)}
+            class:list={[
+              "px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap",
+              !activeSite
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted",
+            ]}
+            aria-current={!activeSite ? "page" : undefined}
+          >
+            All
+            <span class="opacity-70"> {counts.all ?? 0}</span>
+          </a>
+          {sites.map((site) => (
+            <a
+              href={blogListingUrl(currentBrand, lang, site.id)}
+              class:list={[
+                "px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap",
+                activeSite === site.id
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted",
+              ]}
+              aria-current={activeSite === site.id ? "page" : undefined}
+            >
+              {site.label}
+              <span class="opacity-70"> {counts[site.id] ?? 0}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    )
+  }
 </nav>

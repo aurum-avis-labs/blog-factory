@@ -1,0 +1,114 @@
+---
+title: "Cursor or Claude Code for founders"
+description: "Cursor or Claude Code for founders: IDE versus terminal agent in your repo. Who each fits, what neither proves, and when a security review matters."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["cursor", "claude code", "agentic coding", "founders", "mvp"]
+funnelStage: interest
+translationKey: cursor-or-claude-code-for-founders
+relatedPosts: ["building-an-mvp-with-lovable", "lovable-supabase-row-level-security"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">For founders who already ship in a real repository, neither Cursor nor Claude Code wins on name alone: Cursor is an AI-native editor where you see files and diffs; Claude Code is a terminal agent that edits across the tree. Both sit in agentic coding, not prompt-to-app vibe tools, and the choice matters less than git, tests, and who reviews what the model writes.</p>
+
+## Cursor or Claude Code for founders
+
+You are past the stage where a single prompt spawns an app in a browser tab. You have a folder on disk, environment variables, maybe a CI job that must pass. The question is which assistant fits how you work this week, not which logo belongs on a pitch deck.
+
+This page is for founders and product leads who already tried Lovable, Bolt, v0, Replit, or an earlier pass with Cursor or Claude Code, and now need a sustained build in version control. It is not a feature scorecard copied from vendor blogs. Those lists age in weeks. It is also not legal or security advice. When strangers pay you or you hold sensitive data, treat tooling and review as separate decisions.
+
+The wider frame is [vibe coding versus agentic coding](/blog/vibe-coding-vs-agentic-coding): prompt-to-app tools for fast learning, repo-based agents when reliability and handoff start to matter.
+
+<dl class="blog-terms">
+  <div>
+    <dt>Cursor</dt>
+    <dd>An AI-first code editor built on the VS Code shape: chat, multi-file edits, tab completion, and model choice inside one window.</dd>
+  </div>
+  <div>
+    <dt>Claude Code</dt>
+    <dd>Anthropic's agent that runs in your terminal, reads the repo, runs commands, and proposes patches across files from natural language tasks.</dd>
+  </div>
+  <div>
+    <dt>Agentic coding</dt>
+    <dd>AI executes inside your project with git, tests, and deployment hooks; a human still owns architecture and review.</dd>
+  </div>
+</dl>
+
+## What changes when you leave vibe coding behind
+
+Vibe tools optimise for «works in the demo». Cursor and Claude Code assume you already accepted slower setup: clones, branches, failing tests, merge conflicts. That trade is rational when the cost of a wrong architecture exceeds the cost of a lost weekend.
+
+Both tools can touch authentication, database migrations, and API routes. Neither guarantees those edits are safe. Generated row-level rules, open API keys in commits, and «fix it until the error disappears» loops show up in repos built with either assistant. The tool name on the invoice does not change that pattern.
+
+## How Cursor and Claude Code differ in practice
+
+| Question | Cursor | Claude Code |
+| --- | --- | --- |
+| Where you work | Editor with file tree, search, extensions | Terminal session in the project folder |
+| Best if you | Think by clicking files and scanning diffs | Already live in shell, git, and scripts |
+| Model choice | Several providers inside the product | Claude models through Anthropic's stack |
+| Typical loop | Select code, ask, accept hunks, run locally | Describe a task, let the agent run tools, review patches |
+| Handoff to a hire | Familiar to many engineers who use VS Code | Familiar to engineers who pair with CLI agents |
+
+Many teams use both: Cursor for focused edits and exploration, Claude Code for larger refactors or repetitive chores across many files. For a solo founder, pick the interface you will actually open daily. A powerful agent you avoid because the terminal feels foreign helps nobody.
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>Cursor can call Claude models; Claude Code does not replace a full IDE for everyone. The decision is workflow, not loyalty to one model brand.</p>
+</aside>
+
+## Who each option tends to fit
+
+<div class="blog-pair">
+  <div>
+    <h3>Cursor often fits</h3>
+    <ul>
+      <li>Founders who want to see the whole file while the model suggests changes</li>
+      <li>Teams that already use VS Code extensions for formatting, linting, or debugging</li>
+      <li>Work where you jump between frontend, config, and a short script in one sitting</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Claude Code often fits</h3>
+    <ul>
+      <li>Founders comfortable approving shell commands and reading unified diffs in the terminal</li>
+      <li>Tasks framed as «implement this endpoint and update tests» across many paths</li>
+      <li>Sessions where you want the agent to run checks and iterate without clicking each hunk</li>
+    </ul>
+  </div>
+</div>
+
+## Who should skip both for now
+
+<ul class="blog-scenarios">
+  <li><h3>If you only need a throwaway demo</h3><p>Stay on Lovable or similar until you know the idea deserves a repo. Agentic setup is overhead without a hypothesis.</p></li>
+  <li><h3>If you will not use git branches</h3><p>Neither tool repairs a single folder copied to Desktop. Version control is the product, not the assistant brand.</p></li>
+  <li><h3>If you want staff augmentation, not ownership</h3><p>These tools help you build in your codebase. They are a poor substitute for a procurement process that rents hours without transfer of the repo.</p></li>
+</ul>
+
+## What this choice does not prove
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Does not prove</span><strong>Demand</strong><p>Shipping features faster does not show strangers will pay or return.</p></li>
+  <li><span class="blog-kicker">Does not prove</span><strong>Security</strong><p>OWASP-style gaps still need human review; auth and authorisation are easy to «look done».</p></li>
+  <li><span class="blog-kicker">Does not prove</span><strong>Production readiness</strong><p>Monitoring, backups, and deploy rollback stay your problem.</p></li>
+  <li><span class="blog-kicker">Does prove</span><strong>Fit for agentic work</strong><p>You can iterate in a repo with AI help instead of staying inside a hosted builder.</p></li>
+</ul>
+
+If you exported from a vibe platform, read [row level security on Supabase](/blog/lovable-supabase-row-level-security) before you point either tool at production data. Missing policies are a known failure mode in generated stacks, independent of which editor you chose.
+
+<div class="blog-faq">
+  <h3>Can I switch later?</h3>
+  <p>Yes. Both operate on the same git tree. Switching costs relearning shortcuts, not throwing away the repository. The expensive switch is from vibe-only hosting to a repo with real deploys, not from Cursor to Claude Code.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Do I need both?</h3>
+  <p>No. One consistent workflow beats two subscriptions you half use. Add the second tool when you hit a concrete bottleneck, not because a thread said you should.</p>
+</div>
+
+## When a Vibe Code Review fits
+
+The [Vibe Code Review](/services/vibe-code-review) fits when you already built with Cursor, Claude Code, Lovable, or v0, real users or pilot customers depend on the app, and you want a structured pass against OWASP ASVS v5.0 before you promise reliability or raise the stakes on data. You receive a gap report, time on architecture and code quality, and a prioritised action list, then a closing conversation under NDA. It is the right step when the open question is «what will hurt us in production?», not «which AI editor feels nicer this month». If you are still proving the idea belongs in the market, finish that test first; a review does not replace validation traffic or usage data. Book through the service page when the repo is real enough to show a reviewer, not when you only have a slide deck.

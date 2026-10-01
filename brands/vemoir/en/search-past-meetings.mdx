@@ -21,6 +21,8 @@ Search answers "where did we say that." Ask answers a question and can point at 
 - [Where search past meetings actually looks](#where-search-past-meetings-actually-looks)
 - [Find a meeting from the keyboard](#find-a-meeting-from-the-keyboard)
 - [Ask inside one meeting, one project, or the library](#ask-inside-one-meeting-one-project-or-the-library)
+- [How this differs from Zoom or Teams search](#how-this-differs-from-zoom-or-teams-search)
+- [Keep the library easy to search later](#keep-the-library-easy-to-search-later)
 - [What never shows up](#what-never-shows-up)
 - [When a transcript quote is the wrong result](#when-a-transcript-quote-is-the-wrong-result)
 - [Frequently asked questions](#frequently-asked-questions)
@@ -82,6 +84,22 @@ Text generation can use Apple Intelligence where the Mac has it, or a local mode
 
 None of this searches a meeting that was never recorded into the library. A calendar event with no audio is not a result.
 
+## How this differs from Zoom or Teams search
+
+Zoom and Teams search inside their own cloud. The scope is whatever your licence and the organizer allowed: cloud recording, transcript add-ons, retention rules. Vemoir search runs only on meetings that landed in your Mac library through capture or import. A phrase from last quarter's client call will not appear if that call lived only in a host's Zoom cloud and you never imported the audio.
+
+Cloud notetaker bots add another index, usually on a vendor server. Vemoir does not merge those indexes with your local library. If your policy forbids bots, local search is the trade you accept: everything findable stayed on the Mac you control.
+
+For question-and-answer over a transcript you already found, see [ask questions about a meeting transcript](/blog/ask-questions-about-meeting-transcript). To remove a sitting from search entirely, see [delete a meeting recording](/blog/delete-a-meeting-recording).
+
+## Keep the library easy to search later
+
+Search is faster when each call has a project before you press record. Use the menu-bar project picker so the client name is the folder, not a guess after Command-F. Rename imports to something you will remember (client plus date), even though the transcript still holds the spoken words.
+
+Speaker profiles and project glossaries improve labels in new minutes. They do not rewrite old transcript lines, so search for what was said, then read the decision row if the name changed in the minutes later.
+
+Want the next call filed before you hunt for it? Vemoir records from the menu bar into the project you pick first. [Capture and models](/#capture) explains permissions and where audio goes.
+
 ## What never shows up
 
 Search and Ask read the active library. They skip:
@@ -105,6 +123,10 @@ When you need a line you can stand on, ask inside the meeting and follow the evi
 The chat surface that scopes those questions is described on the [Ask section of the homepage](/#chat). How capture gets audio into the library in the first place is under [capture](/#capture).
 
 ## Frequently asked questions
+
+### Can I search Zoom cloud transcripts inside Vemoir?
+
+No. Vemoir indexes the Mac library only. Import the audio file, or record the next call locally, then search that meeting.
 
 ### Does search past meetings upload the library?
 
@@ -133,7 +155,5 @@ After the models you selected are downloaded, search and Ask do not need a netwo
 ### Can I search a Loom or Zoom file I have not imported?
 
 Not until it is in the library. Import the audio, or record the next call from the menu bar, and then search that meeting.
-
-A glossary alias does not hide the old wording. If the room said "the portal" in March and the glossary now says "customer workspace," March's transcript still says portal. Search for the words that were spoken, then read the decision row if the name was corrected later in the minutes.
 
 Use [Ask Vemoir](/#chat) when the keyword hit is not enough and you want an answer tied to a meeting, a project, or the active library.

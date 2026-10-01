@@ -1,0 +1,122 @@
+---
+title: "Callback phishing explained"
+description: "Callback phishing: e-mails that push you to call a attacker-controlled number. How it differs from vishing and what offices should do."
+pubDate: 2026-11-23
+author: "Aurum Avis Labs"
+tags: ["callback", "phishing", "phone", "switzerland"]
+funnelStage: awareness
+translationKey: callback-phishing
+relatedPosts: ["how-to-spot-phishing-emails", "spotting-ai-generated-phishing", "fake-microsoft-support-call-at-work"]
+draft: false
+site: security
+---
+
+## Callback phishing explained
+
+Callback phishing is an e-mail or PDF that lists a phone number so you «confirm» a payment, unlock an account, or cancel a subscription. The number reaches the attacker, not your bank, Microsoft, or IT. On the line they harvest MFA codes or install remote software. In Swiss offices the lure often mimics Microsoft 365, a cloud invoice, or HR payroll. The text is for staff in firms of about 20 to 250 people. The attack starts in the mailbox, not at the handset.
+
+<div class="blog-stat">
+  <strong>52&nbsp;%</strong>
+  <p>Fraud share in voluntary NCSC reports in H2 2025, per the <a href="https://www.bacs.admin.ch/de/hjb-25-2-de">semi-annual report</a>. No separate callback statistic verified.</p>
+</div>
+
+Stop and dial the number on your contract, admin portal, or official site. E-mail markers are in [how to spot phishing e-mails](/security/blog/how-to-spot-phishing-emails). Live calls without a mail lure are [vishing at work](/security/blog/vishing-calls-at-work). The narrow «Microsoft support» case is in [fake Microsoft support call at work](/security/blog/fake-microsoft-support-call-at-work).
+
+<ol class="blog-flow">
+  <li><strong>Lure</strong><p>Mail claims only phone support can fix the issue.</p></li>
+  <li><strong>Callback</strong><p>You dial the printed number.</p></li>
+  <li><strong>Harvest</strong><p>Caller asks for MFA codes or remote access.</p></li>
+</ol>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Legitimate vendors sometimes ask you to call them. The safe pattern is: you look up the number, they do not print a new one in an unexpected mail.</p>
+</aside>
+
+## What callback phishing is not
+
+A calendar invite with the support number you already stored. Your MSP calling from the number on their website after you opened a ticket. A genuine bank letter with a hotline you have used for years, not a surprise PDF attachment.
+
+<div class="blog-pair">
+  <div>
+    <h3>Typical lures</h3>
+    <ul>
+      <li>«Microsoft 365 locked, hotline only in the mail»</li>
+      <li>«Payslip error, PDF with callback number»</li>
+      <li>«Invoice overdue, support in the footer»</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Safe response</h3>
+    <ul>
+      <li>Report the mail internally, do not call back</li>
+      <li>Open the portal or ticket system yourself</li>
+      <li>Use master data numbers, not the PDF line</li>
+    </ul>
+  </div>
+</div>
+
+## HR and payroll lures
+
+Callback numbers appear on fake «payslip error» mail, often in January. HR should tell staff that payroll changes only happen in the portal they already use, never via a number in an unexpected PDF. Anyone asked to «quickly confirm» gets the same caution as in [verifying identity on the phone](/security/blog/verifying-identity-on-the-phone).
+
+## Premium-rate numbers and phone bills
+
+Some callbacks route to expensive premium lines. The scam earns on the dial even if you hang up early. If finance sees odd phone bills, check whether someone dialled a mail-supplied number. That is not a data erasure request; [right to erasure under the FADP](/security/blog/right-to-erasure-under-the-fadp) is unrelated to callback numbers.
+
+## Microsoft 365 and the admin portal
+
+Callback mail often claims the tenant is «locked» and only the hotline in the message helps. Admins open the admin portal via a bookmark or ask the MSP through the ticket system. No password and no MFA code on the phone, even when the caller says «Microsoft partner in Zurich». AI text can polish the mail; the test stays the number from your master data.
+
+## Shared mailboxes and reception
+
+`info@` and reception sometimes forward callback mail to finance before anyone checks the number. Rule: do not forward «call immediately» lines unchecked. Reception can say: «We call customers and authorities from our list, not numbers in unexpected mail.»
+
+## Finance and PDF footers
+
+PDF footers show support lines. Finance should never dial them without checking vendor master data. Same rule as IBAN changes: use the number you already have, as with [invoice fraud and a changed IBAN](/security/blog/invoice-fraud-changed-iban).
+
+<ul class="blog-checklist">
+  <li>No callbacks to numbers from unexpected mail or PDFs</li>
+  <li>IT ticket first, then the contract number</li>
+  <li>No MFA codes on the phone, even to «unlock»</li>
+  <li>Forward suspicious mail to the internal phishing mailbox</li>
+</ul>
+
+## After you dialled: first steps
+
+If you already called and read codes, treat it like clicking phishing: tell IT, reset passwords and sessions, check whether payments left. Do not stay quiet out of embarrassment; early IT notice limits damage. That is not an FADP erasure case for customer data; still document internally what happened.
+
+<div class="blog-faq">
+  <h3>Can callback phishing start with SMS?</h3>
+  <p>Yes. A text can list a number; the same rule applies: do not dial, report internally, use the official channel.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>What if the mail looks like our real vendor?</h3>
+  <p>Layout and logos are copyable. What matters is the channel: open the portal yourself or call the number already on the contract.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Should we punish staff for calling back?</h3>
+  <p>Aim for reporting and learning, not individual penalties. Announce phishing simulations and do not use them in performance reviews, consistent with internal awareness rules.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Who needs more than this page?</h3>
+  <p>IT teams maintaining mail filters need technical runbooks. This page covers office and finance routine, not forensics after account takeover.</p>
+</div>
+
+## Mail filters and headers
+
+IT can block domains from callback mail once someone forwards it. That does not replace a «do not dial» rule, but it stops a second wave. Train that PDF attachments may carry the same number as the message body. Macro-free PDFs are therefore not a trust signal.
+
+## Four-eyes and payment processes
+
+Callback callers often target people who may pay alone. If your firm uses four-eyes for transfers, that still applies after the callback: the caller cannot «override» the rule. Finance should log odd cases such as IBAN requests that cite only a mail number, not ERP master data. Repeat briefly in the monthly meeting when January payroll mail returns.
+
+## Overlap with smishing
+
+Some campaigns list a number by SMS instead of mail. The same rule applies: use the official channel, not the number in the message. Parcel smishing is a separate pattern; callback stays the case where you dial because post or mail suggested it.
+
+[Security awareness training](/security/security-awareness) links mail, callback, and live-call patterns in one session with your roles. Role-specific examples for finance and reception stop IT from being the only team that recognises the number trap.

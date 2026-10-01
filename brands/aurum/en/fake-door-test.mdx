@@ -1,0 +1,108 @@
+---
+title: "Fake door test: measure demand before you build"
+description: "A fake door test shows whether visitors click as if they would buy or sign up, before the product exists. Steps, limits, and when it is enough."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["fake door test", "startup validation", "landing page", "product discovery"]
+funnelStage: interest
+translationKey: fake-door-test
+relatedPosts: ["smoke-test-landing-page", "fake-door-test-vs-mvp"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede">A fake door test is a deliberate dead end in your user interface: the visitor sees the same call to action they would see later, clicks, and then learns the offer is not live yet while you record the click.</p>
+
+## What is a fake door test?
+
+A fake door test answers a narrow question: do people who do not know you still move toward the action you care about, such as «start trial», «book onboarding», or «buy now», when the product behind that button does not exist yet? You are not measuring whether they enjoyed a demo. You are measuring whether the promise on the page is strong enough to overcome hesitation for one step.
+
+The method is older than the label. Product teams have long shipped buttons to nowhere, price pages without checkout, or menu items that open a short explanation. What changed is how cheap it is to pair that pattern with a landing page and paid traffic. For founders in Switzerland, the usual setup is still the same: one clear offer, one primary action, analytics on the click, and a written rule for what would make you continue or stop.
+
+This sits between a survey and a shipped product. Surveys tell you what people say they would do. A fake door records one behavioural step under real distraction. It is weaker than a concierge delivery or a product people return to, which is why it belongs early in a validation stack, not at the end. The wider menu of tests is in [how to validate a startup idea](/blog/how-to-validate-a-startup-idea).
+
+<dl class="blog-terms">
+  <div>
+    <dt>Fake door</dt>
+    <dd>A UI path that looks like the real purchase or signup flow and stops after the first committed click.</dd>
+  </div>
+  <div>
+    <dt>Smoke test</dt>
+    <dd>Often used for any small demand experiment; here we mean a page plus traffic, not only a waitlist field.</dd>
+  </div>
+  <div>
+    <dt>Primary action</dt>
+    <dd>The one click you score; everything else on the page is secondary.</dd>
+  </div>
+</dl>
+
+## How to run a fake door test
+
+Keep the scope small enough to finish in days, not months.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>State one falsifiable claim</h3><p>Example shape: «Office managers in firms with 30–100 staff will click to request a demo when the headline names missing delivery notes.» If you cannot name the audience and action, fix that before you design the door.</p></li>
+  <li data-step="2"><h3>Build the smallest surface</h3><p>One page or one in-app entry point, one primary button, no competing calls to action. Match the wording you expect to use after launch.</p></li>
+  <li data-step="3"><h3>Decide what happens after the click</h3><p>Common patterns: a short message that the product is in development plus an email field, a calendar link for interviews, or a transparent «you are early» screen. Deception without any explanation erodes trust and can pollute later launches.</p></li>
+  <li data-step="4"><h3>Send traffic you can explain</h3><p>Paid search or social ads to cold audiences beat asking friends, who click to please you. Note spend and targeting in your log so you can compare runs.</p></li>
+  <li data-step="5"><h3>Write the stop rule first</h3><p>Define what click rate or absolute clicks would not be enough to justify the next stage. Honour that rule when the numbers arrive.</p></li>
+</ol>
+
+## What a fake door test proves, and what it does not
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Proves</span><strong>Click intent</strong><p>Strangers moved toward your stated offer under real conditions.</p></li>
+  <li><span class="blog-kicker">Does not prove</span><strong>Payment</strong><p>No money changed hands; price sensitivity is still open.</p></li>
+  <li><span class="blog-kicker">Does not prove</span><strong>Retention</strong><p>One click is not a habit or a workflow change.</p></li>
+  <li><span class="blog-kicker">Does not prove</span><strong>The product works</strong><p>You tested copy and positioning, not delivery.</p></li>
+</ul>
+
+A strong click rate on a fake door can still be wrong if the audience was too broad, the button too easy, or the follow-up page confused people who would have paid on a real checkout. Session recordings help here: watch where people hesitate, not only the aggregate click.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>A fake door is a demand screen, not proof of product-market fit. If your risk is whether users will complete a multi-step workflow inside software, you need usage in a real build, not a button on a landing page.</p>
+</aside>
+
+## A made-up example: pricing page for a B2B tool
+
+A made-up example: a solo founder in Zurich tests software that reconciles supplier invoices with delivery notes for small manufacturers. They publish a one-screen pricing page with two tiers and a primary button «Start 14-day trial». There is no app. After the click, the page explains that onboarding opens in six weeks and offers a form for name, company, and role. They spend a modest LinkedIn ads budget aimed at operations titles in Switzerland and southern Germany over ten days. Analytics show 420 sessions, 38 clicks on the trial button, and nine completed forms. Session replays show many clicks happen above the fold but several visitors leave when they see the delay message. The founder keeps the problem hypothesis, changes the headline to name delivery notes explicitly, and plans a second run. They do not claim revenue or product-market fit; they only claim that a cold audience sometimes accepts the trial framing enough to click.
+
+## When a fake door is enough, and when to skip it
+
+<div class="blog-pair">
+  <div>
+    <h3>Enough for now</h3>
+    <ul>
+      <li>You need a cheap read on positioning before you fund design or code</li>
+      <li>The future product has one obvious entry action you can mimic honestly</li>
+      <li>You will follow a weak result with interviews, not with a press release</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Skip or shorten</h3>
+    <ul>
+      <li>Buyers expect a working pilot before they click anything public</li>
+      <li>Trust or compliance dominates the sale; a playful dead end sends the wrong signal</li>
+      <li>You already have repeat usage in a prototype and the question is depth, not curiosity</li>
+    </ul>
+  </div>
+</div>
+
+Remember that ideas as such are not protectable in Switzerland; execution and brand are ([IGE on ideas](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). A fake door does not hide your concept from competitors. It only saves you from building the wrong thing for a few months.
+
+If you run paid campaigns into Switzerland, treat measurement cookies and retargeting as a separate checklist from the door itself. Profiling and cross-site tracking can trigger consent duties that a simple information page does not.
+
+<div class="blog-faq">
+  <h3>Is a fake door test the same as a waitlist?</h3>
+  <p>Not always. A waitlist field can be honest and low friction. A fake door specifically mimics a later action, such as checkout or trial start, and measures clicks on that promise. You can combine both on one page if the story stays clear.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>How does this relate to a real MVP?</h3>
+  <p>A fake door tests interest in the offer. An MVP tests behaviour inside a product people can use again. Aurum’s Product Validation Package is built around the second path: a deployed product, not a landing page whose main job is a fake button. When you need that stronger signal, compare fake door test vs real MVP before you book a build.</p>
+</div>
+
+## When the Landing Page Package fits
+
+The [Landing Page Package](/services/landing-page-package) fits when you want a production page with a real waitlist or lead form, analytics, and session recordings, so you can test demand without pretending the product already exists behind every button. It is the right scale when the open question is still «does this message move strangers?» and you are willing to stop or pivot on weak clicks. It is not a substitute for twelve weeks of product validation with usage data, and it is not where you should hide a checkout that never delivers. If the next bottleneck is behaviour inside the app, move to a validation conversation about a deployed build on the contact page instead of polishing the door.

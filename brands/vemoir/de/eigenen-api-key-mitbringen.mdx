@@ -13,13 +13,16 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@zoshuacolah?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">zoshuacolah</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
+
 **Eigenen API-Key mitbringen** heisst: OpenAI oder Anthropic soll den Text schreiben, und du willst diese Wahl ausdrücklich festgehalten haben. Vemoir legt den Schlüssel im Data-Protection-Schlüsselbund von macOS ab. Speichern oder Prüfen schaltet ihn nicht ein. Du bestätigst die Aktivierung separat. Erst danach laufen Ask Vemoir, Dokumente, Sitzungsartefakte und eigene Artefakte über diesen einen Anbieter. Audio und Sprechertrennung bleiben auf dem Mac. Fehlt der Schlüssel, hat sich der Endpunkt geändert, ist der Anbieter nicht erreichbar oder scheitert der Aufruf, bricht der Vorgang ab. Nichts wechselt still auf ein anderes System.
 
-Die Mac-App selbst ist ein einmaliger Kauf im App Store: CHF 20 in der Schweiz. Den Preis für dein Land zeigt der Store. In Deutschland, Österreich, Frankreich und Italien liegt er bei 24.99 €, in den USA bei 22.99 $. Was der Anbieter für den Text verlangt, den du sendest, rechnet er auf seinem Konto ab. Das sind seine Preise, und sie ändern sich. Schau sie bei ihm nach. Vemoir kann eine Quittung ohne Inhalt behalten: Anbieter, Modell, Zeit, Ausgang, Nutzung und eine datierte Kostenschätzung, wenn passende Preise vorhanden sind. In der Quittung stehen weder der Prompt noch das Transkript, keine Namen und nicht der Schlüssel.
+Die Mac-App ist ein einmaliger Kauf im App Store: CHF 20 in der Schweiz, lokaler Preis im Store sonst. Der Anbieter rechnet Text auf seinem Konto ab. Tarife prüfen, Stand September 2026. Vemoir kann eine Quittung ohne Inhalt behalten: Anbieter, Modell, Zeit, Ausgang, Nutzung und eine datierte Kostenschätzung, wenn passende Preise vorhanden sind. In der Quittung stehen weder der Prompt noch das Transkript, keine Namen und nicht der Schlüssel.
 
 ## Was der mitgebrachte API-Key sehen darf
 
 Nach aussen geht nur Text. Rohes Audio, Dateien, Bilder und externe URLs gehören nicht in die Anfrage. Der Transkripttext und die Notizen, die schon auf dem Mac liegen, können der Text sein, den du verarbeiten lässt. Daraus entsteht die Zusammenfassung. Die Aufnahme selbst geht nicht weg, damit jemand daraus Sprache macht. Parakeet oder Whisper haben das lokal schon erledigt, oder sie tun es noch. Die Sprechertrennung wandert nicht zum Anbieter.
+
+Wenn du Protokoll, Ask Vemoir oder ein eigenes Artefakt erzeugst, sendet die App den Textkontext für diese Aufgabe. Das können Transkriptausschnitte, deine getippten Notizen und Glossarbegriffe als Klartext sein. Die Audiodatei sendet sie nicht. Was ein Anbieter speichert, steht in seiner API- und Datenschutzdokumentation. Vemoir behauptet keine Konformität für dich.
 
 Es ist immer nur eine Quelle aktiv. Hast du den Schlüssel eingeschaltet, gehen Ask, Dokumente, Sitzungsartefakte und eigene Artefakte dorthin. Stellst du auf ein lokales Sprachmodell um, Qwen3 4B oder gpt-oss-20b, liegen alle vier wieder auf dem Mac. Du bekommst keine Mischung, in der Ask bei Anthropic nachfragt und das Protokoll bei Qwen entsteht, ausser du wechselst die Quelle dazwischen.
 
@@ -30,6 +33,12 @@ Du kannst die Einrichtung auch ganz ohne Anbieter lassen. Lokale Modelle bleiben
   <li><span class="blog-kicker">Audio</span><strong>Bleibt lokal</strong><p>Nur Text verlässt den Mac bei Aktivierung.</p></li>
   <li><span class="blog-kicker">Anbieter</span><strong>Dein Konto</strong><p>Abrechnung folgt dem Provider.</p></li>
 </ul>
+
+Willst du Protokoll ohne Text an einen Anbieter? Lass den Schlüssel aus und schreib lokal. Derselbe Ablauf steht in [Fragen zum Meeting-Transkript](/de/blog/fragen-zum-meeting-transkript).
+
+## Wer die API-Nutzung bezahlt
+
+Der App-Store-Preis gilt für die Mac-App, nicht für OpenAI- oder Anthropic-Tokens. Jeder Anbieter stellt dein Konto für Textanfragen in Rechnung, solange der Schlüssel aktiv ist. Eine intensive Ask-Woche kann auf der Anbieterrechnung landen, obwohl die App einmalig gekauft ist. Quittungen ohne Inhalt unter Datenschutz helfen dir, Nutzung nachzuvollziehen, ohne Sitzungstext in der Quittung zu speichern.
 
 ## Einschalten, ohne dich selbst zu überraschen
 
@@ -67,9 +76,7 @@ Die Einrichtung liegt bei den anderen Modellwahlen unter [Aufnahme](/de#capture)
 
 ## Ein Kunde, der Cloud-Text verbietet
 
-Du hast den Call lokal aufgenommen. Das Transkript liegt auf dem Mac. Die Vereinbarung sagt, Sitzungsinhalt geht nicht zu einem Modellanbieter. Leg den Schlüssel nicht ab, und schalte die Aktivierung nicht ein, um den Hinweis nur einmal zu sehen. Der Hinweis ist der Punkt, an dem Text gehen darf. Lass die Aktivierung aus. Qwen, gpt-oss oder Apple Intelligence, wo der Mac sie hat, schreiben den Entwurf. Ist ein Absatz schwach, bearbeite ihn. Das dauert länger als ein grosses Cloud-Modell, und es entspricht der Vereinbarung.
-
-Bei einem anderen Auftrag erlaubt die Vereinbarung den API-Schlüssel der eigenen Firma. Du aktivierst, erzeugst das Follow-up, exportierst den Text und entfernst dann den Schlüssel oder wechselst auf das lokale Modell zurück, bevor der nächste Kunde kommt, der das nicht erlaubt. Quittungen zeigen, dass eine Anfrage gelaufen ist, ohne das Transkript mitzuspeichern. Behalte oder lösche sie in den Datenschutzeinstellungen. Sie sind eine Spur der Wahl, keine zweite Kopie der Sitzung.
+Du hast lokal aufgenommen und die Vereinbarung verbietet Modellanbieter. Aktiviere den Schlüssel nicht nur, um den Hinweis zu lesen. Lass ihn aus und schreib lokal. Erlaubt ein anderer Auftrag den Firmenschlüssel, aktivierst du, exportierst und entfernst den Schlüssel vor dem nächsten eingeschränkten Kunden.
 
 ## Häufige Fragen
 

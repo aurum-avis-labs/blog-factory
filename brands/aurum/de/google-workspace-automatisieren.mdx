@@ -12,11 +12,17 @@ draft: false
 site: prozess-check
 ---
 
-## Google Workspace automatisieren mit Apps Script, AppSheet und Gemini
+## Google Workspace automatisieren: welches Werkzeug wofür?
 
-Wer Google Workspace automatisieren will, hat in einem KMU drei Werkzeuge zur Auswahl, und jedes hat eine andere Aufgabe. Apps Script ist JavaScript, das auf den Servern von Google läuft und mit Sheets, Gmail, Drive, Kalender und Formularen arbeitet. Es ist das Werkzeug, das Daten bewegt, wenn niemand tippt. AppSheet erstellt kleine Apps ohne Code. Gemini hilft einer Person beim Schreiben, Zusammenfassen und Suchen, führt aber keinen Ablauf von selbst aus. Die Grenzen sind die täglichen Kontingente, Skripte, die am Konto einer einzelnen Person hängen, und die Tatsache, dass jemand den Code später lesen muss.
+Wer Google Workspace automatisieren will, mischt in einem Schweizer KMU meist drei Google-Werkzeuge. Apps Script bewegt Daten nach einem Zeitplan oder nach einer Formularantwort. AppSheet gibt Personen ohne Entwicklerrolle eine kleine App auf Tabellen. Gemini entwirft und sucht in Docs und Gmail. Keines ersetzt die anderen, und nur Apps Script läuft, während niemand am Rechner sitzt.
 
-Der Beitrag richtet sich an Geschäftsleitungen sowie Büro- und Finanzverantwortliche in Schweizer KMU, die schon mit Gmail, Drive und Sheets arbeiten. Läuft Ihre Firma auf Microsoft 365, ist das Gegenstück [Microsoft 365 automatisieren mit dem, was Sie schon haben](/de/prozess-check/blog/microsoft-365-automatisieren). Ob ein Assistent wie Gemini der richtige Kauf ist, ist eine andere Frage. [Copilot-Lizenz, oder einen Ablauf umsetzen?](/de/prozess-check/blog/copilot-oder-einen-ablauf-bauen) handelt von Copilot, aber die Weggabelung ist dieselbe: Ein Assistent hilft einer Person beim Entwurf, ein Ablauf bewegt Daten, wenn niemand tippt.
+Der Beitrag richtet sich an Geschäftsleitungen sowie Büro- und Finanzverantwortliche in Schweizer KMU, die schon mit Gmail, Drive und Sheets arbeiten.
+
+<ol class="blog-flow">
+  <li><strong>Apps Script</strong><p>JavaScript auf den Servern von Google: Trigger, Mail, Tabellen, Drive, veröffentlichte Web-Apps.</p></li>
+  <li><strong>AppSheet</strong><p>Formulare und mobile Ansichten auf Daten, die schon in Sheets liegen, in vielen Workspace-Editionen enthalten.</p></li>
+  <li><strong>Gemini</strong><p>Unterstützung in Gmail und Docs ab Business Standard, kein nächtlicher Job.</p></li>
+</ol> Läuft Ihre Firma auf Microsoft 365, ist das Gegenstück [Microsoft 365 automatisieren mit dem, was Sie schon haben](/de/prozess-check/blog/microsoft-365-automatisieren). Ob ein Assistent wie Gemini der richtige Kauf ist, ist eine andere Frage. [Copilot-Lizenz, oder einen Ablauf umsetzen?](/de/prozess-check/blog/copilot-oder-einen-ablauf-bauen) handelt von Copilot, aber die Weggabelung ist dieselbe: Ein Assistent hilft einer Person beim Entwurf, ein Ablauf bewegt Daten, wenn niemand tippt.
 
 ## Was Apps Script kann
 
@@ -75,6 +81,11 @@ Die Kontingente gelten pro Nutzer und werden 24 Stunden nach der ersten Anfrage 
 In unserem Download kostet jede Anfrage eine Handvoll ausgehender Aufrufe: die Prüfung bei reCAPTCHA und die Aufrufe zu Microsoft. Die Grenze von 100'000 ist weit weg, und die Grenze für E-Mail-Empfänger gilt nicht, weil wir nicht über Gmail versenden.
 
 Die Grenze, um die Sie herumplanen sollten, sind die sechs Minuten. Eine Arbeit, die eine grosse Tabelle Zeile für Zeile liest, kann in Zeitnot geraten. Die [bewährten Vorgehensweisen](https://developers.google.com/apps-script/guides/support/best-practices) von Google raten, alle Daten mit einem Befehl in eine Liste einzulesen und mit einem Befehl zurückzuschreiben. Deren Beispiel sinkt von rund 70 Sekunden auf rund 1 Sekunde.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Eine Apps-Script-Ausführung endet nach sechs Minuten auf Workspace-Konten. Daten gebündelt lesen und schreiben, bevor Sie einen schweren Morgenjob planen.</p>
+</aside>
 
 ## Wem die Skripte gehören
 

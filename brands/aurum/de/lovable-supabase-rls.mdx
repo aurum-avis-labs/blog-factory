@@ -1,0 +1,95 @@
+---
+title: "Lovable Supabase RLS prüfen und absichern"
+description: "Lovable Supabase RLS: auf jeder Tabelle aktivieren, mit dem Anon-Key testen und Policies wie Produktionscode lesen, nicht einmalig einrichten."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["lovable", "supabase", "sicherheit", "mvp"]
+funnelStage: interest
+translationKey: lovable-supabase-row-level-security
+relatedPosts: ["lovable-mvp", "vibe-coding-sicherheit"]
+draft: true
+site: studio
+---
+
+## Lovable Supabase RLS
+
+Lovable Supabase RLS ist die Postgres-Schicht, die festlegt, welche Zeilen ein angemeldeter Nutzer oder ein Fremder mit Ihrem öffentlichen Schlüssel lesen und schreiben darf. Lovable verbindet die App mit Supabase und legt oft Tabellen und Policies an. Das ist schnell für einen Prototyp. Es garantiert nicht, dass jede Tabelle gesperrt ist, dass die Policies zu Ihren Screens passen oder dass ein direkter API-Aufruf die Oberfläche umgeht. Behandeln Sie RLS als Teil des Produkts, prüfen Sie es vor echten Nutzenden und erneut bei jeder Änderung am Datenmodell.
+
+Der Text richtet sich an Gründerinnen und Gründer mit einem Lovable-MVP auf Supabase, die wissen wollen, ob Konto A die Zeilen von Konto B sehen kann. Er ersetzt keinen Penetrationstest, keine Rechtsauskunft zum Schweizer Datenschutz und kein Handbuch zu jeder Policy-Syntax. Den breiteren Produktionsmassstab finden Sie unter [Ist Ihre vibe-coded App produktionsreif](/de/blog/ist-deine-vibe-coded-app-produktionsreif).
+
+<dl class="blog-terms">
+  <div>
+    <dt>RLS</dt>
+    <dd>Row Level Security in Postgres: jede Zeile wird per Policy erlaubt oder verweigert, nicht nur durch ausgeblendete Buttons in React.</dd>
+  </div>
+  <div>
+    <dt>Anon-Key</dt>
+    <dd>Der öffentliche Supabase-Client-Schlüssel im Frontend. Jede Person kann ihn aus dem Browser kopieren und die API aufrufen.</dd>
+  </div>
+  <div>
+    <dt>Policy</dt>
+    <dd>Eine Regel auf einer Tabelle, meist an `auth.uid()` geknüpft, die Select, Insert, Update und Delete filtert.</dd>
+  </div>
+</dl>
+
+## Warum der Login in der UI nicht reicht
+
+Lovable kann schnell einen funktionierenden Login liefern. Autorisierung kommt danach: Darf dieses Konto nur eigene Projekte, Nachrichten oder Rechnungen laden? Bei Supabase mit Client-SDK liegt die Durchsetzung in der Datenbank. Ist RLS auf einer Tabelle aus oder eine Policy zu weit, können Anon-Key und ein erratener Tabellenname Daten zeigen, obwohl die App keinen Link dorthin anzeigt.
+
+Generierte Policies folgen oft dem Happy Path des ersten Features. Kommen eine zweite Rolle, ein gemeinsamer Workspace, eine Admin-Ansicht oder eine Verknüpfungstabelle hinzu, erlaubt die alte Policy vielleicht noch `select` auf Zeilen, die privat bleiben sollen. Später kommen häufig Server-Routen oder Edge Functions; jeder neue Pfad braucht dieselbe Frage: Wer darf welche Zeilen anfassen?
+
+## Was im öffentlichen CVE-Fall schiefging
+
+2025 meldeten Forschende [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757): fehlende oder unwirksame Row Level Security bei Lovable-generierten Supabase-Projekten, sodass der öffentliche Client-Schlüssel Abfragen ohne Login erlaubte. Der Eintrag nennt mehr als 170 betroffene Apps, gemeldet im März 2025, veröffentlicht am 29. Mai 2025. Das ist ein bekannter Musterfall, keine Prognose für Ihr Projekt heute. Er erinnert daran, dass «mit Supabase verbunden» und «RLS auf jeder Tabelle korrekt» verschiedene Aussagen sind. Ihre Aufgabe ist, das Zweite an Ihrem Schema nachzuweisen, nicht zu vermuten, dass das Template es erledigt hat.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Bestandene eigene RLS-Tests beweisen weder DSG-Konformität, noch die Wahl eines Schweizer Rechenzentrums, noch den sicheren Umgang mit Service-Role-Keys auf einem Server. Die Region (zum Beispiel Zürich, eu-central-2, wo Supabase sie anbietet) ist eine Deploy-Entscheidung; Policies stoppen fremde Lesezugriffe.</p>
+</aside>
+
+## Ein pragmatischer Prüfablauf
+
+Arbeiten Sie im Supabase-Dashboard des von Lovable angelegten Projekts oder in SQL. Nutzen Sie eine Test-Kopie, wenn bereits Produktionsdaten liegen.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Tabellen ohne RLS finden</h3><p>Im Table Editor oder über `pg_tables` prüfen, dass RLS auf jeder Tabelle mit Nutzer- oder Mandantendaten aktiv ist. Storage-Metadaten und Auth-Tabellen haben eigene Regeln; «kleine» manuell angelegte Tabellen nicht überspringen.</p></li>
+  <li data-step="2"><h3>Policies wie Anwendungscode lesen</h3><p>Pro Policy fragen, für wen `select`, `insert`, `update` und `delete` gelten. `using true` auf `select` für die Rolle `anon` ist ein Warnsignal, ausser die Daten sind bewusst öffentlich.</p></li>
+  <li data-step="3"><h3>Die API als Fremde aufrufen</h3><p>Nur mit dem Anon-Key (derselbe wie in der gebauten App) versuchen, die Zeilen-ID eines anderen Nutzers zu lesen. Kommen Daten zurück, war die UI irrelevant.</p></li>
+  <li data-step="4"><h3>Mit zwei Testkonten wiederholen</h3><p>Zwei Konten anlegen. Konto A darf auf keiner Tabelle Zeilen von Konto B lesen oder schreiben, auch nicht auf Verknüpfungstabellen oder Anhang-Metadaten.</p></li>
+  <li data-step="5"><h3>Nach jeder Schema-Änderung erneut</h3><p>Neue Spalte, neue Tabelle oder ein Lovable-Prompt, der «nur ein Feature» ergänzt, kann ohne passende Policy ausliefern. RLS gehört in dieselbe Checkliste wie «funktioniert der Button».</p></li>
+</ol>
+
+## Ein erfundenes Beispiel: Buchungs-Pilot
+
+Ein erfundenes Beispiel: Eine Gründerin baut in Lovable ein Raumbuchungs-Tool für einen Coworking-Piloten, kein Kundenprojekt. Die Tabellen `spaces`, `bookings` und `members` enthalten Namen und E-Mail-Adressen. In der App sieht man eingeloggt korrekt «meine Buchungen». In Supabase ist RLS auf `bookings` noch aus, weil ein früher Prompt die Tabelle vor den Policies erzeugt hat. Jede Person mit dem Anon-Key der öffentlichen URL kann alle Zeilen in `bookings` abfragen und die Slots aller Mitglieder sehen. Sie aktiviert RLS, setzt eine `select`-Policy mit `member_id` gleich `auth.uid()` und wiederholt den Anon-Key-Test. Bei `members` braucht es ein strengeres `select`, damit niemand die E-Mail-Adressen der anderen auflistet. Für Lernen kann der Pilot starten; für zahlende Standorte nennt sie es noch nicht produktionsreif.
+
+## Wer das jetzt tun sollte, wer warten kann
+
+<div class="blog-pair">
+  <div>
+    <h3>Jetzt prüfen</h3>
+    <ul>
+      <li>Sie speichern Personendaten, Nachrichten, Dateien oder alles, was ein Konto nicht vom anderen sehen darf</li>
+      <li>Eine öffentliche URL, Ads oder eine Warteliste über Freunde und Familie hinaus sind geplant</li>
+      <li>Sie haben die Supabase-Schlüssel bereits in ein anderes Tool oder einen Mobile-Build kopiert</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Tiefe Prüfung kann warten</h3>
+    <ul>
+      <li>Der Prototyp ist offline, nur Fake-Daten, und das Schema wird verworfen</li>
+      <li>Ein gemeinsames Admin-Login ist das ganze Modell und alle sind vertrauenswürdiges Team</li>
+      <li>Noch kein echtes Supabase-Projekt verbunden</li>
+    </ul>
+  </div>
+</div>
+
+Mit ausgeschaltetem RLS sollten Sie keine echten Kundendaten veröffentlichen. Ein halber Tag Audit kann warten, bis die Idee den ersten Nutzendenkontakt überlebt hat.
+
+## Was ein sauberer RLS-Durchlauf nicht beweist
+
+Grüne Haken bei Policies zeigen nicht, dass der Service-Role-Key nie im Browser landet, dass Storage-Buckets privat sind, dass Rate Limits existieren oder dass Backup und Monitoring stehen. Sie ersetzen keine strukturierte Prüfung anhand eines Standards wie OWASP ASVS, wenn Fremde zahlen oder Aufsicht fragt. Sie retten auch kein falsches Datenmodell: RLS auf einer Tabelle, die es nie geben sollte, bleibt die falsche Produktentscheidung.
+
+## Wann Vibe Code Review passt
+
+Wenn Sie mit Lovable (oder ähnlich) gebaut haben und eine unabhängige Einschätzung zu Auth, Datenzugriff und der Lücke zwischen Prototyp und etwas brauchen, das Sie gegenüber Kundschaft vertreten können, ist der [Vibe Code Review](/de/services/vibe-code-review) für diesen Moment gedacht. Wir prüfen die App anhand von OWASP ASVS v5.0, widmen fokussierte Zeit Architektur und Codequalität und liefern eine priorisierte Massnahmenliste plus ein abschliessendes Gespräch unter NDA. Das passt, wenn Sie über die Demo hinaus sind und wissen müssen, was vor breiterem Launch geändert werden muss, nicht wenn Sie nur eine Feature-Checkliste vom KI-Tool wollten.

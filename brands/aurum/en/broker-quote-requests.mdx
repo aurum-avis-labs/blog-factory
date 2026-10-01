@@ -14,13 +14,15 @@ site: prozess-check
 
 ## Send and compare quote requests to insurers
 
-You send and compare quote requests by writing the client's need once, sending that same sheet to each insurer you chose, and forcing every answer into the same rows. The recommendation is not a row. You write it after you have read the grid, together with the information the client must have before a contract. This is an office method, not insurance advice and not regulatory advice.
+<p class="blog-lede">You bundle quote requests by writing the client's need once, sending that same sheet to each insurer you chose, and lining every answer up in the same rows. You write the recommendation afterwards.</p>
+
+This is an office method, not insurance advice and not regulatory advice.
 
 This is for an independent Swiss broker who asks several insurers for the same cover. Where that job sits among renewals, claims and the duties that stay with you is in [AI for Swiss insurance brokers](/prozess-check/blog/ai-for-insurance-brokers). This page is only the round trip of the quote.
 
 ## One sheet, before anyone is asked
 
-The waste starts when each insurer gets a slightly different story, because each mail was typed from memory. The fix is one fact sheet for the need in front of you: who is to be insured, what activity or object, the sums the client asked for, the location, claims the client states for the years you always ask, and the date cover should start. Empty fields stay empty. They become questions to the client, not guesses an insurer will price as if they were facts.
+The waste starts when each insurer gets a slightly different story, because each email was typed from memory. The fix is one fact sheet for the need in front of you: who is to be insured, what activity or object, the sums the client asked for, the location, claims the client states for the years you always ask, and the date cover should start. Empty fields stay empty. They become questions to the client, not guesses an insurer will price as if they were facts.
 
 That sheet is the only place those facts are typed. Copying them again into a second system is the general problem in [stop double data entry](/prozess-check/blog/stop-double-data-entry). Here the copies that matter are the ones that go out to insurers, and the unlike documents that come back.
 
@@ -37,15 +39,15 @@ You decide who is on the list. A workflow can hold the insurers you usually ask 
 
 Insurers do not all accept the same channel. One wants a portal, one an email, one a spreadsheet with their column names. The office work is to map your sheet onto each of those, field by field, once. A workflow can do that map when you have written it down: "our sum insured" equals "their column C". Where their form has a question you do not have, the request goes out with that question blank and a list of blanks comes back to you. Filling the blank with a plausible number is how a quote describes a risk the client does not have.
 
-Keep a copy of exactly what was sent, per insurer, with the date. When an answer contradicts the sheet, you can see whether the insurer changed a fact or you never sent it. The outgoing request can be produced like any other document from a template, which is the method in [creating documents from templates](/prozess-check/blog/generate-documents-from-templates). The template is the request, not the advice.
+Keep a copy of exactly what was sent, per insurer, with the date. When an answer contradicts the sheet, you can see whether the insurer changed a fact or you never sent it. The outgoing request can be produced like any other document from a template, in [creating documents from templates](/prozess-check/blog/generate-documents-from-templates). The template is the request, not the advice.
 
 ## Line the answers up, then stop
 
 Answers arrive as PDFs with different headings. Normalising them means the same questions in the same order for every insurer: annual premium, deductible, the sub-limits that matter for this need, the exclusions that change the point of the cover, conditions precedent, and whether they declined a part. If a figure is not in the document, the cell says "not stated". It does not say zero.
 
-A workflow can propose those cells when the wording is plain, and it can flag a cell it could not find. A person checks the flags and the rows where two insurers use different words for a limit. Two clauses are not "the same" because a model said so. They are the same when you have read them.
+A workflow can propose cells when the wording is plain, and flag cells it could not find. A person checks the flags and any row where two insurers use different words for a limit.
 
-[FINMA](https://www.finma.ch/de/ueberwachung/versicherungsvermittler/pflichten-fuer-versicherungsvermittlerinnen-und--vermittler/) states that information goes to the client in an understandable form before the contract (Art. 45 of the Insurance Supervision Act), and that untied intermediaries disclose remuneration received from insurers or third parties (Art. 45b). The comparison grid is working paper. It is not that information. The letter the client receives is written or signed off by the broker, and it says which offer you recommend and what you are paid, in the way your firm already documents. This page does not draft that letter for you.
+[FINMA](https://www.finma.ch/de/ueberwachung/versicherungsvermittler/pflichten-fuer-versicherungsvermittlerinnen-und--vermittler/) states that information goes to the client in an understandable form before the contract (Art. 45 of the Insurance Supervision Act), and that untied intermediaries disclose remuneration from insurers or third parties (Art. 45b). The comparison grid is working paper, not that information.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
@@ -54,20 +56,25 @@ A workflow can propose those cells when the wording is plain, and it can flag a 
 
 ## A made-up example
 
-A made-up example: a broker asks three insurers for contents cover for a small workshop. The fact sheet, invented here, says a sum, an address, a start on the first of a month, and no claims stated for five years. No premium is quoted in this story. The rows only need to show what was stated and what was not.
+A made-up example: a broker asks three insurers for contents cover for a small workshop. The fact sheet says a sum, an address, a start on the first of a month, and no claims stated for five years. No premium below is a market price. They are placeholders so the grid has something to hold.
 
-Insurer A returns a premium and a deductible, and an exclusion for stock in the yard that the sheet never described, because the workshop has no yard. The workflow puts the premium and the deductible in the row and copies the yard exclusion into "exclusions", with the page number. The broker sees a condition that does not match the risk and notes it.
+Insurer A returns a premium and a deductible, and an exclusion for stock in the yard that the sheet never described, because the workshop has no yard. The workflow puts the premium and the deductible in the row and copies the yard exclusion into "exclusions", with the page number. The broker notes a condition that does not match the risk.
 
-Insurer B's PDF states a premium and is silent on theft away from the premises. The cell says "not stated". The broker asks, in one mail, rather than treating silence as cover.
+Insurer B's PDF states a premium and is silent on theft away from the premises. The cell says "not stated". The broker asks in one email rather than treating silence as cover.
 
-Insurer C declines the stock portion and quotes the rest. The row says "partial decline" and keeps the PDF. The workflow does not delete C for being awkward.
+Insurer C declines the stock portion and quotes the rest. The row says "partial decline" and keeps the PDF.
 
-The broker's letter, which a person writes, recommends A after striking the yard exclusion in the negotiation, explains the theft point B never answered, and includes the remuneration disclosure the firm uses. The grid stays in the file. It is not attached as if it were the advice.
+The broker's letter recommends A after striking the yard exclusion, explains the theft point B never answered, and includes the remuneration disclosure the firm uses. The grid stays in the file. It is not attached as if it were the advice.
+
+<div class="blog-faq">
+  <h3>Does the grid replace the advice duty?</h3>
+  <p>No. The grid orders answers. You still write the recommendation, the reason and the disclosures in an understandable form before the contract.</p>
+</div>
 
 ## When to leave it
 
-Leave it if you place business with one insurer and the "comparison" is a price check you do twice a year. The sheet is then slower than the portal. Leave it if every risk is negotiated from a blank page, with no stable rows, as some specialty placements are. And leave the sending alone if you cannot say which fields are allowed to travel to an insurer. A neat grid on top of a sheet the client has not confirmed only multiplies a wrong fact.
+Leave it if you place business with one insurer and the "comparison" is a price check you do twice a year. The sheet is then slower than the portal. Leave it if every risk is negotiated from a blank page, with no stable rows, as some specialty placements are. Leave the sending alone if you cannot say which fields are allowed to travel to an insurer. A neat grid on top of a sheet the client has not confirmed only multiplies a wrong fact.
 
 ## When the Process Check fits
 
-If the same person retypes one client need into several insurer forms every week, that task is a case for the [Process Check](/prozess-check). In 60 minutes on Microsoft Teams you look at one line of business, not the whole brokerage. You leave with where to start, whether it pays off, a price range and a short written summary. A description of the sheet is enough. You do not bring a client file. The hour itself is set out in [what the Process Check is](/prozess-check/blog/what-the-process-check-is).
+If the same person retypes one client need into several insurer forms every week, that task is a case for the [Process Check](/prozess-check). In 60 minutes on Microsoft Teams you look at one line of business, not the whole brokerage. You leave with where to start, whether it pays off, a guide price range and a short written summary. A description of the sheet is enough. You do not bring a client file. The hour itself is set out in [what the Process Check is](/prozess-check/blog/what-the-process-check-is).

@@ -14,94 +14,96 @@ site: prozess-check
 
 ## Automate appointment booking with payment: how ours runs
 
-You can automate appointment booking with payment so that a slot only counts once it is paid. Our own Process Check booking works that way. The page reads free times from Microsoft Bookings through Microsoft Graph and sends the visitor to Stripe Checkout. Only after Stripe confirms the payment does a webhook create the appointment in Bookings, with a Microsoft Teams link. Bookings then sends the confirmation email. Nobody in the office has to touch it.
+You can automate appointment booking with payment so a slot only counts once it is paid. Our Process Check booking works that way: free times from Microsoft Bookings through Graph, payment on Stripe Checkout, appointment and Teams link only after a confirmed payment via webhook. Bookings sends the confirmation e-mail. Nobody in the office touches it.
 
-This is for owners and office leads who sell paid appointments, such as a first consultation or a paid assessment, and who already work in Microsoft 365. It describes a flow we built for ourselves and use every day: you go through it when you book the Process Check. It is not an argument that every firm should build one. For many, a ready-made tool is enough, and a section below says when.
+This is for owners and office leads who sell paid appointments and already run Microsoft 365. The flow is the one you go through when you book the Process Check yourself. It is not an argument that every firm should build one. For many, a ready-made tool is enough; a section below says when.
 
 ## Can Microsoft Bookings take payment itself?
 
-No. Microsoft's own [Bookings FAQ](https://learn.microsoft.com/en-us/microsoft-365/bookings/bookings-faq) answers the question "Can I link a payment option to my Bookings?" with "No, there's no payment support in Bookings." The answer carries no country exception, so it applies in Switzerland as well.
+No. Microsoft's [Bookings FAQ](https://learn.microsoft.com/en-us/microsoft-365/bookings/bookings-faq) answers «Can I link a payment option to my Bookings?» with «No, there's no payment support in Bookings.» There is no Swiss exception in that answer.
 
-That gap is the reason for the whole flow. Bookings has a public booking page that customers can use directly, and it books the appointment straight away. For a paid appointment, that link would let anyone skip the payment. So we deliberately leave it unused. Our website has its own date and time picker, and Bookings only receives the appointment once the money is in.
+Bookings offers a public booking page: the customer picks a time and the appointment lands in the calendar at once. For a paid slot, that link would let anyone skip payment. We leave it unused. Our site picks date and time; Bookings only sees the appointment once the money is in.
 
 ## The flow, step by step
 
-Five steps, three systems: our website with a small API behind it, Stripe, and Microsoft Bookings.
+Five steps, three systems: website with a small API, Stripe, Bookings.
 
 <ol class="blog-steps">
-  <li data-step="1"><h3>Read the free times</h3><p>The booking page asks our API for free 60-minute slots. The API reads availability from Bookings through Microsoft Graph, so Bookings stays the one calendar that knows what is free.</p></li>
-  <li data-step="2"><h3>Choose a time and add details</h3><p>The visitor picks a date and time and enters an email address, optionally a name and a short note on which task we should look at.</p></li>
-  <li data-step="3"><h3>Pay on Stripe's page</h3><p>The visitor is sent to Stripe Checkout, a payment page hosted by Stripe. Card details are entered there, not on our site.</p></li>
-  <li data-step="4"><h3>The webhook creates the appointment</h3><p>Once the payment has gone through, Stripe sends a signed message to our API. The API checks the signature and creates the Bookings appointment as an online meeting, which gives it a Teams link. The note from step 2 goes into the appointment.</p></li>
-  <li data-step="5"><h3>Bookings sends the confirmation</h3><p>The confirmation email with the Teams link comes from Bookings, the same way as for any other Bookings appointment.</p></li>
+  <li data-step="1"><h3>Read the free times</h3><p>The booking page asks our API for free 60-minute slots. It reads availability from Bookings through Microsoft Graph. Bookings stays the calendar that knows what is free.</p></li>
+  <li data-step="2"><h3>Choose a time and add details</h3><p>The visitor picks date and time, enters an e-mail address, and optionally a name and a short note on the task to look at.</p></li>
+  <li data-step="3"><h3>Pay on Stripe's page</h3><p>Redirect to Stripe Checkout. Card details are entered there, not on our site.</p></li>
+  <li data-step="4"><h3>The webhook creates the appointment</h3><p>After payment succeeds, Stripe sends a signed message. The API checks the signature and creates a Bookings online meeting, including a Teams link. The note from step 2 sits in the appointment.</p></li>
+  <li data-step="5"><h3>Bookings confirms</h3><p>The e-mail with the Teams link comes from Bookings, like any other appointment there.</p></li>
 </ol>
 
-Both Graph pieces are documented by Microsoft: reading [staff availability](https://learn.microsoft.com/en-us/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0) and [creating an appointment](https://learn.microsoft.com/en-us/graph/api/bookingbusiness-post-appointments?view=graph-rest-1.0), where an appointment marked as online comes back with a Teams join link.
+Microsoft documents both Graph calls: reading [staff availability](https://learn.microsoft.com/en-us/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0) and [creating an appointment](https://learn.microsoft.com/en-us/graph/api/bookingbusiness-post-appointments?view=graph-rest-1.0). Marked as online, Bookings returns the Teams join link.
 
 ## Why the webhook creates the appointment, not the thank-you page
 
-The appointment is created in the webhook because the thank-you page is not reliable. Stripe says so in its [fulfilment guide](https://docs.stripe.com/checkout/fulfillment): you cannot rely on the page after checkout, because a customer can pay and then lose their connection before that page loads. The webhook goes from Stripe to the server directly.
+Stripe's [fulfilment guide](https://docs.stripe.com/checkout/fulfillment) says you cannot rely on the page after checkout: a customer can pay and lose the connection before the thank-you page loads, and would have no appointment. The webhook goes from the payment provider to the server directly.
 
-Two more points from Stripe's [webhook documentation](https://docs.stripe.com/webhooks) shaped the flow. In live mode, Stripe retries a failed delivery for up to three days. And the same event can arrive more than once. So creating the appointment has to be safe to run twice for the same payment, and someone has to see when deliveries fail. A paid slot with no appointment is the one failure this flow must never hide.
+Two points from Stripe's [webhook documentation](https://docs.stripe.com/webhooks) shaped the flow. In live mode, Stripe retries failed delivery for up to three days. The same event can arrive more than once. Creating the appointment must be idempotent: the same payment must not create two slots. Someone must see failed deliveries. A paid slot with no calendar entry is the failure this flow must never hide.
 
-Checking the signature matters for a different reason. Without it, anyone who found the address could send a fake "paid" message and get an appointment for free.
+Without signature verification, anyone who found the webhook URL could send a fake «paid» message and get an appointment without paying.
+
+The API needs an app registration in Microsoft Entra with rights to Bookings through Graph. Credentials expire; without renewal the page may still read free times but no longer create appointments. In production, a simple alert helps when Stripe webhooks fail repeatedly or when payments sit without a new Bookings entry.
+
+Stripe Checkout stores only what payment and matching need. Name, e-mail, and note come from step 2 and reach the Bookings appointment only when the webhook fires. Bookings stays the calendar source your staff see.
 
 ## What we deliberately left manual
-
-Not every part of a booking is worth automating. We drew the line here:
 
 <div class="blog-pair">
   <div>
     <h3>Runs automatically</h3>
     <ul>
       <li>Showing free times from Bookings</li>
-      <li>Payment, which reserves the slot</li>
-      <li>The Bookings appointment with its Teams link</li>
-      <li>The confirmation email</li>
-      <li>The note on the task, inside the appointment</li>
+      <li>Payment that reserves the slot</li>
+      <li>Bookings appointment with Teams link</li>
+      <li>Confirmation e-mail</li>
+      <li>Note on the task inside the appointment</li>
     </ul>
   </div>
   <div>
     <h3>Stays manual</h3>
     <ul>
-      <li>Rescheduling, free up to 12 hours before, by email or phone</li>
-      <li>The money-back decision after the appointment</li>
-      <li>The refund itself, through Stripe back to the card</li>
+      <li>Rescheduling, free up to 12 hours before, by e-mail or phone</li>
+      <li>Money-back decision after the appointment</li>
+      <li>Refund through Stripe back to the card</li>
     </ul>
   </div>
 </div>
 
-Rescheduling is rare enough to handle by email. The refund depends on a judgement: did the hour turn up something worth automating? A person makes that call, not a rule in code.
+Rescheduling is rare enough for e-mail. The refund depends on whether the hour turned up something worth automating. A person makes that call, not a rule in code.
 
-One detail we only noticed in use: the Stripe page follows the language of our booking page, but the Bookings confirmation email uses the language set in the Bookings business settings. If you serve customers in two languages, check both.
+In use we noticed: Stripe Checkout follows our booking page language, but the Bookings confirmation uses the language set in Bookings business settings. If you serve two languages, check both.
 
 ## When a ready-made booking tool is enough
 
-For many firms a booking tool with payment built in is the better choice, and nobody needs to build anything. That is the case when you have a few appointment types with a standard flow, the tool confirms a booking only after payment, it handles CHF and the way your customers want to pay, and you do not need the appointment in your Microsoft 365 calendar.
+Few appointment types, standard flow, booking only after payment, CHF and the way your customers pay, no requirement to live in the Microsoft 365 calendar: a tool with built-in payment is often the better choice without a custom build.
 
-Check those points on the vendor's own pages before you commit. Currency is the usual trap for a Swiss firm. Calendly, for example, lists AUD, CAD, EUR, GBP and USD for [payments through Stripe](https://calendly.com/help/calendly-stripe), and CHF is not on that list at the time of writing. Payment methods are the second point. Stripe offers [TWINT](https://docs.stripe.com/payments/twint) in Checkout for customers in Switzerland, but whether a booking tool passes that on is something to check, not assume.
+Check currency and payment methods on the vendor's pages. Calendly lists AUD, CAD, EUR, GBP and USD for [payments through Stripe](https://calendly.com/help/calendly-stripe); at the time of writing CHF was not on that list. Stripe offers [TWINT](https://docs.stripe.com/payments/twint) in Checkout for Switzerland; whether a booking tool passes it on is for you to verify, not assume.
 
-Skip a custom flow, too, if you sell only a handful of paid appointments a month. An invoice after the appointment may be simpler still. And if your customers are businesses that expect an invoice, card payment up front will put some of them off, however well it is built.
+Skip a custom flow if you sell only a handful of paid appointments a month: an invoice afterwards may be simpler. B2B customers who expect an invoice may resist card payment up front, however well the flow is built.
 
 ## When a custom flow makes sense
 
-A custom flow earns its keep when the booking has to fit systems you already run. In our case the company runs on Microsoft 365, the calendar is Bookings, the meeting is Teams, and payment had to come before confirmation, which Bookings cannot do on its own.
+It earns its keep when the booking must fit systems you already run: Microsoft 365, Bookings as the calendar, Teams for the meeting, payment before confirmation. Bookings alone cannot do that.
 
-It fits when you already use Bookings and want to keep one calendar, when payment must come before the slot is fixed, and when the booking should carry information further, such as a note into the appointment. It also fits when the booking page should sit on your own site, in your own languages.
+It fits when you already use Bookings and want one calendar, when payment must come before the slot is fixed, when notes should land in the appointment, and when the booking page should sit on your site in your languages.
 
-Plan the running costs as well. Stripe charges per payment, with no set-up or monthly fee on its [Swiss pricing page](https://stripe.com/en-ch/pricing). Hosting and running an automation we operate costs CHF 50–150 a month, depending on the solution. Someone has to watch for failed webhook deliveries, and the credentials the flow uses to reach Bookings have to be renewed before they expire. Which package size a flow like this would be for you depends on how many systems it touches. That is what the Process Check settles.
+Plan running costs. Stripe charges per payment, with no set-up or monthly fee on its [Swiss pricing page](https://stripe.com/en-ch/pricing). Hosting and running an automation we operate costs roughly CHF 50–150 a month. Failed webhooks need attention; Graph credentials must be renewed before they expire. Which package size a flow like this would be for you depends on how many systems it touches. That is what the Process Check settles.
 
 <div class="blog-faq">
   <h3>Can Microsoft Bookings take payment in Switzerland?</h3>
-  <p>Not by itself. Microsoft's Bookings FAQ says there is no payment support in Bookings. Taking payment needs a separate provider, such as Stripe, and a flow that only creates the appointment once the payment has gone through.</p>
+  <p>Not by itself. Microsoft's Bookings FAQ says there is no payment support in Bookings. Taking payment needs a separate provider, such as Stripe, and a flow that only creates the appointment once payment has gone through.</p>
 </div>
 
 ## Book it and see the flow for yourself
 
-The quickest way to see the flow is to use it. If you have one recurring task, a booking like this or anything else, book the Process Check: pick a time, pay on Stripe's page, and the confirmation with the Teams link arrives from Bookings. 60 minutes on Microsoft Teams, CHF 99.
+The quickest way to see the flow is to use it: pick a time, pay on Stripe's page, confirmation with Teams link from Bookings. 60 minutes on Teams, CHF 99.
 
 [Book the Process Check](/prozess-check/buchen)
 
-What the hour covers is in [what the Process Check is](/prozess-check/blog/what-the-process-check-is), and what follows it in [after the Process Check](/prozess-check/blog/after-the-process-check). The offer itself is on the [Process Check page](/prozess-check).
+What the hour covers is in [what the Process Check is](/prozess-check/blog/what-the-process-check-is), and what follows in [after the Process Check](/prozess-check/blog/after-the-process-check). The offer itself is on the [Process Check page](/prozess-check).
 
-Do not book it if a ready-made booking tool already does what you need, in CHF and with the payment method your customers use. Set that tool up and keep the hour. The same applies if you sell a few appointments a month and an invoice afterwards works fine.
+Do not book if a ready-made tool already covers CHF and your payment method, or if a few appointments a month and an invoice afterwards work fine.

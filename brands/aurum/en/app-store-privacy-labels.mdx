@@ -1,0 +1,78 @@
+---
+title: "App Store privacy labels and Google Play data safety"
+description: "App Store privacy labels and Google Play data safety: what to declare, how SDKs count, and what store forms do not replace under Swiss law."
+pubDate: 2027-09-01
+author: "Aurum Avis Labs"
+tags: ["app store", "google play", "privacy", "mvp", "switzerland"]
+funnelStage: interest
+translationKey: app-store-privacy-labels
+relatedPosts: ["privacy-requirements-swiss-mvp", "cookie-rules-swiss-landing-page"]
+draft: true
+site: studio
+---
+
+## App Store privacy labels and Google Play data safety
+
+App Store privacy labels and Google Play data safety are the two public questionnaires Apple and Google show on your listing. You answer them in App Store Connect and the Play Console from how the shipped binary actually behaves: your backend, your analytics SDK, your auth provider, and crash reporting all count. The forms are mandatory for most public apps. They are not a privacy policy, and they do not replace what the Swiss FADP expects in your own notice to users.
+
+This page is for innovation leads and founders who are about to submit an MVP wrap or a first native build from Zurich or elsewhere in Switzerland. You already have login, a few API calls, and probably GA4 or Microsoft Clarity from validation traffic. Companion reads: [privacy requirements for a Swiss MVP](/blog/privacy-requirements-swiss-mvp), cookie rules for a Swiss landing page, and how [startup software development in Switzerland](/blog/startup-software-development-switzerland) bundles hosting with product work. Nothing here is legal advice.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Inventory what leaves the device</h3><p>List account fields, usage events, device identifiers, crash logs, and support attachments. Include third-party libraries, not only your API.</p></li>
+  <li data-step="2"><h3>Map each item to Apple's categories</h3><p>App Privacy in Connect uses data types (contact info, identifiers, usage data, and others) and purposes (analytics, app functionality, and others). Apple's guide is [App privacy details](https://developer.apple.com/app-store/app-privacy-details/).</p></li>
+  <li data-step="3"><h3>Complete Google Play Data safety</h3><p>Declare collection, sharing, encryption in transit, and deletion options. Google's walkthrough is the [Data safety form](https://support.google.com/googleplay/android-developer/answer/10787469).</p></li>
+  <li data-step="4"><h3>Align the privacy policy URL</h3><p>Both stores link to your policy. The policy should name the same vendors and purposes you declared. Mismatch is a review and diligence risk.</p></li>
+  <li data-step="5"><h3>Revisit after every SDK change</h3><p>A new chat widget, ads SDK, or session replay tag can change the answers without a visible UI change.</p></li>
+</ol>
+
+## What the stores are asking for
+
+Apple's nutrition labels summarise what data is linked to the user or used for tracking, and what is collected but not linked. Google groups similar facts under Data safety with plain-language badges shoppers see before install. Neither form asks whether you are «GDPR compliant» or «DSG ready». They ask whether your answers match the binary reviewers can exercise.
+
+Third-party SDKs are the usual gap. Firebase Analytics, Sentry, PostHog, Stripe, Supabase auth, and social login kits often send identifiers or usage events you did not wire yourself. The honest approach is to read each vendor's data sheet, tick the types they admit, and note linked vs not linked the way Apple defines those terms. Guessing «we only store email» while the crash tool sends device IDs is how listings get corrected after launch.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Apple</span><strong>App Privacy</strong><p>Declared in Connect; shown on the App Store product page.</p></li>
+  <li><span class="blog-kicker">Google</span><strong>Data safety</strong><p>Declared in Play Console; shown on the Play Store listing.</p></li>
+  <li><span class="blog-kicker">Swiss law</span><strong>Separate</strong><p>Art. 19 FADP transparency belongs in your notice and contracts, not only in store UI.</p></li>
+  <li><span class="blog-kicker">Proof</span><strong>None</strong><p>Accurate labels do not prove product-market fit or revenue.</p></li>
+</ul>
+
+## Swiss context without mixing the jobs
+
+A Swiss GmbH or sole proprietorship still processes personal data under the [FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de) when the app stores names, usage tied to an account, or health and finance fields. Store forms satisfy Apple and Google policies. They do not satisfy your statutory duty to inform people in a form they understand. If your MVP also runs a marketing site, cookie and analytics choices may differ between web and app; the landing-page article above walks through Swiss cookie practice.
+
+Cross-border hosting matters for your notice and subprocessors. Choosing Supabase in Zurich ([documented region](https://supabase.com/docs/guides/platform/regions)) does not automatically move analytics or replay data to Switzerland. Say where each vendor processes data in the policy, not only on the store checkbox.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>Store privacy questionnaires are product and policy paperwork. They do not tell you whether you need consent for a given SDK in Switzerland, whether you must run a data protection impact assessment, or how to answer an enterprise security questionnaire.</p>
+</aside>
+
+## A made-up example: labels before the Thursday submit
+
+A made-up example: a two-person team in Basel, not a client, ships a B2B checklist app for facility walk-throughs. The React app runs in a Capacitor shell. They collect work email and password via Supabase auth, store checklist answers in Postgres, and send page views to GA4. Microsoft Clarity runs on the marketing site only, not inside the app WebView, but Sentry captures crashes with a device model string.
+
+On Monday they export a spreadsheet of SDKs. Tuesday they file Apple App Privacy: contact info and user content for app functionality, diagnostics for crash data, product interaction for GA4 events linked to the account after login. They mark no tracking across apps as defined by Apple because they do not use Apple's advertising SDKs. Wednesday they mirror the same facts in Play Data safety, note data is encrypted in transit, and state that account deletion is available in settings. Thursday they paste the privacy policy URL that names Supabase, Google, and Sentry. Review passes without a privacy-specific thread. Three facilities pilot the app; labels were accurate enough for stores, not proof that strangers would pay CHF 29 per month.
+
+## Who should skip the forms for now
+
+If you distribute only through TestFlight or an internal APK, you still handle personal data, but you may not need a full public listing yet. If the product is a web-only validation test with no store binary, App Privacy and Data safety are future work. If legal counsel has not approved your policy and you are unsure what Clarity records, pause the store submit until inventory and notice match.
+
+## What accurate labels do not prove
+
+Correct store disclosures reduce rejection risk and help users compare apps. They do not show retention, willingness to pay, or that your row-level security is sound. A separate review path exists for security gaps in AI-built stacks. Labels also do not replace account-deletion flows Apple and Google increasingly check in review.
+
+<div class="blog-faq">
+  <h3>Do App Store privacy labels apply to TestFlight builds?</h3>
+  <p>Public App Store releases need App Privacy completed. TestFlight distribution still processes user data under your policies; treat the inventory as the same even when the questionnaire is not shopper-facing.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Must Google Play Data safety match Apple exactly?</h3>
+  <p>The facts should describe the same app behaviour. Wording differs, but contradictory answers between stores invite questions from partners and investors.</p>
+</div>
+
+## When the product validation package fits
+
+The [product validation package](/services/mvp-validation) fits when you want deployable software, analytics from day one, and a native wrap ready to submit while you still learn from paid traffic. Weeks 1 to 4 deliver a working web app on Azure with React and NestJS; weeks 5 to 12 add landing page, acquisition, measured conversion, and a Go, Pivot, or Stop recommendation. You own code and data. If your open question is still whether anyone completes the core job, finish that test before you optimise privacy badge wording.

@@ -12,32 +12,47 @@ draft: false
 site: prozess-check
 ---
 
-## Multilingual customer communication in Switzerland: five steps
+## Multilingual customer communication in Switzerland: the short answer
 
-Multilingual customer communication stops being a series of one-off translations once you settle five things: detect the language of each enquiry and record it against the customer, keep a glossary of your own terms, have reply drafts written in the customer's language, maintain templates for the most common cases, and decide who checks French and Italian. The AI writes the draft, a person sends it. That needs a translation tool under a business contract, not the free version.
+<p class="blog-lede">Multilingual customer communication becomes a process once language, glossary, templates, drafts and checking are written down. The AI supplies the draft, a person sends it.</p>
 
-This is for SMEs in German-speaking Switzerland with customers in the French- or Italian-speaking regions or abroad, where someone pastes emails into a translation window and pastes the reply back. How an email first reaches the right person is covered in [shared inbox: sort and route emails automatically](/prozess-check/blog/shared-inbox-sort-emails).
+To automate multilingual customer communication, settle five things: detect the language of each enquiry and store it on the customer record, keep a glossary of your terms, produce reply drafts in the customer's language, maintain templates for common cases, and decide who checks French and Italian. That needs a translation tool under a business contract, not the free version in a browser.
+
+This is for SMEs in German-speaking Switzerland with customers in the French- or Italian-speaking regions or abroad, where someone still pastes emails into a translation window and pastes the reply back. How an email first reaches the right person is in [shared inbox: sort and route emails automatically](/prozess-check/blog/shared-inbox-sort-emails). Here the focus is the language of the reply.
 
 <div class="blog-stat">
   <strong>52%</strong>
   <p>According to the AXA SME labour market study, cited by <a href="https://www.deepcloud.swiss/newsroom/artikel/ki-in-schweizer-kmu-wir-sind-bereit/">DeepCloud</a> (in German): translation is the most common use of AI in Swiss SMEs, ahead of correspondence at 47%. Not our survey.</p>
 </div>
 
-Translating is already widespread, but mostly as one-off work. The same thing is called "offre" in one email and "devis" in the next, nobody knows whether the translation is right, and nobody has decided which customer data goes into which tool.
+Translation is already widespread, mostly as one-off work per email. The same thing is called "offre" in one message and "devis" in the next, nobody knows whether the translation is right, and nobody has decided which customer data goes into which tool.
 
-## Step 1: detect the language and record it against the customer
+<dl class="blog-terms">
+  <div>
+    <dt>Correspondence language</dt>
+    <dd>The language you reply in, stored on the customer record.</dd>
+  </div>
+  <div>
+    <dt>Glossary</dt>
+    <dd>Your terms in DE, FR and IT so the tool does not guess anew each time.</dd>
+  </div>
+  <div>
+    <dt>Draft folder</dt>
+    <dd>Where the German summary, foreign-language draft and release sit before sending.</dd>
+  </div>
+</dl>
 
-Detect the language once per customer and store it on the customer record, not with every email.
+## Step 1: detect the language and store it on the customer
 
-For existing customers, the correspondence language sits in a field in the CRM, the ERP or the customer list. For new senders, the AI reads the first email and returns the language (German, French, Italian, English or other) and how sure it is. Very short emails, mixed languages and anything uncertain go to a person.
+Detect the language once per customer and store it on the record, so every email is not guessed again.
 
-Add a rule: reply in the language of the last email, unless the customer record says otherwise. Some customers write in English but want quotes and invoices in French. That belongs in the field, not in one colleague's memory. Emails in Swiss German dialect get a reply in standard German.
+For existing customers, correspondence language sits in a field in the CRM, ERP or customer list. For new senders, the workflow reads the first email and returns the language (German, French, Italian, English or other) and confidence. Very short emails, mixed languages and anything uncertain go to a person.
 
-## Step 2: a glossary of your own terms
+Write the rule down: reply in the language of the last email, unless the customer record says otherwise. Some customers write in English but want quotes and invoices in French. That belongs in the field. Emails in Swiss German dialect get a reply in standard German.
 
-A glossary fixes what your terms are called in each language, so the tool does not pick a different word for every email.
+## Step 2: a glossary of your terms
 
-Include product and service names, your terms for quote, payment term and complaint, forms of address and fixed phrases.
+A glossary fixes what your terms are called in each language. Product and service names, your words for quote, payment term and complaint, forms of address and fixed phrases belong in it.
 
 | German | French | Italian |
 | --- | --- | --- |
@@ -46,35 +61,35 @@ Include product and service names, your terms for quote, payment term and compla
 | MWST | TVA | IVA |
 | Product names | unchanged | unchanged |
 
-The table shows examples, not a rule. Also record Swiss spellings, such as ss instead of the Eszett (ß) in German texts.
+Examples, not a rule. Record Swiss spellings, such as ss instead of the Eszett (ß) in German texts.
 
-DeepL offers a [glossary](https://support.deepl.com/hc/en-us/articles/360021634540-About-the-glossary) for words and short phrases, also through its API. In the free version it stays local in the browser, while the paid plans store it in the cloud. For the form of address, DeepL describes a [formal/informal switch](https://support.deepl.com/hc/en-us/articles/4406432463762) for Pro and API subscriptions, with German, French and Italian as target languages. Set it to formal: Sie, vous, Lei. If an AI model writes the reply directly, pass the same glossary in the instruction.
+DeepL offers a [glossary](https://support.deepl.com/hc/en-us/articles/360021634540-About-the-glossary) for words and short phrases, also through its API. In the free version it stays local in the browser; paid plans store it in the cloud. For form of address, DeepL describes a [formal/informal switch](https://support.deepl.com/hc/en-us/articles/4406432463762) for Pro and API subscriptions, with German, French and Italian as target languages. Set it to formal: Sie, vous, Lei. If an AI model writes the reply directly, pass the same glossary in the instruction.
 
-One person maintains the glossary, and every correction made in a draft goes into it.
+One person maintains the glossary. Every correction in a draft goes into it.
 
-## Step 3: reply drafts in the customer's language
+## Step 3: drafts in the customer's language
 
-You fix the content in German, and the tool produces the version in the customer's language. That keeps the message under your control.
+You fix the content in German and the tool produces the version in the customer's language. That keeps the message under your control.
 
-There are two routes: either your template or a short German note is translated, or an AI model writes directly in the customer's language. The second is faster but more likely to invent promises nobody intended. Start with the first.
+Two routes: translate a template or a short German note, or an AI model writes directly in the customer's language. The second is faster and more likely to invent promises nobody intended. Start by translating from German.
 
-The draft folder receives three things: the customer's email summarised in German, the draft in the customer's language, and the German version beside it. The sender sees at a glance what is meant and what the draft actually says.
+The draft folder holds three items: the customer's email summarised in German, the draft in the customer's language, and the German version beside it. The sender sees intent and actual wording.
 
-A person sends, as in the shared inbox article. Never automatic: complaints, prices, delivery dates, cancellations and anything legal.
+A person sends, as in the shared inbox article. Complaints, prices, delivery dates, cancellations and anything legal do not go out automatically.
 
-## Step 4: templates for the most common cases
+## Step 4: templates for common cases
 
-Templates in every language are the cheapest way to good French and Italian, because they are checked once and then used many times.
+Templates in every language are the cheapest route to good French and Italian because they are checked once and reused.
 
-Collect the ten most common replies of recent months: receipt confirmed, appointment proposed, details missing, delivery status, quote sent. Write each once in German, with placeholders for name, order number and date, then have them translated and checked by a native speaker.
+Collect the ten most common replies of recent months: receipt confirmed, appointment proposed, details missing, delivery status, quote sent. Write each once in German with placeholders for name, order number and date. Have them translated and checked by a native speaker.
 
-The AI then picks the matching template, fills the placeholders from the email, and writes freely only where no template fits. Each template gets a review date. Quotes, contracts and letters as documents follow the same principle: [generate documents from templates](/prozess-check/blog/generate-documents-from-templates).
+The AI picks the matching template, fills placeholders from the email, and writes freely only where no template fits. Each template gets a review date. Quotes, contracts and letters as documents follow the same principle: [generate documents from templates](/prozess-check/blog/generate-documents-from-templates).
 
 ## Step 5: checking when nobody in the office is a native speaker
 
-Split the checking: a native speaker checks templates and glossary once, the person in charge checks each draft for content, and sensitive texts always go to a native speaker.
+Split checking: a native speaker checks templates and glossary once, the person in charge checks each draft for content, sensitive texts always go to a native speaker.
 
-That can be a freelance translator hired for the templates and spot checks, or a colleague at another site. Your customers are not a review desk.
+That can be a freelance translator for templates and spot checks, or a colleague at another site. Your customers are not a review desk.
 
 <div class="blog-pair">
   <div>
@@ -94,47 +109,50 @@ That can be a freelance translator hired for the templates and spot checks, or a
   </div>
 </div>
 
-For the content check, the person compares names, numbers, dates and the commitment with the German version. Translating the draft back with a second tool catches gross errors, such as a missing "not", but not tone.
+For the content check, the person compares names, numbers, dates and the commitment with the German version. That works without strong language skills. Translating the draft back with a second tool catches gross errors, such as a missing "not", but not tone.
 
-Once a month, a native speaker reads a sample of the replies that went out, say ten. Corrections flow back into the glossary and templates. Whoever sends stays responsible. Sensitive texts that cannot be checked do not belong in the process.
+Once a month, a native speaker reads a sample of sent replies, say ten. Corrections flow back into the glossary and templates. Whoever sends stays responsible. Sensitive texts that cannot be checked do not belong in the process.
 
-## A worked example: service request and complaint from French-speaking Switzerland
+## A made-up example: service and complaint from French-speaking Switzerland
 
-An example: a machine manufacturer with around 40 staff in central Switzerland. Customers write mostly in German, some in French, a few in Italian, and nobody on the team is a native speaker of either. Until now, customer service translated every email by hand in a browser window. Now there is a glossary of a few dozen terms and ten templates in three languages, checked once by a freelance translator.
+A made-up example: a machine manufacturer with around 40 staff in central Switzerland. Customers write mostly in German, some in French, a few in Italian, and nobody on the team is a native speaker of either. Until now, customer service translated every email by hand in a browser. Now there is a glossary of a few dozen terms and ten templates in three languages, checked once by a freelance translator.
 
-A customer in Lausanne writes in French that a machine is reporting a fault and asks for a service appointment. The customer record says French. The AI picks the template "request received, appointment proposal", inserts name, machine and preferred period, and puts the draft in the draft folder with a German summary. Customer service compares name, machine and date with the German version and sends.
+A customer in Lausanne writes in French that a machine is reporting a fault and asks for a service appointment. The customer record says French. The workflow picks the template "request received, appointment proposal", inserts name, machine and preferred period, and puts the draft and German summary in the draft folder. Customer service compares name, machine and date with the German version and sends.
 
-Two weeks later the same customer complains about an invoice. That is not a template, and the reply contains a commitment. The translator reads the draft, then customer service sends it. In the month-end spot check, the translator notices a glossary term that sounds unusual in French-speaking Switzerland. It is changed, and the templates with it.
+Two weeks later the same customer complains about an invoice. No template, and the reply contains a commitment. The translator reads the draft, then customer service sends. In the month-end sample, the translator notices a glossary term that sounds unusual in French-speaking Switzerland. It is changed, and the templates with it.
 
 ## Data protection: what may go into a translation tool
 
-A translation tool processes your customers' personal data on your behalf, and you remain responsible.
+A translation tool processes your customers' personal data on your behalf. You remain responsible.
 
 The [FDPIC states](https://www.edoeb.admin.ch/en/outsourcing-of-data-processing) that under Art. 9 of the Data Protection Act you must satisfy yourself, and secure by contract, that a processor guarantees data security and only subcontracts with your consent. You must also actively ensure compliance with the rules on disclosure abroad.
 
-DeepL shows the difference between free and business terms. According to [DeepL's privacy policy](https://www.deepl.com/en/privacy):
+DeepL shows the difference between free and business terms in [DeepL's privacy policy](https://www.deepl.com/en/privacy):
 
 | | Free version (section 3) | DeepL Pro and API Pro (section 4) |
 | --- | --- | --- |
 | Texts with personal data | Only possible with a Pro subscription, says DeepL | Data processing agreement available on request |
-| Use of the content | Processed for a limited period to train and improve the networks | Not permanently stored, deleted after the service, not used to improve quality |
+| Use of the content | Processed for a limited period to train and improve the networks | Deleted after the service, not used to improve quality |
 
-For document translation, DeepL names infrastructure in the EEA (section 7.1). The EEA is not Switzerland, so whether that suffices for your data is a question for your data protection adviser. The terms change, so read the current text before you decide.
+For document translation, DeepL names infrastructure in the EEA (section 7.1). The EEA is not Switzerland; whether that suffices for your data is a question for your data protection adviser. Read the current text before you decide.
 
 Ask every other tool the same questions, including an AI chat service: a contract for businesses, training on your texts, where processing takes place, which subprocessors see the data. For ChatGPT, see [ChatGPT and customer data: what Swiss data protection means for SMEs](/prozess-check/blog/chatgpt-customer-data-swiss-dsg).
 
-Templates help here too: your text is translated once without customer data, and the placeholders are filled afterwards. Reading the incoming email is different, because personal data passes through the tool. Emails with health data or personnel files do not belong in the automated process. This is not legal advice. For health data, or if the data location is unclear, ask your data protection adviser.
+Templates help: your text is translated once without customer data, and placeholders are filled afterwards. Reading the incoming email is different, because personal data passes through the tool. Emails with health data or personnel files do not belong in the automated process. This is not legal advice. For health data, or if the data location is unclear, ask your data protection adviser.
 
-## When it is not worth it
+<div class="blog-faq">
+  <h3>Is DeepL Free enough for customer mail?</h3>
+  <p>DeepL states that texts with personal data are not intended for the free version. Recurring customer mail needs Pro or API with a data processing agreement, not a free browser account.</p>
+</div>
 
-Not every business needs a process for this.
+## When the process is not worth it
 
-If French or Italian mail arrives only a few times a month, a paid account with the translation tool, a small glossary and three templates are enough. If your multilingual texts are mostly contracts, terms and conditions and legal letters, professional translation is the right answer. If customers expect a conversation with someone who speaks their language, no draft helps. And if nobody wants to maintain glossary and templates, they go stale and the drafts drift.
+If French or Italian mail arrives only a few times a month, a Pro account, a small glossary and three templates are enough. If your multilingual texts are mostly contracts, terms and conditions and legal letters, professional translation is the right answer. If customers expect a conversation with someone who speaks their language, no draft helps. If nobody maintains glossary and templates, they go stale and drafts drift.
 
 Whether multilingual communication is the right first workflow for you is settled by the four questions in [which process to automate first](/prozess-check/blog/which-process-to-automate-first).
 
 ## When the Process Check fits
 
-If someone in your business copies, translates and pastes back emails in French or Italian every week, that is a typical case for the [Process Check](/prozess-check). In 60 minutes on Microsoft Teams we look at the process together: where the language is detected, what belongs in glossary and templates, where a check stays necessary, and what interfaces your software offers. You do not have to show the emails themselves; describing them is enough.
+If someone in your business copies, translates and pastes back emails in French or Italian every week, that is a typical case for the [Process Check](/prozess-check). In 60 minutes on Microsoft Teams we look at the workflow: where language is detected, what belongs in glossary and templates, where checking stays necessary, and what interfaces your software offers. You do not have to show the emails; describing them is enough.
 
-Afterwards you have a concrete case, a price range and a rough duration for the implementation, in a short written summary. The Check costs CHF 99 and is credited if you have it built afterwards. If we find nothing worth doing, you get the money back. Choose a time: [book the Process Check](/prozess-check/buchen).
+Afterwards you have a concrete case, a price range as a guide figure and a rough duration for the implementation, in a short written summary. The Check costs CHF 99 and is credited if you have it built afterwards. If we find nothing worth doing, you get the money back. Choose a time: [book the Process Check](/prozess-check/buchen).
