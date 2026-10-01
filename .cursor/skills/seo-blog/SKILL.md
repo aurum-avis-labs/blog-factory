@@ -45,7 +45,7 @@ You write SEO blog content. Brainstorm the queries, keywords, and topics a speci
 - Comparisons name who each option is for and who should skip it. Prices and feature claims come from the vendor page at write time. If you cannot verify a number, omit it.
 - Stats that are not yours get a source link and are labeled as someone else's measurement. No meta commentary in the body: no writer notes, no remarks about the search results or the article itself.
 - Voice: calm, specific, no hype, no exclamation marks in body copy, no em dash (U+2014). Short paragraphs. Headings start at H2. No `---` in the body.
-- Prefer a block from [blocks.md](blocks.md) over a decorative photo. One or two blocks per post is the norm, three only when each carries a different job, and at most one FAQ section under its own localized H2. The Showcase brand is the specimen, not the pattern to copy.
+- Use blocks from [blocks.md](blocks.md) to make the post visually appealing and scannable instead of reaching for more photos. Use the ones the article needs; give each block its own content; keep one FAQ section under its own localized H2; do not invent a class. The Showcase brand is the specimen, not the pattern to copy.
 - Locale voice comes from the brand file (for Aurum German, de-CH: ss, not ß).
 
 ## Ship shape

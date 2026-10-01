@@ -19,7 +19,7 @@ Run this gate on every file of a wave before `draft: false`, and before leaving 
 
 ## 3. Blocks
 
-- Budget: one or two blocks; three only when each carries a different job. At most one FAQ section. More blocks is a smell, not thoroughness.
+- Blocks are for a visually appealing, scannable post. Give each block its own content rather than restating the prose.
 - Only classes from [blocks.md](blocks.md). No inline styles, images, or icons inside a block.
 - The FAQ sits under its own localized H2 (`Frequently asked questions`, `Häufige Fragen`, `Questions fréquentes`, `Domande frequenti`). One FAQ form per article, the same form in every locale. Never mix `div.blog-faq` and the H2 + `###` form.
 - The block sequence (class order, table count, FAQ presence) is identical in every locale. Labels and kickers are translated.
@@ -52,7 +52,7 @@ Run this gate on every file of a wave before `draft: false`, and before leaving 
 
 ## Known failure modes (October 2026 pass)
 
-- Block overuse: measured averages of 7.5 (aurum) and 9.3 (postology) blocks per post against a budget of one or two.
+- Blocks that only restated the prose or another block (facts rows, callouts, FAQ items).
 - FAQ form mixed across locales, or an FAQ block without its own H2.
 - `relatedPosts` pointing at a slug that exists only in another language.
 - Body links to posts that publish later than the linking article.

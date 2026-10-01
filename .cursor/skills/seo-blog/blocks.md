@@ -1,6 +1,6 @@
 # Editorial blocks
 
-Use these HTML blocks inside MDX instead of extra photos. Budget: one or two blocks per article, three only when each carries a different job, at most one FAQ section. More blocks is a smell, not thoroughness. Do not invent a new class.
+Use these HTML blocks inside MDX instead of extra photos. They make a post visually appealing and easy to scan, so use the ones the article needs: a limit, a sequence, a comparison, a set of facts, a sourced number. Give each block its own content, not a restatement of the prose. Do not invent a new class.
 
 The page still makes sense if the stylesheet is missing: the text stays, the layout just gets flatter.
 
@@ -23,7 +23,7 @@ The page still makes sense if the stylesheet is missing: the text stays, the lay
 | Pull | One sentence from this article, set larger. At most one per article |
 | Terms | Short definitions: the word, then one sentence |
 
-Most posts need one or two blocks in the body. A comparison can have a table plus a pair. An FAQ at the end is normal when the questions are real searches, and it does not license a block under every heading. The Showcase brand (`brands/showcase`) is the specimen of every block. It is not a template for a normal article.
+A comparison can have a table plus a pair. An FAQ at the end is normal when the questions are real searches, and it does not license a block under every heading. The Showcase brand (`brands/showcase`) is the specimen of every block. It is not a template for a normal article.
 
 Opening, pull, and terms are styled in the Showcase preview. On brand sites they read as ordinary text until that stylesheet is copied over. Do not invent further classes.
 
