@@ -13,9 +13,11 @@ site: security
 
 ## Invoice fraud with a changed IBAN: what to do before you pay
 
-Invoice fraud with a changed IBAN happens when someone intercepts or impersonates supplier communication and sends a genuine-looking invoice with new bank details. In Swiss reporting this sits under business email compromise. The PDF may look correct, the amount may match a real order, and only the payment instruction changed. Your first job is to stop the outbound payment, verify the account on a channel you already trust, and then fix how master data and approvals work so the next attempt fails earlier. [BACS](https://www.bacs.admin.ch/en/business-email-compromise-en) describes attackers taking over a mailbox and resending real invoices with a new IBAN; they recommend a phone callback, staff awareness in finance, two-factor authentication, clear payment processes, and checking mail forwarding rules.
+Invoice fraud with a changed IBAN happens when someone intercepts or impersonates supplier communication and sends a genuine-looking invoice with new bank details. In Swiss reporting this falls under business email compromise. The PDF can look correct and the amount can match a real order. Only the payment instruction has changed.
 
-Fraud made up [52 percent of reports](https://www.bacs.admin.ch/en/hjb-25-2-en) in BACS’s second-half 2025 figures. Training topics for finance teams often include this pattern alongside phishing; see [security awareness training topics](/security/blog/security-awareness-training-topics) for what a session can cover. The four-eyes principle for payments is a separate checklist article; here the focus is verification when the IBAN on the invoice does not match your records.
+Your first job is to stop the outgoing payment and verify the account on a channel you already trust. Then fix how master data and approvals work, so the next attempt fails earlier. [BACS](https://www.bacs.admin.ch/en/business-email-compromise-en) describes attackers who take over a mailbox and resend real invoices with a new IBAN. It recommends a phone callback, awareness training for finance staff, two-factor authentication, clear payment processes and a check of mail forwarding rules.
+
+Fraud made up [52 percent of reports](https://www.bacs.admin.ch/en/hjb-25-2-en) in BACS’s second-half 2025 figures. Training for finance teams usually covers this pattern alongside phishing; [security awareness training topics](/security/blog/security-awareness-training-topics) lists what a session can include. The four-eyes principle for payments has its own checklist article. This one is about verification when the IBAN on the invoice does not match your records.
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Hold the payment</h3><p>Do not release the batch until bank details are confirmed. Note who received the invoice and when.</p></li>
@@ -27,7 +29,7 @@ Fraud made up [52 percent of reports](https://www.bacs.admin.ch/en/hjb-25-2-en) 
 
 ## Why changed IBAN fraud works in SMEs
 
-Many companies with 20 to 250 people run lean finance. One person matches invoices, another approves, and urgent suppliers get fast-tracked. Attackers watch for that rhythm. They may hack the supplier’s email, your purchasing inbox, or send from a look-alike domain. Because the invoice body looks normal, automated checks on amount and VAT ID still pass.
+Many companies with 20 to 250 people run lean finance. One person matches invoices, another approves, and urgent suppliers get fast-tracked. Attackers watch for that rhythm. They may take over the supplier’s mailbox or your purchasing inbox, or write from a look-alike domain. The invoice itself looks normal, so automated checks on amount and VAT ID still pass.
 
 <ul class="blog-facts">
   <li><span class="blog-kicker">Channel</span><strong>Email</strong><p>Most cases start in the thread you already use with the supplier.</p></li>
@@ -37,42 +39,55 @@ Many companies with 20 to 250 people run lean finance. One person matches invoic
 
 ## How to spot an IBAN change in the thread
 
-Watch for signals filters miss. A sender address one character off your usual domain. A footer that says «new bank details effective immediately» while the rest of the invoice looks unchanged. A PDF that matches the template but carries a different QR-bill or reference. Sometimes the mail really comes from the supplier’s mailbox because someone logged in there and swapped only the payment line.
+Watch for the signals that filters miss:
 
-Header analysis helps when IT can do it. For accounts payable, two questions often suffice: does the IBAN match the ERP, and who announced the change in writing before the invoice arrived?
+- A sender address one character off your usual domain.
+- A footer saying «new bank details effective immediately» while the rest of the invoice looks unchanged.
+- A PDF that matches the template but carries a different QR-bill or reference number.
+
+Sometimes the mail really does come from the supplier’s mailbox, because someone logged in there and swapped only the payment line.
+
+IT can analyse the mail headers if needed. For accounts payable, two questions often suffice: does the IBAN match the ERP, and who announced the change in writing before the invoice arrived?
 
 ## What this is not
 
-This article is not about CEO fraud where the «boss» orders a wire by chat. It is not the full design of a four-eyes approval matrix, though you should add a second checker for new bank details. It is not legal advice on recovering funds; your bank and the police handle that after a wrongful payment.
+This article does not cover CEO fraud, where the «boss» orders a transfer by chat. It does not design a full four-eyes approval matrix either, though you should add a second checker for new bank details. And it is no legal advice on recovering funds: after a wrongful payment, your bank and the police take over.
 
 ## Limits of email and PDF checks alone
 
-SPF and DKIM can show that an email passed technical checks while still carrying a fraudulent IBAN. A signed PDF does not prove the bank details are unchanged since the last legitimate invoice. OCR and three-way matching catch duplicates, not social engineering inside a real thread.
+An email can pass SPF and DKIM and still carry a fraudulent IBAN. A signed PDF does not prove that the bank details are unchanged since the last legitimate invoice. OCR and three-way matching catch duplicates and quantity mismatches. They do not catch social engineering inside a real thread.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>A rule that «we only pay IBANs we have paid before» breaks when a legitimate supplier truly changes banks. The fix is verification on a known phone number, not automatic rejection of all changes.</p>
+  <p>A rule that «we only pay IBANs we have paid before» breaks when a legitimate supplier really does change banks. The fix is verification on a known phone number, not automatic rejection of every change.</p>
 </aside>
 
 ## A made-up example: Tuesday afternoon in accounts payable
 
-A made-up example: a trading company with 45 staff, no customer names. On Tuesday, accounts payable receives a PDF invoice from a long-standing packaging supplier. The amount matches the purchase order. The IBAN in the footer differs from the one stored in the ERP by two digits. The clerk pauses the payment run, calls the number on last month’s invoice, and learns the supplier did not change banks. IT finds a forwarding rule in the supplier’s compromised mailbox that copied threads to an external address. No payment went out. The company updates its rule: any IBAN change needs a phone confirmation logged in the ticket system before approval.
+A made-up example: a trading company with 45 staff. On Tuesday, accounts payable receives a PDF invoice from a long-standing packaging supplier. The amount matches the purchase order, but the IBAN in the footer differs from the one stored in the ERP by two digits. The clerk pauses the payment run and calls the number on last month’s invoice. The supplier says it has not changed banks. Its own IT then finds a forwarding rule in the compromised mailbox that copied threads to an external address. No payment went out. The trading company adds a rule: any IBAN change needs a phone confirmation, logged in the ticket system, before approval.
 
 ## If the payment has already left
 
-Act on the day you discover it. Call the bank immediately and ask for recall or blocking. Report to the police and note the reference number. Tell IT and management internally. Keep the email, PDF, bank statement, and approval timestamps. Recovery depends on deadlines and the receiving account; this article is not legal advice.
+Act on the day you discover it.
 
-Insurers will later ask who approved, which IBAN sat in the ERP, and which callback never happened. The earlier you have that in writing, the calmer the conversation, even when the money does not return.
+1. Call your bank at once and ask for a recall or a block.
+2. Report it to the police and note the reference number.
+3. Tell IT and management.
+4. Keep the email, the PDF, the bank statement and the approval timestamps.
+
+Recovery depends on deadlines and on the receiving account. This article is not legal advice.
+
+Insurers will later ask who approved, which IBAN sat in the ERP and which callback never happened. The earlier you have that in writing, the calmer the conversation, even if the money does not come back.
 
 ## Who may change supplier IBAN in your systems
 
-In small teams, any assistant may maintain master data. For attackers that is the shortest path: one phishing click, replace the IBAN in the ERP, then send the «normal» invoice from the thread. Split «capture invoice» from «change bank details». Anyone who can change an IBAN needs a second look and a callback before the next run pays the new number.
+In small teams, any assistant may maintain master data. For attackers that is the shortest path: one phishing click, a replaced IBAN in the ERP, then the «normal» invoice from the thread. Separate «capture invoice» from «change bank details». Whoever can change an IBAN needs a second pair of eyes and a callback before the next run pays the new number.
 
-Purchasing may approve orders and finance may pay: both should know that a changed IBAN always stops payment, not only when something «feels odd».
+Purchasing may approve orders and finance may pay. Both should know that a changed IBAN always stops the payment, whether or not something «feels odd».
 
 ## Who should skip elaborate process work for now
 
-If you process fewer than a handful of supplier payments per month and every beneficiary is domestic and long known, a short written rule plus phone verification may be enough until volume grows. If you pay internationally, use many new suppliers, or assistants can edit master data alone, invest in approval steps before the next audit or insurance questionnaire.
+If you make only a handful of supplier payments a month and every beneficiary is domestic and long known, a short written rule plus phone verification may be enough until volume grows. If you pay abroad, work with many new suppliers, or let assistants edit master data alone, put approval steps in place before the next audit or insurance questionnaire.
 
 <div class="blog-pair">
   <div>
@@ -93,9 +108,9 @@ If you process fewer than a handful of supplier payments per month and every ben
 
 ## Technical hygiene that supports finance
 
-BACS lists two-factor authentication on business email and reviewing forwarding rules among its BEC recommendations. Your IT partner can search for auto-forward to external addresses and unfamiliar inbox rules after any suspected fraud. That is not a substitute for the phone call, but it closes a common entry path.
+Among its BEC recommendations, BACS lists two-factor authentication on business email and a review of forwarding rules. After any suspected fraud, your IT partner can search for automatic forwarding to external addresses and for unfamiliar inbox rules. That does not replace the phone call, but it closes a common entry path.
 
-Ask whether purchasing shares the same mailbox password habits as finance. Shared credentials in a small team let an attacker move from a phishing click to invoice threads in one step. Multi-factor authentication for anyone who can change supplier records belongs in the same programme as finance awareness.
+Ask whether purchasing shares the same mailbox password habits as finance. Shared credentials in a small team let an attacker move from a phishing click to the invoice threads in one step. Multi-factor authentication for everyone who can change supplier records belongs in the same programme as finance awareness.
 
 <ul class="blog-checklist">
   <li>Remove forwards to private or unknown addresses</li>
@@ -105,24 +120,26 @@ Ask whether purchasing shares the same mailbox password habits as finance. Share
 
 ## Questions insurers and auditors ask after a near-miss
 
-Cyber insurance applications and customer audits often ask how you verify bank detail changes. A one-page internal rule plus evidence of a logged callback satisfies many reviewers better than an informal «we usually call». Keep the log minimal: date, supplier name, who confirmed, and the IBAN agreed. You do not need a software project to start.
+Cyber insurance applications and customer audits often ask how you verify changes to bank details. A one-page internal rule plus a logged callback convinces most reviewers more than an informal «we usually call». Keep the log minimal: date, supplier name, who confirmed, and the IBAN agreed. You do not need a software project to start.
 
-If money already left, insurers will want the timeline, the original invoice, the fraudulent instruction, and police reference numbers. Starting documentation on the day you discover the mismatch speeds that conversation even when recovery fails.
+If money has already left, insurers will want the timeline, the original invoice, the fraudulent instruction and the police reference number. Documenting from the day you find the mismatch speeds up that conversation, even when recovery fails.
 
 <div class="blog-faq">
   <h3>Should we report a near-miss with a changed IBAN?</h3>
-  <p>Internally, yes: treat it as a security incident. Externally, voluntary reports to BACS help Swiss statistics; statutory BACS cyberattack reporting applies to critical infrastructure operators, not most SMEs.</p>
+  <p>Internally, yes: treat it as a security incident. Externally, voluntary reports to BACS feed the Swiss statistics. The statutory cyberattack reporting duty applies to operators of critical infrastructure, not to most SMEs.</p>
 </div>
 
 <div class="blog-faq">
   <h3>Is it enough to confirm the IBAN by email?</h3>
-  <p>No, if the thread is compromised the attacker will reply. Call a number you used before the incident.</p>
+  <p>No. If the thread is compromised, the attacker will answer. Call a number you used before the incident.</p>
 </div>
 
 ## Closing the loop with staff training
 
-Finance is the last gate, but purchasing and assistants often see the forged thread first. A live security awareness session of one to two hours can walk through invoice fraud, CEO urgency, and how to report odd mail without blame. Remote or on-site sessions in Switzerland are described on the [security awareness page](/security/security-awareness).
+Finance is the last gate, but purchasing and assistants often see the forged thread first. A live security awareness session of one to two hours can walk through invoice fraud, CEO urgency and how to report odd mail without blame. The [security awareness page](/security/security-awareness) describes the remote and on-site options in Switzerland.
+
+Before a session, take a short look at your three most frequent suppliers: where does the IBAN sit today, who may change it, and who calls back when something differs? Those three answers are often enough to start the session with, and you do not need to share any confidential amounts.
 
 ## Reporting to authorities and voluntary notices
 
-A misdirected payment is a matter for the bank and the police. For statistics and warnings to other businesses you can report voluntarily to BACS. That is not the same duty as cyberattack reporting for critical infrastructure from April 2025. Do not mix the two when management asks about «mandatory reporting».
+A misdirected payment is a matter for the bank and the police. You can also report it to BACS voluntarily, which feeds the statistics and warnings to other businesses. That is a different thing from the reporting duty for critical infrastructure in force since April 2025. Keep the two apart when management asks about «mandatory reporting».
