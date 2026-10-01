@@ -1,6 +1,6 @@
 # Editorial blocks
 
-Use these HTML blocks inside MDX instead of extra photos. They make a post visually appealing and easy to scan, so use the ones the article needs: a limit, a sequence, a comparison, a set of facts, a sourced number. Give each block its own content, not a restatement of the prose. Do not invent a new class.
+Use these HTML blocks inside MDX instead of extra photos. They make a post visually appealing and easy to scan, so use the ones the article needs: a limit, a sequence, a comparison, a set of facts, a sourced number. Give each block its own content. The classes below are the vocabulary.
 
 The page still makes sense if the stylesheet is missing: the text stays, the layout just gets flatter.
 
@@ -9,7 +9,7 @@ The page still makes sense if the stylesheet is missing: the text stays, the lay
 | Block | Use when the section is |
 |---|---|
 | Fact row | Three or four hard facts (a limit, a number, a yes or no) |
-| Stat | One sourced number with a caption. Never an unsourced boast |
+| Stat | One sourced number with a caption, labeled as someone else's measurement |
 | Steps | A sequence the reader should follow, or a numbered set of options |
 | Flow | Three to five short stages in one job (idea, draft, schedule) |
 | Callout | A note, a correction, or a limit that must not be skipped |
@@ -23,9 +23,9 @@ The page still makes sense if the stylesheet is missing: the text stays, the lay
 | Pull | One sentence from this article, set larger. At most one per article |
 | Terms | Short definitions: the word, then one sentence |
 
-A comparison can have a table plus a pair. An FAQ at the end is normal when the questions are real searches, and it does not license a block under every heading. The Showcase brand (`brands/showcase`) is the specimen of every block. It is not a template for a normal article.
+A comparison can have a table plus a pair. An FAQ at the end is normal when the questions are real searches. The Showcase brand (`brands/showcase`) is the specimen of every block; a normal article finds its own shape.
 
-Opening, pull, and terms are styled in the Showcase preview. On brand sites they read as ordinary text until that stylesheet is copied over. Do not invent further classes.
+Opening, pull, and terms are styled in the Showcase preview. On brand sites they read as ordinary text until that stylesheet is copied over.
 
 ## Markup
 
@@ -134,7 +134,7 @@ Use a markdown table. Keep the same columns for every row. Yes or no cells are f
 
 ### FAQ
 
-Render the question and answer in full. The question is an `h3`, so it stays in the heading outline. Do not use `<details>` or any other collapse. The landing page turns each `div.blog-faq` into FAQ schema.
+Render the question and answer in full so both stay in the page and in the heading outline. The landing page turns each `div.blog-faq` into FAQ schema.
 
 ```html
 <div class="blog-faq">
@@ -143,7 +143,7 @@ Render the question and answer in full. The question is an `h3`, so it stays in 
 </div>
 ```
 
-A brand context may instead require a localized H2 (`Frequently asked questions`, `Häufige Fragen`, `Questions fréquentes`, `Domande frequenti`) and each question as a markdown `###`. That form is also read as FAQ schema. Do not mix both in one article, and keep the same form in every locale. When the `div.blog-faq` form is used, the div still sits under its own localized FAQ H2.
+A brand context may instead require a localized H2 (`Frequently asked questions`, `Häufige Fragen`, `Questions fréquentes`, `Domande frequenti`) and each question as a markdown `###`. That form is also read as FAQ schema. One form per article, the same form in every locale. When the `div.blog-faq` form is used, the div still sits under its own localized FAQ H2.
 
 ### Opening
 
@@ -155,7 +155,7 @@ The first paragraph of the article, before the first H2. One or two sentences th
 
 ### Pull
 
-One sentence already earned by the article, set larger so the eye can rest. At most one. It is the writer's sentence, not a quotation, so do not also use a markdown blockquote in the same article.
+One sentence already earned by the article, set larger so the eye can rest. At most one per article: the writer's own sentence, with a markdown blockquote reserved for quotations.
 
 ```html
 <p class="blog-pull">A room does not have a meeting link.</p>
@@ -180,7 +180,7 @@ Three or four words a reader might mix up. The term is short. The definition is 
 
 ## Rules
 
-- One H2 still introduces the section. The block sits under it. Do not put an H2 inside a block except the `h3` titles shown above.
+- One H2 still introduces the section. Inside a block, the `h3` titles above are the heading level.
 - Same structure in every locale. Translate labels (`Note`, `Correction`, `Limit`, column titles).
-- No images, icons, or inline styles inside a block.
+- Blocks carry their content in the shapes above: text, headings, and lists.
 - Readable without color: the kicker and the heading carry the meaning.

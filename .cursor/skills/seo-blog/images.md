@@ -1,8 +1,8 @@
 # Images
 
-One hero per article, stored at `brands/{brand}/images/{translationKey}/hero.jpg` and reused by every locale. No inline photos (`inline1`, `inline2`, `img2`). Limits, steps, and comparisons go in HTML from [blocks.md](blocks.md).
+One hero per article, stored at `brands/{brand}/images/{translationKey}/hero.jpg` and reused by every locale. Limits, steps, and comparisons go in HTML from [blocks.md](blocks.md).
 
-The hero has to show this article's subject. If the same photo could sit on any other post in the batch, replace it. Prefer a targeted Higgsfield image over a generic Unsplash office or laptop shot.
+The hero shows this article's subject. A photo that could sit on any other post in the batch gives way to a targeted Higgsfield image.
 
 | Brand | Default hero source |
 |---|---|
@@ -12,21 +12,15 @@ The hero has to show this article's subject. If the same photo could sit on any 
 | `postology`, `vemoir`, `do-for-me`, `citysage`, `canvas-games`, `gold-crew` | Keep an Unsplash hero only if it clearly matches the article. Otherwise Higgsfield. |
 | Any other brand | Same rule. Read `context/{brand}/` before generating. |
 
-Vemoir heroes are 1200×900 and must look like ordinary photographed work, or a generated scene that still looks like that. No fake UI, logos, or neon. See `context/vemoir/brand-context.md`.
+Vemoir heroes are 1200×900 and look like ordinary photographed work, or a generated scene that still looks like that: real light, no fake UI, logos, or neon. See `context/vemoir/brand-context.md`.
 
 Do4Me wants ordinary Zürich help: people, tasks, streets.
 
 ## Hero challenge
 
-Keep the current `hero.jpg` only when a reader who has not opened the article would still guess the topic from the image.
+Keep the current `hero.jpg` when a reader who has not opened the article would still guess the topic from the image.
 
-Replace it when:
-
-- it is a generic laptop, desk, city, or handshake
-- it would fit three other posts in the same brand
-- it contradicts the brand image guide
-
-Then generate one Higgsfield image. Prompt the actual subject (a closed laptop on a meeting table, a paper calendar next to a phone, a causal-loop sketch). No words, logos, or UI text in the frame. Save as `hero.jpg`.
+A generic laptop, desk, city, or handshake shot, an image that could fit three other posts in the same brand, or one that contradicts the brand image guide points to a new Higgsfield image: prompt the actual subject (a closed laptop on a meeting table, a paper calendar next to a phone, a causal-loop sketch), keep the frame free of words, logos, and UI text, and save as `hero.jpg`.
 
 ## Unsplash (only when the photo already fits)
 
@@ -49,7 +43,7 @@ python3 scripts/fetch-unsplash-images.py --jobs scripts/unsplash-jobs-{brand}.js
 ]
 ```
 
-`slug` is the `translationKey`. Copy `attributionHtml` from `sources.json` into each locale under the hero, or omit it when the hero is Higgsfield. Put the credit after the lede (before the first H2), translated, not at the end of the article.
+`slug` is the `translationKey`. Copy `attributionHtml` from `sources.json` into each locale under the hero, or omit it when the hero is Higgsfield. Put the credit after the lede, before the first H2, translated.
 
 ## Higgsfield
 
@@ -66,6 +60,6 @@ Read the brand image guide, then generate. Save JPEG as `hero.jpg`.
 ## Either source
 
 - Hero only. Delete leftover inline files from the article folder when you strip them from the MDX.
-- Do not reuse a photo the Unsplash script has already recorded.
+- Choose a photo the Unsplash script has not recorded yet.
 - Alt text is written in each locale. The file is not.
-- Skip the `image` frontmatter line rather than ship a placeholder.
+- When there is no fitting hero, the `image` frontmatter line stays out.
