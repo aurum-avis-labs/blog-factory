@@ -1,19 +1,19 @@
 ---
 title: "How to measure activation and retention in your app"
 description: "Measure activation and retention with one value event, weekly cohorts, and return on days 1, 7, and 30. What the numbers show and what they cannot prove."
-pubDate: 2027-09-01
+pubDate: 2027-07-24
 author: "Aurum Avis Labs"
 tags: ["activation", "retention", "analytics", "mvp", "product validation"]
 funnelStage: interest
 translationKey: measure-activation-and-retention
 relatedPosts: ["analytics-setup-for-an-mvp", "event-tracking-plan-for-an-mvp"]
-draft: true
+draft: false
 site: studio
 ---
 
 ## Measure activation and retention
 
-You measure activation and retention in your app by naming one event that means a new user received real value, logging that event with a stable user id, and counting how many of those users perform a chosen return action on day 1, day 7, and day 30 after activation day. Activation is a single threshold, not «signed up». Retention is a cohort question: of everyone who activated in a given week, what share came back without you emailing them. The numbers only help when the event plan was written before launch and the same definition is used in analytics, ads, and investor updates.
+You measure activation and retention in your app by naming one event that means a new user received real value, logging that event with a stable user id, and counting how many of those users perform a chosen return action on day 1, day 7, and day 30 after activation day. Activation is a single threshold, not "signed up". Retention is a cohort question: of everyone who activated in a given week, what share came back without you emailing them. The numbers only help when the event plan was written before launch and the same definition is used in analytics, ads, and investor updates.
 
 This is for founders and innovation leads who already have a web or mobile MVP in the wild, or who are about to ship one, and who need behaviour signal beyond install counts. Wiring the stack belongs in [analytics setup for an MVP](/blog/analytics-setup-for-an-mvp) and [event tracking plan for an MVP](/blog/event-tracking-plan-for-an-mvp). How those patterns relate to broader fit is in [product-market fit: how to find it](/blog/product-market-fit-how-to-find-it).
 
@@ -22,52 +22,18 @@ This is for founders and innovation leads who already have a web or mobile MVP i
 Pick one primary activation event and one primary retention event. Secondary events can sit in the same tool, but the weekly readout should not mix definitions.
 
 <ol class="blog-steps">
-  <li data-step="1"><h3>Define activation in product terms</h3><p>Write the sentence a user could say after the moment: «I got X out of this.» Examples: first project saved, first report exported, first message sent to someone who is not staff. Sign-up alone is usually too early.</p></li>
+  <li data-step="1"><h3>Define activation in product terms</h3><p>Write the sentence a user could say after the moment: "I got X out of this." Examples: first project saved, first report exported, first message sent to someone who is not staff. Sign-up alone is usually too early.</p></li>
   <li data-step="2"><h3>Log user id and timestamp once</h3><p>Send the activation event from the client or server with a persistent id. Anonymous page views without login need a rule for when identity merges, or cohorts will split.</p></li>
-  <li data-step="3"><h3>Choose the return action</h3><p>Retention is often «opened app and did something useful», not «received a push». Match the action to the job your MVP is testing.</p></li>
+  <li data-step="3"><h3>Choose the return action</h3><p>Retention is often "opened app and did something useful", not "received a push". Match the action to the job your MVP is testing.</p></li>
   <li data-step="4"><h3>Build weekly cohorts from activation day</h3><p>Group users by the calendar week they first activated. For each cohort, calculate the share who performed the return action on day 1, day 7, and day 30. Compare cohorts, not calendar months.</p></li>
   <li data-step="5"><h3>Read curves, not one headline rate</h3><p>A flat tail on the retention curve suggests a segment that kept the habit. A curve that slides toward zero says the first session did not earn a second. Session recordings help explain drop-off between activation and return.</p></li>
 </ol>
 
 ## Activation versus sign-up and vanity metrics
 
-Installs, waitlist confirmations, and completed registration forms are funnel metrics. They tell you whether people reached the door. Activation tells you whether they crossed into value. If your activation event is too easy, retention will look hollow. If it is too hard, you may discard users who would have returned after a gentler first win.
+Installs, waitlist confirmations, and completed registration forms are funnel metrics. They tell you whether people reached the door. Activation tells you whether they crossed into value. If your activation event is too easy, retention will look hollow. If it is too hard, you may discard users who would have returned after a gentler first win. The activation rate is the share of new accounts that hit your value event within a window, often seven days. Revenue, margin, and product-market fit are not proven by these numbers; they show whether a meaningful share of activated users forms a repeat habit.
 
-<dl class="blog-terms">
-  <div>
-    <dt>Activation rate</dt>
-    <dd>Share of new accounts (or new devices) that hit your defined value event within a chosen window, often seven days.</dd>
-  </div>
-  <div>
-    <dt>Retention rate</dt>
-    <dd>Share of an activation cohort that performs your return action on day N after activation day.</dd>
-  </div>
-  <div>
-    <dt>Cohort</dt>
-    <dd>Users grouped by the week they first activated, so a marketing push in week three does not blur week one behaviour.</dd>
-  </div>
-</dl>
-
-<div class="blog-pair">
-  <div>
-    <h3>Reasonable to infer</h3>
-    <ul>
-      <li>Whether a meaningful share of activated users form a repeat habit</li>
-      <li>Whether a change to onboarding moved activation without hurting return</li>
-      <li>Which acquisition week brought users who stayed versus bounced</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Not proven by activation and retention alone</h3>
-    <ul>
-      <li>Revenue, margin, or willingness to pay at scale</li>
-      <li>Product-market fit in the full market sense described in [product-market fit: how to find it](/blog/product-market-fit-how-to-find-it)</li>
-      <li>That the idea is protectable: ideas as such cannot be protected ([IGE on ideas](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden))</li>
-    </ul>
-  </div>
-</div>
-
-Internal product Holist-IQ tracked early web usage alongside a Google Ads campaign. Eleven people signed up; five had sessions longer than four minutes; three returned on another day; two reached the free credit limit; nobody bought credits. That pattern pointed to interest in modelling political interrelations and friction on mobile landing and credit purchase, not to a finished business model. The team treated return visits as stronger than raw signups, which is the same discipline activation and retention measurement enforce.
+Internal product Holist-IQ tracked early web usage alongside a Google Ads campaign. A handful of strangers signed up; several had long diagram sessions; a few returned on another day; two reached the free credit limit; nobody bought credits. That pattern pointed to interest in modelling political interrelations and friction on mobile landing and credit purchase, not to a finished business model. The team treated return visits as stronger than raw signups, which is the same discipline activation and retention measurement enforce.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
@@ -76,7 +42,7 @@ Internal product Holist-IQ tracked early web usage alongside a Google Ads campai
 
 ## A made-up example: a shift handover app
 
-A made-up example: a founder in Zurich ships a mobile web app for restaurant shift handovers. Activation is «submitted one handover note that another user marked as read», not account creation. Retention is «opened the app and viewed or wrote a note» on day 7. They launch to two pilot sites with twelve staff accounts total. Week one cohort: eight activate, four return on day 7. Week two cohort after a shorter onboarding: ten activate, seven return on day 7. Session replays show that week one users abandoned on a mandatory photo step; week two makes photos optional. They do not claim product-market fit. They decide whether to expand pilots or interview managers about whether handover notes are the real job.
+A made-up example: a founder in Zurich ships a mobile web app for restaurant shift handovers. Activation is "submitted one handover note that another user marked as read", not account creation. Retention is "opened the app and viewed or wrote a note" on day 7. They launch to two pilot sites with twelve staff accounts total. Week one cohort: eight activate, four return on day 7. Week two cohort after a shorter onboarding: ten activate, seven return on day 7. Session replays show that week one users abandoned on a mandatory photo step; week two makes photos optional. They do not claim product-market fit. They decide whether to expand pilots or interview managers about whether handover notes are the real job.
 
 ## Who should not obsess over retention yet
 

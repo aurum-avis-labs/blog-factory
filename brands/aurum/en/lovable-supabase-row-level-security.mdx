@@ -1,13 +1,13 @@
 ---
 title: "Lovable Supabase row level security: what to check"
 description: "Lovable Supabase row level security: enable RLS on every table, test with the anon key, and read policies like production code, not a one-time setup."
-pubDate: 2027-09-01
+pubDate: 2027-05-10
 author: "Aurum Avis Labs"
 tags: ["lovable", "supabase", "security", "mvp"]
 funnelStage: interest
 translationKey: lovable-supabase-row-level-security
 relatedPosts: ["building-an-mvp-with-lovable", "vibe-coding-security-checklist"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -40,11 +40,11 @@ Generated policies often follow the happy path of the first feature you describe
 
 ## What went wrong in the public CVE case
 
-In 2025, researchers reported [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757): missing or ineffective row level security on Lovable-generated Supabase projects, where the public client key allowed queries without login. The record lists more than 170 affected apps, reported in March 2025 and published on 29 May 2025. That is one disclosed pattern, not a forecast for your project today. It is a reminder that «connected to Supabase» and «RLS correctly enforced on every table» are different statements. Your job is to prove the second on your schema, not to assume the template already did.
+In 2025, researchers reported [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757): missing or ineffective row level security on Lovable-generated Supabase projects, where the public client key allowed queries without login. The record lists more than 170 affected apps, reported in March 2025 and published on 29 May 2025. That is one disclosed pattern, not a forecast for your project today. It is a reminder that "connected to Supabase" and "RLS correctly enforced on every table" are different statements. Your job is to prove the second on your schema, not to assume the template already did.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>Passing your own RLS checks does not prove GDPR compliance, Swiss residency choices, or safe handling of service-role keys on a server. Region selection (for example Zurich, eu-central-2, where Supabase offers it) is a deployment choice; policies are what stop cross-account reads.</p>
+  <p>Passing your own RLS checks does not prove FADP compliance, a Swiss hosting region, or safe handling of service-role keys on a server. Region selection (for example Zurich, eu-central-2, where Supabase offers it) is a deployment choice; policies are what stop cross-account reads.</p>
 </aside>
 
 ## A practical check sequence
@@ -52,16 +52,16 @@ In 2025, researchers reported [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/
 Work in the Supabase dashboard for the project Lovable created, or in SQL if you prefer. Use a test project copy if you already have production data.
 
 <ol class="blog-steps">
-  <li data-step="1"><h3>List tables with RLS off</h3><p>In the table editor or `pg_tables`, confirm RLS is enabled on every table that holds user or tenant data. Storage metadata and auth tables have their own rules; do not skip «small» tables you added by hand.</p></li>
+  <li data-step="1"><h3>List tables with RLS off</h3><p>In the table editor or `pg_tables`, confirm RLS is enabled on every table that holds user or tenant data. Storage metadata and auth tables have their own rules; do not skip "small" tables you added by hand.</p></li>
   <li data-step="2"><h3>Read policies like application code</h3><p>For each policy, ask who `select`, `insert`, `update`, and `delete` apply to. `using true` on `select` for the `anon` role is a red flag unless the data is intentionally public.</p></li>
   <li data-step="3"><h3>Call the API as a stranger</h3><p>With only the anon key (the same one in your built app), try to read another user's row id from a table. If you get data, the UI never mattered.</p></li>
   <li data-step="4"><h3>Repeat for two test users</h3><p>Create two accounts. User A must not read or write user B's rows on any table, including join tables and attachment metadata.</p></li>
-  <li data-step="5"><h3>Re-run after each schema change</h3><p>New column, new table, or new Lovable prompt that «just adds a feature» can ship without a matching policy. Make RLS part of the same checklist as «does the button work».</p></li>
+  <li data-step="5"><h3>Re-run after each schema change</h3><p>New column, new table, or new Lovable prompt that "just adds a feature" can ship without a matching policy. Make RLS part of the same checklist as "does the button work".</p></li>
 </ol>
 
 ## A made-up example: a booking side project
 
-A made-up example: a founder builds a room-booking tool in Lovable for a co-working space pilot, not a client. Tables `spaces`, `bookings`, and `members` hold names and email addresses. The app shows «my bookings» correctly when logged in. In Supabase, `bookings` still has RLS disabled because an early prompt created the table before policies were added. Anyone with the anon key from the deployed URL can request all rows in `bookings` and see every member's slots. The founder enables RLS, adds a `select` policy where `member_id` matches `auth.uid()`, and repeats the anon-key test. `members` still needs a tighter `select` so one member cannot enumerate colleagues' emails. The pilot can go ahead for learning; the founder does not yet call it production-ready for paying venues.
+A made-up example: a founder builds a room-booking tool in Lovable for a co-working space pilot, not a client. Tables `spaces`, `bookings`, and `members` hold names and email addresses. The app shows "my bookings" correctly when logged in. In Supabase, `bookings` still has RLS disabled because an early prompt created the table before policies were added. Anyone with the anon key from the deployed URL can request all rows in `bookings` and see every member's slots. The founder enables RLS, adds a `select` policy where `member_id` matches `auth.uid()`, and repeats the anon-key test. `members` still needs a tighter `select` so one member cannot enumerate colleagues' emails. The pilot can go ahead for learning; the founder does not yet call it production-ready for paying venues.
 
 ## Who should do this work, and who can wait
 

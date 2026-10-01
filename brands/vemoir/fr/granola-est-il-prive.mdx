@@ -1,6 +1,6 @@
 ---
 title: "Granola est-il privé ? Audio, notes et entraînement"
-description: "Granola est-il privé pour les notes de réunion ? Ce que disent les docs Granola sur l'audio, le cloud US et l'entraînement, septembre 2026."
+description: "Granola est-il privé pour les notes de réunion ? Ce que dit la documentation Granola sur l'audio, le cloud américain et l'entraînement, en septembre 2026."
 pubDate: 2026-10-11
 author: "Vemoir Team"
 tags: ["granola", "confidentialité", "réunion"]
@@ -26,18 +26,13 @@ Cet article résume ces documents fournisseur. Ce n'est pas un conseil juridique
     </ul>
   </div>
   <div>
-    <h3>Qui devrait passer</h3>
+    <h3>Qui devrait s'abstenir</h3>
     <ul>
       <li>Appels où le fichier audio doit rester sur un Mac</li>
       <li>Flux exigeant une transcription entièrement hors ligne</li>
     </ul>
   </div>
 </div>
-
-<aside class="blog-callout">
-  <span class="blog-kicker">Note</span>
-  <p>Granola documente un cache local pour éditer hors ligne. La parole passe quand même par des prestataires cloud.</p>
-</aside>
 
 ## Sommaire
 
@@ -75,7 +70,7 @@ Quatre questions derrière **Granola est-il privé**&nbsp;:
 
 
 1. **Visibilité.** Les clients verront-ils un invité IA&nbsp;?
-2. **Fichier audio.** Une enregistrement reste-t-il chez le fournisseur après l'appel&nbsp;?
+2. **Fichier audio.** Un enregistrement reste-t-il chez le fournisseur après l'appel&nbsp;?
 3. **Lieu de la transcription.** Seulement sur le Mac, ou dans un cloud US&nbsp;?
 4. **Réemploi.** Granola ou un prestataire peut-il entraîner des modèles sur la réunion&nbsp;?
 
@@ -85,7 +80,7 @@ Pour le cadre bot / local&nbsp;: [notes de réunion sans bot](/fr/blog/notes-reu
 
 ## Un bot rejoint-il la réunion&nbsp;?
 
-Non, selon Granola. La [page sécurité](https://www.granola.ai/security) indique un démarrage manuel. Pas d'auto-join. Le bureau fonctionne avec Zoom, Meet, Teams et d'autres apps qui jouent l'audio sur l'ordinateur. Le mobile vise les échanges en personne.
+Non, selon Granola. La [page sécurité](https://www.granola.ai/security) indique un démarrage manuel. Pas de connexion automatique. Le bureau fonctionne avec Zoom, Meet, Teams et d'autres apps qui jouent l'audio sur l'ordinateur. Le mobile vise les échanges en personne.
 
 Granola recommande tout de même d'annoncer des notes assistées par IA et propose des moyens dans le produit pour le rendre visible ([consentement](https://docs.granola.ai/help-center/consent-security-privacy/getting-consent)). L'absence de bot n'est pas un consentement. Le droit d'enregistrer et de transcrire reste le vôtre.
 
@@ -105,7 +100,7 @@ Après l'étape audio, l'objet durable est la **note et la transcription**. Gran
 
 Les notes sont **privées par défaut**. Niveaux de partage&nbsp;: vous seul, les personnes avec l'e-mail de l'entreprise, ou quiconque a le lien. Granola indique que les admins ne lisent pas vos notes privées&nbsp;; les admins Enterprise peuvent plafonner le partage (par exemple interdire les liens publics).
 
-Un cache local permet d'ouvrir et d'éditer hors réseau. Le système d'enregistrement que Granola documente reste AWS US. Granola indique **ne pas offrir** pour l'instant de résidence UE, UK, Canada ou Australie. Les équipes suisses qui exigent un hébergement national ou UE ne le trouvent pas sur ces pages en septembre 2026. La **nLPD** ne disparaît pas parce que l'audio a été effacé&nbsp;: le texte de la réunion est encore une donnée.
+Un cache local permet d'ouvrir et d'éditer hors réseau. Le référentiel documenté par Granola reste AWS US. Granola indique **ne pas offrir** pour l'instant de résidence UE, UK, Canada ou Australie. Les équipes suisses qui exigent un hébergement national ou UE ne le trouvent pas sur ces pages en septembre 2026. La **nLPD** ne disparaît pas parce que l'audio a été effacé&nbsp;: le texte de la réunion est encore une donnée.
 
 Si la transcription doit rester sur un Mac jusqu'à export, voir [comment Vemoir capture en local](/fr#how).
 
@@ -127,7 +122,7 @@ Une note effacée chez Granola ne retire pas une copie collée dans Slack ou un 
 
 ## Ce que Granola publie sur ses programmes de sécurité
 
-La [page sécurité](https://www.granola.ai/security) et la FAQ mentionnent **SOC 2 Type II**, un Trust Center, un DPA avec clauses contractuelles types UE et UK, et un langage GDPR / UK GDPR. La FAQ affirme un **HIPAA** **Enterprise** avec BAA, pas sur Free, Personal ou Business, BAA limitée aux apps bureau. Granola indique **ne pas** être FERPA à ce jour et **ne pas** détenir le NHS DSP Toolkit. Pas de 2FA intégré&nbsp;: l'auth passe par Google, Microsoft ou SSO.
+La [page sécurité](https://www.granola.ai/security) et la FAQ mentionnent **SOC 2 Type II**, un Trust Center, un DPA avec clauses contractuelles types UE et UK, et un langage GDPR / UK GDPR. La FAQ affirme un **HIPAA** **Enterprise** avec BAA, pas sur Free, Personal ou Business, BAA limitée aux apps bureau. Granola indique **ne pas** être FERPA à ce jour et **ne pas** détenir le NHS DSP Toolkit. Pas de 2FA intégré&nbsp;: l'authentification passe par Google, Microsoft ou SSO.
 
 Ce sont des **déclarations Granola**. Cet article ne les certifie pas. Vemoir n'affirme ni HIPAA, ni GDPR, ni nLPD, ni une autre conformité pour Granola ou pour votre enregistrement. Les règles de secteur restent chez votre conseil et votre revue fournisseur.
 
@@ -142,7 +137,7 @@ Comparaison d'autres outils&nbsp;: [alternative à Granola](/fr/blog/alternative
 Choisissez la capture locale si la transcription doit **rester sur le Mac** sauf export&nbsp;:
 
 - **Vemoir pour Mac** enregistre micro et audio système depuis la barre de menus, sans bot ([fonctionnement](/fr#how)).
-- Transcription et voix restent sur l'appareil. Les modèles texte cloud sont optionnels, avec votre clé, sans audio brut ([capture](/fr#capture)).
+- Transcription et traitement des voix restent sur l'appareil. Les modèles texte cloud sont optionnels, avec votre clé, et ne reçoivent pas l'audio brut ([capture](/fr#capture)).
 - Pour un fichier déjà là, [transcrire l'audio](/fr/outils/transcrire-audio) dans l'onglet, sans envoi à Vemoir (15&nbsp;minutes, trois passages par semaine, pas d'étiquettes de locuteurs).
 
 Granola optimise un bloc-notes cloud sans bot. Vemoir optimise des dossiers locaux et un export explicite.

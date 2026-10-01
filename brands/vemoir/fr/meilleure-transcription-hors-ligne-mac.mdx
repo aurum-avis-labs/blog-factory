@@ -38,15 +38,15 @@ Cette comparaison évite les pourcentages de précision. La question est l'adéq
 Un chemin de transcription hors ligne a quatre contrôles.
 
 
-**Le modèle est déjà installé.** Le premier téléchargement a besoin d'internet. Les poids Whisper, Parakeet ou le modèle de parole que l'app utilise ne sont pas magiques dans le binaire, sauf si la développeuse les a empilés. Vemoir ne télécharge pas ni ne substitue un modèle en silence pendant un enregistrement. Vous choisissez, vous voyez la taille, vous attendez, vous pouvez reprendre un téléchargement raté. Ensuite, la transcription n'exige pas de connexion.
+**Le modèle est déjà installé.** Le premier téléchargement a besoin d'internet. Les poids Whisper, Parakeet ou le modèle de parole que l'app utilise ne sont pas magiquement présents dans le binaire, sauf s'ils sont fournis avec l'app. Vemoir ne télécharge pas ni ne substitue un modèle en silence pendant un enregistrement. Vous choisissez, vous voyez la taille, vous attendez, vous pouvez reprendre un téléchargement raté. Ensuite, la transcription n'exige pas de connexion.
 
-**L'audio ne part pas vers une API de parole.** La transcription et la séparation des locuteurs, là où le produit les a, tournent sur le Mac. Un modèle de texte dans le nuage est une autre étape. Si une app «&nbsp;bascule&nbsp;» vers une transcription nuage quand la locale est lente, elle n'est pas hors ligne le jour où vous en aviez besoin. La règle de Vemoir est l'inverse&nbsp;: tant que vous n'avez pas explicitement activé votre propre clé OpenAI ou Anthropic, la génération de texte reste locale, et un échec ne change pas de prestataire en silence. L'audio ne va jamais à cette clé. La clé est optionnelle. Laissez-la inutilisée si hors ligne est le point.
+**L'audio ne part pas vers une API de parole.** La transcription et la séparation des locuteurs, là où le produit les a, tournent sur le Mac. Un modèle de texte dans le nuage est une autre étape. Si une app «&nbsp;bascule&nbsp;» vers une transcription dans le nuage quand la transcription locale est lente, elle n'est pas hors ligne le jour où vous en aviez besoin. La règle de Vemoir est l'inverse&nbsp;: tant que vous n'avez pas explicitement activé votre propre clé OpenAI ou Anthropic, la génération de texte reste locale, et un échec ne change pas de prestataire en silence. L'audio ne va jamais à cette clé. La clé est optionnelle. Laissez-la inutilisée si hors ligne est le point.
 
 **L'aperçu en direct n'est pas le dossier.** Une ligne partielle à l'écran pendant un appel peut exister sans être la transcription que vous classez. Le texte qui fait foi se construit à partir de l'audio terminé après l'arrêt. Si vous quittez en cours d'appel, n'attendez pas une transcription complète de l'aperçu.
 
-**La machine peut le faire tourner.** Puce Apple, assez de mémoire, assez de disque. Les Mac Intel sont hors exigence Vemoir. Un énorme modèle Whisper sur un Mac 8&nbsp;Go peut être installé et rester un mauvais quotidien. L'app montre l'adéquation matérielle. Croyez-la. 16&nbsp;Go est la recommandation pour les longues réunions. 8&nbsp;Go et 10&nbsp;Go libres sont les minima pour Vemoir, sur macOS Sonoma 14.2 ou plus tard, M1 ou plus récent.
+**La machine peut le faire tourner.** Puce Apple, assez de mémoire, assez de disque. Les Mac Intel sont hors exigence Vemoir. Un énorme modèle Whisper sur un Mac 8&nbsp;Go peut être installé et rester peu pratique au quotidien. L'app montre si le matériel convient. Prenez-le au sérieux. 16&nbsp;Go est la recommandation pour les longues réunions. 8&nbsp;Go et 10&nbsp;Go libres sont les minima pour Vemoir, sur macOS Sonoma 14.2 ou plus tard, M1 ou plus récent.
 
-Hors ligne n'inclut pas le suisse allemand en texte dialectal. Prévoyez de l'allemand standard quand la parole était du suisse allemand, pour les modèles Whisper publics et pour toute promesse que vous seriez tentée de faire. Aucune date n'appartient à une future fonction dialecte.
+Hors ligne n'inclut pas le suisse allemand en texte dialectal. Les modèles Whisper publics rendent de l'allemand standard même quand la parole était du suisse allemand. Ne promettez pas de sortie dialectale. Aucune date n'appartient à une future fonction dialecte.
 
 ## Meilleure transcription hors ligne pour Mac si vous n'avez qu'un fichier
 
@@ -59,9 +59,9 @@ Ce chemin, ou une app d'abord Finder autour de la même idée, est le **meilleur
 - Vous ne voulez ni bibliothèque de réunions, ni projets, ni brouillons de relance.
 - Vous êtes à l'aise dans le Terminal, ou vous préférez une app dont toute l'interface est «&nbsp;déposez un fichier&nbsp;».
 
-MacWhisper est l'exemple habituel de cette forme Finder d'abord. Utilisez-le, ou quelque chose de comparable, quand le livrable est un fichier de transcription. Cet article ne cite ni son prix ni une fonction d'une page que nous ne relions pas comme fiche technique. Lisez la page actuelle de la développeuse. N'attendez pas que ce soit le système de référence des décisions client avec responsables et dates. C'est un autre produit.
+MacWhisper est l'exemple habituel de cette forme Finder d'abord. Utilisez-le, ou quelque chose de comparable, quand le livrable est un fichier de transcription. Cet article ne cite ni son prix ni sa liste de fonctions. Consultez la page actuelle de l'éditeur. N'attendez pas que ce soit le système de référence des décisions client avec responsables et dates. C'est un autre produit.
 
-Le Whisper maison est aussi l'endroit où aller si vous avez besoin d'une taille de modèle que l'app de réunion ne liste pas, et que vous acceptez le temps de paramétrage. Les modes de panne vous appartiennent&nbsp;: un mauvais taux d'échantillonnage, un fichier que la commande n'a pas ouvert, une transcription sans horodatage à cause d'un flag oublié.
+Le Whisper maison est aussi l'endroit où aller si vous avez besoin d'une taille de modèle que l'app de réunion ne liste pas, et que vous acceptez le temps de paramétrage. À vous de gérer les ratés&nbsp;: un mauvais taux d'échantillonnage, un fichier que la commande n'a pas ouvert, une transcription sans horodatage à cause d'un flag oublié.
 
 Vous n'allez pas vers Whisper brut quand l'heure suivante est un appel Teams que vous n'avez pas encore enregistré. Le modèle n'entend pas l'appel. Autre chose doit d'abord capter l'audio système.
 
@@ -92,7 +92,7 @@ Ce qui tourne sur le Mac, y compris hors réseau, une fois les modèles install�
 - Modèles de parole que vous avez choisis&nbsp;: Parakeet v3 (25 langues européennes) ou Whisper Turbo, Medium ou Large-v3. Le choix est explicite. La couverture suit le modèle. Cette liste n'est pas un classement de précision.
 - Séparation des locuteurs en étiquettes que vous pouvez renommer. Un profil vocal mémorisé est optionnel, chiffré et supprimable. Si la correspondance est incertaine, le locuteur reste anonyme.
 - Texte pour procès-verbal, décisions, actions et Ask Vemoir depuis un modèle de langue local par défaut. Qwen3 4B sur la plupart des Mac, gpt-oss-20b sur les Mac à beaucoup de mémoire. Ces modèles ne transcrivent pas. Ils écrivent à partir de la transcription. Apple Intelligence peut servir au nettoyage là où le Mac l'a. C'est optionnel. La transcription utilise encore le modèle de parole que vous avez choisi.
-- Import de MP3, M4A, WAV, AIFF, CAF et FLAC par le même pipeline local.
+- Import de MP3, M4A, WAV, AIFF, CAF et FLAC par la même chaîne de traitement locale.
 - Recherche dans les réunions déjà traitées, sur le Mac.
 - Notes tapées pendant l'enregistrement, repliées dans le procès-verbal avec leur propre provenance.
 
@@ -116,7 +116,7 @@ Ce n'est pas la meilleure transcription hors ligne pour une utilisatrice Mac ave
 - 3 exécutions réussies par semaine.
 - Pas d'étiquettes de locuteur.
 - Pas de capture en direct. L'appel doit déjà être un fichier.
-- Pas de flux de procès-verbal au-delà de ce que vous copiez.
+- Pas de processus de procès-verbal au-delà de ce que vous copiez.
 
 Utilisez-le pour un court clip sur une machine où vous n'installerez pas d'app. Ne le décrivez pas comme l'enregistreur de réunion hors ligne. Il n'en est pas un.
 
@@ -144,7 +144,7 @@ Quand quelqu'un d'autre a besoin du texte, exportez la note. Un mot de passe por
 
 ### Quelle est la meilleure transcription hors ligne pour Mac si je ne fais que déposer des fichiers dans le Finder&nbsp;?
 
-Une installation Whisper locale ou une app fichier d'abord comme MacWhisper. Vous n'avez pas besoin d'une bibliothèque de réunions pour ce métier. Confirmez le prix actuel de l'app auprès de sa développeuse.
+Une installation Whisper locale ou une app fichier d'abord comme [MacWhisper](/fr/blog/alternative-a-macwhisper). Vous n'avez pas besoin d'une bibliothèque de réunions pour ce métier. Confirmez le prix actuel de l'app auprès de sa développeuse.
 
 ### Hors ligne inclut-il le premier lancement&nbsp;?
 

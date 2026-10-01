@@ -1,13 +1,13 @@
 ---
 title: "Vibe coding security checklist before real users"
 description: "A practical vibe coding security checklist: secrets, auth, row-level rules, storage, and logs. What it proves, what it does not, and when a review fits."
-pubDate: 2027-09-01
+pubDate: 2027-05-12
 author: "Aurum Avis Labs"
 tags: ["vibe coding", "security", "mvp", "supabase", "owasp"]
 funnelStage: interest
 translationKey: vibe-coding-security-checklist
 relatedPosts: ["building-an-mvp-with-lovable", "lovable-supabase-row-level-security"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -53,18 +53,18 @@ Finishing the checklist means you found and fixed obvious holes, or you wrote do
 
 ## The checklist (same day)
 
-Work through the items in order. If an item is «not applicable», write why in one line so a future you or a contractor does not assume you skipped it by mistake.
+Work through the items in order. If an item is "not applicable", write why in one line so a future you or a contractor does not assume you skipped it by mistake.
 
 <ul class="blog-checklist">
-  <li><strong>Inventory surfaces.</strong> List every way data gets in or out: web UI, mobile wrap, serverless functions, webhooks, email triggers, and any «admin» URL you bookmarked during development.</li>
+  <li><strong>Inventory surfaces.</strong> List every way data gets in or out: web UI, mobile wrap, serverless functions, webhooks, email triggers, and any "admin" URL you bookmarked during development.</li>
   <li><strong>Secrets stay server-side.</strong> Search the repo and the built client bundle for service role keys, signing secrets, and third-party tokens. Nothing that can read another user’s row belongs in front-end code or in a public GitHub repo.</li>
   <li><strong>Authentication on every mutating path.</strong> Logging in through the UI is not enough. Call each API route or edge function with no session, with an expired token, and with another user’s token. The unhappy paths should fail closed.</li>
   <li><strong>Authorisation matches the product story.</strong> If only the owner may see a project, prove it with two test accounts. UI hiding is not security. Row level security, policy rules, or server checks must align with what you promise in writing.</li>
-  <li><strong>Storage buckets and public links.</strong> Note which buckets are public. Open a «private» file URL in a logged-out browser. Upload paths should not let one user overwrite another’s object by guessing an ID.</li>
+  <li><strong>Storage buckets and public links.</strong> Note which buckets are public. Open a "private" file URL in a logged-out browser. Upload paths should not let one user overwrite another's object by guessing an ID.</li>
   <li><strong>Data region and subprocessors.</strong> Write down the region you selected (Supabase offers Zurich, eu-central-2, among others) and every vendor that stores or processes personal data. You will need this for customer questions and for agreements.</li>
-  <li><strong>Dependencies.</strong> Run your platform’s audit command on the lockfile you actually deploy. Triage critical findings before you widen access, even if the prototype «worked fine» last week.</li>
+  <li><strong>Dependencies.</strong> Run your platform’s audit command on the lockfile you actually deploy. Triage critical findings before you widen access, even if the prototype "worked fine" last week.</li>
   <li><strong>Logging and errors.</strong> Trigger a failure on purpose. Read what lands in logs or client toasts. Stack traces and raw user records in the browser console are a common leak in generated apps.</li>
-  <li><strong>Backups and export.</strong> State whether you can restore yesterday’s database and whether a customer can leave with their data. «The platform backs up» is not the same as «we tested a restore».</li>
+  <li><strong>Backups and export.</strong> State whether you can restore yesterday’s database and whether a customer can leave with their data. "The platform backs up" is not the same as "we tested a restore".</li>
   <li><strong>Capture the result.</strong> One page: date, who ran the pass, what failed, what you fixed, what remains open. That page is what you hand to the next developer or to a structured review.</li>
 </ul>
 
@@ -72,20 +72,15 @@ Work through the items in order. If an item is «not applicable», write why in 
 
 A made-up example: a founder ships a room-booking app with Lovable and Supabase for three Zurich co-working spaces. Twelve real members use it. No payments yet, but names, emails, and booking notes are live.
 
-On a Thursday she runs the checklist. The client bundle still contains a commented line with an old anon key from an early experiment; she removes it and rotates keys in the dashboard. Two test accounts show that any logged-in user can open another user’s booking ID by changing the number in the URL; she adds a policy so rows match the member’s organisation ID. A storage bucket marked public serves profile photos; she makes it private and serves images through signed URLs. She notes in her one-page log that backups are «platform default, restore untested» and that error toasts still echo raw SQL on one admin screen she plans to fix before a fourth site joins.
+On a Thursday she runs the checklist. The client bundle still contains a commented line with an old anon key from an early experiment; she removes it and rotates keys in the dashboard. Two test accounts show that any logged-in user can open another user’s booking ID by changing the number in the URL; she adds a policy so rows match the member’s organisation ID. A storage bucket marked public serves profile photos; she makes it private and serves images through signed URLs. She notes in her one-page log that backups are "platform default, restore untested" and that error toasts still echo raw SQL on one admin screen she plans to fix before a fourth site joins.
 
-The pass took an afternoon. It did not make the app «bank grade». It stopped an easy cross-tenant read and gave her something honest to send when the next site manager asks what was checked.
+The pass took an afternoon. It did not make the app "bank grade". It stopped an easy cross-tenant read and gave her something honest to send when the next site manager asks what was checked.
 
 ## What a structured review adds
 
 When the checklist surfaces several open items, or when a customer asks for evidence against a standard, a structured review beats another evening of guessing. Aurum’s [Vibe Code Review](/services/vibe-code-review) is aimed at apps built with Cursor, Lovable, v0, or Claude Code. Work is mapped to OWASP ASVS v5.0. You receive a gap report, roughly eight hours on architecture and code quality, a prioritised P0/P1/P2 action list, a closing conversation, and an NDA. It fits when you plan to keep the codebase, onboard paying B2B users in Switzerland, or hand the project to an in-house team without losing weeks to archaeology.
 
 If you are still on fake data with five friends testing copy, finish discovery first. Book a review when access control and data location are blocking revenue or a partnership, not when you only need another feature prompt.
-
-<div class="blog-faq">
-  <h3>Is vibe coding insecure by definition?</h3>
-  <p>No. The risk pattern is familiar: fast UI, generated data access, and little time on edge cases. The same checklist applies to hand-written MVPs when the team is small and moving quickly.</p>
-</div>
 
 <div class="blog-faq">
   <h3>Does picking a Swiss Supabase region solve compliance?</h3>

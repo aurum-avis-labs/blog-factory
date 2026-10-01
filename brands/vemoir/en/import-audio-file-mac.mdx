@@ -50,7 +50,7 @@ Mac app requirements: Apple silicon (M1 or newer), macOS Sonoma 14.2 or later, r
 
 Nothing in that list uploads audio to Vemoir. Cloud text models (OpenAI or Anthropic with your own key) are opt-in for generated prose. They do not transcribe the file, and the app does not silently fall back to them.
 
-For a short clip without installing the app, use the browser section below. For a local Zoom folder hunt, see [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording).
+For a short clip without installing the app, use the browser section below. For a local Zoom folder hunt, see [transcribe a local Zoom recording](/blog/zoom-local-recording-transcript).
 
 Want this on a file you already have, without a vendor upload? [Open the transcribe recording tool](/tools/transcribe-recording).
 
@@ -61,6 +61,8 @@ Want this on a file you already have, without a vendor upload? [Open the transcr
 **AirDropped voice memo.** The phone sends M4A. Content is whatever the phone microphone heard: a room conversation yes, a Zoom call on another laptop no. [Transcribe a voice memo on a Mac](/blog/transcribe-voice-memo-mac) covers the same path with more Finder detail.
 
 **Dictaphone export.** WAV and FLAC work in the Mac app. Play ten seconds before import. Some devices write a silent first file if you started recording before anyone spoke.
+
+After transcription, one pass over names, amounts, and the next step's date is usually enough. The project glossary keeps recurring spellings consistent. It does not replace proofreading, especially before you quote a sentence.
 
 ## Import vs recording the call yourself
 
@@ -91,7 +93,10 @@ Do not call the output a certified transcript. Do not call it GDPR-certified or 
 
 ## When another path is better
 
-Stay on the platform recorder when legal needs the tenant copy. Use the browser tool for a one-off under 15 minutes. Without Apple silicon, the Mac app will not run.
+- **The official file must live in Teams or Zoom.** A private download does not replace the tenant's recording.
+- **You need a company archive today.** A file on one Mac is not a shared workspace. Export the notes.
+- **The file is 12 minutes long and you need raw text once.** There is less setup in the browser.
+- **No Apple silicon.** The Mac app will not run. Use another tool on your system, or the browser for a short clip.
 
 ## Frequently asked questions
 
@@ -114,5 +119,9 @@ You can import an old file at any time. Import does not capture the live call. F
 ### Do imported files get speaker labels?
 
 On the Mac app, speaker separation runs locally. You rename labels; profiles are opt-in. The browser tool does not separate speakers.
+
+### What if the imported transcript is in the wrong language?
+
+The app interface language (English, German, French, Italian, Dutch) is independent of the speech model. Pick a model that covers the spoken language. Parakeet v3 covers 25 European languages. The Whisper variants have their own coverage. There is no accuracy ranking on this page.
 
 Next step: drop a short file on the [transcribe recording tool](/tools/transcribe-recording), or import the full recording in the Mac app and file it under a [project](/#record).

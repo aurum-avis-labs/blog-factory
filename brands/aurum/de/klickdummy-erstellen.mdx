@@ -1,33 +1,27 @@
 ---
 title: "Klickdummy erstellen: Ablauf, Werkzeug und Grenzen"
 description: "Klickdummy erstellen in wenigen Schritten: ein Szenario, verlinkte Masken, Testgespräche. Wann das reicht und wann Sie echte Software brauchen."
-pubDate: 2027-09-01
+pubDate: 2027-04-25
 author: "Aurum Avis Labs"
 tags: ["klickdummy", "prototyp", "mvp", "produktvalidierung"]
 funnelStage: interest
 translationKey: clickable-prototype-when-enough
 relatedPosts: ["unterschied-poc-prototyp-mvp", "mvp-features-priorisieren"]
-draft: true
+draft: false
 site: studio
 ---
+
+<p class="blog-lede">Ein Klickdummy reicht, wenn die offene Frage lautet, ob Menschen den Ablauf verstehen, eine Aufgabe am Bildschirm abschliessen oder eine Richtung im Raum mittragen, nicht ob sie nächste Woche zu lauffähiger Software zurückkehren.</p>
 
 ## Klickdummy erstellen
 
 Einen Klickdummy erstellen heisst, eine begrenzte Folge von Bildschirmen so zu verlinken, dass eine Person einen Alltagsfall durchklicken kann, ohne dass Daten gespeichert oder E-Mails versendet werden. Das reicht, solange Sie Layout, Begriffe und Reihenfolge prüfen wollen. Es reicht nicht, wenn die offene Frage lautet, ob Nutzerinnen und Nutzer ohne Ihre Erklärung wiederkommen, bezahlen oder echte Schnittstellen brauchen. Wer den Unterschied zum MVP sucht, findet ihn in [Was ist ein MVP](/de/blog/was-ist-ein-mvp).
 
-Innovationsverantwortliche in KMU nutzen Klickdummies oft, bevor Budget für Entwicklung freigegeben wird. Gründerinnen und Gründer nutzen sie in frühen Gesprächen, wenn das Ziel ist «zeigen Sie mir, wo Sie abbrechen würden», nicht «nutzen Sie das eine Woche lang». Beides ist legitim, solange Sie in Protokollen schreiben, was der Klick beweist und was nicht.
-
-<ul class="blog-checklist">
-  <li>Ein Szenario, eine Rolle, klarer Start und Endzustand</li>
-  <li>Fünf bis neun Masken auf diesem Pfad, inklusive leerer und Fehlerzustände</li>
-  <li>Plausible Fake-Daten (Betrag in CHF, Adresse, Status), keine Lorem-Ipsum-Fassade</li>
-  <li>Drei Testläufe mit Denken-laut, ohne die Gestaltung zu verteidigen</li>
-  <li>Entscheidung: zweite Prototyp-Runde, Landingpage mit Fake Door oder schmaler Live-Build</li>
-</ul>
+Innovationsverantwortliche in KMU nutzen Klickdummies oft, bevor Budget für Entwicklung freigegeben wird. Gründerinnen und Gründer nutzen sie in frühen Gesprächen, wenn das Ziel ist «zeigen Sie mir, wo Sie abbrechen würden», nicht «nutzen Sie das eine Woche lang». Beides ist legitim, solange Sie in Protokollen schreiben, was der Klick beweist und was nicht. Ein Proof of Concept prüft dagegen, ob sich eine API oder ein Modell überhaupt anbinden lässt, nicht ob jemand das Produkt will.
 
 ## Klickdummy erstellen: Werkzeug und Umfang
 
-Sie brauchen kein einziges Markenwerkzeug. Entscheidend ist, dass Sie Links zwischen Masken setzen und auf einem Laptop oder Tablet zeigen können. Viele Teams arbeiten in Figma, Miro oder ähnlichen Oberflächen; andere reichen verlinkte PDFs für interne Abstimmung. Wählen Sie das Werkzeug, das Ihr Team schon bedient, nicht das mit den meisten Effekten.
+Sie brauchen kein bestimmtes Werkzeug. Entscheidend ist, dass Sie Links zwischen Masken setzen und auf einem Laptop oder Tablet zeigen können. Viele Teams arbeiten in Figma, Miro oder ähnlichen Oberflächen; andere reichen verlinkte PDFs für interne Abstimmung. Wählen Sie das Werkzeug, das Ihr Team schon bedient, nicht das mit den meisten Effekten.
 
 Halten Sie den Umfang hart: jede zusätzliche Einstellungsseite ist Scope. Wenn Sie drei Personas bedienen müssen, haben Sie vermutlich schon ein MVP-Problem, kein reines Darstellungsproblem. Mobile Ansicht lohnt sich, wenn das Produkt unterwegs genutzt wird; sonst verschwenden Sie Tage an Breakpoints, bevor Sie wissen, ob der Fall überhaupt zählt.
 
@@ -54,9 +48,19 @@ Teilen Sie den Link nur mit Personen, die wissen, dass nichts gespeichert wird. 
   </div>
 </div>
 
+## Ein praktischer Ablauf (ohne so zu tun, als wäre es Software)
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Ein Szenario aufschreiben</h3><p>Eine Persona, ein Job, Start- und Endzustand. Brauchen Sie drei Szenarien, sind Sie vermutlich schon beim MVP-Scoping.</p></li>
+  <li data-step="2"><h3>Nur die Masken auf diesem Pfad zeichnen</h3><p>Fünf bis neun verlinkte Frames genügen meist. Leer- und Fehlerzustände zählen; Einstellungsseiten nicht, ausser Einstellungen sind das Produkt.</p></li>
+  <li data-step="3"><h3>Glaubhafte Fake-Daten verwenden</h3><p>Namen, Beträge und Status passend zum Schweizer Kontext. «CHF 1'200» liest sich anders als «$99».</p></li>
+  <li data-step="4"><h3>Drei Testläufe machen</h3><p>Mit lautem Denken, ohne die Gestaltung zu verteidigen. Notieren Sie, wo jemand fragt «was passiert als Nächstes», weil der Klickdummy schweigt.</p></li>
+  <li data-step="5"><h3>Über das nächste Artefakt entscheiden</h3><p>Zweite Prototyp-Runde, Fake Door auf einer Landingpage oder schmaler deployter Build. Verlängern Sie den Klickdummy nicht, solange die Frage noch die Masken betrifft.</p></li>
+</ol>
+
 ## Ein erfundenes Beispiel: Portal ohne Backend
 
-Ein erfundenes Beispiel: eine Innovationsverantwortliche in einem familiengeführten Transportbetrieb, kein Kunde. Der Verwaltungsrat gab im Juni zwanzig Minuten für eine Kundenportal-Idee: Lieferschein hochladen, Status sehen, Änderung anfragen. Kein Engineering-Budget. In zehn Tagen verlinkte sie sieben Masken mit erfundenen Sendungsnummern und Schweizer Adressen. Zwei interne Nutzer und eine externe Disponentin klickten am Laptop durch. Alle erreichten «Änderung anfragen», zwei fragten, ob eine E-Mail ausgelöst wird, was der Klickdummy nicht zeigen konnte. Sie notierte das als Verhaltensfrage, nicht als Layoutfehler. Für den Verwaltungsrat blieb der Klickdummy für Richtung und Ernsthaftigkeit; für Fremde plante sie eine Landingpage ohne Backend. Im Protokoll stand weder Validierung noch Product-Market-Fit, sondern klar: Flow verständlich, Benachrichtigungsverhalten offen.
+Ein erfundenes Beispiel: eine Innovationsverantwortliche in einem familiengeführten Transportbetrieb, kein Kunde. Der Verwaltungsrat gab im Juni zwanzig Minuten für eine Kundenportal-Idee: Lieferschein hochladen, Status sehen, Änderung anfragen. Kein Engineering-Budget. In zehn Tagen verlinkte sie sieben Masken mit erfundenen Sendungsnummern und Schweizer Adressen. Zwei interne Nutzer und eine externe Disponentin klickten am Laptop durch. Alle erreichten «Änderung anfragen», zwei fragten, ob eine E-Mail ausgelöst wird, was der Klickdummy nicht zeigen konnte. Sie notierte das als Verhaltensfrage, nicht als Layoutfehler. Für den Verwaltungsrat behielt sie den Klickdummy als Abstimmungsgrundlage; für Fremde plante sie eine Landingpage ohne Backend. Im Protokoll stand weder Validierung noch Product-Market-Fit, sondern klar: Flow verständlich, Benachrichtigungsverhalten offen.
 
 ## Was ein Klickdummy nicht beweist
 
@@ -81,11 +85,6 @@ Vibe-codierte Oberflächen mit totem Checkout bleiben Nachfrage-Tests, egal wie 
   <p>So lange, dass Sie ein Szenario mit wenigen Testpersonen durchspielen und Notizen haben, nicht so lange, dass jeder Randfall poliert ist. Ohne neues Lernen nach zwei Wochen ist oft das falsche Artefakt gewählt.</p>
 </div>
 
-<div class="blog-faq">
-  <h3>Darf ich das Investoren als Traktion verkaufen?</h3>
-  <p>Als Richtung und Vorbereitung ja. Durchklicks sind keine Nutzungszahlen und keine Umsätze.</p>
-</div>
-
 ## Wann das MVP-Validierungspaket passt
 
-Das [MVP-Validierungspaket](/de/services/mvp-validation) passt, wenn Abstimmung erledigt ist und die riskanteste Annahme einen echten Build braucht: deployierte Web-App, Landingpage, bezogene Reichweite und gemessene Conversion über Wochen, nicht eine dritte Prototyp-Runde. War der Verwaltungsrat nur der richtige Publikum für den Flow, war der Klickdummy der richtige Aufwand. Lautet die nächste Frage, ob Fremde ohne Begleitung wiederkommen, gehört das Gespräch auf jene Leistungsseite, nicht in breitere Masken.
+Das [MVP-Validierungspaket](/de/services/mvp-validation) passt, wenn Abstimmung erledigt ist und die riskanteste Annahme einen echten Build braucht: deployierte Web-App, Landingpage, bezahlte Reichweite und gemessene Conversion über Wochen, nicht eine dritte Prototyp-Runde. War der Verwaltungsrat nur das richtige Publikum für den Flow, war der Klickdummy der richtige Aufwand. Lautet die nächste Frage, ob Fremde ohne Begleitung wiederkommen, gehört das Gespräch auf die Seite des MVP-Validierungspakets, nicht in breitere Masken.

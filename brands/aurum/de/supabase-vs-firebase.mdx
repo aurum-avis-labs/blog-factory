@@ -1,19 +1,19 @@
 ---
 title: "Supabase vs Firebase für ein MVP"
 description: "Supabase vs Firebase für ein MVP: Postgres und RLS gegen Firestore und Regeln, Region Zürich, Grenzen der Backend-Wahl."
-pubDate: 2027-09-01
+pubDate: 2027-05-20
 author: "Aurum Avis Labs"
 tags: ["supabase", "firebase", "mvp", "vibe coding", "backend"]
 funnelStage: interest
 translationKey: supabase-vs-firebase-for-an-mvp
 relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
-draft: true
+draft: false
 site: studio
 ---
 
 <p class="blog-lede">Supabase vs Firebase für ein MVP entscheidet sich am Datenmodell und an den Zugriffsregeln, nicht am Sieger auf einer Folie. Supabase liefert Postgres, SQL und Row Level Security, oft schon an Lovable und ähnliche Werkzeuge angebunden. Firebase liefert Firestore, Security Rules und die Auth- und Echtzeit-Pfade, die mobile Vorlagen erwarten. Beides kann Login und ersten Ablauf in wenigen Tagen online bringen. Keines beweist Zahlungsbereitschaft, und keines ersetzt eine Prüfung, bevor Unbekannte sensible Daten sehen.</p>
 
-Der Text richtet sich an Gründerinnen und Gründer, die bereits aus Lovable, Bolt, v0, Replit, Cursor oder Claude Code exportiert haben und ein Backend brauchen, das zur Produktform passt. Wenn Last, Monitoring und Auth-Kanten offen sind, lesen Sie zuerst [ist Ihre vibe-coded App produktionsreif?](/de/blog/ist-deine-vibe-coded-app-produktionsreif). [Lovable MVP](/de/blog/lovable-mvp) und [Lovable Supabase RLS](/de/blog/lovable-supabase-rls) vertiefen einen häufigen Stack; hier bleibt der direkte Vergleich für die Wahl selbst.
+Der Text richtet sich an Gründerinnen und Gründer, die bereits aus Lovable, Bolt, v0, Replit, Cursor oder Claude Code exportiert haben und ein Backend brauchen, das zur Produktform passt. Wenn Last, Monitoring und Auth-Randfälle offen sind, lesen Sie zuerst [ist Ihre vibe-coded App produktionsreif?](/de/blog/ist-deine-vibe-coded-app-produktionsreif). [Lovable MVP](/de/blog/lovable-mvp) und [Lovable Supabase RLS](/de/blog/lovable-supabase-rls) vertiefen einen häufigen Stack; hier bleibt der direkte Vergleich für die Wahl selbst.
 
 ## Supabase vs Firebase
 
@@ -75,21 +75,6 @@ Bei Firebase zeigt sich dieselbe Fehlerklasse als zu offene **Firestore Rules** 
   <span class="blog-kicker">Grenze</span>
   <p>Supabase oder Firebase zu wählen sagt nicht, ob Ihre Policies stimmen. Grünes Dashboard und funktionierende Demo sind kein Penetrationstest. Bevor Sie Traffic skalieren oder Zahlungsfelder speichern, soll jemand mit OWASP- und Backend-Auth-Erfahrung das Projekt prüfen.</p>
 </aside>
-
-<dl class="blog-terms">
-  <div>
-    <dt>RLS</dt>
-    <dd>Row Level Security in Postgres: die Datenbank filtert Zeilen pro Nutzer, nicht nur die App-Oberfläche.</dd>
-  </div>
-  <div>
-    <dt>Security Rules</dt>
-    <dd>Firebase-Regeln, die Lese- und Schreibzugriffe pro Pfad in Firestore oder Storage erlauben oder verweigern.</dd>
-  </div>
-  <div>
-    <dt>Anon-Key</dt>
-    <dd>Supabase-Client-Schlüssel im Browser; nur sicher, wenn RLS fremde Daten verweigert.</dd>
-  </div>
-</dl>
 
 ## Was die Wahl nicht beweist
 

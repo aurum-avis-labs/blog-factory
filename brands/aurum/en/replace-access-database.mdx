@@ -20,24 +20,7 @@ Keep the file when a handful of people use it, that edition is still in support,
 
 An Excel workbook that has quietly become the real system is a different topic, covered in [Excel as a shadow system](/prozess-check/blog/excel-as-shadow-system). This page is the .accdb: tables, forms, reports, and usually one person who knows how they fit.
 
-<div class="blog-pair">
-  <div>
-    <h3>When to replace</h3>
-    <ul>
-      <li>Several people share one file on a drive</li>
-      <li>Only one person can change forms or fields</li>
-      <li>Access 2021 or LTSC 2021 with no planned edition change</li>
-    </ul>
-  </div>
-  <div>
-    <h3>When to keep it</h3>
-    <ul>
-      <li>Few users, one file, edition still in support</li>
-      <li>Tested backup and the edition written down</li>
-      <li>The pain is copying, not the platform</li>
-    </ul>
-  </div>
-</div>
+In short: replace when several people share one file, only one person can change forms or fields, or the machine runs Access 2021 or LTSC 2021 with no planned edition change. Keep it when a few users share one file, the edition is still in support, a tested backup exists, and the pain is copying, not the platform.
 
 ## Which support date applies to your edition
 
@@ -57,16 +40,11 @@ If the title bar says Microsoft 365, do not assume the 2021 date. An unsupported
 | A standard program | The file is really invoices, stock or a CRM, and a product already sells that | The steps are office-specific and a package would bend the work |
 | A small app | The steps are specific, the data is yours, and the other rows do not fit | The forms are not described yet |
 
-Microsoft's current migration document is about Dataverse. Access can export data to Dataverse or Dataverse for Teams. Not every Access data type is supported, and limits differ. Afterwards the tables can sit outside the file while the desktop client remains the screen. That is a move of the data, not an automatic copy of every form, report and macro. Test on a copy. Compare row counts. Anything the tool refuses stays in Access.
+Microsoft's current migration document is about Dataverse. Access can export data to Dataverse or Dataverse for Teams. Not every Access data type is supported, and limits differ. Afterwards the tables can sit outside the file while the desktop client remains the screen. That is a move of the data, not an automatic copy of every form, report and macro. If required fields and statuses live only in a form or in one person's head, the new store will not have them until someone writes them down. Test on a copy. Compare row counts. Anything the tool refuses stays in Access.
 
 Lists fits when the "database" is one table, such as an equipment register. It does not fit when the value sits in five linked tables and a form someone spent years adjusting.
 
 A standard program wins when you would rebuild invoicing or stock software that already exists. A small app wins when the form encodes a sequence no package matches. Partner choice is in [choosing an automation partner](/prozess-check/blog/choosing-an-automation-partner). Ongoing care is in [who runs the automation afterwards](/prozess-check/blog/who-runs-the-automation).
-
-<aside class="blog-callout blog-callout--limit">
-  <span class="blog-kicker">Limit</span>
-  <p>Moving tables does not move rules. If required fields and statuses live only in a form or in one person's head, the new store will not have them until someone writes them down.</p>
-</aside>
 
 ## The risk already in the file
 
@@ -74,7 +52,7 @@ The usual Access risk is a shared file, not a missing licence.
 
 Several people open the same .accdb on a drive. Access locks records, the file grows, and "final" sits beside "final2". The form owner is the only one who can add a field. If that person is ill, the office keeps typing into a tool nobody else can repair. Anyone who can open the folder can copy the whole database. A server database with accounts does not behave like that.
 
-<ul class="blog-checklist">
+<ul>
   <li>Restore yesterday's backup on another PC and open the form</li>
   <li>Note a row count per table from the copy before you promise a date</li>
   <li>Record the edition in the title bar and accept or plan around end of support</li>
@@ -100,21 +78,6 @@ Then decide who can see which rows. A file has no accounts. The new store should
 
 Guide prices for a bounded build are in [what automation costs in Switzerland](/prozess-check/blog/what-automation-costs-switzerland). They are not a flat quote for "replace Access". The size is the workflow you can point at after the forms are described.
 
-<dl class="blog-terms">
-  <div>
-    <dt>Migration</dt>
-    <dd>Move data and permissions into a new store, with row counts checked.</dd>
-  </div>
-  <div>
-    <dt>Bridge</dt>
-    <dd>Access stays the screen while tables already live elsewhere.</dd>
-  </div>
-  <div>
-    <dt>Replacement</dt>
-    <dd>The office workflow runs without the old file, including rules that lived in forms.</dd>
-  </div>
-</dl>
-
 Before you ask for a quote, spend half an hour clicking through a typical form and writing down required fields. That is not IT work. It saves weeks in the project.
 
 ## Integration, one hour, or keep them separate
@@ -126,9 +89,4 @@ One recurring task inside the file, such as one form the office uses every day, 
 <div class="blog-faq">
   <h3>Can I move only the tables to Dataverse and keep the forms?</h3>
   <p>Microsoft allows tables outside the file while Access remains the screen. Forms, reports and macros do not copy across automatically. Plan time to check whether the screen still matches the data.</p>
-</div>
-
-<div class="blog-faq">
-  <h3>Does SharePoint Lists replace an Access database?</h3>
-  <p>Only when the value is a simple list. Once relationships, reports and office-specific forms carry the value, Lists is a partial path or not one at all.</p>
 </div>

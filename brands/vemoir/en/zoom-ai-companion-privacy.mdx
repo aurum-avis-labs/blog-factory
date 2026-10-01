@@ -6,7 +6,7 @@ author: "Vemoir Team"
 tags: ["zoom", "privacy", "ai companion"]
 funnelStage: "interest"
 translationKey: "zoom-ai-companion-privacy"
-relatedPosts: ["is-otter-ai-safe", "transcribe-zoom-local-recording", "record-zoom-meeting-mac"]
+relatedPosts: ["is-otter-ai-safe", "zoom-local-recording-transcript", "record-zoom-meeting-mac"]
 tool: "transcribe-zoom-recording"
 image: "@/assets/blog/zoom-ai-companion-privacy/hero.jpg"
 draft: false
@@ -45,7 +45,7 @@ If your bar is "the audio never leaves this Mac unless I export it," Zoom's docu
 AI Companion is Zoom's own meeting assistant: summaries, next steps, and questions about the call. It is not Otter or Fireflies joining as a named guest. Participants may still see that an AI feature is on. Zoom's [administrative controls](https://library.zoom.com/ai/ai-whitepaper/administrative-controls) describe account, group, and user toggles, and locks that stop a host from changing them.
 
 
-To provide those features, Zoom must process meeting content. The privacy question is not "does anything happen." It is what Zoom says it does with that content after the feature runs: training, third-party retention, storage region, and whether a transcript stays on the account.
+To provide those features, Zoom must process meeting content. The privacy question is not whether anything happens. It is what Zoom says it does with that content after the feature runs: training, third-party retention, storage region, and whether a transcript stays on the account.
 
 The primary support article is [How Zoom AI features handle your data](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057861). The [Data Governance and Privacy](https://library.zoom.com/ai/ai-whitepaper/data-governance-and-privacy) chapter of Zoom's AI whitepaper repeats the same training sentence and adds encryption, employee access, and retention. Policies move. Read the dated page before a client review.
 
@@ -89,9 +89,9 @@ Encryption, as Zoom documents it: TLS 1.2 minimum in transit, AES-256 at rest fo
 
 Ordinary Zoom retention still applies to content the associated service would keep (a cloud recording, a saved chat). Customers can set custom retention on some content. Trust-and-safety retention can last longer than a meeting, according to the same whitepaper chapter.
 
-Admins who want a summary **without** a lasting transcript can disable and lock Meeting transcript, or set transcript retention to zero days. Zoom then uses temporary speech-to-text, OCR, and in-meeting chat to build the summary, then discards that temporary data after a successful generate. You cannot later regenerate the summary from a transcript that was never kept. Features that need a transcript (My Notes, archival) are affected.
+Admins who want a summary **without** a lasting transcript can disable and lock Meeting transcript, or set transcript retention to zero days. Zoom then uses temporary speech-to-text, OCR, and in-meeting chat to build the summary, then discards that temporary data after a successful generation. You cannot later regenerate the summary from a transcript that was never kept. Features that need a transcript (My Notes, archival) are affected.
 
-Cloud recording is a separate switch. If cloud recording is on, Zoom can still generate and keep a transcript with the cloud files, even when the in-meeting transcript retention is zero. Check both settings. A local recording on the Mac does not create that cloud transcript. See [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording) for the folder and the M4A.
+Cloud recording is a separate switch. If cloud recording is on, Zoom can still generate and keep a transcript with the cloud files, even when the in-meeting transcript retention is zero. Check both settings. A local recording on the Mac does not create that cloud transcript. See [transcribe a local Zoom recording](/blog/zoom-local-recording-transcript) for the folder and the M4A.
 
 ## Admin and host controls
 
@@ -112,7 +112,7 @@ Zoom AI Companion privacy is not only an admin toggle. In Switzerland you also n
 
 Before a sensitive call, read the current data processing agreement with Zoom and your internal policy. Does it allow cloud AI features on meeting content? Does the other party need to agree before a summary runs? Zoom documents participant notices and switches. It does not replace your agreement.
 
-An EU-hosted account or ZMO reduces third parties in the path. It does not make the meeting «local in Switzerland» by itself. Switzerland is not in the EEA. If a client requires audio to stay on their own machine, local recording or a Mac-side workflow is the other path, not another AI switch inside Zoom.
+An EU-hosted account or ZMO reduces third parties in the path. It does not make the meeting "local in Switzerland" by itself. Switzerland is not in the EEA. If a client requires audio to stay on their own machine, local recording or a Mac-side workflow is the other path, not another AI switch inside Zoom.
 
 ## Where a local Zoom file is the better fit
 

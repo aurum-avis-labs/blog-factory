@@ -1,13 +1,13 @@
 ---
 title: "Web app vs native app vs PWA"
 description: "Web app vs native app vs PWA for an MVP: browser, store install, or installable web, and what the channel choice does not prove."
-pubDate: 2027-09-01
+pubDate: 2027-06-14
 author: "Aurum Avis Labs"
 tags: ["web app", "native app", "pwa", "mvp", "capacitor"]
 funnelStage: interest
 translationKey: web-app-vs-native-app-vs-pwa
 relatedPosts: ["how-to-build-a-scalable-mvp", "choosing-a-startup-tech-stack"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -31,7 +31,7 @@ A **PWA** adds a web app manifest and usually a service worker so the browser ca
 | Update speed | Deploy when ready | Deploy when ready | Review queue per release |
 | Deep device APIs | Browser limits | Similar to web, platform-dependent | Broadest, if you implement them |
 | Store listing | No | Usually no | Yes |
-| Good first test when | Workflow and signup in the browser | Repeat visits, spotty connectivity | Push, offline-first, or «we need an app icon» is the hypothesis |
+| Good first test when | Workflow and signup in the browser | Repeat visits, spotty connectivity | Push, offline-first, or "we need an app icon" is the hypothesis |
 
 The table is for **learning**, not for winning a format war. Teams that need a store icon for credibility sometimes ship a wrap before they need every native API.
 
@@ -39,7 +39,7 @@ The table is for **learning**, not for winning a format war. Teams that need a s
   <div>
     <h3>Stay browser-first when</h3>
     <ul>
-      <li>The job is forms, dashboards, chat in a tab, or a paid landing page with login</li>
+      <li>The job is forms, dashboards, chat in a tab, or a landing page with login</li>
       <li>You change copy and flows weekly during validation</li>
       <li>Your buyers live on desktop or open links from email and LinkedIn</li>
     </ul>
@@ -58,7 +58,7 @@ The table is for **learning**, not for winning a format war. Teams that need a s
 
 Many vibe-coded MVPs are a **web app plus a native shell** (for example Capacitor), not a rewrite in Swift and Kotlin. The same React bundle can ship to browsers and to store binaries. That is how internal product [Inklets](https://inklets.app) ships: a React app wrapped for iOS and Google Play, with the public site at inklets.app and more detail on the [Inklets portfolio page](/portfolio/inklets).
 
-A wrap is a legitimate shortcut when the product already behaves like an app: accounts, persistent state, clear tasks beyond marketing pages. Apple’s [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) treat **minimum functionality** seriously: guideline 4.2 expects more than a repackaged website, and 4.2.2 rejects pure marketing or web-clipping apps. Google Play has its own bar, including a **closed testing** requirement for many new personal developer accounts (at least 12 testers for 14 continuous days, per Google’s Play Console help). None of that is automatic approval. A wrapped site that only mirrors your landing page is a common rejection pattern, not a validation strategy.
+A wrap is a legitimate shortcut when the product already behaves like an app: accounts, persistent state, clear tasks beyond marketing pages. Apple’s [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) treat **minimum functionality** seriously: guideline 4.2 expects more than a repackaged website, and 4.2.2 rejects pure marketing or web-clipping apps. Google Play has its own bar, including a **closed testing** requirement for many new personal developer accounts (at least 12 testers for 14 continuous days, per [Google's Play Console help](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en)). None of that is automatic approval. A wrapped site that only mirrors your landing page is a common rejection pattern, not a validation strategy.
 
 On the client project [do4me](/portfolio/do4me), everyday help in Zurich, the team prepared an iOS and Google Play wrap but **did not** make the store the first test. The first loop was landing page, web app, listings, chat, and measured ads. Holding the store back kept scope on marketplace behaviour, not review timelines.
 
@@ -86,7 +86,7 @@ On the client project [do4me](/portfolio/do4me), everyday help in Zurich, the te
 
 Shipping in the browser, as a PWA, or behind a store icon does **not** prove willingness to pay, retention, or that your acquisition channel works. It does **not** replace analytics, session recording, or a Go, Pivot, or Stop read after paid traffic. It does **not** mean the vibe-coded shell is safe for sensitive data without a security review.
 
-If the open question is still «do strangers complete the job?», a fast web deploy usually beats waiting on TestFlight. If the open question is «will users enable push and return daily?», you need the native or wrapped path early enough to measure, not only a slide that says «mobile app».
+If the open question is still "do strangers complete the job?", a fast web deploy usually beats waiting on TestFlight. If the open question is "will users enable push and return daily?", you need the native or wrapped path early enough to measure, not only a slide that says "mobile app".
 
 ## Who should not debate formats yet
 

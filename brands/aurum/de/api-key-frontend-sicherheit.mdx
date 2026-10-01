@@ -1,13 +1,13 @@
 ---
 title: "API Key Frontend Sicherheit in KI-Apps"
 description: "API Key Frontend Sicherheit: welche Schlüssel im Browser erlaubt sind, welche nie ins Bundle gehören, und wie Sie einen Lovable-Export prüfen."
-pubDate: 2027-09-01
+pubDate: 2027-05-27
 author: "Aurum Avis Labs"
 tags: ["api key", "frontend", "supabase", "vibe coding", "sicherheit"]
 funnelStage: interest
 translationKey: api-keys-and-secrets-in-ai-built-apps
 relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -17,12 +17,12 @@ site: studio
 
 Wer mit Lovable, Bolt, v0, Replit oder Cursor gebaut hat, sollte den Export behandeln wie eine veröffentlichte Webseite: Mindestens URL und oft ein Supabase Anon Key stecken im Client. Das ist kein Skandal, solange Row Level Security die Daten trennt. Der typische Unfall ist ein Service-Role-Key oder ein bezahlter API-Token in `VITE_`- oder `NEXT_PUBLIC_`-Variablen. Die RLS-Seite dazu: [Lovable Supabase RLS](/de/blog/lovable-supabase-rls).
 
-<ul class="blog-checklist">
-  <li>Repository und Build-Ordner nach service_role, sk-, secret und provider-Namen durchsuchen</li>
-  <li>Produktions-JavaScript im Browser unter Quellen öffnen und dieselben Strings suchen</li>
-  <li>Jeden Treffer einordnen: öffentlich by design oder nur serverseitig</li>
-  <li>Alles Rotierte neu ausstellen, was jemals im Frontend oder in einem öffentlichen Repo lag</li>
-</ul>
+<ol class="blog-steps">
+  <li data-step="1"><h3>Repository und gebautes Bundle durchsuchen</h3><p>Nach key, secret, token, service_role, sk- und Ihren Anbieter-Namen suchen. Das Produktions-JavaScript in den DevTools unter Quellen öffnen und erneut suchen.</p></li>
+  <li data-step="2"><h3>Jeden Treffer einordnen</h3><p>Öffentlich by design (Stripe Publishable Key, Supabase Anon Key) gegen nie client-seitig (Service Role, OpenAI, Webhook-Signing-Secrets).</p></li>
+  <li data-step="3"><h3>Alles Rotierte neu ausstellen, was exponiert war</h3><p>Keys, die je im Frontend oder in einem öffentlichen Repo lagen, gelten als verbrannt. Neue Keys im Dashboard ausstellen, dann erneut deployen.</p></li>
+  <li data-step="4"><h3>Privilegierte Aufrufe hinter das eigene Backend ziehen</h3><p>Server-Routen, Edge Functions oder eine kleine API, die Sie kontrollieren, halten den sensiblen Key und prüfen, wer was darf.</p></li>
+</ol>
 
 ## Was im Frontend bleiben darf
 

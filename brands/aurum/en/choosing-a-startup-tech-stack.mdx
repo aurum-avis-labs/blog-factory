@@ -1,19 +1,19 @@
 ---
 title: "Choosing a startup tech stack: decisions that get expensive later"
 description: "Choosing a startup tech stack means matching client, backend, and hosting to one learning goal, not picking winners on a blog list."
-pubDate: 2027-09-01
+pubDate: 2027-06-11
 author: "Aurum Avis Labs"
 tags: ["tech stack", "mvp", "vibe coding", "architecture", "founders"]
 funnelStage: interest
 translationKey: choosing-a-startup-tech-stack
 relatedPosts: ["how-to-build-a-scalable-mvp", "web-app-vs-native-app-vs-pwa"]
-draft: true
+draft: false
 site: studio
 ---
 
 <p class="blog-lede">Choosing a startup tech stack means deciding which layer of the product must be real for the hypothesis you are running now: the browser surface, the API and database, auth, and where it runs. The right stack is the one that lets you learn in weeks without locking you into the wrong data shape or the wrong security model for the next phase.</p>
 
-You already have an export from Lovable, Bolt, v0, Replit, Cursor, or Claude Code. The stack question is not «React or something else on a slide». It is whether the defaults your tool chose still match the job once strangers use the product. For why measurement and deployment quality matter alongside stack choice, see [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps). For client shape (browser, store, wrap), see [how to build a scalable MVP](/blog/how-to-build-a-scalable-mvp) and web app vs native app vs PWA.
+You already have an export from Lovable, Bolt, v0, Replit, Cursor, or Claude Code. The stack question is not "React or something else on a slide". It is whether the defaults your tool chose still match the job once strangers use the product. For why measurement and deployment quality matter alongside stack choice, see [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps). For client shape (browser, store, wrap), see [how to build a scalable MVP](/blog/how-to-build-a-scalable-mvp) and web app vs native app vs PWA.
 
 ## Choosing a startup tech stack
 
@@ -36,7 +36,7 @@ The vibe-coding path often lands on a React front end with a hosted Postgres (fo
 
 **Hosting and Swiss questions.** If partners ask where data sits, Supabase lets you select region Zurich (eu-central-2) at project creation ([region docs](https://supabase.com/docs/guides/platform/regions)). Other hosts follow their own region lists; confirm in the console instead of guessing in a pitch deck. Location does not replace access control or contracts under the Swiss FADP.
 
-**Code you can keep.** Employee-written software belongs to the employer under Swiss law ([Art. 17 URG](https://www.rentschpartner.ch/ict-law/schutz-von-software)); work from an external author stays with the author until assignment. For a startup, «we own the repo» should be explicit in writing before you fund the next build. The stack should not trap you in a host you cannot export from.
+**Code you can keep.** Employee-written software belongs to the employer under Swiss law ([Art. 17 URG](https://www.rentschpartner.ch/ict-law/schutz-von-software)); work from an external author stays with the author until assignment. For a startup, "we own the repo" should be explicit in writing before you fund the next build. The stack should not trap you in a host you cannot export from.
 
 <div class="blog-pair">
   <div>
@@ -59,7 +59,7 @@ The vibe-coding path often lands on a React front end with a hosted Postgres (fo
 
 ## One production path among many
 
-Aurum’s sold product validation package deploys on **Azure with React and NestJS** because many founders eventually need a measured build, code they own, and room to pivot without fighting a no-code ceiling. That is one honest stack for twelve weeks of validation, not the only stack a Swiss startup may choose. Teams ship learning products on Supabase, Firebase, Rails, .NET, or mobile-native code every day. The mistake is treating a blog’s favourite triangle as destiny, or treating a vibe-coded export as finished architecture without a plan.
+The product validation package Aurum sells deploys on **Azure with React and NestJS** because many founders eventually need a measured build, code they own, and room to pivot without fighting a no-code ceiling. That is one honest stack for twelve weeks of validation, not the only stack a Swiss startup may choose. Teams ship learning products on Supabase, Firebase, Rails, .NET, or mobile-native code every day. The mistake is treating a blog’s favourite triangle as destiny, or treating a vibe-coded export as finished architecture without a plan.
 
 Ideas as such are not protectable in Switzerland ([IGE](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). The stack does not hide the concept. It only affects how fast you read behaviour and how painful the next layer is.
 
@@ -70,22 +70,7 @@ Ideas as such are not protectable in Switzerland ([IGE](https://www.ige.ch/de/ue
 
 ## What the stack choice does not prove
 
-A coherent stack lets you instrument signups, sessions, drop-off, and support load. It does **not** prove pricing power, marketplace liquidity, or that your wrapped web app will pass [App Store guideline 4.2](https://developer.apple.com/app-store/review/guidelines/) or [Google Play closed testing rules](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en) when you add a store build. Those are parallel decisions, not automatic upgrades from «we picked Postgres».
-
-<dl class="blog-terms">
-  <div>
-    <dt>Tech stack</dt>
-    <dd>The set of languages, frameworks, databases, and hosts you use to run the product, not the business model.</dd>
-  </div>
-  <div>
-    <dt>BaaS</dt>
-    <dd>Backend-as-a-service: auth, database, and SDKs without running your own server on day one.</dd>
-  </div>
-  <div>
-    <dt>Lock-in</dt>
-    <dd>Cost and time to leave a vendor or data shape when the hypothesis changes.</dd>
-  </div>
-</dl>
+A coherent stack lets you instrument signups, sessions, drop-off, and support load. It does **not** prove pricing power, marketplace liquidity, or that your wrapped web app will pass [App Store guideline 4.2](https://developer.apple.com/app-store/review/guidelines/) or [Google Play closed testing rules](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en) when you add a store build. Those are parallel decisions, not automatic upgrades from "we picked Postgres".
 
 ## Who should not spend a week comparing frameworks
 
@@ -97,8 +82,8 @@ If you have not spoken to five people in the target role and the product is stil
 </div>
 
 <div class="blog-faq">
-  <h3>Is «scalable» a stack property?</h3>
-  <p>Partly. Scale is also product scope, queries, and ops discipline. A small team on a boring monolith often outlearns a microservice diagram nobody operates. Scalability for an MVP usually means «can we change our mind without a six-month rewrite», not «handles a million users tomorrow».</p>
+  <h3>Is "scalable" a stack property?</h3>
+  <p>Partly. Scale is also product scope, queries, and ops discipline. A small team on a boring monolith often outlearns a microservice diagram nobody operates. Scalability for an MVP usually means "can we change our mind without a six-month rewrite", not "handles a million users tomorrow".</p>
 </div>
 
 When the open question is behaviour with measurement, paid acquisition, and a Go, Pivot, or Stop read on code you own, the [product validation package](/services/mvp-validation) fits that stage. Weeks 1 to 4 ship a deployed web app with analytics from day one; later weeks look at cost per lead, conversion, and drop-off, with pivot room built in. It is a poor fit if you still need a fake door only, or if you want a framework debate without a named hypothesis. Book a discovery conversation on the contact page when twelve weeks of structured learning matches the risk you are taking.

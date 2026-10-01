@@ -48,7 +48,7 @@ La Suisse figure sur les listes Microsoft des pays où une résidence **local-re
 
 La page [Data Residency for Microsoft Copilot and Copilot Chat](https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-service-copilot) renvoie aujourd’hui Copilot et Copilot Chat aux engagements de base («&nbsp;no modifications&nbsp;») et cite la Suisse parmi les géographies par défaut pour le contenu d’interaction Copilot Cowork. Lisez la page en ligne. Les tableaux changent.
 
-Deux autres phrases Microsoft comptent pour un lecteur suisse et se mélangent facilement&nbsp;:
+Deux autres phrases de Microsoft comptent pour un lecteur suisse et se confondent facilement&nbsp;:
 
 1. **Frontière des données de l’UE.** Pour les utilisateurs de l’Union européenne, Microsoft indique que le trafic UE reste dans l’EU Data Boundary. La Suisse n’est pas dans l’UE. Ne traitez pas «&nbsp;frontière UE&nbsp;» comme «&nbsp;frontière suisse&nbsp;».
 2. **Clients hors de l’UE.** Le même article indique que les clients hors de l’UE peuvent voir leurs requêtes traitées aux États-Unis, dans l’UE ou ailleurs. Stockage au repos et traitement LLM sont deux cartes.
@@ -70,7 +70,7 @@ Les engagements de résidence décrivent les **données client au repos**. Micro
 
 Pour les utilisateurs de l’UE, des garanties supplémentaires d’EU Data Boundary s’appliquent, avec une exception documentée&nbsp;: les modèles fournis par Anthropic comme sous-traitant sont actuellement exclus de l’EU Data Boundary. Pour tous les autres, y compris un tenant suisse qui n’est pas un client UE, s’applique la phrase de traitement mondial de Microsoft.
 
-Une checklist suisse utile tient en trois questions, pas une&nbsp;:
+Une checklist suisse utile se résume à trois questions, pas une&nbsp;:
 
 1. Quelle est la géographie principale provisionnée du tenant, et quelle PDL ont les personnes qui lancent Copilot dans la réunion&nbsp;?
 2. Où se trouve le fichier d’enregistrement (OneDrive ou SharePoint)&nbsp;?
@@ -96,7 +96,7 @@ Microsoft indique aux admins d’ouvrir le centre d’administration Microsoft 3
 
 PowerShell `Get-MultiGeoRegion` peut afficher la région multi-geo Teams actuelle d’un utilisateur ou d’un groupe si Multi-Geo est en service. Si vous n’êtes pas admin, demandez à l’admin. Deviner «&nbsp;nous sommes une Sàrl suisse, donc Zurich&nbsp;» est la façon dont les mauvaises réponses entrent dans les formulaires de sécurité.
 
-Les licences comptent encore. L’enregistrement cloud et Copilot sont liés au plan et à la stratégie. Si le bouton Enregistrer ou Copilot manque, supposez une stratégie avant un bogue. Les étapes pour démarrer un enregistrement cloud Teams, et pour capturer l’appel en local, sont dans [enregistrer une réunion Teams sur Mac](/fr/blog/enregistrer-reunion-teams-sur-mac).
+Les licences comptent encore. L’enregistrement cloud et Copilot sont liés au plan et à la stratégie. Si le bouton Enregistrer ou Copilot manque, partez d’abord d’une stratégie, avant de conclure à un bogue. Les étapes pour démarrer un enregistrement cloud Teams, et pour capturer l’appel en local, sont dans [enregistrer une réunion Teams sur Mac](/fr/blog/enregistrer-reunion-teams-sur-mac).
 
 Vous avez déjà un fichier audio court et voulez des notes sans ajouter une copie dans OneDrive&nbsp;? L’outil navigateur [enregistrement en notes](/fr/outils/enregistrement-en-notes) s’exécute dans l’onglet, jusqu’à 15&nbsp;minutes, trois exécutions réussies par semaine, sans envoyer le fichier à Vemoir. Il n’étiquette pas les locuteurs.
 
@@ -106,7 +106,7 @@ Gardez les phrases de Microsoft attachées à Microsoft.
 
 - **Entraînement&nbsp;:** les invites, réponses et données Graph ne servent pas à entraîner les LLM de fondation, selon l’article de confidentialité Copilot.
 - **Retour facultatif&nbsp;:** Microsoft peut utiliser les retours clients pour améliorer Copilot, et indique ne pas les utiliser pour entraîner les LLM de fondation. Les admins gèrent les retours.
-- **Recherche web&nbsp;:** si elle est activée, Copilot peut envoyer une requête dérivée à Bing. C’est un autre saut. Les admins peuvent désactiver les expériences connectées facultatives.
+- **Recherche web&nbsp;:** si elle est activée, Copilot peut envoyer une requête dérivée à Bing. C’est une autre étape. Les admins peuvent désactiver les expériences connectées facultatives.
 - **Agents et connecteurs&nbsp;:** un agent tiers a sa propre déclaration de confidentialité. L’admin décide quels agents sont autorisés.
 - **Anthropic et OpenAI&nbsp;:** Microsoft les documente comme sous-traitants pour certaines expériences Copilot. Des conditions supplémentaires peuvent s’appliquer. Anthropic est aujourd’hui hors de l’EU Data Boundary.
 
@@ -116,7 +116,7 @@ Le même article indique que Microsoft Copilot respecte les engagements existant
 
 Teams Copilot convient lorsque le tenant le paie déjà, que l’IT veut une bibliothèque Microsoft 365 unique et interrogeable, que la conservation Purview est le contrôle déjà en place, et que l’admin a confirmé la carte de localisation et la phrase de traitement ci-dessus.
 
-Un enregistrement local sur Mac convient lorsque l’audio ne doit pas devenir un autre élément OneDrive, lorsque vous n’avez pas le droit de démarrer un enregistrement cloud, ou lorsque Copilot dans la réunion est désactivé et que vous avez tout de même besoin d’un compte rendu. Vous démarrez et arrêtez depuis la barre de menus. Aucun bot n’entre dans la liste Teams. La transcription et la séparation des locuteurs restent sur le Mac. Le texte cloud optionnel est une clé que vous activez, texte seulement.
+Un enregistrement local sur Mac convient lorsque l’audio ne doit pas devenir un autre élément OneDrive, lorsque vous n’avez pas le droit de démarrer un enregistrement cloud, ou lorsque Copilot dans la réunion est désactivé et que vous avez tout de même besoin d’un compte rendu. Vous démarrez et arrêtez depuis la barre de menus. Aucun bot n’entre dans la liste Teams. La transcription et la séparation des locuteurs restent sur le Mac. Le texte cloud facultatif passe par une clé que vous activez, et pour le texte seulement.
 
 Vemoir le fait sur Apple silicon, macOS Sonoma 14.2 ou plus récent. Cela ne remplace pas le centre d’administration Microsoft 365. Les collègues sous Windows n’auront pas la même app locale.
 

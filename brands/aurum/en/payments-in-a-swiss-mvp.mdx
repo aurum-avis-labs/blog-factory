@@ -1,13 +1,13 @@
 ---
 title: "Payments in a Swiss MVP: Stripe, TWINT, and what to test first"
 description: "Payments in a Swiss MVP: when to add Stripe and TWINT, a minimal checkout path, and what money on the wire does and does not prove."
-pubDate: 2027-09-01
+pubDate: 2027-06-21
 author: "Aurum Avis Labs"
 tags: ["mvp", "stripe", "twint", "payments", "switzerland"]
 funnelStage: interest
 translationKey: payments-in-a-swiss-mvp
 relatedPosts: ["how-to-build-a-scalable-mvp", "choosing-a-startup-tech-stack"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -15,7 +15,7 @@ site: studio
 
 Payments in a Swiss MVP belong in the build only when willingness to pay is the open question. You wire Stripe Checkout or the Payment Element, turn on TWINT for Swiss shoppers, charge one real price in test mode first, then in live mode with a handful of people you already know. You are not building a finance department. You are learning whether anyone completes checkout for the job you described.
 
-This is for founders and innovation leads who already have a narrow product and need a Swiss-friendly way to take money, not for teams that still argue about the problem statement. If the core test is signups or a waitlist, a fake pay button teaches the wrong lesson. If the core test is «will they pay CHF 29 for this report?», payments belong in week one. How far production quality should go before that test is a separate decision, set out in [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps).
+This is for founders and innovation leads who already have a narrow product and need a Swiss-friendly way to take money, not for teams that still argue about the problem statement. If the core test is signups or a waitlist, a fake pay button teaches the wrong lesson. If the core test is «will they pay CHF 29 for this report?», payments belong in week one. How far production quality should go before that test is a separate decision, set out in [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps). For stack choices, see [choosing a startup tech stack](/blog/choosing-a-startup-tech-stack).
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Write the payment hypothesis in one line</h3><p>Example: «At least three of ten pilot users pay once for feature X.» If you cannot name the price and the success count, postpone code.</p></li>
@@ -80,6 +80,6 @@ Use test clocks and test TWINT behaviour in Stripe's docs before you demo to a s
 
 ## When the product validation package fits
 
-The [product validation package](/services/mvp-validation) fits when payment is one signal among several you must show in twelve weeks: a deployed web app, landing page, paid acquisition, and measured conversion, with room to pivot twice if checkout works but the channel does not. We build on Azure with React and NestJS, not by bolting TWINT onto a throwaway mockup. If you only need to know whether three contacts will TWINT-pay for a PDF, Stripe Checkout on a page you already have may be enough without hiring a build partner.
+The [product validation package](/services/mvp-validation) fits when payment is one signal among several you must show in twelve weeks: a deployed web app, landing page, paid acquisition, and measured conversion, with room for up to three pivot iterations if checkout works but the channel does not. We build on Azure with React and NestJS, not by bolting TWINT onto a throwaway mockup. If you only need to know whether three contacts will TWINT-pay for a PDF, Stripe Checkout on a page you already have may be enough without hiring a build partner.
 
 If you already took money on a vibe-coded app and worry what broke under the hood, a payment test passed is not the same as a security review. Treat those as separate decisions.

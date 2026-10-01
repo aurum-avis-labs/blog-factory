@@ -38,12 +38,6 @@ Use this as it is, or copy it into the list you already keep. Each line becomes 
   <li>Offboarding mirror created from the same entry</li>
 </ul>
 
-<ol class="blog-flow">
-  <li><strong>Entry</strong><p>One person, one record, one start date.</p></li>
-  <li><strong>List</strong><p>Steps and reminders with owner and due date.</p></li>
-  <li><strong>Mirror</strong><p>Exit steps created on the day the person joins.</p></li>
-</ol>
-
 ## Accounts in Microsoft 365 or Google Workspace
 
 The account and groups can be created from the entry by a script, with the admin or IT partner approving the run. Microsoft Graph and the Google Admin SDK Directory API cover the calls ([create user](https://learn.microsoft.com/en-us/graph/api/user-post-users?view=graph-rest-1.0), [assign licence](https://learn.microsoft.com/en-us/graph/api/user-assignlicense?view=graph-rest-1.0), [Google insert user](https://developers.google.com/workspace/admin/directory/reference/rest/v1/users/insert)). Lifecycle workflows in Microsoft Entra ID Governance can handle joiner and leaver tasks if you have that licence ([Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/what-are-lifecycle-workflows)); otherwise use a small automation on licences you already have.
@@ -91,22 +85,7 @@ The automated version: the office manager fills in one entry in a Microsoft List
 
 ## When a checklist is enough
 
-<div class="blog-pair">
-  <div>
-    <h3>A checklist is enough</h3>
-    <ul>
-      <li>You hire once or twice a year</li>
-      <li>The role table exists and someone owns the shared document</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Automate when</h3>
-    <ul>
-      <li>Several hires a year and the list is rebuilt each time</li>
-      <li>Access or groups are forgotten regularly</li>
-    </ul>
-  </div>
-</div>
+A checklist is enough when you hire once or twice a year and the role table exists, with someone owning the shared document. Automating pays when several hires arrive each year and the list is rebuilt every time, or when access and groups are forgotten regularly.
 
 Wait if every role is different and nobody has written the role table yet, and if nobody owns the list. First [document the process as it runs today](/prozess-check/blog/document-processes-before-automating), then automate.
 

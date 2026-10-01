@@ -1,13 +1,13 @@
 ---
 title: "TestFlight beta testing before you ship on iOS"
 description: "TestFlight beta testing: invite testers, pass Beta App Review, and learn from real installs. Limits, who should wait, and what a beta does not prove."
-pubDate: 2027-09-01
+pubDate: 2027-07-09
 author: "Aurum Avis Labs"
 tags: ["testflight", "ios", "beta testing", "mvp", "app store"]
 funnelStage: interest
 translationKey: testflight-beta-testing
 relatedPosts: ["publish-an-app-on-the-app-store", "app-store-guideline-4-2"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -22,7 +22,7 @@ This is for founders and innovation leads in Switzerland who already have an App
 Treat beta as a small experiment with a written stop rule, not an open-ended friends list.
 
 <ol class="blog-steps">
-  <li data-step="1"><h3>State what you are testing</h3><p>One job, one success signal, and what would make you stop the build. Example: «eight of ten invited planners complete upload on mobile» is testable; «see if people like it» is not.</p></li>
+  <li data-step="1"><h3>State what you are testing</h3><p>One job, one success signal, and what would make you stop the build. Example: "eight of ten invited planners complete upload on mobile" is testable; "see if people like it" is not.</p></li>
   <li data-step="2"><h3>Upload a build and complete export compliance</h3><p>Archive from Xcode or your CI, upload to App Store Connect, and answer encryption questions honestly. Builds need valid provisioning profiles with the right application identifiers.</p></li>
   <li data-step="3"><h3>Start with internal testers</h3><p>Up to 100 people on your App Store Connect team can install without the external Beta App Review gate. Use them for broken login and crash smoke tests.</p></li>
   <li data-step="4"><h3>Add external testers when the build is stable</h3><p>Create a group, assign the build, and invite by email or a public link. External testers can number up to 10,000. The first build in a group may need Beta App Review before invites go out.</p></li>
@@ -57,16 +57,18 @@ Treat beta as a small experiment with a written stop rule, not an open-ended fri
   <li><span class="blog-kicker">First external build</span><strong>Review</strong><p>Beta App Review may be required before external testing starts on the first build in a group.</p></li>
 </ul>
 
+Source: [Apple's TestFlight overview](https://developer.apple.com/testflight/).
+
 A wrapped web app can still fail review if it behaves like a bookmark. Guideline 4.2 expects more than a repackaged site; 4.2.2 pushes back on pure marketing shells. TestFlight is not a workaround for that bar.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>TestFlight needs a enrolled Apple Developer account and a build that installs. It does not fix a vague hypothesis, and warm testers who know you will not stand in for strangers. Stop when your falsifier is met or broken, not when everyone you know has a link.</p>
+  <p>TestFlight needs an enrolled Apple Developer account and a build that installs. It does not fix a vague hypothesis, and warm testers who know you will not stand in for strangers. Stop when your falsifier is met or broken, not when everyone you know has a link.</p>
 </aside>
 
 ## A made-up example: narrow job on iOS
 
-A made-up example: a founder in Zurich tests an MVP that lets field technicians photograph a machine label and open the last service note. The hypothesis is that technicians complete capture and lookup in under three minutes without a call to the office. They upload build 1.0.3, invite four internal colleagues from App Store Connect, and fix a camera permission crash. Build 1.0.4 goes to twelve external testers recruited from a LinkedIn post, with a public link capped at twenty installs. Before invites go out they write: «If fewer than six of ten finish the lookup without support messages after one week, we interview technicians before adding payments.» TestFlight shows most drop-off on the label picker on small screens. They do not treat twelve installs as proof of a channel. They ship 1.0.5 with a larger tap target and rerun the same rule.
+A made-up example: a founder in Zurich tests an MVP that lets field technicians photograph a machine label and open the last service note. The hypothesis is that technicians complete capture and lookup in under three minutes without a call to the office. They upload build 1.0.3, invite four internal colleagues from App Store Connect, and fix a camera permission crash. Build 1.0.4 goes to twelve external testers recruited from a LinkedIn post, with a public link capped at twenty installs. Before invites go out they write: "If fewer than six of ten finish the lookup without support messages after one week, we interview technicians before adding payments." TestFlight shows most drop-off on the label picker on small screens. They do not treat twelve installs as proof of a channel. They ship 1.0.5 with a larger tap target and rerun the same rule.
 
 ## Who should skip TestFlight for now
 
@@ -75,21 +77,6 @@ A made-up example: a founder in Zurich tests an MVP that lets field technicians 
   <li><h3>If you have no falsifier</h3><p>Invites without a stop rule become a morale exercise. Write the rule before you upload.</p></li>
   <li><h3>If Android is half the market</h3><p>Plan Play closed testing in parallel. Google's 12-tester, 14-day rule for new personal accounts is separate work.</p></li>
 </ul>
-
-<dl class="blog-terms">
-  <div>
-    <dt>Internal tester</dt>
-    <dd>Someone on your App Store Connect team who can install before external Beta App Review.</dd>
-  </div>
-  <div>
-    <dt>External tester</dt>
-    <dd>Anyone invited outside your team, subject to the external tester limit and review rules.</dd>
-  </div>
-  <div>
-    <dt>Beta App Review</dt>
-    <dd>Apple's check on the first build you send to external testers in a group, not the full App Store listing review.</dd>
-  </div>
-</dl>
 
 <div class="blog-faq">
   <h3>Do testers need to pay for TestFlight?</h3>

@@ -1,13 +1,13 @@
 ---
 title: "Supabase vs Firebase for an MVP"
 description: "Supabase vs Firebase for an MVP: Postgres and RLS versus Firestore and rules, Swiss region choice, and what the backend pick does not prove."
-pubDate: 2027-09-01
+pubDate: 2027-05-20
 author: "Aurum Avis Labs"
 tags: ["supabase", "firebase", "mvp", "vibe coding", "backend"]
 funnelStage: interest
 translationKey: supabase-vs-firebase-for-an-mvp
 relatedPosts: ["building-an-mvp-with-lovable", "lovable-supabase-row-level-security"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -76,26 +76,11 @@ On Firebase, the same class of mistake appears as **Firestore rules** that are t
   <p>Picking Supabase or Firebase does not tell you whether your policies are correct. A green dashboard and a working demo are not a penetration test. Before you scale traffic or handle payment-related fields, have someone who knows OWASP and backend auth review the project.</p>
 </aside>
 
-<dl class="blog-terms">
-  <div>
-    <dt>RLS</dt>
-    <dd>Postgres row level security: the database filters rows per user, not only the app UI.</dd>
-  </div>
-  <div>
-    <dt>Security rules</dt>
-    <dd>Firebase rules that allow or deny reads and writes on each path in Firestore or Storage.</dd>
-  </div>
-  <div>
-    <dt>Anon key</dt>
-    <dd>Supabase client key shipped in the browser; safe only when RLS denies other users’ data.</dd>
-  </div>
-</dl>
-
 ## What this choice does not prove
 
 A working backend lets you learn behaviour: signups, sessions, drop-off, support messages. It does **not** prove pricing power, marketplace liquidity, or that your vibe-coded shell survives production load. It does **not** replace analytics, session recording, or a Go, Pivot, or Stop read after paid traffic.
 
-Aurum’s sold validation build uses **Azure, React, and NestJS**, not Lovable with Supabase, when a founder needs production deployment and measured pivots. Staying on either BaaS for the first test is valid; treating the test backend as the long-term architecture without a plan is not.
+The validation package Aurum sells uses **Azure, React, and NestJS**, not Lovable with Supabase, when a founder needs production deployment and measured pivots. Staying on either BaaS for the first test is valid; treating the test backend as the long-term architecture without a plan is not.
 
 ## Who should not spend a week on this comparison
 

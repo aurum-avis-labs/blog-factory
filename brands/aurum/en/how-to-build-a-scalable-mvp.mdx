@@ -1,13 +1,13 @@
 ---
 title: "How to build a scalable MVP"
 description: "How to build a scalable MVP: one job, a data spine, real auth, and boundaries you can extend. What scale means before growth, and what it does not prove."
-pubDate: 2027-09-01
+pubDate: 2027-06-09
 author: "Aurum Avis Labs"
 tags: ["scalable mvp", "startup engineering", "product validation", "architecture"]
 funnelStage: interest
 translationKey: how-to-build-a-scalable-mvp
 relatedPosts: ["choosing-a-startup-tech-stack", "web-app-vs-native-app-vs-pwa"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -15,7 +15,7 @@ site: studio
 
 ## How to build a scalable MVP
 
-This is for founders at idea or pre-seed stage who need software in market, not a slide, and who worry that a fast build becomes a rewrite the month traction appears. Scalable here does not mean «ready for a million users on launch day». It means the next ten features and the next cohort of customers do not force you to throw away the database, the auth layer, or the deployment story because you optimised only for a demo.
+This is for founders at idea or pre-seed stage who need software in market, not a slide, and who worry that a fast build becomes a rewrite the month traction appears. Scalable here does not mean "ready for a million users on launch day". It means the next ten features and the next cohort of customers do not force you to throw away the database, the auth layer, or the deployment story because you optimised only for a demo.
 
 Reliability and validation are a related question. When flaky software contaminates your metrics, see [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps). Here the focus is structure: what to decide early, what to defer, and how to keep the validation scope honest.
 
@@ -24,15 +24,15 @@ Reliability and validation are a related question. When flaky software contamina
   <li data-step="2"><h3>Draw the data spine before the screen polish</h3><p>List the entities you must store (user, organisation, the core object) and how they relate. Changing this spine after real usage is the expensive kind of scale work.</p></li>
   <li data-step="3"><h3>Ship real identity and permissions</h3><p>Even a small B2B test needs accounts that persist, roles that match who can see what, and session handling you trust in a demo with strangers.</p></li>
   <li data-step="4"><h3>Put a boundary between UI and backend</h3><p>One API surface (REST or similar) lets you swap the web client, add a mobile wrap, or run integrations without copying business rules into three places.</p></li>
-  <li data-step="5"><h3>Deploy like you will keep the URL</h3><p>Hosted environment, repeatable deploy, error logging, and analytics on the paths that matter for your hypothesis. You are not practising for scale; you are making sure growth does not start with «it only runs on my laptop».</p></li>
+  <li data-step="5"><h3>Deploy like you will keep the URL</h3><p>Hosted environment, repeatable deploy, error logging, and analytics on the paths that matter for your hypothesis. You are not practising for scale; you are making sure growth does not start with "it only runs on my laptop".</p></li>
   <li data-step="6"><h3>Measure the risk you claimed</h3><p>Sign-up, activation, return visit, paid conversion, or support time per customer: pick the metric tied to your riskiest assumption and instrument it on day one.</p></li>
 </ol>
 
-## What «scalable» means at MVP stage
+## What "scalable" means at MVP stage
 
 Scale at this stage is about **extension**, not **capacity**. You want a monolith or a small number of services that a competent team can reason about, not a platform built for hypothetical load. Multi-tenant data separation, idempotent background jobs, and a migration path for the schema matter more than premature sharding.
 
-Stack choices sit in choosing a startup tech stack. Channel choices (browser first, native wrap, or PWA) sit in web app vs native app vs PWA. Scalable architecture does not pick the channel for you; it keeps the core job stable when the channel changes.
+Stack choices sit in [choosing a startup tech stack](/blog/choosing-a-startup-tech-stack). Channel choices (browser first, native wrap, or PWA) sit in [web app vs native app vs PWA](/blog/web-app-vs-native-app-vs-pwa). Scalable architecture does not pick the channel for you; it keeps the core job stable when the channel changes.
 
 <ul class="blog-facts">
   <li><span class="blog-kicker">Build now</span><strong>Core schema</strong><p>Tables or documents for the job you sell, with foreign keys or equivalent discipline.</p></li>
@@ -54,24 +54,7 @@ They skip a workflow engine. The data spine is Organisation, Site, PermitRequest
 
 ## Who should invest in a scalable foundation, and who should not
 
-<div class="blog-pair">
-  <div>
-    <h3>Who this is for</h3>
-    <ul>
-      <li>Founders whose validation requires repeat usage, accounts, or stored history</li>
-      <li>B2B pilots where each customer expects their data separated and persistent</li>
-      <li>Teams that may win equity or seed interest and need code, designs, and data they own</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Who should skip or shorten it</h3>
-    <ul>
-      <li>Demand tests that only need a measured landing page or a fake door</li>
-      <li>Concierge delivery where software would only imitate manual work for a fortnight</li>
-      <li>Ideas where the risk is wording on an ad, not behaviour inside a product</li>
-    </ul>
-  </div>
-</div>
+The foundation is worth it when your validation requires repeat usage, accounts, or stored history, when B2B pilots expect separated and persistent data, or when you need to own code, designs, and data for a later funding round. Demand tests with a measured landing page or fake door can stay lighter, as can a concierge delivery where software would only imitate manual work, or an idea whose risk sits in the ad wording rather than in product behaviour.
 
 If you hire contractors, software for your company is generally yours under Swiss employment rules; external authors keep copyright until assignment is in writing ([software ownership overview](https://www.rentschpartner.ch/ict-law/schutz-von-software)). Ideas alone are not protectable ([IGE on ideas](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). A scalable codebase supports execution; it does not replace contracts or trademark hygiene.
 

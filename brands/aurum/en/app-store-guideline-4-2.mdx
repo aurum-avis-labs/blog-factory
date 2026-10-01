@@ -1,21 +1,21 @@
 ---
 title: "App Store guideline 4.2 rejection: what it means and what to do"
 description: "App Store guideline 4.2 rejection usually means your build looks like a website in a shell. How to read the note and what to fix before you resubmit."
-pubDate: 2027-09-01
+pubDate: 2027-07-01
 author: "Aurum Avis Labs"
 tags: ["app store", "capacitor", "mvp", "mobile"]
 funnelStage: interest
 translationKey: app-store-guideline-4-2
 relatedPosts: ["publish-an-app-on-the-app-store", "google-play-12-testers-14-days"]
-draft: true
+draft: false
 site: studio
 ---
 
 ## App Store guideline 4.2 rejection
 
-An App Store guideline 4.2 rejection means Apple treats your build as too close to a website in a native shell: limited app-like function, thin content, or a experience that does not need to live on the device. The message often cites [Minimum Functionality](https://developer.apple.com/app-store/review/guidelines/) (4.2) or the related rule against pure marketing sites and web clippings (4.2.2). It is not a comment on your business idea. It is a product-shape decision. You fix the shape, document what changed, and resubmit, or you keep testing on the web until the product earns a store slot.
+An App Store guideline 4.2 rejection means Apple treats your build as too close to a website in a native shell: limited app-like function, thin content, or an experience that does not need to live on the device. The message often cites [Minimum Functionality](https://developer.apple.com/app-store/review/guidelines/) (4.2) or the related rule against pure marketing sites and web clippings (4.2.2). It is not a comment on your business idea. It is a product-shape decision. You fix the shape, document what changed, and resubmit, or you keep testing on the web until the product earns a store slot.
 
-This page is for founders and product leads who wrapped a web app with Capacitor or a similar bridge, or who bought a validation package that included a store-ready wrap, and who need a calm read of the rejection before they spend another week on icons. How to publish on the store at all is a separate walkthrough: [publish an app on the App Store](/blog/publish-an-app-on-the-app-store). Google Play has its own closed-test rules for many new accounts: Google Play 12 testers 14 days.
+This page is for founders and product leads who wrapped a web app with Capacitor or a similar bridge, or who bought a validation package that included a store-ready wrap, and who need a calm read of the rejection before they spend another week on icons. How to publish on the store at all is a separate walkthrough: [publish an app on the App Store](/blog/publish-an-app-on-the-app-store). Google Play has its own closed-test rules for many new accounts: [Google Play 12 testers 14 days](/blog/google-play-12-testers-14-days).
 
 <dl class="blog-terms">
   <div>
@@ -34,7 +34,7 @@ This page is for founders and product leads who wrapped a web app with Capacitor
 
 ## What Apple is actually objecting to
 
-Reviewers do not publish a scorecard for your repo. In practice, 4.2 shows up when the binary feels interchangeable with Safari: login and a few web views, no offline behaviour, or content identical to your marketing site. A responsive website with a splash screen is the classic pattern.
+Reviewers do not publish a scorecard for your repo. In practice, 4.2 shows up when the binary feels interchangeable with Safari: login and a few web views, no offline behaviour, or content identical to your marketing site. A responsive website with a splash screen is the classic pattern. So is an app whose only job is opening the blog.
 
 That is separate from crashes, privacy labels, or account deletion rules. Those rejections cite other sections. If your email only mentions 4.2, start with product depth, not legal text.
 
@@ -54,7 +54,7 @@ Aurum ships [Inklets](https://inklets.app) as a React app in a Capacitor wrap on
     <h3>Who should not fight 4.2 yet</h3>
     <ul>
       <li>You only need ten testers and a URL already works</li>
-      <li>The «app» is still a demand test with a waitlist</li>
+      <li>The "app" is still a demand test with a waitlist</li>
       <li>You have not watched anyone complete the core job on a phone</li>
     </ul>
   </div>
@@ -68,7 +68,7 @@ Read the exact citation in App Store Connect. Screenshot the Resolution Center t
   <li data-step="1"><h3>Map the core job on the device</h3><p>Write one sentence for what the user does in your app that they cannot do as well in a browser tab. If you cannot, the product may belong on the web for now.</p></li>
   <li data-step="2"><h3>Add app-like behaviour, not decoration</h3><p>Offline read of recent data, sensible use of push for state the user asked for, native share sheets, camera or file pickers where the workflow needs them, and navigation that feels like an app rather than a zoomed site.</p></li>
   <li data-step="3"><h3>Trim marketing-only screens</h3><p>Move long explainers to the web. The binary should open on the job, not on a hero section.</p></li>
-  <li data-step="4"><h3>Reply in Resolution Center with specifics</h3><p>List what you changed in plain language. A paragraph beats an argument that you «need» store presence.</p></li>
+  <li data-step="4"><h3>Reply in Resolution Center with specifics</h3><p>List what you changed in plain language. A paragraph beats an argument that you "need" store presence.</p></li>
   <li data-step="5"><h3>Resubmit one focused build</h3><p>Do not bundle unrelated features to look bigger. Reviewers notice padding.</p></li>
 </ol>
 
@@ -99,7 +99,7 @@ Passing review shows Apple accepted this build under today's rules. It does not 
 
 <div class="blog-faq">
   <h3>Can I stay on the web and skip the store?</h3>
-  <p>Yes. Many validation tests never need a store listing. Add the store when distribution or device APIs matter, not because a slide deck says «mobile app».</p>
+  <p>Yes. Many validation tests never need a store listing. Add the store when distribution or device APIs matter, not because a slide deck says "mobile app".</p>
 </div>
 
 Production-minded MVPs treat store readiness as part of scope, not a surprise in week twelve. [Why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps) sets out how we think about deployable software versus mockups.

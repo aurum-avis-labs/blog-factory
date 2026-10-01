@@ -19,17 +19,6 @@ Speaker labels missing from a transcript means the file has words and no reliabl
 
 Renaming a label you already have is a different job on the Mac after a recording, not in a caption cleaner.
 
-<ol class="blog-steps">
-  <li data-step="1"><h3>Rename in order</h3><p>Start with whoever spoke most; fix one label at a time.</p></li>
-  <li data-step="2"><h3>Use context lines</h3><p>Project names and roles often reveal who is speaking.</p></li>
-  <li data-step="3"><h3>Remember voices (optional)</h3><p>On the Mac app, speaker memory is opt-in and deletable.</p></li>
-</ol>
-
-<aside class="blog-callout blog-callout--limit">
-  <span class="blog-kicker">Limit</span>
-  <p>As of September 2026, the free browser tools transcribe files up to 15 minutes, allow three successful runs per week, and do not separate speakers. Live capture and diarization are in the Mac app.</p>
-</aside>
-
 ## Contents
 
 - [Why speaker labels missing is normal](#why-speaker-labels-missing-is-normal)
@@ -44,7 +33,7 @@ Renaming a label you already have is a different job on the Mac after a recordin
 
 Several normal exports are nameless. That is not a bug in your paste.
 
-- A local Zoom recording is audio. `audio_only.m4a` has no speakers in it. Zoom's cloud VTT sometimes does, when cloud transcription was on and the account allows it. The local file does not inherit those names. See [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording).
+- A local Zoom recording is audio. `audio_only.m4a` has no speakers in it. Zoom's cloud VTT sometimes does, when cloud transcription was on and the account allows it. The local file does not inherit those names. See [transcribe a local Zoom recording](/blog/zoom-local-recording-transcript).
 - A microphone recording of a room, a voice memo, or a single mixed track is one waveform. Speech-to-text can write the words. It does not know the faces.
 - Some Teams downloads are speaker-attributed VTT, with `<v Name>` tags. Others, and some admin settings, are text without those tags. If the tag is absent, no later cleaner can recover a name that was not stored.
 - Browser transcription uses a public speech model on a file you already have. It does not separate speakers. The output is timestamped text. Names appear only if they were already inside the media file in a form the page can read, which a plain M4A almost never has.
@@ -54,6 +43,11 @@ If you needed names, the moment to get them was a source that had them, or a too
 ## What the browser will and will not do
 
 The [transcript cleaner](/tools/transcript-cleaner) removes timestamps and cue headers. It keeps a speaker only when it finds one. The patterns it understands include a WebVTT voice tag (`<v Jane>`), a line like `Jane: text`, `Speaker 1:`, or `SPEAKER_01:`. Anything else is treated as words without a person.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>As of September 2026, the free browser tools transcribe files up to 15 minutes, allow three successful runs per week, and do not separate speakers. Live capture and diarization are in the Mac app.</p>
+</aside>
 
 When nothing matches, the page tells you the file had no speaker names. It still returns the text. It does not fill in "Speaker A" and "Speaker B" as a guess. Invented labels look like data, and they are not.
 
@@ -112,7 +106,7 @@ Also do not backfill names into the original VTT and then treat that VTT as the 
 
 ## When you need the Mac instead
 
-Vemoir on the Mac separates remote participants into anonymous, reviewable speaker labels after the recording stops. The separation runs on the machine. You can rename a label without creating a voice profile. "Remember this speaker" is a separate, explicit step: it stores an encrypted profile only if you approve it. Unknown and ambiguous speakers stay anonymous. You can turn a profile off or delete it.
+Vemoir on the Mac separates remote participants into anonymous, reviewable speaker labels after the recording stops. The separation runs on the machine. You can [rename a label](/blog/fix-wrong-speaker-names) without creating a voice profile. "Remember this speaker" is a separate, explicit step: it stores an encrypted profile only if you approve it. Unknown and ambiguous speakers stay anonymous. You can turn a profile off or delete it.
 
 That is how a mixed track gets names at all. The browser path will not grow that feature. Live capture, the microphone and system audio as separate tracks, and speaker separation are the app. macOS asks for the microphone and for System Audio Recording, which captures audio only. It does not record the screen.
 

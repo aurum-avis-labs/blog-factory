@@ -13,7 +13,7 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@sandrawilliams2025?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sandrawilliams2025</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Le **micro et l'audio système** sur Mac sont, dans Vemoir, deux pistes locales séparées&nbsp;: votre micro, et le son que l'app de réunion joue dans les haut-parleurs ou le casque. Vous obtenez ainsi votre voix et l'interlocuteur distant sans fichier mélangé, sans capture d'écran et sans bot dans la liste.
+Le **micro et l'audio système** sur Mac sont, dans Vemoir, deux pistes locales séparées : votre micro, et le son que l'app de réunion diffuse dans les haut-parleurs ou le casque. Vous obtenez ainsi votre voix et l'interlocuteur distant sans fichier mélangé, sans capture d'écran et sans bot dans la liste.
 
 Vous démarrez et arrêtez depuis la barre des menus. Les deux pistes restent sur le Mac, sauf export, ou si vous activez un modèle de texte optionnel avec votre propre clé API.
 
@@ -32,49 +32,42 @@ Vous démarrez et arrêtez depuis la barre des menus. Les deux pistes restent su
 
 | Piste | Ce qu'elle entend | Ce qu'elle n'entend pas |
 | --- | --- | --- |
-| Micro | Le micro choisi&nbsp;: votre voix, et le son proche | L'interlocuteur distant, sauf si sa voix sort d'un haut-parleur dans ce micro |
-| Audio système | Les apps qui jouent sur le Mac, réunion comprise | Votre voix, sauf si l'app vous renvoie à vous-même |
+| Micro | Le micro choisi : votre voix, et le son proche | L'interlocuteur distant, sauf si sa voix sort d'un haut-parleur dans ce micro |
+| Audio système | Les apps qui diffusent du son sur le Mac, réunion comprise | Votre voix, sauf si l'app vous renvoie à vous-même |
 
 
 <ul class="blog-facts">
   <li><span class="blog-kicker">Micro</span><strong>Votre voix</strong><p>Suit le micro choisi dans la barre de menus.</p></li>
-  <li><span class="blog-kicker">Audio systeme</span><strong>L'appel</strong><p>Tout ce que l'app de reunion lit sur le Mac.</p></li>
-  <li><span class="blog-kicker">Bot</span><strong>Aucun</strong><p>Vous demarrez et arretez. Personne dans la liste.</p></li>
+  <li><span class="blog-kicker">Audio système</span><strong>L'appel</strong><p>Tout ce que l'app de réunion diffuse sur le Mac.</p></li>
+  <li><span class="blog-kicker">Bot</span><strong>Aucun</strong><p>Vous démarrez et arrêtez. Personne dans la liste.</p></li>
 </ul>
 
 
-La capture micro est une session distincte du tap audio système. Vous choisissez le micro. Un micro de casque vous entend et peu la pièce. Un micro d'ordinateur entend la pièce et, si l'audio distant sort des haut-parleurs, un peu de l'appel. Ce recouvrement est de l'acoustique, pas un troisième mode.
+La capture micro est une session distincte de la capture de l’audio système. Vous choisissez le micro. Un micro de casque vous entend et peu la pièce. Un micro d'ordinateur entend la pièce et, si l'audio distant sort des haut-parleurs, un peu de l'appel. Ce recouvrement est de l'acoustique, pas un troisième mode.
 
-La piste système est la réunion telle que le Mac la joue. Vemoir utilise un tap Core Audio audio seulement et s'en exclut, pour ne pas réinjecter sa propre lecture. L'autorisation macOS s'appelle System Audio Recording.
+La piste système est la réunion telle que le Mac la joue. Vemoir ne capture que l'audio de la réunion et s'exclut elle-même, pour ne pas réinjecter sa propre lecture. L'autorisation macOS s'appelle Enregistrement d'écran, utilisée pour l'audio uniquement.
 
-La [suppression du bruit micro](/fr/blog/suppression-bruit-micro) ne concerne que la piste micro, en Off, Balanced ou Strong. Elle ne nettoie pas la piste système.
+La [suppression du bruit micro](/fr/blog/suppression-bruit-micro) ne concerne que la piste micro, en Désactivée, Équilibrée ou Forte. Elle ne nettoie pas la piste système.
 
 ## L'autorisation porte sur le son, pas sur l'écran
 
-D'anciennes notes sur les apps Mac disent souvent qu'entendre une autre app exige Screen Recording. C'était le nom que beaucoup ont appris. L'app Vemoir livrée demande System Audio Recording. Elle capte l'audio de la réunion. Elle n'enregistre pas le contenu de l'écran, ni les pixels, ni une vidéo du bureau.
-
-
-<aside class="blog-callout">
-  <span class="blog-kicker">Note</span>
-  <p>macOS demande l'enregistrement audio systeme pour l'appel. Audio seulement, pas de capture d'ecran.</p>
-</aside>
-
+D'anciennes notes sur les apps Mac disent souvent qu'entendre une autre app exige Screen Recording. C'est aussi la permission que demande Vemoir, et ce nom promet plus que ce qui se passe. L'app capture l'audio de la réunion uniquement. Elle n'enregistre pas le contenu de l'écran, ni les pixels, ni une vidéo du bureau.
 
 L'accès au micro reste nécessaire pour votre piste. Deux sources, deux autorisations. Refuser l'audio système vous laisse le micro. Refuser le micro vous laisse l'appel, et presque rien de votre voix, sauf fuite par les haut-parleurs dans un micro que vous ne visiez pas.
 
-L'assistant ne demande que les autorisations utiles au réglage choisi. Si vous en refusez une puis changez d'avis, vous pouvez rouvrir la configuration depuis Réglages. Un refus n'est pas remplacé par un envoi silencieux vers un service de transcription.
+La configuration ne demande que les autorisations nécessaires au réglage de capture choisi. Si vous en refusez une puis changez d'avis, vous pouvez rouvrir la configuration depuis Réglages. Un refus n'est pas remplacé par un envoi silencieux vers un service de transcription.
 
 ## Comment un appel utilise les deux pistes
 
 1. Rejoignez la réunion dans l'app que vous utilisez déjà. Vemoir n'entre pas comme participant. La différence est résumée dans [notes de réunion sans bot](/fr/blog/notes-reunion-sans-bot).
 2. Dans la barre des menus, choisissez le projet si vous classez les appels par client, puis démarrez quand vous le décidez.
 3. Parlez normalement. La piste micro suit le micro choisi. La piste système suit la lecture de l'app.
-4. Arrêtez à la fin de l'appel. La transcription qui compte est reconstruite à partir de l'audio local finalisé après l'arrêt. Un aperçu pendant l'appel informe seulement. Il ne remplace pas cette passe.
+4. Arrêtez à la fin de l'appel. La transcription qui compte est établie à partir de l'audio local finalisé après l'arrêt. Un aperçu pendant l'appel informe seulement. Il ne remplace pas cette passe.
 5. La séparation des locuteurs tourne sur le Mac et commence par des étiquettes anonymes que vous pouvez renommer. Les locuteurs inconnus restent anonymes tant que vous n'avez pas choisi de mémoriser une voix.
 
-La même paire vaut pour toute app qui joue du son sur le Mac. Elle n'est pas liée à l'enregistrement cloud d'un fournisseur. Teams sur Mac est un exemple, vu du côté de l'app dans [enregistrer une réunion Teams sur Mac](/fr/blog/enregistrer-reunion-teams-sur-mac). Zoom, Meet, les huddles Slack et Discord suivent la même idée&nbsp;: si le Mac le joue, la piste système peut l'entendre.
+La même paire vaut pour toute app qui joue du son sur le Mac. Elle n'est pas liée à l'enregistrement cloud d'un fournisseur. Teams sur Mac est un exemple, vu du côté de l'app dans [enregistrer une réunion Teams sur Mac](/fr/blog/enregistrer-reunion-teams-sur-mac). Zoom, Meet, les huddles Slack et Discord suivent la même idée : si le Mac le joue, la piste système peut l'entendre.
 
-Vous pouvez aussi sauter la capture live et importer un fichier déjà en votre possession&nbsp;: MP3, M4A, WAV, AIFF, CAF ou FLAC. Un fichier importé suit le même traitement local. Il n'est pas coupé en «&nbsp;vous&nbsp;» et «&nbsp;eux&nbsp;» si le fichier ne contient pas déjà cette séparation. Un export Zoom mélangé est un fichier, pas les deux pistes que Vemoir enregistre en direct.
+Vous pouvez aussi sauter la capture live et importer un fichier déjà en votre possession : MP3, M4A, WAV, AIFF, CAF ou FLAC. Un fichier importé suit le même traitement local. Il n'est pas coupé en « vous » et « eux » si le fichier ne contient pas déjà cette séparation. Un export Zoom mélangé est un fichier, pas les deux pistes que Vemoir enregistre en direct.
 
 ## Réunion en présentiel vs micro et audio système
 
@@ -82,7 +75,7 @@ La capture live livrée est **micro plus audio système** pour un appel que le M
 
 Si plusieurs collègues sont autour d'un seul portable, sans interlocuteur à distance, la piste système reste faible. Le micro capte surtout qui parle le plus près. La séparation des locuteurs après l'arrêt peut regrouper des voix, mais attendez-vous à une voix locale dominante, pas à une salle avec des places attribuées.
 
-Pour le travail en salle d'abord, un enregistreur prévu pour la table, ou un fichier importé ensuite, est souvent plus clair. L'outil [/fr/outils/transcrire-audio](/fr/outils/transcrire-audio) traite un court extrait déjà en votre possession, jusqu'à 15 minutes, trois exécutions réussies par semaine, sans envoi. Il ne nomme pas les locuteurs. Les longues prises et la capture live à deux pistes restent dans l'app Mac.
+Pour le travail en salle d'abord, un enregistreur prévu pour la table, ou un fichier importé ensuite, est souvent plus clair. L'[outil transcrire un audio](/fr/outils/transcrire-audio) traite un court extrait déjà en votre possession, jusqu'à 15 minutes, trois exécutions réussies par semaine, sans envoi. Il ne nomme pas les locuteurs. Les longues prises et la capture live à deux pistes restent dans l'app Mac.
 
 ## Quand une piste est le mauvais outil
 
@@ -92,13 +85,13 @@ Deux pistes locales conviennent mieux quand vous voulez la voix et l'appel sépa
 - Toute l'équipe est sous Windows ou sur téléphone, et le but est une bibliothèque partagée avec bot. Un preneur de notes cloud est fait pour cela. Vemoir est une app Mac sur puce Apple, macOS Sonoma 14.2 ou plus récent.
 - Vous ne vouliez que votre propre dictée, pas l'appel. Mettez l'audio de réunion en pause, ou utilisez un outil de dictée. La piste système prendra encore les autres apps qui jouent.
 
-Un casque change utilement la piste système&nbsp;: les voix distantes y restent et fuient moins dans votre micro. C'est en général ce que vous voulez si vous devez ensuite entendre qui était dans la pièce.
+Un casque change utilement la piste système : les voix distantes y restent et fuient moins dans votre micro. C'est en général ce que vous voulez si vous devez ensuite entendre qui était dans la pièce.
 
 ## Si la piste système reste silencieuse
 
 Si vous gardez l'audio, écoutez d'abord la piste système après l'appel. Vous devriez entendre l'interlocuteur distant. Puis la piste micro pour votre voix. Cet ordre montre si le problème vient de l'appel ou du micro.
 
-Une piste système plate alors que l'on parlait dans l'appel signifie en général&nbsp;: app muette, sortie sur un autre périphérique, ou System Audio Recording refusé. Corrigez la configuration dans [capture](/fr#capture) ou dans Confidentialité macOS. Changer de micro ne règle pas cela.
+Une piste système plate alors que l'on parlait dans l'appel signifie en général : app muette, sortie sur un autre périphérique, ou Enregistrement d’écran refusé. Corrigez la configuration dans [capture](/fr#capture) ou dans Confidentialité macOS. Changer de micro ne règle pas cela.
 
 ## Ce qui se passe après l'arrêt
 
@@ -112,36 +105,36 @@ Les deux sources, à côté du choix de modèle, sont dans [capture](/fr#capture
 
 ## Questions fréquentes
 
-### Le micro et l'audio système sont-ils mélangés en un fichier&nbsp;?
+### Le micro et l'audio système sont-ils mélangés en un fichier ?
 
-Ils sont captés comme pistes locales séparées&nbsp;: le micro choisi, et l'audio système de macOS. La lecture d'un enregistrement conservé peut choisir une piste.
+Ils sont captés comme pistes locales séparées : le micro choisi, et l'audio système de macOS. La lecture d'un enregistrement conservé peut choisir une piste.
 
-### Vemoir enregistre-t-il l'écran pour obtenir l'audio de l'appel&nbsp;?
+### Vemoir enregistre-t-il l'écran pour obtenir l'audio de l'appel ?
 
-Non. La piste d'appel utilise System Audio Recording via un tap audio seulement. Le contenu de l'écran n'est pas enregistré.
+Non. La piste d'appel utilise l'Enregistrement d'écran pour l'audio uniquement. Le contenu de l'écran n'est pas enregistré.
 
-### Les autres verront-ils un bot&nbsp;?
+### Les autres verront-ils un bot ?
 
 Non. Vous démarrez et arrêtez depuis la barre des menus. L'app de réunion ne change pas. Personne n'est ajouté à la liste.
 
-### Et si j'utilise des haut-parleurs plutôt qu'un casque&nbsp;?
+### Et si j'utilise des haut-parleurs plutôt qu'un casque ?
 
 L'audio distant reste sur la piste système. Une partie peut aussi entrer dans un micro d'ordinateur. Un casque garde le micro surtout pour vous.
 
-### Cela peut-il enregistrer plusieurs personnes assises avec moi&nbsp;?
+### Cela peut-il enregistrer plusieurs personnes assises avec moi ?
 
 Le micro entend ce qui est proche. La piste système entend ce que le Mac joue. Il n'existe pas de mode séparé qui traite un groupe autour de la table comme une réunion avec des places nommées. Les étiquettes anonymes, si l'audio le permet, viennent ensuite de la séparation sur le Mac.
 
-### L'outil gratuit du navigateur capte-t-il les deux pistes&nbsp;?
+### L'outil gratuit du navigateur capte-t-il les deux pistes ?
 
 Non. Les outils du navigateur transcrivent un fichier que vous avez déjà. Ils ne captent pas un appel en direct, ne prennent pas l'audio système et ne nomment pas les locuteurs.
 
-### Quel Mac faut-il&nbsp;?
+### Quel Mac faut-il ?
 
 Puce Apple, M1 ou plus récente, macOS Sonoma 14.2 ou plus récent, au moins 8 Go de mémoire et 10 Go libres. 16 Go sont recommandés pour les longues réunions. Les Mac Intel ne sont pas pris en charge.
 
-### Où activer les pistes&nbsp;?
+### Où activer les pistes ?
 
-Choisissez le micro, autorisez System Audio Recording, et démarrez depuis la barre des menus. La section [capture](/fr#capture) montre ces contrôles. La réduction de bruit, si vous la voulez, ne porte que sur le micro, en Off, Balanced ou Strong.
+Choisissez le micro, autorisez l’Enregistrement d’écran, et démarrez depuis la barre des menus. La section [capture](/fr#capture) montre ces contrôles. La réduction de bruit, si vous la voulez, ne porte que sur le micro, en Désactivée, Équilibrée ou Forte.
 
-La prochaine réunion est le test&nbsp;: casque, les deux autorisations, enregistrement depuis la barre des menus, arrêt à la fin de l'appel. [Capture](/fr#capture) indique où se trouvent les deux sources.
+La prochaine réunion est le test : casque, les deux autorisations, enregistrement depuis la barre des menus, arrêt à la fin de l'appel. [Capture](/fr#capture) indique où se trouvent les deux sources.

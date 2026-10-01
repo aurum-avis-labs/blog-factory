@@ -18,7 +18,7 @@ site: prozess-check
 
 To generate documents from templates automatically, you follow five steps for quotes, contracts, letters and order confirmations. Fixed wording lives in one template with named fields. Fields are filled from one data source: a form, the CRM or a spreadsheet row. A script or flow exports a PDF and saves it in a fixed place. A person checks before anything goes out. Prices, dates and legal wording come from the template and the data. AI, if you use it, writes one marked free-text part only, always as a draft.
 
-This is for owners and office leads in Swiss SMEs who write the same kind of document several times a week. Open last month's quote, save under a new name, swap the customer, change figures, hope nothing from the old customer remains in the footer. If you write two contracts a year, skip this article.
+This is for owners and office leads in Swiss SMEs who write the same kind of document several times a week. Open last month's quote, save under a new name, swap the customer, change the figures, and the old customer is still in the footer. If you write two contracts a year, skip this article.
 
 <dl class="blog-terms">
   <div>
@@ -61,7 +61,7 @@ In Microsoft 365, Power Automate has a Word Online (Business) connector with the
 
 In Google Workspace, variable chips in Google Docs fill several fields with the same text and export templates with different values. They are available only for eligible work or school accounts, and you fill them by hand ([Google Docs Help](https://support.google.com/docs/answer/13584275?hl=en)). For automatic filling you need a script: Apps Script can replace text patterns in a document with [replaceText](https://developers.google.com/apps-script/reference/document/body) and convert a file to PDF with [getAs](https://developers.google.com/apps-script/reference/base/blob).
 
-If your business software already produces the quote from its own template, start there. What your programs offer as interfaces, we clarify in the Check.
+Our own download form uses similar building blocks: a Google Apps Script logs the request in a sheet, fetches a PDF from a private Drive folder and sends it by email via Microsoft Graph. If your business software already produces the quote from its own template, start there.
 
 ## Where AI helps and where fixed wording is safer
 
@@ -83,12 +83,7 @@ If that text is drafted from a customer's email, the email contains personal dat
 
 Most documents need no signature that the law prescribes. Where one is required, only the qualified electronic signature counts as equal to a handwritten one.
 
-<aside class="blog-callout blog-callout--limit">
-  <span class="blog-kicker">Limit</span>
-  <p>According to BAKOM, Swiss contract law follows freedom of form. Where a handwritten signature is required, only a qualified electronic signature under ZertES is treated as equal. Other electronic signatures can be used where no handwritten signature is required.</p>
-</aside>
-
-That is the position in Art. 14 para. 2bis of the Code of Obligations, as [BAKOM explains it](https://www.bakom.admin.ch/de/23-welche-rechtskraft-haben-elektronische-signaturen). The Swiss accreditation body keeps a list of the providers that may issue qualified certificates ([BAKOM](https://www.bakom.admin.ch/de/elektronische-signatur-2)).
+That is the position in Art. 14 para. 2bis of the Code of Obligations, as [BAKOM explains it](https://www.bakom.admin.ch/de/23-welche-rechtskraft-haben-elektronische-signaturen): Swiss contract law follows freedom of form. Where a handwritten signature is required, only a qualified electronic signature under ZertES is treated as equal. Other electronic signatures can be used where no handwritten signature is required. The Swiss accreditation body keeps a list of the providers that may issue qualified certificates ([BAKOM](https://www.bakom.admin.ch/de/elektronische-signatur-2)).
 
 A quote or an order confirmation usually needs neither. A pasted image of a signature is not a qualified signature: it rests on no certificate and carries no time stamp. Whether a particular contract needs written form is a question for your lawyer, not the template.
 
@@ -104,9 +99,9 @@ An example, not a client: a planning office with about twelve people. It sends a
 
 Today, the project lead opens the last quote, saves under a new name, swaps customer and address, retypes the fee table and exports a PDF. Names differ, and a previous customer sometimes survives in the footer.
 
-One Word template for quotes and one for confirmations. A form writes one row per quote: customer, address, modules from a fixed list, hours or a lump sum. Rates sit in a second sheet the office manager maintains. Terms stay in the template. One field is free text.
+The build: one Word template for quotes and one for confirmations. A form writes one row per quote: customer, address, modules from a fixed list, hours or a lump sum. Rates sit in a second sheet the office manager maintains. Terms and payment conditions never change, they stay in the template. One field is free text: how the office understood the project.
 
-When a row is marked «create draft», a flow fills the template, exports the PDF, files it and mails it to the project lead. She corrects the AI draft and sets «approved». Only then does mail go to the customer and the send date is written back. Reminders can start from that date: see [how to follow up on quotes without losing them](/prozess-check/blog/quote-follow-ups).
+When a row is marked «create draft», a flow fills the template, exports the PDF, files it in the project folder under a fixed name and mails it to the project lead, not the customer. An AI service drafts the free text from the project lead's own notes, marked as a draft. She corrects it and sets the row to «approved». Only then does the flow send the mail from the office mailbox and write the send date back to the row. Reminders can start from that date: see [how to follow up on quotes without losing them](/prozess-check/blog/quote-follow-ups).
 
 For scale: one document type with one data source matches the guide price of CHF 3'200–4'800. Several types move towards larger packages. The fixed price comes in writing after the Check.
 
@@ -125,4 +120,4 @@ The Process Check fits if someone in your office regularly builds the same kind 
 
 Bring an anonymised or made-up example, no customer data needed. Afterwards you know where to start, whether it pays off, and a price range and rough duration for a build, in a short written summary. The Check costs CHF 99 and is credited against the fixed price if you have it built. If the hour turns up nothing worth automating, you get the money back once the appointment has taken place.
 
-Everything else is on the [Process Check](/prozess-check) page, and you can [choose a time](/prozess-check/buchen) there.
+Everything else is on the [Process Check](/prozess-check) page.

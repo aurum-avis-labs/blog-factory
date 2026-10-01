@@ -1,17 +1,17 @@
 ---
 title: "Authentifizierung App: was ein MVP wirklich braucht"
-description: "Authentifizierung App im MVP: wann Login Pflicht ist, die kleinsten Wege mit E-Mail oder OAuth, und was Anmeldung nicht über Sicherheit beweist."
-pubDate: 2027-09-01
+description: "Authentifizierung App im MVP: wann Login Pflicht ist, die kleinsten Wege mit E-Mail oder OAuth, und was ein Login allein nicht über Sicherheit beweist."
+pubDate: 2027-06-19
 author: "Aurum Avis Labs"
 tags: ["authentifizierung", "mvp", "supabase", "lovable", "startup"]
 funnelStage: interest
 translationKey: authentication-for-an-mvp
 relatedPosts: ["skalierbares-mvp", "tech-stack-startup"]
-draft: true
+draft: false
 site: studio
 ---
 
-<p class="blog-lede">Authentifizierung in einer App im MVP- Stadium heisst: Sie wissen, welches Konto welche Daten sieht, meist per E-Mail oder Social Login, plus serverseitige Regeln, damit ein Nutzer nicht die Zeilen eines anderen liest. Das ist kein Firmen-SSO, keine Rollenmatrix für hundert Berechtigungen und kein Beweis für zahlende Nachfrage.</p>
+<p class="blog-lede">Authentifizierung in einer App im MVP-Stadium heisst: Sie wissen, welches Konto welche Daten sieht, meist per E-Mail oder Social Login, plus serverseitige Regeln, damit ein Nutzer nicht die Zeilen eines anderen liest. Das ist kein Firmen-SSO, keine Rollenmatrix für hundert Berechtigungen und kein Beweis für zahlende Nachfrage.</p>
 
 ## Authentifizierung App: wann sie nötig ist
 
@@ -19,11 +19,20 @@ Sie brauchen Login, wenn der Test getrennte Konten verlangt: gespeicherte Arbeit
 
 Der Text richtet sich an Gründerinnen und Gründer, die mit Lovable, Bolt, v0, Replit, Cursor oder Claude Code schon etwas Veröffentlichtes haben und fragen, ob der generierte Login reicht oder sicher ist. Kein Penetrationstest, keine Rechtsauskunft, kein Vergleich aller Identity-Anbieter. Warum Aurum Auth als Produktionsarbeit sieht, steht in [Warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps). Skalierung und Stackwahl: [Skalierbares MVP](/de/blog/skalierbares-mvp) und [Tech-Stack Startup](/de/blog/tech-stack-startup).
 
-<ul class="blog-facts">
-  <li><span class="blog-kicker">Authentifizierung</span><strong>Wer</strong><p>Identität beim Login: Konto, Passwort oder OAuth.</p></li>
-  <li><span class="blog-kicker">Autorisierung</span><strong>Was</strong><p>Welche Daten und Aktionen nach dem Login erlaubt sind.</p></li>
-  <li><span class="blog-kicker">Session</span><strong>Token</strong><p>Cookie oder Token hält die Anmeldung, bis die Session endet.</p></li>
-</ul>
+<dl class="blog-terms">
+  <div>
+    <dt>Authentifizierung</dt>
+    <dd>Weist nach, wer sich anmeldet: Konto, Passwort, Passwort-Reset oder OAuth mit Google oder Apple.</dd>
+  </div>
+  <div>
+    <dt>Autorisierung</dt>
+    <dd>Was diese Identität nach dem Login darf: welche Zeilen, Dateien oder Aktionen erlaubt sind.</dd>
+  </div>
+  <div>
+    <dt>Session</dt>
+    <dd>Token oder Cookie, den der Browser bei späteren Anfragen mitschickt, damit die Anmeldung bestehen bleibt.</dd>
+  </div>
+</dl>
 
 ## Die kleinsten Wege, die meist reichen
 

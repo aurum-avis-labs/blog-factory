@@ -69,14 +69,9 @@ Reply in the thread they used. A fresh mail they do not recognise, plus a portal
 
 A made-up example: a small machining shop, three open customer orders for the same family of turned parts. On Monday, purchasing accepts that bar stock will arrive later than the date the system assumed. A planner changes one order from week 14 to week 16. The other two orders do not move. Their material is already in the rack.
 
-The flow sees one changed date. It drafts a mail to that customer: their order number, your order number, the article, the quantity, week 14 struck as the previous confirmed date, week 16 as the new one, quantity unchanged. The customer is on the key-account list, so the draft goes to the sales lead, not to the outbox. She calls in the afternoon, uses the two dates as the brief, and writes one sentence afterwards so the file matches what she said. The other two customers receive nothing that day, because their dates did not change.
+The flow sees one changed date. It drafts a mail to that customer: their order number, your order number, the article, the quantity, week 14 as the previous confirmed date, week 16 as the new one, quantity unchanged. The customer is on the key-account list, so the draft goes to the sales lead, not to the outbox. She calls in the afternoon, uses the two dates as the brief, and writes one sentence afterwards so the file matches what she said. The other two customers receive nothing that day, because their dates did not change.
 
 On Wednesday one of those two writes "where is my order". The reply quotes week 14, still the confirmed date, and says nothing has changed since the confirmation. It does not mention the other customer's delay. On Friday a further order, not a key account, moves from week 15 to week 16. A draft is created. A person in the office reads it, checks the numbers against the system, and sends it. Nobody is told a supplier name. None of these customers is a client of ours. The weeks are here so the rule is visible: only a changed, accepted date starts a message.
-
-<aside class="blog-callout blog-callout--limit">
-  <span class="blog-kicker">Limit</span>
-  <p>The message does not move the job, promise a partial delivery, or accept a penalty. If the new date is not acceptable, a person negotiates. The draft only stops the customer hearing it late.</p>
-</aside>
 
 ## When not to build this
 

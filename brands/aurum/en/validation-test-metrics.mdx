@@ -1,13 +1,13 @@
 ---
 title: "Validation test metrics: what to measure on a landing page"
 description: "Validation test metrics tie ad spend, sessions, and one primary action to a rule you wrote first. No universal conversion benchmark."
-pubDate: 2027-09-01
+pubDate: 2027-04-05
 author: "Aurum Avis Labs"
 tags: ["validation", "landing page", "metrics", "startup testing"]
 funnelStage: interest
 translationKey: validation-test-metrics
 relatedPosts: ["fake-door-test", "smoke-test-landing-page"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -17,37 +17,17 @@ Validation test metrics are the numbers you agreed to read before you launched: 
 
 This is for founders and innovation leads in Switzerland who already have or plan a [smoke test landing page](/blog/smoke-test-landing-page) or a [fake door test](/blog/fake-door-test) and need a short list of what to log. The wider menu of interviews, concierge delivery, and build-or-stop choices sits in [how to validate a startup idea](/blog/how-to-validate-a-startup-idea). Here the focus stays on measurement, limits, and what the dashboard cannot prove.
 
-<dl class="blog-terms">
-  <div>
-    <dt>Primary action</dt>
-    <dd>The single step you count: booked call, waitlist with a follow-up question, application, or another action named before traffic starts.</dd>
-  </div>
-  <div>
-    <dt>Landing conversion rate</dt>
-    <dd>Completed primary actions divided by sessions on the test page, for the window you set. Not the same as ad click-through unless you defined it that way.</dd>
-  </div>
-  <div>
-    <dt>Decision rule</dt>
-    <dd>What you will do if the metrics hit, miss, or sit in a grey zone, written before you reinterpret the results.</dd>
-  </div>
-  <div>
-    <dt>Cost per lead</dt>
-    <dd>Ad spend divided by primary actions attributed to that channel in the same period, when you ran paid traffic.</dd>
-  </div>
-</dl>
-
 ## Which validation test metrics to log
 
-Split the readout into channel metrics and page metrics. Channel metrics explain whether the message reached the segment you targeted. Page metrics explain whether people understood the offer and took the action you chose.
+Split the readout into channel metrics and page metrics. Channel metrics explain whether the message reached the segment you targeted. Page metrics explain whether people understood the offer and took the action you chose. Four numbers carry the test: the primary action you named, the landing conversion rate for the window you set, cost per lead on paid traffic, and the decision rule you wrote before launch.
 
 <ul class="blog-checklist">
+  <li>One primary action in a sentence: booked call, waitlist with a follow-up question, application, not a grab bag of secondary clicks</li>
   <li>Sessions and users on the test URL, with source and medium so organic posts do not mix with paid clicks</li>
   <li>Impressions, clicks, click-through rate, and spend if you ran search or social ads</li>
   <li>Cost per lead for the primary action on paid traffic in the test window</li>
-  <li>Count of completed primary actions, not secondary clicks such as «learn more» unless you named one as primary</li>
   <li>Landing conversion rate: primary actions divided by sessions on that page for the same dates</li>
-  <li>Form or funnel drop-off: which field or step loses people, from analytics or session recordings</li>
-  <li>Time on page and scroll depth as behaviour signals, especially when conversion is low but engagement is high</li>
+  <li>Form drop-off from analytics or session recordings; mark warm contacts so they do not pollute the cold-traffic rule</li>
   <li>A fixed end date or sample size so you stop when the rule says stop</li>
 </ul>
 
@@ -55,21 +35,14 @@ Connect analytics and session recordings before the first paid visit. Otherwise 
 
 <div class="blog-stat">
   <strong>5.65%</strong>
-  <p>Click-through rate on one internal Holist-IQ validation campaign: 299 clicks from 5'293 impressions, about CHF 0.65 average cost per click and CHF 194.81 total spend in that run. One project, not a target for yours.</p>
+  <p>Click-through rate on one internal Holist-IQ validation campaign: 299 clicks from 5'293 impressions, about CHF 0.65 average cost per click and CHF 194.81 total spend in that run. Eleven signups, five sessions longer than four minutes, three return visits, no credit purchases. One project, not a target for yours.</p>
 </div>
-
-On the same internal test, early on-page signals were modest: eleven signups, five sessions longer than four minutes, three return visits, two people hitting a free credit limit, no credit purchases. Those figures describe one weekend MVP and a narrow audience. They do not set a bar for your landing page.
 
 ## What landing conversion rate does not prove
 
 A higher landing conversion rate on a waitlist does not show product-market fit, retention, or unit economics. It does not show that strangers will pay, that a marketplace has both sides, or that support and operations scale. It does not protect the idea: ideas as such cannot be protected under Swiss practice; execution and branding can ([IGE on ideas](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)).
 
-Comparing your rate to a blog post’s «industry average» rarely helps. Audience, offer, friction, language, and whether traffic is warm or cold all move the number. There is no universal conversion benchmark worth treating as law for a Swiss validation test.
-
-<aside class="blog-callout blog-callout--limit">
-  <span class="blog-kicker">Limit</span>
-  <p>Metrics answer the question you wrote down. They do not replace interviews, concierge delivery, or usage data from a real build. Stop when the primary action is cheap and honest but almost nobody completes it after fair traffic, or when every conversion comes from people who already knew you.</p>
-</aside>
+Comparing your rate to a blog post's "industry average" rarely helps. Audience, offer, friction, language, and whether traffic is warm or cold all move the number. There is no universal conversion benchmark worth treating as law for a Swiss validation test.
 
 ## Who should track these metrics, and who should skip
 
@@ -94,9 +67,9 @@ Comparing your rate to a blog post’s «industry average» rarely helps. Audien
 
 ## A made-up example: four weeks on one primary action
 
-A made-up example: a solo founder in Basel sells a compliance checklist to trustees. They publish one English page, primary action is a fifteen-minute discovery call via a calendar link, secondary path is a four-field form. They write the decision rule before ads: continue positioning if at least six calls book from paid LinkedIn traffic in four weeks with stable job-title targeting, pivot if clicks are steady but nobody reaches the calendar, stop if cost per lead stays above what they can afford for ten leads without a single call from cold traffic.
+A made-up example: a solo founder in Lucerne sells a compliance checklist to small trustee firms. They publish one German page, primary action is a 25-minute discovery call via a calendar link, secondary path is a four-field form. They write the decision rule before ads: continue positioning if at least six calls book from paid Google traffic in four weeks with stable job-title targeting, pivot if clicks are steady but nobody reaches the calendar, stop if cost per lead stays above what ten leads justify without a single cold call.
 
-Week one: analytics live, CHF 120 spend, 840 sessions, two bookings from a newsletter mention, none from ads. Week two: they tighten the headline around «audit trail for client files», spend CHF 140, landing conversion on paid sessions rises to about two percent, four cold bookings. Week three: form drop-off clusters on «firm size»; they make that field optional. Week four: five more cold bookings, cost per lead about CHF 55 on paid traffic for the month. No shipped product yet. They log channel, sessions, and actions in one table, separate warm from cold traffic, and choose a concierge pilot over a repo. No industry benchmark was required for that call.
+Week one: analytics live, CHF 120 spend, 840 sessions, two bookings from a newsletter mention, none from ads. Week two: they tighten the headline around "audit trail for client files", spend CHF 140, landing conversion on paid sessions rises to about two percent, four cold bookings. Week three: form drop-off clusters on "firm size"; they make that field optional. Week four: five more cold bookings, cost per lead about CHF 55 on paid traffic for the month. No shipped product yet. They log channel, sessions, and actions in one table, separate warm from cold traffic, and choose a concierge pilot over a repo. No industry benchmark was required for that call.
 
 ## Privacy and the test page
 

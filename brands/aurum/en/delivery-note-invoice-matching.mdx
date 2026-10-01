@@ -48,12 +48,7 @@ A line fits when the same article, unit and quantity appear on the order and on 
   <li><strong>Exception</strong><p>Outside tolerance, a person decides. Inside it, the line can go to approval.</p></li>
 </ol>
 
-Post the receipt when goods arrive, not when the invoice lands three weeks later. By then the pallet is open and nobody counts it back. Several delivery notes against one order line add up until the open quantity is zero or someone cancels the remainder. If the delivery note is a PDF in a mailbox, the workflow's job is to read article, quantity and order number into the receipt. Unreadable fields stay blank and go to a person. A guessed quantity that "looks like" the order will match perfectly and still be wrong. A workflow that reads only the invoice, with no receipt, stays two-way match and the risk of paying without goods.
-
-<aside class="blog-callout blog-callout--limit">
-  <span class="blog-kicker">Limit</span>
-  <p>Matching does not replace a purchase order. Without order lines for article, quantity and price, there is no reference, even when the delivery note is readable.</p>
-</aside>
+Post the receipt when goods arrive, not when the invoice lands three weeks later. By then the pallet is open and nobody counts it back. Several delivery notes against one order line add up until the open quantity is zero or someone cancels the remainder. If the delivery note is a PDF in a mailbox, the workflow's job is to read article, quantity and order number into the receipt. Unreadable fields stay blank and go to a person. A guessed quantity that "looks like" the order will match perfectly and still be wrong. A workflow that reads only the invoice, with no receipt, stays two-way match and the risk of paying without goods. Matching also does not replace a purchase order: without order lines for article, quantity and price, there is no reference, even when the delivery note is readable.
 
 ## Tolerances and partial deliveries
 
@@ -62,23 +57,6 @@ Write quantity and price tolerance down before you automate. Keep it small enoug
 If you received 80 of 100, the order stays open. An invoice for 80 can match. An invoice for 100 against a receipt of 80 does not get rounded up. It is an exception: release the 80, ask about the 20, or reject the invoice. Closing the order because the invoice says complete hides the shortage until stocktaking.
 
 Freight, minimum-order fees or extra lines match only if the order or contract allows them. Otherwise they are an exception with the invoice attached, not a quiet booking to "other costs".
-
-<div class="blog-pair">
-  <div>
-    <h3>The program already covers it</h3>
-    <ul>
-      <li>Order, receipt and invoice in one system, receipt entered there</li>
-      <li>Your job: use the match and clear the exception list</li>
-    </ul>
-  </div>
-  <div>
-    <h3>The paper note is the gap</h3>
-    <ul>
-      <li>Invoice in accounts, delivery note in a tray or mailbox</li>
-      <li>A workflow can read the note onto the order. It does not replace the order</li>
-    </ul>
-  </div>
-</div>
 
 ## Who decides the exception
 
@@ -105,11 +83,6 @@ The recurring task worth describing: delivery notes pile up, invoices wait, or s
   <p>No. It is usually not a legal requirement. It pays off when you regularly buy goods in, write purchase orders, and could still pay invoices with no receipt recorded.</p>
 </div>
 
-<div class="blog-faq">
-  <h3>What if the delivery note only exists as a scan in a mailbox?</h3>
-  <p>Someone must put the quantity into the receipt on arrival day, by hand or with a workflow that reads article, quantity and order number. Without a receipt you only have two-way match and the risk of paying without goods.</p>
-</div>
+## When a Process Check fits
 
-## When a Prozess-Check fits
-
-A [Prozess-Check](/prozess-check) fits when that gap returns every week: invoices waiting on delivery notes, or quantities copied from paper into the order. You bring this one recurring task. The meeting is 60 minutes on Microsoft Teams. You leave with a concrete case, whether it pays off, a price range and a rough duration. The hour does not commit you to a project.
+A [Process Check](/prozess-check) fits when that gap returns every week: invoices waiting on delivery notes, or quantities copied from paper into the order. You bring this one recurring task. The meeting is 60 minutes on Microsoft Teams. You leave with a concrete case, whether it pays off, a price range and a rough duration. The hour does not commit you to a project.

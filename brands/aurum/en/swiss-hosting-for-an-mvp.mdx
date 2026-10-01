@@ -1,19 +1,19 @@
 ---
 title: "Swiss hosting for an MVP: what to decide first"
 description: "Swiss hosting for an MVP: set database region at creation, separate CDN from residency, and know what a Swiss choice does not prove."
-pubDate: 2027-09-01
+pubDate: 2027-06-16
 author: "Aurum Avis Labs"
 tags: ["mvp", "hosting", "switzerland", "supabase", "data residency"]
 funnelStage: interest
 translationKey: swiss-hosting-for-an-mvp
 relatedPosts: ["how-to-build-a-scalable-mvp", "choosing-a-startup-tech-stack"]
-draft: true
+draft: false
 site: studio
 ---
 
 <p class="blog-lede">Swiss hosting for an MVP means choosing where primary customer data is stored and processed, not only where the URL is served from. For many vibe-coded stacks that means the database region at project creation, a separate question from the global CDN in front of your React build. Switzerland can be a real option on backends such as Supabase; many default exports still land in US or EU regions unless you change it on day one.</p>
 
-This is for founders who already shipped a first version with Lovable, Bolt, v0, Replit, Cursor, or Claude Code and now hear «where is the data?» from a Swiss buyer, a fiduciary, or their own privacy notice. It is not legal advice, not a vendor scorecard, and not a promise that one checkbox replaces access control. For why deployment quality matters to validation, see [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps).
+This is for founders who already shipped a first version with Lovable, Bolt, v0, Replit, Cursor, or Claude Code and now hear "where is the data?" from a Swiss buyer, a fiduciary, or their own privacy notice. It is not legal advice, not a vendor scorecard, and not a promise that one checkbox replaces access control. For why deployment quality matters to validation, see [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps).
 
 ## Swiss hosting for an MVP
 
@@ -22,7 +22,7 @@ Hosting splits into layers. Confusing them is how teams answer the wrong questio
 <ul class="blog-facts">
   <li><span class="blog-kicker">Static app</span><strong>Often global</strong><p>Built files on a CDN may be cached worldwide. That is performance, not where your database rows live.</p></li>
   <li><span class="blog-kicker">API and database</span><strong>Region-bound</strong><p>Postgres, auth metadata, and file buckets follow the cloud region you picked for the project.</p></li>
-  <li><span class="blog-kicker">Logs and analytics</span><strong>Third parties</strong><p>Session tools, error trackers, and ad pixels may sit in another country even when the app is «Swiss».</p></li>
+  <li><span class="blog-kicker">Logs and analytics</span><strong>Third parties</strong><p>Session tools, error trackers, and ad pixels may sit in another country even when the app is "Swiss".</p></li>
   <li><span class="blog-kicker">Tool default</span><strong>Check the console</strong><p>Exports from AI builders often create a Supabase or Firebase project for you. Open settings before real users arrive.</p></li>
 </ul>
 
@@ -30,11 +30,11 @@ For an MVP you are usually optimising for speed and learning. Swiss hosting stil
 
 ## Supabase and the Zurich region
 
-If your MVP uses Supabase, region is explicit at creation. Supabase documents **Central Europe (Zurich), eu-central-2** as a specific region, and states that the region you choose is where primary project data is stored ([Supabase regions](https://supabase.com/docs/guides/platform/regions)). The same page warns that broader «Europe» groupings can include cities outside a jurisdiction you had in mind, and that **region selection is a data-location control, not proof of compliance**.
+If your MVP uses Supabase, region is explicit at creation. Supabase documents **Central Europe (Zurich), eu-central-2** as a specific region, and states that the region you choose is where primary project data is stored ([Supabase regions](https://supabase.com/docs/guides/platform/regions)). The same page warns that broader "Europe" groupings can include cities outside a jurisdiction you had in mind, and that **region selection is a data-location control, not proof of compliance**.
 
 Practical implications for a vibe-coded app:
 
-- Create the Supabase project in Zurich before you connect production traffic, if Swiss storage is a requirement. Treating region as «we will fix it later» often means migration work you did not budget for.
+- Create the Supabase project in Zurich before you connect production traffic, if Swiss storage is a requirement. Treating region as "we will fix it later" often means migration work you did not budget for.
 - Row level security, bucket policies, and service-role keys still decide who can read data. A Swiss region with open policies is not a security story.
 - Backups, replicas, and support access may involve subprocessors listed in Supabase’s terms. Read those lists for customer-facing answers, not only the map pin.
 
@@ -50,51 +50,27 @@ Self-hosting on a Swiss VPS is possible for a technical co-founder, but it shift
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>Choosing Switzerland for the database does not make the MVP FADP-complete, GDPR-proof, or acceptable to every enterprise security questionnaire. Purpose, retention, contracts, subprocessors, and access control still need a human owner. Hosting answers «where», not «whether you may».</p>
+  <p>Choosing Switzerland for the database does not make the MVP FADP-complete, GDPR-proof, or acceptable to every enterprise security questionnaire. Purpose, retention, contracts, subprocessors, and access control still need a human owner. Hosting answers "where", not "whether you may".</p>
 </aside>
 
 ## What Swiss hosting does not prove
 
 A clear region choice helps you tell the truth in a privacy notice and in sales calls. It does **not** prove strangers will pay, that your auth model is safe, or that the MVP will survive production load. It does **not** replace analytics, session recording, or a Go, Pivot, or Stop read after paid traffic.
 
-Edge caching in Frankfurt or Virginia can still serve your JavaScript quickly while rows stay in Zurich. Conversely, a `.ch` domain on a US-only database is not «Swiss hosting» because the brand is local.
-
-<div class="blog-pair">
-  <div>
-    <h3>Prioritise a Swiss region now</h3>
-    <ul>
-      <li>You already store personal data from Swiss users or employees</li>
-      <li>A buyer or partner named residency in the contract or security form</li>
-      <li>You are past friends-and-family and plan ads or a public waitlist</li>
-    </ul>
-  </div>
-  <div>
-    <h3>You can defer the migration</h3>
-    <ul>
-      <li>The test is a landing page or fake door with no login and no uploads</li>
-      <li>Data are synthetic and you will discard the project after the interview round</li>
-      <li>No one has asked where data live and your notice does not promise Switzerland yet</li>
-    </ul>
-  </div>
-</div>
+Edge caching in Frankfurt or Virginia can still serve your JavaScript quickly while rows stay in Zurich. Conversely, a `.ch` domain on a US-only database is not "Swiss hosting" because the brand is local. Prioritise a Swiss region as soon as you store personal data from Swiss users, a buyer requires residency in a contract, or you plan ads and a public waitlist. For a fake door with no login and synthetic data, the migration can wait.
 
 Deferral is not permission to copy customer inboxes into a US sandbox without disclosure. It is permission to validate demand before you pay migration cost.
 
 ## Questions buyers actually ask
 
 <div class="blog-faq">
-  <h3>Is the app «hosted in Switzerland» if we use Supabase Zurich?</h3>
+  <h3>Is the app "hosted in Switzerland" if we use Supabase Zurich?</h3>
   <p>Primary Supabase data for that project are stored in the Zurich region you selected. Your front end, analytics, email provider, and support tools may still process data elsewhere. Answer with a short list of systems and regions, not a single yes.</p>
 </div>
 
 <div class="blog-faq">
   <h3>Can we move region after launch?</h3>
   <p>Assume it is expensive until your dashboard says otherwise. Plan region at creation when residency is non-negotiable.</p>
-</div>
-
-<div class="blog-faq">
-  <h3>Does Swiss hosting replace a security review?</h3>
-  <p>No. Region does not fix missing row level security, public storage buckets, or API keys in the client. Review auth and data access before you scale traffic.</p>
 </div>
 
 ## When the Product Validation Package fits

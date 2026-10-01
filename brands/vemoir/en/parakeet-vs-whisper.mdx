@@ -36,12 +36,6 @@ Project glossaries help generated minutes and documents spell names and product 
 
 The app interface language (English, German, French, Italian, Dutch) is not the transcription language. Set them separately.
 
-|  | Parakeet v3 | Whisper |
-| --- | --- | --- |
-| Languages | 25 European (Vemoir docs) | Depends on model size |
-| Runs on | Apple silicon Mac | Mac or browser download |
-| Swiss German | Standard German text | Standard German text |
-
 ## Where Parakeet is the better choice
 
 Parakeet v3 is the better choice when the meetings you care about sit inside those 25 European languages and you want that model as the one speech download. It is the straightforward pick when you do not need Whisper-specific glossary prompt hints, because those hints are documented for compatible Whisper transcription. The glossary still does not rewrite the transcript. It can steer generated text. The original lines stay the evidence.
@@ -57,7 +51,7 @@ Whisper Turbo, Medium, or Large-v3 is the better choice when you want a Whisper 
 
 Whisper is the worse choice when you only wanted the 25-language European model and you do not want a second speech stack. Download Parakeet and leave the Whisper variants uninstalled. Unused models are optional weight on the disk.
 
-The browser tools use public Whisper in the tab for a file you already have. That is not the Mac app's Parakeet install, and it is not Large-v3 by another name. Cap: 15 minutes, three successful runs a week, no speaker labels. The page is [/tools/transcribe-recording](/tools/transcribe-recording).
+The browser tools use public Whisper in the tab for a file you already have. That is not the Mac app's Parakeet install, and it is not Large-v3 by another name. Cap: 15 minutes, three successful runs a week, no speaker labels. Start at [transcribe recording](/tools/transcribe-recording).
 
 <div class="blog-pair">
   <div>
@@ -101,6 +95,8 @@ Both families are in [capture](/#capture).
 A speech model is a large file. Installing Parakeet and every Whisper variant on the same disk is allowed, and it is often unnecessary. Check free space against the size the model screen shows before you queue three downloads. The baseline for the app is 10 GB free, which is not a promise that three speech models plus a writing model will fit inside that margin. If a download fails for space, free space and resume. Do not treat the browser tool as a silent stand-in for a meeting that was supposed to stay in the app. The browser tool is a different path with a 15-minute cap.
 
 When both a Parakeet file and a Whisper file are ready, select one for the next meeting and leave it. Mid-meeting substitution is not a feature. If a bilingual call mixes two languages, expect the limits of whichever model you selected. If the result is unusable, try the other family on purpose and compare with your ears, still without a numeric ranking. Keep the recording if Storage still has it, so the second pass is the same audio. Note which model you selected and the date in project notes, so a later disagreement is about the audio, not a forgotten setting.
+
+Model sizes change with app updates, so this page cites no megabytes. Check the size on the model screen, then download.
 
 For meetings that must stay offline after models are installed, see [offline transcription on Mac](/blog/offline-transcription-mac).
 

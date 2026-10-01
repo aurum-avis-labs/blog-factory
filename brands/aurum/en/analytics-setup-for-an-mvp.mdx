@@ -1,13 +1,13 @@
 ---
 title: "Analytics setup for an MVP"
 description: "Analytics setup for an MVP: GA4, PostHog, or Clarity, what to wire first, Swiss cookie basics, and what page views do not prove."
-pubDate: 2027-09-01
+pubDate: 2027-07-19
 author: "Aurum Avis Labs"
 tags: ["analytics", "mvp", "ga4", "clarity", "startup"]
 funnelStage: interest
 translationKey: analytics-setup-for-an-mvp
 relatedPosts: ["event-tracking-plan-for-an-mvp", "measure-activation-and-retention"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -17,22 +17,9 @@ site: studio
 
 You set up analytics so you can answer a few questions with numbers: where people arrive, whether they reach the first valuable action, and where they stop. For a pre-seed founder without a technical co-founder, the goal is a small stack you can explain to an adviser, not a data warehouse. Google Analytics 4 (GA4), PostHog, and Microsoft Clarity are common choices. They overlap in places; picking two roles (traffic plus behaviour, or traffic plus replay) is usually enough before you have paying users.
 
-This is for founders who already have a URL or a first build and need measurement before they spend on ads. It is not a guide to enterprise BI, not legal advice on cookies, and not a substitute for interviews. What numbers can and cannot say about fit is in [how to find product-market fit](/blog/product-market-fit-how-to-find-it). Which events to name comes next in event tracking plan for an MVP and measure activation and retention.
+This is for founders who already have a URL or a first build and need measurement before they spend on ads. It is not a guide to enterprise BI, not legal advice on cookies, and not a substitute for interviews. What numbers can and cannot say about fit is in [how to find product-market fit](/blog/product-market-fit-how-to-find-it). Which events to name comes next in [the event tracking plan for an MVP](/blog/event-tracking-plan-for-an-mvp) and [how to measure activation and retention](/blog/measure-activation-and-retention).
 
-<dl class="blog-terms">
-  <div>
-    <dt>Web analytics</dt>
-    <dd>Counts visits, sources, and page paths. GA4 is the usual default when you run Google Ads.</dd>
-  </div>
-  <div>
-    <dt>Product analytics</dt>
-    <dd>Tracks named events inside the app: sign-up finished, project saved, checkout started.</dd>
-  </div>
-  <div>
-    <dt>Session replay</dt>
-    <dd>Records anonymised clicks and scrolls so you can see where the UI confuses people. Clarity is a free option.</dd>
-  </div>
-</dl>
+To keep the categories straight: web analytics counts visits, sources, and page paths; product analytics tracks named events in the signed-in app; session replay shows anonymised clicks and scrolls where the interface confuses people. GA4 is the usual default when you run Google Ads, and Clarity is a free option for recordings.
 
 ## What to wire first
 
@@ -46,7 +33,7 @@ Start with one measurement id on every public page, including the landing page y
   <li data-step="5"><h3>Check data in an incognito window</h3><p>Click through your own funnel once. If your test events do not appear within an hour, fix tags before you turn on spend.</p></li>
 </ol>
 
-PostHog fits when you want product analytics, funnels, and optional feature flags in one place, including self-hosting if your adviser asks where data lives. GA4 fits when acquisition is mostly Google and you want free reporting out of the box. Clarity fits when the open question is «why do people leave on this screen» and you are willing to watch replays. You can run GA4 and Clarity together; PostHog can replace or complement GA4 depending on how much you rely on Google's ad reports.
+PostHog fits when you want product analytics, funnels, and optional feature flags in one place, including self-hosting if your adviser asks where data lives. GA4 fits when acquisition is mostly Google and you want free reporting out of the box. Clarity fits when the open question is "why do people leave on this screen" and you are willing to watch replays. You can run GA4 and Clarity together; PostHog can replace or complement GA4 depending on how much you rely on Google's ad reports.
 
 ## Cookies and Switzerland
 
@@ -86,16 +73,11 @@ A made-up example: a solo founder in Bern ships a small B2B tool with Cursor and
 
 ## Common mistakes
 
-Installing three tools before the first event is named produces three half-empty dashboards. Tracking every click creates noise and makes funnels unreadable. Comparing week-one numbers to blog posts about «good» conversion rates invents certainty. Leaving analytics out of the production build and only adding it after launch loses the first ad cohort entirely.
+Installing three tools before the first event is named produces three half-empty dashboards. Tracking every click creates noise and makes funnels unreadable. Comparing week-one numbers to blog posts about "good" conversion rates invents certainty. Leaving analytics out of the production build and only adding it after launch loses the first ad cohort entirely.
 
 <div class="blog-faq">
   <h3>Is GA4 enough for an MVP?</h3>
   <p>Often yes for acquisition and simple funnels, especially with Google Ads. Add product analytics or a tracking plan when you need reliable in-app steps or retention by cohort.</p>
-</div>
-
-<div class="blog-faq">
-  <h3>Does Aurum install PostHog in the validation package?</h3>
-  <p>The Product Validation Package includes analytics and session recordings from day one on a deployed app. The exact tools follow what the service page describes for that engagement; treat PostHog as one option you might choose yourself earlier, not as a promise in this article.</p>
 </div>
 
 ## When the Product Validation Package fits

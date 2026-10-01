@@ -1,13 +1,13 @@
 ---
 title: "Skalierbares MVP: Basis ohne Überbau"
 description: "Skalierbares MVP: ein Job, Datenrückgrat, echte Anmeldung und erweiterbare Grenzen. Was Skalierung vor Wachstum heisst, und was sie nicht beweist."
-pubDate: 2027-09-01
+pubDate: 2027-06-09
 author: "Aurum Avis Labs"
 tags: ["skalierbares mvp", "startup", "produktvalidierung", "architektur"]
 funnelStage: interest
 translationKey: how-to-build-a-scalable-mvp
 relatedPosts: ["tech-stack-startup", "web-app-oder-native-app"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -20,7 +20,7 @@ Der Text richtet sich an Gründerinnen und Gründer mit Idee oder Pre-Seed, die 
 Zuverlässigkeit und Validierung sind ein Nachbar-Thema. Wenn wackelige Software Ihre Kennzahlen verfälscht, lesen Sie [warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps). Hier geht es um Struktur: was Sie früh entscheiden, was Sie verschieben, und wie Sie den Validierungsumfang ehrlich halten.
 
 <ol class="blog-steps">
-  <li data-step="1"><h3>Den einen Job benennen, den Sie testen</h3><p>Formulieren Sie in einem Satz, welches Ergebnis eine zahlende Nutzerin oder ein zahlender Nutzer erhalten soll. Alles, was diesem Satz nicht dient, ist eine spätere Phase, auch wenn es auf der Roadmap-Folie steht.</p></li>
+  <li data-step="1"><h3>Den einen Job benennen, den Sie testen</h3><p>Formulieren Sie in einem Satz, welches Ergebnis ein zahlender Nutzer erhalten soll. Alles, was diesem Satz nicht dient, ist eine spätere Phase, auch wenn es auf der Roadmap-Folie steht.</p></li>
   <li data-step="2"><h3>Das Datenrückgrat vor dem UI-Feinschliff zeichnen</h3><p>Notieren Sie Entitäten (Nutzerkonto, Organisation, Kernobjekt) und ihre Beziehungen. Dieses Rückgrat nach echtem Gebrauch zu ändern, ist die teure Art von Skalierungsarbeit.</p></li>
   <li data-step="3"><h3>Echte Identität und Berechtigungen ausliefern</h3><p>Auch ein kleiner B2B-Test braucht Konten, die bleiben, Rollen, die zur Sichtbarkeit passen, und Sitzungen, denen Sie in einer Demo mit Fremden vertrauen.</p></li>
   <li data-step="4"><h3>Eine Grenze zwischen Oberfläche und Backend setzen</h3><p>Eine API-Oberfläche erlaubt es, den Web-Client zu tauschen, einen mobilen Wrap hinzuzufügen oder Integrationen zu bauen, ohne Geschäftslogik an drei Stellen zu kopieren.</p></li>
@@ -32,7 +32,7 @@ Zuverlässigkeit und Validierung sind ein Nachbar-Thema. Wenn wackelige Software
 
 Skalierung in dieser Phase meint **Erweiterbarkeit**, nicht **Kapazität**. Ein Monolith oder wenige Dienste, die ein Team durchschauen kann, schlägt eine Plattform für hypothetische Last. Mandantentrennung in den Daten, nachvollziehbare Hintergrundjobs und ein Migrationspfad fürs Schema zählen mehr als frühes Sharding.
 
-Zum Stack: Tech Stack Startup. Zu Kanal (Browser zuerst, nativer Wrap oder PWA): Web App oder native App. Skalierbare Architektur wählt den Kanal nicht; sie hält den Kernjob stabil, wenn der Kanal wechselt.
+Zum Stack: [Tech Stack Startup](/de/blog/tech-stack-startup). Zum Kanal (Browser zuerst, nativer Wrap oder PWA): [Web App oder native App](/de/blog/web-app-oder-native-app). Skalierbare Architektur wählt den Kanal nicht; sie hält den Kernjob stabil, wenn der Kanal wechselt.
 
 <ul class="blog-facts">
   <li><span class="blog-kicker">Jetzt bauen</span><strong>Kernschema</strong><p>Tabellen oder Dokumente für den Job, den Sie verkaufen, mit sauberen Beziehungen.</p></li>
@@ -50,28 +50,11 @@ Zum Stack: Tech Stack Startup. Zu Kanal (Browser zuerst, nativer Wrap oder PWA):
 
 Ein erfundenes Beispiel: eine Gründerin adressiert Facility Manager in Schweizer Kantonen, die Bewilligungsstatus über Gemeinden hinweg nachverfolgen, heute per Telefon und E-Mail. Die Hypothese: Manager loggen sich wöchentlich ein, wenn ein Dashboard Statusänderungen bündelt. Version eins umfasst drei Gemeinden, eine Organisation pro Kunde und nur Lese-Feeds, die das Team manuell pflegt (manueller Backoffice ist erlaubt; getestet wird, ob Manager zurückkommen).
 
-Sie baut keine Workflow-Engine. Das Datenrückgrat: Organisation, Standort, Bewilligungsanfrage, Statusereignis mit Zeitstempeln. Anmeldung per E-Mail und Passwort, jede Abfrage nach Organisation gefiltert. Die API liefert Listen und Details; die React-Oberfläche bleibt dünn. Deploy auf gehosteter Umgebung mit Staging und Produktion, Fehler ins Team-Chat, Events für Login, Listenansicht und Rückkehr innert sieben Tagen. Nach sechs Wochen nutzen neun Manager aus zwei Firmen das Produkt; vier öffnen es mehr als einmal pro Woche. Sie behauptet keine nationale Rollout-Reife. Sie behauptet, der Job sei klebrig genug, um manuelles Nachfragen für eine Teilmenge zu ersetzen, und der nächste Build soll die Erfassung für diese drei Gemeinden automatisieren, nicht jede User Story der Roadmap als Mobile App.
+Sie baut keine Workflow-Engine. Das Datenrückgrat: Organisation, Standort, Bewilligungsanfrage, Statusereignis mit Zeitstempeln. Anmeldung per E-Mail und Passwort, jede Abfrage nach Organisation gefiltert. Die API liefert Listen und Details; die React-Oberfläche bleibt dünn. Deploy auf gehosteter Umgebung mit Staging und Produktion, Fehlermeldungen in den Team-Chat, Events für Login, Listenansicht und Rückkehr innert sieben Tagen. Nach sechs Wochen nutzen neun Manager aus zwei Firmen das Produkt; vier öffnen es mehr als einmal pro Woche. Sie behauptet keine nationale Rollout-Reife. Sie behauptet, der Job sei klebrig genug, um manuelles Nachfragen für eine Teilmenge zu ersetzen, und der nächste Build soll die Erfassung für diese drei Gemeinden automatisieren, nicht jede User Story der Roadmap als Mobile App.
 
 ## Für wen sich die Basis lohnt, und wer kürzer fahren sollte
 
-<div class="blog-pair">
-  <div>
-    <h3>Für wen</h3>
-    <ul>
-      <li>Gründer, deren Validierung Wiederkehr, Konten oder gespeicherte Historie braucht</li>
-      <li>B2B-Piloten, in denen jede Kundin getrennte, bleibende Daten erwartet</li>
-      <li>Teams, die Equity oder Seed-Interesse gewinnen und Code, Designs sowie Daten besitzen wollen</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Wer kürzer fahren sollte</h3>
-    <ul>
-      <li>Nachfragetests mit gemessener Landingpage oder Fake Door</li>
-      <li>Concierge-Lieferung, bei der Software nur zwei Wochen manuelle Arbeit imitieren würde</li>
-      <li>Ideen, bei denen das Risiko in der Anzeigenformulierung liegt, nicht im Produktverhalten</li>
-    </ul>
-  </div>
-</div>
+Die Basis lohnt sich, wenn Ihre Validierung Wiederkehr, Konten oder gespeicherte Historie braucht, wenn B2B-Piloten getrennte und bleibende Daten erwarten oder wenn Sie Code, Designs und Daten für eine spätere Finanzierungsrunde selbst halten wollen. Kürzer fahren können Nachfragetests mit gemessener Landingpage oder Fake Door, eine Concierge-Lieferung, bei der Software nur manuelle Arbeit imitieren würde, und Ideen, deren Risiko in der Anzeigenformulierung statt im Produktverhalten liegt.
 
 Bei externen Autorinnen und Autoren bleibt das Urheberrecht ohne schriftliche Abtretung beim Urheber; Arbeitnehmer-Software gehört dem Arbeitgeber ([Überblick Softwareschutz](https://www.rentschpartner.ch/ict-law/schutz-von-software)). Ideen als solche sind nicht schützbar; Ausführung und Marke schon ([IGE zu Ideen](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). Ein erweiterbarer Codebase ist Teil der Ausführung, kein Ersatz für Vertrag und Markenführung.
 

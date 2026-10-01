@@ -28,7 +28,7 @@ The model library is where you return: download, inspect, select, remove. Readin
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Check free space</h3><p>Plan for roughly 10 GB or more depending on models.</p></li>
-  <li data-step="2"><h3>Download once on Wi‑Fi</h3><p>Models cache on disk for offline runs.</p></li>
+  <li data-step="2"><h3>Download once on Wi-Fi</h3><p>Models cache on disk for offline runs.</p></li>
   <li data-step="3"><h3>Pick Parakeet or Whisper</h3><p>Match language coverage before a long trip.</p></li>
 </ol>
 
@@ -49,7 +49,7 @@ Integrity checks and license notices ship with the local model files. You do not
 | Qwen3 4B or gpt-oss-20b | Write notes, documents, and Ask on the Mac | Transcribe the recording |
 | Nothing yet | Setup waits | Invent a model and start recording on it |
 
-Apple Intelligence, where the Mac has it, can help cleanup and artifacts without being the speech model. It is not a substitute download for Parakeet or Whisper. If you also add an OpenAI or Anthropic key, that key is text only, stored in the Keychain, and off until you activate it. Saving a key does not download a speech model, and it does not become a silent backup when a local file fails.
+Apple Intelligence, where the Mac has it, can help with cleanup and artifacts without being the speech model. It is not a substitute download for Parakeet or Whisper. If you also add an OpenAI or Anthropic key, that key is text only, stored in the Keychain, and off until you activate it. Saving a key does not download a speech model, and it does not become a silent backup when a local file fails.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
@@ -60,7 +60,7 @@ Apple Intelligence, where the Mac has it, can help cleanup and artifacts without
 
 The local model download is the better choice when this Mac will transcribe and write without sending audio away. It is the worse choice when:
 
-- You only have one short file and you do not want to install anything. The browser tool at [/tools/transcribe-recording](/tools/transcribe-recording) runs in the tab, up to 15 minutes, three successful runs a week, with no speaker labels. The model for that tool downloads into the browser, which is a different install from the Mac app's library.
+- You only have one short file and you do not want to install anything. The [transcribe recording tool](/tools/transcribe-recording) runs in the tab, up to 15 minutes, three successful runs a week, with no speaker labels. The model for that tool downloads into the browser, which is a different install from the Mac app's library.
 - You are on an Intel Mac, Windows, or a phone. The app is Apple silicon, macOS Sonoma 14.2 or later. No download path changes that.
 - You wanted the larger writing model and this Mac is not high-memory. Choose Qwen3 4B. Do not start gpt-oss-20b and hope the app swaps it for a lighter one during the meeting. It will not.
 - Disk space is already gone. Free space first. A resumed download still needs room to finish.
@@ -77,7 +77,7 @@ Once both models show ready, you can record offline. For the next live meeting, 
 
 ## After a failed download on a train
 
-You started Parakeet v3 on hotel Wi-Fi and closed the lid. Reopen Vemoir on a network you trust: progress should remain, not a surprise Whisper file marked ready. Resume or use recovery. Do not record "just this once" hoping a cloud transcript will fill the gap. When the speech model shows ready, pick the writing model (usually Qwen3 4B, or gpt-oss-20b on a high-memory Mac). That pair is what the meeting uses, not whatever finished last in the background.
+You started Parakeet v3 on hotel Wi-Fi and closed the lid. Reopen Vemoir on a network you trust: progress should remain, not a surprise Whisper file marked ready. Resume or use recovery. Do not record "just this once" hoping a cloud transcript will fill the gap. There is no such fallback. When the speech model shows ready, pick the writing model (usually Qwen3 4B, or gpt-oss-20b on a high-memory Mac). That pair is what the meeting uses, not whatever finished last in the background.
 
 ## Frequently asked questions
 
@@ -111,6 +111,6 @@ The browser tool fetches a public Whisper model into the tab for a file you alre
 
 ### What if I deny microphone access during setup?
 
-You can recover from Settings. A denied permission is not replaced by a silent upload. System Audio Recording is the permission for the call track, and it does not capture the screen.
+You can recover from Settings. A denied permission is not replaced by a silent upload. Screen Recording is the permission for the call track, used for audio only, and it does not capture the screen.
 
 Start the download you mean to keep, watch it finish, and record after the selected models show ready. That status is in [capture](/#capture).

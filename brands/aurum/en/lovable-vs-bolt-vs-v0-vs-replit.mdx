@@ -1,13 +1,13 @@
 ---
 title: "Lovable vs Bolt vs v0 vs Replit: data, export, and production"
 description: "Lovable vs Bolt vs v0 vs Replit: compare where data lives, what you can hand off, and what a security review finds, not a vendor feature list."
-pubDate: 2027-09-01
+pubDate: 2027-05-15
 author: "Aurum Avis Labs"
 tags: ["lovable", "bolt", "v0", "replit", "vibe coding"]
 funnelStage: interest
 translationKey: lovable-vs-bolt-vs-v0-vs-replit
 relatedPosts: ["building-an-mvp-with-lovable", "lovable-supabase-row-level-security"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -27,20 +27,11 @@ Treat the four names as four **default paths**, not four interchangeable buttons
 
 None of that proves demand or retention. It only explains why two founders both say «we built in AI» while one can name the database region and the other cannot.
 
-<dl class="blog-terms">
-  <div>
-    <dt>Data location</dt>
-    <dd>Which country or region stores rows when a user signs up, not where the company's invoice address is.</dd>
-  </div>
-  <div>
-    <dt>Handoff</dt>
-    <dd>Whether code, schema, secrets, and deploy steps can live in your repository and CI, or stay inside the vendor account.</dd>
-  </div>
-  <div>
-    <dt>Production</dt>
-    <dd>Load, authz, backups, monitoring, and repeatable deploys, not «it worked in the demo on Wi-Fi».</dd>
-  </div>
-</dl>
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Region</span><strong>Zurich available</strong><p>Supabase lists eu-central-2 among its regions ([Supabase regions](https://supabase.com/docs/guides/platform/regions)).</p></li>
+  <li><span class="blog-kicker">Access</span><strong>Check RLS</strong><p>Generated row level security can be missing or ineffective ([CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757)).</p></li>
+  <li><span class="blog-kicker">Review</span><strong>ASVS v5.0</strong><p>A structured review covers auth, authorisation, and configuration, not the product idea.</p></li>
+</ul>
 
 ## Swiss data location when the stack includes Supabase
 

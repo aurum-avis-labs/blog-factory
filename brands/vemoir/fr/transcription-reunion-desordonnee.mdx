@@ -14,7 +14,7 @@ draft: false
 
 
 <p><em>Hero photo by <a href="https://unsplash.com/@lukesouthern?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Luke Southern</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
-Une transcription de réunion désordonnée ne se partage pas tant que les numéros de cue et les temps coupent les phrases. Les mots peuvent être justes et le fichier rester illisible. Le désordre est souvent seulement l'échafaudage : `WEBVTT`, numéros, horodatages. Les noms déjà dans le fichier restent. Les noms qui n'y sont pas, personne ne les invente ensuite.
+Une transcription de réunion désordonnée ne se partage pas tant que les numéros de séquence et les temps coupent les phrases. Les mots peuvent être justes et le fichier rester illisible. Le désordre est souvent seulement l'échafaudage : `WEBVTT`, numéros, horodatages. Les noms déjà dans le fichier restent. Les noms qui n'y sont pas, personne ne les invente ensuite.
 
 <ol class="blog-flow">
   <li><strong>Stabiliser</strong><p>Corriger d'abord locuteurs et erreurs évidentes.</p></li>
@@ -44,28 +44,28 @@ Une transcription de réunion désordonnée ne se partage pas tant que les numé
 Ouvrez le fichier dans un éditeur de texte avant de le coller dans un document. Vous voyez presque toujours l'une de ces formes :
 
 
-- Un fichier WebVTT. La première ligne est `WEBVTT`. Puis des lignes vides, des temps de cue, puis le texte parlé. Les transcriptions cloud de Teams et de Zoom ont souvent cet aspect. Un locuteur apparaît comme `<v Camille Duval>on devrait livrer vendredi</v>` ou comme `Camille Duval : on devrait livrer vendredi`.
+- Un fichier WebVTT. La première ligne est `WEBVTT`. Puis des lignes vides, des horodatages, puis le texte parlé. Les transcriptions cloud de Teams et de Zoom ont souvent cet aspect. Un locuteur apparaît comme `<v Camille Duval>on devrait livrer vendredi</v>` ou comme `Camille Duval : on devrait livrer vendredi`.
 - Un fichier SRT. Cues numérotées, puis des temps avec une virgule avant les millisecondes (`00:01:02,000`), puis le texte.
 - Un export brut où chaque ligne commence par une heure entre crochets, sans noms.
-- Un fichier qui a déjà des noms, mais des lignes doublées parce que le sous-titreur a coupé une phrase sur deux cues.
+- Un fichier qui a déjà des noms, mais des lignes doublées parce que le sous-titreur a coupé une phrase sur deux sous-titres.
 
 Les mots peuvent être corrects et le fichier rester illisible. Le désordre, c'est la couche de métadonnées. Si les mots eux-mêmes sont faux (un nom de produit, une personne, un chiffre), retirer les horodatages ne répare pas ça. Les erreurs de reconnaissance se corrigent en lisant, pas en cachant les temps.
 
 ## VTT, SRT et exports collés
 
-Les trois restent du **texte que vous avez déjà**. Le nettoyeur retire les numéros de cue et les lignes de temps ; il ne relance pas la reconnaissance vocale.
+Les trois restent du **texte que vous avez déjà**. Le nettoyeur retire les numéros de séquence et les lignes de temps ; il ne relance pas la reconnaissance vocale.
 
 | Format | Signe distinctif | Ce qui doit rester après nettoyage |
 | --- | --- | --- |
 | WebVTT | En-tête `WEBVTT`, lignes avec `-->` | Lignes de locuteur jointes si le nom se répète |
-| SRT | Cue numérotée, virgule dans l'horodatage | Noms conservés, temps retirés |
+| SRT | Sous-titres numérotés, virgule dans l’horodatage | Noms conservés, temps retirés |
 | Word ou PDF collé | Parfois sans en-tête, sauts de ligne tous les quelques mots | Paragraphes lisibles ; parfois encore à joindre à la main |
 
 Si vous n'avez que `audio_only.m4a` depuis un dossier Zoom local, il n'y a rien à nettoyer. Le chemin est [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom). La transcription dans le navigateur est limitée à **15 minutes** d'audio et **trois passages réussis par semaine** (en septembre 2026). Nettoyer un VTT déjà exporté ne consomme pas ces passages.
 
 ## Retirer l'échafaudage, garder les noms
 
-Le [nettoyage de transcription](/fr/outils/nettoyer-transcription) gratuit prend un VTT Zoom, un export Teams ou un SRT. Vous déposez le fichier ou vous collez le texte. L'en-tête, les numéros de cue et les horodatages partent. Si un nom est déjà dans le fichier, il reste, sous la forme `Nom : texte`. Si deux cues de suite appartiennent au même locuteur, ils sont joints.
+Le [nettoyage de transcription](/fr/outils/nettoyer-transcription) gratuit prend un VTT Zoom, un export Teams ou un SRT. Vous déposez le fichier ou vous collez le texte. L'en-tête, les numéros de séquence et les horodatages partent. Si un nom est déjà dans le fichier, il reste, sous la forme `Nom : texte`. Si deux sous-titres de suite appartiennent au même locuteur, ils sont joints.
 
 
 Si le fichier n'a pas de noms, la page le dit. Les horodatages partent quand même. Les noms ne sont pas inventés. C'est tout le comportement du nettoyeur : il ne devine pas qui a parlé.
@@ -110,9 +110,9 @@ Si la balise de voix manque, la sortie honnête est la phrase sans nom. Vous pou
 
 Les horodatages n'étaient que la couche évidente. Quatre autres sortes de désordre survivent au nettoyage.
 
-**Remplissages et faux départs.** « Je, je pense, euh, la date » est encore la transcription. Pour un procès-verbal, vous pouvez resserrer la ligne. Pour une preuve, vous la laissez. Ne faites pas d'un seul fichier « nettoyé » les deux usages.
+**Remplissages et faux départs.** « Je, je pense, euh, la date » est encore la transcription. Pour un procès-verbal, vous pouvez resserrer la ligne. Pour une preuve, vous la laissez. Ne faites pas servir un seul fichier « nettoyé » aux deux usages.
 
-**Sous-titres répétés.** Certains exports répètent un sous-titre qui défile. Après avoir joint les lignes du même locuteur, lisez la page une fois. Si la même clause apparaît deux fois, supprimez le doublon à la main. Un outil qui fusionne les cues voisines d'une même personne ne repère pas toujours un sous-titre qui a redit les mêmes mots dix secondes plus tard.
+**Sous-titres répétés.** Certains exports répètent un sous-titre qui défile. Après avoir joint les lignes du même locuteur, lisez la page une fois. Si la même clause apparaît deux fois, supprimez le doublon à la main. Un outil qui fusionne les sous-titres voisins d'une même personne ne repère pas toujours un sous-titre qui a redit les mêmes mots dix secondes plus tard.
 
 **Le chat mélangé à la parole.** Le `chat.txt` de Zoom est un autre fichier que la transcription audio. Ne collez pas les deux dans une seule pâte en espérant que le nettoyeur trie la salle. Le chat reste le chat.
 
@@ -126,7 +126,7 @@ Un texte lisible se transmet plus vite, et le risque de partage accidentel monte
 
 - Retirez les numéros de compte, les lignes téléphoniques personnelles et les détails de santé dits en passant
 - Remplacez les noms de code clients si le destinataire n'est pas sous la même confidentialité
-- Gardez en interne une copie complète avec les cues d'origine si vous devez prouver une formulation
+- Gardez en interne une copie complète avec les horodatages d’origine si vous devez prouver une formulation
 
 Le nettoyeur ne caviarde pas pour vous. Le passage notes non plus. Si seule une partie de la réunion peut sortir, copiez ces paragraphes dans un nouveau document plutôt que de transférer toute la séance.
 
@@ -138,9 +138,9 @@ Le nettoyeur ne caviarde pas pour vous. Le passage notes non plus. Si seule une 
 4. Caviardez si le public est plus large que la salle.
 5. S'il vous faut un récap, envoyez le texte nettoyé vers les notes. Vérifiez chaque responsable sur les lignes que vous venez de lire.
 6. S'il vous faut un procès-verbal, copiez seulement les décisions et les actions sur le [modèle de procès-verbal](/fr/outils/modele-proces-verbal). La transcription n'est pas cette fiche.
-7. Classez l'original à côté du texte nettoyé. Si quelqu'un conteste une ligne, vous avez encore les cues.
+7. Classez l'original à côté du texte nettoyé. Si quelqu'un conteste une ligne, vous avez encore les horodatages.
 
-Un fichier qui n'est que de l'audio, pas du texte, n'a pas sa place sur le nettoyeur. Les fichiers de plus de 15 minutes sont hors de l'essai de transcription du navigateur. Nettoyer un VTT que vous avez déjà exporté n'est pas cet essai.
+Un fichier qui n'est que de l'audio, pas du texte, n'a pas sa place sur le nettoyeur. Les fichiers de plus de 15 minutes dépassent le plafond de transcription du navigateur. Nettoyer un VTT que vous avez déjà exporté n'entre pas dans ce plafond.
 
 ## Où un modèle aggrave le désordre
 
@@ -162,7 +162,7 @@ Non. Il garde les balises `<v Nom>` et les lignes qui ont déjà la forme `Nom 
 
 ### Puis-je nettoyer une transcription Word de Teams ?
 
-Collez le texte, ou enregistrez-le dans une forme que la page peut lire. Un `.docx` doit souvent être ouvert puis copié. Les horodatages et les lignes de cue sont ce que le nettoyeur retire. Si le fichier Word est déjà de la prose sans temps, vous n'avez peut-être pas besoin de cette étape.
+Collez le texte, ou enregistrez-le dans une forme que la page peut lire. Un `.docx` doit souvent être ouvert puis copié. Les horodatages et les lignes de sous-titres sont ce que le nettoyeur retire. Si le fichier Word est déjà de la prose sans temps, vous n'avez peut-être pas besoin de cette étape.
 
 ### Faut-il supprimer les « euh » et les « oui » ?
 
@@ -178,11 +178,11 @@ Le nettoyeur tourne sur le texte dans l'onglet. Ce n'est pas un téléchargement
 
 ### Puis-je passer d'un fichier désordonné à des actions en un clic ?
 
-Vous pouvez remettre le texte nettoyé à l'outil de notes, qui rédige un récap avec décisions et actions. Lisez les responsables avant de les envoyer. Le [modèle de procès-verbal](/fr/outils/modele-proces-verbal) est l'endroit où vous engagez les lignes. Aucune de ces étapes n'invente un locuteur que le fichier n'avait pas.
+Vous pouvez remettre le texte nettoyé à l'outil de notes, qui rédige un récap avec décisions et actions. Vérifiez les responsables avant de les envoyer. Le [modèle de procès-verbal](/fr/outils/modele-proces-verbal) est l'endroit où vous engagez les lignes. Aucune de ces étapes n'invente un locuteur que le fichier n'avait pas.
 
 ### Une transcription nettoyée est-elle la même chose qu'un procès-verbal ?
 
-Non. C'est encore ce que les gens ont dit, seulement sans les temps de cue. Le procès-verbal est plus court et structuré. Utilisez les deux, et n'étiquetez pas l'un comme l'autre.
+Non. C'est encore ce que les gens ont dit, seulement sans les horodatages. Le procès-verbal est plus court et structuré. Utilisez les deux, et n'étiquetez pas l'un comme l'autre.
 
 ## Étape suivante
 

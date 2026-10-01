@@ -18,17 +18,6 @@ Eine **Sprachnotiz transkribierst** du am Mac, indem du die Aufnahme als M4A aus
 
 Dieser Weg zeigt Teilen und Ziehen in den Finder, das Transkript in Sprachnotizen auf unterstützten Macs und die M4A im Browser zu Text, ohne Upload an Vemoir. Für Offline nach dem Modell-Download sieh [Offline Transkription am Mac](/de/blog/offline-transkription-mac).
 
-<ol class="blog-steps">
-  <li data-step="1"><h3>Notiz exportieren</h3><p>In Sprachnotizen teilen oder die M4A in den Finder ziehen.</p></li>
-  <li data-step="2"><h3>Länge prüfen</h3><p>Unter 15 Minuten für das Browser-Tool. Längere Dateien brauchen die Mac-App.</p></li>
-  <li data-step="3"><h3>Lokal laufen lassen</h3><p>Tool öffnen und im Netzwerk-Tab prüfen, dass nichts hochgeladen wird.</p></li>
-</ol>
-
-<aside class="blog-callout">
-  <span class="blog-kicker">Hinweis</span>
-  <p>Schweizerdeutsch wird mit öffentlichen Whisper-Modellen meist als Standarddeutsch geschrieben.</p>
-</aside>
-
 ## Sprachnotiz transkribieren am Mac: der Ablauf
 
 Der stabile Weg: **eine M4A, die du in der Hand hast**, plus ein Verfahren, das zur Länge passt und klar macht, ob die Datei das Gerät verlassen darf.
@@ -76,12 +65,12 @@ Der Text von Apple in der App ist trotzdem kein beglaubigtes Transkript. Namen, 
 
 Liegt die Notiz schon als Datei vor, läuft auf [/de/tools/sprachnotiz-transkribieren](/de/tools/sprachnotiz-transkribieren) ein öffentliches Whisper-Modell **im Tab**. Die Datei wird **nicht an Vemoir hochgeladen**. Beim ersten Mal lädt das Modell in den Cache des Browsers. Spätere Läufe können ohne Netz funktionieren, solange der Cache steht.
 
-Grenzen, die auch offline gelten:
-
-- **15 Minuten** pro Datei.
-- **Drei erfolgreiche Läufe pro Woche**.
-- **Keine Sprechernamen**. Namen, die schon in der Datei stehen, bleiben. Das Tool erfindet keine Stimmen.
-- **Keine Live-Aufnahme** im Browser. Du arbeitest an einer Datei, die schon da ist.
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Länge</span><strong>15 Min</strong><p>Pro Datei. Längere Dateien lehnt die Seite ab, bevor das Modell startet.</p></li>
+  <li><span class="blog-kicker">Tempo</span><strong>3 Läufe pro Woche</strong><p>Erfolgreiche Läufe. Ein Memo in Stücke zu schneiden verbraucht pro Lauf eines.</p></li>
+  <li><span class="blog-kicker">Sprecher</span><strong>Nicht getrennt</strong><p>Namen, die schon in der Datei stehen, bleiben. Das Tool erfindet keine.</p></li>
+  <li><span class="blog-kicker">Live-Aufnahme</span><strong>Nein</strong><p>Der Browser arbeitet an einer Datei, die schon da ist.</p></li>
+</ul>
 
 Schweizerdeutsch kommt bei öffentlichen Whisper-Modellen meist als **Standarddeutsch** heraus, nicht als Dialektschreibung. Das ist kein beglaubigtes und kein gerichtsverwertbares Protokoll.
 

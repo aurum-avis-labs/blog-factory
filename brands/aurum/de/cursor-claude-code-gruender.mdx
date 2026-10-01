@@ -1,21 +1,23 @@
 ---
 title: "Cursor Claude Code Gruender: welches Werkzeug passt?"
 description: "Cursor oder Claude Code für Gründer ohne Tech-Co-Founder: Editor oder Terminal-Agent im Repo. Grenzen, Handoff von Lovable, wann ein Review Sinn macht."
-pubDate: 2027-09-01
+pubDate: 2027-05-17
 author: "Aurum Avis Labs"
 tags: ["cursor", "claude code", "agentic coding", "gruender", "mvp"]
 funnelStage: interest
 translationKey: cursor-or-claude-code-for-founders
 relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
-draft: true
+draft: false
 site: studio
 ---
 
+<p class="blog-lede">Für Gründer, die schon in einem echten Repository bauen, gewinnt keines der Werkzeuge allein über den Namen: Cursor ist ein KI-Editor, in dem Sie Dateien und Diffs sehen; Claude Code ist ein Terminal-Agent, der über den ganzen Baum editiert. Beide gehören zum agentischen Bauen, nicht zu Prompt-zu-App-Vibe-Tools, und die Wahl zählt weniger als git, Tests und die Frage, wer reviewt, was das Modell schreibt.</p>
+
 ## Cursor Claude Code Gruender: die kurze Antwort
 
-Wenn Sie als Gründerin oder Gründer in einem echten Git-Repository bauen, entscheidet nicht das Logo: Cursor ist ein KI-Editor mit Dateibaum und Diff-Ansicht; Claude Code ist ein Terminal-Agent, der Befehle ausführt und Patches über viele Dateien legt. Beide gehören zum agentischen Bauen im eigenen Code, nicht zu Prompt-zu-App-Umgebungen. Wichtiger als die Wahl ist, ob Sie Branches nutzen, Tests laufen lassen und jede Änderung einer Person vor Produktion prüfen.
+Sie sind über die Stufe hinaus, auf der ein einzelner Prompt im Browser eine App erzeugt. Es gibt einen Ordner auf der Festplatte, Umgebungsvariablen, vielleicht einen CI-Job, der bestehen muss. Die Frage ist, welcher Assistent zu Ihrer Arbeitsweise in dieser Woche passt, nicht welches Logo auf die Pitch-Folie gehört.
 
-Der Text richtet sich an Sie, wenn Sie bereits mit Lovable, Bolt, v0, Replit oder einem ersten Cursor- oder Claude-Code-Projekt gearbeitet haben und jetzt etwas halten wollen, das ein späterer Entwickler oder eine Prüfung übernehmen kann. Er ersetzt keine Rechts- oder Sicherheitsberatung. Der Rahmen dazu steht in [Vibe Coding vs. Agentic Coding](/de/blog/vibe-coding-vs-agentic-coding).
+Der Text richtet sich an Sie, wenn Sie bereits mit Lovable, Bolt, v0, Replit oder einem ersten Cursor- oder Claude-Code-Projekt gearbeitet haben und jetzt etwas bauen wollen, das ein späterer Entwickler oder eine Prüfung übernehmen kann. Er ersetzt keine Rechts- oder Sicherheitsberatung. Der Rahmen dazu steht in [Vibe Coding vs. Agentic Coding](/de/blog/vibe-coding-vs-agentic-coding).
 
 ## Was sich ändert, wenn Sie den Browser-Builder verlassen
 
@@ -23,68 +25,47 @@ Vibe-Werkzeuge optimieren auf «läuft in der Demo». Cursor und Claude Code set
 
 Beide können Authentifizierung, Migrationen und API-Routen anfassen. Keines davon macht das automatisch sicher. Offene Schlüssel in Commits, oberflächliche Berechtigungen und Schleifen «Fehler weg bis es grün ist» sehen wir in Repos mit beiden Assistenten. Der Name auf der Rechnung ändert das nicht.
 
+Agentisches Bauen heisst: Sie besitzen das Repository, die Deploy-Pipeline und die Dokumentation, wer was deployen darf. Das passt zu Schweizer KMU und Start-ups, die Know-how in eigene Software überführen wollen, ohne die IP in einer fremden Sandbox zu lassen. Es beweist noch nicht, dass Fremde zahlen oder wiederkommen.
+
 ## Cursor und Claude Code im Alltag
 
 | Frage | Cursor | Claude Code |
 | --- | --- | --- |
 | Arbeitsort | Editor mit Dateien, Suche, Erweiterungen | Terminal im Projektordner |
-| Passt, wenn Sie | per Klick Dateien lesen und Diffs prüfen | in Shell, git und Skripten zu Hause sind |
+| Passt, wenn Sie | per Klick Dateien lesen und Diffs prüfen | sich in Shell, git und Skripten bewegen |
 | Modell | mehrere Anbieter im Produkt | Claude über Anthropics Stack |
 | Typischer Zyklus | Code markieren, fragen, Hunks übernehmen | Aufgabe beschreiben, Agent lässt Checks laufen, Patches lesen |
-| Übergabe an Entwicklung | vertraut für viele VS-Code-Nutzer | vertraut für CLI-Agent-Paare |
+| Übergabe an Entwicklung | vertraut für viele, die VS Code kennen | vertraut für Entwickler, die mit CLI-Agents arbeiten |
 
 Viele Teams nutzen beides: Cursor für fokussierte Edits, Claude Code für grössere Refactors. Als Solo-Gründer wählen Sie die Oberfläche, die Sie täglich öffnen. Ein Agent, vor dem Sie zurückschrecken, weil das Terminal fremd ist, spart keine Zeit.
 
-<aside class="blog-callout blog-callout--limit">
-  <span class="blog-kicker">Grenze</span>
+<aside class="blog-callout">
+  <span class="blog-kicker">Hinweis</span>
   <p>Cursor kann Claude-Modelle anbinden; Claude Code ersetzt nicht für jede Person eine IDE. Es geht um Arbeitsweise, nicht um Markentreue.</p>
 </aside>
-
-## Handoff von Lovable und ähnlichen Plattformen
-
-Wenn Sie Code exportiert haben, liegt die Gefahr oft bei Datenbank-Regeln und Geheimnissen, nicht beim gewählten Editor. Lesen Sie [Row Level Security bei Supabase](/de/blog/lovable-supabase-rls), bevor Sie echte Kundendaten anbinden. Fehlende Policies sind ein bekanntes Risiko in generierten Stacks, unabhängig von Cursor oder Claude Code.
-
-Agentisches Bauen heisst: Sie besitzen das Repository, die Deploy-Pipeline und die Dokumentation, wer was deployen darf. Das passt zu Schweizer KMU und Start-ups, die Know-how in eigene Software überführen wollen, ohne die IP in einer fremden Sandbox zu lassen. Es beweist noch nicht, dass Fremde zahlen oder wiederkommen.
-
-<div class="blog-pair">
-  <div>
-    <h3>Cursor passt oft</h3>
-    <ul>
-      <li>Sie denken in sichtbaren Dateien und wollen Neben dem Chat den ganzen Kontext sehen</li>
-      <li>Sie nutzen bereits Linter oder Debugger als Editor-Erweiterung</li>
-      <li>Sie springen zwischen Frontend, Konfiguration und kleinen Skripten</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Claude Code passt oft</h3>
-    <ul>
-      <li>Sie lesen Unified Diffs im Terminal und genehmigen Shell-Befehle bewusst</li>
-      <li>Ihre Aufgabe heisst «Endpoint bauen und Tests anpassen» über viele Pfade</li>
-      <li>Sie wollen, dass der Agent Checks startet und iteriert, ohne jeden Hunk zu klicken</li>
-    </ul>
-  </div>
-</div>
 
 ## Wann Sie beides noch nicht brauchen
 
 <ul class="blog-scenarios">
   <li><h3>Nur ein Wegwerf-Demo für Investoren</h3><p>Bleiben Sie auf Lovable oder vergleichbar, bis die Hypothese eine Repo-Pflege rechtfertigt.</p></li>
   <li><h3>Kein git, nur ein Ordner auf dem Desktop</h3><p>Kein Assistent repariert fehlende Versionskontrolle.</p></li>
-  <li><h3>Sie wollen Stunden kaufen statt Code besitzen</h3><p>Diese Werkzeuge unterstützen Eigentum im eigenen Repo, nicht klassisches Body-Leasing.</p></li>
+  <li><h3>Sie wollen Stunden kaufen statt Code besitzen</h3><p>Diese Werkzeuge unterstützen Eigentum im eigenen Repo, nicht das Einkaufen von Stunden ohne Übergabe des Repositorys.</p></li>
 </ul>
 
 ## Was die Wahl nicht beweist
 
-<ul class="blog-facts">
-  <li><span class="blog-kicker">Beweist nicht</span><strong>Nachfrage</strong><p>Schnellere Features zeigen keine Zahlungsbereitschaft.</p></li>
-  <li><span class="blog-kicker">Beweist nicht</span><strong>Sicherheit</strong><p>Auth und Autorisierung können «fertig aussehen» und trotzdem Lücken haben.</p></li>
-  <li><span class="blog-kicker">Beweist nicht</span><strong>Produktionsreife</strong><p>Monitoring, Backups und Rollback bleiben Ihre Aufgabe.</p></li>
-  <li><span class="blog-kicker">Hilft bei</span><strong>Agentischem Bauen</strong><p>Sie iterieren im Repo mit KI statt in einer geschlossenen Builder-Umgebung.</p></li>
-</ul>
+Schnellere Features zeigen keine Zahlungsbereitschaft, und Auth, Autorisierung, Monitoring und Backups können «fertig aussehen» und trotzdem Lücken haben. Was die Werkzeuge belegen, ist etwas Engeres: Sie iterieren im eigenen Repo mit KI statt in einer geschlossenen Builder-Umgebung.
+
+Wenn Sie Code exportiert haben, liegt die Gefahr oft bei Datenbank-Regeln und Geheimnissen, nicht beim gewählten Editor. Lesen Sie [Row Level Security bei Supabase](/de/blog/lovable-supabase-rls), bevor Sie echte Kundendaten anbinden. Fehlende Policies sind ein bekanntes Risiko in generierten Stacks, unabhängig von Cursor oder Claude Code.
 
 <div class="blog-faq">
   <h3>Können Sie später wechseln?</h3>
-  <p>Ja. Beide arbeiten auf demselben Git-Baum. Teuer wird der Sprung von reiner Vibe-Plattform zu echtem Deploy, nicht der Wechsel zwischen Cursor und Claude Code.</p>
+  <p>Ja. Beide arbeiten auf demselben Git-Baum. Der Wechsel kostet neue Shortcuts, nicht das Wegwerfen des Repositorys. Teuer wird der Sprung von reiner Vibe-Plattform zu echtem Deploy, nicht der Wechsel zwischen Cursor und Claude Code.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Brauche ich beides?</h3>
+  <p>Nein. Ein konsistenter Workflow schlägt zwei halb genutzte Abos. Holen Sie das zweite Werkzeug bei einem konkreten Engpass, nicht weil ein Thread es empfiehlt.</p>
 </div>
 
 ## Wann der Vibe Code Review passt

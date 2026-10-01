@@ -1,6 +1,6 @@
 ---
-title: "E-Mail Weiterleitungsregeln prüfen"
-description: "E-Mail Weiterleitungsregeln prüfen nach BEC-Hinweisen: versteckte Weiterleitungen, Posteingangsregeln und Review für Schweizer KMU."
+title: "E-Mail-Weiterleitungsregeln prüfen"
+description: "E-Mail-Weiterleitungsregeln prüfen nach BEC-Hinweisen: versteckte Weiterleitungen, Posteingangsregeln und Review für Schweizer KMU."
 pubDate: 2026-12-11
 author: "Aurum Avis Labs"
 tags: ["e-mail", "microsoft 365", "bec", "schweiz"]
@@ -11,9 +11,9 @@ draft: false
 site: security
 ---
 
-## E-Mail Weiterleitungsregeln prüfen
+## E-Mail-Weiterleitungsregeln prüfen
 
-E-Mail Weiterleitungsregeln prüfen Sie, weil Angreifer nach einer Kompromittierung oft versteckte Weiterleitungen und Posteingangsregeln setzen, die Kopien an externe Adressen schicken, während das Postfach normal wirkt. Die [BACS-Empfehlung zu Business E-Mail Compromise](https://www.bacs.admin.ch/de/business-email-compromise-de) nennt die Kontrolle von Weiterleitungen neben Zwei-Faktor-Authentifizierung und klaren Zahlungsprozessen. Die Prüfung gehört in denselben Rhythmus wie Passwort-Resets und Offboarding, nicht nur nach einem Betrugsversuch.
+E-Mail-Weiterleitungsregeln prüfen Sie, weil Angreifer nach einer Kompromittierung oft versteckte Weiterleitungen und Posteingangsregeln setzen, die Kopien an externe Adressen schicken, während das Postfach normal wirkt. Die [BACS-Empfehlung zu Business E-Mail Compromise](https://www.bacs.admin.ch/de/business-email-compromise-de) nennt die Kontrolle von Weiterleitungen neben Zwei-Faktor-Authentifizierung und klaren Zahlungsprozessen. Die Prüfung gehört in denselben Rhythmus wie Passwort-Resets und Offboarding, nicht nur nach einem Betrugsversuch.
 
 Der Text richtet sich an IT-Partner und die Person, die Mail in Betrieben mit etwa 20 bis 250 Mitarbeitenden betreut. Einordnung für Microsoft 365 und Exchange Online, kein Herstellerhandbuch.
 
@@ -31,25 +31,13 @@ Legitime Weiterleitungen gibt es: Funktionspostfach an Teamleitung, temporäre A
 
 Unterscheiden Sie Mailbox-Weiterleitung (alles geht raus) von Posteingangsregeln (nur bestimmte Absender oder Betreffzeilen). Angreifer kombinieren oft beides: eine Regel leitet Rechnungen weiter, eine zweite löscht Warnungen von Microsoft. SMTP-Weiterleitung auf Serverebene ist seltener in reinen Microsoft-365-Tenants, taucht aber nach Migrationen noch auf.
 
-<ul class="blog-checklist">
-  <li>Export mit Datum und Name der prüfenden Person speichern</li>
-  <li>Externe Weiterleitungen mit Geschäftsleitung oder Finanz abgleichen</li>
-  <li>Regeln mit «delete», «move to RSS» oder leeren Namen priorisieren</li>
-  <li>Nach Fund: Passwort, MFA, Gesendet-Ordner, dann erneut prüfen</li>
-</ul>
-
-<div class="blog-stat">
-  <strong>52 %</strong>
-  <p>Betrugsanteil an BACS-Meldungen im zweiten Halbjahr 2025, laut Halbjahresbericht. Mailkonto-Übernahme ist ein häufiger Schritt vor [Rechnungsbetrug mit geänderter IBAN](/de/security/blog/rechnungsbetrug-iban-geaendert).</p>
-</div>
-
 ## Was das nicht ist
 
 Kein Ersatz für MFA oder für den vollen Zahlungsfreigabeprozess. Keine Rechtsauskunft, ob eine Weiterleitung mit Personendaten eine Meldung an den [EDÖB](https://www.edoeb.admin.ch/) nahelegt. Das Gesetz verlangt angemessene technische und organisatorische Massnahmen ([Art. 8 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de)); dieser Artikel beschreibt eine davon.
 
 ## Ein erfundenes Beispiel: Regel «..»
 
-Ein erfundenes Beispiel: Die Buchhaltung klickt auf eine falsche Rechnung. Zwei Tage später findet ein IT-Check eine Weiterleitung an einen Gratis-Anbieter und eine Regel, die Mails mit «Passwort» löscht. Finanz prüft offene Zahlungen per Rückruf; MFA wird erzwungen. Keine bekannte Massenabfluss, aber die Weiterleitung lief vermutlich wochenlang.
+Ein erfundenes Beispiel: Die Buchhaltung klickt auf eine falsche Rechnung. Zwei Tage später findet ein IT-Check eine Weiterleitung an einen Gratis-Anbieter und eine Regel, die Mails mit «Passwort» löscht. Finanz prüft offene Zahlungen per Rückruf; MFA wird erzwungen. Kein bekannter Massenabfluss, aber die Weiterleitung lief vermutlich wochenlang. Mailkonto-Übernahmen sind ein häufiger Schritt vor [Rechnungsbetrug mit geänderter IBAN](/de/security/blog/rechnungsbetrug-iban-geaendert).
 
 <div class="blog-pair">
   <div>
@@ -80,15 +68,9 @@ Weitergeleitete Mail kann Gesundheits-, Lohn- oder Kundendaten enthalten. Lief d
 
 Nach dem technischen Review die Zahlungsfreigeber an die Rückrufregel für geänderte IBAN erinnern. BACS nennt telefonische Verifikation; Weiterleitungsprüfung stellt sicher, dass Angreifer Ihre Antworten nicht mitlesen.
 
-<ol class="blog-flow">
-  <li><strong>Woche 1</strong><p>MSP-Export anfordern, Finanz-Postfächer zuerst, ungenehmigte externe Weiterleitungen entfernen.</p></li>
-  <li><strong>Woche 2</strong><p>MFA-Lücken schliessen, Quartals-Termin in den Kalender, Protokoll ablegen.</p></li>
-  <li><strong>Laufend</strong><p>Nach jedem Austritt in der Buchhaltung und nach jedem Phishing-Vorfall in der Finanz erneut prüfen.</p></li>
-</ol>
-
 ## Protokoll für Audit und Versicherung
 
-Ein brauchbares Protokoll braucht weniger als zehn Spalten: Datum, Postfach, Regeltyp (Weiterleitung, Posteingang, Transport), Ziel, Bewertung (OK, entfernt, offen), Name der Prüfenden, Verweis auf Ticket oder Vorfall. Ohne «offene» Zeilen wirkt der Bericht wie Alles-sauber, obwohl Sie bewusst Ausnahmen hatten, etwa ein gesperrtes Mandantenpostfach. Speichern Sie das Dokument im selben Ablageort wie Ihre jährlichen Zugriffsreviews.
+Ein brauchbares Protokoll braucht weniger als zehn Spalten: Datum, Postfach, Regeltyp (Weiterleitung, Posteingang, Transport), Ziel, Bewertung (OK, entfernt, offen), Name der Prüfenden, Verweis auf Ticket oder Vorfall. Ohne «offene» Zeilen wirkt der Bericht sauberer, als er ist, etwa wenn Sie bewusst ein gesperrtes Mandantenpostfach ausgelassen haben. Speichern Sie das Dokument im selben Ablageort wie Ihre jährlichen Zugriffsreviews.
 
 ## Awareness ergänzen
 
@@ -100,7 +82,7 @@ Nutzer legen manchmal selbst Weiterleitungen im mobilen Outlook an. Eine [Securi
 </aside>
 
 <div class="blog-faq">
-  <h3>Wie oft E-Mail Weiterleitungsregeln prüfen?</h3>
+  <h3>Wie oft E-Mail-Weiterleitungsregeln prüfen?</h3>
   <p>Quartalsweise, wenn Zahlungsmail im Haus ist. Sofort nach Verdacht auf Kompromittierung oder nach Phishing-Klick auf ein Finanz-Postfach.</p>
 </div>
 
@@ -124,6 +106,6 @@ Wenn jemand die Buchhaltung verlässt, prüfen Sie dessen Postfach und alle Dele
 
 ## CEO-Fraud und lesbare Antworten
 
-BACS meldet steigende CEO-Fraud-Fälle; ein kompromittiertes Postfach kann Ihre Rückrufe mitlesen. Weiterleitungsprüfung ist keine Zahlungskontrolle, aber sie schliesst eine Lücke neben dem [Vier-Augen-Prinzip](/de/security/blog/vier-augen-prinzip-zahlungen). Kombinieren Sie technische Prüfung mit einer kurzen Erinnerung an Betrugsmuster aus den BACS-Hinweisen, ohne Panik zu machen.
+BACS meldet steigende CEO-Fraud-Fälle ([CEO-Fraud im Wochenrückblick](https://www.bacs.admin.ch/de/26w4-de)); ein kompromittiertes Postfach kann Ihre Rückrufe mitlesen. Weiterleitungsprüfung ist keine Zahlungskontrolle, aber sie schliesst eine Lücke neben dem [Vier-Augen-Prinzip](/de/security/blog/vier-augen-prinzip-zahlungen). Kombinieren Sie technische Prüfung mit einer kurzen Erinnerung an Betrugsmuster aus den BACS-Hinweisen, ohne Panik zu machen.
 
 Halten Sie das Review-Protokoll neben Zugriffsreviews und Offboarding. Versicherer fragen zunehmend, wie Sie Mail-Kompromittierung erkennen; ein datiertes Regel-Log antwortet darauf ohne erfundene Kennzahlen. In Hybrid-Umgebungen mit noch einem On-Prem-Exchange prüfen Sie Connector-Regeln und Journal-Archive; alte Regeln können nach Cloud-Migration weiter aktiv sein. Speichern Sie den Export mindestens ein Jahr für Versicherungsfragen und Kundenaudits, sofern Ihre Aufbewahrungsrichtlinie das erlaubt. Wenn Ihr Betrieb [Microsoft 365 und Schweizer Datenschutz](/de/security/blog/microsoft-365-datenschutz-schweiz) bereits thematisiert hat, hängen Sie die Regelprüfung dort als technische Massnahme an, statt ein zweites, widersprüchliches Dokument zu pflegen.

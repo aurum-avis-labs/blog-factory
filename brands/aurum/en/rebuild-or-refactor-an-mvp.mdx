@@ -1,13 +1,13 @@
 ---
 title: "Rebuild or refactor an MVP: when each path fits"
 description: "Rebuild or refactor an MVP: refactor when behaviour is validated and the stack can carry the next phase; rebuild when architecture blocks scale or review."
-pubDate: 2027-09-01
+pubDate: 2027-06-26
 author: "Aurum Avis Labs"
 tags: ["mvp", "refactoring", "vibe coding", "architecture", "startup"]
 funnelStage: consideration
 translationKey: rebuild-or-refactor-an-mvp
 relatedPosts: ["fake-door-test-vs-mvp", "mvp-brief-template"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -17,21 +17,26 @@ You **rebuild or refactor an MVP** by choosing whether to keep the existing code
 
 This is for founders and innovation leads who already shipped something in Lovable, Bolt, v0, Replit, or Cursor, and now face a pilot contract, diligence, or their own discomfort with the repo. If you are still choosing between a fake door and a first build, read [fake door test vs real MVP](/blog/fake-door-test-vs-mvp) first. Why measurement still needs a product you can trust is in [why we build production-quality MVPs](/blog/why-we-build-production-quality-mvps).
 
+<ol class="blog-flow">
+  <li><strong>Read the behaviour</strong><p>Sessions, returns, whether the core job completes, not just signups.</p></li>
+  <li><strong>Repo and rights</strong><p>Do you own the code? Can you deploy it?</p></li>
+  <li><strong>Sort the risk</strong><p>Security and architecture, or the wrong segment?</p></li>
+  <li><strong>Choose the path</strong><p>Refactor, rebuild, or review before you decide.</p></li>
+</ol>
+
 ## Rebuild or refactor an MVP: what each path fixes
 
-| Open question | Refactor first | Rebuild sooner |
+| Your situation | Refactor first | Rebuild sooner |
 | --- | --- | --- |
-| Can a reviewer read the repo in a day? | Often yes | Often no |
-| Is the core job proven with strangers? | Should be yes for either | Should be yes for either |
-| Do policies and secrets match production risk? | Fix in place | Sometimes easier on a clean API |
-| Must the stack be Azure, NestJS, or on-prem? | Only if you can migrate incrementally | Usually yes |
-| Is the team one generalist who knows the current tool? | Refactor matches skill | Rebuild needs sustained build capacity |
+| Strangers have completed the core job at least a few times | Yes | Only if the architecture blocks it |
+| A reviewer can trace the data flow in a day | Often yes | Often no |
+| Policies and secrets match the production risk | Fix in place | Sometimes easier on a clean API |
+| IT or procurement require Azure, NestJS, or on-prem | Only incrementally | Usually yes |
+| The team is one person who knows the current stack | Refactor matches that skill | Rebuild needs sustained build capacity |
 
 Refactoring is the default when the asset is **working behaviour trapped in messy code**. You export to GitHub, add tests around row level security, move admin keys off the client, split god-components, and deploy on hosting you control. That path matches many Supabase-backed vibe apps where the risk is authorization, not the idea.
 
 Rebuilding is the default when **architecture is the risk**. Examples: every rule lives in the browser, workflows need a dedicated backend, mobile offline requirements fight a web-first generator, or due diligence will ask for modules your stack never produced. A rebuild still reuses the brief, analytics readouts, and what you learned about drop-off. It does not reuse the illusion that the first repo was temporary when you already sold a pilot on it.
-
-<p class="blog-pull">Refactor saves learning. Rebuild saves you from pretending a tangled repo is a platform.</p>
 
 Stay with refactor when pilot users return and gaps map to tests, policies, secrets in the bundle, or hosting you do not control. Missing or cosmetic row level security on generated Supabase stacks is a known class of fix ([CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757)). Refactoring is pointless if you cannot modify and deploy the repo, including when a freelancer never assigned copyright ([Art. 17 URG](https://www.rentschpartner.ch/ict-law/schutz-von-software), summarised on the linked page).
 
@@ -65,9 +70,9 @@ Choose rebuild when the MVP was a **scaffold** (concierge, CSVs, marketing UI be
 
 A refactored repo can pass a review and still lose users after pricing changes. A rebuild can look professional and repeat the same wrong segment. Neither protects the idea as such ([IGE on ideas](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). Neither replaces retention data. Do not refactor or rebuild to skip a fake door you never ran, or because the UI embarrasses you while strangers never finished the job.
 
-## A made-up example: pilot memo in six weeks
+## A made-up example: a supplier wants isolation
 
-A made-up example: a Zurich B2B team validated a permit tracker in Bolt; twelve facility managers logged in twice. A supplier wants a pilot on a subdomain and asks how data is isolated. Gaps: no tests, template policies, a service key in an edge function, three screens in one 900-line file. They refactor first because behaviour is real and the buyer accepts Supabase in Zurich ([Supabase regions](https://supabase.com/docs/guides/platform/regions)), then book review before wider signup. If rules live only in client code with no server path, they stop and scope a rebuild from the same pilot brief.
+A made-up example: a team in Bern tracks construction-site approvals built in v0; eight site managers logged in twice. A large supplier wants a pilot on a subdomain and asks how customer data is isolated. The list: no tests, policies from a template, a service key in an edge function, three screens in one 900-line file. They estimate the hardening is clearly shorter than a rebuild with the API procurement has already approved. They refactor first because behaviour is real and the buyer accepts Supabase in Zurich ([Supabase regions](https://supabase.com/docs/guides/platform/regions)), then book review before wider signup. If rules live only in client code with no server path, they stop and scope a rebuild from the same pilot brief.
 
 <div class="blog-faq">
   <h3>Can we refactor and rebuild later?</h3>

@@ -60,7 +60,7 @@ Zoom non usa audio, video, chat, condivisione schermo, allegati o altri contenut
 
 Zoom scrive anche che i dipendenti non accedono a contenuti di riunione o generati dall’IA salvo autorizzazione del titolare o dell’admin, o per motivi legali, di sicurezza o di supporto. L’accesso è descritto come basato sui ruoli e registrato. È un controllo di accesso, non «nessuno in Zoom vedrà mai un file».
 
-Il feedback opzionale è un altro percorso. Gli utenti possono inviare un pollice e allegare prompt, risposte, screenshot e dati diagnostici. Gli admin possono bloccare quel contesto extra. Se non invii feedback, quel percorso non parte.
+Il feedback opzionale è un altro percorso. Gli utenti possono lasciare un pollice in su o in giù e allegare prompt, risposte, screenshot e dati diagnostici. Gli admin possono bloccare quel contesto extra. Se non invii feedback, quel percorso non parte.
 
 ## Quali modelli elaborano la riunione
 
@@ -73,7 +73,7 @@ Due deployment più stretti esistono se il team account li attiva:
 - **ZM+ (Zoom-Hosted Models Plus):** istanze di modelli terzi tramite Amazon Bedrock, descritte come gestite da Zoom, senza invio alla piattaforma del vendor del modello. Zoom cita US, UE e AU.
 - **ZMO (Zoom-Hosted Models Only):** solo modelli ospitati da Zoom. Il set di funzioni può essere più piccolo.
 
-Per gli account ospitati fuori dagli Stati Uniti, Zoom dice che le funzioni IA supportate passano da ZM+ o ZMO. Gli account ospitati in UE o AU usano ZM+ (o possono scegliere ZMO). Altre regioni possono usare ZMO. Chiedi a Zoom quale deployment ha davvero il tuo account. Un’azienda svizzera su un account ospitato negli USA non è automaticamente su ZMO.
+Per gli account ospitati fuori dagli Stati Uniti, Zoom dice che le funzioni IA supportate passano da ZM+ o ZMO. Gli account ospitati in UE o in Australia usano ZM+ (o possono scegliere ZMO). Altre regioni possono usare ZMO. Chiedi a Zoom quale deployment ha davvero il tuo account. Un’azienda svizzera su un account ospitato negli USA non è automaticamente su ZMO.
 
 Quando incontri persone su un altro account Zoom, Zoom dice che chat e trascrizioni scambiate possono essere elaborate secondo le impostazioni dell’account **esterno**. Il tuo lucchetto non è il loro.
 
@@ -83,13 +83,13 @@ Zoom dice di elaborare e archiviare i dati in base alla regione del data center 
 
 Il post Zoom sulla [residenza dei dati di AI Companion](https://www.zoom.com/en/blog/ai-companion-data-residency-options/) descrive le opzioni di deployment e ripete la frase sul training. Per i clienti su un cluster locale in Europa Zoom descrive un mix di ZMO e ZM+ e chiamate API verso data center nella regione. È un’opzione di prodotto, non il default di ogni workspace svizzero.
 
-Cifratura documentata da Zoom: TLS 1.2 minimo in transito, AES-256 a riposo per i contenuti usati o generati dalle funzioni IA. I clienti Enterprise possono usare Customer Managed Key per alcuni asset. La cifratura descrive come stanno i bit. Non li mette sul tuo Mac.
+Cifratura documentata da Zoom: TLS 1.2 minimo in transito, AES-256 a riposo per i contenuti usati o generati dalle funzioni IA. I clienti Enterprise possono usare Customer Managed Key per alcuni asset. La cifratura descrive come sono archiviati i bit. Non li mette sul tuo Mac.
 
 ## Conservazione, trascrizione e riassunto
 
 La retention Zoom ordinaria vale per i contenuti che il servizio associato terrebbe (registrazione cloud, chat salvata). I clienti possono impostare durate personalizzate su alcuni contenuti. La retention trust and safety può durare più di una riunione, secondo lo stesso capitolo.
 
-Gli admin che vogliono un riassunto **senza** trascrizione persistente possono disattivare e bloccare Meeting transcript, o impostare la retention della trascrizione a zero giorni. Zoom usa allora speech-to-text temporaneo, OCR e chat in meeting per costruire il riassunto, poi scarta quei dati temporanei dopo una generazione riuscita. Non potrai rigenerare il riassunto da una trascrizione mai conservata. Le funzioni che servono una trascrizione (My Notes, archivio) ne risentono.
+Gli admin che vogliono un riassunto **senza** trascrizione persistente possono disattivare e bloccare Meeting transcript, o impostare la retention della trascrizione a zero giorni. Zoom usa allora speech-to-text temporaneo, OCR e chat in meeting per costruire il riassunto, poi scarta quei dati temporanei dopo una generazione riuscita. Non potrai rigenerare il riassunto da una trascrizione mai conservata. Le funzioni che richiedono una trascrizione (My Notes, archivio) ne risentono.
 
 La registrazione cloud è un altro interruttore. Se è accesa, Zoom può comunque generare e tenere una trascrizione con i file cloud, anche se la retention della trascrizione in meeting è a zero. Controlla entrambe le impostazioni. Una registrazione locale sul Mac non crea quella trascrizione cloud. Cartella e M4A: [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom).
 
@@ -104,7 +104,7 @@ Dalla documentazione admin di Zoom (controllata a settembre 2026):
 
 Se AI Companion è acceso e non lo vuoi in una call cliente, spegnilo per quella riunione se l’admin lo consente ancora, o chiedi di bloccarlo per il gruppo che riceve i clienti. Informare i partecipanti che verrà generato un riassunto resta tuo compito. Le pagine Zoom descrivono il prodotto. Non sostituiscono il consenso.
 
-Vuoi una trascrizione di un file Zoom che hai già, senza mandarlo nella pipeline IA di Zoom? Lo strumento browser [trascrivere una registrazione Zoom](/it/strumenti/trascrivere-registrazione-zoom) gira nella scheda dopo un download del modello. File fino a 15 minuti, tre esecuzioni riuscite a settimana, senza etichette speaker.
+Vuoi una trascrizione di un file Zoom che hai già, senza mandarlo nella pipeline IA di Zoom? Lo strumento browser [trascrivere una registrazione Zoom](/it/strumenti/trascrivere-registrazione-zoom) gira nella scheda dopo un download del modello. File fino a 15 minuti, tre esecuzioni riuscite a settimana, senza etichette dei parlanti.
 
 ## Contratto, nLPD e call con clienti
 

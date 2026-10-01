@@ -1,13 +1,13 @@
 ---
 title: "Hosting Schweiz App: was beim MVP zuerst zählt"
 description: "Hosting Schweiz App: Datenbank-Region bei Erstellung wählen, CDN und Speicherort trennen, und wissen, was Schweiz nicht beweist."
-pubDate: 2027-09-01
+pubDate: 2027-06-16
 author: "Aurum Avis Labs"
 tags: ["mvp", "hosting", "schweiz", "supabase", "datenstandort"]
 funnelStage: interest
 translationKey: swiss-hosting-for-an-mvp
 relatedPosts: ["skalierbares-mvp", "tech-stack-startup"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -50,33 +50,14 @@ Self-Hosting auf einem Schweizer VPS ist für technische Mitgründer möglich, v
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Grenze</span>
-  <p>Die Schweiz als Datenbank-Region macht das MVP nicht automatisch DSG-konform, GDPR-sicher oder für jedes Enterprise-Fragebogen genügend. Zweck, Aufbewahrung, Verträge, Subprozessoren und Zugriffskontrolle brauchen weiterhin eine verantwortliche Person. Hosting beantwortet «wo», nicht «ob Sie dürfen».</p>
+  <p>Die Schweiz als Datenbank-Region macht das MVP nicht automatisch DSG-konform, DSGVO-sicher oder für jedes Enterprise-Fragebogen genügend. Zweck, Aufbewahrung, Verträge, Subprozessoren und Zugriffskontrolle brauchen weiterhin eine verantwortliche Person. Hosting beantwortet «wo», nicht «ob Sie dürfen».</p>
 </aside>
 
 ## Was Schweizer Hosting nicht beweist
 
 Eine klare Regionswahl hilft, in der Datenschutzerklärung und im Verkaufsgespräch die Wahrheit zu sagen. Sie beweist **nicht**, dass Fremde zahlen, dass Ihr Auth-Modell sicher ist oder dass das MVP Produktionslast trägt. Sie ersetzt keine Analytics, keine Session-Aufzeichnungen und keine Go-, Pivot- oder Stop-Empfehlung nach bezahltem Traffic.
 
-Edge-Caching in Frankfurt oder Virginia kann JavaScript schnell ausliefern, während Zeilen in Zürich bleiben. Umgekehrt ist eine `.ch`-Domain auf einer rein US-Datenbank kein «Hosting Schweiz», nur weil die Marke lokal ist.
-
-<div class="blog-pair">
-  <div>
-    <h3>Schweizer Region jetzt priorisieren</h3>
-    <ul>
-      <li>Sie speichern bereits Personendaten von Schweizer Nutzern oder Mitarbeitenden</li>
-      <li>Eine Kundschaft oder Partnerin hat Residency im Vertrag oder Sicherheitsformular verlangt</li>
-      <li>Sie sind über Friends-and-Family hinaus und planen Ads oder eine öffentliche Warteliste</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Migration kann warten</h3>
-    <ul>
-      <li>Der Test ist Landingpage oder Fake Door ohne Login und ohne Uploads</li>
-      <li>Daten sind synthetisch und das Projekt wird nach der Interviewrunde verworfen</li>
-      <li>Niemand fragte nach dem Standort und die Erklärung verspricht die Schweiz noch nicht</li>
-    </ul>
-  </div>
-</div>
+Edge-Caching in Frankfurt oder Virginia kann JavaScript schnell ausliefern, während Zeilen in Zürich bleiben. Umgekehrt ist eine `.ch`-Domain auf einer rein US-Datenbank kein «Hosting Schweiz», nur weil die Marke lokal ist. Priorisieren Sie die Schweizer Region, sobald Sie Personendaten von Schweizer Nutzern speichern, eine Kundschaft Residency vertraglich verlangt, oder Sie Ads und eine öffentliche Warteliste planen. Bei einem Fake Door ohne Login und mit synthetischen Daten kann die Migration warten.
 
 Warten ist keine Erlaubnis, Kundenpostfächer in eine US-Sandbox ohne Offenlegung zu kopieren. Es ist Erlaubnis, Nachfrage zu testen, bevor Migrationskosten anfallen.
 
@@ -84,17 +65,12 @@ Warten ist keine Erlaubnis, Kundenpostfächer in eine US-Sandbox ohne Offenlegun
 
 <div class="blog-faq">
   <h3>Ist die App «in der Schweiz gehostet», wenn wir Supabase Zürich nutzen?</h3>
-  <p>Die primären Supabase-Daten dieses Projekts liegen in der gewählten Region Zürich. Front end, Analytics, E-Mail-Anbieter und Support-Tools können Daten woanders verarbeiten. Antworten Sie mit einer kurzen Liste Systeme und Regionen, nicht mit einem einzelnen Ja.</p>
+  <p>Die primären Supabase-Daten dieses Projekts liegen in der gewählten Region Zürich. Frontend, Analytics, E-Mail-Anbieter und Support-Tools können Daten woanders verarbeiten. Antworten Sie mit einer kurzen Liste Systeme und Regionen, nicht mit einem einzelnen Ja.</p>
 </div>
 
 <div class="blog-faq">
   <h3>Können wir die Region nach dem Launch ändern?</h3>
   <p>Rechnen Sie mit Aufwand, bis Ihr Dashboard etwas anderes sagt. Planen Sie die Region beim Erstellen, wenn Residency nicht verhandelbar ist.</p>
-</div>
-
-<div class="blog-faq">
-  <h3>Ersetzt Schweizer Hosting ein Security-Review?</h3>
-  <p>Nein. Die Region behebt keine fehlende Row Level Security, öffentliche Storage-Buckets oder API-Keys im Client. Prüfen Sie Auth und Datenzugriff, bevor Sie Traffic skalieren.</p>
 </div>
 
 ## Wann das Product Validation Package passt

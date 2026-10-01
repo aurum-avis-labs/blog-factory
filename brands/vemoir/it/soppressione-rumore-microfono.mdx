@@ -6,7 +6,7 @@ author: "Vemoir Team"
 tags: ["microfono", "rumore", "mac"]
 funnelStage: "interest"
 translationKey: "microphone-noise-suppression"
-relatedPosts: ["audio-di-sistema-mac", "registrazione-riunione-senza-audio-mac", "archiviare-riunioni-in-progetti"]
+relatedPosts: ["audio-di-sistema-mac", "registrazione-riunione-senza-audio-mac", "esportare-in-note-apple"]
 image: "@/assets/blog/microphone-noise-suppression/hero.jpg"
 draft: false
 ---
@@ -21,7 +21,7 @@ Se la stanza è già silenziosa, Off spesso basta. Balanced e Strong mirano a ru
 
 - [Cosa cambia la soppressione rumore microfono](#cosa-cambia-la-soppressione-rumore-microfono)
 - [Impostazioni dell'app riunione vs Vemoir](#impostazioni-dellapp-riunione-vs-vemoir)
-- [Off, Balanced e Strong](#off-balanced-e-forte)
+- [Off, Balanced e Strong](#off-balanced-e-strong)
 - [Cosa non fa](#cosa-non-fa)
 - [Come scegli prima della call](#come-scegli-prima-della-call)
 - [Quando un'altra strada è migliore](#quando-unaltra-strada-è-migliore)
@@ -29,23 +29,15 @@ Se la stanza è già silenziosa, Off spesso basta. Balanced e Strong mirano a ru
 - [Domande frequenti](#domande-frequenti)
 
 
+## Cosa cambia la soppressione rumore microfono
+
+Il controllo sta sul microfono che selezioni per la registrazione. È il tuo lato della conversazione. L'audio di sistema, le persone dall'altra parte, viene catturato come traccia locale separata con il permesso macOS System Audio Recording. Un tap Core Audio solo audio prende quel suono. Lo schermo non viene registrato.
+
 <ul class="blog-facts">
   <li><span class="blog-kicker">Off</span><strong>Grezzo</strong><p>Nessuna elaborazione extra sulla traccia microfono.</p></li>
   <li><span class="blog-kicker">Bilanciato</span><strong>Predefinito</strong><p>Pulizia leggera per la maggior parte delle stanze.</p></li>
   <li><span class="blog-kicker">Forte</span><strong>Rumore</strong><p>Più soppressione. L'audio di sistema resta uguale.</p></li>
 </ul>
-
-
-## Cosa cambia la soppressione rumore microfono
-
-Il controllo sta sul microfono che selezioni per la registrazione. È il tuo lato della conversazione. L'audio di sistema, le persone dall'altra parte, viene catturato come traccia locale separata con il permesso macOS System Audio Recording. Un tap Core Audio solo audio prende quel suono. Lo schermo non viene registrato.
-
-
-<div class="blog-pair">
-  <div><h3>Per chi</h3><ul><li>Chiamate con micro del portatile in open space</li></ul></div>
-  <div><h3>Chi può saltare</h3><ul><li>Studi con gating hardware sul micro</li></ul></div>
-</div>
-
 
 La soppressione non mescola le due tracce in una «riunione pulita». Cerca di ridurre le interferenze stabili sul percorso del microfono prima che quella traccia sia finalizzata. La separazione dei parlanti gira dopo, sul Mac, sull'audio locale, ed è un altro passo.
 
@@ -61,11 +53,10 @@ Krisp e strumenti simili stanno tra il microfono e ogni app. Il controllo Vemoir
 
 ## Off, Balanced e Strong
 
-| Modalità | Quando ha senso |
-| --- | --- |
-| Off | Stanza silenziosa, microfono vicino, o vuoi il segnale non trattato |
-| Balanced | Rumore da scrivania di tutti i giorni: ventola, digitazione leggera, stanza non muta |
-| Strong | Rumore stabile più forte: tastiera, climatizzazione, un ronzio continuo |
+<div class="blog-pair">
+  <div><h3>Per chi</h3><ul><li>Chiamate con micro del portatile in open space</li></ul></div>
+  <div><h3>Chi può saltare</h3><ul><li>Studi con gating hardware sul micro</li></ul></div>
+</div>
 
 I nomi descrivono l'intensità, non una classifica dei modelli di trascrizione. Off non è uno stato di errore. È l'impostazione onesta quando il microfono basta già e non vuoi cambiare il colore della voce.
 
@@ -100,7 +91,7 @@ La soppressione sul microfono è la scelta migliore quando la riunione deve rest
 - Gli altri si sentono male. Alza la loro app, controlla il loro microfono, o passa alla cuffia. Strong sul tuo microfono non ripara il loro audio.
 - Più persone condividono un laptop nella stanza. Una traccia microfono e una traccia di sistema non etichettano tutti al tavolo. Un registratore dedicato, o un file che importi dopo, può essere più chiaro. I formati di import sono MP3, M4A, WAV, AIFF, CAF e FLAC, elaborati sul Mac.
 - Un team su Windows deve avviare un notetaker cloud senza Mac. Vemoir richiede Apple silicon e macOS Sonoma 14.2 o successivo. Mac Intel, Windows, iPhone e iPad non sono supportati.
-- Il problema di trascrizione è la lingua o i nomi, non il rumore. Un glossario, una rinomina dello speaker o un altro modello vocale locale è la leva successiva. Questa impostazione non scambia Parakeet e Whisper.
+- Il problema di trascrizione è la lingua o i nomi, non il rumore. Un glossario, una rinomina dello speaker o un altro modello vocale locale è la leva successiva. Questa impostazione non sostituisce Parakeet né Whisper.
 
 Una cuffia con microfono a braccio batte ancora il software quando la stanza è forte. L'app Mac può lavorare solo con il segnale che il microfono cattura.
 

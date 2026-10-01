@@ -19,7 +19,7 @@ Nutzen Sie den Weg aus [Sicherheitsvorfall melden](/de/security/blog/sicherheits
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Isolieren</h3><p>Betroffene PCs vom WLAN und LAN trennen; VPN-Routen stoppen, wenn sich die Verschlüsselung ausbreitet.</p></li>
-  <li data-step="2"><h3>Beweise sichern</h3><p>Lösegeld-Screen fotografieren, Uhrzeit notieren, Logs exportieren; nicht sofort wipen, wenn Polizei, Versicherung oder Forensik untersuchen.</p></li>
+  <li data-step="2"><h3>Beweise sichern</h3><p>Lösegeld-Screen fotografieren, Uhrzeit notieren, Logs exportieren; nicht sofort löschen, wenn Polizei, Versicherung oder Forensik untersuchen.</p></li>
   <li data-step="3"><h3>Informieren</h3><p>IT-Partner, Cyber-Versicherung, Geschäftsleitung; eine Sprecherperson benennen.</p></li>
   <li data-step="4"><h3>Backups prüfen</h3><p>Offline- oder unveränderliche Kopien verifizieren, bevor Restore-Tests auf Produktion laufen.</p></li>
   <li data-step="5"><h3>Datenschutz parallel</h3><p>Bei Personendaten-Leak EDÖB-Meldung bei hohem Risiko prüfen, getrennt von BACS-Pflicht.</p></li>
@@ -37,7 +37,7 @@ Die Geschäftsleitung entscheidet, ob Fertigung oder Versand stoppt, und benennt
 
 <ul class="blog-checklist">
   <li>Incident-Nummer anlegen und jede Massnahme mit Uhrzeit notieren</li>
-  <li>Backup-Repositories vom kompromittierten LAN unreachable machen</li>
+  <li>Backup-Repositories vom kompromittierten LAN trennen</li>
   <li>Keine Massen-Mails mit Passwörtern oder Reset-Links</li>
   <li>Anwaltsthread getrennt von All-Staff-Mail</li>
   <li>Runbook auf Papier im Büro, nicht nur auf Fileservern</li>
@@ -51,7 +51,7 @@ Bis zur Entscheidung: keine Wallet-Adresse kopieren, keine «Decryptor»-Tools v
 
 ## Was in Stunde eins nicht tun
 
-Keine «Support»-Chats mit Tätern, auch wenn sie «nur helfen wollen». Kein sofortiges Wipe aller PCs, bevor geklärt ist, ob Polizei oder Versicherung Images brauchen. Server nicht neu starten, wenn Forensik den Speicher sichern will.
+Keine «Support»-Chats mit Tätern, auch wenn sie «nur helfen wollen». Kein sofortiges Löschen aller PCs, bevor geklärt ist, ob Polizei oder Versicherung Images brauchen. Server nicht neu starten, wenn Forensik den Speicher sichern will.
 
 Mitarbeitenden nicht sagen, «jeder muss innert 24 Stunden ans BACS», ausser Sie sind meldepflichtiger Betreiber kritischer Infrastruktur. Keine öffentlichen Details zu Schwachstellen, solange Eindämmung läuft.
 
@@ -89,7 +89,7 @@ Geschäftsleitung bestätigt schriftlich, welche Systeme zuerst zurückkommen. T
   <li><strong>Produktion / Fertigung</strong><p>Zuletzt, ausser Vertrag verlangt anderes.</p></li>
 </ol>
 
-Manchmal sind frische VMs besser als Restore aus unsicherem Backup. Wer «Restore» wählt, dokumentiert Datum der Backup-Generation und wer freigegeben hat. Eintragspfad nach Stabilisierung: patchen, schwache Konten entfernen, MFA überall, wo Admins arbeiten.
+Manchmal sind frische VMs besser als Restore aus unsicherem Backup. Wer «Restore» wählt, dokumentiert Datum der Backup-Generation und wer freigegeben hat. Nach der Stabilisierung den Angriffspfad schliessen: patchen, schwache Konten entfernen, MFA überall, wo Admins arbeiten.
 
 ## Lieferkette und EDI während Ausfall
 

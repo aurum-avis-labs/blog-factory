@@ -1,17 +1,17 @@
 ---
 title: "Session recordings and Swiss privacy: what to decide before you record"
 description: "Session recordings and Swiss privacy: when replay tools fit an MVP test, what to disclose, and what replays do not prove."
-pubDate: 2027-09-01
+pubDate: 2027-07-29
 author: "Aurum Avis Labs"
 tags: ["mvp", "analytics", "session recording", "privacy", "switzerland"]
 funnelStage: interest
 translationKey: session-recordings-and-swiss-privacy
 relatedPosts: ["analytics-setup-for-an-mvp", "event-tracking-plan-for-an-mvp"]
-draft: true
+draft: false
 site: studio
 ---
 
-<p class="blog-lede">Session recordings and Swiss privacy meet when you replay how strangers use your MVP: mouse paths, scroll depth, and sometimes typed text. Under the Swiss FADP that is usually processing of personal data, not a free pass because the tool calls it «analytics». You can still use replay for validation if you name the tool in your notice, limit what it captures, and treat legal wording as a job for your adviser, not for a blog post.</p>
+<p class="blog-lede">Session recordings and Swiss privacy meet when you replay how strangers use your MVP: mouse paths, scroll depth, and sometimes typed text. Under the Swiss FADP that is usually processing of personal data, not a free pass because the tool calls it "analytics". You can still use replay for validation if you name the tool in your notice, limit what it captures, and treat legal wording as a job for your adviser, not for a blog post.</p>
 
 This is for founders and innovation leads who already plan GA4, Microsoft Clarity, Hotjar, or a similar replay layer on a landing page or web app, often alongside paid traffic. It is orientation for product decisions, not legal advice. For what must appear in a Swiss privacy notice, see the security article on [privacy notice requirements in Switzerland](/security/blog/privacy-notice-requirement-switzerland). For how events and page views fit the same stack, see the companion pieces on [analytics setup for an MVP](/blog/analytics-setup-for-an-mvp) and an [event tracking plan for an MVP](/blog/event-tracking-plan-for-an-mvp).
 
@@ -24,13 +24,13 @@ Transparency is statutory. Art. 19 FADP expects the controller to tell people wh
 <ul class="blog-facts">
   <li><span class="blog-kicker">Tool</span><strong>Third party</strong><p>Clarity, Hotjar, and peers run on their infrastructure. Your Azure or Supabase region does not move replays by itself.</p></li>
   <li><span class="blog-kicker">Notice</span><strong>Required</strong><p>Name the vendor, the purpose (product improvement, UX debugging), and typical retention if you know it.</p></li>
-  <li><span class="blog-kicker">Cookies</span><strong>Context</strong><p>Swiss cookie rules depend on risk and purpose; replay is not exempt because it is «product».</p></li>
+  <li><span class="blog-kicker">Cookies</span><strong>Context</strong><p>Swiss cookie rules depend on risk and purpose; replay is not exempt because it is "product".</p></li>
   <li><span class="blog-kicker">Proof</span><strong>UX only</strong><p>Replays show friction; they do not show product-market fit without other evidence.</p></li>
 </ul>
 
 ## What founders use recordings for in an MVP test
 
-In weeks five to ten of a structured validation programme, you care where people stall: unread headlines, off-screen buttons on mobile, forms that clear on refresh. Replay answers «what did they try?» faster than a late survey. Heatmaps complement GA4 events; they do not replace a tracking plan. A short list after fifty sessions is often enough to pick one fix before the next ad iteration. That is product learning, not a substitute for consent design, enterprise contracts, or locking admin panels replay must never see.
+In weeks five to ten of a structured validation programme, you care where people stall: unread headlines, off-screen buttons on mobile, forms that clear on refresh. Replay answers "what did they try?" faster than a late survey. Heatmaps complement GA4 events; they do not replace a tracking plan. A short list after fifty sessions is often enough to pick one fix before the next ad iteration. That is product learning, not a substitute for consent design, enterprise contracts, or locking admin panels replay must never see.
 
 ## Swiss privacy angles you should not hand-wave
 
@@ -42,7 +42,7 @@ In weeks five to ten of a structured validation programme, you care where people
 
 **Cross-border processing.** Many replay vendors store data outside Switzerland. Transfers and subprocessors belong in the notice and often in a data processing agreement.
 
-**Cookies and similar technologies.** Switzerland has no blanket «accept all cookies» rule. The EDÖB guide distinguishes consent cases (high-risk profiling, cross-site tracking, retargeting) from information and objection rights elsewhere. Replay is not retargeting, but align banner, notice, and tag manager. When in doubt, ask your adviser rather than copying a German GDPR template.
+**Cookies and similar technologies.** Switzerland has no blanket "accept all cookies" rule. The EDÖB guide distinguishes consent cases (high-risk profiling, cross-site tracking, retargeting) from information and objection rights elsewhere. Replay is not retargeting, but align banner, notice, and tag manager. When in doubt, ask your adviser rather than copying a German GDPR template.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
@@ -78,7 +78,7 @@ They do **not** prove your backend is safe or replace sample size. Three angry r
 
 ## Habits that keep the test defensible enough to ship
 
-Configure masking before you share the link. Block replay on `/admin`, staging, and internal tools. Keep retention to the ad sprint, not «forever». Exclude authenticated screens until you know what appears on them. Tell pilot users you use replay; keep findings out of public channels with visible email addresses.
+Configure masking before you share the link. Block replay on `/admin`, staging, and internal tools. Keep retention to the ad sprint, not "forever". Exclude authenticated screens until you know what appears on them. Tell pilot users you use replay; keep findings out of public channels with visible email addresses.
 
 <div class="blog-faq">
   <h3>Is Microsoft Clarity allowed in Switzerland?</h3>
@@ -87,11 +87,11 @@ Configure masking before you share the link. Block replay on `/admin`, staging, 
 
 <div class="blog-faq">
   <h3>Do I need consent before every replay?</h3>
-  <p>Sometimes yes, sometimes notice and objection rights suffice, depending on what you record, which pages, and whether other tracking on the same site triggers stricter cookie rules. Copy-pasting a EU banner without Swiss review is a common failure mode. This page cannot answer for your URL.</p>
+  <p>Sometimes yes, sometimes notice and objection rights suffice, depending on what you record, which pages, and whether other tracking on the same site triggers stricter cookie rules. Copy-pasting an EU banner without Swiss review is a common failure mode. This page cannot answer for your URL.</p>
 </div>
 
 ## When the product validation package fits
 
 The [product validation package](/services/mvp-validation) fits when you need a deployed web app, landing page, paid acquisition, analytics, and session recordings from day one, with measured conversion and room to pivot on evidence rather than opinion. We build on Azure with React and NestJS; replay sits beside event tracking, not instead of it. If you only need a legal opinion on whether you may record at all, start with your adviser and the security notice article, not a twelve-week build.
 
-If you already record sessions on a Lovable or Bolt export and worry what else shipped with the snippet, treat privacy review and a [Vibe Code Review](/services/vibe-code-review) as separate decisions from «watch three replays and fix the button».
+If you already record sessions on a Lovable or Bolt export and worry what else shipped with the snippet, treat privacy review and a [Vibe Code Review](/services/vibe-code-review) as separate decisions from "watch three replays and fix the button".

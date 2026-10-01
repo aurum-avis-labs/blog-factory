@@ -39,7 +39,7 @@ Questo articolo cita quelle pagine vendor. Non è consulenza legale. Non decide 
 - [Il bot e dove va l'audio](#il-bot-e-dove-va-laudio)
 - [Cosa pubblica Fireflies sui programmi di security](#cosa-pubblica-fireflies-sui-programmi-di-security)
 - [Quando Fireflies resta spesso la scelta migliore](#quando-fireflies-resta-spesso-la-scelta-migliore)
-- [Quando sta meglio un flusso Mac locale](#quando-sta-meglio-un-flusso-mac-locale)
+- [Quando sta meglio un processo Mac locale](#quando-sta-meglio-un-processo-mac-locale)
 - [Domande frequenti](#domande-frequenti)
 
 ## Fatti in sintesi (da Fireflies)
@@ -67,7 +67,7 @@ La query mescola tre strati:
 2. **Miglioramento prodotto.** Fireflies tiene segnali derivati o de-identificati per migliorare funzioni?
 3. **Storage.** Anche senza training, Fireflies **conserva** la registrazione in uno spazio che non controlli da solo?
 
-I docs pubblici attuali rispondono (1) con **no**. (2) con un linguaggio **derivato / de-identificato / statistico**, che non è «addestriamo modelli generativi sulle vostre call». (3) con **sì**: il prodotto è una libreria cloud. Policy di training e policy di conservazione sono leve diverse.
+I docs pubblici attuali rispondono (1) con **no**. (2) con un linguaggio **derivato / de-identificato / statistico**, che non è «addestriamo modelli generativi sulle tue call». (3) con **sì**: il prodotto è una libreria cloud. Policy di training e policy di conservazione sono leve diverse.
 
 Otter documenta training proprietario su audio e transcript de-identificati ([Otter.ai è sicuro](/it/blog/otter-ai-e-sicuro)). Non copiare quella storia su Fireflies. Leggi ogni vendor.
 
@@ -101,11 +101,11 @@ La policy descrive **Voice Data**: i fornitori possono estrarre caratteristiche 
 
 A parte, Fireflies può **creare dati de-identificati e aggregati** che non si possono ragionevolmente legare a te. I termini consentono **dati di uso, statistici e altri derivati dal User Content** per fini interni, inclusa analisi e miglioramento dei servizi.
 
-Lettura semplice: Fireflies documenta oggi **nessun training di modelli generativi sui contenuti di meeting**, pur consentendo **analisi derivate non identificanti** e **estrazione vocale presso i vendor** sotto quei contratti. Se la vostra review vieta ogni uso secondario, leggi DPA e lista subprocessori; non fermarti al titolo security.
+Lettura semplice: Fireflies documenta oggi **nessun training di modelli generativi sui contenuti di meeting**, pur consentendo **analisi derivate non identificanti** e **estrazione vocale presso i vendor** sotto quei contratti. Se la tua review vieta ogni uso secondario, leggi DPA e lista subprocessori; non fermarti al titolo security.
 
 ## Il bot e dove va l'audio
 
-Fireflies è noto per un notetaker (spesso **Fred** / Fireflies.ai Notetaker) che può entrare in automatico alle riunioni calendario su Zoom, Google Meet, Microsoft Teams e altre piattaforme. La modalità desktop «Take Notes» senza bot è un altro percorso, documentato altrove da Fireflies; non è la storia di default dietro la domanda sul training.
+Fireflies è noto per un notetaker (spesso **Fred** / Fireflies.ai Notetaker) che può entrare in automatico alle riunioni calendario su Zoom, Google Meet, Microsoft Teams e altre piattaforme. La modalità desktop «Take Notes» senza bot è un altro percorso, documentato altrove da Fireflies; non è quello che di solito si intende quando si chiede del training.
 
 Audio e video delle riunioni attivate sono **Meeting and Call Information** nella policy. Vanno al servizio Fireflies e a vendor che analizzano le registrazioni. Cifratura descritta: **AES-256 a riposo**, **TLS 1.2+ in transito** ([help](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe)).
 
@@ -127,13 +127,13 @@ Consenso e conservazione delle voci altrui restano tuoi.
 
 Resta su Fireflies se vuoi una **libreria cloud condivisa**, join da calendario, ricerca orientata al CRM e regole di retention admin, e se l'organizzazione ha già accettato un notetaker SaaS piuttosto USA (o ha pagato Private Storage). In quel mondo **Fireflies addestra sulle registrazioni** è un controllo di contratto e impostazioni, non un motivo per svuotare lo spazio per principio. Rileggi data della policy, DPA e auto-join.
 
-## Quando sta meglio un flusso Mac locale
+## Quando sta meglio un processo Mac locale
 
 Scegli la cattura locale se **tenere l'audio fuori dai server vendor di default** conta più di un archivio di team:
 
 - **Vemoir per Mac** registra audio di sistema e microfono sul Mac, senza bot ([come funziona](/it#how)).
 - La trascrizione resta sul dispositivo. I modelli testo cloud sono opt-in, solo testo, con la tua chiave ([cattura](/it#capture)).
-- Per un file che hai già, [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) nel browser, senza upload a Vemoir (15 minuti, tre giri a settimana, niente etichette parlanti).
+- Per un file che hai già, [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) nel browser, senza upload a Vemoir (15 minuti, tre giri a settimana, niente etichette dei relatori).
 
 Fireflies ottimizza l'intelligence conversazionale in uno spazio cloud. Vemoir ottimizza record locali ed export esplicito. Nessuna pagina rende l'altra «insicura». Risolvono vincoli diversi.
 
@@ -169,9 +169,9 @@ No. Policy di training e visibilità in elenco sono separate. Molti setup Firefl
 
 No. Fireflies pubblica linguaggio GDPR e altri programmi. Questo articolo non li applica al tuo trattamento, e Vemoir non afferma conformità per nessuno.
 
-### Quale flusso senza superficie di training vendor e senza upload?
+### Quale processo senza superficie di training vendor e senza upload?
 
-Tieni il file sul Mac. [Vemoir](https://apps.apple.com/app/id6794693630) per cattura live o import, o lo [strumento browser](/it/strumenti/trascrivere-audio) per un file corto. Limiti browser: 15 minuti, tre giri a settimana, niente etichette parlanti.
+Tieni il file sul Mac. [Vemoir](https://apps.apple.com/app/id6794693630) per cattura live o import, o lo [strumento browser](/it/strumenti/trascrivere-audio) per un file corto. Limiti browser: 15 minuti, tre giri a settimana, niente etichette dei relatori.
 
 ## Passo successivo
 

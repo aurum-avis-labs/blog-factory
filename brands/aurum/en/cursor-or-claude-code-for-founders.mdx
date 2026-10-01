@@ -1,13 +1,13 @@
 ---
 title: "Cursor or Claude Code for founders"
 description: "Cursor or Claude Code for founders: IDE versus terminal agent in your repo. Who each fits, what neither proves, and when a security review matters."
-pubDate: 2027-09-01
+pubDate: 2027-05-17
 author: "Aurum Avis Labs"
 tags: ["cursor", "claude code", "agentic coding", "founders", "mvp"]
 funnelStage: interest
 translationKey: cursor-or-claude-code-for-founders
 relatedPosts: ["building-an-mvp-with-lovable", "lovable-supabase-row-level-security"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -21,26 +21,13 @@ This page is for founders and product leads who already tried Lovable, Bolt, v0,
 
 The wider frame is [vibe coding versus agentic coding](/blog/vibe-coding-vs-agentic-coding): prompt-to-app tools for fast learning, repo-based agents when reliability and handoff start to matter.
 
-<dl class="blog-terms">
-  <div>
-    <dt>Cursor</dt>
-    <dd>An AI-first code editor built on the VS Code shape: chat, multi-file edits, tab completion, and model choice inside one window.</dd>
-  </div>
-  <div>
-    <dt>Claude Code</dt>
-    <dd>Anthropic's agent that runs in your terminal, reads the repo, runs commands, and proposes patches across files from natural language tasks.</dd>
-  </div>
-  <div>
-    <dt>Agentic coding</dt>
-    <dd>AI executes inside your project with git, tests, and deployment hooks; a human still owns architecture and review.</dd>
-  </div>
-</dl>
-
 ## What changes when you leave vibe coding behind
 
-Vibe tools optimise for «works in the demo». Cursor and Claude Code assume you already accepted slower setup: clones, branches, failing tests, merge conflicts. That trade is rational when the cost of a wrong architecture exceeds the cost of a lost weekend.
+Vibe tools optimise for "works in the demo". Cursor and Claude Code assume you already accepted slower setup: clones, branches, failing tests, merge conflicts. That trade is rational when the cost of a wrong architecture exceeds the cost of a lost weekend.
 
-Both tools can touch authentication, database migrations, and API routes. Neither guarantees those edits are safe. Generated row-level rules, open API keys in commits, and «fix it until the error disappears» loops show up in repos built with either assistant. The tool name on the invoice does not change that pattern.
+Both tools can touch authentication, database migrations, and API routes. Neither guarantees those edits are safe. Generated row-level rules, open API keys in commits, and "fix it until the error disappears" loops show up in repos built with either assistant. The tool name on the invoice does not change that pattern.
+
+Agentic building also means you own the repository, the deploy pipeline, and the record of who may ship. That suits Swiss SMEs and startups moving know-how into their own software instead of leaving it in a hosted sandbox. It still does not prove that strangers will pay or return.
 
 ## How Cursor and Claude Code differ in practice
 
@@ -59,27 +46,6 @@ Many teams use both: Cursor for focused edits and exploration, Claude Code for l
   <p>Cursor can call Claude models; Claude Code does not replace a full IDE for everyone. The decision is workflow, not loyalty to one model brand.</p>
 </aside>
 
-## Who each option tends to fit
-
-<div class="blog-pair">
-  <div>
-    <h3>Cursor often fits</h3>
-    <ul>
-      <li>Founders who want to see the whole file while the model suggests changes</li>
-      <li>Teams that already use VS Code extensions for formatting, linting, or debugging</li>
-      <li>Work where you jump between frontend, config, and a short script in one sitting</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Claude Code often fits</h3>
-    <ul>
-      <li>Founders comfortable approving shell commands and reading unified diffs in the terminal</li>
-      <li>Tasks framed as «implement this endpoint and update tests» across many paths</li>
-      <li>Sessions where you want the agent to run checks and iterate without clicking each hunk</li>
-    </ul>
-  </div>
-</div>
-
 ## Who should skip both for now
 
 <ul class="blog-scenarios">
@@ -90,12 +56,7 @@ Many teams use both: Cursor for focused edits and exploration, Claude Code for l
 
 ## What this choice does not prove
 
-<ul class="blog-facts">
-  <li><span class="blog-kicker">Does not prove</span><strong>Demand</strong><p>Shipping features faster does not show strangers will pay or return.</p></li>
-  <li><span class="blog-kicker">Does not prove</span><strong>Security</strong><p>OWASP-style gaps still need human review; auth and authorisation are easy to «look done».</p></li>
-  <li><span class="blog-kicker">Does not prove</span><strong>Production readiness</strong><p>Monitoring, backups, and deploy rollback stay your problem.</p></li>
-  <li><span class="blog-kicker">Does prove</span><strong>Fit for agentic work</strong><p>You can iterate in a repo with AI help instead of staying inside a hosted builder.</p></li>
-</ul>
+Shipping features faster does not show strangers will pay or return, and auth, authorisation, monitoring, and backups can all "look done" while gaps remain. What the tools do prove is narrower: you can iterate in your own repo with AI help instead of staying inside a hosted builder.
 
 If you exported from a vibe platform, read [row level security on Supabase](/blog/lovable-supabase-row-level-security) before you point either tool at production data. Missing policies are a known failure mode in generated stacks, independent of which editor you chose.
 
@@ -111,4 +72,4 @@ If you exported from a vibe platform, read [row level security on Supabase](/blo
 
 ## When a Vibe Code Review fits
 
-The [Vibe Code Review](/services/vibe-code-review) fits when you already built with Cursor, Claude Code, Lovable, or v0, real users or pilot customers depend on the app, and you want a structured pass against OWASP ASVS v5.0 before you promise reliability or raise the stakes on data. You receive a gap report, time on architecture and code quality, and a prioritised action list, then a closing conversation under NDA. It is the right step when the open question is «what will hurt us in production?», not «which AI editor feels nicer this month». If you are still proving the idea belongs in the market, finish that test first; a review does not replace validation traffic or usage data. Book through the service page when the repo is real enough to show a reviewer, not when you only have a slide deck.
+The [Vibe Code Review](/services/vibe-code-review) fits when you already built with Cursor, Claude Code, Lovable, or v0, real users or pilot customers depend on the app, and you want a structured pass against OWASP ASVS v5.0 before you promise reliability or raise the stakes on data. You receive a gap report, time on architecture and code quality, and a prioritised action list, then a closing conversation under NDA. It is the right step when the open question is "what will hurt us in production?", not "which AI editor feels nicer this month". If you are still proving the idea belongs in the market, finish that test first; a review does not replace validation traffic or usage data. Book through the service page when the repo is real enough to show a reviewer, not when you only have a slide deck.

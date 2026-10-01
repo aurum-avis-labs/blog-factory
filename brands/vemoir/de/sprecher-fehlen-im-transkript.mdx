@@ -19,17 +19,6 @@ draft: false
 
 Umbenennen, wenn schon ein Label da ist, ist ein anderer Job. Das gehört in die Mac-App nach der Aufnahme, nicht in einen Bereiniger.
 
-<ol class="blog-steps">
-  <li data-step="1"><h3>In Reihenfolge umbenennen</h3><p>Mit der meisten Sprechzeit beginnen, ein Label nach dem anderen.</p></li>
-  <li data-step="2"><h3>Kontextzeilen nutzen</h3><p>Projektnamen und Rollen verraten oft, wer spricht.</p></li>
-  <li data-step="3"><h3>Stimmen merken (freiwillig)</h3><p>In der Mac-App ist «Sprecher merken» freiwillig und löschbar.</p></li>
-</ol>
-
-<aside class="blog-callout blog-callout--limit">
-  <span class="blog-kicker">Grenze</span>
-  <p>Stand September 2026: Browser-Tools transkribieren Dateien bis 15 Minuten, drei erfolgreiche Läufe pro Woche, ohne Sprechertrennung. Live-Aufnahme und Diarisierung gibt es in der Mac-App.</p>
-</aside>
-
 ## Inhalt
 
 - [Warum Sprecher fehlen im Transkript](#warum-sprecher-fehlen-im-transkript)
@@ -53,7 +42,14 @@ Wenn du Namen brauchst, war der richtige Moment eine Quelle mit Tags oder eine l
 
 ## Was der Browser tut und nicht tut
 
-Der [Transkript-Bereiniger](/de/tools/transkript-bereinigen) entfernt Zeitstempel und Cue-Header. Er behält einen Sprecher nur, wenn er ein Muster findet: `<v Name>`, `Name:`, `Speaker 1:`, `SPEAKER_01:`. Alles andere gilt als Text ohne Person. Wenn nichts passt, sagt die Seite, dass die Datei keine Sprechernamen hatte. Du bekommst den Text trotzdem. Die Seite füllt keine «Speaker A» und «Speaker B» als Schätzung ein. Erfundene Labels sehen wie Daten aus, sind es aber nicht.
+Der [Transkript-Bereiniger](/de/tools/transkript-bereinigen) entfernt Zeitstempel und Cue-Header. Er behält einen Sprecher nur, wenn er ein Muster findet: `<v Name>`, `Name:`, `Speaker 1:`, `SPEAKER_01:`. Alles andere gilt als Text ohne Person.
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Stand September 2026: Browser-Tools transkribieren Dateien bis 15 Minuten, drei erfolgreiche Läufe pro Woche, ohne Sprechertrennung. Live-Aufnahme und Diarisierung gibt es in der Mac-App.</p>
+</aside>
+
+Wenn nichts passt, sagt die Seite, dass die Datei keine Sprechernamen hatte. Du bekommst den Text trotzdem. Die Seite füllt keine «Speaker A» und «Speaker B» als Schätzung ein. Erfundene Labels sehen wie Daten aus, sind es aber nicht.
 
 [Wer hatte das Wort](/de/tools/wer-hatte-das-wort) gilt dieselbe Regel einen Schritt später. Du fügst ein Transkript mit Namen ein, und die Seite zeigt den Wortanteil pro Name. Bei einem namenlosen Block stoppt sie. Es gibt kein Diagramm anonymer Stimmen, weil der Browser die Stimmen nicht unterscheiden kann.
 

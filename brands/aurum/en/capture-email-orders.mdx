@@ -16,7 +16,7 @@ site: prozess-check
 
 <p class="blog-lede">Capturing orders from email means reading the message and attachment, matching customer and items, and writing a draft order in the system you already use. Unclear lines stay with a person until release.</p>
 
-PDF forms, Excel sheets and short free-text emails need the same fields. The copying is what you automate. Failed matching stays on the desk.
+PDF forms, Excel sheets and short free-text emails need the same fields. The copying is what you automate. Lines that fail to match stay on the desk.
 
 This is for sales offices and order desks in Swiss B2B firms where customers send files instead of ordering through a shop. It is the order case of [stop double data entry](/prozess-check/blog/stop-double-data-entry). Which emails are orders at all is one step earlier, in [sorting a shared inbox](/prozess-check/blog/shared-inbox-sort-emails).
 
@@ -39,7 +39,7 @@ Every order has to yield the same fields before a draft is worth creating. Decid
 - Quantity and unit. A quantity without a unit is not a complete line.
 - Requested date if the customer named one. If not, your usual lead time applies and the draft says so.
 
-Excel is the calmest when the customer uses your sheet with fixed columns. Their PDF form is readable but layouts differ, so the first weeks are about learning layouts. Free text works when article numbers are in the message. When the customer writes "the usual" or "same as last month", that mail goes to a person with the previous order beside it.
+Excel is the easiest when the customer uses your sheet with fixed columns. Their PDF form is readable, but layouts differ from customer to customer, so the first weeks are about learning the layouts. Free text works when article numbers are in the message. When the customer writes "the usual" or "same as last month", that mail goes to a person with the previous order beside it.
 
 ## How the draft gets into the system you already use
 
@@ -88,11 +88,6 @@ EDI fits when a few large customers already send structured messages or require 
 The GS1 Switzerland Ideal Message for orders, published in December 2022, is meant for day-to-day ordering: one purchase order for one delivery, in one location, at one time. That is different work from reading a PDF. Both sides need the identifiers the message expects and a path that already speaks that format.
 
 Use EDI for those customers and keep the email path for everyone else. Do not type EDI orders into the mailbox flow as well, or you create two drafts. Do not wait for every small customer to move to EDI. The email flow is for the long tail. A customer who orders twice a year is not an EDI project.
-
-<div class="blog-faq">
-  <h3>EDI or email first?</h3>
-  <p>EDI for customers who require or already send it. Email reading for the rest. Running both on the same order creates two drafts.</p>
-</div>
 
 ## What to leave alone
 

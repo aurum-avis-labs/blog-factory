@@ -1,13 +1,13 @@
 ---
 title: "No Code App erstellen: wann es reicht"
-description: "No Code App erstellen lohnt sich, wenn ein Kernablauf mit echten Nutzerinnen gemessen wird. Grenzen: Sicherheit, Skalierung, Store-Freigabe."
-pubDate: 2027-09-01
+description: "No Code App erstellen lohnt sich, wenn ein Kernablauf mit echten Nutzern gemessen wird. Grenzen: Sicherheit, Skalierung, Store-Freigabe."
+pubDate: 2027-05-22
 author: "Aurum Avis Labs"
 tags: ["no-code", "app", "mvp", "lovable", "validierung"]
 funnelStage: interest
 translationKey: no-code-mvp-when-it-is-enough
 relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -24,32 +24,13 @@ No Code ist **genug**, wenn alle Punkte zutreffen:
 <ul class="blog-checklist">
   <li>Ein Hauptverhalten definiert Erfolg (Anmeldung, Absenden, Rückkehr, Testpreis oder ein durchgängiger Ablauf)</li>
   <li>Echte Anmeldung und eine echte Datenbank tragen dieses Verhalten, nicht nur ein Formular mit CSV per E-Mail</li>
-  <li>Analytics und Session-Aufzeichnungen laufen ab der ersten externen Nutzerin</li>
+  <li>Analytics und Session-Aufzeichnungen laufen ab dem ersten externen Nutzer</li>
   <li>«Drin» und «draussen» sind schriftlich festgehalten; bewusst zurückgestellte Module stehen auf der «draussen»-Liste</li>
   <li>Sie behandeln Freunde und Familie als Pilot, nicht als Marktnachweis</li>
   <li>Ein fixes Fenster (Wochen, nicht Quartale) endet mit Go, Pivot oder Stop anhand der Zahlen</li>
 </ul>
 
-Das ist mehr als eine Landingpage mit Warteliste. Es ist weniger als eine Plattform für Dauerbetrieb. Das verkaufte Validierungspaket von Aurum baut auf Azure mit React und NestJS und ist ein anderer Pfad, wenn Sie Code, Designs und Daten selbst halten wollen. Für die erste Schleife bleiben die Werkzeuge neutral: oft der schnellste ehrliche Test.
-
-<div class="blog-pair">
-  <div>
-    <h3>Oft genug mit No Code</h3>
-    <ul>
-      <li>Concierge oder Wizard-of-Oz im Hintergrund, dünne Selbstbedienung vorn</li>
-      <li>B2B-Ablauf mit eingeladenen Konten und einer Integration</li>
-      <li>Mobile Web App, bevor Sie App-Store-Prüfung und Closed Testing planen</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Oft nicht genug mit No Code allein</h3>
-    <ul>
-      <li>Mehrmandantendaten, wenn eine falsch gesetzte Regel fremde Zeilen zeigt</li>
-      <li>Zahlungen, Gesundheitsdaten oder regulierte Beratung ab Tag eins</li>
-      <li>Marktplatz-Liquidität, wenn beide Seiten Verfügbarkeit und Streitfälle sofort erwarten</li>
-    </ul>
-  </div>
-</div>
+Das ist mehr als eine Landingpage mit Warteliste. Es ist weniger als eine Plattform für Dauerbetrieb. Das Validierungspaket von Aurum baut auf Azure mit React und NestJS und ist ein anderer Pfad, wenn Sie Code, Designs und Daten selbst halten wollen. Für die erste Schleife bleiben die Werkzeuge neutral: oft der schnellste ehrliche Test. Für Concierge- oder Wizard-of-Oz-Abläufe, eingeladene B2B-Konten und eine mobile Web-App vor der Store-Prüfung reicht No Code meist. Mehrmandantendaten, Zahlungen, Gesundheitsdaten und Marktplatz-Liquidität gehören dagegen in einen geprüften Stack.
 
 ## Was No Code beweist und was nicht
 
@@ -62,7 +43,7 @@ Es beweist nicht volle Unit Economics, Schutz vor Nachahmung oder sichere Auth u
   <p>Ein No-Code-MVP ist kein Sicherheitsreview. Ihr eigener Klick-Test zeigt nicht, dass Row-Level-Security, Secrets und Admin-Routen produktionsreif geprüft sind. «Bisher kein Vorfall» ist keine Bestätigung.</p>
 </aside>
 
-Store-Verpackung ist eine weitere Grenze. Apple erwartet mehr als eine eingepackte Website ([Richtlinie 4.2](https://developer.apple.com/app-store/review/guidelines/)); Google Play kann für neue persönliche Entwicklerkonten einen Closed Test mit mindestens zwölf Testerinnen über vierzehn Tage verlangen ([Play-Hilfe](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en)). Lernen im Browser zuerst bleibt deshalb oft der sinnvolle Schritt.
+Store-Verpackung ist eine weitere Grenze. Apple erwartet mehr als eine eingepackte Website ([Richtlinie 4.2](https://developer.apple.com/app-store/review/guidelines/)); Google Play kann für neue persönliche Entwicklerkonten einen Closed Test mit mindestens zwölf Testern über vierzehn Tage verlangen ([Play-Hilfe](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en)). Lernen im Browser zuerst bleibt deshalb oft der sinnvolle Schritt.
 
 Ideen als solche sind in der Schweiz nicht schützbar ([IGE](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden)). Ein schmaler Pilot versteckt das Konzept nicht. Er kauft Zeit für Verhalten, bevor Sie die nächste Schicht finanzieren.
 
@@ -76,9 +57,7 @@ Ideen als solche sind in der Schweiz nicht schützbar ([IGE](https://www.ige.ch/
 
 ## Wann Sie aufhören, No Code auszubauen
 
-Hören Sie auf, wenn weitere Funktionen die Metrik Ihrer Ein-Satz-Hypothese nicht mehr verändern oder wenn dieselbe Fehlerklasse zweimal auftritt (Auth-Randfälle, sichtbare Listen, fragile Integrationen). Dann exportieren Sie das Gelernte, nicht zwingend jeden generierten Baustein unverändert.
-
-<p class="blog-pull">Die No-Code-Phase endet, wenn die Kosten eines Fehlers in der Verlässlichkeit höher sind als die Kosten eines sauberen Builds.</p>
+Hören Sie auf, wenn weitere Funktionen die Metrik Ihrer Ein-Satz-Hypothese nicht mehr verändern oder wenn dieselbe Fehlerklasse zweimal auftritt (Auth-Randfälle, sichtbare Listen, fragile Integrationen). Die No-Code-Phase endet, wenn die Kosten eines Fehlers in der Verlässlichkeit höher sind als die Kosten eines sauberen Builds. Dann exportieren Sie das Gelernte, nicht zwingend jeden generierten Baustein unverändert.
 
 [Ist Ihre vibe-coded App produktionsreif?](/de/blog/ist-deine-vibe-coded-app-produktionsreif) lesen, wenn Fremde zahlen oder sensible Daten im Spiel sind.
 

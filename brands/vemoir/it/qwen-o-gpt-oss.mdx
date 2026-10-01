@@ -23,7 +23,7 @@ L’app mostra spazio, adeguatezza hardware e quale modello è selezionato. Una 
 | Va bene su | la maggior parte dei Mac | Mac con tanta memoria |
 | Lavoro | note, documenti, Ask | note, documenti, Ask |
 | Audio | non trascrive | non trascrive |
-| Licenza dei pesi | Apache 2.0, tramite il runtime locale fissato, con attribuzione inclusa | Apache 2.0, stessa idea |
+| Licenza dei pesi | Apache 2.0, tramite l’ambiente di esecuzione locale fissato, con attribuzione inclusa | Apache 2.0, stessa idea |
 | Se manca | scaricalo apposta, o l’elaborazione non finge che ci sia | Uguale. Nessun sostituto silenzioso |
 
 
@@ -37,7 +37,7 @@ La trascrizione è una scelta separata da Qwen o gpt-oss. Parakeet v3 e Whisper 
 
 ## Quando Qwen è la scelta migliore
 
-Qwen3 4B è la scelta migliore su un Mac che non è ad alta memoria, quando vuoi il modello di scrittura che l’impostazione presenta per la maggior parte delle macchine, e quando preferisci spendere disco e memoria sul modello vocale e sulla registrazione piuttosto che sul file di scrittura più grande. È anche la scelta migliore se sei incerto, perché forzare gpt-oss-20b su un Mac che non gli sta non è un salto di qualità che l’app copre. Le indicazioni di adeguatezza ci sono perché tu non indovini.
+Qwen3 4B è la scelta migliore su un Mac che non è ad alta memoria, quando vuoi il modello di scrittura che l’impostazione presenta per la maggior parte delle macchine, e quando preferisci spendere disco e memoria sul modello vocale e sulla registrazione piuttosto che sul file di scrittura più grande. È anche la scelta migliore se sei incerto, perché forzare gpt-oss-20b su un Mac che non lo regge non è un salto di qualità che l’app possa mascherare. Le indicazioni di adeguatezza ci sono perché tu non indovini.
 
 
 Il modello vocale lo scegli comunque a parte. Un riassunto Qwen fluente di una trascrizione cattiva resta il riassunto di una trascrizione cattiva.
@@ -46,7 +46,7 @@ Il modello vocale lo scegli comunque a parte. Un riassunto Qwen fluente di una t
 
 gpt-oss-20b è la scelta migliore quando il Mac ha la memoria per lui e vuoi quel modello locale più grande disponibile per note, documenti e Ask. Il motivo è la capacità della macchina, non un punteggio pubblicato. Se la schermata modelli dice che questo Mac è adatto e hai lo spazio, puoi selezionarlo. Se una lunga sessione Ask è il lavoro di ogni giorno, il percorso ad alta memoria è quello che l’app riserva a questo modello.
 
-È la scelta peggiore quando il Mac è stretto. Non avviare lo scaricamento più grande sperando in una riduzione automatica a Qwen. Gli scaricamenti sono espliciti. Uno scaricamento fallito resta fallito finché non lo riprendi o lo togli.
+È la scelta peggiore quando il Mac è al limite. Non avviare lo scaricamento più grande sperando in una riduzione automatica a Qwen. Gli scaricamenti sono espliciti. Uno scaricamento fallito resta fallito finché non lo riprendi o lo togli.
 
 Cambiare tra i modelli installati per il prossimo turno Ask ripianifica quel turno. Non riscrive i messaggi già nella conversazione. Le risposte concluse continuano a mostrare quale modello le ha prodotte.
 
@@ -61,7 +61,7 @@ Cambiare tra i modelli installati per il prossimo turno Ask ripianifica quel tur
   <div>
     <h3>Tutto locale</h3>
     <ul>
-      <li>NDA vieta LLM esterni</li>
+      <li>Il NDA vieta LLM esterni</li>
       <li>Mac offline dopo download</li>
     </ul>
   </div>
@@ -70,14 +70,14 @@ Cambiare tra i modelli installati per il prossimo turno Ask ripianifica quel tur
 ## Cosa non farà nessuno dei due modelli
 
 - Trascrivere microfono o audio di sistema.
-- Separare gli speaker. Resta un passo di elaborazione locale. Gli speaker sconosciuti restano anonimi finché non acconsenti.
+- Separare i parlanti. Resta un passo di elaborazione locale. I parlanti sconosciuti restano anonimi finché non acconsenti.
 - Diventare Apple Intelligence. Dove il Mac la ha, pulizia e artefatti possono usarla come via di scrittura sul dispositivo. La trascrizione resta il modello vocale.
 - Mandare l’audio a OpenAI o Anthropic. Una chiave, se la attivi, è solo testo, nel Portachiavi, senza fallback silenzioso.
-- Classificare Parakeet contro Whisper. Quelli sono modelli vocali. Questa pagina ne parla solo per lo spartiacque: i modelli vocali ascoltano, questi due scrivono.
+- Classificare Parakeet contro Whisper. Quelli sono modelli vocali. Questa pagina ne parla solo per la distinzione: i modelli vocali ascoltano, questi due scrivono.
 
 Un glossario di progetto può ancora orientare la terminologia nel testo generato, come contesto, non come prova. La trascrizione resta ciò che il modello vocale ha prodotto. Le note manuali restano ciò che hai digitato.
 
-Gli strumenti nel browser non offrono Qwen né gpt-oss. [/it/strumenti/trascrivere-audio](/it/strumenti/trascrivere-audio) è un file breve nella scheda, Whisper pubblico, nessuna cattura dal vivo.
+Gli strumenti nel browser non offrono Qwen né gpt-oss. [Trascrivere audio](/it/strumenti/trascrivere-audio) è un file breve nella scheda, Whisper pubblico, nessuna cattura dal vivo.
 
 Vedi entrambi i modelli di scrittura accanto ai modelli vocali in [cattura](/it#capture).
 

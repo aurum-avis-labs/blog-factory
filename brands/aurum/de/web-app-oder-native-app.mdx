@@ -1,13 +1,13 @@
 ---
 title: "Web App oder native App"
 description: "Web App oder native App für ein MVP: Browser, Store oder installierbares Web, und was die Kanalwahl nicht über Nachfrage beweist."
-pubDate: 2027-09-01
+pubDate: 2027-06-14
 author: "Aurum Avis Labs"
 tags: ["web app", "native app", "pwa", "mvp", "capacitor"]
 funnelStage: interest
 translationKey: web-app-vs-native-app-vs-pwa
 relatedPosts: ["skalierbares-mvp", "tech-stack-startup"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -23,7 +23,7 @@ Eine **Web App** ist die URL. Sie deployen, teilen den Link, korrigieren auf dem
 
 **Native** im engen Sinn heisst: Plattform-Toolchain (Swift, Kotlin) oder ein Cross-Platform-Laufzeitmodell, das trotzdem ein Store-Binary erzeugt. Nutzer erwarten ein Icon, Updates über den Store und Berechtigungsdialoge im gewohnten Muster.
 
-Eine **PWA** ergänzt Manifest und meist einen Service Worker, damit der Browser Installation anbieten, Assets cachen und definierte Routen offline ausliefern kann. Auf Android wirkt das oft nah an einer Store-App. Auf iOS gibt es Installation, Store-Apps behalten aber Vorteile bei Auffindbarkeit und einigen APIs.
+Eine **PWA** ergänzt Manifest und meist einen Service Worker, damit der Browser Installation anbieten, Assets cachen und definierte Routen offline ausliefern kann. Sie ist keine eigene Produktkategorie, sondern eine Web App mit Installierbarkeit. Auf Android wirkt das oft nah an einer Store-App. Auf iOS gibt es Installation, Store-Apps behalten aber Vorteile bei Auffindbarkeit und einigen APIs.
 
 | Frage | Web App | PWA | Native oder gewrappte Store-App |
 | --- | --- | --- | --- |
@@ -58,7 +58,7 @@ Die Tabelle dient dem **Lernen**, nicht dem Gewinnen einer Formatdebatte. Teams,
 
 Viele Vibe-Coding-MVPs sind **Web App plus nativer Hülle** (zum Beispiel Capacitor), kein Rewrite in Swift und Kotlin. Derselbe React-Bundle kann Browser und Store-Binaries bedienen. So veröffentlicht das interne Produkt [Inklets](https://inklets.app): React-App mit Wrap für iOS und Google Play, öffentlich unter inklets.app, Details auf der [Inklets-Portfolio-Seite](/de/portfolio/inklets).
 
-Ein Wrap ist ein fairer Shortcut, wenn das Produkt sich wie eine App verhält: Konten, persistenter Zustand, klare Aufgaben jenseits von Marketingseiten. Apples [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) prüfen **Mindestfunktionalität** ernst: Richtlinie 4.2 verlangt mehr als eine umverpackte Website, 4.2.2 lehnt reine Marketing- oder Web-Clipping-Apps ab. Google Play setzt eigene Hürden, unter anderem **Closed Testing** für viele neue persönliche Entwicklerkonten (mindestens 12 Tester an 14 aufeinanderfolgenden Tagen, laut Google-Hilfe zur Play Console). Das ist keine automatische Freigabe. Eine gewrappte Landingpage mit einem Formular ist ein häufiges Ablehnungsmuster, keine Validierungsstrategie.
+Ein Wrap ist ein fairer Shortcut, wenn das Produkt sich wie eine App verhält: Konten, persistenter Zustand, klare Aufgaben jenseits von Marketingseiten. Apples [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) prüfen **Mindestfunktionalität** ernst: Richtlinie 4.2 verlangt mehr als eine umverpackte Website, 4.2.2 lehnt reine Marketing- oder Web-Clipping-Apps ab. Google Play setzt eigene Hürden, unter anderem **Closed Testing** für viele neue persönliche Entwicklerkonten (mindestens 12 Tester an 14 aufeinanderfolgenden Tagen, laut [Google Play Console Help](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en)). Das ist keine automatische Freigabe. Eine gewrappte Landingpage mit einem Formular ist ein häufiges Ablehnungsmuster, keine Validierungsstrategie.
 
 Beim Kundenprojekt [do4me](/de/portfolio/do4me), Alltagshelfer in Zürich, war ein Wrap für iOS und Google Play vorbereitet, **nicht** aber der erste Test. Die erste Schleife war Landingpage, Web App, Inserate, Chat und gemessene Ads. Der Store blieb zurück, damit der Scope auf Marktplatz-Verhalten lag, nicht auf Review-Zeiten.
 

@@ -38,13 +38,13 @@ WhatsApp speichert Sprachnachrichten im Chat. Das Transkriptionstool sieht den C
 </ul>
 
 
-Am Telefon öffnest du den Chat, nutzt Teilen oder Speichern, so wie WhatsApp es für diese Nachricht anbietet, und bringst das Audio dorthin, wo der Computer es erreicht. Ein Chat-Export mit Medien legt einen Ordner mit Dateien und einem Textlog an. Nimm die Audiodatei, nicht die `.txt`. Im Log steht nicht die Sprache.
+Am Telefon öffnest du den Chat, nutzt Teilen oder Speichern, so wie WhatsApp es für diese Nachricht anbietet, und bringst das Audio dorthin, wo der Computer es erreicht. Ein Chat-Export mit Medien legt einen Ordner mit Dateien und einem Textlog an. Nimm die Audiodatei, nicht die `.txt`. Der Textlog ist nicht die Aufnahme.
 
 In WhatsApp für Mac gilt dasselbe. Speichere die Nachricht als Datei und wechsle danach zum Browser-Tool. Die Website liest die WhatsApp-Mediathek auf deinem Mac nicht.
 
 Eine weitergeleitete Sprachnachricht bleibt die Aufnahme von jemand anderem. Sie für deine Notizen zu speichern erweitert nicht, was du mit den Wörtern tun darfst. Wenn die sendende Person erwartet hat, dass die Nachricht im Chat bleibt, frag nach, bevor du sie in ein Dokument transkribierst, das du weiterleitest.
 
-Im Gruppenchat kommt eine Sprachnachricht oft von jemandem, der nicht mit dir gesprochen hat. Transkribiere nur, was du einen Grund hast zu behalten, und schick den vollen Text nicht standardmässig in einen anderen Chat.
+Im Gruppenchat kann eine Sprachnachricht eine Person enthalten, die nicht mit dir gesprochen hat. Transkribiere nur, was du einen Grund hast zu behalten, und schick den vollen Text nicht standardmässig in einen anderen Chat.
 
 ## WhatsApp in Text im Browser
 
@@ -54,12 +54,6 @@ Im Gruppenchat kommt eine Sprachnachricht oft von jemandem, der nicht mit dir ge
 4. Das Modell lädt einmal in den Browser. Spätere Läufe können ohne Netz laufen. Im Netzwerk-Panel der Entwicklertools prüfst du, dass die Audiodatei selbst nicht an einen Server geht.
 5. Lass die Datei laufen. Du bekommst Text, und du bekommst keine Sprechernamen. Eine Sprachnachricht ist meist eine Person, fehlende Namen fallen dort weniger ins Gewicht als in einer Sitzung. Haben zwei Personen das Telefon weitergegeben, liest sich die Nachricht als ein Fluss.
 6. Kopiere den Text in deine Notizen. Die Seite legt ihn nicht in WhatsApp ab.
-
-<aside class="blog-callout">
-  <span class="blog-kicker">Hinweis</span>
-  <p>Schweizerdeutsche Sprachnachrichten schreiben öffentliche Whisper-Modelle oft als Standarddeutsch.</p>
-</aside>
-
 
 Die Seite nutzt öffentliche Whisper-Modelle. Schweizerdeutsch kommt meist als Standarddeutsch zurück. Ist die Notiz Dialekt und du brauchst die Dialektschreibung, liefert dieses Tool das nicht. Lies das Standarddeutsch als Entwurf und korrigiere die Wörter, auf die es ankommt. Es gibt keine Prozentzahl zur Genauigkeit, die man zitieren könnte.
 
@@ -71,13 +65,13 @@ Für einen laufenden WhatsApp-Anruf auf dem Mac hilft das Browser-Tool nicht. [S
 
 ## Wann das Browser-Tool reicht
 
-Eine gespeicherte Sprachnachricht, unter 15 Minuten, meist eine Stimme, und du brauchst nur Text für Mail oder Notizen: bleib auf [Sprachnotiz transkribieren](/de/tools/sprachnotiz-transkribieren). Sprecherlabels, Protokolllayout und Projektarchiv brauchst du dafür nicht. Wenn drei Läufe pro Woche dein Volumen decken, wäre eine App-Kaufentscheidung verfrüht.
+Eine gespeicherte Sprachnachricht, unter 15 Minuten, meist eine Stimme, und du brauchst nur Text für Mail oder Notizen: bleib auf [Sprachnotiz transkribieren](/de/tools/sprachnotiz-transkribieren). Sprecherlabels, Protokoll-Layout und Projektarchiv brauchst du dafür nicht. Wenn drei Läufe pro Woche dein Volumen decken, wäre der Kauf einer App verfrüht.
 
 Lass das Browser-Tool weg, wenn du viele Notizen am selben Tag stapelst, eine Nachricht nach dem Export über 15 Minuten liegt, oder das Audio noch in WhatsApp steckt und du es nicht exportieren willst. Dann kommen Umwandlung und Kürzen oder der Mac-Import unten ins Spiel.
 
 ## Wo die Mac-App sinnvoller ist
 
-Mehrere Sprachnotizen pro Woche, Notizen zu einem Mandat oder Follow-up-Entwürfe aus demselben Thread: konvertiertes M4A in die Mac-App importieren und Transkript plus Zusammenfassung auf dem Rechner behalten. Live-Audio von WhatsApp auf dem Mac (Anrufton über die Lautsprecher) läuft wie Teams oder Zoom: Aufnahme vor dem Anruf starten, danach stoppen, lokal transkribieren. Voraussetzungen und Modelle stehen unter [Aufnahme und Modelle](/de#capture). Dieser Interest-Artikel nennt keinen Store-Preis.
+Mehrere Sprachnotizen pro Woche, Notizen zu einem Mandat oder Follow-up-Entwürfe aus demselben Thread: konvertiertes M4A in die Mac-App importieren und Transkript plus Zusammenfassung auf dem Rechner behalten. Live-Audio von WhatsApp auf dem Mac (Anrufton über die Lautsprecher) läuft wie Teams oder Zoom: Aufnahme vor dem Anruf starten, danach stoppen, lokal transkribieren. Voraussetzungen und Modelle stehen unter [Aufnahme und Modelle](/de#capture).
 
 ## Wenn das Format nicht passt
 
@@ -89,7 +83,7 @@ Auf dem Mac ist `afconvert` der eingebaute Wandler. Im Terminal, aus dem Ordner 
 afconvert -f m4af -d aac input.ogg output.m4a
 ```
 
-Setze die echten Dateinamen ein. Weigert sich `afconvert` bei der Opus-Datei, exportiere nochmals aus WhatsApp oder nutze das Teilen-Menü in ein Format, das Musik oder Sprachmemos annehmen, und exportiere von dort M4A. Geh nicht über eine beliebige Umwandlungswebsite. Der Sinn dieses Ablaufs ist, dass das Audio auf dem Rechner bleibt. Ein Upload an einen Onlinedienst hebt das auf.
+Setze die echten Dateinamen ein. Weigert sich `afconvert` bei der Opus-Datei, exportiere nochmals aus WhatsApp oder nutze das Teilen-Menü in ein Format, das die Musik-App oder Sprachmemos annehmen, und exportiere von dort M4A. Geh nicht über eine beliebige Umwandlungswebsite. Der Sinn dieses Ablaufs ist, dass das Audio auf dem Rechner bleibt. Ein Upload an einen Onlinedienst hebt das auf.
 
 Prüfe nach der Umwandlung die Dauer. Eine Sprachnachricht über 15 Minuten musst du schneiden, oder du verarbeitest sie ausserhalb des Browser-Tools. Eine lange Notiz in viele Stücke zu teilen verbraucht mehrere der wöchentlichen Läufe. Schneide auf die Minute, die du wirklich brauchst.
 
@@ -99,13 +93,11 @@ Die Mac-App kann MP3, M4A, WAV, AIFF, CAF und FLAC über denselben lokalen Weg i
 
 Eine Sprachnachricht ist eine Datei. Ein WhatsApp-Anruf ist laufendes Audio. Das Browser-Tool tritt WhatsApp nicht bei, liest den Anruf nicht und erfasst den Tab nicht. Brauchst du Notizen von einem Anruf, der gerade läuft, muss der Anruf auf dem Mac spielen und ein lokaler Rekorder mitlaufen.
 
-Dieser Rekorder ist die Mac-App: Mikrofon und Systemton, kein Bot im Anruf, Transkription auf dem Rechner nach dem Auflegen. Die macOS-Freigabe für den Ton anderer Apps heisst System Audio Recording. Sie nimmt den Bildschirm nicht auf. Du sagst es der anderen Person trotzdem. WhatsApp zeigt kein Banner «Vemoir nimmt auf».
+Dieser Rekorder ist die Mac-App: Mikrofon und Systemton, kein Bot im Anruf, Transkription auf dem Rechner nach dem Auflegen. Die macOS-Freigabe für den Ton anderer Apps heisst Bildschirmaufnahme, genutzt nur für den Ton. Sie nimmt den Bildschirm nicht auf. Du sagst es der anderen Person trotzdem. WhatsApp zeigt kein Banner «Vemoir nimmt auf».
 
 Brauchtest du nur die Sprachnachricht, brauchst du keinen Ablauf für Live-Anrufe. Speichere die Datei, wandle sie um, wenn das Format es verlangt, und nutze die Sprachnotiz-Seite.
 
 Geht der Text in ein Protokoll mit Entscheiden und Zuständigen, füge ihn ins [Sitzungsprotokoll](/de/tools/sitzungsprotokoll) und bearbeite ihn. Ein Rohtranskript einer Sprachnotiz ist meist ein Absatz. Das Protokoll braucht trotzdem Datum, Namen und den nächsten Schritt. [Sitzungsprotokoll-Vorlage](/de/blog/sitzungsprotokoll-vorlage) ist eine Struktur, die du kopieren kannst, wenn die Notiz wirklich ein Entscheid ist und kein Chat.
-
-Prüfe die Dauer noch einmal, wenn die Umwandlung fertig ist. Eine Datei, die im Chat kurz wirkte, kann nach dem Export über 15 Minuten liegen, weil WhatsApp die Länge anders anzeigt als der Finder. Dann schneidest du auf die Minute mit dem Entscheid, statt den Lauf zu starten und die Woche zu verbrauchen. Drei erfolgreiche Läufe gelten pro Woche für alle Browser-Tools zusammen, nicht drei pro Chat.
 
 ## Häufige Fragen
 

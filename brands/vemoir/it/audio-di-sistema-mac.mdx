@@ -46,13 +46,6 @@ La cattura è un tap Core Audio. Prende l'audio della riunione. Lascia stare i p
 4. Non cercare una riga Vemoir sotto Registrazione schermo per «finire» la configurazione. Quella riga non è il permesso che questa versione usa. Attivare la registrazione dello schermo per un altro strumento è un'altra decisione. È così che ti ritrovi un video della scrivania quando volevi una trascrizione.
 5. Avvia la registrazione dalla barra dei menu quando la chiamata inizia, e fermala quando finisce. Nessuno entra nella riunione come bot. L'app può essere Teams, Zoom, Meet, Slack, Discord, o qualsiasi altra app che riproduce audio sul Mac. Vedi [piattaforme](/it#platforms) e [cattura](/it#capture).
 
-<ol class="blog-steps">
-  <li data-step="1"><h3>Apri Privacy</h3><p>Impostazioni di sistema, Privacy e sicurezza, Registrazione schermo e audio di sistema.</p></li>
-  <li data-step="2"><h3>Solo audio</h3><p>Abilita Vemoir per l'audio di sistema, non la cattura schermo.</p></li>
-  <li data-step="3"><h3>Riapri Vemoir</h3><p>macOS applica spesso l'interruttore solo dopo uscire e riaprire.</p></li>
-</ol>
-
-
 Se l'audio di sistema è consentito e le persone remote restano in silenzio, i controlli successivi sono il mute nell'app della riunione, il dispositivo di uscita sbagliato, e una registrazione che ha armato solo il microfono. Sono i casi senza suono. La registrazione dello schermo non li risolve. Vedi [registrazione riunione senza audio su Mac](/it/blog/registrazione-riunione-senza-audio-mac).
 
 ## Che cosa viene tenuto
@@ -65,11 +58,11 @@ Vemoir tiene microfono e audio di sistema come tracce locali separate. Dopo lo s
 </aside>
 
 
-Trascrizione e separazione dei parlanti restano sulla macchina. Le note girano sulla macchina per impostazione. Se attivi una tua chiave API per il testo, l'audio non esce per quel passo, e l'app non passa in silenzio a un modello cloud se quello locale fallisce. Una volta installati i modelli, la riunione si può elaborare offline. Internet serve al primo scaricamento.
+Trascrizione e separazione dei parlanti restano sulla macchina. Le note girano sulla macchina per impostazione predefinita. Se attivi una tua chiave API per il testo, l'audio non esce per quel passo, e l'app non passa in silenzio a un modello cloud se quello locale fallisce. Una volta installati i modelli, la riunione si può elaborare offline. Internet serve al primo scaricamento.
 
 Scegli tu se tenere l'audio dopo un passaggio riuscito. Condividere un riassunto non allega le tracce, a meno che tu non condivida quei file apposta. Il testo è ciò che copi. Vedi [export](/it#exports).
 
-Le etichette dei parlanti di questa cattura nascono sul Mac, poi le rinomini. Il browser non ascolta l'audio di sistema, e non inventa parlanti da un file. Un file fino a 15 minuti è la prova nel browser. L'audio di sistema dal vivo non lo è.
+Le etichette dei parlanti di questa cattura nascono sul Mac, poi le rinomini. Il browser non ascolta l'audio di sistema, e non inventa parlanti da un file. Un file fino a 15 minuti è il caso d'uso del browser. L'audio di sistema dal vivo non lo è.
 
 ## Che cosa questo permesso non è
 
@@ -97,11 +90,19 @@ La registrazione dello schermo è la casella sbagliata per questa app. Controlla
 
 ### La registrazione dell'audio di sistema carica la chiamata?
 
-Non per impostazione. Le tracce restano sul Mac, a meno che tu non le esporti o mandi testo in modo esplicito a un modello con la tua chiave. La trascrizione stessa resta locale.
+Non di default. Le tracce restano sul Mac, a meno che tu non le esporti o mandi testo in modo esplicito a un modello con la tua chiave. La trascrizione stessa resta locale.
 
 ### Una scheda del browser può registrare l'audio di sistema allo stesso modo?
 
 No. Gli strumenti gratuiti prendono un file che hai già, fino a 15 minuti, o un testo che incolli. Non catturano l'audio di sistema dal vivo e non chiedono questo permesso a macOS.
+
+### Registra un telefono che non passa dal Mac?
+
+No. L'audio di sistema è il suono che il Mac riproduce. Una cornetta all'orecchio, o un telefono in vivavoce che il Mac non sente mai, sta fuori da questo tap. Il microfono può captare un vivavoce forte nella stanza. Quello è audio della stanza, non la traccia di sistema.
+
+### Il permesso copre ogni app di riunione?
+
+Copre l'audio che quelle app riproducono sul Mac. Non è un'integrazione Teams né un plugin Zoom. Se l'audio dell'app è udibile nelle cuffie o negli altoparlanti, il tap può prendere quell'uscita. Se l'app è muta, non c'è niente da prendere.
 
 ### Lo schermo viene mai salvato per errore?
 

@@ -1,13 +1,13 @@
 ---
 title: "Retention messen App: Aktivierung und Wiederkehr"
 description: "Retention in der App messen: ein Wert-Event definieren, Kohorten bilden und Wiederkehr an Tag 1, 7 und 30 lesen. Was die Kurven zeigen und was nicht."
-pubDate: 2027-09-01
+pubDate: 2027-07-24
 author: "Aurum Avis Labs"
 tags: ["retention", "aktivierung", "analytics", "mvp", "validierung"]
 funnelStage: interest
 translationKey: measure-activation-and-retention
 relatedPosts: ["analytics-mvp-einrichten", "tracking-plan-events"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -22,7 +22,7 @@ Der Text richtet sich an Gründerinnen, Gründer und Innovationsverantwortliche 
 Wählen Sie ein primäres Aktivierungs-Event und ein primäres Retention-Event. Sekundäre Events dürfen im selben Tool liegen, das Wochen-Reporting soll aber nicht die Definitionen mischen.
 
 <ol class="blog-steps">
-  <li data-step="1"><h3>Aktivierung in Produktsprache definieren</h3><p>Formulieren Sie den Satz, den eine Nutzerin nach dem Moment sagen könnte: «Ich habe X davon gehabt.» Beispiele: erstes Projekt gespeichert, erster Export, erste Nachricht an jemanden ausser dem Team. Registrierung allein ist meist zu früh.</p></li>
+  <li data-step="1"><h3>Aktivierung in Produktsprache definieren</h3><p>Formulieren Sie den Satz, den ein Nutzer nach dem Moment sagen könnte: «Ich habe X davon gehabt.» Beispiele: erstes Projekt gespeichert, erster Export, erste Nachricht an jemanden ausser dem Team. Registrierung allein ist meist zu früh.</p></li>
   <li data-step="2"><h3>Nutzer-ID und Zeitstempel einmal sauber loggen</h3><p>Senden Sie das Aktivierungs-Event vom Client oder Server mit persistenter ID. Anonyme Seiten ohne Login brauchen eine Regel, wann Identitäten zusammengeführt werden, sonst zersplittern Kohorten.</p></li>
   <li data-step="3"><h3>Rückkehr-Aktion wählen</h3><p>Retention ist oft «App geöffnet und etwas Sinnvolles getan», nicht «Push erhalten». Passen Sie die Aktion an den Job, den Ihr MVP testet.</p></li>
   <li data-step="4"><h3>Wöchentliche Kohorten vom Aktivierungstag bilden</h3><p>Gruppieren Sie Nutzer nach Kalenderwoche der ersten Aktivierung. Pro Kohorte berechnen Sie den Anteil mit Rückkehr-Aktion an Tag 1, 7 und 30. Vergleichen Sie Kohorten, nicht Kalendermonate.</p></li>
@@ -31,43 +31,9 @@ Wählen Sie ein primäres Aktivierungs-Event und ein primäres Retention-Event. 
 
 ## Aktivierung versus Registrierung und Vanity-Kennzahlen
 
-Installationen, Wartelisten-Bestätigungen und abgeschlossene Formulare sind Funnel-Metriken. Sie zeigen, ob Menschen bis zur Tür kommen. Aktivierung zeigt, ob sie Nutzen erreicht haben. Ist das Aktivierungs-Event zu leicht, wirkt Retention leer. Ist es zu streng, verlieren Sie Nutzer, die nach einem sanfteren ersten Erfolg zurückgekommen wären.
+Installationen, Wartelisten-Bestätigungen und abgeschlossene Formulare sind Funnel-Metriken. Sie zeigen, ob Menschen bis zur Tür kommen. Aktivierung zeigt, ob sie Nutzen erreicht haben. Ist das Aktivierungs-Event zu leicht, wirkt Retention leer. Ist es zu streng, verlieren Sie Nutzer, die nach einem sanfteren ersten Erfolg zurückgekommen wären. Die Aktivierungsrate ist der Anteil neuer Konten, die Ihr Wert-Event innerhalb eines Fensters erreichen, oft sieben Tage. Umsatz, Marge und Product-Market-Fit beweisen diese Zahlen nicht; sie zeigen, ob ein relevanter Anteil aktivierter Nutzer eine Wiederkehr-Gewohnheit bildet.
 
-<dl class="blog-terms">
-  <div>
-    <dt>Aktivierungsrate</dt>
-    <dd>Anteil neuer Konten (oder Geräte), die Ihr Wert-Event innerhalb eines Fensters erreichen, oft sieben Tage.</dd>
-  </div>
-  <div>
-    <dt>Retention-Rate</dt>
-    <dd>Anteil einer Aktivierungs-Kohorte mit Rückkehr-Aktion an Tag N nach dem Aktivierungstag.</dd>
-  </div>
-  <div>
-    <dt>Kohorte</dt>
-    <dd>Nutzer gruppiert nach Woche der ersten Aktivierung, damit ein Marketing-Push in Woche drei Woche eins nicht verwischt.</dd>
-  </div>
-</dl>
-
-<div class="blog-pair">
-  <div>
-    <h3>Was Sie daraus ableiten dürfen</h3>
-    <ul>
-      <li>Ob ein relevanter Anteil aktivierter Nutzer eine Wiederkehr-Gewohnheit bildet</li>
-      <li>Ob eine Onboarding-Änderung Aktivierung verbesserte, ohne Rückkehr zu schaden</li>
-      <li>Welche Akquisitionswoche bleibende statt springende Nutzer brachte</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Was Aktivierung und Retention allein nicht beweisen</h3>
-    <ul>
-      <li>Umsatz, Marge oder Zahlungsbereitschaft im Massstab</li>
-      <li>Product-Market Fit im vollen Marktsinn, wie in [Product-Market Fit erreichen](/de/blog/product-market-fit-erreichen) beschrieben</li>
-      <li>Dass die Idee schützbar ist: Ideen als solche sind nicht schützbar ([IGE zu Ideen](https://www.ige.ch/de/uebersicht-geistiges-eigentum/ein-leitfaden-fuer-innovative-und-kreative/idee/koennen-ideen-geschuetzt-werden))</li>
-    </ul>
-  </div>
-</div>
-
-Das interne Produkt Holist-IQ verfolgte frühe Web-Nutzung parallel zu Google Ads. Elf Anmeldungen, fünf Sessions länger als vier Minuten, drei Rückkehrer an einem anderen Tag, zwei erreichten das Gratis-Kreditlimit, niemand kaufte Credits. Das Muster wies auf Interesse an Modellierung politischer Zusammenhänge und auf Reibung bei Mobile-Landing und Kreditkauf hin, nicht auf ein fertiges Geschäftsmodell. Rückkehr wurde stärker gewichtet als reine Signups, dieselbe Disziplin wie bei sauberer Aktivierungs- und Retention-Messung.
+Das interne Produkt Holist-IQ verfolgte frühe Web-Nutzung parallel zu Google Ads. Eine Handvoll Fremde meldete sich an, mehrere verbrachten längere Zeit mit Diagrammen, einige kehrten an einem anderen Tag zurück, zwei erreichten das Gratis-Kreditlimit, niemand kaufte Credits. Das Muster wies auf Interesse an Modellierung politischer Zusammenhänge und auf Reibung bei Mobile-Landing und Kreditkauf hin, nicht auf ein fertiges Geschäftsmodell. Rückkehr wurde stärker gewichtet als reine Signups, dieselbe Disziplin wie bei sauberer Aktivierungs- und Retention-Messung.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Grenze</span>
@@ -82,13 +48,13 @@ Ein erfundenes Beispiel: Eine Gründerin in Zürich lanciert eine Mobile-Web-App
 
 <ul class="blog-scenarios">
   <li><h3>Wenn niemand aktivieren kann</h3><p>Beheben Sie Abstürze, Login und den ersten Wert-Screen vor Kohorten-Rechnung. Messung ohne stabiles Produkt dokumentiert nur schneller das Scheitern.</p></li>
-  <li><h3>Wenn alle Nutzer warm sind</h3><p>Freunde und Familie aktivieren aus Loyalität und kehren nie zurück. Kohorten mit Fremd-Traffic oder Interviews kombinieren, bevor Sie pivotsieren.</p></li>
+  <li><h3>Wenn alle Nutzer warm sind</h3><p>Freunde und Familie aktivieren aus Loyalität und kehren nie zurück. Kohorten mit Fremd-Traffic oder Interviews kombinieren, bevor Sie pivotieren.</p></li>
   <li><h3>Wenn Events nach Launch dazukamen</h3><p>Nachträgliche Definitionen zerstören Kohorten-Historie. Mit sauberem Plan neu deployen, Lücke in der Grafik akzeptieren, alte und neue Event-Namen nicht mischen.</p></li>
 </ul>
 
 <div class="blog-faq">
   <h3>Reicht Tag-1-Retention?</h3>
-  <p>Sie ist ein frühes Warnsignal. Bei wöchentlicher Nutzung zählen Tag 7 und Tag 30 mehr. Wählen Sie den Horizont, zu dem eine zufriedene Nutzerin natürlich zurückkehren sollte.</p>
+  <p>Sie ist ein frühes Warnsignal. Bei wöchentlicher Nutzung zählen Tag 7 und Tag 30 mehr. Wählen Sie den Horizont, zu dem ein zufriedener Nutzer natürlich zurückkehren sollte.</p>
 </div>
 
 <div class="blog-faq">

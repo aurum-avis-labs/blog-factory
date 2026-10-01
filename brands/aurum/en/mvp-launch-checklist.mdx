@@ -1,13 +1,13 @@
 ---
 title: "MVP launch checklist"
 description: "MVP launch checklist before real users: core flow, analytics, privacy, stores, and measurement. What it proves, what it does not, and who can wait."
-pubDate: 2027-09-01
+pubDate: 2027-07-11
 author: "Aurum Avis Labs"
 tags: ["mvp", "launch", "checklist", "analytics", "app store"]
 funnelStage: interest
 translationKey: mvp-launch-checklist
 relatedPosts: ["publish-an-app-on-the-app-store", "app-store-guideline-4-2"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -43,7 +43,7 @@ Ticking every box means you removed launch blockers you could find in an afterno
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>This list is engineering and go-to-market hygiene, not legal advice. Health data, employment records, or children’s products need counsel before you widen access, even if the app «works».</p>
+  <p>This list is engineering and go-to-market hygiene, not legal advice. Health data, employment records, or children’s products need counsel before you widen access, even if the app "works".</p>
 </aside>
 
 ## The checklist before you go live
@@ -56,11 +56,11 @@ Work top to bottom. If an item is not applicable, note why in one line so a cont
   <li><strong>Analytics and session context.</strong> Page views alone are thin for a product. Configure the events you will judge the test on (signup, activation, key action, drop-off step) and confirm they fire in a private browser test. Session recordings help explain where people stall; turn them on only with a clear notice if your traffic is in Switzerland.</li>
   <li><strong>Privacy and contact.</strong> Publish who processes data, for what purpose, and how to reach you. Match what the landing page claims about data use. Swiss law does not require a cookie banner for every site, but profiling, certain transfers, and cross-site tracking need consent; otherwise inform users and give a way to object. When in doubt, ask counsel rather than copying a German template.</li>
   <li><strong>Errors visible to you, not only to users.</strong> Trigger a failure on purpose. Check that your team gets an alert or a log entry without reading the user’s screen. Raw stack traces in the browser are a leak; fix or mask them before scale.</li>
-  <li><strong>Support path.</strong> One monitored inbox or form for «it broke». Someone is named internally for the first 48 hours after launch, even if that person is the founder.</li>
+  <li><strong>Support path.</strong> One monitored inbox or form for "it broke". Someone is named internally for the first 48 hours after launch, even if that person is the founder.</li>
   <li><strong>Promise match.</strong> Headline, store screenshot, and first screen inside the app describe the same job. A surprise upsell or a different persona on day one pollutes interview and retention data.</li>
-  <li><strong>Data you cannot lose.</strong> If users store content or messages, state whether backup and export exist and whether you tested restore. «The host backs up» is not the same as «we tried a restore».</li>
+  <li><strong>Data you cannot lose.</strong> If users store content or messages, state whether backup and export exist and whether you tested restore. "The host backs up" is not the same as "we tried a restore".</li>
   <li><strong>Mobile store readiness, if you ship a wrap.</strong> Apple’s guideline 4.2 expects more than a repackaged website; 4.2.2 rejects pure marketing shells. Plan app-like function before review. For Google Play, new personal developer accounts created after 13 November 2023 must run a closed test with at least 12 testers for 14 continuous days before production. Details sit in [publish an app on the App Store](/blog/publish-an-app-on-the-app-store) and [App Store guideline 4.2](/blog/app-store-guideline-4-2).</li>
-  <li><strong>Written success criteria.</strong> One paragraph: what you will look at for the next two to four weeks, what would count as «stop», and what you will not conclude from a small sample. Without that, every spike feels like traction and every quiet day feels like failure.</li>
+  <li><strong>Written success criteria.</strong> One paragraph: what you will look at for the next two to four weeks, what would count as "stop", and what you will not conclude from a small sample. Without that, every spike feels like traction and every quiet day feels like failure.</li>
   <li><strong>Launch log.</strong> Date, version, who deployed, what was checked, known open risks. You will need it when the first bug report arrives at midnight.</li>
 </ul>
 
@@ -68,11 +68,11 @@ Work top to bottom. If an item is not applicable, note why in one line so a cont
 
 A made-up example: a team of two ships a shift-roster web app for small care homes in German-speaking Switzerland. No payments in v1; managers invite staff by email. They plan a modest LinkedIn test the following Monday.
 
-On Wednesday they run the checklist. Signup and invite work on mobile Safari, but the «publish week» button silently fails when the session is older than an hour; they fix token refresh before any ad spend. Google Analytics events were missing on the invite step; they add one named event and verify in debug view. The privacy page still mentions a product they dropped in beta; they rewrite the purpose line. They decide not to submit an iOS wrap yet because the product is still browser-first and guideline 4.2 would be a gamble. They write success criteria: ten activated homes with at least one published week within 21 days, otherwise pause ads and interview five managers who bounced on invite. The launch log is a shared note with version 0.9.3 and «restore untested».
+On Wednesday they run the checklist. Signup and invite work on mobile Safari, but the "publish week" button silently fails when the session is older than an hour; they fix token refresh before any ad spend. Google Analytics events were missing on the invite step; they add one named event and verify in debug view. The privacy page still mentions a product they dropped in beta; they rewrite the purpose line. They decide not to submit an iOS wrap yet because the product is still browser-first and guideline 4.2 would be a gamble. They write success criteria: ten activated homes with at least one published week within 21 days, otherwise pause ads and interview five managers who bounced on invite. The launch log is a shared note with version 0.9.3 and "restore untested".
 
 The pass took a day. It did not prove homes will pay. It stopped them from buying clicks while invites were broken.
 
-## Common gaps that look like «no demand»
+## Common gaps that look like "no demand"
 
 Broken email delivery, wrong locale on the login screen, and analytics that double-count signups each produce graphs that look like rejection. So does a store rejection you discover only after announcing a launch date. Build store lead time into the calendar when mobile is in scope, not the night before press.
 

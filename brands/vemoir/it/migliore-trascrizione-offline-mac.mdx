@@ -38,15 +38,15 @@ Questo confronto evita le percentuali di accuratezza. La domanda è l'aderenza: 
 Un percorso di trascrizione offline ha quattro controlli.
 
 
-**Il modello è già installato.** Il primo download ha bisogno di internet. I pesi Whisper, Parakeet o il modello vocale che usa l'app non sono magia nel binario, a meno che la sviluppatrice li abbia impacchettati. Vemoir non scarica né sostituisce un modello in silenzio durante una registrazione. Scegli, vedi la dimensione, aspetti, puoi riprendere un download fallito. Dopo, la trascrizione non richiede una connessione.
+**Il modello è già installato.** Il primo download ha bisogno di internet. I pesi Whisper, Parakeet o il modello vocale che usa l'app non sono magicamente presenti nel binario, a meno che siano inclusi nell'app. Vemoir non scarica né sostituisce un modello in silenzio durante una registrazione. Scegli, vedi la dimensione, aspetti, puoi riprendere un download fallito. Dopo, la trascrizione non richiede una connessione.
 
-**L'audio non parte verso un'API vocale.** Trascrizione e separazione speaker, dove il prodotto le ha, girano sul Mac. Un modello di testo in cloud è un altro passo. Se un'app «riparà» a un trascritto cloud quando quello locale è lento, non è offline il giorno in cui ti serviva. La regola di Vemoir è l'opposto: finché non hai attivato esplicitamente la tua chiave OpenAI o Anthropic, la generazione di testo resta locale, e un fallimento non cambia fornitore in silenzio. L'audio non va mai a quella chiave. La chiave è opzionale. Lasciala inutilizzata se offline è il punto.
+**L'audio non parte verso un'API vocale.** Trascrizione e separazione dei parlanti, dove il prodotto le ha, girano sul Mac. Un modello di testo in cloud è un altro passo. Se un'app «ripiega» su un trascritto cloud quando quello locale è lento, non è offline il giorno in cui ti serviva. La regola di Vemoir è l'opposto: finché non hai attivato esplicitamente la tua chiave OpenAI o Anthropic, la generazione di testo resta locale, e un fallimento non cambia fornitore in silenzio. L'audio non va mai a quella chiave. La chiave è opzionale. Lasciala inutilizzata se offline è il punto.
 
 **L'anteprima live non è il dossier.** Una riga parziale sullo schermo durante una chiamata può esistere senza essere il trascritto che archivi. Il testo che fa fede si costruisce dall'audio finito dopo lo stop. Se chiudi a metà chiamata, non aspettarti un trascritto completo dall'anteprima.
 
-**La macchina può farlo girare.** Apple silicon, abbastanza memoria, abbastanza disco. I Mac Intel sono fuori dal requisito Vemoir. Un modello Whisper enorme su un Mac da 8 GB può essere installato e restare un pessimo uso quotidiano. L'app mostra se l'hardware ci sta. Credici. 16 GB è la raccomandazione per le riunioni lunghe. 8 GB e 10 GB liberi sono i minimi per Vemoir, su macOS Sonoma 14.2 o successivo, M1 o più recente.
+**La macchina può farlo girare.** Apple silicon, abbastanza memoria, abbastanza disco. I Mac Intel sono fuori dal requisito Vemoir. Un modello Whisper enorme su un Mac da 8 GB può essere installato e restare poco pratico ogni giorno. L'app mostra se l'hardware basta. Prendilo sul serio. 16 GB sono consigliati per le riunioni lunghe. 8 GB e 10 GB liberi sono i minimi per Vemoir, su macOS Sonoma 14.2 o successivo, M1 o più recente.
 
-Offline non include lo svizzero tedesco come testo dialettale. Prevedi tedesco standard quando il parlato era svizzero tedesco, per i modelli Whisper pubblici e per qualsiasi promessa che saresti tentata di fare. Nessuna data sta su una futura funzione dialetto.
+Offline non include lo svizzero tedesco come testo dialettale. I modelli Whisper pubblici restituiscono tedesco standard anche quando il parlato era svizzero tedesco. Non promettere output dialettale. Nessuna data sta su una futura funzione dialetto.
 
 ## Migliore trascrizione offline per Mac se hai solo un file
 
@@ -57,11 +57,11 @@ Quel percorso, o un'app prima Finder intorno alla stessa idea, è la **scelta mi
 
 - Trascini file e non registri mai una chiamata live.
 - Non vuoi una libreria di riunioni, progetti o bozze di follow-up.
-- Stai comoda nel Terminale, o preferisci un'app la cui interfaccia intera è «lascia un file».
+- Ti trovi a tuo agio nel Terminale, o preferisci un'app la cui interfaccia intera è «lascia un file».
 
-MacWhisper è l'esempio usuale di quella forma prima Finder. Usalo, o qualcosa di simile, quando il deliverable è un file di trascritto. Questo articolo non cita il suo prezzo né una funzione da una pagina che non colleghiamo come scheda tecnica. Leggi la pagina attuale della sviluppatrice. Non aspettarti che sia il sistema di riferimento delle decisioni cliente con responsabili e date. Quello è un altro prodotto.
+MacWhisper è l'esempio usuale di quella forma prima Finder. Usalo, o qualcosa di simile, quando il deliverable è un file di trascritto. Questo articolo non cita il suo prezzo né la lista delle funzioni. Leggi la pagina attuale del fornitore. Non aspettarti che sia il sistema di riferimento delle decisioni cliente con responsabili e date. Quello è un altro prodotto.
 
-Il Whisper fai-da-te è anche il posto se ti serve una dimensione di modello che l'app di riunione non elenca, e accetti il tempo di setup. I modi di fallimento sono tuoi: un sample rate sbagliato, un file che il comando non ha aperto, un trascritto senza timestamp per un flag saltato.
+Il Whisper fai-da-te è anche il posto se ti serve una dimensione di modello che l'app di riunione non elenca, e accetti il tempo di setup. I fallimenti sono a carico tuo: un sample rate sbagliato, un file che il comando non ha aperto, un trascritto senza timestamp per un flag saltato.
 
 Non vai a Whisper grezzo quando l'ora successiva è una chiamata Teams che non hai ancora registrato. Il modello non sente la chiamata. Qualcos'altro deve prima catturare l'audio di sistema.
 
@@ -114,9 +114,9 @@ Non è la migliore trascrizione offline per un'utente Mac con riunioni vere, per
 
 - Massimo 15 minuti.
 - 3 esecuzioni riuscite a settimana.
-- Niente etichette speaker.
+- Niente etichette dei relatori.
 - Niente cattura live. La chiamata deve già essere un file.
-- Nessun flusso di verbale oltre a quello che copi.
+- Nessun processo di verbale oltre a quello che copi.
 
 Usalo per un clip breve su una macchina dove non installerai un'app. Non descriverlo come il registratore di riunioni offline. Non lo è.
 
@@ -128,7 +128,7 @@ Il cloud vince anche quando rifiuti di gestire i download dei modelli e accetti 
 
 I sottotitoli live di macOS sono un'altra funzione. Aiutano a seguire. Non sono un file di riunione con decisioni e un interruttore di conservazione. Non archiviare sottotitoli da una striscia sullo schermo e chiamarli il trascritto.
 
-Le tracce di sottotitoli dei software di montaggio sono migliori quando il prodotto è un video pubblicato. Sono peggiori quando il prodotto è minuti cliente. Scegli l'output per cui sei stata ingaggiata.
+Le tracce di sottotitoli dei software di montaggio sono migliori quando il prodotto è un video pubblicato. Sono peggiori quando il prodotto è minuti cliente. Scegli il risultato che devi consegnare.
 
 ## Un setup che fai una volta, apposta
 
@@ -144,7 +144,7 @@ Quando serve il testo a un'altra persona, esporta la nota. La password del porta
 
 ### Qual è la migliore trascrizione offline per Mac se lascio solo file nel Finder?
 
-Un'installazione Whisper locale o un'app prima file come MacWhisper. Per quel lavoro non ti serve una libreria di riunioni. Conferma il prezzo attuale dell'app con la sviluppatrice.
+Un'installazione Whisper locale o un'app prima file come [MacWhisper](/it/blog/alternativa-a-macwhisper). Per quel lavoro non ti serve una libreria di riunioni. Conferma il prezzo attuale dell'app con la sviluppatrice.
 
 ### Offline include il primo avvio?
 

@@ -1,13 +1,13 @@
 ---
 title: "LLM Kosten App: Budget im MVP"
 description: "LLM Kosten App im MVP: API-Verbrauch, Embeddings, Limits und was ein kleiner Test nicht über Skalierung sagt."
-pubDate: 2027-09-01
+pubDate: 2027-06-06
 author: "Aurum Avis Labs"
 tags: ["mvp", "llm", "api", "kosten", "startup"]
 funnelStage: interest
 translationKey: cost-of-ai-features-in-an-mvp
 relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -24,13 +24,6 @@ Anbieter ändern Listenpreise regelmässig. Was OpenAI, Anthropic, Google oder A
 **Embeddings und Suche.** Text wird in Vektoren umgewandelt, gespeichert und abgefragt. Für fünfzig Dokumente im Pilot reicht oft ein kleiner Managed-Service. Für viele Mandanten mit getrennten Datenbeständen entscheidet die Architektur über den Preis stärker als das Modell-Logo.
 
 **Leitplanken.** Rate Limits, Protokollierung, Budget-Warnungen und eine menschliche Freigabe erscheinen nicht als eigene Zeile auf der API-Rechnung, verhindern aber, dass ein viraler Post die Woche sprengt.
-
-<ul class="blog-facts">
-  <li><span class="blog-kicker">Variabel</span><strong>Pro Aufruf</strong><p>Die Hauptkosten skalieren mit Nutzung, nicht mit der App-Lizenz.</p></li>
-  <li><span class="blog-kicker">Speicher</span><strong>Embeddings</strong><p>Vektoren und Index kosten neben dem Chat-Modell.</p></li>
-  <li><span class="blog-kicker">Fix im Kopf</span><strong>Engineering</strong><p>Caps, Logs und Fallback ohne KI sind Teil des Features.</p></li>
-  <li><span class="blog-kicker">Preise</span><strong>Wöchentlich prüfen</strong><p>Listen auf den Anbieterseiten, nicht in Blogartikeln.</p></li>
-</ul>
 
 ## Checkliste vor dem ersten echten Nutzer
 

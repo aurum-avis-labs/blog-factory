@@ -45,20 +45,13 @@ You start and stop from the menu bar. Both tracks stay on the Mac unless you exp
 
 Microphone capture is its own session, separate from the system-audio tap. You choose the mic. A headset mic hears you and little of the room. A laptop mic hears the room and, if the remote audio is on speakers, some of the call as well. That overlap is ordinary physics, not a third recording mode.
 
-The system-audio track is the meeting as the Mac plays it. Vemoir uses an audio-only Core Audio tap and leaves itself out of that tap, so the app does not feed its own playback back into the recording. The permission macOS uses for this is System Audio Recording.
+The system-audio track is the meeting as the Mac plays it. Vemoir captures meeting audio only and leaves its own playback out, so the app does not feed its own sound back into the recording. The permission macOS asks for is Screen Recording, and Vemoir uses it for audio only.
 
 [Microphone noise suppression](/blog/microphone-noise-suppression) applies to the mic track only, in Off, Balanced, or Strong. It does not clean the system-audio track.
 
 ## The permission is audio, not the screen
 
-Older notes about Mac apps often say that capturing another app's sound requires Screen Recording. That was the permission name people learned. The shipped Vemoir app asks for System Audio Recording. It captures meeting audio. It does not record screen contents, pixels, or video of your desktop.
-
-
-<aside class="blog-callout">
-  <span class="blog-kicker">Note</span>
-  <p>macOS asks for System Audio Recording for the call track. That permission is audio-only. It does not record screen pixels.</p>
-</aside>
-
+Older notes about Mac apps often say that capturing another app's sound requires Screen Recording. That is the permission Vemoir asks for, and the name overstates what happens. It captures meeting audio only. It does not record screen contents, pixels, or video of your desktop.
 
 You still grant microphone access for your own track. Those are two permissions for two sources. Denying system audio leaves you with the mic. Denying the mic leaves you with the call, and with almost none of your own voice unless it leaks through speakers into another mic you did not intend to use.
 
@@ -82,7 +75,7 @@ Vemoir's shipped live capture is **microphone plus system audio** for a call the
 
 If several colleagues sit around one laptop with no remote participants, the system track stays quiet. The mic picks up whoever is loudest near it. Speaker separation after the stop may still cluster voices, but you should expect one dominant local voice, not a boardroom with assigned seats.
 
-For a room-first workflow, a recorder meant for the table, or a file you import afterward, is often clearer. The browser tool at [/tools/transcribe-recording](/tools/transcribe-recording) handles a short clip you already have, up to 15 minutes, with three successful runs a week, and does not upload the file. It does not label speakers. Longer takes and live two-track capture stay in the Mac app.
+For a room-first workflow, a recorder meant for the table, or a file you import afterward, is often clearer. The [transcribe recording tool](/tools/transcribe-recording) handles a short clip you already have, up to 15 minutes, with three successful runs a week, and does not upload the file. It does not label speakers. Longer takes and live two-track capture stay in the Mac app.
 
 ## When one track is the wrong tool
 
@@ -98,7 +91,7 @@ Headphones change the system track in a useful way: the remote voices stay in th
 
 After a call, play the system track first if you kept the audio. You should hear the remote side. Then check the mic track for your voice. That order tells you whether the problem is the call path or your microphone settings.
 
-A flat system track while people were talking on the call usually means the meeting app was muted, output went to another device, or System Audio Recording was denied. Fix setup under [capture](/#capture) or in macOS Privacy settings. It is not solved by switching microphones.
+A flat system track while people were talking on the call usually means the meeting app was muted, output went to another device, or Screen Recording was denied. Fix setup under [capture](/#capture) or in macOS Privacy settings. It is not solved by switching microphones.
 
 ## What happens after you stop
 
@@ -118,7 +111,7 @@ They are captured as separate local tracks: the selected microphone, and macOS s
 
 ### Does Vemoir record my screen to get the call audio?
 
-No. The call track uses System Audio Recording through an audio-only tap. Screen contents are not recorded.
+No. The call track uses the Screen Recording permission for audio only. Screen contents are not recorded.
 
 ### Will the other people see a bot?
 
@@ -142,6 +135,6 @@ Apple silicon, M1 or newer, macOS Sonoma 14.2 or later, at least 8 GB of memory 
 
 ### Where do I turn the tracks on?
 
-Pick the microphone, allow System Audio Recording, and start from the menu bar. The [capture section](/#capture) is the map for those controls. Noise reduction, if you want it, is only on the mic, in Off, Balanced, or Strong.
+Pick the microphone, allow Screen Recording, and start from the menu bar. The [capture section](/#capture) is the map for those controls. Noise reduction, if you want it, is only on the mic, in Off, Balanced, or Strong.
 
 The next meeting is the test: headphones on, both permissions allowed, record from the menu bar, and stop when the call ends. [Capture](/#capture) shows where the two sources sit.

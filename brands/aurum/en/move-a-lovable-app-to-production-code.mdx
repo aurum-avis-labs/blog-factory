@@ -1,13 +1,13 @@
 ---
 title: "Move a Lovable app to production code"
 description: "Move a Lovable app to production code: sync to GitHub, own Supabase, fix secrets and RLS, then deploy outside Lovable. What export does not fix."
-pubDate: 2027-09-01
+pubDate: 2027-05-25
 author: "Aurum Avis Labs"
 tags: ["lovable", "production", "supabase", "github", "vibe coding"]
 funnelStage: consideration
 translationKey: move-a-lovable-app-to-production-code
 relatedPosts: ["tech-due-diligence-for-an-ai-built-mvp", "fake-door-test-vs-mvp"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -57,20 +57,20 @@ A repo on GitHub and a custom domain show you can leave the editor. They do not 
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>Export is a handover step, not a certificate. If you open signup to the public internet while row level security is still «whatever Lovable suggested», you are carrying the same risk as before, only with your logo on the URL.</p>
+  <p>Export is a handover step, not a certificate. If you open signup to the public internet while row level security is still "whatever Lovable suggested", you are carrying the same risk as before, only with your logo on the URL.</p>
 </aside>
 
 The six production questions in [is your vibe-coded app production ready](/blog/is-your-vibe-coded-app-production-ready) still apply after export. Use them before you widen access.
 
 ## A made-up example: from shared preview to pilot host
 
-A made-up example: a two-person team in Bern built a supplier order draft in Lovable for caterers they met at trade fairs. Six chefs tested it; one returned without a reminder. A mid-size firm agreed to a paid pilot if the app runs on the firm's subdomain and a short security memo exists. On Monday they connect GitHub and clone the repo. Tuesday they find a service role key in a committed <code>.env.example</code> and rotate keys in Supabase. Wednesday they write three row level tests and discover draft orders were readable across accounts; they fix policies before Thursday's deploy to a static host. Friday the pilot runs on the new URL; Lovable stays connected for experiments on a branch, not for production traffic. They book a structured review before opening signup beyond the pilot list.
+A made-up example: a two-person team in eastern Switzerland built a supplier order draft in Lovable for caterers they met at trade fairs. Six chefs tested it; one returned without a reminder. A mid-size firm agreed to a paid pilot if the app runs on the firm's subdomain and a short security memo exists. On Monday they connect GitHub and clone the repo. Tuesday they find a service role key in a committed <code>.env.example</code> and rotate keys in Supabase. Wednesday they write three row level tests and discover draft orders were readable across accounts; they fix policies before Thursday's deploy to a static host. Friday the pilot runs on the new URL; Lovable stays connected for experiments on a branch, not for production traffic. They book a structured review before opening signup beyond the pilot list.
 
 ## Who should not rush export
 
 If you have fewer than ten serious sessions and no signal that anyone returns, export is distraction. If your only goal is a slide for a board meeting, a recording of the Lovable preview may suffice until behaviour data exists.
 
-Teams with no one who can read TypeScript and SQL should not equate «we have GitHub» with «we can operate this». Either hire that skill, buy a review, or scope a rebuild.
+Teams with no one who can read TypeScript and SQL should not equate "we have GitHub" with "we can operate this". Either hire that skill, buy a review, or scope a rebuild.
 
 ## When a Vibe Code Review fits
 

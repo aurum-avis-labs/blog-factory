@@ -1,19 +1,19 @@
 ---
 title: "Tech due diligence for an AI-built MVP"
 description: "Tech due diligence for an AI-built MVP: what investors check, how to prepare a Lovable or Cursor codebase, and what the review does not prove."
-pubDate: 2027-09-01
+pubDate: 2027-06-04
 author: "Aurum Avis Labs"
 tags: ["due diligence", "mvp", "vibe coding", "startup", "security"]
 funnelStage: consideration
 translationKey: tech-due-diligence-for-an-ai-built-mvp
 relatedPosts: ["move-a-lovable-app-to-production-code", "fake-door-test-vs-mvp"]
-draft: true
+draft: false
 site: studio
 ---
 
 ## Tech due diligence for an AI-built MVP
 
-**Tech due diligence for an AI-built MVP** is the structured pass an investor, acquirer, or corporate innovation lead runs on your product before they trust it with capital, a pilot contract, or a board slot. They are not asking whether the demo looks clever. They want to know who owns the code, whether strangers can read each other’s data, what breaks at modest load, and how you would fix a security issue without guessing. An app born in Lovable, Bolt, v0, Replit, Cursor, or Claude Code can pass that pass, but only if you treat the export like software, not like a slide deck with a login.
+**Tech due diligence for an AI-built MVP** is the structured pass an investor, acquirer, or corporate innovation lead runs on your product before they trust it with capital, a pilot contract, or a board slot. They are not asking whether the demo looks clever. They want to know who owns the code, whether strangers can read each other's data, what breaks at modest load, and how you would fix a security issue without guessing. An app born in Lovable, Bolt, v0, Replit, Cursor, or Claude Code can survive that review, but only if you treat the export like software, not like a slide deck with a login.
 
 This article is for founders and innovation leads in Switzerland who already have users or a term sheet in sight, and for anyone preparing answers before an external reviewer opens the repository. It is not legal advice on investment documents, and it does not replace a full penetration test when the buyer insists on one.
 
@@ -60,9 +60,9 @@ Technical diligence on a young product usually spans four buckets. Commercial di
   </div>
 </dl>
 
-Ideas as such are not protectable under Swiss law; the implementation is. If an external author wrote components, copyright stays with the author until a written assignment says otherwise. Software created by employees in the course of work belongs to the employer ([Art. 17 URG](https://www.rentschpartner.ch/ict-law/schutz-von-software)). Your data room should show Git history, dependency licences, and contracts, not a slide that says «we own everything».
+Ideas as such are not protectable under Swiss law; the implementation is. If an external author wrote components, copyright stays with the author until a written assignment says otherwise. Software created by employees in the course of work belongs to the employer ([Art. 17 URG](https://www.rentschpartner.ch/ict-law/schutz-von-software)). Your data room should show Git history, dependency licences, and contracts, not a slide that says "we own everything".
 
-AI-assisted builds add predictable friction. Generated row-level rules may look green in a dashboard yet fail when the public client key calls the API directly, the pattern behind [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757) on Lovable-linked Supabase projects. Secrets copied into the client bundle, admin routes without server checks, and «works on my machine» deploy scripts are common. None of that means the tool was wrong for validation; it means diligence will ask for proof, not promises.
+AI-assisted builds add predictable friction. Generated row-level rules may look green in a dashboard yet fail when the public client key calls the API directly, the pattern behind [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757) on Lovable-linked Supabase projects. Secrets copied into the client bundle, admin routes without server checks, and "works on my machine" deploy scripts are common. None of that means the tool was wrong for validation; it means diligence will ask for proof, not promises.
 
 For load, monitoring, and deploy discipline before you invite scrutiny, use [is your vibe-coded app production-ready](/blog/is-your-vibe-coded-app-production-ready) as a self-check. Diligence goes deeper, but those six questions surface gaps investors notice early.
 
@@ -81,14 +81,14 @@ You do not need a perfect system. You need an honest map and fixes for anything 
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>Technical diligence does not prove product-market fit, defensibility of the idea, or that your go-to-market works. It also does not replace statutory privacy work, employment law on monitoring, or a buyer-mandated penetration test. Treat a clean technical pass as «safe to scale engineering», not «safe to stop selling».</p>
+  <p>Technical diligence does not prove product-market fit, defensibility of the idea, or that your go-to-market works. It also does not replace statutory privacy work, employment law on monitoring, or a buyer-mandated penetration test. Treat a clean technical pass as "safe to scale engineering", not "safe to stop selling".</p>
 </aside>
 
 ## A made-up example: seed round with a Cursor and Supabase stack
 
 A made-up example: a two-founder B2B SaaS in Zug, not a client. They validated pricing with fifteen pilot users on an app scaffolded in Cursor with Supabase auth and Postgres. A Swiss angel syndicate asks for technical diligence before wiring.
 
-The founders tag `v0.9.4-prod`, write the runtime diagram, and run two-account tests. They find that an edge function returns any project row when the UUID is guessed; they patch policy rules before the reviewer call. They list CVE-related RLS patterns they tested explicitly, rotate an old anon key still present in a commented line, and note «restore untested» on backups. The external reviewer spends a day on repo access, a recorded architecture walkthrough, and a short written follow-up. Findings are mostly operability (no staging environment, one founder holds production keys) rather than «throw the codebase away». The round closes with a condition to add monitoring and shared deploy access within ninety days.
+The founders tag `v0.9.4-prod`, write the runtime diagram, and run two-account tests. They find that an edge function returns any project row when the UUID is guessed; they patch policy rules before the reviewer call. They list CVE-related RLS patterns they tested explicitly, rotate an old anon key still present in a commented line, and note "restore untested" on backups. The external reviewer spends a day on repo access, a recorded architecture walkthrough, and a short written follow-up. Findings are mostly operability (no staging environment, one founder holds production keys) rather than "throw the codebase away". The round closes with a condition to add monitoring and shared deploy access within ninety days.
 
 The example is invented. Real timelines and checklists vary by firm. The point is preparation turned a would-be red flag into a scoped remediation plan.
 

@@ -12,11 +12,13 @@ image: "@/assets/blog/record-zoom-meeting-mac/hero.jpg"
 draft: false
 
 ---
-You **record a Zoom meeting on Mac** during the call in two different ways, and they should not be collapsed into one. Zoom's Record button writes Zoom's own file, on this computer or in the cloud, and Zoom's banner tells the room. A menu-bar app records the microphone and the sound coming out of the speakers while the call runs, and Zoom does not treat that as its recorder. This page is the during-the-call path. If you already finished the meeting and you are looking for `Documents/Zoom` and an `audio_only.m4a` Zoom saved itself, use [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording) instead.
+You **record a Zoom meeting on Mac** during the call in two different ways, and they should not be collapsed into one. Zoom's Record button writes Zoom's own file, on this computer or in the cloud, and Zoom's banner tells the room. A menu-bar app records the microphone and the sound coming out of the speakers while the call runs, and Zoom does not treat that as its recorder. This page is the during-the-call path. If you already finished the meeting and you are looking for `Documents/Zoom` and an `audio_only.m4a` Zoom saved itself, use [transcribe a local Zoom recording](/blog/zoom-local-recording-transcript) instead.
 
 This is not legal advice. Say that you are recording before you start.
 
 ## What Zoom records during the call
+
+Zoom distinguishes between recording on this Mac and recording to the cloud. Both are Zoom's own recorder, not a menu-bar app. Which option you see depends on the host's account type and the meeting settings.
 
 If you are the host or a co-host, Zoom shows Record. "Record on this computer" writes a local file. "Record to the cloud" writes to Zoom's cloud, and a cloud transcript is part of that cloud feature set, not of the free local file. Local recording is audio and video that Zoom saved. It is not a text transcript by itself. The folder Zoom uses, and how to transcribe the local audio afterward, is the other article linked above. Do not hunt for that folder while the call is still open.
 
@@ -60,20 +62,17 @@ A menu-bar capture fits when you are not allowed to press Record, when you want 
 
 ## After the call: a short file versus the whole meeting
 
-When the meeting is over and you only have a short clip, the browser tool [transcribe a Zoom recording](/tools/transcribe-zoom-recording) turns that file into text without uploading it. Limits: 15 minutes, 3 successful runs a week, MP3, M4A, WAV, or MP4, no speaker labels. A one-hour Zoom call does not fit that tool. The during-the-call Mac app is the path for the whole meeting.
+When the meeting is over and you only have a short clip, the browser tool [transcribe a Zoom recording](/tools/transcribe-zoom-recording) turns that file into text without uploading it. Limits: 15 minutes, 3 successful runs a week, MP3, M4A, WAV, or MP4, no speaker labels. A one-hour Zoom call does not fit that tool. Longer recordings import into the Mac app as MP3, M4A, WAV, AIFF, CAF, or FLAC once you have stopped recording. The during-the-call Mac app is the path for the whole meeting.
 
-If Zoom already wrote `audio_only.m4a` because you used Record on this computer, follow [transcribe a local Zoom recording](/blog/transcribe-zoom-local-recording) for the Finder path. Use this article when the decision is still in front of you, before Record or the menu bar.
+If Zoom already wrote `audio_only.m4a` because you used Record on this computer, follow [transcribe a local Zoom recording](/blog/zoom-local-recording-transcript) for the Finder path. Use this article when the decision is still in front of you, before Record or the menu bar.
 
 Typed notes during the call can be folded into the Mac record. Sharing uses the macOS share sheet. There is no team workspace and no CRM export.
 
 ## What this path does not do
 
-It does not replace Zoom cloud transcript for a company that has standardized on Zoom cloud and is allowed to use it. It does not make the recording lawful: you tell participants, and the app does not claim a certified transcript. Speaker labels in the 15-minute browser tool are not available; speaker separation is on the Mac after you stop. It does not run on a Windows laptop in the guest's meeting.
+It does not replace Zoom cloud transcript for a company that has standardized on Zoom cloud and is allowed to use it. It does not make the recording lawful: you tell participants, and the app does not claim a certified transcript. Speaker labels in the 15-minute browser tool are not available; speaker separation is on the Mac after you stop. It does not run on a Windows laptop.
 
-<aside class="blog-callout blog-callout--limit">
-  <span class="blog-kicker">Limit</span>
-  <p>Zoom's recorder needs host permission and the right account features. A menu-bar app does not write Zoom's file or trigger Zoom's in-meeting banner.</p>
-</aside>
+If you want to avoid Otter, Fireflies, or another bot in the participant list, the menu bar remains an option, as long as you announce the recording yourself. A bot and a local capture do not answer the same policy question. They only change who appears in the list and where the file lands.
 
 ## Frequently asked questions
 
@@ -99,10 +98,12 @@ CHF 20 in Switzerland, €24.99 in Germany, Austria, France, and Italy, $22.99 i
 
 ### Can I record the call and use Zoom cloud too?
 
-Yes, you will have two recordings. Pick the one that matches the rule you already told the room about, and delete the other if you were only testing.
+Yes, you will have two recordings. Pick the one that matches the rule you already told the room about.
 
 ### Does Vemoir join Zoom as a participant?
 
 No. It records locally. The roster does not change.
+
+Before your first real call, allow the two permissions in advance, so macOS does not interrupt the meeting with a prompt mid-consent.
 
 For a short file after the call, open [transcribe a Zoom recording](/tools/transcribe-zoom-recording). For the next live Zoom meeting on Apple silicon, start the menu-bar capture before the discussion you need to keep, and say so when people join.

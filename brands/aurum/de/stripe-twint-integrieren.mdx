@@ -1,13 +1,13 @@
 ---
 title: "Stripe TWINT integrieren im MVP: Ablauf und Grenzen"
 description: "Stripe TWINT integrieren: wann Zahlung ins MVP gehört, Checkout mit TWINT in der Schweiz, und was eine Zahlung beweist."
-pubDate: 2027-09-01
+pubDate: 2027-06-21
 author: "Aurum Avis Labs"
 tags: ["mvp", "stripe", "twint", "zahlungen", "schweiz"]
 funnelStage: interest
 translationKey: payments-in-a-swiss-mvp
 relatedPosts: ["skalierbares-mvp", "tech-stack-startup"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -15,7 +15,7 @@ site: studio
 
 Stripe TWINT integrieren lohnt sich im MVP, wenn Zahlungsbereitschaft die offene Frage ist. Sie richten Stripe Checkout oder das Payment Element ein, aktivieren TWINT für Kundinnen und Kunden in der Schweiz, testen zuerst im Testmodus mit einem echten Preis, dann live mit einer kleinen Gruppe, die weiss, dass es ein Pilot ist. Sie bauen keine Finanzabteilung. Sie prüfen, ob jemand den Checkout für genau dieses Angebot abschliesst.
 
-Der Text richtet sich an Gründerinnen, Gründer und Innovationsverantwortliche mit einem engen Produkt, die eine schweiztaugliche Bezahlmöglichkeit brauchen, nicht an Teams, die das Problem noch nicht festgezurrt haben. Wenn der Test Anmeldungen oder eine Warteliste ist, bringt ein Fake-Button die falsche Antwort. Wenn der Test lautet «zahlen sie CHF 29 für diesen Report?», gehört Zahlung in Woche eins. Wie weit Sie vorher in Richtung Produktionsqualität gehen, ist eine eigene Entscheidung, beschrieben in [warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps).
+Der Text richtet sich an Gründerinnen, Gründer und Innovationsverantwortliche mit einem engen Produkt, die eine schweiztaugliche Bezahlmöglichkeit brauchen, nicht an Teams, die das Problem noch nicht festgezurrt haben. Wenn der Test Anmeldungen oder eine Warteliste ist, bringt ein Fake-Button die falsche Antwort. Wenn der Test lautet «zahlen sie CHF 29 für diesen Report?», gehört Zahlung in Woche eins. Wie weit Sie vorher in Richtung Produktionsqualität gehen, ist eine eigene Entscheidung, beschrieben in [warum wir produktionsqualitative MVPs bauen](/de/blog/warum-produktionsqualitative-mvps). Bei der Stackwahl hilft [Tech-Stack Startup](/de/blog/tech-stack-startup).
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Die Zahlungs-Hypothese in einem Satz</h3><p>Beispiel: «Mindestens drei von zehn Pilotnutzerinnen zahlen einmal für Funktion X.» Ohne Preis und Erfolgszahl kein Code.</p></li>
@@ -80,6 +80,6 @@ Testmodus und TWINT-Verhalten in den Stripe-Dokumenten durchspielen, bevor die F
 
 ## Wann das Produktvalidierungs-Paket passt
 
-Das [Produktvalidierungs-Paket](/de/services/mvp-validation) passt, wenn Zahlung eines von mehreren Signalen ist, die Sie in zwölf Wochen zeigen müssen: deployte Web-App, Landingpage, bezahlte Akquise und gemessene Conversion, mit Raum für bis zu zwei Pivot-Schleifen, wenn Checkout funktioniert, der Kanal aber nicht. Wir bauen auf Azure mit React und NestJS, nicht durch Ankleben von TWINT an ein Wegwerf-Mockup. Wenn Sie nur wissen wollen, ob drei Kontakte per TWINT für ein PDF zahlen, reicht Stripe Checkout auf einer bestehenden Seite oft ohne Build-Partner.
+Das [Produktvalidierungs-Paket](/de/services/mvp-validation) passt, wenn Zahlung eines von mehreren Signalen ist, die Sie in zwölf Wochen zeigen müssen: deployte Web-App, Landingpage, bezahlte Akquise und gemessene Conversion, mit Raum für bis zu drei Pivot-Iterationen, wenn Checkout funktioniert, der Kanal aber nicht. Wir bauen auf Azure mit React und NestJS, nicht durch Ankleben von TWINT an ein Wegwerf-Mockup. Wenn Sie nur wissen wollen, ob drei Kontakte per TWINT für ein PDF zahlen, reicht Stripe Checkout auf einer bestehenden Seite oft ohne Build-Partner.
 
 Wenn Sie auf einer Vibe-Code-App bereits Geld genommen haben und Sorge vor dem Unterbau haben, ist «Zahlungstest bestanden» nicht gleichbedeutend mit Security-Review. Beides sind getrennte Entscheidungen.

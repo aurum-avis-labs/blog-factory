@@ -1,19 +1,19 @@
 ---
 title: "Cost of AI features in an MVP"
 description: "Cost of AI features in an MVP: token use, embeddings, guardrails, and what a small test does not prove about scale."
-pubDate: 2027-09-01
+pubDate: 2027-06-06
 author: "Aurum Avis Labs"
 tags: ["mvp", "llm", "api costs", "product validation", "startup"]
 funnelStage: interest
 translationKey: cost-of-ai-features-in-an-mvp
 relatedPosts: ["building-an-mvp-with-lovable", "lovable-supabase-row-level-security"]
-draft: true
+draft: false
 site: studio
 ---
 
 ## Cost of AI features in an MVP
 
-The cost of AI features in an MVP is mostly variable spend on inference and storage, plus the engineering time to gate, log, and cap those calls. A one-off licence fee is rarely the whole story. You pay per token or per request on the vendor you choose, you may pay for embeddings and a vector index, and you still pay for the human loop when the model is wrong. This page is for founders and innovation leads in Switzerland who want a honest budget before they wire ChatGPT or another API into a validation build, not a price list that goes stale next month.
+The cost of AI features in an MVP is mostly variable spend on inference and storage, plus the engineering time to gate, log, and cap those calls. A one-off licence fee is rarely the whole story. You pay per token or per request on the vendor you choose, you may pay for embeddings and a vector index, and you still pay for the human loop when the model is wrong. This page is for founders and innovation leads in Switzerland who want an honest budget before they wire ChatGPT or another API into a validation build, not a price list that goes stale next month.
 
 Model list prices move. OpenAI, Anthropic, Google, and Azure publish current rates on their own pricing pages; read the page in the week you ship and bake a buffer for retries, longer prompts, and tests you run yourself. This article does not quote those numbers. If you need a franc figure for the board, build a spreadsheet from your own prompt length, expected sessions, and the vendor page that day.
 
@@ -25,26 +25,7 @@ Inference is usually priced on input and output tokens. A short classification o
 
 Embeddings and search add a second meter. You pay to turn text into vectors, you pay to store them, and you pay again when you query a hosted index. For an MVP that only needs search across fifty uploaded documents, a small managed service is often enough. For thousands of tenants with private corpora, the architecture choice matters more than the model brand.
 
-Guardrails are the third cost people forget. Rate limits, content filters, logging, and a human review queue are not line items on the API invoice, but they decide whether a viral TikTok post becomes a five-figure week. Budget alerts on the cloud account are part of the feature, not an ops afterthought.
-
-<dl class="blog-terms">
-  <div>
-    <dt>Token</dt>
-    <dd>A chunk of text the API meters; input and output are billed separately on most vendors.</dd>
-  </div>
-  <div>
-    <dt>Embedding</dt>
-    <dd>A numeric representation of text used for similarity search, usually billed per token embedded.</dd>
-  </div>
-  <div>
-    <dt>Inference</dt>
-    <dd>One model run: your prompt plus whatever the model returns.</dd>
-  </div>
-  <div>
-    <dt>Cap</dt>
-    <dd>A hard stop in code or in the vendor console so spend cannot run away during a test.</dd>
-  </div>
-</dl>
+Guardrails are the third cost people forget. Rate limits, content filters, logging, and a human review queue are not line items on the API invoice, but they decide whether a viral post becomes a five-figure week. Budget alerts on the cloud account are part of the feature, not an ops afterthought.
 
 ## A checklist before you turn the feature on
 
@@ -59,7 +40,7 @@ Guardrails are the third cost people forget. Rate limits, content filters, loggi
 
 ## A made-up example: weekly menu drafts
 
-A made-up example: a founder in Bern tests whether small event caterers will accept AI-drafted supplier orders from a short menu list. Ten caterers get access for two weeks. Each draft calls the API twice: once to turn three bullet ingredients into line items, once to polish the email text. Early tests used long system prompts copied from a blog; after logging, they cut the system block by half and moved static instructions into code. Average tokens per draft fell, but one caterer pasted a full wedding brief into the free-text field and burned a day's budget in an afternoon. They added a character limit, a warning, and a "send anyway" path that still worked without the model. The pilot proved that chefs would click "send draft", not that inference at five hundred active users would stay under CHF 500 per month. That second question needs caching, model choice, and load assumptions, not another week of prompts alone.
+A made-up example: a founder in Lucerne tests whether small event caterers will accept AI-drafted supplier orders from a short menu list. Ten caterers get access for two weeks. Each draft calls the API twice: once to turn three bullet ingredients into line items, once to polish the email text. Early tests used long system prompts copied from a blog; after logging, they cut the system block by half and moved static instructions into code. Average tokens per draft fell, but one caterer pasted a full wedding brief into the free-text field and burned a day's budget in an afternoon. They added a character limit, a warning, and a "send anyway" path that still worked without the model. The pilot proved that chefs would click "send draft", not that inference at five hundred active users would stay under CHF 500 per month. That second question needs caching, model choice, and load assumptions, not another week of prompts alone.
 
 ## What the cost of AI features in an MVP does not prove
 

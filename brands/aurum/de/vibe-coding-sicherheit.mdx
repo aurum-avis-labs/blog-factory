@@ -1,19 +1,19 @@
 ---
 title: "Vibe Coding Sicherheit: Checkliste vor echten Nutzenden"
 description: "Vibe Coding Sicherheit prüfen: Schlüssel, Login, Zeilenzugriff, Speicher, Logs. Was die Checkliste beweist, was nicht, und wann ein Review passt."
-pubDate: 2027-09-01
+pubDate: 2027-05-12
 author: "Aurum Avis Labs"
 tags: ["vibe coding", "sicherheit", "mvp", "supabase", "schweiz"]
 funnelStage: interest
 translationKey: vibe-coding-security-checklist
 relatedPosts: ["lovable-mvp", "lovable-supabase-rls"]
-draft: true
+draft: false
 site: studio
 ---
 
 ## Vibe Coding Sicherheit in einer Checkliste
 
-**Vibe Coding Sicherheit** prüfen Sie mit einer kurzen, wiederholbaren Checkliste, bevor Fremde ein Konto anlegen, bevor Zahlungsdaten im Spiel sind oder bevor eine Pilotkundin eine Frage zu Datenschutz und Zugriff stellt. Gemeint ist der Stand nach Lovable, Bolt, v0, Replit, Cursor oder Claude Code: funktionsfähig im Browser, oft mit Supabase oder ähnlichem Backend, selten mit durchgetesteten Grenzfällen.
+**Vibe Coding Sicherheit** prüfen Sie mit einer kurzen, wiederholbaren Checkliste, bevor Fremde ein Konto anlegen, bevor Zahlungsdaten im Spiel sind oder bevor ein Pilotkunde eine Frage zu Datenschutz und Zugriff stellt. Gemeint ist der Stand nach Lovable, Bolt, v0, Replit, Cursor oder Claude Code: funktionsfähig im Browser, oft mit Supabase oder ähnlichem Backend, selten mit durchgetesteten Grenzfällen.
 
 Sie streben keine Zertifizierung an. Sie suchen typische Lücken: Schlüssel im Client, Regeln in der Datenbank, die im Dashboard grün wirken und im Test nicht halten, Admin-Pfade ohne echte Prüfung. Wer Last, Monitoring und Deploy diszipliniert sehen will, ergänzt diese Liste mit [ist Ihre vibe-coded App produktionsreif](/de/blog/ist-deine-vibe-coded-app-produktionsreif).
 
@@ -23,7 +23,7 @@ Sie streben keine Zertifizierung an. Sie suchen typische Lücken: Schlüssel im 
     <ul>
       <li>Nutzende ausserhalb Ihres engen Kreises Konten erstellen können</li>
       <li>Personendaten, Dateien oder Nachrichten von Kundschaft gespeichert werden</li>
-      <li>eine B2B-Kundin, ein Treuhänder oder die IT nach Standort und Zugriff fragt</li>
+      <li>ein B2B-Kunde, ein Treuhänder oder die IT nach Standort und Zugriff fragt</li>
       <li>Sie den Code behalten und später an Entwicklung übergeben wollen</li>
     </ul>
   </div>
@@ -57,9 +57,9 @@ Der Reihe nach abarbeiten. Ist ein Punkt «nicht anwendbar», eine Zeile Begrün
 
 <ul class="blog-checklist">
   <li><strong>Oberflächen inventarisieren.</strong> Alle Wege für Daten rein und raus: Web-UI, Mobile-Wrap, Serverless-Funktionen, Webhooks, E-Mail-Auslöser, jede «Admin»-URL aus der Entwicklung.</li>
-  <li><strong>Geheimnisse nur serverseitig.</strong> Repository und gebautes Client-Bundle nach Service-Role-Keys, Signaturgeheimnissen und Tokens durchsuchen. Nichts, was fremde Zeilen lesen kann, gehört in Front-end-Code oder in ein öffentliches Git-Repo.</li>
+  <li><strong>Geheimnisse nur serverseitig.</strong> Repository und gebautes Client-Bundle nach Service-Role-Keys, Signaturgeheimnissen und Tokens durchsuchen. Nichts, was fremde Zeilen lesen kann, gehört in Frontend-Code oder in ein öffentliches Git-Repo.</li>
   <li><strong>Authentifizierung auf jedem schreibenden Pfad.</strong> Login in der UI reicht nicht. Jede API-Route oder Edge-Funktion ohne Session, mit abgelaufenem Token und mit Token eines anderen Kontos aufrufen. Unglückliche Pfade sollen hart abbrechen.</li>
-  <li><strong>Autorisierung wie im Produktversprechen.</strong> Wenn nur die Eigentümerin ein Projekt sieht, mit zwei Testkonten belegen. UI-Verstecken ist keine Sicherheit. Row-Level-Security, Policy-Regeln oder Serverprüfungen müssen zu dem passen, was Sie schriftlich zusagen.</li>
+  <li><strong>Autorisierung wie im Produktversprechen.</strong> Wenn nur der Eigentümer ein Projekt sieht, mit zwei Testkonten belegen. UI-Verstecken ist keine Sicherheit. Row-Level-Security, Policy-Regeln oder Serverprüfungen müssen zu dem passen, was Sie schriftlich zusagen.</li>
   <li><strong>Storage-Buckets und öffentliche Links.</strong> Welche Buckets sind öffentlich? «Private» Datei-URL im ausgeloggten Browser öffnen. Upload-Pfade dürfen nicht erlauben, dass Nutzende fremde Objekte per erratener ID überschreiben.</li>
   <li><strong>Datenregion und Unterauftragnehmer.</strong> Region notieren (bei Supabase ist unter anderem Zürich, eu-central-2, wählbar) und jede Stelle, die Personendaten speichert oder bearbeitet. Das brauchen Sie für Kundenfragen und Verträge.</li>
   <li><strong>Abhängigkeiten.</strong> Audit-Befehl der Plattform auf die Lockdatei laufen lassen, die Sie wirklich deployen. Kritische Findings triagieren, bevor Sie den Kreis erweitern, auch wenn der Prototyp «letzte Woche noch lief».</li>
@@ -80,12 +80,7 @@ Der Nachmittag stoppte einen einfachen Mandanten-Übergriff und lieferte etwas E
 
 Bleiben mehrere Punkte offen oder verlangt eine Kundin Nachweise gegen einen Standard, lohnt sich ein strukturiertes Review mehr als ein weiterer Abend Raten. Das [Vibe Code Review](/de/services/vibe-code-review) von Aurum richtet sich an Apps aus Cursor, Lovable, v0 oder Claude Code. Die Arbeit wird an OWASP ASVS v5.0 gespiegelt. Sie erhalten einen Gap-Report, rund acht Stunden zu Architektur und Codequalität, eine priorisierte P0/P1/P2-Massnahmenliste, ein abschliessendes Gespräch und eine NDA.
 
-Das passt, wenn Sie den Code behalten, zahlende B2B-Nutzende in der Schweiz onboarden oder das Projekt an ein internes Team ohne Wochen Archäologie übergeben wollen. Bei Fake-Daten und fünf Bekannten zum Texttesten reicht Discovery. Ein Review buchen Sie, wenn Zugriff und Datenstandort Umsatz oder eine Partnerschaft blockieren, nicht wenn nur noch ein Feature-Prompt fehlt.
-
-<div class="blog-faq">
-  <h3>Ist Vibe Coding per se unsicher?</h3>
-  <p>Nein. Das Muster ist bekannt: schnelle Oberfläche, generierter Datenzugriff, wenig Zeit für Randfälle. Dieselbe Checkliste gilt für handgeschriebene MVPs in kleinen Teams.</p>
-</div>
+Das passt, wenn Sie den Code behalten, zahlende B2B-Nutzende in der Schweiz onboarden oder das Projekt an ein internes Team ohne Wochen Archäologie übergeben wollen. Bei Fake-Daten und fünf Bekannten zum Text-Testen reicht Discovery. Ein Review buchen Sie, wenn Zugriff und Datenstandort Umsatz oder eine Partnerschaft blockieren, nicht wenn nur noch ein Feature-Prompt fehlt.
 
 <div class="blog-faq">
   <h3>Reicht die Supabase-Region Schweiz für Compliance?</h3>
@@ -94,5 +89,5 @@ Das passt, wenn Sie den Code behalten, zahlende B2B-Nutzende in der Schweiz onbo
 
 <div class="blog-faq">
   <h3>Wann ist Neubau sicherer als Patchen?</h3>
-  <p>Wenn Autorisierung über viele Routen uneinheitlich ist, Geheimnisse verstreut liegen und niemand die Live-Umgebung sicher benennen kann. Enges Patchen kann reichen; manchmal ist Neubau günstiger als generierter Wildwuchs. Der verlinkte Produktionsreife-Beitrag rahmt den Trade-off ohne eine einzige Pflichtantwort.</p>
+  <p>Wenn Autorisierung über viele Routen uneinheitlich ist, Geheimnisse verstreut liegen und niemand die Live-Umgebung sicher benennen kann. Enges Patchen kann reichen; manchmal ist Neubau günstiger als generierter Wildwuchs. Der verlinkte Produktionsreife-Beitrag beschreibt den Trade-off, ohne eine Antwort vorzuschreiben.</p>
 </div>

@@ -1,13 +1,13 @@
 ---
 title: "App neu entwickeln: wann Refactoring reicht"
 description: "App neu entwickeln oder refactoren? Neu bauen, wenn Architektur blockiert; refactoren, wenn Nutzung steht und der Stack tragfähig ist."
-pubDate: 2027-09-01
+pubDate: 2027-06-26
 author: "Aurum Avis Labs"
 tags: ["mvp", "refactoring", "architektur", "startup", "vibe coding"]
 funnelStage: consideration
 translationKey: rebuild-or-refactor-an-mvp
 relatedPosts: ["fake-door-test-oder-mvp", "briefing-app-entwicklung-vorlage"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -26,12 +26,13 @@ Der Text richtet sich an Gründerinnen, Gründer und Innovationsverantwortliche 
 
 ## App neu entwickeln oder am Code bleiben?
 
-| Ihre Lage | Zuerst refactoren | eher neu entwickeln |
+| Ihre Lage | Zuerst refactoren | Eher neu entwickeln |
 | --- | --- | --- |
-| Fremde haben den Kernjob geschafft | Ja, wenn der Stack erlaubt ist | Nur wenn Architektur blockiert |
-| Policies und Secrets sind unklar | Oft reparierbar | Wenn Regeln nicht ins Backend wandern |
-| IT verlangt Azure, NestJS, On-Prem | Selten ohne Bruch | Häufig ja |
-| Eine Person pflegt Supabase und React | Passt | Rebuild braucht dauerhafte Kapazität |
+| Fremde haben den Kernjob mehrfach geschafft | Ja | Nur wenn Architektur blockiert |
+| Eine Reviewerin kann den Datenfluss an einem Tag erklären | Oft ja | Oft nein |
+| Policies und Secrets entsprechen dem Produktionsrisiko | An Ort und Stelle reparieren | Manchmal auf einer sauberen API einfacher |
+| IT oder Beschaffung verlangen Azure, NestJS oder On-Prem | Nur inkrementell | Meistens ja |
+| Eine Person kennt den heutigen Stack | Refactor passt zur Fähigkeit | Neubau braucht dauerhafte Kapazität |
 
 Viele Teams suchen «App neu entwickeln», weil der erste Lieferant oder das KI-Tool «schnell» war und der Code jetzt peinlich wirkt. Peinlich allein ist kein Grund. Ein Grund ist, wenn Sie den Pilot schon verkauft haben und unter Zeitdruck keine ehrliche Sicherheitsprüfung am Repo schaffen. Ein anderer ist, wenn jede neue Funktion zwei alte bricht, obwohl das Briefing stabil ist.
 
@@ -77,7 +78,7 @@ Ein gehärtetes Repo kann Review bestehen und trotzdem nach Preisänderung Nutze
 
 ## Ein erfundenes Beispiel: Lieferant will Isolation
 
-Ein erfundenes Beispiel: ein Team in Bern trackt Baustellen-Freigaben in v0, acht Bauleiterinnen loggen sich zweimal ein. Ein Grosslieferant will einen Pilot auf Subdomain und fragt nach Kundendaten-Isolation. Die Liste: keine Tests, Policies aus Vorlage, ein Edge-Function mit Service-Key, drei Screens in einer Datei mit über neunhundert Zeilen. Schätzung: drei Wochen Härtung versus zehn Wochen Neubau mit API, die Einkauf schon freigegeben hat. Sie refactoren zuerst, weil Verhalten echt ist und Supabase in Zürich ([Region laut Supabase-Dokumentation](https://supabase.com/docs/guides/platform/regions)) akzeptiert ist. Vor breiterem Signup buchen sie ein strukturiertes Review. Zeigt das Review Regeln nur im Client ohne Server-Pfad, stoppen sie Refactor und planen Neuentwicklung mit demselben Pilot-Brief.
+Ein erfundenes Beispiel: ein Team in Bern trackt Baustellen-Freigaben in v0, acht Bauleiterinnen loggen sich zweimal ein. Ein Grosslieferant will einen Pilot auf Subdomain und fragt nach Kundendaten-Isolation. Die Liste: keine Tests, Policies aus Vorlage, ein Edge-Function mit Service-Key, drei Screens in einer Datei mit über neunhundert Zeilen. Sie schätzen die Härtung als deutlich kürzer als einen Neubau mit der API ein, die der Einkauf schon freigegeben hat. Sie refactoren zuerst, weil Verhalten echt ist und Supabase in Zürich ([Region laut Supabase-Dokumentation](https://supabase.com/docs/guides/platform/regions)) akzeptiert ist. Vor breiterem Signup buchen sie ein strukturiertes Review. Zeigt das Review Regeln nur im Client ohne Server-Pfad, stoppen sie Refactor und planen Neuentwicklung mit demselben Pilot-Brief.
 
 ## Wer beide Optionen verschieben sollte
 

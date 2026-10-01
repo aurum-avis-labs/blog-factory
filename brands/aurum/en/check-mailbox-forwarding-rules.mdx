@@ -31,25 +31,13 @@ Legitimate forwards exist: a function mailbox copied to a team lead, or temporar
 
 Separate mailbox-wide forwarding from inbox rules that match only certain senders or subjects. Attackers often combine both: one rule forwards invoices, another deletes Microsoft alerts. SMTP forwarding at server level is rarer in pure Microsoft 365 tenants but still appears after migrations.
 
-<ul class="blog-checklist">
-  <li>Store each export with date and reviewer name</li>
-  <li>Reconcile external forwards with management or finance</li>
-  <li>Prioritise rules with delete, move to RSS, or blank names</li>
-  <li>After a find: password, MFA, sent items, then re-check</li>
-</ul>
-
-<div class="blog-stat">
-  <strong>52%</strong>
-  <p>Fraud share among cases reported to BACS in H2 2025, per the BACS half-year report. Mail takeover often precedes [invoice IBAN fraud](/security/blog/invoice-fraud-changed-iban).</p>
-</div>
-
 ## What this is not
 
 Not a replacement for MFA or for your full payment approval process. Not legal advice on whether forwarding personal data requires [FDPIC](https://www.edoeb.admin.ch/) notification. The FADP expects appropriate technical and organisational measures ([Art. 8 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de)); this article describes one of them.
 
-## A made-up example: rule named «..»
+## A made-up example: rule named ".."
 
-A made-up example: a bookkeeper clicks a fake invoice link. Two days later an IT check finds a forward to a free mail provider and a rule that deletes messages containing «password reset». Finance verifies open payables by phone; MFA is enforced. No known bulk exfiltration, but the forward may have run for weeks.
+A made-up example: a bookkeeper clicks a fake invoice link. Two days later an IT check finds a forward to a free mail provider and a rule that deletes messages containing "password reset". Finance verifies open payables by phone; MFA is enforced. No known bulk exfiltration, but the forward may have run for weeks. Mail takeover often precedes [invoice IBAN fraud](/security/blog/invoice-fraud-changed-iban).
 
 <div class="blog-pair">
   <div>
@@ -80,19 +68,13 @@ Forwarded mail may hold health, payroll, or client data. If a forward ran a long
 
 After the technical review, remind payment approvers to call back on changed bank details. BACS lists phone verification; forwarding review ensures attackers are not reading your replies.
 
-<ol class="blog-flow">
-  <li><strong>Week 1</strong><p>Request MSP export, finance mailboxes first, remove unapproved external forwards.</p></li>
-  <li><strong>Week 2</strong><p>Close MFA gaps, book a quarterly calendar slot, file the log.</p></li>
-  <li><strong>Ongoing</strong><p>Re-run after any accounts payable exit and after phishing on a finance mailbox.</p></li>
-</ol>
-
 ## Log for audit and insurance
 
-A usable log needs fewer than ten columns: date, mailbox, rule type (forward, inbox, transport), destination, verdict (OK, removed, open), reviewer name, ticket or incident reference. Without «open» rows the report looks all-clear when you deliberately skipped a locked client mailbox. Store the file beside annual access reviews.
+A usable log needs fewer than ten columns: date, mailbox, rule type (forward, inbox, transport), destination, verdict (OK, removed, open), reviewer name, ticket or incident reference. Without "open" rows the report looks all-clear when you deliberately skipped a locked client mailbox. Store the file beside annual access reviews.
 
 ## Add awareness
 
-Users sometimes add forwards in mobile Outlook themselves. A [security awareness](/security/security-awareness) session for finance and reception covers phishing, reporting, and why «for testing» is not a reason for an external forward. Live session about one to two hours, remote or on site in Switzerland, with a follow-up conversation a few weeks later.
+Users sometimes add forwards in mobile Outlook themselves. A [security awareness](/security/security-awareness) session for finance and reception covers phishing, reporting, and why "for testing" is not a reason for an external forward. Live session about one to two hours, remote or on site in Switzerland, with a follow-up conversation a few weeks later.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
@@ -124,6 +106,6 @@ When someone leaves accounts payable, re-check their mailbox and any delegates o
 
 ## CEO fraud and readable replies
 
-BACS reports rising CEO fraud; a compromised mailbox can read your callback replies. Forwarding review is not a payment control, but it closes a gap beside the [four-eyes principle for payments](/security/blog/four-eyes-principle-for-payments). Pair the technical check with a short reminder of fraud patterns from BACS guidance, without alarm.
+BACS reports rising CEO fraud ([CEO fraud in the weekly review](https://www.bacs.admin.ch/de/26w4-de)); a compromised mailbox can read your callback replies. Forwarding review is not a payment control, but it closes a gap beside the [four-eyes principle for payments](/security/blog/four-eyes-principle-for-payments). Pair the technical check with a short reminder of fraud patterns from BACS guidance, without alarm.
 
-Keep the review log beside access reviews and offboarding. Insurers increasingly ask how you detect mailbox compromise; a dated rule log answers part of that without invented metrics. In hybrid setups with on-prem Exchange still running, check connector rules and journal archives; old rules may stay active after cloud migration. Store the export for at least a year for insurer and client audits if your retention policy allows.
+Keep the review log beside access reviews and offboarding. Insurers increasingly ask how you detect mailbox compromise; a dated rule log answers part of that without invented metrics. In hybrid setups with on-prem Exchange still running, check connector rules and journal archives; old rules may stay active after cloud migration. Store the export for at least a year for insurer and client audits if your retention policy allows. If your firm already covered [Microsoft 365 and Swiss data protection](/security/blog/microsoft-365-and-swiss-data-protection), attach this rule review there as a technical measure instead of keeping a second, conflicting document.

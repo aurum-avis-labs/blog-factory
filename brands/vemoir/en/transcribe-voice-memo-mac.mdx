@@ -19,17 +19,6 @@ To **transcribe a voice memo on Mac**, export the recording as an M4A from Voice
 
 This guide covers Apple's share and drag-to-Finder path, the built-in Voice Memos transcript on supported Macs, and how to turn an M4A into text in the browser without uploading it to Vemoir. For the wider question of going offline after models download, see [offline transcription on Mac](/blog/offline-transcription-mac).
 
-<ol class="blog-steps">
-  <li data-step="1"><h3>Export the memo</h3><p>In Voice Memos, share or drag the M4A to Finder.</p></li>
-  <li data-step="2"><h3>Check length</h3><p>Under 15 minutes for the free browser tool; longer files need the Mac app.</p></li>
-  <li data-step="3"><h3>Run locally</h3><p>Open the transcribe tool and confirm no upload in the Network tab.</p></li>
-</ol>
-
-<aside class="blog-callout">
-  <span class="blog-kicker">Note</span>
-  <p>Swiss German speech usually becomes Standard German text with public Whisper models.</p>
-</aside>
-
 ## How to transcribe a voice memo on Mac
 
 The reliable path is: **get an M4A you control**, then choose a transcription method that matches the length and whether the file may leave the device.
@@ -71,12 +60,12 @@ Apple's in-app text is not a certified transcript. Names, numbers, and quotes ne
 
 The free tool at [/tools/transcribe-voice-memo](/tools/transcribe-voice-memo) runs a public Whisper model **in the tab**. The file is **not uploaded** to Vemoir. On first use the model downloads into the browser cache. Later runs can work with the network off once that cache is in place.
 
-Limits:
-
-- **15 minutes** per file.
-- **Three successful runs per week**.
-- **No speaker labels**.
-- **No live recording** in the browser.
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Length</span><strong>15 min</strong><p>Per file. The page refuses longer audio before the model runs.</p></li>
+  <li><span class="blog-kicker">Pace</span><strong>3 runs a week</strong><p>Successful runs. Splitting one memo into clips spends one each.</p></li>
+  <li><span class="blog-kicker">Speakers</span><strong>Not separated</strong><p>Names already in the file are kept; the tool invents none.</p></li>
+  <li><span class="blog-kicker">Live capture</span><strong>No</strong><p>The browser works on a file you already have.</p></li>
+</ul>
 
 Swiss German speech in public Whisper models usually comes out as **Standard German** text.
 
@@ -128,6 +117,11 @@ Export an M4A with Share or drag-to-Finder ([Apple Support](https://support.appl
 ### Does Voice Memos already transcribe on Mac?
 
 On macOS 15 or later with Apple silicon, Voice Memos can show a transcript in the app, not in every country or region ([Apple Support](https://support.apple.com/guide/voice-memos/view-a-transcription-of-a-recording-vm4a03609f0d/mac)). If the feature is missing or you need a file-based workflow, export the M4A.
+
+### Where does Voice Memos store its files on Mac?
+
+Work from the app. Apple documents sharing or dragging into the Finder. A hidden folder under Group Containers sits on many Macs. That is a backup, not a place to edit.
+
 
 ### Can I convert M4A to text on Mac for free?
 

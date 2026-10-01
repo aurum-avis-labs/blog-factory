@@ -22,17 +22,6 @@ Hosting, when we run the automation, is a guide of CHF 50–150, cancellable at 
 
 A chat subscription for a person is a different invoice from the API an automation calls. Do not plan the second from the first.
 
-<dl class="blog-terms">
-  <div>
-    <dt>Token</dt>
-    <dd>A piece of text, often shorter than a word. You are billed for input and output, not per document.</dd>
-  </div>
-  <div>
-    <dt>API</dt>
-    <dd>The call your automation makes. Prices and limits apply to the account, not to a chat window.</dd>
-  </div>
-</dl>
-
 ## What moves the monthly total
 
 Four things move it. The price list does not.
@@ -58,10 +47,7 @@ These are the standard rates on the providers' own pages that day, per million t
 | Claude Sonnet 5 | USD 2 | USD 10 | Standard price. A rise to USD 3 / USD 15 on 1 September 2026 was cancelled |
 | Gemini 3.8 Flash | USD 0.75, then USD 1.50 from 1 January 2027 | USD 3.75, then USD 7.50 from 1 January 2027, thinking included | Google's Gemini API pricing |
 
-<aside class="blog-callout blog-callout--limit">
-  <span class="blog-kicker">Limit</span>
-  <p>These figures are list prices for a plain text call. Cached input, regional processing, batch jobs and tool calls are other lines. If a number is not on the provider's page the day you read it, use the provider's current price list, not this table.</p>
-</aside>
+These figures are list prices for a plain text call. Cached input, regional processing, batch jobs and tool calls are other lines. If a number is not on the provider's page the day you read it, use the provider's current price list, not this table.
 
 ## A made-up example
 
@@ -82,7 +68,7 @@ An estimate is not a ceiling. A fault that resends the same file can spend the m
 
 OpenAI distinguishes alerts from hard limits. A spend alert sends a notice and traffic continues. A hard limit makes the affected requests fail. Enforcement is not instant, so recorded spend can sit a little over the amount you typed.
 
-Anthropic's rate-limits page, as we read it, sets a monthly spend cap by tier: USD 500 on Start, USD 1,000 on Build, USD 200,000 on Scale. At the cap, API use pauses until 00:00 UTC on the first day of the next month unless a higher limit is granted sooner.
+Anthropic's rate-limits page, as we read it, sets a monthly spend cap by tier: USD 500 on Start, USD 1,000 on Build, USD 200,000 on Scale. The Custom tier has no such cap. You can see the cap, and set one of your own, on the billing page. At the cap, API use pauses until 00:00 UTC on the first day of the next month unless a higher limit is granted sooner, and the calls fail. You can also set limits for a workspace.
 
 Put the alert under the number you would still pay, and the hard stop at the number you would not. If the token count per run is far from the guess, change the model or the document length, not only the cap.
 

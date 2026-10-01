@@ -1,13 +1,13 @@
 ---
 title: "Lieferantenbewertung IT Sicherheit für MVP-Partner"
 description: "Lieferantenbewertung IT Sicherheit: Fragen an externe Entwickler, Nachweise und Grenzen, bevor Sie ein MVP freigeben. Keine Rechtsberatung."
-pubDate: 2027-09-01
+pubDate: 2027-10-17
 author: "Aurum Avis Labs"
 tags: ["it-sicherheit", "lieferant", "mvp", "beschaffung"]
 funnelStage: consideration
 translationKey: internal-approvals-external-mvp-partner
 relatedPosts: ["budget-innovationsprojekt", "corporate-venture-building"]
-draft: true
+draft: false
 site: studio
 ---
 
@@ -25,7 +25,7 @@ Formulare unterscheiden sich, die Substanz wiederholt sich. Hosting-Region und B
   <li>Datenklassifikation: welche Personendaten oder Geschäftsgeheimnisse der Pilot verarbeitet, und ob Testdaten anonymisiert sind.</li>
   <li>Hosting: Anbieter, Region (z. B. Schweiz oder EU), wer das Cloud-Abonnement hält, und ob Produktionsdaten auf privaten Geräten landen dürfen.</li>
   <li>Zugriff: Named Accounts, minimale Rechte für den Partner, Protokollierung administrativer Handlungen, kein dauerhafter Vollzugriff ohne Review-Datum.</li>
-  <li>Unterauftragnehner: Analytics, E-Mail, Fehlertracking, Auth; aktualisierte Liste vor Go-live.</li>
+  <li>Unterauftragnehmer: Analytics, E-Mail, Fehlertracking, Auth; aktualisierte Liste vor Go-live.</li>
   <li>Geheimnisse: API-Schlüssel und Zugangsdaten in einem Vault, Rotation bei Austritt, keine Keys im Chat.</li>
   <li>Entwicklungssicherheit: wie der Partner mit Abhängigkeiten und bekannten Lücken umgeht, ob eine strukturierte Review möglich ist, ohne gleich ein Enterprise-Pentest zu verlangen.</li>
   <li>Exit: Export von Code und Datenbank, Löschplan für Partner-Kopien, Fristen in Vertrag oder Leistungsbeschreibung.</li>
@@ -35,12 +35,6 @@ Formulare unterscheiden sich, die Substanz wiederholt sich. Hosting-Region und B
 
 Schicken Sie der IT ein bis zwei Seiten in Klartext. Diagramm: Browser, App, Datenbank, Drittdienste. Tabelle: Dienst, Zweck, Region, Vertragsstatus Auftragsbearbeitung. Satz zum Schwachstellenprozess: wer patcht, in welchem Rhythmus, und wie Sie über kritische Meldungen informiert werden. Wenn der Partner mit KI-gestützten Werkzeugen arbeitet, verlangen viele Teams zusätzlich, dass keine Produktionsdaten in öffentliche Modelle gelangen und dass Prompts ohne Kundendaten getestet werden.
 
-<ul class="blog-facts">
-  <li><span class="blog-kicker">Repository</span><strong>In Ihrer Organisation</strong><p>Der Partner arbeitet mit scoped Rechten, nicht mit alleiniger Kontrolle über Produktion.</p></li>
-  <li><span class="blog-kicker">Auftragsbearbeitung</span><strong>Vor Live-Nutzern</strong><p>Jeder Verarbeiter mit Personendaten braucht schriftliche Regeln, nicht nur AGB des Anbieters.</p></li>
-  <li><span class="blog-kicker">Review-Tiefe</span><strong>Proportional</strong><p>Validierung verlangt Transparenz, nicht zwingend SOC 2 im ersten Monat.</p></li>
-</ul>
-
 ## Ein erfundenes Beispiel: Fragebogen in Woche zwei
 
 Ein erfundenes Beispiel: ein Industrie-KMU mit 180 Mitarbeitenden will ein externes Team für ein Händlerportal testen. In Woche zwei füllt die Innovationsverantwortliche den IT-Fragebogen aus. Hosting: Azure-Subscription der Firma, Region Schweiz Nord, zwei Admin-Konten intern, Partner als Contributor auf einer Resource Group. Daten: Händler-E-Mail, Bestellreferenzen, keine Kreditkarten. Unterauftragnehmer: Mail-Dienst EU, Analytics mit anonymisierter IP, beide Aufträge bis Woche vier unterzeichnet. Geheimnisse: Azure Key Vault, kein Secret im Repository. Exit: wöchentlicher Code-Export ins Firmen-Git, Datenbank-Backup in den Tenant der Firma, Löschung auf Partner-Sandbox nach 30 Tagen. IT gibt «frei mit Auflagen»: keine Produktionsdaten vor unterzeichneten Aufträgen, Review nach Woche sechs. Das Portal kann live gehen, sobald die Aufträge signiert sind. Ob Händler das Tool nutzen, steht nicht im Fragebogen.
@@ -48,11 +42,6 @@ Ein erfundenes Beispiel: ein Industrie-KMU mit 180 Mitarbeitenden will ein exter
 ## Was die Bewertung nicht abdeckt
 
 Eine abgeschlossene Lieferantenbewertung IT Sicherheit sagt nicht, dass niemand Ihre App hackt. Sie sagt nicht, dass Ihre Preislogik stimmt. Sie ersetzt keine Nutzertests und keine Messung von Akquisekanälen. Sie garantiert nicht, dass jede spätere Funktion ohne neues IT-Ticket möglich ist.
-
-<aside class="blog-callout blog-callout--limit">
-  <span class="blog-kicker">Grenze</span>
-  <p>Branchenregulierung, Banken-Anforderungen oder besonders schützenswerte Personendaten brauchen zusätzliche Schritte. Dieser Text beschreibt übliche KMU-Fragen für einen Validierungs-MVP, nicht Ihren Einzelfall.</p>
-</aside>
 
 <div class="blog-pair">
   <div>
@@ -72,6 +61,11 @@ Eine abgeschlossene Lieferantenbewertung IT Sicherheit sagt nicht, dass niemand 
     </ul>
   </div>
 </div>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Branchenregulierung, Banken-Anforderungen oder besonders schützenswerte Personendaten brauchen zusätzliche Schritte. Dieser Text beschreibt übliche KMU-Fragen für einen Validierungs-MVP, nicht Ihren Einzelfall.</p>
+</aside>
 
 <div class="blog-faq">
   <h3>Reicht ein NDA für den Start?</h3>
