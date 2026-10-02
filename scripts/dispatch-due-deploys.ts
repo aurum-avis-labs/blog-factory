@@ -10,7 +10,9 @@
  *   npx tsx scripts/dispatch-due-deploys.ts --dry-run
  *
  * Requires CROSS_REPO_PAT or GITHUB_TOKEN when not a dry run.
- * The token needs Actions read (workflow runs) and repository_dispatch on target repos.
+ * repository_dispatch needs Contents write on the target repos.
+ * Actions read lets the script skip brands already deployed. Without it, brands
+ * with a non-draft post in the last LOOKBACK_DAYS are dispatched instead.
  */
 
 import { readdir, readFile } from "node:fs/promises";
@@ -20,6 +22,7 @@ import { brands } from "../brands.config.ts";
 
 const TIME_ZONE = "Europe/Zurich";
 const WORKFLOW_FILE = "deploy-blog-update.yml";
+const LOOKBACK_DAYS = 7;
 
 export interface ScheduledPost {
   /** Path relative to brands/{id}/ */
@@ -27,6 +30,17 @@ export interface ScheduledPost {
   draft: boolean;
   /** YYYY-MM-DD when present in frontmatter */
   pubDate: string | null;
+}
+
+/** YYYY-MM-DD that many calendar days before `day`. `day` is already a calendar date. */
+export function calendarDaysBefore(day: string, days: number): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(day);
+  if (!match || days < 0 || !Number.isInteger(days)) {
+    throw new Error(`Invalid calendar day offset: ${day} - ${days}`);
+  }
+  const instant = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+  instant.setUTCDate(instant.getUTCDate() - days);
+  return instant.toISOString().slice(0, 10);
 }
 
 /** Calendar day of an instant in Europe/Zurich, as YYYY-MM-DD. */
@@ -140,6 +154,16 @@ export async function collectBrandPosts(brandId: string): Promise<ScheduledPost[
   return posts;
 }
 
+class GitHubRequestError extends Error {
+  readonly status: number;
+
+  constructor(message: string, status: number) {
+    super(message);
+    this.name = "GitHubRequestError";
+    this.status = status;
+  }
+}
+
 async function latestSuccessfulRunDay(repo: string, token: string): Promise<string | null> {
   const url = `https://api.github.com/repos/${repo}/actions/workflows/${WORKFLOW_FILE}/runs?status=success&per_page=1`;
   const response = await fetch(url, {
@@ -151,7 +175,7 @@ async function latestSuccessfulRunDay(repo: string, token: string): Promise<stri
   });
   if (!response.ok) {
     const body = await response.text();
-    throw new Error(`GET ${url} failed (${response.status}): ${body}`);
+    throw new GitHubRequestError(`GET ${url} failed (${response.status}): ${body}`, response.status);
   }
 
   const data = (await response.json()) as {
@@ -241,6 +265,7 @@ async function main(): Promise<void> {
     const posts = await collectBrandPosts(brand.id);
 
     let lastRunDay: string | null = null;
+    let assumedLookback = false;
     if (!token) {
       console.log(`    [dry-run] No token; last successful ${WORKFLOW_FILE} run was not read.`);
       const alreadyDue = duePosts(posts, today, null);
@@ -260,14 +285,22 @@ async function main(): Promise<void> {
     try {
       lastRunDay = await latestSuccessfulRunDay(brand.repo, token);
     } catch (err) {
-      console.error(`    ${err instanceof Error ? err.message : err}`);
-      failed = true;
-      continue;
+      if (err instanceof GitHubRequestError && err.status === 403) {
+        lastRunDay = calendarDaysBefore(today, LOOKBACK_DAYS);
+        assumedLookback = true;
+        console.log(
+          `    Workflow runs are not readable with this token. Dispatching posts dated after ${lastRunDay}.`,
+        );
+      } else {
+        console.error(`    ${err instanceof Error ? err.message : err}`);
+        failed = true;
+        continue;
+      }
     }
 
     if (lastRunDay === null) {
       console.log(`    No successful ${WORKFLOW_FILE} run yet.`);
-    } else {
+    } else if (!assumedLookback) {
       console.log(`    Last successful run started on ${lastRunDay} (${TIME_ZONE}).`);
     }
 

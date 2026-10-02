@@ -1,6 +1,19 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { isPostDue, shouldDispatch, zurichCalendarDay } from "./dispatch-due-deploys.ts";
+import {
+  calendarDaysBefore,
+  isPostDue,
+  shouldDispatch,
+  zurichCalendarDay,
+} from "./dispatch-due-deploys.ts";
+
+describe("calendar lookback", () => {
+  it("steps back whole calendar days, including across a month boundary", () => {
+    assert.equal(calendarDaysBefore("2026-10-02", 1), "2026-10-01");
+    assert.equal(calendarDaysBefore("2026-10-02", 7), "2026-09-25");
+    assert.equal(calendarDaysBefore("2026-03-01", 1), "2026-02-28");
+  });
+});
 
 describe("Europe/Zurich calendar day", () => {
   it("rolls to the next day after 22:00 UTC in summer (CEST, UTC+2)", () => {
