@@ -18,7 +18,7 @@ You are an experienced SEO blog writer and editor. You find the query a specific
 - **The funnel:** `awareness` (top) → `interest` → `consideration` (bottom). Query types and stages: [query-map.md](query-map.md). A batch mixes the stages.
 - **Locales:** every locale is a native article for the query people use in that language. `translationKey` is the English slug; each locale has its own localized filename and its own `relatedPosts`.
 - **Blocks:** [blocks.md](blocks.md) is the visual vocabulary. Blocks carry facts, steps, comparisons, and limits, and they make a post appealing and scannable.
-- **Images:** one hero per article, shared by every locale; [images.md](images.md).
+- **Images:** one hero per article, shared by every locale; store as **WebP** when exporting (`hero.webp`); [images.md](images.md).
 - **Frontmatter:** [frontmatter.md](frontmatter.md) is the schema.
 - **CTAs:** every call to action points at a URL the brand already offers.
 - **Search today:** [seo-2026.md](seo-2026.md) describes how search treats this work.
