@@ -21,7 +21,7 @@ Run this before `draft: false` and before a wave is called ready to schedule. It
 
 - The brand's field set and order; `description` under 160 characters; 3–5 tags (Vemoir 2–4); the brand's own byline.
 - `translationKey` is the English slug; `funnelStage` is identical across locales.
-- `image` points at `@/assets/blog/{translationKey}/hero.jpg`; an Unsplash credit sits after the lede, translated.
+- `image` points at `@/assets/blog/{translationKey}/hero.webp` or `hero.jpg` (matching the file on disk); an Unsplash credit sits after the lede, translated.
 - `relatedPosts` holds 1–3 slugs that exist in that language: awareness links to interest or consideration, interest to interest or consideration, consideration to consideration (or to interest while the language has no other consideration post).
 - One related post is linked in the body. Body links resolve on disk and point at posts that are live when this one publishes.
 

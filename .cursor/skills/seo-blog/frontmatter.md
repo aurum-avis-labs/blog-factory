@@ -12,7 +12,7 @@ tags: ["...", "...", "..."]
 funnelStage: "awareness"
 translationKey: "english-slug"
 relatedPosts: ["same-language-slug"]
-image: "@/assets/blog/english-slug/hero.jpg"
+image: "@/assets/blog/english-slug/hero.webp"
 draft: true
 ---
 ```
@@ -28,7 +28,7 @@ draft: true
 | `funnelStage` | Exactly `awareness`, `interest`, or `consideration`. Same on every locale. |
 | `translationKey` | English slug, shared by every locale. If the brand has no English, use the default-language slug. |
 | `relatedPosts` | 1–3 slugs that exist in **this language**. Links travel from lower to higher intent: `awareness` < `interest` < `consideration`. `interest` points to interest or consideration. `consideration` points to consideration, or to interest while that language has no other consideration post. `[]` while that language has no eligible peer yet. Verify each slug as a file on disk before finishing. |
-| `image` | `@/assets/blog/{translationKey}/hero.jpg`. Omit the line when there is no hero. Every locale points at the same file. |
+| `image` | `@/assets/blog/{translationKey}/hero.webp` (preferred) or `hero.jpg` when the file is JPEG. Omit the line when there is no hero. Every locale points at the same file. |
 | `draft` | `true` until this wave is approved to schedule. |
 | `site` | Aurum only. Match the `sites` list in `brands.config.ts` (`studio`, `prozess-check`, `security`, `web3`, `workshops`). Posts use the section they belong to; security posts use `security`. Same value on every locale. |
 
@@ -42,7 +42,7 @@ The layout shows the hero from frontmatter. If the hero is Unsplash, put the pho
 
 Limits, steps, and comparisons use HTML from [blocks.md](blocks.md).
 
-Hero file: `hero.jpg` at 1200×675 (Vemoir 1200×900). Older posts may still use `img1.png` as the hero only.
+Hero file: **`hero.webp`** at 1200×675 (Vemoir 1200×900), or **`hero.jpg`** when already JPEG. See [images.md](images.md) for WebP vs PNG/JPEG rules. Older posts may still use `img1.png` as the hero only.
 
 ## Files
 
@@ -51,4 +51,4 @@ Hero file: `hero.jpg` at 1200×675 (Vemoir 1200×900). Older posts may still use
 | MDX | `brands/{brand}/{lang}/{localized-slug}.mdx` |
 | Images | `brands/{brand}/images/{translationKey}/` |
 
-Older posts may use `img1.png` as the hero. New posts use `hero.jpg` only.
+Older posts may use `img1.png` as the hero. New posts use **`hero.webp`** (or **`hero.jpg`**) only — not PNG for photos.

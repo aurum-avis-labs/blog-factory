@@ -45,10 +45,10 @@ brands/{brand-id}/
     post-slug.mdx        # Blog post with frontmatter
   images/                # Blog images
     {post-slug}/
-      img1.png
+      hero.webp          # preferred for new posts (hero.jpg also used)
 ```
 
-Images are referenced in MDX as `@/assets/blog/{post-slug}/img1.png`.
+Images are referenced in MDX as `@/assets/blog/{post-slug}/hero.webp` (or `hero.jpg` / legacy `img1.png` on older posts). Prefer **WebP** for new hero and inline rasters — smaller files and lower Astro build memory. See `.cursor/skills/seo-blog/images.md`.
 
 ## Deployment Pipeline
 

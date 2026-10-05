@@ -1,6 +1,6 @@
 # Blog Factory — Local Tool Instructions for Claude Code
 
-This document is the spec for the local Express app in `tool/`. It is not the blog-writing guide. Agents that write or queue posts follow `.cursor/skills/seo-blog/SKILL.md`. Keep this app's output compatible with that schema (`hero.jpg`, `translationKey`, `draft`, funnel rules).
+This document is the spec for the local Express app in `tool/`. It is not the blog-writing guide. Agents that write or queue posts follow `.cursor/skills/seo-blog/SKILL.md`. Keep this app's output compatible with that schema (`hero.webp` or `hero.jpg`, `translationKey`, `draft`, funnel rules). Prefer **WebP** for stored blog images when generating or exporting; see `.cursor/skills/seo-blog/images.md`.
 
 This document contains everything needed to build the `tool/` local web app inside the `blog-factory` repository. Read this fully before writing any code.
 
@@ -33,7 +33,7 @@ This is the central content repository for all Aurum Avis Labs landing pages. Re
 
 - **Never touch `.github/`** — workflows are already configured and must not be modified
 - Content lives under `brands/{brand-id}/{lang}/post-slug.mdx`
-- Images live under `brands/{brand-id}/images/{post-slug}/img1.png`, `img2.png`, etc.
+- Images live under `brands/{brand-id}/images/{post-slug}/` — prefer `hero.webp` or `img1.webp`, `img2.webp`, etc. (JPEG/`hero.jpg` acceptable; avoid large PNG photos unless transparency is required)
 - All brands are defined in `brands.config.ts` at the repo root
 - When content is pushed to `main`, the `auto-publish.yml` workflow automatically detects changed brands and dispatches rebuilds to affected landing page repos — no manual deployment needed
 
@@ -64,7 +64,7 @@ title: "Post Title"
 description: "Short description — MUST be under 160 characters for SEO"
 pubDate: 2026-03-25
 author: "Brand Display Name"
-image: "@/assets/blog/post-slug/img1.png"
+image: "@/assets/blog/post-slug/hero.webp"
 tags: ["tag1", "tag2", "tag3"]
 funnelStage: "awareness"
 draft: false
@@ -76,7 +76,7 @@ relatedPosts: ["other-existing-post-slug"]
 - Wrap frontmatter in opening and closing `---` lines (Astro/MDX standard). A block of `title:` / `description:` lines without those delimiters is not valid frontmatter and breaks content collections.
 - `description` must be under 160 characters — hard requirement for SEO
 - `pubDate` is today's date in `YYYY-MM-DD` format
-- `image` field uses the path `@/assets/blog/{post-slug}/img1.png` — this resolves correctly when landing pages fetch content
+- `image` field uses `@/assets/blog/{post-slug}/hero.webp` (or `hero.jpg` when JPEG) — this resolves correctly when landing pages fetch content
 - `funnelStage` must be one of `awareness`, `interest`, or `consideration` — same value for every locale of the same article. Matches landing-page blog schema and GA4 funnel tracking (`@aurum-avis-labs/browser-tracking`). The tool UI selects this per job; the server also rewrites the key after generation so it cannot drift.
 - `relatedPosts` should reference 1–3 existing post slugs in the same language, or be an empty array `[]`
 - Omit `image` field if no images are being generated
@@ -89,18 +89,18 @@ When images are included, add this import block immediately after the closing `-
 
 ```mdx
 import { Image } from 'astro:assets';
-import img1 from '@/assets/blog/post-slug/img1.png';
-import img2 from '@/assets/blog/post-slug/img2.png';
-import img3 from '@/assets/blog/post-slug/img3.png';
+import hero from '@/assets/blog/post-slug/hero.webp';
+import inline1 from '@/assets/blog/post-slug/inline1.webp';
+import inline2 from '@/assets/blog/post-slug/inline2.webp';
 ```
 
 Inline image usage:
 
 ```mdx
-<Image src={img1} alt="Descriptive alt text" width={700} quality={80} class="w-full" />
+<Image src={hero} alt="Descriptive alt text" width={700} quality={80} class="w-full" />
 ```
 
-- `img1` is always the hero image and appears near the top of the post
+- The hero import (`hero.webp` or legacy `img1.webp`) is the cover image and appears near the top of the post
 - Inline images are placed at natural content breaks
 - Replace `post-slug` with the actual slug throughout
 
@@ -116,7 +116,7 @@ When pushing generated content to the repo via GitHub API:
 | MDX (German) | `brands/{brand-id}/de/{slug}.mdx` |
 | MDX (French) | `brands/{brand-id}/fr/{slug}.mdx` |
 | MDX (Italian) | `brands/{brand-id}/it/{slug}.mdx` |
-| Images | `brands/{brand-id}/images/{slug}/img1.png`, `img2.png`, etc. |
+| Images | `brands/{brand-id}/images/{slug}/hero.webp`, `inline1.webp`, … (or `hero.jpg`; legacy `img1.png` on older posts) |
 
 All files for a given post share the same slug. The slug is derived from the post title, lowercased, with spaces replaced by hyphens, localized per language.
 
@@ -208,6 +208,14 @@ The Generate form offers **Azure OpenAI** or **Anthropic Claude** for writing th
 
 Response image URL is at `data.data[0].url`. Images must be downloaded server-side and pushed to GitHub as base64.
 
+### Image file format (WebP preferred)
+
+- **Prefer WebP** (`.webp`) when saving under `brands/{brand-id}/images/{slug}/`. Large PNG photographs inflate memory during landing-page `astro build` (Vemoir blog-update runners have been OOM-killed).
+- **JPEG** is acceptable for photo heroes (`hero.jpg`) when conversion is awkward or the pipeline already outputs JPEG.
+- **PNG** only when alpha transparency is required.
+- `scripts/fetch-unsplash-images.py` writes whatever extension each job specifies (`.webp` is supported; see `scripts/unsplash-jobs-inklets.json`).
+- **Caveat:** `tool/server.ts` still embeds `img1.png` paths in MDX generation prompts and treats `img1.png` as the cover filename. New content should use WebP filenames and paths per the skill, or convert/rename on push until the tool is updated to default to `.webp`.
+
 ---
 
 ## 8. Generation Pipeline (Server-Side)
@@ -254,7 +262,7 @@ Request body:
   "brandId": "do-for-me",
   "slug": "why-ai-virtual-teams-are-the-future",
   "posts": { "en": "mdx content...", "de": "mdx content..." },
-  "images": [{ "filename": "img1.png", "base64": "..." }]
+  "images": [{ "filename": "hero.webp", "base64": "..." }]
 }
 ```
 
@@ -347,8 +355,8 @@ Image instructions block (when imageCount > 0):
 Include {imageCount} images. Add this import block immediately after the frontmatter ---:
 
 import { Image } from 'astro:assets';
-import img1 from '@/assets/blog/POST_SLUG/img1.png';
-[...repeat for each image]
+import hero from '@/assets/blog/POST_SLUG/hero.webp';
+[...repeat for each inline image as inline1.webp, inline2.webp, etc.]
 
 Place each `<Image />` at natural section breaks; the first image should appear only after the intro and the first `##` heading (see implementation in `tool/server.ts`).
 ```
