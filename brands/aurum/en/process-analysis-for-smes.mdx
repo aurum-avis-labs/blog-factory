@@ -1,0 +1,139 @@
+---
+title: "Process analysis for SMEs: how to do it"
+description: "Process analysis in an SME: map one workflow, measure time and errors, spot media breaks. Methods that are enough, with receipts and a monthly report."
+pubDate: 2026-10-07
+author: "Aurum Avis Labs"
+tags: ["process analysis", "process automation", "sme"]
+funnelStage: interest
+translationKey: process-analysis-for-smes
+relatedPosts: ["which-process-to-automate-first", "document-processes-before-automating", "what-the-process-check-is"]
+image: "@/assets/blog/process-analysis-for-smes/hero.webp"
+draft: false
+site: prozess-check
+---
+
+import { Image } from 'astro:assets';
+import inline1 from '@/assets/blog/process-analysis-for-smes/inline1.webp';
+
+## Process analysis in an SME: what it is for
+
+<p class="blog-lede">Process analysis means recording and measuring a recurring workflow so you can see where time, errors and waiting time appear.</p>
+
+In an SME, one workflow, one week and one table are enough. No BPM suite, no modelling programme. You already picked the candidate if you worked through [which process to automate first](/prozess-check/blog/which-process-to-automate-first) with the four questions. Analysis shows where the workflow loses time and where the rule-based part starts. After that come documentation and a decision. In this cluster the order is: choose, analyse, document, [Process Check](/prozess-check).
+
+Photo: 2H Media on [Unsplash](https://unsplash.com/photos/a-wooden-table-topped-with-papers-and-a-pen-VnK5iT01HYQ).
+
+This article is for leadership, office and finance leads in Swiss SMEs where the same manual job hurts every week. It does not repeat [the difference between digitalisation, automation and AI](/prozess-check/blog/digitalisation-automation-ai-difference). It shows how to measure the workflow you picked before you spend on tools or delivery.
+
+## Five steps through one workflow
+
+The five steps fit on one sheet. You need the person who does the job today and someone who asks follow-up questions.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Draw the boundary</h3><p>Trigger and outcome in one sentence each. «Email with PDF arrives» until «amount is in the accounting system» is a workflow. «Somehow pull numbers for the board» is not.</p></li>
+  <li data-step="2"><h3>Capture as-is</h3><p>Watch one real run at the screen or record it briefly. Last week’s version, not the ideal from memory.</p></li>
+  <li data-step="3"><h3>Measure</h3><p>For one week: how often it happens, minutes per run, errors or queries, waiting on someone else or on a system.</p></li>
+  <li data-step="4"><h3>Mark media breaks</h3><p>Email, spreadsheet, PDF, portal, accounting: where someone copies, prints or waits. Double entry sits next to the step where it happens.</p></li>
+  <li data-step="5"><h3>Decide</h3><p>Split rule-based work (same fields, same order) from judgement (exception, approval, conversation). Only the rule-based part is a automation candidate.</p></li>
+</ol>
+
+<Image src={inline1} alt="Person at a desk with a laptop and notebooks, following an office workflow step by step" width={1200} height={900} class="w-full my-8 rounded-lg" />
+
+Photo: Zulfugar Karimov on [Unsplash](https://unsplash.com/photos/woman-working-on-laptop-at-desk-with-notebooks-pzjeeyl5C38).
+
+If you are unsure the workflow is a candidate at all, go back to the four questions in the pillar article. Process analysis assumes frequency, pain, a clear end and existing data already scored «yes».
+
+Log the same four columns on every run as in the example table below: step, minutes, media break, rule-based yes or no. That keeps the week comparable when someone else reads it. On Friday add the minutes and count errors. That is enough for a decision without a project charter.
+
+## Example: receipts and a monthly report
+
+A fictional 18-person office, no company name. The office lead does two recurring jobs: supplier invoices from the inbox and a monthly report for leadership.
+
+**Receipts:** About 40 invoices per month arrive by email with a PDF. For each one she types amount, supplier and cost centre into accounting, often four minutes. Twice a month a field is missing, then email to the buyer and one to two days of waiting.
+
+**Monthly report:** Every first Monday she exports five lists from CRM, accounting and two spreadsheets, copies rows into a master Excel file, checks totals and sends the file to leadership. The block takes 75 to 90 minutes.
+
+| Step | Minutes (typical) | Media break | Rule-based? |
+| --- | ---: | --- | --- |
+| Save PDF from mail | 1 | Mail → folder | yes |
+| Type fields | 4 | PDF → accounting | yes |
+| Query missing cost centre | 15 (spread) | Mail ↔ buyer | partly (clarification stays human) |
+| Pull five exports | 12 | CRM/ERP → local | yes |
+| Merge in master Excel | 45 | four sources → Excel | yes |
+| Check totals, email leadership | 10 | Excel → mail | yes |
+
+Two things become visible. Receipts are mostly rule-based work with a clear judgement slice when data is missing. The report is rule-based with high minutes and many media breaks. Which workflow you tackle first depends on what hurts most at your place, not on the method.
+
+## Process analysis methods: what an SME actually needs
+
+Searches for **process analysis methods** often mean large programmes. An SME needs fewer tools than jargon.
+
+| Method | In short | For an SME |
+| --- | --- | --- |
+| BPMN | Standardised process diagrams | usually too large; worth it only with many interfaces and a dedicated modeller |
+| Value stream mapping | Material and information flow in production | rarely the first step for pure office work |
+| SIPOC | Supplier, input, process, output, customer on one page | useful as one page before the five steps |
+| Six Sigma | Statistical process control, DMAIC | disproportionate for 40 invoices a month |
+| Walk-through capture | One real run at the screen | the core; replaces long interviews |
+| Tick sheet (one week) | Count occurrences, note minutes | enough for frequency and effort |
+| Media-break list | Per step: where the medium changes | shows where automation can attach |
+| Light «five whys» | Ask «why» three times on one error | enough to understand recurring queries |
+
+You do not have to «implement» a method. Use SIPOC on one page if boundaries are missing. Otherwise start at step 2: one walk-through, one tick sheet, mark media breaks.
+
+## Where analysis fails in the office
+
+Four patterns show up before anyone measures.
+
+**Too many workflows at once.** Three tabs for three processes, and after a week nothing moves. One workflow, one week, one table.
+
+**Interviews only.** The person who does the job skips steps that feel obvious. A screen walk-through shows clicks that never appear in conversation.
+
+**Exceptions waved away.** «It is always different» often hides five recurring exceptions with their own rules. Write them down. They tell you whether automation should stop or ask.
+
+**Tool first.** A demo is not a measurement. If minutes and media breaks are unclear, you buy software on fog.
+
+If error rates are high because Excel column names change every week, that is not a failed analysis. It is the finding: fix the source and columns, then measure.
+
+## From results to a decision
+
+After one week you want on the table: minutes per month (frequency times run time), a rough error or query rate, and the share of steps that follow the same rule.
+
+A rule of thumb without a promise: if the same workflow binds more than an hour every week and at least two media breaks are pure copy-paste, automation is worth a look. If it happens twice a quarter and every round differs, wait.
+
+The measurement does not replace a management decision. It gives numbers and rules so nobody confuses felt load with a tool. Serious [process automation in an SME](/prozess-check) starts with a table like this, not with a licence.
+
+The next cluster step is writing the workflow on one page. For the decision, analysis plus one appointment is often enough.
+
+## Look at this workflow with us
+
+Bring the workflow you analysed. In the [Process Check](/prozess-check) we review it for 60 minutes on Teams. Afterwards you know what can be automated and what it costs. CHF 99.
+
+What happens in the hour and what lands on paper afterwards is in [what the Process Check is](/prozess-check/blog/what-the-process-check-is).
+
+## Frequently asked questions
+
+<div class="blog-faq">
+  <h3>What is process analysis in an SME?</h3>
+  <p>A recurring workflow is measured on a real run: how often, how long, where media breaks and errors appear. The goal is to see which part follows rules and which stays with people.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is a spreadsheet enough for process analysis?</h3>
+  <p>For as-is capture, yes: tick sheet, minutes, media breaks. It does not replace accounting or CRM. It holds the measurement until you decide.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>How is process analysis different from process documentation?</h3>
+  <p>Analysis asks where time goes and what is automatable. Documentation records how the workflow runs today so others can take it over. Analysis comes before or beside documentation, not instead of measuring.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Do I need external consulting for the analysis?</h3>
+  <p>Not for an internal measurement week. If you then want to test whether automation pays off and what delivery costs, the Process Check is the paid next step on that one workflow.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Which process analysis methods are overkill?</h3>
+  <p>BPMN, production-scale value stream work and Six Sigma are rarely the first step in an office with one candidate. Walk-through capture, a tick sheet and a media-break list are enough.</p>
+</div>
