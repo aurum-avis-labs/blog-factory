@@ -13,7 +13,7 @@ Read that skill before drafting or queuing posts. Every wave passes `.cursor/ski
 ## Contract
 
 - Posts: `brands/{brand}/{lang}/{slug}.mdx`
-- Images: `brands/{brand}/images/{translationKey}/` (`hero.jpg`, optional `inline1.jpg`, `inline2.jpg`)
+- Images: `brands/{brand}/images/{translationKey}/` (`hero.webp`, optional `inline1.webp`, `inline2.webp`). Generation may produce PNG/JPEG; run `npm run images:webp` before commit. Only WebP may be referenced (`npm run check:images`).
 - Languages and domains: `brands.config.ts`
 - `funnelStage`: `awareness`, `interest`, or `consideration`. Same value on every locale.
 - `translationKey`: the English slug, shared by every locale.

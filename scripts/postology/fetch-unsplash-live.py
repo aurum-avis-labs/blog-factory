@@ -20,39 +20,39 @@ IMAGES_ROOT = REPO / "brands" / "postology" / "images"
 # Per translationKey: (filename, hero?, search query)
 KEY_IMAGE_PLANS: dict[str, list[tuple[str, bool, str]]] = {
     "too-much-clicking-after-ai-tools": [
-        ("hero.jpg", True, "creator laptop social media content workflow"),
-        ("inline1.jpg", False, "freelancer laptop writing social posts"),
-        ("inline2.jpg", False, "smartphone social media apps desk computer"),
+        ("hero.webp", True, "creator laptop social media content workflow"),
+        ("inline1.webp", False, "freelancer laptop writing social posts"),
+        ("inline2.webp", False, "smartphone social media apps desk computer"),
     ],
     "idea-to-post-manual-bottlenecks": [
-        ("hero.jpg", True, "content creator planning workflow notebook"),
-        ("inline1.jpg", False, "person laptop creative work home office"),
-        ("inline2.jpg", False, "content calendar planning whiteboard sticky notes"),
+        ("hero.webp", True, "content creator planning workflow notebook"),
+        ("inline1.webp", False, "person laptop creative work home office"),
+        ("inline2.webp", False, "content calendar planning whiteboard sticky notes"),
     ],
     "content-automation-vs-scheduling-tools": [
-        ("hero.jpg", True, "social media scheduler dashboard calendar"),
-        ("inline1.jpg", False, "marketing professional laptop analytics"),
-        ("inline2.jpg", False, "digital calendar schedule planning desk"),
+        ("hero.webp", True, "social media scheduler dashboard calendar"),
+        ("inline1.webp", False, "marketing professional laptop analytics"),
+        ("inline2.webp", False, "digital calendar schedule planning desk"),
     ],
     "solo-creator-one-flow-posting": [
-        ("hero.jpg", True, "content creator recording video ring light"),
-        ("inline1.jpg", False, "woman laptop couch freelance work"),
-        ("inline2.jpg", False, "paper planner calendar month schedule"),
+        ("hero.webp", True, "content creator recording video ring light"),
+        ("inline1.webp", False, "woman laptop couch freelance work"),
+        ("inline2.webp", False, "paper planner calendar month schedule"),
     ],
     "multi-platform-posting-hidden-work": [
-        ("hero.jpg", True, "multiple smartphones social media apps"),
-        ("inline1.jpg", False, "person laptop managing social accounts"),
-        ("inline2.jpg", False, "content calendar sticky notes planning"),
+        ("hero.webp", True, "multiple smartphones social media apps"),
+        ("inline1.webp", False, "person laptop managing social accounts"),
+        ("inline2.webp", False, "content calendar sticky notes planning"),
     ],
     "multi-platform-social-without-enterprise-team": [
-        ("hero.jpg", True, "small startup team meeting laptop"),
-        ("inline1.jpg", False, "freelancer laptop remote work coffee shop"),
-        ("inline2.jpg", False, "social media icons laptop screen marketing"),
+        ("hero.webp", True, "small startup team meeting laptop"),
+        ("inline1.webp", False, "freelancer laptop remote work coffee shop"),
+        ("inline2.webp", False, "social media icons laptop screen marketing"),
     ],
     "reduce-clicks-social-media-workflow-audit": [
-        ("hero.jpg", True, "checklist notebook productivity workflow"),
-        ("inline1.jpg", False, "person analyzing workflow laptop notes"),
-        ("inline2.jpg", False, "organised desk planner timer efficiency"),
+        ("hero.webp", True, "checklist notebook productivity workflow"),
+        ("inline1.webp", False, "person analyzing workflow laptop notes"),
+        ("inline2.webp", False, "organised desk planner timer efficiency"),
     ],
 }
 

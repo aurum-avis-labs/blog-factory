@@ -15,6 +15,7 @@
  * with a non-draft post in the last LOOKBACK_DAYS are dispatched instead.
  */
 
+import { execSync } from "node:child_process";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -237,6 +238,10 @@ function invokedDirectly(): boolean {
   return import.meta.url === pathToFileURL(path.resolve(entry)).href;
 }
 
+function assertWebpOnlyContent(): void {
+  execSync("node scripts/check-webp-only.mjs", { stdio: "inherit" });
+}
+
 async function main(): Promise<void> {
   const dryRun = process.argv.includes("--dry-run");
   const token = process.env.CROSS_REPO_PAT || process.env.GITHUB_TOKEN;
@@ -244,6 +249,8 @@ async function main(): Promise<void> {
     console.error("Error: CROSS_REPO_PAT or GITHUB_TOKEN environment variable is required");
     process.exit(1);
   }
+
+  assertWebpOnlyContent();
 
   const today = zurichCalendarDay(new Date());
   console.log(`Today in Europe/Zurich: ${today}${dryRun ? " (DRY RUN)" : ""}\n`);
