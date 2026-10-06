@@ -4,7 +4,6 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import sharp from "sharp";
 
 export const RASTER_EXT = /\.(png|jpe?g)$/i;
 
@@ -30,6 +29,8 @@ export function maxWidthForBasename(basename) {
  * @param {{ quality?: number, maxWidth?: number }} [opts]
  */
 export async function convertFileToWebp(srcPath, destPath, opts = {}) {
+  // Lazy import: check:images must run without loading sharp.
+  const { default: sharp } = await import("sharp");
   const quality = opts.quality ?? 80;
   const base = path.basename(srcPath);
   const maxWidth = opts.maxWidth ?? maxWidthForBasename(base);
@@ -93,15 +94,26 @@ export function webpBasename(relPath) {
   return relPath.replace(RASTER_EXT, ".webp");
 }
 
+/*
+ * A raster reference is either
+ *   - a path containing "/" (e.g. @/assets/blog/x/hero.jpg, ../../../assets/…, https://…/a.png), or
+ *   - a whole quoted string / unquoted YAML value that is a bare filename ("img1.png", image: hero.jpg).
+ * Bare filenames inside prose or inline code (e.g. `final_v3.png`) are example text, not image
+ * references, and are neither flagged nor rewritten.
+ */
+const PATH_REF = /[^\s"'`()<>\[\]{}|,;]*\/[^\s"'`()<>\[\]{}|,;]*?\.(png|jpe?g)(?![\w-])/gi;
+const QUOTED_NAME_REF = /(["'])([^"'\s\/`]+)\.(png|jpe?g)\1/gi;
+const YAML_NAME_REF = /^(\s*[\w-]+:\s+)([^\s"'\/`#]+)\.(png|jpe?g)\s*$/gim;
+
 /**
- * Rewrite .png/.jpg/.jpeg path segments in file contents (case-insensitive ext).
+ * Rewrite .png/.jpg/.jpeg image references to .webp (case-insensitive ext).
  * @param {string} content
  */
 export function rewriteRasterRefsToWebp(content) {
-  return content.replace(
-    /([^\s"'`]+?)\.(png|jpe?g)(?=\b|["'`\s)/?#])/gi,
-    (_, stem, ext) => `${stem}.webp`
-  );
+  return content
+    .replace(PATH_REF, (m) => (/^https?:\/\//i.test(m) ? m : m.replace(/\.(png|jpe?g)$/i, ".webp")))
+    .replace(QUOTED_NAME_REF, (_, q, stem) => `${q}${stem}.webp${q}`)
+    .replace(YAML_NAME_REF, (_, key, stem) => `${key}${stem}.webp`);
 }
 
 /**
@@ -110,16 +122,12 @@ export function rewriteRasterRefsToWebp(content) {
  */
 export function findRasterReferences(content) {
   const hits = new Set();
-  const re =
-    /(?:@\/assets\/blog\/[^\s"'`]+|brands\/[^\s"'`]+|(?:\.\/)?[\w./-]+)\.(png|jpe?g)\b/gi;
-  let m;
-  while ((m = re.exec(content)) !== null) {
-    hits.add(m[0]);
-  }
-  const remote =
-    /https?:\/\/[^\s"'`)]+?\.(png|jpe?g)(?:\?[^\s"'`)]*)?/gi;
-  while ((m = remote.exec(content)) !== null) {
-    hits.add(m[0]);
+  for (const re of [PATH_REF, QUOTED_NAME_REF, YAML_NAME_REF]) {
+    re.lastIndex = 0;
+    let m;
+    while ((m = re.exec(content)) !== null) {
+      hits.add(m[0].trim());
+    }
   }
   return [...hits];
 }
