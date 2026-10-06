@@ -39,6 +39,6 @@ Local AI-powered blog writing tool for Aurum Avis Labs brands.
 | File | Path |
 |---|---|
 | MDX (per language) | `brands/{brand}/{lang}/{slug}.mdx` |
-| Images | `brands/{brand}/images/{slug}/img1.png`, `img2.png`, … |
+| Images | `brands/{brand}/images/{slug}/img1.webp`, `img2.webp`, … |
 
 Never touch `.github/` — workflows are already configured.

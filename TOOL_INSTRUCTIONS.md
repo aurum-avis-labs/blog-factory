@@ -1,6 +1,6 @@
 # Blog Factory — Local Tool Instructions for Claude Code
 
-This document is the spec for the local Express app in `tool/`. It is not the blog-writing guide. Agents that write or queue posts follow `.cursor/skills/seo-blog/SKILL.md`. Keep this app's output compatible with that schema (`hero.jpg`, `translationKey`, `draft`, funnel rules).
+This document is the spec for the local Express app in `tool/`. It is not the blog-writing guide. Agents that write or queue posts follow `.cursor/skills/seo-blog/SKILL.md`. Keep this app's output compatible with that schema (`hero.webp`, `translationKey`, `draft`, funnel rules).
 
 This document contains everything needed to build the `tool/` local web app inside the `blog-factory` repository. Read this fully before writing any code.
 
@@ -33,7 +33,7 @@ This is the central content repository for all Aurum Avis Labs landing pages. Re
 
 - **Never touch `.github/`** — workflows are already configured and must not be modified
 - Content lives under `brands/{brand-id}/{lang}/post-slug.mdx`
-- Images live under `brands/{brand-id}/images/{post-slug}/img1.png`, `img2.png`, etc.
+- Images live under `brands/{brand-id}/images/{post-slug}/img1.webp`, `img2.webp`, etc.
 - All brands are defined in `brands.config.ts` at the repo root
 - When content is pushed to `main`, the `auto-publish.yml` workflow automatically detects changed brands and dispatches rebuilds to affected landing page repos — no manual deployment needed
 
@@ -64,7 +64,7 @@ title: "Post Title"
 description: "Short description — MUST be under 160 characters for SEO"
 pubDate: 2026-03-25
 author: "Brand Display Name"
-image: "@/assets/blog/post-slug/img1.png"
+image: "@/assets/blog/post-slug/img1.webp"
 tags: ["tag1", "tag2", "tag3"]
 funnelStage: "awareness"
 draft: false
@@ -76,7 +76,7 @@ relatedPosts: ["other-existing-post-slug"]
 - Wrap frontmatter in opening and closing `---` lines (Astro/MDX standard). A block of `title:` / `description:` lines without those delimiters is not valid frontmatter and breaks content collections.
 - `description` must be under 160 characters — hard requirement for SEO
 - `pubDate` is today's date in `YYYY-MM-DD` format
-- `image` field uses the path `@/assets/blog/{post-slug}/img1.png` — this resolves correctly when landing pages fetch content
+- `image` field uses the path `@/assets/blog/{post-slug}/img1.webp` — this resolves correctly when landing pages fetch content
 - `funnelStage` must be one of `awareness`, `interest`, or `consideration` — same value for every locale of the same article. Matches landing-page blog schema and GA4 funnel tracking (`@aurum-avis-labs/browser-tracking`). The tool UI selects this per job; the server also rewrites the key after generation so it cannot drift.
 - `relatedPosts` should reference 1–3 existing post slugs in the same language, or be an empty array `[]`
 - Omit `image` field if no images are being generated
@@ -89,9 +89,9 @@ When images are included, add this import block immediately after the closing `-
 
 ```mdx
 import { Image } from 'astro:assets';
-import img1 from '@/assets/blog/post-slug/img1.png';
-import img2 from '@/assets/blog/post-slug/img2.png';
-import img3 from '@/assets/blog/post-slug/img3.png';
+import img1 from '@/assets/blog/post-slug/img1.webp';
+import img2 from '@/assets/blog/post-slug/img2.webp';
+import img3 from '@/assets/blog/post-slug/img3.webp';
 ```
 
 Inline image usage:
@@ -116,7 +116,7 @@ When pushing generated content to the repo via GitHub API:
 | MDX (German) | `brands/{brand-id}/de/{slug}.mdx` |
 | MDX (French) | `brands/{brand-id}/fr/{slug}.mdx` |
 | MDX (Italian) | `brands/{brand-id}/it/{slug}.mdx` |
-| Images | `brands/{brand-id}/images/{slug}/img1.png`, `img2.png`, etc. |
+| Images | `brands/{brand-id}/images/{slug}/img1.webp`, `img2.webp`, etc. |
 
 All files for a given post share the same slug. The slug is derived from the post title, lowercased, with spaces replaced by hyphens, localized per language.
 
@@ -254,7 +254,7 @@ Request body:
   "brandId": "do-for-me",
   "slug": "why-ai-virtual-teams-are-the-future",
   "posts": { "en": "mdx content...", "de": "mdx content..." },
-  "images": [{ "filename": "img1.png", "base64": "..." }]
+  "images": [{ "filename": "img1.webp", "base64": "..." }]
 }
 ```
 
@@ -347,7 +347,7 @@ Image instructions block (when imageCount > 0):
 Include {imageCount} images. Add this import block immediately after the frontmatter ---:
 
 import { Image } from 'astro:assets';
-import img1 from '@/assets/blog/POST_SLUG/img1.png';
+import img1 from '@/assets/blog/POST_SLUG/img1.webp';
 [...repeat for each image]
 
 Place each `<Image />` at natural section breaks; the first image should appear only after the intro and the first `##` heading (see implementation in `tool/server.ts`).

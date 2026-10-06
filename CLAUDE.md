@@ -13,7 +13,7 @@ Read that skill before drafting or queuing posts. Brand strategy stays in `conte
 ## Contract
 
 - Posts: `brands/{brand}/{lang}/{slug}.mdx`
-- Images: `brands/{brand}/images/{translationKey}/` (`hero.jpg`, optional `inline1.jpg`, `inline2.jpg`)
+- Images: `brands/{brand}/images/{translationKey}/` (`hero.webp`, optional `inline1.webp`, `inline2.webp`). Convert PNG/JPEG with `npm run images:webp -- <path>` before commit; `npm run check:images` must pass.
 - Languages and domains: `brands.config.ts`
 - `funnelStage`: `awareness`, `interest`, or `consideration` only. Same value on every locale.
 - `translationKey`: the English slug, shared by every locale.

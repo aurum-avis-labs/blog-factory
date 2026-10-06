@@ -55,12 +55,12 @@ def run(cmd: list[str], cwd: Path | None = None, check: bool = True) -> subproce
 def patch_en_imports(path: Path, slug: str) -> None:
     text = path.read_text(encoding="utf-8")
     old = (
-        "import inline1 from '@/assets/blog/content-automation-vs-scheduling-tools/inline1.jpg';\n"
-        "import inline2 from '@/assets/blog/content-automation-vs-scheduling-tools/inline2.jpg';"
+        "import inline1 from '@/assets/blog/content-automation-vs-scheduling-tools/inline1.webp';\n"
+        "import inline2 from '@/assets/blog/content-automation-vs-scheduling-tools/inline2.webp';"
     )
     new = (
-        f"import inline1 from '@/assets/blog/{slug}/inline1.jpg';\n"
-        f"import inline2 from '@/assets/blog/{slug}/inline2.jpg';"
+        f"import inline1 from '@/assets/blog/{slug}/inline1.webp';\n"
+        f"import inline2 from '@/assets/blog/{slug}/inline2.webp';"
     )
     if old in text:
         text = text.replace(old, new)

@@ -238,6 +238,10 @@ function invokedDirectly(): boolean {
 }
 
 async function main(): Promise<void> {
+  const { runCheckImages } = await import("./check-images.ts");
+  const imageCheck = runCheckImages();
+  if (imageCheck !== 0) process.exit(imageCheck);
+
   const dryRun = process.argv.includes("--dry-run");
   const token = process.env.CROSS_REPO_PAT || process.env.GITHUB_TOKEN;
   if (!token && !dryRun) {

@@ -6,8 +6,18 @@ import { createServer } from 'http';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import { EventEmitter } from 'events';
+import { writeBufferAsWebp } from '../scripts/lib/raster-to-webp.ts';
 
 const execAsync = promisify(exec);
+
+async function writeGeneratedImage(base64: string, destFile: string): Promise<void> {
+  const buf = Buffer.from(base64, 'base64');
+  if (destFile.toLowerCase().endsWith('.webp')) {
+    await writeBufferAsWebp(buf, destFile);
+    return;
+  }
+  writeFileSync(destFile, buf);
+}
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -541,7 +551,7 @@ function normalizeMdxForAvailableImages(mdx: string, slug: string, images: Store
   updated = updated.replace(/<Image\b[\s\S]*?\/>/g, full => {
     const match = full.match(/src=\{(img\d+)\}/);
     if (!match) return full;
-    const filename = `${match[1]}.png`;
+    const filename = `${match[1]}.webp`;
     return availableByFilename.has(filename) ? full : '';
   });
 
@@ -586,7 +596,7 @@ function applyResolvedImagesToMdx(mdx: string, images: StoredImage[]): string {
     if (!srcM) return full;
     const varName = srcM[1];
     const numMatch = varName.match(/^img(\d+)$/);
-    const filename = numMatch ? `img${numMatch[1]}.png` : '';
+    const filename = numMatch ? `img${numMatch[1]}.webp` : '';
     const img = imagesByFilename.get(filename);
     if (!img || img.resolvedSource !== 'unsplash' || !img.unsplash?.sourceUrl) return full;
     const altM = attrs.match(/alt="([^"]*)"/);
@@ -600,7 +610,7 @@ function applyResolvedImagesToMdx(mdx: string, images: StoredImage[]): string {
     updated = updated.replace(/^import\s+\{\s*Image\s*\}\s+from\s+['"]astro:assets['"]\s*;?\r?\n?/gm, '');
   }
 
-  const cover = imagesByFilename.get('img1.png');
+  const cover = imagesByFilename.get('img1.webp');
   if (cover?.resolvedSource === 'unsplash' && cover.unsplash?.sourceUrl) {
     updated = setFrontmatterValue(updated, 'image', cover.unsplash.sourceUrl);
   }
@@ -763,7 +773,7 @@ async function runJob(job: Job): Promise<void> {
     for (const lang of languages) {
       jobLog(job, `Generating ${lang.toUpperCase()} post with ${textProvider === 'claude' ? 'Claude' : 'Azure OpenAI'}…`);
       const imageInstructions = imageCount > 0
-        ? `Include ${imageCount} image${imageCount > 1 ? 's' : ''}. Add this import block immediately after the frontmatter ---:\n\nimport { Image } from 'astro:assets';\n${Array.from({ length: imageCount }, (_, i) => `import img${i + 1} from '@/assets/blog/POST_SLUG/img${i + 1}.png';`).join('\n')}\n\nPlace each <Image src={imgN} alt="descriptive alt text" width={700} quality={80} class="w-full" /> at natural section breaks inside the article body. The first inline image must appear only after the intro and after the first ## section heading. Do not place img1 directly below the title, description, or frontmatter.`
+        ? `Include ${imageCount} image${imageCount > 1 ? 's' : ''}. Add this import block immediately after the frontmatter ---:\n\nimport { Image } from 'astro:assets';\n${Array.from({ length: imageCount }, (_, i) => `import img${i + 1} from '@/assets/blog/POST_SLUG/img${i + 1}.webp';`).join('\n')}\n\nPlace each <Image src={imgN} alt="descriptive alt text" width={700} quality={80} class="w-full" /> at natural section breaks inside the article body. The first inline image must appear only after the intro and after the first ## section heading. Do not place img1 directly below the title, description, or frontmatter.`
         : 'Do not include any images. Omit the image field from frontmatter.';
       const existingList = existingByLang[lang]?.length
         ? existingByLang[lang].map(s => `- ${s}`).join('\n') : 'None yet.';
@@ -776,7 +786,7 @@ title: "Post Title"
 description: "Under 160 chars"
 pubDate: ${today()}
 author: "${brand.displayName}"
-${imageCount > 0 ? 'image: "@/assets/blog/POST_SLUG/img1.png"' : ''}
+${imageCount > 0 ? 'image: "@/assets/blog/POST_SLUG/img1.webp"' : ''}
 tags: ["tag1", "tag2", "tag3"]
 funnelStage: "${funnelStage}"
 draft: false
@@ -1422,7 +1432,7 @@ async function resolveUnsplashImage(
     || `Unsplash photo for ${plan.promptEn}`;
 
   return {
-    filename: `img${plan.index}.png`,
+    filename: `img${plan.index}.webp`,
     previewUrl,
     alt,
     resolvedSource: 'unsplash',
@@ -1456,7 +1466,7 @@ async function generateAiImageForPlan(
     || promptText.replace(/\s{2,}/g, ' ').trim().slice(0, 120).replace(/[,.\s]+$/, '');
   const base64 = await generateImage(promptText, selectedRef?.base64);
   return {
-    filename: `img${plan.index}.png`,
+    filename: `img${plan.index}.webp`,
     base64,
     previewUrl: `data:image/png;base64,${base64}`,
     alt,
@@ -1747,7 +1757,7 @@ app.post('/api/push', async (req: Request, res: Response) => {
       const dir  = resolve(REPO_ROOT, 'brands', brandId, 'images', slug);
       const file = resolve(dir, img.filename);
       mkdirSync(dir, { recursive: true });
-      writeFileSync(file, Buffer.from(img.base64, 'base64'));
+      await writeGeneratedImage(img.base64, file);
       send('log', `✓ Written brands/${brandId}/images/${slug}/${img.filename}`);
     }
     if (images.length > 0) {
@@ -1844,7 +1854,7 @@ app.post('/api/staging/push-all', async (_req: Request, res: Response) => {
         if (!img.base64) continue;
         const dir = resolve(REPO_ROOT, 'brands', post.brandId, 'images', post.slug);
         mkdirSync(dir, { recursive: true });
-        writeFileSync(resolve(dir, img.filename), Buffer.from(img.base64, 'base64'));
+        await writeGeneratedImage(img.base64, resolve(dir, img.filename));
         send('log', `✓ Written brands/${post.brandId}/images/${post.slug}/${img.filename}`);
       }
       if ((post.images ?? []).length > 0) {

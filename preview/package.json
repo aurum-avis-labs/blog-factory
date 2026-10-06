@@ -6,7 +6,7 @@
   "scripts": {
     "sync": "tsx scripts/sync-content.ts",
     "dev": "npm run sync && astro dev",
-    "build": "npm run sync && astro build",
+    "build": "npm run check:images --prefix .. && npm run sync && astro build",
     "preview": "astro preview",
     "capture:pr": "tsx scripts/capture-pr-screenshots.ts",
     "capture:pr:full": "npm run build && npm run capture:pr -- --serve"

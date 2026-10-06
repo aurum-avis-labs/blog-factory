@@ -4,14 +4,20 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "publish:brand": "tsx scripts/dispatch-deploys.ts",
+    "check:images": "tsx scripts/check-images.ts",
+    "images:webp": "tsx scripts/images-webp.ts",
+    "validate": "npm run check:images",
+    "typecheck": "tsc --noEmit",
+    "publish:brand": "npm run validate && tsx scripts/dispatch-deploys.ts",
     "preview": "cd preview && npm run dev",
-    "preview:build": "cd preview && npm run build",
+    "preview:build": "npm run validate && cd preview && npm run build",
     "preview:capture": "cd preview && npm run capture:pr:full",
     "tool": "cd tool && npm run dev",
     "dev:postology": "cd ../postology-landing-page && npm run dev -- --port 3000"
   },
   "devDependencies": {
+    "@types/node": "^22.0.0",
+    "sharp": "^0.34.4",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0"
   }

@@ -13,6 +13,10 @@
  */
 
 import { brands } from "../brands.config.ts";
+import { runCheckImages } from "./check-images.ts";
+
+const imageCheck = runCheckImages();
+if (imageCheck !== 0) process.exit(imageCheck);
 
 const args = process.argv.slice(2);
 const brandsArg = args

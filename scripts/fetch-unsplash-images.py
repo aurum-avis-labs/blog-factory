@@ -233,12 +233,12 @@ def encode_image(src_jpg: Path, dest: Path, width: int, height: int) -> None:
     top = max(0, (new_h - height) // 2)
     im = im.crop((left, top, left + width, top + height))
     ext = dest.suffix.lower()
-    if ext in {".jpg", ".jpeg"}:
+    if ext == ".webp":
+        im.save(dest, "WEBP", quality=80, method=6)
+    elif ext in {".jpg", ".jpeg"}:
         im.save(dest, "JPEG", quality=82, optimize=True)
     elif ext == ".png":
         im.save(dest, "PNG", optimize=True)
-    elif ext == ".webp":
-        im.save(dest, "WEBP", quality=78, method=6)
     else:
         raise RuntimeError(f"Unsupported image extension: {dest.suffix}")
 

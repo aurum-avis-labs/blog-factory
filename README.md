@@ -45,10 +45,10 @@ brands/{brand-id}/
     post-slug.mdx        # Blog post with frontmatter
   images/                # Blog images
     {post-slug}/
-      img1.png
+      img1.webp
 ```
 
-Images are referenced in MDX as `@/assets/blog/{post-slug}/img1.png`.
+Images are referenced in MDX as `@/assets/blog/{post-slug}/img1.webp`.
 
 ## Deployment Pipeline
 
@@ -72,6 +72,17 @@ Go to **Actions → Manual Publish → Run workflow**, select a brand or `all`.
 3. Copies MDX files → `src/content/blog/{lang}/`
 4. Copies images → `src/assets/blog/`
 5. Astro builds normally with content collections
+
+## Blog images (WebP only)
+
+Landing-page CI runs Sharp on every referenced image at build time. Commit **WebP only** under `brands/{brand}/images/` (max width 1600px, quality ~80):
+
+```bash
+npm run images:webp -- brands/vemoir/images/my-slug/hero.jpg
+npm run check:images
+```
+
+`npm run check:images` also runs before `preview:build`, `publish:brand`, and publish dispatch scripts (so CI fails on push without a workflow edit).
 
 ## Setup
 

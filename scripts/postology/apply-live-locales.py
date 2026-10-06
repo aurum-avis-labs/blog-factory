@@ -88,13 +88,13 @@ author: "Postology Team"
 funnelStage: "{fm['funnelStage']}"
 translationKey: "{key}"
 relatedPosts: {json.dumps(rel)}
-image: "@/assets/blog/{key}/hero.jpg"
+image: "@/assets/blog/{key}/hero.webp"
 draft: false
 ---
 
 import {{ Image }} from 'astro:assets';
-import inline1 from '@/assets/blog/{key}/inline1.jpg';
-import inline2 from '@/assets/blog/{key}/inline2.jpg';
+import inline1 from '@/assets/blog/{key}/inline1.webp';
+import inline2 from '@/assets/blog/{key}/inline2.webp';
 
 {intro}
 
