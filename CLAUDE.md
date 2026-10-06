@@ -19,6 +19,7 @@ Read that skill before drafting or queuing posts. Brand strategy stays in `conte
 - `translationKey`: the English slug, shared by every locale.
 - `relatedPosts`: 1–3 slugs in the same language. Same or higher intent (`awareness` < `interest` < `consideration`). `interest` does not link to `awareness`. `consideration` links to `consideration`, or to `interest` only if no other `consideration` post exists in that language.
 - `description`: under 160 characters.
+- `seoTitle` (optional): SERP `<title>` when it must differ from the H1; keep `title` as the H1, ≤60 characters before any landing-page brand suffix.
 - Body starts at H2. No `---` in the body.
 - New waves stay `draft: true` until they are approved to schedule. `draft: false` with a due `pubDate` is eligible for `scripts/dispatch-due-deploys.ts`.
 

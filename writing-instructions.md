@@ -10,4 +10,6 @@ Read that file, then `frontmatter.md`, `query-map.md`, `batch.md`, and `images.m
 
 `AGENTS.md` and `CLAUDE.md` keep only the repo contract. `TOOL_INSTRUCTIONS.md` is the spec for the local Express app, not the writing guide.
 
+**Optional SERP title:** use frontmatter `seoTitle` (≤60 characters) when the snippet title must differ from the H1; the H1 always stays `title`. Landing pages read `seoTitle` for `<title>` / OG when set.
+
 **Images:** Heroes and inline assets are WebP only in committed content. Image tools may output PNG/JPEG; run `npm run images:webp` to convert under `brands/` and rewrite MDX references, then `npm run check:images` before opening a PR.

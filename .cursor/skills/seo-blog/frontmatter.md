@@ -5,6 +5,7 @@ Match posts already in the brand. This is the field order used by current posts:
 ```yaml
 ---
 title: "..."
+seoTitle: "..." # optional; SERP title only, ≤60 chars; H1 stays title
 description: "..."
 pubDate: YYYY-MM-DD
 author: "..."
@@ -19,7 +20,8 @@ draft: true
 
 | Field | Rule |
 |---|---|
-| `title` | Specific, credible, contains the primary query. Not a keyword list. |
+| `title` | Specific, credible, contains the primary query. Not a keyword list. Becomes the on-page H1. |
+| `seoTitle` | Optional. Use when the SERP `<title>` must differ from the H1; ≤60 characters before any brand suffix the landing page adds. Omit when `title` is enough. |
 | `description` | Under 160 characters. Says what the page decides or explains. |
 | `pubDate` | `YYYY-MM-DD`. Stagger waves. The date changes when the body materially changes. |
 | `updatedDate` | Optional. Add only when the body materially changes. |

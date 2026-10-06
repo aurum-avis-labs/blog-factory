@@ -19,6 +19,7 @@ Read that skill before drafting or queuing posts. Every wave passes `.cursor/ski
 - `translationKey`: the English slug, shared by every locale.
 - `relatedPosts`: 1–3 slugs in the same language, traveling from lower to higher intent (`awareness` < `interest` < `consideration`): interest points to interest or consideration; consideration points to consideration, or to interest while that language has no other consideration post.
 - `description`: under 160 characters.
+- `seoTitle` (optional): SERP `<title>` when it must differ from the on-page H1; keep `title` as the H1, ≤60 characters before any landing-page brand suffix. Omit when `title` is enough.
 - Body starts at H2; `---` is reserved for frontmatter.
 - New waves stay `draft: true` until they are approved to schedule. `draft: false` with a due `pubDate` is eligible for `scripts/dispatch-due-deploys.ts`.
 
