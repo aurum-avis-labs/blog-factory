@@ -9,7 +9,7 @@ Honesty: nothing uploaded; suggestions are review aids, not proof of anonymity; 
 | ID | Wave | Type | funnelStage | Primary query (EN) | EN slug | DE slug | FR slug | IT slug | tool | Status |
 |----|------|------|-------------|--------------------|---------|---------|---------|---------|------|--------|
 | 1 | 1 | how-to | interest | redact a pdf in the browser nothing uploaded | redact-pdf-without-upload | pdf-schwaerzen-ohne-upload | masquer-pdf-sans-envoi | oscurare-pdf-senza-caricare | pdf-redactor | drafted |
-| 2 | 1 | explainer | awareness | personal data left in a pdf before you share it | personal-data-left-in-a-pdf | personenbezogene-daten-in-einem-pdf | donnees-personnelles-dans-un-pdf | dati-personali-in-un-pdf | | drafted |
+| 2 | 1 | explainer | awareness | personal data left in a pdf before you share it | personal-data-left-in-a-pdf | personenbezogene-daten-in-einem-pdf | donnees-personnelles-dans-un-pdf | dati-personali-in-un-pdf | pdf-redactor | drafted |
 
 ## Left out
 
