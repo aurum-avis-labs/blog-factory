@@ -1,0 +1,102 @@
+---
+title: "Mikrofon online testen vor dem Zoom- oder Teams-Call"
+description: "Mikrofon online testen vor Zoom, Teams oder Meet: Eingang wählen, Satz lesen, Pegel und Rauschen prüfen, Clip anhören. Nichts wird hochgeladen."
+pubDate: 2026-11-19
+author: "Vemoir Team"
+tags: ["mikrofon", "calls", "browser"]
+funnelStage: "interest"
+translationKey: "test-microphone-online-before-call"
+relatedPosts: ["sprechtempo-test-woerter-pro-minute", "mikrofon-rauschunterdrueckung", "meeting-aufnahme-kein-ton-mac"]
+tool: "microphone-test"
+draft: true
+---
+
+Mikrofon online testen lohnt sich, bevor du unsicher bist, welches Eingangsgerät aktiv ist, oder wenn ein Headset in der Musik gut klingt und im Call dünn. Öffne den [Mikrofon-Test](/de/tools/mikrofon-test), erlaube dem Browser einmal den Zugriff, lies den Satz während des Countdowns, lies dann die Lampe und höre den kurzen Clip. Das Audio bleibt in diesem Tab. Nichts wird hochgeladen, und kein Sprachmodell läuft.
+
+Das Ergebnis betrifft das Browser-Signal auf dem Gerät, das du gerade nutzt. Meeting-Apps legen danach eigene Filter auf. Nimm den Test als Vorprüfung, nicht als Garantie dafür, wie dich alle anderen hören.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Upload</span><strong>Keiner</strong><p>Der Clip bleibt im Speicher dieses Tabs.</p></li>
+  <li><span class="blog-kicker">Modell</span><strong>Kein Lauf</strong><p>Pegel und Rauschen werden lokal gemessen.</p></li>
+  <li><span class="blog-kicker">Umfang</span><strong>Nur Mic</strong><p>Nimmt den Call nicht auf und vergibt keine Sprecher.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Diese Seite erfasst keinen Systemton und erfindet keine Sprechernamen. Live-Aufnahme bleibt in der Mac-App.</p>
+</aside>
+
+## So testest du dein Mikrofon online vor dem Call
+
+1. Öffne den [Mikrofon-Test](/de/tools/mikrofon-test) und wähle denselben Eingang wie im Call (Headset, Laptop-Mic, USB-Mic).
+2. Klicke auf Mikrofon testen und erlaube den Zugriff.
+3. Lies während der acht Sekunden den Satz in normaler Call-Lautstärke.
+4. Lies die Lampe und die Zahlen, spiele den Clip ab.
+5. Bei gelb oder rot Eingang, Abstand oder Raumlärm korrigieren und erneut testen.
+
+Grün heisst: Pegel und Rauschen wirken calltauglich. Gelb heisst Vorsicht bei Pegel, Rauschen oder Clipping. Rot heisst klares Problem. Kein Signal heisst: der Eingang blieb unter etwa -60 dBFS.
+
+## Was Lampe und Zahlen bedeuten
+
+Die Werte stehen in dBFS: digitaler Pegel relativ zur Vollaussteuerung, nicht Lautstärke im Raum. Null dBFS ist das digitale Maximum. Normale Sprache liegt oft zwischen etwa -30 und -12 dBFS. Clipping nahe 0 dBFS macht Stimmen hinterher oft scharf.
+
+Standardmässig laufen Echo-Unterdrückung, Rauschunterdrückung und automatische Verstärkung wie in einem Browser-Call. Schalte die Rohmessung ein, wenn du den unverarbeiteten Eingang sehen willst. Das hilft beim Vergleich von USB-Mic und Headset, bevor du Zoom die Schuld gibst.
+
+## Warum Zoom und Teams trotzdem anders klingen können
+
+Diese Apps legen eigene Verarbeitung danach. Eine grüne Lampe hier schaltet deren Filter nicht aus. Klingt die Stimme nur in Teams dünn, prüfe als Nächstes Headset-Profil und In-App-Rauschfilter. Für Aufnahmen, die Mic und Systemton als getrennte lokale Spuren auf dem Mac behalten, siehe [Mikrofon und Systemton](/de/blog/mikrofon-und-systemton) und [Mikrofon-Rauschunterdrückung](/de/blog/mikrofon-rauschunterdrueckung).
+
+Bluetooth-Headsets nutzen oft ein Profil für Musik und ein engeres für Sprache. Klang die Musik gut und der Call dumpf, nimm für das Meeting einen kabelgebundenen Weg oder stelle sicher, dass das System den Headset-Modus und nicht den Stereo-Modus gewählt hat.
+
+## Wann diese Seite das falsche Werkzeug ist
+
+Überspringe den Browser-Check, wenn du ein Transkript, Sprechernamen oder mehr als eine kurze Probe brauchst. Diese Seite prüft nur das Mic. Sie transkribiert nicht, tritt dem Meeting nicht bei und speichert den Clip nicht, wenn du den Tab verlässt.
+
+Wenn die Aufnahme schon keinen Ton hat, liegt das Problem meist an der Spur, nicht daran, ob du gesprochen hast. Dann hilft [Meeting-Aufnahme kein Ton auf dem Mac](/de/blog/meeting-aufnahme-kein-ton-mac).
+
+Willst du den nächsten Call auf dem Gerät behalten? [Vemoir für Mac](/de#capture) nimmt Mikrofon und Systemton lokal auf. Diese Seite bleibt der schnelle Check im Browser.
+
+## Kurze Checkliste am selben Tag
+
+<ul class="blog-checklist">
+  <li>Denselben Eingang wählen wie in Zoom, Teams oder Meet</li>
+  <li>Einmal in normalem Sprechabstand testen</li>
+  <li>Clip auf Rauschen, Clipping oder toten Kanal prüfen</li>
+  <li>Browser-Berechtigungen prüfen, wenn keine Wellenform erscheint</li>
+</ul>
+
+## Häufige Fragen
+
+### Wie teste ich mein Mikrofon online?
+
+Öffne den [Mikrofon-Test](/de/tools/mikrofon-test), erlaube den Zugriff, lies den Satz im Countdown, lies die Lampe und höre den Clip.
+
+### Wird meine Aufnahme hochgeladen?
+
+Nein. Der Clip bleibt im Speicher dieses Tabs und wird verworfen, wenn du gehst oder neu startest.
+
+### Was bedeutet die Lampe?
+
+Grün heisst bereit. Gelb heisst Vorsicht bei Pegel, Rauschen oder Clipping. Rot heisst klares Problem. Kein Signal heisst zu leise.
+
+### Warum sehe ich keine Wellenform?
+
+Sie erscheint, nachdem der Test gestartet ist und der Browser den Mic-Zugriff erlaubt hat. Prüfe die Seiten-Berechtigungen und lade neu.
+
+### Gilt das für Zoom und Teams?
+
+Diese Seite misst das Browser-Signal. Die Apps legen eigene Verarbeitung danach und können den gesendeten Pegel ändern.
+
+### Verbraucht das einen meiner drei Modell-Läufe?
+
+Nein. Der Mikrofon-Test lädt kein Sprachmodell. Die drei erfolgreichen Läufe in einem rollierenden 7-Wochen-Fenster gelten für Transkriptions-Tools wie Audio-zu-Text und den Untertitel-Generator.
+
+### Kann es Sprecher beschriften?
+
+Nein. Es prüft nur Pegel und Rauschen auf dem gewählten Eingang. Für Wortanteile nach Namen, wenn Labels schon da sind, siehe [wer hat am meisten gesprochen](/de/blog/wer-hat-am-meisten-gesprochen).
+
+### Ist das ein Compliance- oder zertifizierter Audio-Check?
+
+Nein. Es ist ein praktischer Pegelcheck. Einwilligung, Aufbewahrung und Compliance bleiben bei dir. Vemoir behauptet für diese Seite keine HIPAA- oder GDPR-Zertifizierung.
+
+Nächster Schritt: starte den [Mikrofon-Test](/de/tools/mikrofon-test) mit dem Headset, das du nutzen wirst, und trete dem Call erst bei, wenn Lampe und Playback stimmen.

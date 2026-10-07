@@ -1,0 +1,105 @@
+---
+title: "Generatore di sottotitoli gratuito SRT e VTT senza upload"
+description: "Generatore di sottotitoli gratuito SRT e VTT da una registrazione fino a 15 minuti, o per ricostruire un file esistente. Nulla viene caricato."
+pubDate: 2026-11-22
+author: "Vemoir Team"
+tags: ["sottotitoli", "srt", "vtt"]
+funnelStage: "interest"
+translationKey: "free-subtitle-generator-srt-vtt"
+relatedPosts: ["vtt-zoom-in-testo", "riunione-piu-lunga-di-15-minuti", "trascrivere-registrazione-zoom"]
+tool: "subtitle-generator"
+draft: true
+---
+
+Un generatore di sottotitoli gratuito per SRT e VTT trasforma una breve registrazione in cue modificabili in questa scheda del browser, oppure ricostruisce un SRT o VTT che hai già. Rilascia il file sul [generatore di sottotitoli](/it/strumenti/generatore-sottotitoli), rivedi testo e timing, poi scarica SRT o VTT. Il file non viene caricato. La trascrizione usa un modello Whisper pubblico scaricato una volta nel browser; le run successive possono funzionare offline una volta che il modello è in cache.
+
+Gli strumenti per clip brevi spesso si fermano a un minuto. Qui il tetto è 15 minuti e 80 MB, gli stessi limiti di prova degli altri strumenti di trascrizione Vemoir. Tre run di modello riuscite stanno in una finestra mobile di 7 settimane e sono condivise tra questi strumenti. Importare un SRT o VTT esistente per ricomporre le righe non scarica il modello di speech e non usa una run gratuita.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Durata</span><strong>15 min</strong><p>MP3, M4A, WAV o MP4 fino a 80 MB.</p></li>
+  <li><span class="blog-kicker">Run</span><strong>3 / 7 settimane</strong><p>Condivise con gli altri strumenti di trascrizione browser.</p></li>
+  <li><span class="blog-kicker">Upload</span><strong>Nessuno</strong><p>Controlla la scheda Rete dopo la cache del modello.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>La pagina non brucia i sottotitoli nel video, non inventa nomi speaker nell’export di default e non produce ortografia dialettale svizzero-tedesca. Le riunioni più lunghe vanno nell’app Mac.</p>
+</aside>
+
+## Come creare sottotitoli SRT o VTT senza upload
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Rilascia un file</h3><p>Una registrazione, oppure un SRT o VTT che hai già.</p></li>
+  <li data-step="2"><h3>Scegli la lingua</h3><p>Lingua parlata per nuove trascrizioni. Tedesco, inglese, francese e italiano sono elencati esplicitamente; Whisper ne supporta altre.</p></li>
+  <li data-step="3"><h3>Rivedi i cue</h3><p>Modifica testo, spezza righe lunghe, unisci, cerca e sostituisci, regola inizio e fine.</p></li>
+  <li data-step="4"><h3>Esporta</h3><p>Scarica SRT o VTT, oppure copia testo senza timestamp.</p></li>
+</ol>
+
+SRT usa una virgola nei timestamp ed è comune in YouTube e negli editor. VTT aggiunge un’intestazione `WEBVTT` e un punto nei timestamp per il video HTML5. Whisper dà tempi per frase, non per parola. Lo strumento ripartisce la durata per conteggio caratteri finché non regoli il timing nell’editor.
+
+## Speaker, dialetto e cosa resta onesto
+
+Un cambio di speaker può aprire un nuovo cue. I nomi restano fuori dal testo dei sottotitoli salvo che attivi Mostra nomi in export, e solo se i nomi erano già disponibili. Il browser non inventa «Speaker A» perché un file sembri finito.
+
+Il parlato in svizzero tedesco di solito esce come tedesco standard, come negli altri strumenti browser. Regola il testo nell’editor se ti serve un’altra ortografia. Non trattare l’export come trascrizione certificata e non rivendicare certificazione HIPAA o GDPR per questa pagina.
+
+## Quando 15 minuti non bastano
+
+Una vista galleria di due ore colpirà il tetto. Prendi un file audio più corto, oppure sposta il lavoro in [Vemoir per Mac](/it#capture), dove i modelli locali sono fatti per riunioni lunghe. Spezzare un file lungo in pezzi consuma comunque una run gratuita per ogni passaggio riuscito. Perché il browser si ferma a quindici minuti è anche in [riunione più lunga di 15 minuti](/it/blog/riunione-piu-lunga-di-15-minuti).
+
+Se hai già un `audio_only.m4a` Zoom locale e ti servono solo le parole, il percorso dedicato è [trascrivere una registrazione Zoom](/it/blog/trascrivere-registrazione-zoom). Se hai già un VTT e ti servono solo note leggibili, togli l’impalcatura con [VTT Zoom in testo](/it/blog/vtt-zoom-in-testo) invece di ritrascrivere.
+
+## Per chi / per chi no
+
+<div class="blog-pair">
+  <div>
+    <h3>Per chi</h3>
+    <ul>
+      <li>Chi sottotitola un clip breve senza mandare il file a un ASR cloud</li>
+      <li>Chi ricostruisce un SRT o VTT esistente in locale</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Meglio di no</h3>
+    <ul>
+      <li>Chi ha una riunione più lunga di 15 minuti in un solo file</li>
+      <li>Chi serve sottotitoli bruciati o cattura live nel browser</li>
+    </ul>
+  </div>
+</div>
+
+## Domande frequenti
+
+### Il mio video viene caricato?
+
+No. Trascrizione e editing restano in questa scheda. Dopo la cache del modello puoi confermare nella scheda Rete che non viene postato nulla.
+
+### Quanto può durare la registrazione?
+
+Fino a 15 minuti e 80 MB, gli stessi limiti di audio in testo.
+
+### Qual è la differenza tra SRT e VTT?
+
+SRT usa una virgola nei timestamp. VTT aggiunge un’intestazione WEBVTT e un punto per il video HTML5.
+
+### Posso modificare testo e timing?
+
+Sì. Ogni cue ha testo e inizio/fine modificabili, con split, merge e cerca e sostituisci.
+
+### Posso ricostruire un SRT esistente?
+
+Sì. Rilascia un SRT o VTT. Quel percorso non scarica il modello di speech e non usa una run gratuita.
+
+### Brucia i sottotitoli nel video?
+
+No. Scarichi SRT o VTT e li carichi nel player o nell’editor.
+
+### Perché alcuni tempi sono imprecisi?
+
+Whisper dà tempi per frase. Lo strumento ripartisce la durata per conteggio caratteri finché non regoli il timing.
+
+### Inventa etichette speaker?
+
+No. I nomi compaiono in export solo se lo attivi e i nomi erano già disponibili. Il browser non inventa etichette solo dall’audio.
+
+Prossimo passo: rilascia un file breve sul [generatore di sottotitoli](/it/strumenti/generatore-sottotitoli), correggi i cue che contano, poi scarica SRT o VTT per il tuo player.
