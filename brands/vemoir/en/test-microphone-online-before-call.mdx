@@ -1,0 +1,103 @@
+---
+title: "How to Test Your Microphone Online Before Zoom or Teams"
+description: "Test your microphone online before Zoom, Teams or Meet: pick the input, read a sentence, check level and noise, then listen. Nothing is uploaded."
+pubDate: 2026-11-19
+author: "Vemoir Team"
+tags: ["microphone", "calls", "browser"]
+funnelStage: "interest"
+translationKey: "test-microphone-online-before-call"
+relatedPosts: ["speaking-speed-test-words-per-minute", "microphone-noise-suppression", "meeting-recording-no-sound-mac"]
+tool: "microphone-test"
+image: "@/assets/blog/test-microphone-online-before-call/hero.jpg"
+draft: false
+---
+
+Test your microphone online before a call when you are not sure which input is live, or when a headset sounds fine in music but thin on Zoom, Teams or Meet. Open the [microphone test](/tools/microphone-test), allow the browser once, read the sentence during the countdown, then read the lamp and listen to the short clip. The audio stays in this tab. Nothing is uploaded, and no speech model runs.
+
+The result is about the browser signal on the device you are using. Meeting apps still add their own filters on the wire, so treat this as a pre-check, not a guarantee of how you will sound to everyone else.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Upload</span><strong>None</strong><p>The clip stays in memory in this tab.</p></li>
+  <li><span class="blog-kicker">Model</span><strong>No run</strong><p>Level and noise are measured locally.</p></li>
+  <li><span class="blog-kicker">Scope</span><strong>Mic only</strong><p>Does not record the call or label speakers.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>This page does not capture system audio or invent speaker names. Live meeting recording stays in the Mac app.</p>
+</aside>
+
+## How to test your microphone online before the call
+
+1. Open [microphone test](/tools/microphone-test) and choose the input you will use on the call (headset, laptop mic, USB mic).
+2. Click Test microphone and allow access when the browser asks.
+3. During the eight-second countdown, read the sentence at a normal call volume.
+4. Read the lamp and the numbers, then play the clip back.
+5. If the lamp is yellow or red, fix the input, distance, or room noise, then run the test again.
+
+A green lamp means level and noise look ready for a call. Yellow means caution on level, noise or clipping. Red means a clear problem. No signal means the input stayed below about -60 dBFS.
+
+## What the lamp and the numbers mean
+
+Values are in dBFS: digital level relative to full scale, not loudness in the room. Zero dBFS is the digital maximum. Normal speech often sits between about -30 and -12 dBFS on a healthy input. Clipping near 0 dBFS is the usual reason a voice sounds harsh after the call.
+
+By default the page runs echo cancellation, noise suppression and automatic gain the way a browser call would. Turn on raw measurement when you want to see the unprocessed input. That helps when you are comparing a USB mic to a headset mic before you blame Zoom.
+
+## Why Zoom and Teams can still sound different
+
+Those apps apply their own processing after the browser check. A clean lamp here does not force their filters off. If you sound thin only inside Teams, check the headset profile and the in-app noise settings next. For recordings that keep mic and system audio as separate local tracks on a Mac, see [mic and system audio](/blog/mic-and-system-audio) and [microphone noise suppression](/blog/microphone-noise-suppression).
+
+Bluetooth headsets often use one profile for music and another for voice. The voice profile is narrower. If music sounded fine and the call sounds dull, switch to a wired path for the meeting, or confirm the OS picked the headset's headset mode rather than the stereo mode.
+
+## When this page is the wrong tool
+
+Skip the browser check when you need a transcript of the call, speaker labels, or a file longer than a short rehearsal. This page only checks the mic. It does not transcribe, it does not join the meeting, and it does not store the clip after you leave.
+
+If the recording already has no sound, the problem is usually which track was captured, not whether you spoke. Use [meeting recording has no sound on Mac](/blog/meeting-recording-no-sound-mac) for that path.
+
+Want a record of the next call on the machine? [Vemoir for Mac](/#capture) captures microphone and system audio locally. This page stays the quick pre-flight in the browser.
+
+## A short checklist the same day
+
+<ul class="blog-checklist">
+  <li>Pick the same input you will use in Zoom, Teams or Meet</li>
+  <li>Run the test once at normal speaking distance</li>
+  <li>Listen to the clip for hiss, clipping or a dead channel</li>
+  <li>Fix permissions in the browser if the waveform never appears</li>
+</ul>
+
+## Frequently asked questions
+
+### How do I test my microphone online?
+
+Open the [microphone test](/tools/microphone-test), allow access, read the sentence during the countdown, then read the lamp and listen to the clip.
+
+### Is my recording uploaded?
+
+No. The clip stays in memory in this tab and is discarded when you leave or restart the test.
+
+### What does the lamp mean?
+
+Green means ready. Yellow means caution on level, noise or clipping. Red means a clear problem. No signal means the input stayed too quiet.
+
+### Why do I not see a waveform?
+
+The waveform appears after you start the test and the browser grants microphone access. Check site permissions, then reload.
+
+### Does this apply to Zoom and Teams?
+
+This page measures the browser signal. Those apps add their own processing and may change the level you send.
+
+### Does this use one of my three weekly model runs?
+
+No. The microphone test does not download or run a speech model. The three successful runs in a rolling 7-week window apply to transcription tools such as audio-to-text and the subtitle generator.
+
+### Can it label speakers?
+
+No. It only checks level and noise on the input you choose. For share of words by name after you already have labels, use [who spoke most in a meeting](/blog/who-spoke-most-in-meeting).
+
+### Is this a compliance or certified audio check?
+
+No. It is a practical level check. Consent, retention and any compliance work stay with you. Vemoir does not claim HIPAA or GDPR certification for this page.
+
+Next step: run the [microphone test](/tools/microphone-test) on the headset you will use, then join the call only after the lamp and the playback look right.

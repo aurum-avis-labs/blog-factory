@@ -1,0 +1,106 @@
+---
+title: "Kostenloser Untertitel-Generator: SRT und VTT ohne Upload"
+description: "Kostenloser Untertitel-Generator für SRT und VTT aus einer Aufnahme bis 15 Minuten oder zum Neubrechen einer Datei. Cues im Browser. Nichts hochgeladen."
+pubDate: 2026-11-22
+author: "Vemoir Team"
+tags: ["untertitel", "srt", "vtt"]
+funnelStage: "interest"
+translationKey: "free-subtitle-generator-srt-vtt"
+relatedPosts: ["zoom-vtt-in-text", "meeting-laenger-als-15-minuten", "zoom-aufnahme-transkribieren"]
+tool: "subtitle-generator"
+image: "@/assets/blog/free-subtitle-generator-srt-vtt/hero.jpg"
+draft: false
+---
+
+Ein kostenloser Untertitel-Generator für SRT und VTT macht aus einer kurzen Aufnahme editierbare Cues in diesem Browser-Tab oder baut eine SRT- oder VTT-Datei neu, die du schon hast. Lege die Datei auf den [Untertitel-Generator](/de/tools/untertitel-generator), prüfe Text und Timing, lade SRT oder VTT herunter. Die Datei wird nicht hochgeladen. Die Transkription nutzt ein öffentliches Whisper-Modell, das einmal in den Browser geladen wird; spätere Läufe können offline laufen, sobald das Modell gecacht ist.
+
+Kurze Clip-Tools stoppen oft bei einer Minute. Hier gilt die Aufnahmegrenze 15 Minuten und 80 MB, dieselben Trial-Limits wie bei den anderen Vemoir-Transkriptions-Tools. Drei erfolgreiche Modell-Läufe liegen in einem rollierenden 7-Wochen-Fenster und werden über diese Tools geteilt. Eine bestehende SRT oder VTT neu zu brechen lädt kein Sprachmodell und verbraucht keinen freien Lauf.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Länge</span><strong>15 Min</strong><p>MP3, M4A, WAV oder MP4 bis 80 MB.</p></li>
+  <li><span class="blog-kicker">Läufe</span><strong>3 / 7 Wochen</strong><p>Geteilt mit den anderen Browser-Transkriptions-Tools.</p></li>
+  <li><span class="blog-kicker">Upload</span><strong>Keiner</strong><p>Nach dem Cache im Netzwerk-Tab prüfen.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Grenze</span>
+  <p>Die Seite brennt keine Untertitel ins Video, erfindet standardmässig keine Sprechernamen im Export und gibt keinen schweizerdeutschen Dialekt aus. Längere Meetings gehen in die Mac-App.</p>
+</aside>
+
+## So erstellst du SRT- oder VTT-Untertitel ohne Upload
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Datei ablegen</h3><p>Eine Aufnahme oder eine SRT/VTT, die du schon hast.</p></li>
+  <li data-step="2"><h3>Sprache wählen</h3><p>Gesprochene Sprache für neue Transkriptionen. Deutsch, Englisch, Französisch und Italienisch sind explizit gelistet; Whisper kann mehr.</p></li>
+  <li data-step="3"><h3>Cues prüfen</h3><p>Text editieren, lange Zeilen teilen, zusammenführen, suchen und ersetzen, Start und Ende anpassen.</p></li>
+  <li data-step="4"><h3>Export</h3><p>SRT oder VTT herunterladen oder Klartext ohne Zeitstempel kopieren.</p></li>
+</ol>
+
+SRT nutzt ein Komma in den Zeitstempeln und ist in YouTube und Editoren üblich. VTT ergänzt einen `WEBVTT`-Header und nutzt einen Punkt in den Zeiten für HTML5-Video. Whisper liefert Zeiten pro Phrase, nicht pro Wort. Das Tool teilt die Dauer nach Zeichenzahl, bis du das Timing im Editor anpasst.
+
+## Sprecher, Dialekt und was ehrlich bleibt
+
+Sprecherwechsel können einen neuen Cue starten. Namen bleiben aus dem Untertitel-Text, ausser du schaltest Namen im Export ein, und nur wenn Namen dem Tool schon vorlagen. Der Browser erfindet kein «Sprecher A», damit eine Datei fertig wirkt.
+
+Schweizerdeutsche Sprache kommt meist als Standarddeutsch heraus, wie bei den anderen Browser-Tools. Passe die Formulierung im Editor an, wenn du eine andere Schreibung brauchst. Behandle den Export nicht als zertifiziertes Transkript und behaupte keine HIPAA- oder GDPR-Zertifizierung für diese Seite.
+
+## Wenn 15 Minuten nicht reichen
+
+Eine zweistündige Galerie-Ansicht trifft die Grenze. Nimm eine kürzere Audiodatei oder verschiebe den Job nach [Vemoir für Mac](/de#capture), wo lokale Modelle für längere Meetings gemacht sind. Ein langes File in Teile zu schneiden verbraucht trotzdem einen freien Lauf pro erfolgreichem Durchgang. Warum der Browser bei fünfzehn Minuten stoppt, steht auch in [Meeting länger als 15 Minuten](/de/blog/meeting-laenger-als-15-minuten).
+
+Hast du schon eine lokale Zoom-`audio_only.m4a` und brauchst nur Wörter, ist der eigene Pfad [Zoom-Aufnahme transkribieren](/de/blog/zoom-aufnahme-transkribieren). Hast du schon eine VTT und brauchst nur lesbare Notizen, entferne das Gerüst mit [Zoom-VTT in Text](/de/blog/zoom-vtt-in-text), statt neu zu transkribieren.
+
+## Für wen / für wen nicht
+
+<div class="blog-pair">
+  <div>
+    <h3>Für wen</h3>
+    <ul>
+      <li>Wer einen kurzen Clip captionen will, ohne die Datei an Cloud-ASR zu senden</li>
+      <li>Wer eine bestehende SRT oder VTT lokal neu bricht</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Besser nicht</h3>
+    <ul>
+      <li>Wer ein Meeting länger als 15 Minuten in einer Datei hat</li>
+      <li>Wer eingebrannte Untertitel oder Live-Capture im Browser braucht</li>
+    </ul>
+  </div>
+</div>
+
+## Häufige Fragen
+
+### Wird mein Video hochgeladen?
+
+Nein. Transkription und Bearbeitung bleiben in diesem Tab. Nach dem Cache kannst du im Netzwerk-Tab prüfen, dass nichts gepostet wird.
+
+### Wie lang darf die Aufnahme sein?
+
+Bis 15 Minuten und 80 MB, dieselben Limits wie Audio zu Text.
+
+### Was ist der Unterschied zwischen SRT und VTT?
+
+SRT nutzt ein Komma in den Zeitstempeln. VTT ergänzt einen WEBVTT-Header und nutzt einen Punkt für HTML5-Video.
+
+### Kann ich Text und Timing editieren?
+
+Ja. Jeder Cue hat editierbaren Text sowie Start und Ende, mit Teilen, Zusammenführen und Suchen und Ersetzen.
+
+### Kann ich eine bestehende SRT neu brechen?
+
+Ja. Lege SRT oder VTT ab. Dieser Weg lädt kein Sprachmodell und verbraucht keinen freien Lauf.
+
+### Brennt das Untertitel ins Video?
+
+Nein. Du lädst SRT oder VTT und öffnest sie in Player oder Editor.
+
+### Warum sind manche Zeiten ungenau?
+
+Whisper liefert Zeiten pro Phrase. Das Tool teilt die Dauer nach Zeichenzahl, bis du das Timing anpasst.
+
+### Erfindet das Sprechernamen?
+
+Nein. Namen erscheinen im Export nur, wenn du das einschaltest und die Namen schon vorlagen. Der Browser erfindet keine Labels nur aus Audio.
+
+Nächster Schritt: lege eine kurze Datei auf den [Untertitel-Generator](/de/tools/untertitel-generator), korrigiere die Cues, die zählen, und lade SRT oder VTT für deinen Player.

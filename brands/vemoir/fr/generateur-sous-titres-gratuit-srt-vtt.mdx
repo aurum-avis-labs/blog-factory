@@ -1,0 +1,106 @@
+---
+title: "Générateur de sous-titres gratuit SRT et VTT (sans envoi)"
+description: "Générateur de sous-titres gratuit SRT et VTT depuis un enregistrement jusqu’à 15 minutes, ou pour reconstituer un fichier existant. Rien n’est envoyé."
+pubDate: 2026-11-22
+author: "Vemoir Team"
+tags: ["sous-titres", "srt", "vtt"]
+funnelStage: "interest"
+translationKey: "free-subtitle-generator-srt-vtt"
+relatedPosts: ["vtt-zoom-en-texte", "reunion-plus-longue-que-15-minutes", "transcrire-enregistrement-zoom"]
+tool: "subtitle-generator"
+image: "@/assets/blog/free-subtitle-generator-srt-vtt/hero.jpg"
+draft: false
+---
+
+Un générateur de sous-titres gratuit pour SRT et VTT transforme un court enregistrement en cues éditables dans cet onglet, ou reconstruit un SRT ou VTT que vous avez déjà. Déposez le fichier sur le [générateur de sous-titres](/fr/outils/generateur-sous-titres), révisez texte et timing, puis téléchargez SRT ou VTT. Le fichier n’est pas envoyé. La transcription utilise un modèle Whisper public téléchargé une fois dans le navigateur ; les passages suivants peuvent fonctionner hors ligne une fois le modèle en cache.
+
+Les outils pour clips courts s’arrêtent souvent à une minute. Ici, le plafond est de 15 minutes et 80 Mo, les mêmes limites d’essai que les autres outils de transcription Vemoir. Trois passages modèle réussis se trouvent dans une fenêtre glissante de 7 semaines et sont partagés entre ces outils. Importer un SRT ou VTT existant pour reconstituer les lignes ne télécharge pas le modèle de parole et ne consomme pas un passage gratuit.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Durée</span><strong>15 min</strong><p>MP3, M4A, WAV ou MP4 jusqu’à 80 Mo.</p></li>
+  <li><span class="blog-kicker">Passages</span><strong>3 / 7 semaines</strong><p>Partagés avec les autres outils de transcription navigateur.</p></li>
+  <li><span class="blog-kicker">Envoi</span><strong>Aucun</strong><p>Vérifiez l’onglet Réseau après le cache du modèle.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limite</span>
+  <p>La page n’incruste pas les sous-titres dans la vidéo, n’invente pas de noms de locuteurs dans l’export par défaut, et n’écrit pas le suisse allemand dialectal. Les réunions plus longues vont dans l’app Mac.</p>
+</aside>
+
+## Comment créer des sous-titres SRT ou VTT sans envoi
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Déposer un fichier</h3><p>Un enregistrement, ou un SRT ou VTT que vous avez déjà.</p></li>
+  <li data-step="2"><h3>Choisir la langue</h3><p>Langue parlée pour une nouvelle transcription. Allemand, anglais, français et italien sont listés explicitement ; Whisper en prend d’autres.</p></li>
+  <li data-step="3"><h3>Revoir les cues</h3><p>Éditer le texte, couper les longues lignes, fusionner, chercher et remplacer, ajuster début et fin.</p></li>
+  <li data-step="4"><h3>Exporter</h3><p>Télécharger SRT ou VTT, ou copier le texte sans horodatages.</p></li>
+</ol>
+
+SRT utilise une virgule dans les horodatages et est courant sur YouTube et dans les éditeurs. VTT ajoute un en-tête `WEBVTT` et un point dans les horodatages pour la vidéo HTML5. Whisper donne des temps par phrase, pas par mot. L’outil répartit la durée selon le nombre de caractères jusqu’à ce que vous ajustiez le timing dans l’éditeur.
+
+## Locuteurs, dialecte et ce qui reste honnête
+
+Un changement de locuteur peut ouvrir une nouvelle cue. Les noms restent hors du texte de sous-titre sauf si vous activez Afficher les noms à l’export, et seulement si les noms étaient déjà disponibles. Le navigateur n’invente pas « Locuteur A » pour qu’un fichier paraisse fini.
+
+La parole en suisse allemand sort en général en allemand standard, comme pour les autres outils navigateur. Ajustez le libellé dans l’éditeur si vous voulez une autre orthographe. Ne traitez pas l’export comme une transcription certifiée, et ne revendiquez pas de certification HIPAA ou RGPD pour cette page.
+
+## Quand 15 minutes ne suffisent pas
+
+Une vue galerie de deux heures atteindra le plafond. Prenez un fichier audio plus court, ou passez le travail dans [Vemoir pour Mac](/fr#capture), où les modèles locaux sont faits pour les longues réunions. Couper un long fichier en morceaux consomme quand même un passage gratuit par passage réussi. Pourquoi le navigateur s’arrête à quinze minutes est aussi expliqué dans [réunion plus longue que 15 minutes](/fr/blog/reunion-plus-longue-que-15-minutes).
+
+Si vous avez déjà un `audio_only.m4a` Zoom local et que vous voulez seulement les mots, le chemin dédié est [transcrire un enregistrement Zoom](/fr/blog/transcrire-enregistrement-zoom). Si vous avez déjà un VTT et voulez seulement des notes lisibles, retirez l’échafaudage avec [VTT Zoom en texte](/fr/blog/vtt-zoom-en-texte) plutôt que de retranscrire.
+
+## Pour qui / pour qui pas
+
+<div class="blog-pair">
+  <div>
+    <h3>Pour qui</h3>
+    <ul>
+      <li>Quelqu’un qui sous-titre un court clip sans envoyer le fichier à un ASR cloud</li>
+      <li>Quelqu’un qui reconstruit un SRT ou VTT existant en local</li>
+    </ul>
+  </div>
+  <div>
+    <h3>À éviter si</h3>
+    <ul>
+      <li>Vous avez une réunion de plus de 15 minutes dans un seul fichier</li>
+      <li>Vous avez besoin de sous-titres incrustés ou d’une capture live dans le navigateur</li>
+    </ul>
+  </div>
+</div>
+
+## Questions fréquentes
+
+### Ma vidéo est-elle envoyée ?
+
+Non. Transcription et édition restent dans cet onglet. Après le cache du modèle, vous pouvez confirmer dans l’onglet Réseau que rien n’est posté.
+
+### Quelle durée maximale pour l’enregistrement ?
+
+Jusqu’à 15 minutes et 80 Mo, les mêmes limites que audio en texte.
+
+### Quelle est la différence entre SRT et VTT ?
+
+SRT utilise une virgule dans les horodatages. VTT ajoute un en-tête WEBVTT et un point pour la vidéo HTML5.
+
+### Puis-je éditer texte et timing ?
+
+Oui. Chaque cue a un texte et des début/fin éditables, avec découpe, fusion et chercher-remplacer.
+
+### Puis-je reconstruire un SRT existant ?
+
+Oui. Déposez un SRT ou VTT. Ce chemin ne télécharge pas le modèle de parole et ne consomme pas un passage gratuit.
+
+### Cela incruste-t-il les sous-titres dans la vidéo ?
+
+Non. Vous téléchargez SRT ou VTT et les chargez dans votre lecteur ou éditeur.
+
+### Pourquoi certains temps sont-ils imprécis ?
+
+Whisper donne des temps par phrase. L’outil répartit la durée selon le nombre de caractères jusqu’à ajustement.
+
+### Invente-t-il des étiquettes de locuteurs ?
+
+Non. Les noms n’apparaissent à l’export que si vous l’activez et qu’ils étaient déjà disponibles. Le navigateur n’invente pas d’étiquettes à partir de l’audio seul.
+
+Prochaine étape : déposez un court fichier sur le [générateur de sous-titres](/fr/outils/generateur-sous-titres), corrigez les cues qui comptent, puis téléchargez SRT ou VTT pour votre lecteur.

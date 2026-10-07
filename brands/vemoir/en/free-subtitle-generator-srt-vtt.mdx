@@ -1,0 +1,106 @@
+---
+title: "Free Subtitle Generator for SRT and VTT (No Upload)"
+description: "A free subtitle generator for SRT and VTT from a recording up to 15 minutes, or rebreak an existing file. Edit cues in the browser. Nothing uploaded."
+pubDate: 2026-11-22
+author: "Vemoir Team"
+tags: ["subtitles", "srt", "vtt"]
+funnelStage: "interest"
+translationKey: "free-subtitle-generator-srt-vtt"
+relatedPosts: ["zoom-vtt-to-plain-text", "meeting-longer-than-15-minutes", "zoom-local-recording-transcript"]
+tool: "subtitle-generator"
+image: "@/assets/blog/free-subtitle-generator-srt-vtt/hero.jpg"
+draft: false
+---
+
+A free subtitle generator for SRT and VTT turns a short recording into editable cues in this browser tab, or rebuilds an SRT or VTT you already have. Drop the file on the [subtitle generator](/tools/subtitle-generator), review text and timing, then download SRT or VTT. The file is not uploaded. Transcription uses a public Whisper model that downloads once into the browser; later runs can work with the network off once the model is cached.
+
+Short clip tools often stop at a minute. Here the recording cap is 15 minutes and 80 MB, the same trial limits as the other Vemoir transcription tools. Three successful model runs sit in a rolling 7-week window and are shared across those tools. Importing an existing SRT or VTT to rebreak lines does not download the speech model and does not use a free run.
+
+<ul class="blog-facts">
+  <li><span class="blog-kicker">Length</span><strong>15 min</strong><p>MP3, M4A, WAV or MP4 up to 80 MB.</p></li>
+  <li><span class="blog-kicker">Runs</span><strong>3 / 7 weeks</strong><p>Shared with the other browser transcription tools.</p></li>
+  <li><span class="blog-kicker">Upload</span><strong>None</strong><p>Confirm in the Network tab after the model is cached.</p></li>
+</ul>
+
+<aside class="blog-callout blog-callout--limit">
+  <span class="blog-kicker">Limit</span>
+  <p>The page does not burn subtitles into the video, invent speaker names in the export by default, or output Swiss German dialect spelling. Longer meetings go to the Mac app.</p>
+</aside>
+
+## How to create SRT or VTT subtitles without uploading
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Drop a file</h3><p>Use a recording, or an SRT or VTT you already have.</p></li>
+  <li data-step="2"><h3>Pick the language</h3><p>Choose the spoken language for new transcriptions. German, English, French and Italian are listed explicitly; Whisper supports more.</p></li>
+  <li data-step="3"><h3>Review cues</h3><p>Edit text, split long lines, merge, find and replace, and nudge start and end times.</p></li>
+  <li data-step="4"><h3>Export</h3><p>Download SRT or VTT, or copy plain text without timestamps.</p></li>
+</ol>
+
+SRT uses a comma in timestamps and is common in YouTube and editors. VTT adds a `WEBVTT` header and uses a dot in timestamps for HTML5 video. Whisper gives times per phrase, not per word. The tool splits duration by character count until you adjust timing in the editor.
+
+## Speakers, dialect, and what stays honest
+
+Speaker changes can start a new cue. Names stay out of the subtitle text unless you turn on Show names in export, and only when names were already available to the tool. The browser does not invent "Speaker A" so a file looks finished.
+
+Swiss German speech usually comes out as Standard German text, like the other browser tools. Adjust wording in the editor if you need a different spelling. Do not treat the export as a certified transcript, and do not claim HIPAA or GDPR certification for this page.
+
+## When 15 minutes is not enough
+
+A two-hour gallery view will hit the cap. Take a shorter audio file, or move the job to [Vemoir for Mac](/#capture), where local models are built for longer meetings. Splitting a long file into parts still spends a free run per successful pass. Why the browser stops at fifteen minutes is also covered in [meeting longer than 15 minutes](/blog/meeting-longer-than-15-minutes).
+
+If you already have a Zoom local `audio_only.m4a` and only need words, the dedicated path is [transcribe a local Zoom recording](/blog/zoom-local-recording-transcript). If you already have a VTT and only need readable notes, strip scaffolding with [Zoom VTT to plain text](/blog/zoom-vtt-to-plain-text) instead of re-transcribing.
+
+## Who this is for / who should skip it
+
+<div class="blog-pair">
+  <div>
+    <h3>Who this is for</h3>
+    <ul>
+      <li>Someone captioning a short clip without sending the file to a cloud ASR</li>
+      <li>Someone rebreaking an existing SRT or VTT locally</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Who should skip it</h3>
+    <ul>
+      <li>Anyone with a meeting longer than 15 minutes in one file</li>
+      <li>Anyone who needs burned-in subtitles or live capture in the browser</li>
+    </ul>
+  </div>
+</div>
+
+## Frequently asked questions
+
+### Is my video uploaded?
+
+No. Transcription and editing stay in this tab. After the model is cached you can confirm in the Network tab that nothing is posted.
+
+### How long can the recording be?
+
+Up to 15 minutes and 80 MB, the same limits as audio to text.
+
+### What is the difference between SRT and VTT?
+
+SRT uses a comma in timestamps. VTT adds a WEBVTT header and uses a dot in timestamps for HTML5 video.
+
+### Can I edit text and timing?
+
+Yes. Each cue has editable text and start and end times, with split, merge and find and replace.
+
+### Can I rebreak an existing SRT?
+
+Yes. Drop an SRT or VTT. That path does not download the speech model and does not use a free run.
+
+### Does this burn subtitles into the video?
+
+No. You download SRT or VTT and load them in your player or editor.
+
+### Why are some times inaccurate?
+
+Whisper gives times per phrase. The tool splits duration by character count until you adjust timing.
+
+### Does this invent speaker labels?
+
+No. Names appear in the export only when you opt in and the names were already available. The browser does not invent labels from audio alone.
+
+Next step: drop a short file on the [subtitle generator](/tools/subtitle-generator), fix the cues you care about, then download SRT or VTT for your player.
