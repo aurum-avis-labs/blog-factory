@@ -10,7 +10,7 @@ Honesty (from TOPIC-QUEUE + live tool copy): browser only; nothing uploaded; no 
 
 | ID | Wave | Type | funnelStage | Primary query (EN) | EN slug | DE slug | FR slug | IT slug | tool | Image | Status |
 |----|------|------|-------------|--------------------|---------|---------|---------|---------|------|-------|--------|
-| 1 | 1 | how-to | interest | test microphone online before call | test-microphone-online-before-call | mikrofon-online-testen-vor-dem-call | tester-micro-en-ligne-avant-appel | testare-microfono-online-prima-call | microphone-test | unsplash pending | drafted |
+Heroes: Higgsfield gpt_image_2_5 saved as hero.jpg (1200×900) for all four translationKeys; draft: false.
 | 2 | 1 | how-to | interest | speaking speed test words per minute | speaking-speed-test-words-per-minute | sprechtempo-test-woerter-pro-minute | test-debit-de-parole-mots-par-minute | test-velocita-parlato-parole-al-minuto | speaking-speed-test | unsplash pending | drafted |
 | 3 | 1 | how-to | interest | remove filler words from transcript | remove-filler-words-from-transcript | fuellwoerter-aus-transkript-entfernen | retirer-mots-de-remplissage-transcription | rimuovere-intercalari-dalla-trascrizione | filler-word-cleaner | unsplash pending | drafted |
 | 4 | 1 | how-to | interest | free subtitle generator SRT VTT | free-subtitle-generator-srt-vtt | kostenloser-untertitel-generator-srt-vtt | generateur-sous-titres-gratuit-srt-vtt | generatore-sottotitoli-gratuito-srt-vtt | subtitle-generator | unsplash pending | drafted |
