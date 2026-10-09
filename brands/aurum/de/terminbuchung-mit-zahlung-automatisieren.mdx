@@ -1,6 +1,6 @@
 ---
 title: "Terminbuchung mit Zahlung automatisieren: unser eigener Ablauf"
-description: "Wie unsere eigene Buchung zuerst kassiert: Bookings, Stripe Checkout, Webhook, Teams-Link. Und wann ein fertiges Buchungstool reicht."
+description: "Terminbuchung mit Zahlung: Bookings, Stripe, Webhook, Teams-Link. Der Prozess-Check selbst ist kostenlos."
 pubDate: 2026-10-08
 author: "Aurum Avis Labs"
 tags: ["terminbuchung", "online-zahlung", "prozessautomatisierung"]
@@ -14,9 +14,9 @@ site: prozess-check
 
 ## Terminbuchung mit Zahlung automatisieren: so läuft es bei uns
 
-Eine Terminbuchung mit Zahlung lässt sich so automatisieren, dass ein Termin erst gilt, wenn er bezahlt ist. Unsere Buchung für den Prozess-Check funktioniert genau so: freie Zeiten aus Microsoft Bookings über Graph, Zahlung auf Stripe Checkout, Termin und Teams-Link erst nach bestätigter Zahlung per Webhook. Die Bestätigung verschickt Bookings per E-Mail. Im Büro greift niemand mehr ein.
+Eine Terminbuchung mit Zahlung lässt sich so automatisieren, dass ein Termin erst gilt, wenn er bezahlt ist: freie Zeiten aus Microsoft Bookings über Graph, Zahlung auf Stripe Checkout, Termin und Teams-Link erst nach bestätigter Zahlung per Webhook. Die Bestätigung verschickt Bookings per E-Mail. Im Büro greift niemand mehr ein. Der Prozess-Check selbst ist kostenlos. Seine Buchung läuft nicht über diese Zahlung.
 
-Sie lesen das als Geschäftsleitung oder Büroleitung in einem KMU, das bezahlte Termine anbietet und Microsoft 365 nutzt. Der Ablauf ist der, den Sie beim Buchen des Prozess-Checks selbst durchlaufen. Er ist keine Empfehlung, dass jede Firma das bauen muss. Oft reicht ein fertiges Tool; wann, steht weiter unten.
+Sie lesen das als Geschäftsleitung oder Büroleitung in einem KMU, das bezahlte Termine anbietet und Microsoft 365 nutzt. Der Ablauf ist das Muster für Termine, die wirklich etwas kosten. Er ist keine Empfehlung, dass jede Firma das bauen muss. Oft reicht ein fertiges Tool; wann, steht weiter unten.
 
 ## Kann Microsoft Bookings die Zahlung selbst übernehmen?
 
@@ -67,13 +67,13 @@ In Stripe Checkout speichern wir nur, was für die Zahlung und die Zuordnung nö
     <h3>Bleibt von Hand</h3>
     <ul>
       <li>Verschieben bis 12 Stunden vorher, per E-Mail oder Telefon</li>
-      <li>Entscheidung «Geld zurück» nach dem Termin</li>
+      <li>Entscheidung über eine Rückzahlung nach dem Termin</li>
       <li>Rückzahlung über Stripe auf die Karte</li>
     </ul>
   </div>
 </div>
 
-Verschiebungen sind selten genug für E-Mail. Die Rückzahlung hängt am Urteil, ob die Stunde einen Automatisierungs-Case geliefert hat. Das entscheidet eine Person, keine Regel im Code.
+Verschiebungen sind selten genug für E-Mail. Ob eine Rückzahlung fällig ist, entscheidet eine Person, keine Regel im Code.
 
 Im Betrieb fiel uns auf: Stripe Checkout folgt der Sprache unserer Buchungsseite, die Bookings-Bestätigung aber der Sprache in den Unternehmenseinstellungen von Bookings. Wer zwei Sprachen bedient, prüft beides.
 
@@ -100,7 +100,7 @@ Rechnen Sie Betrieb ein. Stripe verrechnet pro Zahlung, ohne Einrichtungs- oder 
 
 ## Buchen und den Ablauf selbst sehen
 
-Am schnellsten verstehen Sie den Flow, wenn Sie ihn nutzen: Zeit wählen, auf Stripe bezahlen, Bestätigung mit Teams-Link von Bookings. 60 Minuten per Teams, CHF 99.
+Der Prozess-Check ist kostenlos: 60 Minuten per Teams, ohne Zahlung. Geht es bei Ihnen um eine wiederkehrende Buchung mit Zahlung, bringen Sie diesen Ablauf in die Stunde.
 
 [Prozess-Check buchen](/de/prozess-check/buchen)
 

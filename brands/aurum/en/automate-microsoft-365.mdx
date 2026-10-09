@@ -70,7 +70,7 @@ Complex logic is the other limit. A flow with a handful of steps can be read by 
 
 ## What we built on Microsoft 365 ourselves
 
-Aurum Avis Labs runs on Microsoft 365, and our own booking for the Process Check is built on it. The page reads free slots from Microsoft Bookings through Microsoft Graph and sends the visitor to Stripe Checkout. Only after payment does a Stripe webhook create the Bookings appointment with a Teams link. The public Bookings page stays unused, because it would skip the payment. The full flow is in [automating appointment booking with payment](/prozess-check/blog/booking-with-payment-case).
+Aurum Avis Labs runs on Microsoft 365, and the booking page for the Process Check is built on it. The page reads free slots from Microsoft Bookings through Microsoft Graph. The Process Check is free, so booking it does not go through Stripe. A flow that creates the appointment only after payment is in [automating appointment booking with payment](/prozess-check/blog/booking-with-payment-case).
 
 That is the fork this article is about. Bookings, Teams and Outlook do most of the work. The part Bookings cannot do, taking payment first, needed code that talks to Microsoft Graph directly. And that kind of code has its own upkeep: the secret an app uses to reach Graph lasts [24 months at most](https://learn.microsoft.com/en-us/graph/auth-register-app-v2), according to Microsoft, and someone has to renew it in time.
 
@@ -89,6 +89,6 @@ Get help when the data has to reach a system with no standard connector, when th
 
 ## When the Process Check fits
 
-The [Process Check](/prozess-check) fits when you have one recurring task that is still done by hand and want to know whether Microsoft 365 alone covers it or whether it needs an implementation. Sixty minutes on Microsoft Teams, CHF 99. You leave knowing where to start, whether it pays off, and with a price range for the implementation. The hour may well end with "set this up yourself in Power Automate". Then you have that in writing.
+The [Process Check](/prozess-check) fits when you have one recurring task that is still done by hand and want to know whether Microsoft 365 alone covers it or whether it needs an implementation. Sixty minutes on Microsoft Teams. The Process Check is free. You leave knowing where to start, whether it pays off, and with a price range for the implementation. The hour may well end with "set this up yourself in Power Automate". Then you have that in writing.
 
 If you already know which task it is, start with the [Process Check](/prozess-check) page.
