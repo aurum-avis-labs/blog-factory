@@ -63,7 +63,7 @@ Die neue Kollegin legt das PDF in einem anderen Ordner ab, schreibt die Auftrags
 
 Ein fehlgeschlagener Lauf muss eine Meldung an eine bestimmte Person auslösen. Der schlimmste Fehler ist der stille: Die Automatisierung steht, niemand merkt es, und zwei Wochen später fehlt eine Rechnung oder eine Kundin ruft verärgert an.
 
-Unsere eigene Buchung zeigt, wo das zählt. Bezahlt jemand einen Prozess-Check, legt ein Webhook von Stripe den Termin an. Schlägt dieser Schritt fehl, versucht Stripe die Zustellung laut seiner [Webhook-Dokumentation](https://docs.stripe.com/webhooks) im Livebetrieb bis zu drei Tage lang erneut. Bis dahin ist die Zahlung da, der Termin aber nicht. Genau diese Lücke muss eine Überwachung abdecken. Den ganzen Ablauf beschreibt [Terminbuchung mit Zahlung automatisieren](/de/prozess-check/blog/terminbuchung-mit-zahlung-automatisieren).
+Eine Terminbuchung mit Zahlung zeigt, wo das zählt. Bezahlt jemand den Termin, legt ein Webhook von Stripe ihn an. Schlägt dieser Schritt fehl, versucht Stripe die Zustellung laut seiner [Webhook-Dokumentation](https://docs.stripe.com/webhooks) im Livebetrieb bis zu drei Tage lang erneut. Bis dahin ist die Zahlung da, der Termin aber nicht. Genau diese Lücke muss eine Überwachung abdecken. Den ganzen Ablauf beschreibt [Terminbuchung mit Zahlung automatisieren](/de/prozess-check/blog/terminbuchung-mit-zahlung-automatisieren). Der Prozess-Check selbst ist kostenlos und läuft nicht über diese Zahlung.
 
 Fragen Sie jeden Anbieter, auch uns: Wer bekommt die Meldung, auf welchem Weg, und was passiert dann? «Wir schauen ab und zu in die Logs» ist keine Antwort.
 

@@ -63,7 +63,7 @@ The new colleague saves the PDF in another folder, puts the order number in the 
 
 A failed run has to produce a message to a named person. The worst failure is the silent one: the automation stops, nobody notices, and the gap turns up two weeks later as a missing invoice or an annoyed customer.
 
-Our own booking shows where that matters. When someone pays for a Process Check, a Stripe webhook creates the appointment. If that step fails, Stripe retries the delivery for up to three days in live mode, according to its [webhook documentation](https://docs.stripe.com/webhooks). Until then the payment exists and the appointment does not. That is exactly the gap monitoring has to catch. The whole flow is described in [automating appointment booking with payment](/prozess-check/blog/booking-with-payment-case).
+A payment-first booking shows where that matters. When someone pays for the appointment, a Stripe webhook creates it. If that step fails, Stripe retries the delivery for up to three days in live mode, according to its [webhook documentation](https://docs.stripe.com/webhooks). Until then the payment exists and the appointment does not. That is exactly the gap monitoring has to catch. The whole flow is described in [automating appointment booking with payment](/prozess-check/blog/booking-with-payment-case). The Process Check itself is free and does not use that payment.
 
 Ask any provider, including us: who gets the alert, through which channel, and what happens next? "We look at the logs now and then" is not an answer.
 

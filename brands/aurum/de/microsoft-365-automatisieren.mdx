@@ -72,7 +72,7 @@ Die andere Grenze ist komplexe Logik. Einen Flow mit einer Handvoll Schritten ka
 
 ## Was wir selbst auf Microsoft 365 umgesetzt haben
 
-Aurum Avis Labs arbeitet selbst mit Microsoft 365, und unsere Buchung für den Prozess-Check ist darauf umgesetzt. Die Seite liest freie Termine aus Microsoft Bookings über Microsoft Graph und schickt Besuchende zu Stripe Checkout. Erst nach der Zahlung legt ein Stripe-Webhook den Bookings-Termin mit Teams-Link an. Die öffentliche Bookings-Seite bleibt ungenutzt, weil sie die Zahlung überspringen würde. Den ganzen Ablauf beschreibt [Terminbuchung mit Zahlung automatisieren](/de/prozess-check/blog/terminbuchung-mit-zahlung-automatisieren).
+Aurum Avis Labs arbeitet selbst mit Microsoft 365, und die Buchungsseite für den Prozess-Check ist darauf umgesetzt. Sie liest freie Termine aus Microsoft Bookings über Microsoft Graph. Der Prozess-Check ist kostenlos, die Buchung geht nicht über Stripe. Einen Ablauf, der einen Termin erst nach Zahlung anlegt, beschreibt [Terminbuchung mit Zahlung automatisieren](/de/prozess-check/blog/terminbuchung-mit-zahlung-automatisieren).
 
 Das ist die Weggabelung, um die es hier geht. Bookings, Teams und Outlook erledigen das meiste. Was Bookings nicht kann, nämlich zuerst kassieren, brauchte Code, der direkt mit Microsoft Graph spricht. Und solcher Code will gepflegt sein: Das Geheimnis, mit dem sich eine App bei Graph anmeldet, gilt laut Microsoft [höchstens 24 Monate](https://learn.microsoft.com/de-de/graph/auth-register-app-v2), und jemand muss es rechtzeitig erneuern.
 
@@ -91,6 +91,6 @@ Holen Sie Hilfe, wenn die Daten in ein System müssen, für das es keinen Standa
 
 ## Wann der Prozess-Check passt
 
-Der [Prozess-Check](/de/prozess-check) passt, wenn Sie eine wiederkehrende Arbeit haben, die noch von Hand läuft, und wissen wollen, ob Microsoft 365 allein sie abdeckt oder ob es eine Umsetzung braucht. Sechzig Minuten per Microsoft Teams, CHF 99. Sie gehen mit dem Wissen, womit Sie anfangen, ob es sich lohnt, und einer Preisspanne für die Umsetzung, dazu eine kurze schriftliche Zusammenfassung. Die Stunde kann durchaus mit «Richten Sie das selbst in Power Automate ein» enden. Auch das steht dann in der Zusammenfassung.
+Der [Prozess-Check](/de/prozess-check) passt, wenn Sie eine wiederkehrende Arbeit haben, die noch von Hand läuft, und wissen wollen, ob Microsoft 365 allein sie abdeckt oder ob es eine Umsetzung braucht. Sechzig Minuten per Microsoft Teams. Der Prozess-Check ist kostenlos. Sie gehen mit dem Wissen, womit Sie anfangen, ob es sich lohnt, und einer Preisspanne für die Umsetzung, dazu eine kurze schriftliche Zusammenfassung. Die Stunde kann durchaus mit «Richten Sie das selbst in Power Automate ein» enden. Auch das steht dann in der Zusammenfassung.
 
 Wissen Sie schon, um welche Arbeit es geht, starten Sie mit der Seite zum [Prozess-Check](/de/prozess-check).

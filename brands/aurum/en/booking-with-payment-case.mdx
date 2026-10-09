@@ -1,6 +1,6 @@
 ---
 title: "Automate appointment booking with payment: our own flow"
-description: "How our own booking takes payment first: Bookings slots, Stripe Checkout, a webhook, a Teams link. And when a ready-made booking tool is enough."
+description: "Booking with payment: Bookings, Stripe, a webhook, a Teams link. The Process Check itself is free."
 pubDate: 2026-10-08
 author: "Aurum Avis Labs"
 tags: ["appointment booking", "online payment", "process automation"]
@@ -14,9 +14,9 @@ site: prozess-check
 
 ## Automate appointment booking with payment: how ours runs
 
-You can automate appointment booking with payment so a slot only counts once it is paid. Our Process Check booking works that way: free times from Microsoft Bookings through Graph, payment on Stripe Checkout, appointment and Teams link only after a confirmed payment via webhook. Bookings sends the confirmation e-mail. Nobody in the office touches it.
+You can automate appointment booking with payment so a slot only counts once it is paid: free times from Microsoft Bookings through Graph, payment on Stripe Checkout, appointment and Teams link only after a confirmed payment via webhook. Bookings sends the confirmation e-mail. Nobody in the office touches it. The Process Check itself is free. Booking it does not go through this payment.
 
-This is for owners and office leads who sell paid appointments and already run Microsoft 365. The flow is the one you go through when you book the Process Check yourself. It is not an argument that every firm should build one. For many, a ready-made tool is enough; a section below says when.
+This is for owners and office leads who sell paid appointments and already run Microsoft 365. The flow is the pattern for appointments that actually cost something. It is not an argument that every firm should build one. For many, a ready-made tool is enough; a section below says when.
 
 ## Can Microsoft Bookings take payment itself?
 
@@ -67,13 +67,13 @@ Stripe Checkout stores only what payment and matching need. Name, e-mail, and no
     <h3>Stays manual</h3>
     <ul>
       <li>Rescheduling, free up to 12 hours before, by e-mail or phone</li>
-      <li>Money-back decision after the appointment</li>
+      <li>Whether to refund after the appointment</li>
       <li>Refund through Stripe back to the card</li>
     </ul>
   </div>
 </div>
 
-Rescheduling is rare enough for e-mail. The refund depends on whether the hour turned up something worth automating. A person makes that call, not a rule in code.
+Rescheduling is rare enough for e-mail. Whether a refund is due is a person's call, not a rule in code.
 
 In use we noticed: Stripe Checkout follows our booking page language, but the Bookings confirmation uses the language set in Bookings business settings. If you serve two languages, check both.
 
@@ -100,7 +100,7 @@ Plan running costs. Stripe charges per payment, with no set-up or monthly fee on
 
 ## Book it and see the flow for yourself
 
-The quickest way to see the flow is to use it: pick a time, pay on Stripe's page, confirmation with Teams link from Bookings. 60 minutes on Teams, CHF 99.
+The Process Check is free: 60 minutes on Teams, with no payment. If a paid booking is the recurring task in your business, bring that flow to the hour.
 
 [Book the Process Check](/prozess-check/buchen)
 
