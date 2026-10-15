@@ -583,3 +583,28 @@ Nie MVP-Slugs aus Abschnitt 6 in [`STRATEGY.md`](./STRATEGY.md).
 ## Tags (Vorschlag, 2–3 pro Post)
 
 `ki kmu` · `prozessautomatisierung` · `prozess-check` · `datenschutz` · `buchhaltung` · `reporting` · `microsoft copilot` — je nach Topic, nicht alle auf jeden Post.
+
+---
+
+## SEO-Welle 2026-10-15 (Ratgeber-Drafts, draft: true)
+
+Quelle: Keyword-Strategie Aurum Avis Labs (14./15.10.2026). Alle Posts `draft: true`, pubDate ab 2027-03-02, DE+EN. Nicht mergen ohne Review und Challenge-Agent.
+
+| ID | Priority | Funnel | `funnelStage` | Slug DE | Slug EN | `site` | CTA |
+|----|----------|--------|---------------|---------|---------|--------|-----|
+| S01 | P0 | MOFU | interest | `chatgpt-business-fuer-schweizer-kmu` | `chatgpt-business-for-swiss-smes` | prozess-check | Prozess-Check (gratis, 30 Min) |
+| S02 | P0 | MOFU | interest | `apertus-im-unternehmen` | `apertus-in-the-enterprise` | prozess-check | Prozess-Check |
+| S03 | P0 | MOFU | interest | `ki-kompetenzpflicht-schweiz` | `ai-literacy-obligation-switzerland` | prozess-check | Workshop KI im Unternehmen (+ Check) |
+| S04 | P1 | MOFU | interest | `cursor-vs-claude-code` | `cursor-vs-claude-code` | studio | Workshop Agentic Coding |
+| S05 | P1 | TOFU | awareness | `datenschutzgesetz-schweiz-kmu` | `swiss-data-protection-act-for-smes` | security | /de/security/datenschutz |
+| S06 | P1 | MOFU | interest | `datenpanne-wann-edoeb-informieren` | `when-to-inform-the-fdpic-after-a-breach` | security | /de/security/datenschutz |
+
+**Cannibalisation notes**
+
+- S04 ergänzt `cursor-claude-code-gruender` (Founder/Studio): Fokus Engineering-Vergleich + Workshop-CTA.
+- S05 ergänzt `ndsg-pflichten-fuer-kmu` (Checkliste): Head-Term «datenschutzgesetz schweiz» / revDSG.
+- S06 ergänzt `datenpanne-an-den-edoeb-melden` (Ablauf): Entscheidungsfilter «hohes Risiko / wann melden». Vor Publish abstimmen.
+- S03 ergänzt `eu-ai-act-schweizer-kmu`: Fokus Art. 4 AI Literacy / Schulungspflicht.
+
+Arbeitskopien + SOURCES: `/workspace/seo-audit/aal-ratgeber-20261015/` (lokal beim Authoring; nicht Teil dieses Repos).
+

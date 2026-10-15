@@ -1,0 +1,78 @@
+---
+translationKey: cursor-vs-claude-code
+title: "Cursor vs. Claude Code im Vergleich"
+description: "Cursor vs. Claude Code: Editor-Agent oder Terminal-Agent, Wann welches Werkzeug passt, und was Teams vor dem Rollout klären. Stand Oktober 2026."
+pubDate: 2027-03-05
+author: "Aurum Avis Labs"
+tags: ["cursor", "claude code", "agentic coding", "workshop"]
+funnelStage: interest
+relatedPosts: ["vibe-coding-vs-agentic-coding", "cursor-claude-code-gruender", "ki-code-testen"]
+draft: true
+site: studio
+---
+
+**Cursor vs. Claude Code** ist die Frage, die Engineering-Teams stellen, sobald Prompt-zu-App-Tools nicht mehr reichen. Beide sind agentische Coding-Werkzeuge. Beide arbeiten in einem echten Repo. Sie unterscheiden sich in Oberfläche, Steuerungslogik und Integrationsweg. Dieser Vergleich hilft bei der Wahl. Er ersetzt keine Sicherheitsprüfung.
+
+## Kurzantwort
+
+Cursor ist ein KI-first-Editor (VS-Code-Linie) mit Agent, Diffs und Modellwahl in der IDE. Claude Code ist Anthropics agentisches Coding-Tool in Terminal, IDE-Erweiterung, Desktop und Web: Es liest die Codebasis, editiert Dateien, führt Befehle aus und hängt an Ihre Dev-Tools ([Claude Code Overview](https://docs.anthropic.com/en/docs/claude-code/overview)).
+
+Wählen Sie **Cursor**, wenn das Team Diffs, Tabs und Inline-Review in einem Editor erwartet. Wählen Sie **Claude Code**, wenn Agentenläufe über CLI, CI und parallele Sessions der Alltag sind. Viele Teams nutzen beides: Cursor für fokussierte Dateiarbeit, Claude Code für längere Agentenaufgaben.
+
+Der Rahmen Vibe vs. Agentic steht in [Vibe Coding vs. Agentic Coding](/de/blog/vibe-coding-vs-agentic-coding). Der Founder-Einstieg ohne starkes Engineering-Team: [Cursor oder Claude Code für Gründer](/de/blog/cursor-claude-code-gruender).
+
+## Worin sie sich unterscheiden
+
+| | Cursor | Claude Code |
+|---|--------|-------------|
+| Primäre Oberfläche | Editor / IDE | Terminal, plus IDE/Desktop/Web |
+| Stärke | Sichtbare Diffs, Modellwahl, Editor-Workflow | Repo-weite Agentenläufe, Piping, CI, Hooks |
+| Typischer Nutzer | Entwicklerinnen im Editor | Teams, die Agenten orchestrieren |
+| Setup | App installieren, Repo öffnen | CLI oder Extension; Auth über Anthropic/Abo |
+
+Beide brauchen git, Tests und jemanden, der merged. Ohne Review entsteht derselbe Schaden wie bei jedem starken Modell.
+
+## Wann Cursor die bessere Default-Wahl ist
+
+- Das Team denkt in Dateien, Tabs und Pull-Request-Diffs.
+- Ihr wollt mehrere Modelle im selben Editor vergleichen.
+- Onboarding soll sich an VS Code anfühlen ([Cursor Docs](https://docs.cursor.com/welcome)).
+
+## Wann Claude Code die bessere Default-Wahl ist
+
+- Lange Aufgaben («schreibe Tests, führe sie aus, öffne PR») sollen agentisch laufen.
+- Ihr piped Logs in den Agenten oder steuert ihn aus CI.
+- Skills, Hooks und `CLAUDE.md` / `AGENTS.md` sollen Teamstandards erzwingen.
+
+## Was vor dem Rollout geklärt sein muss
+
+1. Welche Repos dürfen Agenten sehen (Geheimnisse, Kundendaten, Prod-Configs)?
+2. Wer reviewt Diffs, bevor gemerged wird?
+3. Wie testet ihr KI-geschriebenen Code? Siehe [KI-Code testen](/de/blog/ki-code-testen).
+4. Budget: Modellnutzung und Sitzlizenzen getrennt vom «fühlt sich schnell an».
+
+## FAQ
+
+<div class="blog-faq">
+  <h3>Ersetzt eines der Tools das Engineering-Team?</h3>
+  <p>Nein. Beide beschleunigen Ausführung. Architektur, Abnahme und Verantwortung bleiben beim Menschen.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Können wir beide parallel nutzen?</h3>
+  <p>Ja. Häufig: Cursor für lokale Diff-Arbeit, Claude Code für längere Agentenläufe. Regeln und Secrets müssen für beide gelten.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Ist das dasselbe wie Lovable oder Bolt?</h3>
+  <p>Nein. Lovable/Bolt optimieren auf Demo-Geschwindigkeit. Cursor und Claude Code setzen ein Repo mit git und CI voraus.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Welches Tool für einen Workshop?</h3>
+  <p>Das, was euer Stack schon nutzt. Der Workshop Agentic Coding übt Steuerung, Review und Grenzen, nicht Logo-Treue.</p>
+</div>
+
+## Nächster Schritt
+
+Wenn Ihr Team agentisch bauen und Review-Disziplin aufbauen will: [Workshop Agentic Coding](/de/services/agentic-coding). Für Produktideen ohne Engineering-Fokus bleibt der Founder-Artikel die bessere Einstiegsseite.

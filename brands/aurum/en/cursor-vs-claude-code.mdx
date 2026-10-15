@@ -1,0 +1,78 @@
+---
+translationKey: cursor-vs-claude-code
+title: "Cursor vs Claude Code compared"
+description: "Cursor vs Claude Code: editor agent or terminal agent, when each fits, and what teams should decide before rollout. As of October 2026."
+pubDate: 2027-03-05
+author: "Aurum Avis Labs"
+tags: ["cursor", "claude code", "agentic coding", "workshop"]
+funnelStage: interest
+relatedPosts: ["vibe-coding-vs-agentic-coding", "cursor-or-claude-code-for-founders", "testing-ai-generated-code"]
+draft: true
+site: studio
+---
+
+**Cursor vs Claude Code** is the question engineering teams ask once prompt-to-app tools are no longer enough. Both are agentic coding tools. Both work in a real repo. They differ in surface, control model and integration path. This comparison helps you choose. It is not a security audit.
+
+## Short answer
+
+Cursor is an AI-first editor (VS Code lineage) with an agent, diffs and model choice in the IDE. Claude Code is Anthropic’s agentic coding tool across terminal, IDE extension, desktop and web: it reads the codebase, edits files, runs commands and connects to your dev tools ([Claude Code overview](https://docs.anthropic.com/en/docs/claude-code/overview)).
+
+Pick **Cursor** when the team expects diffs, tabs and inline review in an editor. Pick **Claude Code** when long agent runs via CLI, CI and parallel sessions are the daily path. Many teams use both: Cursor for focused file work, Claude Code for longer agent tasks.
+
+Frame: [Vibe coding vs agentic coding](/blog/vibe-coding-vs-agentic-coding). Founder path without a strong engineering team: [Cursor or Claude Code for founders](/blog/cursor-or-claude-code-for-founders).
+
+## How they differ
+
+| | Cursor | Claude Code |
+|---|--------|-------------|
+| Primary surface | Editor / IDE | Terminal, plus IDE/desktop/web |
+| Strength | Visible diffs, model choice, editor flow | Repo-wide agent runs, piping, CI, hooks |
+| Typical user | Developers in the editor | Teams orchestrating agents |
+| Setup | Install app, open repo | CLI or extension; Anthropic auth |
+
+Both need git, tests and someone who merges. Without review, strong models cause the same damage.
+
+## When Cursor is the better default
+
+- The team thinks in files, tabs and pull-request diffs.
+- You want several models in one editor.
+- Onboarding should feel like VS Code ([Cursor docs](https://docs.cursor.com/welcome)).
+
+## When Claude Code is the better default
+
+- Long tasks (“write tests, run them, open a PR”) should run agentically.
+- You pipe logs into the agent or drive it from CI.
+- Skills, hooks and `CLAUDE.md` / `AGENTS.md` should enforce team standards.
+
+## Decide this before rollout
+
+1. Which repos may agents see (secrets, customer data, prod configs)?
+2. Who reviews diffs before merge?
+3. How do you test AI-written code? See [testing AI-generated code](/blog/testing-ai-generated-code).
+4. Budget: model usage and seat licences separately from “it feels fast”.
+
+## FAQ
+
+<div class="blog-faq">
+  <h3>Does either tool replace the engineering team?</h3>
+  <p>No. Both speed execution. Architecture, acceptance and accountability stay with humans.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Can we run both in parallel?</h3>
+  <p>Yes. Common pattern: Cursor for local diff work, Claude Code for longer agent runs. Rules and secrets must cover both.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is this the same as Lovable or Bolt?</h3>
+  <p>No. Those optimise for demo speed. Cursor and Claude Code assume a repo with git and CI.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Which tool for a workshop?</h3>
+  <p>Whichever your stack already uses. An agentic coding workshop trains control, review and limits, not logo loyalty.</p>
+</div>
+
+## Next step
+
+If your team wants to build agentically with review discipline: [Agentic Coding workshop](/services/agentic-coding). For product ideas without an engineering focus, the founder article remains the better entry.

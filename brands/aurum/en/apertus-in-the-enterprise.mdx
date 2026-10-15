@@ -1,0 +1,78 @@
+---
+translationKey: apertus-in-the-enterprise
+title: "Using Apertus in the enterprise"
+description: "Using Apertus at work: Switzerland’s open LLM from ETH, EPFL and CSCS, when it fits, and what you still need beside the weights. As of October 2026."
+pubDate: 2027-03-03
+author: "Aurum Avis Labs"
+tags: ["apertus", "swiss ai", "ai sme", "process-check"]
+funnelStage: interest
+relatedPosts: ["ai-data-location-switzerland", "chatgpt-customer-data-swiss-dsg", "ai-in-operations-nothing-tangible"]
+draft: true
+site: prozess-check
+---
+
+**Apertus** is the fully open language model from the Swiss AI Initiative (EPFL, ETH Zurich, CSCS). Searches for “Swiss AI” often land on media and universities. This article answers the operations question: when does Apertus make sense for an SME, and what do you need besides the weights?
+
+## What Apertus is
+
+Apertus 1.0 launched on 2 September 2025 as a fully open, multilingual foundation model (8B and 70B), trained among other systems on the Alps supercomputer at CSCS. Fully open here means training data, code, weights and methods are documented, under Apache 2.0. Project pages: [swiss-ai.org/apertus](https://www.swiss-ai.org/apertus) and [apertus-ai.org](https://www.apertus-ai.org/). ETH press release: [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2025/09/press-release-apertus-a-fully-open-transparent-multilingual-language-model.html).
+
+Apertus 1.5 (weights from 24 July 2026, technical write-up October 2026) adds multimodal input, optional reasoning, longer context and better tool use. As of October 2026, API access has been announced via providers such as Swisscom, Infomaniak and others listed in the project’s availability guide.
+
+Apertus is not an ERP and not a substitute for your finance stack. It is a building block you host, consume via a Swiss platform, or embed in your own app.
+
+## What people mean by “SwissGPT”
+
+In search, “SwissGPT” often means “AI with data in Switzerland”. Swisscom’s [Swiss AI Platform](https://www.swisscom.ch/en/business/enterprise/offer/platforms-applications/data-driven-business/swiss-ai-platform.html) processes in Switzerland and exposes models including Apertus. For SMEs, [Swiss AI Assistant](https://www.swisscom.ch/en/business/sme/it-cloud/new-way-of-working/swiss-ai-assistant.html) offers company chatbots hosted in Switzerland, with company data not used for training according to the vendor. Names and packages change; check the live offer page before budgeting.
+
+## When Apertus fits operations
+
+Apertus fits when at least one is true:
+
+- You need processing in Switzerland or full control over weights and logs.
+- You want an open model inside an existing app (RAG over manuals, internal search, translation).
+- You accept that ops, evaluation and guardrails remain your job.
+
+It is a weak first step if the team still pastes customer data into private ChatGPT accounts without an allow-list. Fix the channel and the rule first: [ChatGPT and customer data](/prozess-check/blog/chatgpt-customer-data-swiss-dsg) and [AI data location Switzerland](/prozess-check/blog/ai-data-location-switzerland).
+
+## What is still missing beside the model
+
+1. **Use case:** one recurring workflow with a measurable output.
+2. **Data:** which sources may enter context, who approves.
+3. **Host or API:** self-host (GPU cost) or managed endpoint on a Swiss platform.
+4. **Evaluation:** five to ten real cases to score quality and hallucinations.
+5. **Owner:** someone for templates, access and incidents.
+
+Without these five, Apertus stays a demo. Same pattern as any AI in operations: [nothing tangible](/prozess-check/blog/ai-in-operations-nothing-tangible).
+
+## A 30-day practical start
+
+Week 1: pick one workflow (e.g. internal FAQ from PDFs, not customer decisions). Week 2: endpoint or trial, allow-list, test data without real secrets. Week 3: score ten real queries blind. Week 4: go or stop in writing.
+
+The FADP still applies with Swiss hosting. The [FDPIC on AI](https://www.edoeb.admin.ch/de/ki-und-datenschutz) reminds controllers to keep purpose, behaviour and data sources transparent.
+
+## FAQ
+
+<div class="blog-faq">
+  <h3>Is Apertus “the Swiss ChatGPT”?</h3>
+  <p>No. Apertus is an open foundation model. ChatGPT is a product with workspace, apps and support. Compare use case and operating model, not only origin.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Can we use Apertus commercially?</h3>
+  <p>Published weights are under Apache 2.0. Verify the current licence on Hugging Face or apertus-ai.org before production.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Do we need GPUs on-prem?</h3>
+  <p>Not necessarily. Managed endpoints on Swiss platforms cover many RAG and chat cases. Self-host when isolation or volume demands it.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Does Apertus replace data protection work?</h3>
+  <p>No. Swiss hosting helps residency questions. It does not replace transparency duties or breach processes under the FADP.</p>
+</div>
+
+## Next step
+
+To test whether Apertus or another channel fits one concrete workflow: [Process Check](/prozess-check), free, 30 minutes. One case, one price range, no tool parade.

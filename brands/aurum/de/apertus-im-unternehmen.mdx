@@ -1,0 +1,78 @@
+---
+translationKey: apertus-in-the-enterprise
+title: "Apertus im Unternehmen einsetzen"
+description: "Apertus im Unternehmen: offenes Schweizer LLM von ETH, EPFL und CSCS, wo es passt, und was neben dem Modell noch fehlt. Stand Oktober 2026."
+pubDate: 2027-03-03
+author: "Aurum Avis Labs"
+tags: ["apertus", "schweizer ki", "ki kmu", "prozess-check"]
+funnelStage: interest
+relatedPosts: ["ki-datenstandort-schweiz", "chatgpt-kundendaten-dsg-schweiz", "ki-im-betrieb-nichts-greifbares"]
+draft: true
+site: prozess-check
+---
+
+**Apertus** ist das grosse, vollständig offene Sprachmodell aus der Swiss AI Initiative von EPFL, ETH Zürich und dem CSCS. Wer «schweizer ki» oder «swissgpt» googelt, landet oft bei Medien und Hochschulen. Dieser Text beantwortet die Betriebsfrage: Wann lohnt sich Apertus im KMU, und was brauchen Sie neben den Gewichten?
+
+## Was Apertus ist
+
+Apertus 1.0 erschien am 2. September 2025 als vollständig offenes, mehrsprachiges Foundation-Modell (8B und 70B Parameter), trainiert unter anderem auf dem Alps-Supercomputer am CSCS. Offen heisst hier: Trainingsdaten, Code, Gewichte und Methoden sind dokumentiert und reproduzierbar, Lizenz Apache 2.0. Die offizielle Projektseite ist [swiss-ai.org/apertus](https://www.swiss-ai.org/apertus) bzw. [apertus-ai.org](https://www.apertus-ai.org/). Die ETH-Pressemitteilung zum Launch: [ETH Zürich](https://ethz.ch/en/news-and-events/eth-news/news/2025/09/press-release-apertus-a-fully-open-transparent-multilingual-language-model.html).
+
+Apertus 1.5 (Gewichte ab 24. Juli 2026, technische Details Oktober 2026) erweitert die Linie um multimodale Eingaben, optionales Reasoning, längeren Kontext und besseres Tool-Use. Stand Oktober 2026 sind API-Zugänge über Anbieter wie Swisscom, Infomaniak und weitere in der General-Availability-Liste des Projekts angekündigt.
+
+Apertus ist kein fertiges ERP und kein Ersatz für Ihre Buchhaltung. Es ist ein Baustein, den Sie selbst hosten, über eine Schweizer Plattform nutzen oder in eine eigene Anwendung einbetten.
+
+## Was Leute mit «SwissGPT» meinen
+
+«SwissGPT» ist in der Suche oft der Sammelbegriff für «KI mit Daten in der Schweiz». Swisscom bietet die [Swiss AI Platform](https://www.swisscom.ch/en/business/enterprise/offer/platforms-applications/data-driven-business/swiss-ai-platform.html) mit Verarbeitung in der Schweiz und Zugang zu Modellen inklusive Apertus. Für KMU gibt es ausserdem den [Swiss AI Assistant](https://www.swisscom.ch/en/business/sme/it-cloud/new-way-of-working/swiss-ai-assistant.html): Chatbots mit Firmenwissen, Hosting in der Schweiz, ohne Training auf Ihren Firmendaten laut Anbieter. Produktnamen und Pakete ändern sich. Prüfen Sie die aktuelle Angebotsseite, bevor Sie budgetieren.
+
+## Wann Apertus im Betrieb Sinn macht
+
+Apertus passt, wenn mindestens eines zutrifft:
+
+- Sie brauchen Datenverarbeitung in der Schweiz oder volle Kontrolle über Gewichte und Logs.
+- Sie wollen ein offenes Modell in eine bestehende Anwendung einbetten (RAG über Handbücher, interne Suche, Übersetzung).
+- Sie akzeptieren, dass Ops, Evaluation und Guardrails Ihre Aufgabe bleiben.
+
+Apertus passt schlecht als erster Schritt, wenn das Team noch private ChatGPT-Konten mit Kundendaten füllt und keine Positivliste hat. Dann lösen Sie zuerst den Kanal und die Regel. Siehe [ChatGPT und Kundendaten](/de/prozess-check/blog/chatgpt-kundendaten-dsg-schweiz) und [KI-Datenstandort Schweiz](/de/prozess-check/blog/ki-datenstandort-schweiz).
+
+## Was neben dem Modell fehlt
+
+1. **Use Case:** ein wiederkehrender Ablauf mit messbarem Output, nicht «wir wollen Schweizer KI».
+2. **Daten:** welche Quellen dürfen ins Kontextfenster, wer gibt frei.
+3. **Host oder API:** Self-Host (GPU-Kosten) oder Managed Endpoint auf einer Schweizer Plattform.
+4. **Evaluation:** fünf bis zehn echte Fälle, an denen Sie Qualität und Halluzinationen prüfen.
+5. **Owner:** eine Person für Prompt-Vorlagen, Zugriffe und Incidents.
+
+Ohne diese fünf Punkte bleibt Apertus eine Demo. Das gleiche Muster wie bei jeder KI im Betrieb: [nichts Greifbares](/de/prozess-check/blog/ki-im-betrieb-nichts-greifbares).
+
+## Praktischer Einstieg in 30 Tagen
+
+Woche 1: einen Ablauf wählen (z. B. interne FAQ aus PDF, nicht Kundenentscheide). Woche 2: Endpoint oder Testinstanz, Positivliste, Testdaten ohne echte Geheimnisse. Woche 3: zehn echte Anfragen blind bewerten. Woche 4: Go oder Stopp, schriftlich.
+
+Das DSG bleibt massgebend, auch bei Schweizer Hosting. Der [EDÖB zu KI](https://www.edoeb.admin.ch/de/ki-und-datenschutz) erinnert: Verantwortliche müssen Zweck, Funktionsweise und Datenquellen transparent halten.
+
+## FAQ
+
+<div class="blog-faq">
+  <h3>Ist Apertus «die Schweizer ChatGPT»?</h3>
+  <p>Nein. Apertus ist ein offenes Foundation-Modell. ChatGPT ist ein Produkt mit Workspace, Apps und Support. Vergleichen Sie Use Case und Betriebsmodell, nicht nur die Herkunft.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Darf ich Apertus kommerziell nutzen?</h3>
+  <p>Die veröffentlichten Gewichte stehen unter Apache 2.0. Prüfen Sie die aktuelle Lizenz auf Hugging Face bzw. apertus-ai.org vor dem produktiven Einsatz.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Brauche ich GPU im Keller?</h3>
+  <p>Nicht zwingend. Managed Endpoints auf Schweizer Plattformen decken viele RAG- und Chat-Fälle. Self-Host lohnt sich bei strengen Isolationsanforderungen oder sehr hohem Volumen.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Ersetzt Apertus den Datenschutz?</h3>
+  <p>Nein. Hosting in der Schweiz erleichtert Residenzfragen, ersetzt aber weder Informationspflichten noch Meldewege nach DSG.</p>
+</div>
+
+## Nächster Schritt
+
+Wenn Sie prüfen wollen, ob Apertus oder ein anderer Kanal zu einem konkreten Ablauf passt: [Prozess-Check](/de/prozess-check), gratis, 30 Minuten. Ein Case, eine Preisspanne, keine Tool-Show.
