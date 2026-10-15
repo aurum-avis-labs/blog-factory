@@ -586,25 +586,22 @@ Nie MVP-Slugs aus Abschnitt 6 in [`STRATEGY.md`](./STRATEGY.md).
 
 ---
 
-## SEO-Welle 2026-10-15 (Ratgeber-Drafts, draft: true)
+## SEO-Welle 2026-10-15 (Ratgeber v2, reviewed)
 
-Quelle: Keyword-Strategie Aurum Avis Labs (14./15.10.2026). Alle Posts `draft: true`, pubDate ab 2027-03-02, DE+EN. Nicht mergen ohne Review und Challenge-Agent.
+Quelle: Keyword-Strategie Aurum Avis Labs (14./15.10.2026), v2 geschrieben + unabhängig reviewed (CRITIQUE pro Post). #1–#5 `draft: true`; #6 ist In-place-Upgrade eines Live-Posts. Nicht mergen ohne Robert-OK.
 
-| ID | Priority | Funnel | `funnelStage` | Slug DE | Slug EN | `site` | CTA |
-|----|----------|--------|---------------|---------|---------|--------|-----|
-| S01 | P0 | MOFU | interest | `chatgpt-business-fuer-schweizer-kmu` | `chatgpt-business-for-swiss-smes` | prozess-check | Prozess-Check (gratis, 30 Min) |
-| S02 | P0 | MOFU | interest | `apertus-im-unternehmen` | `apertus-in-the-enterprise` | prozess-check | Prozess-Check |
-| S03 | P0 | MOFU | interest | `ki-kompetenzpflicht-schweiz` | `ai-literacy-obligation-switzerland` | prozess-check | Workshop KI im Unternehmen (+ Check) |
-| S04 | P1 | MOFU | interest | `cursor-vs-claude-code` | `cursor-vs-claude-code` | studio | Workshop Agentic Coding |
-| S05 | P1 | TOFU | awareness | `datenschutzgesetz-schweiz-kmu` | `swiss-data-protection-act-for-smes` | security | /de/security/datenschutz |
-| S06 | P1 | MOFU | interest | `datenpanne-wann-edoeb-informieren` | `when-to-inform-the-fdpic-after-a-breach` | security | /de/security/datenschutz |
+| ID | Funnel | `funnelStage` | Slug DE | Slug EN | `site` | pubDate | CTA |
+|----|--------|---------------|---------|---------|--------|---------|-----|
+| S01 | MOFU | interest | `chatgpt-business-kmu-schweiz` | `chatgpt-business-swiss-smes` | prozess-check | 2027-02-24 | Prozess-Check (gratis, 30 Min) |
+| S02 | MOFU | interest | `apertus-im-unternehmen` | `apertus-in-the-enterprise` | prozess-check | 2027-02-25 | Prozess-Check |
+| S03 | MOFU | interest | `ki-schulungspflicht-schweiz` | `ai-literacy-obligation-switzerland` | prozess-check | 2027-02-26 | Workshop KI im Unternehmen |
+| S04 | BOFU | consideration | `cursor-vs-claude-code` | `cursor-vs-claude-code` | studio | 2027-01-09 | Workshop Agentic Coding |
+| S05 | TOFU | awareness | `datenschutzgesetz-schweiz` | `swiss-data-protection-act-for-smes` | security | 2026-12-20 | /de/security/datenschutz |
+| S06 | MOFU | interest | `datenpanne-an-den-edoeb-melden` (live, überschrieben) | `report-a-data-breach-to-the-fdpic` | security | 2026-10-15 | /de/security/datenschutz |
 
-**Cannibalisation notes**
+**Hub/Spoke**
 
-- S04 ergänzt `cursor-claude-code-gruender` (Founder/Studio): Fokus Engineering-Vergleich + Workshop-CTA.
-- S05 ergänzt `ndsg-pflichten-fuer-kmu` (Checkliste): Head-Term «datenschutzgesetz schweiz» / revDSG.
-- S06 ergänzt `datenpanne-an-den-edoeb-melden` (Ablauf): Entscheidungsfilter «hohes Risiko / wann melden». Vor Publish abstimmen.
-- S03 ergänzt `eu-ai-act-schweizer-kmu`: Fokus Art. 4 AI Literacy / Schulungspflicht.
-
-Arbeitskopien + SOURCES: `/workspace/seo-audit/aal-ratgeber-20261015/` (lokal beim Authoring; nicht Teil dieses Repos).
-
+- S04 ↔ `cursor-claude-code-gruender` (Gründer solo, Lovable-Handoff); Gründer-Post neu positioniert, verlinkt auf S04.
+- S05 = Pillar «Datenschutzgesetz Schweiz»; `ndsg-pflichten-fuer-kmu` = Checkliste (neuer Titel/Meta, Up-Link). Kein 301; nach 4–6 Wochen GSC prüfen.
+- S03 besitzt Art. 4 / Schulungspflicht; `eu-ai-act-schweizer-kmu` bleibt «gilt der AI Act überhaupt».
+- Follow-up: in S05 nach 2027-01-21 Link auf `/de/prozess-check/blog/auskunftsbegehren-dsg` ergänzen.
