@@ -7,7 +7,7 @@ tags: ["betrieb", "wartung", "automatisierung"]
 funnelStage: consideration
 translationKey: who-runs-the-automation
 relatedPosts: ["was-automatisierung-kostet-schweiz", "nach-dem-prozess-check"]
-image: "@/assets/blog/who-runs-the-automation/hero.jpg"
+image: "@/assets/blog/who-runs-the-automation/hero.webp"
 draft: false
 site: prozess-check
 ---
@@ -63,7 +63,7 @@ Die neue Kollegin legt das PDF in einem anderen Ordner ab, schreibt die Auftrags
 
 Ein fehlgeschlagener Lauf muss eine Meldung an eine bestimmte Person auslösen. Der schlimmste Fehler ist der stille: Die Automatisierung steht, niemand merkt es, und zwei Wochen später fehlt eine Rechnung oder eine Kundin ruft verärgert an.
 
-Unsere eigene Buchung zeigt, wo das zählt. Bezahlt jemand einen Prozess-Check, legt ein Webhook von Stripe den Termin an. Schlägt dieser Schritt fehl, versucht Stripe die Zustellung laut seiner [Webhook-Dokumentation](https://docs.stripe.com/webhooks) im Livebetrieb bis zu drei Tage lang erneut. Bis dahin ist die Zahlung da, der Termin aber nicht. Genau diese Lücke muss eine Überwachung abdecken. Den ganzen Ablauf beschreibt [Terminbuchung mit Zahlung automatisieren](/de/prozess-check/blog/terminbuchung-mit-zahlung-automatisieren).
+Eine Terminbuchung mit Zahlung zeigt, wo das zählt. Bezahlt jemand den Termin, legt ein Webhook von Stripe ihn an. Schlägt dieser Schritt fehl, versucht Stripe die Zustellung laut seiner [Webhook-Dokumentation](https://docs.stripe.com/webhooks) im Livebetrieb bis zu drei Tage lang erneut. Bis dahin ist die Zahlung da, der Termin aber nicht. Genau diese Lücke muss eine Überwachung abdecken. Den ganzen Ablauf beschreibt [Terminbuchung mit Zahlung automatisieren](/de/prozess-check/blog/terminbuchung-mit-zahlung-automatisieren). Der Prozess-Check selbst ist kostenlos und läuft nicht über diese Zahlung.
 
 Fragen Sie jeden Anbieter, auch uns: Wer bekommt die Meldung, auf welchem Weg, und was passiert dann? «Wir schauen ab und zu in die Logs» ist keine Antwort.
 
@@ -111,4 +111,4 @@ Planen Sie in diesem Fall die Übergabe als Teil der Umsetzung ein, und bestimme
 
 Für eine grössere Umsetzung oder mehrere verbundene Abläufe, bei denen Betrieb und Übergabe von Anfang an mitgeplant werden müssen, ist die [KI-Integration](/de/services/ai-implementation-consulting) der richtige Weg. Die Seite beschreibt den Ablauf bis zur Umsetzung oder zur sauberen Übergabe an Ihr Team, und Sie entscheiden, was davon passt.
 
-Geht es um eine einzelne wiederkehrende Arbeit, ist der [Prozess-Check](/de/prozess-check) der kleine Einstieg: 60 Minuten, ein schriftlicher Case und eine Preisspanne. Termin direkt: [Prozess-Check buchen](/de/prozess-check/buchen).
+Geht es um eine einzelne wiederkehrende Arbeit, ist der [Prozess-Check](/de/prozess-check) der kleine Einstieg: 30 Minuten, ein schriftlicher Case und eine Preisspanne. Termin direkt: [Prozess-Check buchen](/de/prozess-check/buchen).

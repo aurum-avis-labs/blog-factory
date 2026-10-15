@@ -9,9 +9,13 @@
     "preview:build": "cd preview && npm run build",
     "preview:capture": "cd preview && npm run capture:pr:full",
     "tool": "cd tool && npm run dev",
-    "dev:postology": "cd ../postology-landing-page && npm run dev -- --port 3000"
+    "dev:postology": "cd ../postology-landing-page && npm run dev -- --port 3000",
+    "check:images": "node scripts/check-webp-only.mjs",
+    "images:webp": "node scripts/images-to-webp.mjs",
+    "validate": "npm run check:images"
   },
   "devDependencies": {
+    "sharp": "^0.34.4",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0"
   }

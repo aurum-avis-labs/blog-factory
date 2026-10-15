@@ -12,7 +12,12 @@
  * Requires CROSS_REPO_PAT environment variable with contents:write permission on target repos.
  */
 
+import { execSync } from "node:child_process";
 import { brands } from "../brands.config.ts";
+
+function assertWebpOnlyContent(): void {
+  execSync("node scripts/check-webp-only.mjs", { stdio: "inherit" });
+}
 
 const args = process.argv.slice(2);
 const brandsArg = args
@@ -45,6 +50,8 @@ const targetBrands = brandIds.map((id) => {
   }
   return brand;
 });
+
+assertWebpOnlyContent();
 
 console.log(`Dispatching to ${targetBrands.length} brand(s)${dryRun ? " (DRY RUN)" : ""}:\n`);
 

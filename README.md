@@ -43,12 +43,12 @@ This means **no configuration is needed** in landing page repos — `fetch-blog.
 brands/{brand-id}/
   {lang}/                # en/, de/, fr/, it/
     post-slug.mdx        # Blog post with frontmatter
-  images/                # Blog images
+  images/                # Blog images (WebP only in git)
     {post-slug}/
-      img1.png
+      hero.webp
 ```
 
-Images are referenced in MDX as `@/assets/blog/{post-slug}/img1.png`.
+Images are referenced in MDX as `@/assets/blog/{post-slug}/hero.webp`. Generators may output PNG/JPEG; run `npm run images:webp` before commit. `npm run check:images` enforces WebP-only references.
 
 ## Deployment Pipeline
 

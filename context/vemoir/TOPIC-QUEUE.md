@@ -116,6 +116,10 @@ Do not draft: `swiss-german-transcription`, `record-meeting-legal-switzerland`, 
 | 2026-11-17 | `is-tldv-safe` | interest | `transcribe-recording` | Is tl;dv safe. Vendor docs only. | new |
 | 2026-11-18 | `is-plaud-private` | interest | `transcribe-recording` | Is Plaud private, from Plaud's own privacy pages. Plaud is hardware. | new |
 | 2026-11-18 | `fathom-vs-otter` | consideration | `store` | Fathom versus Otter. | new |
+| 2026-11-19 | `test-microphone-online-before-call` | interest | `microphone-test` | Test the microphone online before a Zoom, Teams or Meet call. Browser level check; nothing uploaded. | new |
+| 2026-11-20 | `speaking-speed-test-words-per-minute` | interest | `speaking-speed-test` | Speaking speed test in words per minute: read aloud, calculator, or timed SRT/VTT. No model run. | new |
+| 2026-11-21 | `remove-filler-words-from-transcript` | interest | `filler-word-cleaner` | Remove filler words from a transcript you already have. Text only; no upload; no speech model. | new |
+| 2026-11-22 | `free-subtitle-generator-srt-vtt` | interest | `subtitle-generator` | Free subtitle generator for SRT and VTT from a short recording (15 min, 3 runs / 7 weeks) or rebreak an existing file. | new |
 
 ## Existing filenames
 

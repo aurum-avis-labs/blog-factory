@@ -5,6 +5,7 @@ Match posts already in the brand. This is the field order used by current posts:
 ```yaml
 ---
 title: "..."
+seoTitle: "..." # optional; SERP title only, ≤60 chars; H1 stays title
 description: "..."
 pubDate: YYYY-MM-DD
 author: "..."
@@ -12,14 +13,15 @@ tags: ["...", "...", "..."]
 funnelStage: "awareness"
 translationKey: "english-slug"
 relatedPosts: ["same-language-slug"]
-image: "@/assets/blog/english-slug/hero.jpg"
+image: "@/assets/blog/english-slug/hero.webp"
 draft: true
 ---
 ```
 
 | Field | Rule |
 |---|---|
-| `title` | Specific, credible, contains the primary query. Not a keyword list. |
+| `title` | Specific, credible, contains the primary query. Not a keyword list. Becomes the on-page H1. |
+| `seoTitle` | Optional. Use when the SERP `<title>` must differ from the H1; ≤60 characters before any brand suffix the landing page adds. Omit when `title` is enough. |
 | `description` | Under 160 characters. Says what the page decides or explains. |
 | `pubDate` | `YYYY-MM-DD`. Stagger waves. The date changes when the body materially changes. |
 | `updatedDate` | Optional. Add only when the body materially changes. |
@@ -28,7 +30,7 @@ draft: true
 | `funnelStage` | Exactly `awareness`, `interest`, or `consideration`. Same on every locale. |
 | `translationKey` | English slug, shared by every locale. If the brand has no English, use the default-language slug. |
 | `relatedPosts` | 1–3 slugs that exist in **this language**. Links travel from lower to higher intent: `awareness` < `interest` < `consideration`. `interest` points to interest or consideration. `consideration` points to consideration, or to interest while that language has no other consideration post. `[]` while that language has no eligible peer yet. Verify each slug as a file on disk before finishing. |
-| `image` | `@/assets/blog/{translationKey}/hero.jpg`. Omit the line when there is no hero. Every locale points at the same file. |
+| `image` | `@/assets/blog/{translationKey}/hero.webp`. Omit the line when there is no hero. Every locale points at the same file. Run `npm run images:webp` if the hero was saved as PNG/JPEG. |
 | `draft` | `true` until this wave is approved to schedule. |
 | `site` | Aurum only. Match the `sites` list in `brands.config.ts` (`studio`, `prozess-check`, `security`, `web3`, `workshops`). Posts use the section they belong to; security posts use `security`. Same value on every locale. |
 
@@ -42,7 +44,7 @@ The layout shows the hero from frontmatter. If the hero is Unsplash, put the pho
 
 Limits, steps, and comparisons use HTML from [blocks.md](blocks.md).
 
-Hero file: `hero.jpg` at 1200×675 (Vemoir 1200×900). Older posts may still use `img1.png` as the hero only.
+Hero file: `hero.webp` at 1200×675 (Vemoir 1200×900). Older posts may still use `img1.webp` as the hero only.
 
 ## Files
 
@@ -51,4 +53,4 @@ Hero file: `hero.jpg` at 1200×675 (Vemoir 1200×900). Older posts may still use
 | MDX | `brands/{brand}/{lang}/{localized-slug}.mdx` |
 | Images | `brands/{brand}/images/{translationKey}/` |
 
-Older posts may use `img1.png` as the hero. New posts use `hero.jpg` only.
+Older posts may use `img1.webp` as the hero. New posts use `hero.webp` only.

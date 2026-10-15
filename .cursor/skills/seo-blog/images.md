@@ -1,6 +1,8 @@
 # Images
 
-One hero per article, stored at `brands/{brand}/images/{translationKey}/hero.jpg` and reused by every locale. Limits, steps, and comparisons go in HTML from [blocks.md](blocks.md).
+One hero per article, stored at `brands/{brand}/images/{translationKey}/hero.webp` and reused by every locale. Limits, steps, and comparisons go in HTML from [blocks.md](blocks.md).
+
+**WebP only in committed content.** Generators and Unsplash fetchers may write PNG or JPEG first; run `npm run images:webp` before commit so files and MDX references become WebP. `npm run check:images` fails on any `.png`/`.jpg` reference or file under `brands/`. Do not point frontmatter at remote raster URLs (Unsplash CDN JPG, etc.); store heroes locally as WebP.
 
 The hero shows this article's subject. A photo that could sit on any other post in the batch gives way to a targeted Higgsfield image.
 
@@ -18,9 +20,9 @@ Do4Me wants ordinary Zürich help: people, tasks, streets.
 
 ## Hero challenge
 
-Keep the current `hero.jpg` when a reader who has not opened the article would still guess the topic from the image.
+Keep the current `hero.webp` when a reader who has not opened the article would still guess the topic from the image.
 
-A generic laptop, desk, city, or handshake shot, an image that could fit three other posts in the same brand, or one that contradicts the brand image guide points to a new Higgsfield image: prompt the actual subject (a closed laptop on a meeting table, a paper calendar next to a phone, a causal-loop sketch), keep the frame free of words, logos, and UI text, and save as `hero.jpg`.
+A generic laptop, desk, city, or handshake shot, an image that could fit three other posts in the same brand, or one that contradicts the brand image guide points to a new Higgsfield image: prompt the actual subject (a closed laptop on a meeting table, a paper calendar next to a phone, a causal-loop sketch), keep the frame free of words, logos, and UI text, and save as `hero.webp` (or PNG/JPEG then `npm run images:webp`).
 
 ## Unsplash (only when the photo already fits)
 
@@ -28,6 +30,7 @@ Requires `UNSPLASH_ACCESS_KEY` (optional `UNSPLASH_ACCESS_KEY_FALLBACK`).
 
 ```bash
 python3 scripts/fetch-unsplash-images.py --jobs scripts/unsplash-jobs-{brand}.json
+npm run images:webp
 ```
 
 ```json
@@ -37,7 +40,7 @@ python3 scripts/fetch-unsplash-images.py --jobs scripts/unsplash-jobs-{brand}.js
     "slug": "english-slug",
     "query": "specific scene, not the keyword stuffed",
     "files": [
-      {"name": "hero.jpg", "hero": true, "width": 1200, "height": 675}
+      {"name": "hero.webp", "hero": true, "width": 1200, "height": 675}
     ]
   }
 ]
@@ -47,7 +50,7 @@ python3 scripts/fetch-unsplash-images.py --jobs scripts/unsplash-jobs-{brand}.js
 
 ## Higgsfield
 
-Read the brand image guide, then generate. Save JPEG as `hero.jpg`.
+Read the brand image guide, then generate. Save as PNG/JPEG if the tool requires it, then run `npm run images:webp`. Committed hero filename is `hero.webp`.
 
 ```json
 {

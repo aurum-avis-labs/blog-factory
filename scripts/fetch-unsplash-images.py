@@ -204,8 +204,8 @@ def download_url(raw_url: str, width: int, height: int) -> str:
     q["w"] = [str(width)]
     q["h"] = [str(height)]
     q["fit"] = ["crop"]
-    q["fm"] = ["jpg"]
-    q["q"] = ["82"]
+    q["fm"] = ["webp"]
+    q["q"] = ["80"]
     return urllib.parse.urlunparse(
         parsed._replace(query=urllib.parse.urlencode({k: v[-1] for k, v in q.items()}))
     )
@@ -284,7 +284,7 @@ def process_job(job: dict[str, Any], used: set[str]) -> dict[str, Any]:
         if not spec.get("photoId"):
             track_download(photo)
         raw = (photo.get("urls") or {}).get("raw")
-        tmp = dest_dir / f".{filename}.download.jpg"
+        tmp = dest_dir / f".{filename}.download.webp"
         tmp.write_bytes(download_bytes(download_url(raw, width, height)))
         dest = dest_dir / filename
         encode_image(tmp, dest, width, height)
