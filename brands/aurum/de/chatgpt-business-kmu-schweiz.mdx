@@ -1,0 +1,180 @@
+---
+translationKey: chatgpt-business-swiss-smes
+title: "ChatGPT Business für KMU: Preise, Datenschutz, Einführung"
+description: "ChatGPT Business und Enterprise für Schweizer KMU: Preise in USD und CHF, kein Training, DPA, Datenstandort, revDSG und Checkliste. Stand Oktober 2026."
+pubDate: 2027-02-24
+author: "Aurum Avis Labs"
+tags: ["chatgpt business", "chatgpt enterprise", "ki kmu", "datenschutz", "prozess-check"]
+funnelStage: interest
+relatedPosts: ["ki-tools-freigeben-positivliste", "copilot-oder-einen-ablauf-bauen", "apertus-im-unternehmen"]
+draft: true
+site: prozess-check
+---
+
+**Kurz gesagt:** ChatGPT Business (früher ChatGPT Team) ist der Firmen-Workspace von OpenAI für 2 bis 200 Personen. Ein Standard-Platz kostet 20 USD pro Person und Monat bei Jahresabrechnung oder 25 USD bei monatlicher Abrechnung. OpenAI trainiert standardmässig nicht mit den Daten des Workspaces, und Sie können einen Auftragsbearbeitungsvertrag (DPA) abschliessen. Enterprise bringt zusätzlich SCIM, eigene Aufbewahrungsfristen und Datenhaltung in Europa inklusive Schweiz, aber nur auf Offerte. Für die meisten Schweizer KMU ist Business der richtige Einstieg, sofern vorher geklärt ist, welche Daten in den Chat dürfen. Alle Angaben Stand Oktober 2026.
+
+Dieser Ratgeber ist für Geschäftsleitungen und IT-Verantwortliche in KMU, die ChatGPT nicht mehr über private Konten laufen lassen wollen. Er ist keine Rechtsberatung.
+
+## Was ist ChatGPT Business?
+
+OpenAI hat ChatGPT Team am 29. August 2025 in ChatGPT Business umbenannt. Laut [OpenAI Help Center](https://help.openai.com/en/articles/8792828-chatgpt-business-overview) hat die Umbenennung den Plan selbst nicht verändert. Wer heute nach «ChatGPT Team» sucht, landet also beim gleichen Produkt.
+
+Business ist ein Workspace, den die Firma führt, nicht die einzelne Person. Er bringt:
+
+- zentrale Abrechnung und eine Admin-Konsole mit Rollen
+- Anmeldung über SAML-SSO und MFA, Domain-Verifizierung
+- Verbindungen zu Microsoft 365, Google Workspace, Slack und GitHub
+- Projekte, eigene GPTs, Deep Research, ChatGPT Agent und Codex
+- kein Training mit Ihren Geschäftsdaten als Standard
+
+Laut [Preisseite](https://openai.com/business/chatgpt-pricing/) ist Business «für Teams von 2 bis 200 Mitarbeitenden» gedacht. Bezahlt wird mit Kreditkarte. Gemeinnützige Organisationen erhalten über «OpenAI for Nonprofits» laut Preisseite bis zu 75 Prozent Rabatt, interessant etwa für Vereine und Stiftungen. Wer Rechnung, Banküberweisung oder Bestellnummern braucht, muss laut Help Center auf ein Vertragsangebot wie Enterprise wechseln.
+
+## Was kostet ChatGPT Business?
+
+Die Listenpreise von OpenAI, Stand Oktober 2026, pro Person und Monat:
+
+| Variante | Jahresabrechnung | Monatsabrechnung | Für wen |
+|---|---|---|---|
+| Business, Standard-Platz | USD 20 | USD 25 | die meisten Mitarbeitenden |
+| Business, Premium-Platz | USD 100 | USD 125 | Vielnutzer: laut OpenAI fünfmal mehr Nutzung, ohne 5-Stunden-Limit |
+| Enterprise | auf Offerte | auf Offerte | mehr als 200 Plätze oder hohe Compliance-Vorgaben |
+
+Quelle: [OpenAI Business Pricing](https://openai.com/business/chatgpt-pricing/) und [Help Center](https://help.openai.com/en/articles/8792828-chatgpt-business-overview).
+
+Ein Workspace braucht mindestens zwei bezahlte Plätze, also zwei Standard, zwei Premium oder einen von jedem. Plätze lassen sich mischen und später einer anderen Person zuweisen. Die API ist nicht enthalten und wird separat abgerechnet.
+
+**Was kostet das in Franken?** OpenAI publiziert die Preise in USD und schreibt selbst, dass Preise «je nach Land und Währung» variieren können. Ob Ihnen im Checkout ein Franken- oder ein Dollarbetrag angezeigt wird, sehen Sie erst dort. Rechnen Sie bei Dollarabrechnung mit dem Tageskurs und allfälligen Kartengebühren für Fremdwährung. Wie die Mehrwertsteuer auf dem Abo zu behandeln ist, klären Sie mit Ihrer Treuhand.
+
+Ein Rechenbeispiel für ein Treuhandbüro mit 8 Personen: 7 Standard-Plätze und 1 Premium-Platz für die Person, die täglich lange Dokumente analysiert, kosten bei Jahresabrechnung 7 × 20 + 1 × 100 = USD 240 pro Monat, also USD 2'880 im Jahr.
+
+## Business, Enterprise oder Plus: der Unterschied
+
+Plus ist ein Einzelabo. Es eignet sich für eine Person, die privat oder als Einzelunternehmen arbeitet. Für ein Team mit Kundendaten fehlen drei Dinge: ein Vertrag mit der Firma, eine Verwaltung der Zugänge und ein klarer Trainingsausschluss für alle.
+
+| Kriterium | Plus (Einzelabo) | Business | Enterprise |
+|---|---|---|---|
+| Training mit Ihren Inhalten | möglich, solange niemand abschaltet | standardmässig nein | standardmässig nein |
+| Auftragsbearbeitungsvertrag (DPA) | nein | ja | ja |
+| SSO und MFA | – | ja | ja |
+| SCIM, rollenbasierte Rechte | – | nein | ja |
+| Aufbewahrung steuerbar | – | ja, durch Admins | ja, eigene Richtlinien |
+| Datenhaltung in Europa (inkl. Schweiz) | – | schrittweise Einführung, nicht für alle | ja, für berechtigte neue Workspaces |
+| ISO 27001/27017/27018/27701 | – | nein | ja |
+| SOC 2 Type 2 | – | ja | ja |
+| Zahlung | Karte | Karte | Rechnung möglich |
+
+Quellen: [Preisseite](https://openai.com/business/chatgpt-pricing/), [Enterprise Privacy](https://openai.com/enterprise-privacy/), [Data Controls FAQ](https://help.openai.com/en/articles/7730893-data-controls-faq).
+
+**Faustregel:** Business, wenn Sie bis 200 Plätze brauchen, mit Karte zahlen können und keine Datenhaltung in Europa vertraglich zusichern müssen. Enterprise, wenn Sie SCIM für das automatische Ein- und Austreten brauchen, ISO-Zertifikate verlangen, eine Rechnung wollen oder Datenhaltung in Europa zwingend ist.
+
+## Was passiert mit Ihren Daten?
+
+### Kein Training als Standard
+
+OpenAI schreibt auf der Seite [Enterprise Privacy](https://openai.com/enterprise-privacy/) (aktualisiert am 8. Januar 2026): «We do not train our models on your data by default.» Das gilt für Business, Enterprise und die API. Eine Ausnahme nennt OpenAI selbst: Wer ausdrücklich Daten teilt, etwa über die Feedback-Funktion, kann damit Inhalte fürs Training freigeben. Wie weit das reicht, zeigt die [Data Controls FAQ](https://help.openai.com/en/articles/7730893-data-controls-faq): Ein Daumen hoch oder runter kann die ganze zugehörige Unterhaltung fürs Training freigeben. Nehmen Sie das in Ihre interne Regel auf.
+
+Bei Free, Go und Plus entscheidet jede Person selbst: Der Schalter «Improve the model for everyone» unter Einstellungen → Datenkontrollen bestimmt, ob ihre Chats ins Training fliessen. Ein Schalter auf einem privaten Konto ist keine Firmenregel.
+
+### Wer Ihre Chats sehen kann
+
+Das wird oft übersehen: In Business können Workspace-Admins laut OpenAI die Unterhaltungen der Mitarbeitenden «einsehen, exportieren und löschen». Informieren Sie das Team darüber, bevor es losgeht. Bei OpenAI selbst haben autorisierte Mitarbeitende Zugriff, wenn es um technischen Support, Missbrauchsabklärungen oder rechtliche Pflichten geht. Dazu kommen spezialisierte, zur Vertraulichkeit verpflichtete Drittfirmen, die nur Missbrauch prüfen.
+
+### Aufbewahrung
+
+Admins steuern, wie lange Unterhaltungen gespeichert bleiben. Gelöschte Unterhaltungen entfernt OpenAI innert 30 Tagen. Ausnahmen: Das Gesetz verlangt eine längere Aufbewahrung, oder OpenAI hält sie zum Schutz des Dienstes oder Dritter zurück.
+
+### Datenstandort: Business und Enterprise im Vergleich
+
+Hier hat sich 2026 etwas bewegt, und viele Ratgeber sind veraltet:
+
+- **Enterprise:** Berechtigte neue Workspaces können ihre Inhalte im Ruhezustand in der Region «Europe (EEA + Switzerland)» speichern lassen. Für Europa gibt es zusätzlich die sogenannte Inference Residency: Auch die Berechnung auf den GPUs bleibt in der Region. Die Datenhaltung ist bei Enterprise ohne Aufpreis enthalten ([OpenAI Help Center](https://help.openai.com/en/articles/9903489-data-residency-and-inference-residency-for-chatgpt)).
+- **Business:** Laut einem [neuen Help-Center-Artikel](https://help.openai.com/en/articles/20001418-where-your-chatgpt-business-content-is-stored) kann man beim Kauf eine Speicherregion wählen. Die Funktion wird aber «schrittweise eingeführt und ist noch nicht für alle Kunden verfügbar». Zwei Einschränkungen: Die Region gilt nur für die Speicherung, nicht für die Verarbeitung. Und eine Kopie jedes Prompts und jeder Antwort liegt für eine begrenzte Zeit zur Missbrauchsüberwachung in den USA. Die Preisseite führt die Datenhaltung für Business weiterhin mit «Nein».
+
+Für die Praxis heisst das: Mit Business sollten Sie davon ausgehen, dass Daten in den USA bearbeitet werden. Mehr dazu, ob KI überhaupt in der Schweiz laufen muss, steht im Beitrag [Muss KI in der Schweiz laufen?](/de/prozess-check/blog/ki-datenstandort-schweiz).
+
+## ChatGPT Business und das Schweizer DSG
+
+Der [EDÖB](https://www.edoeb.admin.ch/de/ki-und-datenschutz) hält fest, dass das Datenschutzgesetz technologieneutral ist und direkt auf KI-gestützte Datenbearbeitungen angewendet wird. Ein eigenes KI-Gesetz braucht es dafür nicht. Für ein KMU, das ChatGPT Business einführt, sind vier Punkte entscheidend.
+
+**1. Auftragsbearbeitung (Art. 9 DSG).** Wenn Mitarbeitende Personendaten eingeben, bearbeitet OpenAI diese in Ihrem Auftrag. Nach [Art. 9 DSG](https://www.fedlex.admin.ch/eli/cc/2022/491/de) braucht es dafür einen Vertrag, und Sie müssen sich vergewissern, dass der Anbieter die Datensicherheit gewährleistet. OpenAI bietet für Business, Enterprise und die API ein [Data Processing Addendum](https://openai.com/policies/data-processing-addendum/) an, das Sie über ein Formular abschliessen. Für Kundinnen und Kunden mit Sitz in der Schweiz ist die Vertragspartnerin OpenAI Ireland Ltd. Mehr zum Vertrag: [Auftragsbearbeitungsvertrag Schweiz](/de/security/blog/auftragsbearbeitung-vertrag-schweiz).
+
+**2. Bekanntgabe ins Ausland (Art. 16 und 17 DSG).** Gibt OpenAI Ireland Daten ausserhalb von EWR und Schweiz weiter, stützt es sich laut DPA auf Standardvertragsklauseln (SCC). Der EDÖB hat die EU-Standardvertragsklauseln für die Schweiz anerkannt. Für die USA gilt seit dem 15. September 2024 zudem das Swiss-U.S. Data Privacy Framework für zertifizierte Unternehmen. Ob ein bestimmter Anbieter zertifiziert ist, prüfen Sie auf der offiziellen [DPF-Liste](https://www.dataprivacyframework.gov/list). Mehr dazu: [Datenübermittlung in die USA](/de/security/blog/daten-in-die-usa-uebermitteln).
+
+**3. Information und Verzeichnis.** Ihre Datenschutzerklärung muss nennen, in welche Staaten Daten gehen (Art. 19 Abs. 4 DSG). Im Verzeichnis der Bearbeitungstätigkeiten gehören Staat und Garantien dazu (Art. 12 DSG); Unternehmen unter 250 Mitarbeitenden mit geringem Risiko können davon ausgenommen sein.
+
+**4. Was trotzdem nicht in den Chat gehört.** Ein DPA macht das Tool nicht für alles frei. Besonders schützenswerte Personendaten wie Gesundheitsdaten (Art. 5 lit. c DSG) und alles, was unter ein Berufsgeheimnis fällt, braucht eine eigene Prüfung. Für Arztpraxen, Anwaltskanzleien und Treuhandbüros ist das die eigentliche Hürde, nicht die Lizenz. Eine einfache Ampel steht im Beitrag [ChatGPT und Kundendaten](/de/prozess-check/blog/chatgpt-kundendaten-dsg-schweiz).
+
+## Checkliste: ChatGPT Business im KMU einführen
+
+So gehen Sie vor, damit aus der Lizenz kein neues Schatten-KI-Problem wird:
+
+1. **Bestand erheben.** Fragen Sie offen, wer heute welche KI-Tools mit welchem Konto nutzt. Ohne Schuldzuweisung, sonst hören Sie nur die halbe Wahrheit.
+2. **Plätze planen.** Nicht jede Person braucht einen Sitz. Starten Sie mit den Rollen, die täglich schreiben, zusammenfassen oder recherchieren. Premium nur für die wenigen, die an Limits stossen.
+3. **DPA abschliessen.** Vor dem ersten Prompt mit Personendaten, über das Formular von OpenAI. Ablage im Vertragsordner.
+4. **Datenregeln festlegen.** Drei erlaubte und drei verbotene Beispiele, konkret aus Ihrem Alltag: «Offerte ohne Kundennamen umformulieren: ja. Arztzeugnis zusammenfassen: nein.» Vorlage: [KI-Richtlinie für KMU](/de/prozess-check/blog/ki-richtlinie-vorlage-kmu).
+5. **Workspace einstellen.** SSO aktivieren, Aufbewahrungsdauer festlegen, Apps und Konnektoren nur freigeben, wenn sie gebraucht werden. Öffentliches Teilen von GPTs ausschalten.
+6. **Team informieren.** Dass Admins Chats einsehen können, dass Feedback-Knöpfe Daten freigeben und dass private Konten für Firmendaten tabu sind.
+7. **Datenschutzerklärung und Verzeichnis nachführen.** OpenAI als Auftragsbearbeiter, Staaten, Garantien.
+8. **Private Konten ablösen.** Firmendaten aus privaten Plus-Konten löschen lassen. Dann die Positivliste aktualisieren: [KI-Tools freigeben](/de/prozess-check/blog/ki-tools-freigeben-positivliste).
+9. **Offboarding regeln.** Wer beim Austritt den Platz entzieht und die Chats exportiert oder löscht. Ohne SCIM ist das ein manueller Schritt.
+10. **Nach 30 Tagen messen.** Wie viele Plätze werden wirklich genutzt? Welche wiederkehrende Arbeit läuft immer noch von Hand?
+
+Punkt 10 ist der wichtigste. Eine Lizenz macht Mitarbeitende beim Schreiben schneller. Sie erfasst aber keine Belege, verschiebt keine Daten zwischen Systemen und schreibt keinen Wochenreport selbstständig. Dafür braucht es einen gebauten Ablauf.
+
+## ChatGPT Business oder Microsoft Copilot?
+
+Viele KMU haben bereits Microsoft 365 und fragen sich, ob Copilot nicht reicht. Die kurze Antwort: Es kommt darauf an, wo die Arbeit liegt.
+
+| | ChatGPT Business | Microsoft 365 Copilot Business |
+|---|---|---|
+| Preis (Stand Oktober 2026) | USD 20 pro Person und Monat, jährlich, nur ChatGPT | Paketpreis inklusive Microsoft-365-Lizenz: mit Business Standard CHF 19.03, mit Business Premium CHF 25.92 pro Person und Monat, jährlich, zzgl. MWST |
+| Stärke | offene Aufgaben, Recherche, Texte, Analyse, Codex | arbeitet direkt in Outlook, Word, Excel und Teams mit Ihren Mails und Dokumenten |
+| Training | standardmässig nein | laut Microsoft nein |
+| Datenstandort | USA, Europa nur bei Enterprise sicher | EU Data Boundary für EU-Nutzer; für Kunden ausserhalb der EU kann die Verarbeitung in den USA, der EU oder anderen Regionen erfolgen |
+
+Quellen: [Microsoft Schweiz Preise](https://www.microsoft.com/de-ch/microsoft-365-copilot/pricing), [Microsoft Learn](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy).
+
+Achtung beim Preisvergleich: Die Microsoft-Preise enthalten die ganze Microsoft-365-Lizenz mit Outlook, Teams und SharePoint. Wer M365 schon bezahlt, vergleicht die Differenz zum heutigen Abo mit den USD 20 für ChatGPT, nicht den vollen Paketpreis.
+
+Wenn Ihre Leute den ganzen Tag in Outlook und Excel arbeiten und Dateien auf SharePoint liegen, ist Copilot oft der natürlichere Weg. Wenn sie offene Recherchen, Entwürfe und Analysen machen, ist ChatGPT meist stärker. Beides ersetzt keinen automatisierten Ablauf, siehe [Copilot-Lizenz oder einen Ablauf umsetzen?](/de/prozess-check/blog/copilot-oder-einen-ablauf-bauen).
+
+## Häufige Fragen
+
+<div class="blog-faq">
+  <h3>Was ist der Unterschied zwischen ChatGPT Team und ChatGPT Business?</h3>
+  <p>Keiner. OpenAI hat ChatGPT Team am 29. August 2025 in ChatGPT Business umbenannt. Bestehende Team-Workspaces wurden laut OpenAI zu Business-Workspaces, ohne dass Daten migriert werden mussten.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Was kann ich mit ChatGPT Business machen?</h3>
+  <p>Alles, was ChatGPT kann, aber in einem Firmen-Workspace: Offerten und Mails entwerfen, lange Verträge oder Protokolle zusammenfassen, Excel-Auswertungen erklären, mit Deep Research Marktfragen recherchieren und eigene GPTs für wiederkehrende Aufgaben bauen, etwa für Mahnungstexte im Treuhandbüro. Über Konnektoren greift es auf Dateien in Microsoft 365 oder Google Workspace zu.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Ist ChatGPT Business besser als Plus?</h3>
+  <p>Für eine Firma ja. Die Modelle sind ähnlich, der Unterschied liegt im Vertrag: kein Training als Standard, DPA, Admin-Konsole und SSO. Plus ist ein Einzelabo ohne Firmenvertrag.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Kann ich ChatGPT Business monatlich kündigen?</h3>
+  <p>Ja, mit der Monatsabrechnung (USD 25 pro Standard-Platz). Bei der günstigeren Jahresabrechnung (USD 20) binden Sie sich für ein Jahr. Starten Sie monatlich, bis klar ist, wie viele Plätze genutzt werden.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Was kostet ChatGPT Enterprise?</h3>
+  <p>OpenAI veröffentlicht keinen Listenpreis. Enterprise wird über den Vertrieb verhandelt, je nach Vertrag pro Platz oder über Credits beziehungsweise Token.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Liegen die Daten bei ChatGPT Business in der Schweiz?</h3>
+  <p>Nein. Datenhaltung in der Region «Europe (EEA + Switzerland)» gibt es verlässlich bei Enterprise. Bei Business wird eine Regionswahl schrittweise eingeführt, gilt nur für die Speicherung, und eine Kopie liegt zur Missbrauchsüberwachung in den USA.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Darf ein Schweizer KMU ChatGPT Business datenschutzkonform nutzen?</h3>
+  <p>Grundsätzlich ja, mit DPA, Information in der Datenschutzerklärung und klaren Regeln, welche Daten hinein dürfen. Besonders schützenswerte Daten und Berufsgeheimnisse brauchen eine eigene Prüfung.</p>
+</div>
+
+## Nächster Schritt
+
+Eine ChatGPT-Lizenz ist schnell gekauft. Wo sie im Alltag wirklich Zeit spart und wo ein automatisierter Ablauf mehr bringt, sehen die wenigsten auf Anhieb. Im [Prozess-Check](/de/prozess-check) schauen wir gemeinsam auf eine wiederkehrende Handarbeit in Ihrem Betrieb: gratis, 30 Minuten. Danach wissen Sie, ob ChatGPT Business reicht oder ob sich eine Automatisierung lohnt, und in welcher Preisspanne.

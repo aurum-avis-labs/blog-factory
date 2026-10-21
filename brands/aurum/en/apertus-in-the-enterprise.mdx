@@ -1,0 +1,166 @@
+---
+title: "Apertus for Business: Using Switzerland's Open LLM"
+description: "Apertus explained: what Switzerland's open LLM can do, how SMEs run it via Swisscom, Infomaniak or in-house, and how it compares with SwissGPT."
+pubDate: 2027-02-25
+author: "Aurum Avis Labs"
+tags: ["apertus", "swiss ai", "swissgpt", "ai sme", "data protection"]
+funnelStage: interest
+translationKey: apertus-in-the-enterprise
+relatedPosts: ["approve-ai-tools-allow-list", "chatgpt-business-swiss-smes", "ai-running-costs-per-month"]
+draft: true
+site: prozess-check
+---
+
+**Apertus is the open large language model built by the Swiss AI Initiative, a joint effort of ETH Zurich, EPFL and the Swiss National Supercomputing Centre (CSCS).** The weights are free and licensed for commercial use under Apache 2.0. For most SMEs, the practical route is not to host it yourself but to call it through a Swiss provider such as Swisscom, Infomaniak or PHOENIQS and pay per token. Apertus is a building block, not a ready-made ChatGPT for your company. If what you need is a chat tool for the team, an off-the-shelf Swiss product will usually get you there faster. As of October 2026.
+
+This guide is for owners and office managers at Swiss SMEs. It answers three questions: what Apertus actually is, how you get access to it, and when a different kind of "Swiss AI" is the better fit.
+
+## What is Apertus?
+
+Apertus (Latin for "open") was released on 2 September 2025 by EPFL, ETH Zurich and CSCS. [ETH describes it](https://ethz.ch/en/news-and-events/eth-news/news/2025/09/press-release-apertus-a-fully-open-transparent-multilingual-language-model.html) as Switzerland's first large-scale, open, multilingual language model. It was trained on the "Alps" supercomputer in Lugano using more than 10 million GPU hours, with Swisscom as strategic partner.
+
+"Open" goes further here than with most models. Beyond the weights, the team published the training data, code, intermediate checkpoints and methods. According to the developers, the model was built with Swiss data protection and copyright law and the EU AI Act's transparency obligations in mind, and websites that opted out of crawling were filtered out, even retroactively.
+
+| Key facts (October 2026) | Apertus 1.5 |
+|---|---|
+| Developer | Swiss AI Initiative (ETH Zurich, EPFL, CSCS) |
+| Sizes | 8 billion and 70 billion parameters |
+| Licence | Apache 2.0, commercial use allowed |
+| Languages | 1,000+, around 40% non-English training data, including Swiss German and Romansh |
+| Input / output | Text, images and audio (audio experimental) / text only |
+| Context window | 262,144 tokens |
+| New in 1.5 | Image understanding, optional thinking mode, better tool use |
+
+Version 1.5 landed on Hugging Face on [24 July 2026](https://apertus-ai.org/articles/2026-07-apertus-1-5/). A much larger Apertus 2.0 is on the roadmap for 2027.
+
+## Apertus, SwissGPT, "Swiss AI": who's who
+
+Search for "Swiss AI" and three different things get lumped together:
+
+- **Apertus** is a *model*, the engine. No login, no interface, no support. You always need a provider or your own servers.
+- **SwissGPT** is a *product* from Zurich-based [AlpineAI AG](https://alpineai.swiss/en/product/): a chat and assistant platform with transcription, running on the company's own hardware in Swiss data centres. AlpineAI says its primary model is currently Mistral Large 3, not Apertus.
+- **Swiss AI Assistant** from Swisscom is another ready-made chat product. Its model list [as of October 2026](https://www.swisscom.ch/en/business/sme/it-cloud/new-way-of-working/swiss-ai-assistant.html) is GPT OSS 120B, Qwen3.5, Mistral Small 4 and Gemma 4. Swisscom offers Apertus separately through its Swiss AI Platform.
+
+One more trap: **apertus.ai** is an unrelated EU hosting company. The official project site is [apertus-ai.org](https://www.apertus-ai.org/).
+
+So "Swiss AI" means either a model made in Switzerland (Apertus) or a service that runs models in Switzerland (SwissGPT, Swiss AI Assistant, Euria). For data protection, the second is what matters most.
+
+## Four ways to use Apertus
+
+**1. Try it for free.** The non-profit [Public AI](https://publicai.co/) runs a free demo, as does Hugging Face. Fine for getting a feel for the answers, not for company data: Public AI runs across several regions, not guaranteed in Switzerland.
+
+**2. As a chat app.** Infomaniak has added Apertus to its assistant [Euria](https://faq.infomaniak.com/2924), including inside its kSuite collaboration suite. Infomaniak says requests are processed in Switzerland and not used for training. It's the easiest way to put Apertus in front of employees.
+
+**3. Via API from a Swiss provider.** For your own applications, say an internal knowledge search or automated translation, you call Apertus through an API. According to the [official provider overview](https://apertus-ai.org/articles/2026-09-apertus-1-5-ga/) (September 2026), Swisscom, Infomaniak, PHOENIQS and Safe Swiss Cloud run the 70B model in Swiss data centres with per-token pricing; stepping stone offers the 8B model. You pay for usage, with no hardware outlay.
+
+**4. Run it yourself.** If data must not leave your premises, download the weights from Hugging Face and serve them yourself, for example with the open-source vLLM. As a rule of thumb:
+
+- **8B** runs on many laptops and workstations, according to the project. Good for testing, classification and translation; on the small side for demanding writing.
+- **70B** needs server hardware. The reference setup splits the model across four GPUs. Vendors such as OnPrem.ai ship compressed builds (a 48 GiB checkpoint, per the vendor) together with on-premise servers.
+
+Self-hosting also makes updates, monitoring, access control and backups your job. The developers explicitly recommend refreshing the weights every six months, because data protection deletion requests are handled through new releases. For most SMEs this only pays off at high volume or under strict requirements such as professional secrecy. Our post on [monthly AI running costs](/prozess-check/blog/ai-running-costs-per-month) has the numbers side.
+
+## Swiss AI options compared
+
+Only offerings with publicly verifiable details, as of October 2026. Prices exclude VAT.
+
+| Offering | Type | Model(s) | Data location | Price | Good fit for |
+|---|---|---|---|---|---|
+| Apertus, self-hosted | Model | Apertus 8B / 70B | Your servers | Weights free; hardware and operations on you | IT-strong firms, highly sensitive data |
+| Swisscom Swiss AI Platform | Cloud platform and API | incl. Apertus 70B | Switzerland | Per token or quote | Custom applications, firms with an IT partner |
+| Infomaniak AI Services / Euria | API and chat app | incl. Apertus 70B and other open models | Switzerland | API per token; Euria via Infomaniak plan | Low-cost entry, kSuite teams |
+| PHOENIQS, Safe Swiss Cloud | API | Apertus 70B and others | Switzerland | Per token | Regulated industries, custom apps |
+| SwissGPT (AlpineAI) | Ready-made chat product | Mistral Large 3 (primary) | Own hardware in Switzerland | CHF 74 (Standard) / 80 (Premium) per user per month, up to 9 users; 10+ on request (prices per AlpineAI public-sector page, October 2026) | Public sector, healthcare, law firms; Swiss German meeting minutes |
+| Swisscom Swiss AI Assistant | Ready-made chat product | GPT OSS 120B, Qwen3.5, Mistral Small 4, Gemma 4 | Switzerland | CHF 149 (up to 10 users), 399 (up to 40), 799 (up to 100) per month | SMEs wanting a company chat over their own documents |
+
+The pattern is simple. Need **a chat tool for the team**? Buy a finished product. Want to **build your own application** on an open Swiss model? Use Apertus via API.
+
+## Where Apertus shines, and where GPT-class models lead
+
+The developers are refreshingly candid: per the [release notes](https://apertus-ai.org/articles/2026-07-apertus-1-5/), Apertus 1.5 still trails the strongest open-weight models, and closed frontier models such as GPT or Claude are another step up. Its strengths lie elsewhere.
+
+**Strong at:**
+- **Translation and multilingual text.** The project reports that the 8B model matches GPT-OSS-20B on translation, which matters if you serve clients in Romandy and Ticino.
+- **Swiss legal tasks**, where Apertus 1.5 is on par with leading open-weight models.
+- **Traceability.** You know what it was trained on, a real argument in audits, public tenders and under the EU AI Act.
+- **Long documents.** 262,144 tokens is enough for contracts, manuals or whole case files.
+
+**Weaker at:**
+- Complex reasoning, coding and multi-step agents, where large commercial models do much better.
+- Thinking mode and tool calls can't be combined, per the model card.
+- No built-in filter that strips personal data from answers.
+- It doesn't generate images or audio.
+
+In practice: Apertus suits clearly scoped tasks with a Swiss angle. As an "ask me anything" tool for the whole team, it isn't the first pick.
+
+## Data residency and the Swiss FADP
+
+Swiss hosting is convenient, not mandatory. The revised Federal Act on Data Protection (FADP, in force since 1 September 2023) doesn't ban foreign cloud services; [Art. 16 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/en) sets out when personal data may go abroad. More in [Does AI have to run in Switzerland?](/prozess-check/blog/ai-data-location-switzerland)
+
+What a Swiss provider solves:
+- No cross-border disclosure **for that service**, as long as the provider and its subprocessors actually process the data only in Switzerland. Put the subprocessor list in the contract. Then the Art. 16 assessment falls away for that service specifically.
+- Depending on the provider, no exposure to the US CLOUD Act; Swisscom says so explicitly for its Swiss AI Assistant.
+- An easy answer for customers whose contracts say "data stays in Switzerland".
+
+What it **doesn't** solve:
+- **Processing on your behalf:** a Swiss provider is still a processor, so you need an agreement under Art. 9 FADP. See our [data processing agreement guide](/security/blog/data-processing-agreement-under-the-fadp).
+- **Transparency:** the [FDPIC](https://www.edoeb.admin.ch/de/ki-und-datenschutz) states that the FADP applies directly to AI. If you deploy a chatbot, users must know they're talking to a machine and what happens to their input.
+- **High-risk uses** require a data protection impact assessment (Art. 22 FADP).
+- **Team rules:** if staff keep using personal free accounts on the side, the best hosting won't help. See [ChatGPT and customer data](/prozess-check/blog/chatgpt-customer-data-swiss-dsg) and [building an AI tool allow-list](/prozess-check/blog/approve-ai-tools-allow-list).
+
+And if you self-host, information security is entirely on you. That's an obligation, not a perk.
+
+## Three SME examples
+
+**A ten-person fiduciary firm.** Client files are confidential and the team works in German and French. For day-to-day work, a finished Swiss chat product with document assistants is enough. Apertus via API becomes interesting once recurring client letters should be translated automatically or receipts pre-sorted.
+
+**A construction company with 40 staff.** Tender documents and standards run to hundreds of pages. An internal search across them can be built on Apertus 70B through a Swiss provider, and the long context window helps. Answers must cite sources and be checked by specialists.
+
+**A medical practice.** Health data is sensitive personal data. The contract matters more than the model: Swiss hardware, a processing agreement and a supplementary agreement covering professional secrecy. Whether Apertus or Mistral runs underneath is secondary.
+
+## Pre-launch checklist
+
+- [ ] One concrete workflow chosen ("translate quotes"), not "we want AI".
+- [ ] Clear rules on which data may go into the model, and who signs off.
+- [ ] Decision made: ready-made chat product or custom app via API?
+- [ ] Provider with Swiss data centre and processing agreement selected.
+- [ ] Ten real test cases defined to measure quality, compared against at least one other model.
+- [ ] Privacy notice and "you're chatting with an AI" disclosure updated.
+- [ ] One owner named for access, templates and incidents.
+- [ ] After four weeks: go or stop, with written reasons.
+
+## FAQ
+
+<div class="blog-faq">
+  <h3>Is Apertus free?</h3>
+  <p>The weights are free and can be used commercially under Apache 2.0. You pay for running it: per token with a provider, or for your own hardware and maintenance. Public AI offers a free demo.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is Apertus any good?</h3>
+  <p>It's solid for translation, multilingual text and Swiss legal questions. For complex reasoning and coding, the developers themselves say it trails the strongest models. Test it on your own cases rather than on leaderboards.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>What is SwissGPT?</h3>
+  <p>SwissGPT is a product from AlpineAI AG: a chat and assistant platform running on its own hardware in Switzerland. It isn't Apertus; AlpineAI currently uses Mistral Large 3 as its primary model.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>How much does it cost to use Apertus?</h3>
+  <p>The weights are free. You pay either per token with a Swiss provider (list prices vary; no hardware outlay) or for your own servers and operations if you self-host. Ready-made chat products bill differently: SwissGPT from CHF 74 per user per month for up to 9 users on AlpineAI's public-sector page, and Swisscom's Swiss AI Assistant from CHF 149 per month for up to 10 users (as of October 2026, excl. VAT).</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Does Apertus understand Swiss German?</h3>
+  <p>Swiss German and Romansh are part of the training data, according to ETH. How well it handles your texts is best tested with your own examples. For minutes of dialect meetings, specialised transcription services such as SwissGPT's Listener exist.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Does using Apertus make me FADP-compliant?</h3>
+  <p>No. Swiss hosting removes the cross-border question. You still need a processing agreement, transparency towards the people affected and clear team rules.</p>
+</div>
+
+## Next step
+
+You now know what Apertus can do. The real question usually remains: which workflow in your business is worth it, and is a finished product enough or do you need something custom? That's exactly what we work out in the [Process Check](/prozess-check): free, 30 minutes, one concrete workflow, an honest assessment, no tool show.
