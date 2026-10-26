@@ -2,7 +2,7 @@
 
 Writer source of truth for the 2026-09-30 through 2026-11-18 batch. Two posts each morning, 100 posts total. Locales are en, de, fr, and it. The same `pubDate`, `funnelStage`, and `translationKey` belong on every locale file. `draft: false`. Author `Vemoir Team`.
 
-The first 10 rows are already published on main. Their bodies stay as they are. Only `pubDate` was moved. Do not invent a slug. New posts are not in this checkout yet.
+The first 10 rows are already published on main. Leave those bodies as published unless the row records a dated refresh. Only `pubDate` was moved on the original pass. Do not invent a slug. New posts are not in this checkout yet.
 
 `tool` is the frontmatter `tool:` value, `store` when the only CTA is the App Store, or a homepage anchor. `relatedPosts` is a later pass: 1 to 3 posts in the same language, same or higher stage, and only URLs already due on that post's date.
 
@@ -21,7 +21,7 @@ Do not draft: `swiss-german-transcription`, `record-meeting-legal-switzerland`, 
 | 2026-10-01 | `meeting-minutes-template` | interest | `minutes-sheet` | Copyable meeting-minutes template. The later how-to covers the practice. | existing |
 | 2026-10-01 | `record-teams-meeting-mac` | consideration | `recording-to-notes` | Record a Microsoft Teams meeting on a Mac. | existing |
 | 2026-10-02 | `zoom-local-recording-transcript` | interest | `transcribe-zoom-recording` | Transcript after you already have a Zoom local recording. The later Zoom post is during the call. EN file stays transcribe-zoom-local-recording.mdx. | existing |
-| 2026-10-02 | `otter-ai-alternative` | consideration | `transcribe-recording` | Otter.ai alternative. | existing |
+| 2026-10-02 | `otter-ai-alternative` | consideration | `transcribe-recording` | Otter.ai alternative. Refresh VEM-2026W44-1 (26 Oct 2026): EN title `Otter.ai Alternative: Meeting Notes on Mac Without a Bot` (56, no brand suffix so the document title stays ≤60). Meta on bot-free notes, processing location, offline Mac, export and price. H2s: why people leave Otter, comparison table as of 26 Oct 2026 with vendor pricing links, best for Mac / local, best for teams, FAQ. Body links: `/compare/otter-ai`, `/blog/best-ai-notetaker-without-bot`, `/compare/meetily` (DE: `/de/vergleich/otter-ai`, `/de/blog/bester-ki-notetaker-ohne-bot`, `/de/vergleich/meetily`). | refreshed |
 | 2026-10-03 | `is-otter-ai-safe` | interest | `transcribe-recording` | Is Otter.ai safe: storage, training, and the bot. | existing |
 | 2026-10-03 | `best-meeting-notes-app-mac` | consideration | `none` | Best meeting-notes app for Mac. The file already on main has no tool field. | existing |
 | 2026-10-04 | `fireflies-alternative` | consideration | `transcribe-recording` | Fireflies alternative. | existing |
