@@ -56,11 +56,11 @@ const getInitials = (name: string) =>
 const category =
   post.data.tags && post.data.tags.length > 0 ? post.data.tags[0] : null;
 
-const documentTitle = post.data.seoTitle ?? post.data.title;
+const documentTitle = post.data.seoTitle ?? `${post.data.title} | ${brand}`;
 ---
 
 <BaseLayout
-  title={`${documentTitle} | ${brand}`}
+  title={documentTitle}
   description={post.data.description}
   brand={brand}
   site={siteId}

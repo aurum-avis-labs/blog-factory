@@ -5,7 +5,7 @@ const blog = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      /** Optional SERP `<title>`; on-site H1 stays `title`. Landing pages may append `| Brand`. */
+      /** Full SERP `<title>` when it must differ from the H1. ≤60 characters, used as-is (no brand suffix). H1 stays `title`. */
       seoTitle: z.string().max(60).optional(),
       description: z.string(),
       pubDate: z.coerce.date(),
