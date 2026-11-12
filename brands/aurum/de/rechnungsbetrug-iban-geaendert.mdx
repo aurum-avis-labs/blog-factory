@@ -1,7 +1,9 @@
 ---
 title: "Rechnungsbetrug IBAN geändert: Freigabe und Prüfung vor der Zahlung"
-description: "Rechnungsbetrug mit geänderter IBAN nutzt oft ein übernommenes Lieferantenpostfach. So prüfen Sie Bankdaten, stoppen Zahlungen und schärfen den Prozess."
+seoTitle: "IBAN geändert? Rechnungsbetrug im KMU erkennen und stoppen"
+description: "Lieferant meldet neue Bankverbindung? So prüfen Sie geänderte Kontodaten per Rückruf, stoppen die Zahlung und sichern die Freigabe im KMU."
 pubDate: 2026-10-06
+updatedDate: 2026-11-12
 author: "Aurum Avis Labs"
 tags: ["rechnungsbetrug", "iban", "business email compromise", "zahlungen"]
 funnelStage: interest
@@ -67,16 +69,14 @@ Eine E-Mail kann SPF und DKIM bestehen und trotzdem eine falsche IBAN enthalten.
 
 Ein erfundenes Beispiel: ein Handelsbetrieb mit 45 Mitarbeitenden. Am Dienstag erhält die Buchhaltung die PDF-Rechnung eines langjährigen Verpackungslieferanten. Der Betrag passt zur Bestellung, aber die IBAN in der Fusszeile weicht an zwei Stellen von der im ERP ab. Die Sachbearbeiterin stoppt den Zahlungslauf und ruft die Nummer auf der Rechnung des Vormonats an. Der Lieferant sagt, er habe die Bank nicht gewechselt. Seine IT findet danach im übernommenen Postfach eine Weiterleitungsregel, die Mails an eine externe Adresse kopierte. Es ist keine Zahlung abgeflossen. Der Handelsbetrieb ergänzt seine Regel: Jede IBAN-Änderung braucht vor der Freigabe eine telefonische Bestätigung, die im Ticketsystem protokolliert wird.
 
-## Was tun, wenn die Zahlung schon raus ist
 
-Handeln Sie noch am Tag, an dem Sie es bemerken.
+## Bankverbindung geändert: echt oder Betrug?
 
-1. Rufen Sie sofort Ihre Bank an und verlangen Sie den Rückruf der Zahlung oder die Sperrung.
-2. Erstatten Sie Anzeige bei der Polizei und notieren Sie das Aktenzeichen.
-3. Informieren Sie intern IT und Geschäftsleitung.
-4. Bewahren Sie die E-Mail, das PDF, den Kontoauszug und die Zeitstempel der Freigabe auf.
+Eine neue IBAN kann echt sein: Lieferanten wechseln die Bank. Genau deshalb reicht die Regel «wir zahlen nur auf bekannte IBAN» nicht. Entscheidend ist die Prüfung über einen Kanal, dem Sie schon vor der Mail vertraut haben. Rufen Sie eine Nummer an, die im Vertrag, in der Kreditorenakte oder auf einer älteren Rechnung steht — nie die Telefonnummer oder den Rückruf-Link aus der aktuellen Nachricht. Ist der Mailverlauf kompromittiert, bestätigt der Täter die falsche IBAN selbst. Das [BACS](https://www.bacs.admin.ch/de/business-email-compromise-de) empfiehlt genau diese telefonische Rückfrage. Solange die Abweichung ungeklärt ist, bleibt die Zahlung stehen. Die Änderung der Stammdaten braucht ein Vier-Augen-Prinzip: wer die Rechnung erfasst, darf die Bankverbindung nicht allein umschreiben, und vor dem nächsten Zahlungslauf bestätigt eine zweite Person die neue IBAN nach dem Rückruf. Den Ablauf mit Visum und Protokoll beschreibt [Rechnungsfreigabe mit Visum und Protokoll](/de/prozess-check/blog/rechnungsfreigabe-automatisieren); den Freigabe-Prozess können Sie im [Prozess-Check](/de/prozess-check) prüfen («Freigabe-Ablauf im Prozess-Check prüfen»).
 
-Ob eine Rückforderung gelingt, hängt von den Fristen und vom Empfängerkonto ab. Dieser Beitrag ersetzt keine Rechtsberatung.
+## Falsche IBAN auf der Rechnung: was tun, wenn schon bezahlt?
+
+Wenn das Geld bereits unterwegs ist, handeln Sie noch am selben Tag. Rufen Sie sofort Ihre Bank an und verlangen Sie den Rückruf der Zahlung oder die Sperrung des Auftrags. Erstatten Sie Anzeige bei der Polizei und notieren Sie das Aktenzeichen; ohne dieses Dokument fragen Versicherungen später nach dem Zeitablauf. Informieren Sie intern IT und Geschäftsleitung und lassen Sie das Postfach auf Weiterleitungsregeln prüfen, wie es das [BACS](https://www.bacs.admin.ch/de/business-email-compromise-de) für Business-E-Mail-Compromise beschreibt. Bewahren Sie die E-Mail, das PDF, den Kontoauszug und die Zeitstempel der Freigabe auf. Ob eine Rückforderung gelingt, hängt von den Fristen und vom Empfängerkonto ab. Dieser Beitrag ersetzt keine Rechtsberatung.
 
 Die Versicherung fragt später nach dem Ablauf: Wer hat freigegeben, welche IBAN stand im ERP, welche Rückfrage fehlte? Je früher Sie das schriftlich haben, desto ruhiger verläuft das Gespräch, auch wenn das Geld nicht zurückkommt.
 

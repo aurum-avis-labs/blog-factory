@@ -1,7 +1,9 @@
 ---
 title: "Invoice fraud with a changed IBAN: approval steps that protect finance"
-description: "Invoice fraud with a changed IBAN often follows a hacked supplier email. How to verify bank details, pause payment, and fix the approval process."
+seoTitle: "Changed IBAN? Spot and stop invoice fraud in an SME"
+description: "Supplier reports a new bank account? How to verify changed details by callback, stop the payment, and protect approval in an SME."
 pubDate: 2026-10-06
+updatedDate: 2026-11-12
 author: "Aurum Avis Labs"
 tags: ["invoice fraud", "iban", "business email compromise", "payments"]
 funnelStage: interest
@@ -67,16 +69,14 @@ An email can pass SPF and DKIM and still carry a fraudulent IBAN. A signed PDF d
 
 A made-up example: a trading company with 45 staff. On Tuesday, accounts payable receives a PDF invoice from a long-standing packaging supplier. The amount matches the purchase order, but the IBAN in the footer differs from the one stored in the ERP by two digits. The clerk pauses the payment run and calls the number on last month’s invoice. The supplier says it has not changed banks. Its own IT then finds a forwarding rule in the compromised mailbox that copied threads to an external address. No payment went out. The trading company adds a rule: any IBAN change needs a phone confirmation, logged in the ticket system, before approval.
 
-## If the payment has already left
 
-Act on the day you discover it.
+## Changed bank details: genuine or fraud?
 
-1. Call your bank at once and ask for a recall or a block.
-2. Report it to the police and note the reference number.
-3. Tell IT and management.
-4. Keep the email, the PDF, the bank statement and the approval timestamps.
+A new IBAN can be genuine: suppliers do change banks. That is why a blanket rule of «we only pay known IBANs» is not enough. Check the change on a channel you already trusted before this email arrived. Call a number from the contract, the supplier record, or an older invoice — never the number or call-back link in the message you are checking. If the thread is compromised, the attacker will confirm the false IBAN. [BACS](https://www.bacs.admin.ch/en/business-email-compromise-en) recommends exactly that callback. Until the mismatch is cleared, the payment stays on hold. Master-data changes need four-eyes control: the person who captures the invoice must not rewrite the bank details alone, and a second person confirms the new IBAN after the callback, before the next payment run. See [invoice approval with visa and an audit trail](/prozess-check/blog/invoice-approval-workflow) and [review the approval flow in the process check](/prozess-check).
 
-Recovery depends on deadlines and on the receiving account. This article is not legal advice.
+## Wrong IBAN on the invoice: what to do if you already paid
+
+If the money is already on its way, act on the same day. Call your bank at once and ask for a recall of the payment or a block of the instruction. Report it to the police and note the reference number; without that record, insurers later ask about the timeline. Tell IT and management, and have the mailbox checked for forwarding rules, as [BACS](https://www.bacs.admin.ch/en/business-email-compromise-en) describes for business email compromise. Keep the email, the PDF, the bank statement and the approval timestamps. Recovery depends on deadlines and on the receiving account. This article is not legal advice.
 
 Insurers will later ask who approved, which IBAN sat in the ERP and which callback never happened. The earlier you have that in writing, the calmer the conversation, even if the money does not come back.
 
