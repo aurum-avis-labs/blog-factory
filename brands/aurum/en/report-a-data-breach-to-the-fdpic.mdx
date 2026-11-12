@@ -1,108 +1,196 @@
 ---
 title: "How to report a data breach to the FDPIC in Switzerland"
-description: "Report a data breach to the FDPIC when a high risk is likely, as fast as possible via databreach.edoeb.admin.ch. Swiss FADP rules, not GDPR 72 hours."
+description: "Data breach reporting in Switzerland: when the FDPIC must be notified, how fast and with what details. Decision table and template under Art. 24 FADP."
 pubDate: 2026-10-15
 author: "Aurum Avis Labs"
 tags: ["fdpic", "data breach", "fadp", "reporting", "switzerland"]
 funnelStage: interest
 translationKey: report-a-data-breach-to-the-fdpic
-relatedPosts: ["email-sent-to-the-wrong-recipient", "data-protection-training-for-employees", "swiss-fadp-obligations-for-smes"]
+relatedPosts: ["email-sent-to-the-wrong-recipient", "internal-incident-reporting", "swiss-fadp-obligations-for-smes"]
 image: "@/assets/blog/report-a-data-breach-to-the-fdpic/hero.webp"
 draft: false
 site: security
 ---
 
-## How to report a data breach to the FDPIC in Switzerland
+## Reporting a data breach in Switzerland: the short answer
 
-You report a data breach to the FDPIC when personal data were lost or disclosed and a high risk for the people concerned is likely. Use the federal portal [databreach.edoeb.admin.ch](https://databreach.edoeb.admin.ch) and submit as fast as possible. Switzerland does not give you 72 hours like the GDPR. You document every serious incident internally for at least two years, whether or not you file a report.
+In Switzerland, you report a data breach to the Federal Data Protection and Information Commissioner (FDPIC, EDÖB in German) when it is likely to result in a high risk to the people affected. You file "as soon as possible" through the portal [databreach.edoeb.admin.ch](https://databreach.edoeb.admin.ch). Swiss law sets no fixed deadline like the GDPR's 72 hours. Reported or not, you record every breach internally and keep that record for at least two years.
 
-This is for management, HR and the privacy contact in a Swiss SME with about 20 to 250 employees. You may be here after a wrong email, a lost device or a ransomware note. It is orientation, not legal advice.
+This guide is for management, IT and whoever handles data protection in a Swiss SME. It is based on [Art. 24 of the Federal Act on Data Protection (FADP)](https://www.fedlex.admin.ch/eli/cc/2022/491/de), [Art. 15 of the Data Protection Ordinance (DPO)](https://www.fedlex.admin.ch/eli/cc/2022/568/de) and the [FDPIC guide](https://www.edoeb.admin.ch/de/leitfaden-data-breach), version 1.2 of 23 April 2025 (as of October 2026). It is not legal advice for your specific case.
 
 <ol class="blog-flow">
-  <li><strong>Contain</strong><p>Stop further loss or access.</p></li>
-  <li><strong>Assess</strong><p>Data types, number of people, likely harm.</p></li>
-  <li><strong>Document</strong><p>Facts, timeline, decisions.</p></li>
-  <li><strong>Notify FDPIC</strong><p>If high risk is likely, via the portal, as fast as possible.</p></li>
-  <li><strong>Inform people</strong><p>When they need to act to protect themselves.</p></li>
+  <li><strong>Contain</strong><p>Lock access, reset passwords, preserve evidence.</p></li>
+  <li><strong>Assess</strong><p>Which data, how many people, who has it now?</p></li>
+  <li><strong>Decide</strong><p>High risk likely? Then the FDPIC.</p></li>
+  <li><strong>Report</strong><p>Use the portal, even with gaps. Fill them in later.</p></li>
+  <li><strong>Inform and record</strong><p>Tell people if they need to act. Keep the log.</p></li>
 </ol>
 
-## When you must notify the FDPIC
+## Which authority do you report to?
 
-[Art. 24 FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de) requires the controller to notify the FDPIC when a breach is likely to result in a high risk to the personality or fundamental rights of the data subjects. The [FDPIC guide](https://www.edoeb.admin.ch/dam/de/sd-web/T64CAUyvAMcF/1_2%20Leitfaden%20des%20ED%C3%96B%20betreffend%20die%20Meldung%20von%20Datensicherheitsverletzungen%20und%20Information%20der%20Betroffenen%20nach%20Art.%2024%20DSG_DE.pdf) explains factors such as sensitivity of data, ease of identification, severity for the person, and whether the recipient is trustworthy.
+The most common mix-up starts with the authority. Searches for "report a data breach" often surface cantonal data protection offices or EU regulators. A private company in Switzerland falls under federal law, so the FDPIC is responsible.
 
-You do not notify because a German article says so, or because an insurer form mentions «incident». You notify when Swiss law’s risk threshold is met. If risk is unclear, write down why and ask counsel before you decide to stay silent.
+<table>
+  <thead>
+    <tr><th>Your situation</th><th>Report to</th><th>Deadline</th><th>Legal basis</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Private company, association, foundation</td><td>FDPIC, DataBreach portal</td><td>As soon as possible</td><td>Art. 24 FADP</td></tr>
+    <tr><td>Cantonal or municipal public body (school, hospital, municipality)</td><td>Cantonal data protection authority</td><td>Under cantonal law</td><td>Cantonal data protection act</td></tr>
+    <tr><td>Critical infrastructure operator, cyberattack</td><td>Also the BACS</td><td>24 hours after discovery</td><td>Information Security Act (ISA)</td></tr>
+    <tr><td>Processing also falls under the GDPR</td><td>Also the competent EU authority</td><td>Without undue delay, where feasible within 72 hours</td><td>Art. 33 GDPR</td></tr>
+  </tbody>
+</table>
 
-## Is every incident a report?
+These duties run in parallel. A report to the Federal Office for Cyber Security (BACS) does not replace the FDPIC report, and vice versa. According to the [BACS](https://www.bacs.admin.ch/de/25-mp-de), the 24-hour duty has applied since 1 April 2025 to critical infrastructure operators such as energy and drinking water suppliers, transport companies and cantonal and municipal administrations. Fines for failing to report have been possible since 1 October 2025. On request, the BACS form can forward the report to the FDPIC. Most SMEs in trade, crafts or services are not covered by the BACS duty. The FDPIC duty applies to everyone.
 
-No. A typo in an internal distribution list that never left the company is not the same as a payroll export on a public leak site. The guide asks whether harm to the people concerned is likely and serious. Health data, full identity sets, credentials that still work, and data in the hands of an unknown recipient push toward notification. An encrypted device that never left your control, with no sign of access, may stay in the internal log only. Borderline cases belong in writing, with the reasoning you used at the time.
+## What counts as a data breach
 
-For the special case of a misaddressed email, see [email sent to the wrong recipient](/security/blog/email-sent-to-the-wrong-recipient). That article walks through recipient type and content, not a generic «always report».
+The law speaks of a "breach of data security". Under [Art. 5(h) FADP](https://www.fedlex.admin.ch/eli/cc/2022/491/de), it occurs when personal data is accidentally or unlawfully lost, deleted, destroyed or altered, or disclosed or made accessible to unauthorised persons. That covers three kinds of incident:
 
-## How fast is «as fast as possible»?
+- **Confidentiality:** data reaches the wrong people, for example through an email to the wrong recipient, a hacked mailbox or a cloud folder shared publicly.
+- **Integrity:** data is changed without authorisation, such as bank details in accounts payable.
+- **Availability:** data is gone or encrypted, for example after ransomware or a failed backup.
 
-There is no Swiss equivalent of the GDPR’s 72-hour rule. «As fast as possible» means once you know enough to describe the breach credibly, without waiting for a full forensic report if people remain exposed. Parallel work is normal: IT contains, management assesses, someone drafts the portal form.
+Incidents without personal data are outside Art. 24 FADP. The FDPIC guide states that even serious breaches of trade or manufacturing secrets are not reportable as long as no personal data is involved. A stolen engineering drawing is a security problem, but not a case for the FDPIC.
 
-If you need a day to confirm that encryption was intact and the file never opened, use that day. If credentials for customer accounts were posted online, hours matter more than days.
+## Report or not? The decision table
+
+Not every breach is reportable, only one that is "likely" to result in a high risk. The FDPIC guide lists the criteria: how sensitive the data is, how easily people can be identified, who has the data now, how much data per person is affected and whether vulnerable people are involved. What counts is the person most severely affected, not the average.
+
+<table>
+  <thead>
+    <tr><th>Situation</th><th>Assessment under the FDPIC guide</th><th>Leaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Health, social assistance, criminal proceedings or biometric data affected</td><td>Sensitive personal data, high risk in many cases</td><td>Report</td></tr>
+    <tr><td>Copies of ID documents or credit card data leaked</td><td>High risk possible even without sensitive data</td><td>Report</td></tr>
+    <tr><td>Ransomware with suspected data exfiltration</td><td>Depending on circumstances, likely high risk on first analysis</td><td>Report, add details later</td></tr>
+    <tr><td>Data on the dark web or a leak site</td><td>Tends to be high risk, whether accident or attack</td><td>Report</td></tr>
+    <tr><td>Data of minors or people with disabilities</td><td>Can indicate serious consequences</td><td>Check carefully, lean towards reporting</td></tr>
+    <tr><td>Effectively encrypted device lost, key not compromised</td><td>Data counts as anonymous to third parties, no duty to report</td><td>Do not report, record it</td></tr>
+    <tr><td>Only pseudonymised data (e.g. customer numbers, mapping table elsewhere)</td><td>Still personal data, usually lower risk</td><td>Assess case by case</td></tr>
+    <tr><td>Data was already publicly available</td><td>As a rule, risk not classed as high</td><td>Usually do not report</td></tr>
+    <tr><td>Many people affected, but harmless data</td><td>Volume alone does not make the risk high</td><td>Consider a voluntary report</td></tr>
+  </tbody>
+</table>
+
+Two points from the guide are often missed. First, measures you only plan or announce after the incident do not count in the risk assessment. Immediate measures that demonstrably worked before you reported can count, for example if you can rule out access to the data within hours based on logs. Second, trust is not enough. According to the guide, an unsubstantiated, subjective trust in the good intentions of unknown recipients does not rule out a high risk.
+
+Three examples from everyday SME life:
+
+- **Fiduciary firm:** an employee sends the salary certificates of 40 clients to the wrong external address. Salary, AHV number and address are now with a stranger. High risk is likely, so you report. How to handle the first minutes is covered in [Email sent to the wrong recipient](/security/blog/email-sent-to-the-wrong-recipient).
+- **Construction company:** a site foreman loses a tablet with site plans and subcontractors' phone numbers. The device is encrypted with BitLocker and locked via MDM. The data counts as anonymous, so you record it internally.
+- **Medical practice:** after someone clicks a phishing link, an attacker gets into the practice mailbox containing medical certificates. Health data is sensitive personal data, so you report. What to do right after the click is in [Clicked a phishing link at work](/security/blog/clicked-a-phishing-link-at-work).
+
+## "As soon as possible" instead of 72 hours
+
+Art. 24(1) FADP requires a report "as soon as possible". The law names no number of hours. That does not mean you have more time than in the EU. The FDPIC guide is clear: if you see a likely high risk and cannot rule it out with certainty quickly, you must report. You may not wait for lengthy investigations. For ransomware, this explicitly applies even when it is unclear what the attackers will do with the data, before or after any ransom payment.
 
 <ul class="blog-facts">
-  <li><span class="blog-kicker">Swiss timing</span><strong>As fast as possible</strong><p>No fixed hour count in the FADP. Document when you knew enough to report.</p></li>
-  <li><span class="blog-kicker">EU parallel</span><strong>72 hours</strong><p>Separate duty if GDPR applies to your processing. Not a substitute for the Swiss step.</p></li>
-  <li><span class="blog-kicker">Internal log</span><strong>Two years</strong><p>From notification or from the decision not to notify, per Art. 15 para. 4 DSV.</p></li>
+  <li><span class="blog-kicker">Switzerland (FADP)</span><strong>As soon as possible</strong><p>From the moment you know. Missing details may follow later.</p></li>
+  <li><span class="blog-kicker">EU (GDPR)</span><strong>72 hours</strong><p>Without undue delay and where feasible within 72 hours, otherwise with reasons for the delay.</p></li>
+  <li><span class="blog-kicker">BACS (ISA)</span><strong>24 hours</strong><p>Critical infrastructure only. 14 days to complete the report.</p></li>
 </ul>
 
-## The portal and what to prepare
+In practice: once you can describe the incident in broad terms, report it. The forensic report can follow. [Art. 15(2) DPO](https://www.fedlex.admin.ch/eli/cc/2022/568/de) explicitly allows this, and the portal supports follow-up reports. Note in your internal log when you learned what. It lets you show later that you acted promptly.
 
-Reports go through [databreach.edoeb.admin.ch](https://databreach.edoeb.admin.ch). Before you log in, collect:
+## What goes into the report: template
+
+The portal asks for the details listed in Art. 15(1) DPO. With these prepared, the report takes little time. Copy this template into your incident handbook:
 
 <ul class="blog-checklist">
-  <li>Your company as controller, contact person, UID if you have it</li>
-  <li>When the breach occurred and when you discovered it</li>
-  <li>Categories and approximate number of data subjects</li>
-  <li>Nature of the breach (wrong recipient, theft, ransomware, and so on)</li>
-  <li>Likely consequences and measures already taken</li>
-  <li>Whether you informed data subjects and how</li>
+  <li><strong>a. Nature of the breach:</strong> what happened? For example "misdirected email", "unauthorised mailbox access", "ransomware with data exfiltration".</li>
+  <li><strong>b. Time and duration:</strong> start, discovery, end (as far as known).</li>
+  <li><strong>c. Data affected:</strong> categories and approximate number of records, e.g. "about 1,200 customer records with name, address, order history".</li>
+  <li><strong>d. People affected:</strong> categories and approximate number, e.g. "customers, employees".</li>
+  <li><strong>e. Consequences and risks:</strong> what could happen to those affected? Phishing, identity misuse, exposure, financial loss.</li>
+  <li><strong>f. Measures:</strong> what have you done and what is planned to close the gap and reduce the consequences?</li>
+  <li><strong>g. Contact person:</strong> name, role, phone and email of someone who can be reached.</li>
 </ul>
 
-You can update the file when facts change. Keep copies of what you submitted. Save the reference or acknowledgement in the same folder as your internal log. The FDPIC may ask follow-up questions. Your contact person should stay reachable even if the first filing was marked preliminary.
+After submitting, you can download a confirmation with the details you reported. It also records when you reported. File it with your internal log.
 
-## Who prepares the report in the firm?
+## Informing the people affected
 
-Many SMEs have no data-protection department. The portal still needs a reachable contact with UID, address and phone. Decide in advance who operates the portal, who briefs management, and who joins customer service or HR when affected people must be told. IT supplies technical facts, HR knows employee lists, finance knows payment data. A short protocol from the last exercise or a near-miss saves hours when the case is real.
+Informing those affected is a separate duty and does not depend on high risk. Under Art. 24(4) FADP, you inform them if it is necessary for their protection or if the FDPIC requests it. According to the guide, this is mainly the case when people can or must act themselves: change passwords, block credit cards, check bank statements or watch out for phishing emails. Conversely, a high risk usually also points to informing them.
 
-If you have never filed, read the guide once and store the portal link in your internal handbook. That does not replace counsel, but you know which fields appear and who signs.
+The message must be in simple and clear language and include at least: what happened, the consequences and risks, what you have done or plan to do, and a contact person with contact details (Art. 15(3) DPO). There is no required format. As a rule, though, you inform people directly and individually. A public announcement is the exception, for instance when informing each person is impossible or would take disproportionate effort.
 
-## Informing affected people
+> On 12 October, an unauthorised person gained access to our customer portal. Your name, email address and order history were affected, but not your payment data. We have blocked the access and reset all passwords. Please choose a new password the next time you log in and be careful with emails sent in our name. If you have questions, contact Ms Muster on 044 000 00 00.
 
-When the breach is likely to result in a high risk, you also inform the data subjects in a way they understand, unless an exception applies under the Act. Tell them what happened, what data are involved, what you did, and what they can do (change passwords, watch accounts, contact you). A calm factual email from a named person beats a generic template with no phone number.
+## What happens after you report
 
-## Internal log even when you do not report
+According to the guide, the FDPIC briefly checks whether your measures are suitable, sufficient and timely. It may ask for clarification, call for additional measures or order you to inform those affected. If you do not comply, it can open a formal investigation.
 
-[Art. 15 para. 4 DSV](https://www.activemind.ch/gesetze/dsv/artikel-15/) requires documentation of breaches, including those not reported, with facts, effects and remedial measures, kept at least two years from notification or from the decision not to notify. Auditors and insurers ask for this log more often than for the FDPIC acknowledgement.
+Four points SMEs should know:
 
-## What this is not
+- **No penalty for failing to report as such.** The guide states that ignoring the duty to report is not a criminal offence under the FADP. The FDPIC can, however, order you to report after the fact (Art. 51(3)(f) FADP). A fine of up to CHF 250,000 can apply to anyone who wilfully disregards the minimum data security requirements (Art. 61(c) FADP). Such fines are generally imposed on the responsible individual; the company itself only exceptionally, up to CHF 50,000 (Art. 64 FADP).
+- **Protection in criminal proceedings.** A report may only be used in criminal proceedings against the person who reported with their consent (Art. 24(6) FADP). According to the guide, this also applies to voluntary reports.
+- **Freedom of information.** Reports count as official documents and are, in principle, accessible under the Freedom of Information Act. The FDPIC assesses restrictions case by case. Write factually and avoid speculation.
+- **Voluntary reports.** You can report even without a high risk, for example when many people are affected and the media may take an interest. According to the guide, voluntary reports are made outside the portal, for example via the [contact form for controllers](https://www.edoeb.admin.ch/de/kontakt-fuer-verantwortliche).
 
-Reporting to the FDPIC is not reporting a cyberattack to [BACS](https://www.bacs.admin.ch/de/25-mp-de) under the critical infrastructure duty, which applies only to defined operators, not to most SMEs. It is not the same as telling your cyber insurer, though you may need both. It is not a substitute for criminal complaint when theft or extortion is involved.
+With your consent, the FDPIC can also forward the report to the BACS for analysis (Art. 24(5bis) FADP).
 
-## Who should get help before clicking submit
+## When the breach happens at your IT provider
 
-Firms that process health data, large payroll files, or legal mandates should involve counsel early. Companies that also fall under the GDPR because they offer goods or services to people in the EU may have a parallel EU notification duty. That is a separate analysis from the Swiss portal step.
+Many SMEs have third parties process personal data: IT providers, cloud services, payroll bureaus. These processors must report every breach to you "as soon as possible", whether or not the risk is high (Art. 24(3) FADP, guide section 1.2). The report to the FDPIC remains your job as controller. Check your data processing agreements: do they say whom the provider notifies, how fast and with what details? Without that, you lose time when it matters.
+
+The same principle applies internally. Employees need to know whom to tell about an incident straight away, even if it is embarrassing. How to set up that channel is covered in [Internal incident reporting](/security/blog/internal-incident-reporting).
+
+## Who does what in your business
+
+Most SMEs have no data protection department, so decide before an incident who submits the report, who informs management and who drafts the notice to the people affected. IT supplies the technical facts, HR knows the staff lists, and finance knows where payment data sits. Keep the portal link and these roles in your incident handbook, along with your company name, address and UID. For the wider picture of FADP duties, see [Swiss FADP obligations for SMEs](/security/blog/swiss-fadp-obligations-for-smes).
+
+Reporting to the FDPIC does not replace other notifications. If you have cyber insurance, your policy will usually require its own, often very early, claim notification, so check the terms. For theft, hacking or extortion, also file a criminal complaint with the police.
+
+## Record it, even without a report
+
+Under Art. 15(4) DPO, you must document breaches: the facts, the effects and the measures taken. The ordinance requires you to keep this for at least two years from the report. For incidents you do not report, we recommend counting the two years from your decision not to report. In that case, record your reasoning: which data, why no high risk, who decided and when? If the FDPIC, your insurer or your auditor asks, this entry is your evidence.
+
+<ul class="blog-checklist">
+  <li>Date and time of the incident and its discovery</li>
+  <li>Who reported it internally, who handled it?</li>
+  <li>Systems, data and groups of people affected</li>
+  <li>Risk assessment with reasons (report: yes or no)</li>
+  <li>Measures with dates</li>
+  <li>FDPIC confirmation and a copy of the notice to those affected</li>
+</ul>
+
+## A fictional example: ransomware at a builder
+
+A construction firm with 70 employees in the canton of Aargau. The example is made up. Overnight into Monday, ransomware encrypts the file server. On Monday morning, IT finds a ransom note. The attackers claim to have copied HR files and customer data.
+
+- **Monday, 08:00:** IT disconnects the server and informs management. The external IT partner secures the logs.
+- **Monday, 11:00:** management assesses: HR files with AHV numbers and some medical certificates, exfiltration not ruled out. High risk is likely.
+- **Monday, 15:00:** report via the FDPIC portal with the known details, noting "forensics ongoing". Confirmation filed.
+- **Wednesday:** forensics confirms one folder was exfiltrated. Follow-up report with the number of people affected. Letter to employees, email to customers with a phishing warning.
+- **Following week:** log closed, measures agreed: multi-factor authentication, separate backups, training.
+
+The company reported before it had certainty. That is exactly what the guide requires.
+
+## Frequently asked questions
 
 <div class="blog-faq">
-  <h3>Do I notify the EU authority as well?</h3>
-  <p>The Swiss filing goes through databreach.edoeb.admin.ch under Art. 24 FADP. If your processing also falls under the GDPR, check separately whether and when you must inform the competent EU supervisor. Both duties can apply, with different deadlines and forms.</p>
+  <h3>When do I have to report a data breach in Switzerland?</h3>
+  <p>When the breach is likely to result in a high risk to the people affected, and as soon as possible after you become aware of it. If the risk is low, you only record the incident internally.</p>
+  <h3>Does the 72-hour deadline apply in Switzerland?</h3>
+  <p>No. The FADP requires a report "as soon as possible". The 72 hours come from Art. 33 GDPR and only apply if your processing also falls under the GDPR. In that case, you report to both authorities.</p>
+  <h3>Where do I report a data breach in Switzerland?</h3>
+  <p>Private companies report to the FDPIC via databreach.edoeb.admin.ch. Cantonal and municipal bodies report to their cantonal data protection authority. Critical infrastructure operators also report cyberattacks to the BACS within 24 hours.</p>
+  <h3>What happens if I do not report a data breach?</h3>
+  <p>Failing to report is not a criminal offence under the FADP. The FDPIC can still order the report, open an investigation and impose further measures. If minimum data security requirements were wilfully ignored, a fine of up to CHF 250,000 is possible.</p>
+  <h3>Do I have to report a cyberattack without data loss?</h3>
+  <p>To the FDPIC, only if personal data is affected and the risk is high. Critical infrastructure operators report cyberattacks to the BACS regardless. All other companies can report to the BACS voluntarily.</p>
 </div>
 
-## A made-up example: ransomware with customer export
+## Preventing the next incident
 
-A made-up example: a metal parts manufacturer with 62 staff near St Gallen. On Sunday night ransomware encrypts a file server. Monday morning production stops. IT disconnects the network segment and finds an exfiltrated zip with 1'400 customer contacts and order history on a leak site listing. No payment is made. By Monday afternoon management knows names, addresses, order values and some delivery notes with phone numbers. High risk is likely because data are public and searchable. They file via the portal Monday evening with «as fast as possible» timing, inform customers Tuesday with reset advice for the web shop accounts, and extend the log entry when the forensic partner confirms scope on Wednesday.
+Most SME data breaches do not start with a sophisticated attack. They start with a wrong address, a click or a shared folder. Employees who recognise personal data and report incidents straight away shorten every step in this guide. Whether training is mandatory is covered in [Is security awareness training mandatory in Switzerland?](/security/blog/is-security-awareness-training-mandatory-switzerland).
 
-The example is invented. It shows reporting while investigation continues, not after a three-week silence.
-
-## Reduce the next incident
-
-Wrong sends and weak access rules cause many SME breaches. After you close the file, schedule training on everyday data handling. [Datenschutz awareness training](/security/datenschutz) covers FADP and GDPR in daily work, including when to escalate and how reporting duty arises in plain language.
+Our [Data Protection Awareness](/security/datenschutz) training teaches your team the FADP in daily work, how to spot a data breach and how to report it internally, in plain language and with examples from Swiss SMEs.
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Limit</span>
-  <p>This text does not state that your case must be reported. Use the FDPIC guide and qualified advice for borderline facts.</p>
+  <p>This guide does not replace a case-by-case assessment. If health data, professional secrecy or the GDPR is involved, bring in a specialist early.</p>
 </aside>

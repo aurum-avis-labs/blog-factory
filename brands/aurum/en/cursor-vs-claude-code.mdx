@@ -1,0 +1,196 @@
+---
+translationKey: cursor-vs-claude-code
+title: "Cursor vs Claude Code: Which Tool Fits Your Team?"
+description: "Cursor vs Claude Code compared: editor or terminal agent, models, pricing, privacy and a decision table for engineering teams. As of October 2026."
+pubDate: 2027-01-09
+author: "Aurum Avis Labs"
+tags: ["cursor", "claude code", "agentic coding", "cursor ai", "workshop"]
+funnelStage: consideration
+relatedPosts: ["move-a-lovable-app-to-production-code", "tech-due-diligence-for-an-ai-built-mvp", "when-to-get-a-real-tech-partner"]
+draft: true
+site: studio
+---
+
+<p class="blog-lede"><strong>Cursor or Claude Code?</strong> Cursor is an AI code editor: you see the files and the diffs while the AI works alongside you. Claude Code is Anthropic's coding agent: it works through your repository from the terminal and runs commands on its own. Pick Cursor if you want to stay in control inside an editor and switch between models from different vendors. Pick Claude Code if you hand off longer tasks to an agent and mostly use Claude models, where it usually works out cheaper. Plenty of teams run both. As of October 2026.</p>
+
+Most comparisons you'll find are one developer's month-long experiment. This one is written for the team decision: how people work, which models you get, what a seat costs, what admins can control and what happens to your code. Every price comes from the vendors' own pages, checked on 15 October 2026.
+
+## The core difference: editor vs terminal agent
+
+**Cursor starts in the editor.** You open the project, select code, accept suggestions with Tab, or give the agent a task and review the result as a diff. Cursor now has a terminal client too: the [Cursor CLI](https://cursor.com/docs/cli/overview) runs the same agent with Agent, Plan and Ask modes, and works in scripts and CI. Cloud Agents keep tasks running on Cursor's infrastructure while you do something else.
+
+**Claude Code starts with the agent.** According to [Anthropic's docs](https://code.claude.com/docs/en/overview), it reads your codebase, edits files, runs commands and creates commits and pull requests. It runs in the terminal, as an extension for VS Code and Cursor, as a JetBrains plugin, in a desktop app and in the browser. Team conventions live in a `CLAUDE.md` file in the repo, and it will read an existing `AGENTS.md` as well. Skills, hooks, MCP servers and parallel subagents round it out.
+
+Both tools can now run agents locally and in the cloud, so the real split is about habits and control:
+
+- **With Cursor, the developer drives.** Every change shows up in the editor, gets accepted or rejected, and help comes line by line.
+- **With Claude Code, the developer delegates.** You state the goal ("write tests for the auth module, run them, fix any failures") and review the outcome.
+
+## Models: choice vs focus
+
+This is the biggest practical difference as of October 2026.
+
+**Cursor** offers models from several vendors, including OpenAI, Anthropic and Google. Since Cursor became part of The X Subscription, though, plans only include Cursor's own models (the Grok 4.x family and Composer 2.5), per [Cursor's pricing docs](https://cursor.com/docs/models). Claude, GPT and Gemini are available from the Premium plan up, billed at API list price from prepaid credit. Plus doesn't offer third-party models at all.
+
+**Claude Code** only runs Anthropic models: Haiku, Sonnet, Opus and, depending on the plan, Fable. On a paid Claude plan that usage is included up to your limits.
+
+The rule of thumb: **if your team mainly wants Claude, Claude Code is the more direct and usually cheaper route to it.** If you want to compare vendors or pick a model per task, Cursor is the better fit.
+
+## Pricing side by side (October 2026)
+
+USD per user per month, excluding tax. Neither vendor publishes CHF or EUR prices; check your local VAT treatment.
+
+| Plan | Cursor | Claude (includes Claude Code) |
+|---|---|---|
+| Free | Free: limited Agent and Chat | Free: **no** Claude Code |
+| Entry | Plus: $8, Cursor models only (Grok, Composer) | Pro: $20 monthly, $17 billed annually |
+| Heavy use | Premium $30, Super $100, Ultra $200 | Max: from $100 (5x or 20x Pro usage) |
+| Team | $30, $100 or $200 per seat (Premium, Super, Ultra), tiers can be mixed | Standard: $25 ($20 annually), Premium: $125 ($100 annually), 2-seat minimum |
+| Enterprise | Custom | $20 per seat plus usage at API rates, annual |
+| Third-party models | Claude, GPT, Gemini at API list price; teams add $0.25 per million tokens | Not available |
+| Limits | Weekly pool, then prepaid credit | 5-hour windows plus weekly limits |
+
+Sources: [cursor.com/pricing](https://cursor.com/pricing), [Cursor team pricing](https://cursor.com/docs/account/teams/pricing), [claude.com/pricing](https://claude.com/pricing), [Claude Team plan](https://support.claude.com/en/articles/9266767-what-is-the-team-plan).
+
+Three things most comparisons miss:
+
+1. **Sticker prices don't tell you much.** In Cursor, Claude usage is billed per token on top of the seat. In a Claude plan it's included but capped by time windows. Running Claude Opus all day in Cursor's agent will cost well above the seat price.
+2. **Cursor changed its plans.** Existing customers on legacy plans (such as Pro, Pro+, or Teams Standard seats at $40 and Premium seats at $120) keep their terms, which is why many articles still quote those numbers.
+3. **Annual billing and regions:** Cursor's individual plans can also be billed annually, e.g. Premium at $300 a year. Anthropic labels its Team prices as US prices; price, currency and tax handling vary by region, so check the Swiss price at checkout.
+
+### Worked example: an eight-person team
+
+- **Cursor only, Premium seats:** 8 × $30 = $240 a month, plus any Claude, GPT or Gemini usage per token and $0.25 per million tokens.
+- **Claude only, Team Standard, annual:** 8 × $20 = $160 a month. With two heavy users on Premium seats: 6 × $20 + 2 × $100 = $320.
+- **Both:** $240 + $160 = $400 a month, with no extra token spend in Cursor if Claude work goes through Claude Code.
+
+Which is cheaper depends on usage patterns, not list prices. Run a two-week pilot before buying seats for everyone.
+
+## Team and enterprise features
+
+| Feature | Cursor Teams / Enterprise | Claude Team / Enterprise |
+|---|---|---|
+| Central billing and admin | yes / yes | yes / yes |
+| SSO (SAML/OIDC) | yes / yes | yes / yes |
+| SCIM | Enterprise only | Enterprise only |
+| Audit logs | Enterprise only | Enterprise only |
+| Usage analytics | yes / yes | yes / yes |
+| Team-wide privacy | Privacy Mode can be enforced | no training on Team and Enterprise by default |
+| Custom retention | Chat data: yes | Enterprise only |
+| Shared rules and skills | Team marketplace | Org-wide skills deployment |
+| Invoicing | Enterprise only | Enterprise only (sales-assisted) |
+
+For teams of 5 to 30 engineers, the Team plans usually cover it. Enterprise becomes necessary when IT requires SCIM, audit logs or invoice billing.
+
+## Privacy: what happens to your code
+
+Source code is rarely personal data. Test fixtures, logs, database dumps and `.env` files sitting in the repo often are.
+
+**Cursor:**
+
+- With **Privacy Mode** on, neither Cursor nor any model provider trains on your code, and Cursor has zero-data-retention agreements with all providers ([Data Use](https://cursor.com/data-use)). Cursor notes one exception: if a request trips a provider's abuse classifiers, it may be stored for investigation.
+- Admins can enforce Privacy Mode for the whole team; it is on by default for Enterprise.
+- A few models, such as Claude Fable, fall outside those agreements and need explicit admin approval ([Privacy and Data Governance](https://cursor.com/docs/enterprise/privacy-and-data-governance)).
+- Even with your own API key, requests go through Cursor's backend. Cloud Agents keep encrypted copies of the repo while they run.
+- Data residency is US-only today, Enterprise-only and adds 10% to model pricing. EU and UK inference-only coverage is available on request; Cursor doesn't mention a Swiss option.
+
+**Claude Code:**
+
+- **On Free, Pro and Max** you choose whether Anthropic may train on your data, Claude Code included. If you allow it, data is kept for five years, otherwise 30 days ([Data usage](https://code.claude.com/docs/en/data-usage)).
+- **On Team, Enterprise and the API**, commercial terms apply: no training on your code, 30-day standard retention.
+- **Zero data retention** for Claude Code is only available on Claude for Enterprise, approved per organisation, and not part of the standard plan.
+- Claude Code stores session transcripts locally in plain text under `~/.claude/projects/` for 30 days by default.
+
+**Swiss and EU teams:** sending personal data to the US needs a legal basis. In Switzerland, US companies certified under the Swiss-U.S. Data Privacy Framework count as adequate since 15 September 2024 ([Federal Council](https://www.admin.ch/de/nsb?id=102054)). Check a vendor's status on [dataprivacyframework.gov](https://www.dataprivacyframework.gov/list); otherwise rely on standard contractual clauses in the data processing agreement.
+
+In practice: company accounts instead of personal subscriptions, Privacy Mode enforced or a Team plan, and no real customer data in repos that agents can reach. Our [AI policy template](/prozess-check/blog/ai-policy-template-sme) shows how to approve tools formally.
+
+## When Cursor fits better
+
+- The team works in diffs, tabs and inline suggestions and wants to see every change.
+- You want to compare models from several vendors or pick one per task.
+- Lots of small changes every day: frontend polish, small fixes, reading unfamiliar code.
+- Newcomers should be productive quickly without learning the command line.
+- You want AI code review (Bugbot) and Cloud Agents from one vendor.
+
+## When Claude Code fits better
+
+- Bigger multi-step work: refactors across many files, framework migrations, diagnosing and fixing CI failures.
+- The team already lives in the terminal or wants agents in scripts, GitHub Actions or scheduled routines.
+- You're standardising on Claude and want predictable subscription costs instead of token billing.
+- Team conventions should live in the repo (`CLAUDE.md`, skills, hooks) and be versioned with the code.
+- Your team uses JetBrains and wants a mature plugin. Cursor's agent also runs in JetBrains, but through the AI Assistant plugin (ACP) and only on a paid plan.
+
+## Using both
+
+They're not mutually exclusive. Claude Code ships as an [extension for Cursor](https://code.claude.com/docs/en/overview), billed through your Claude plan. A common pattern:
+
+1. **Cursor** for day-to-day work in the code: reading, small edits, Tab completion, reviewing diffs.
+2. **Claude Code** for the big jobs: "upgrade the project to the new framework version and get the tests green", then review the result in Cursor's diff view.
+3. **One rulebook for both:** project rules in `AGENTS.md`, which both tools can read, the same limits on secrets and production access, and a human who reviews before merge.
+
+Watch the cost trap: if you already pay for a Claude plan and still pick Claude models in Cursor's agent, you pay for Claude twice: the subscription plus per-token usage in Cursor. Decide which tool runs which models.
+
+## Decision table
+
+| Your situation | Recommendation |
+|---|---|
+| The team wants to see and accept every change in the editor | Cursor |
+| Larger tasks should run largely on their own | Claude Code |
+| Compare models from several vendors | Cursor (Premium or above) |
+| Almost only Claude, predictable costs | Claude Code (Pro, Max or Team) |
+| Agents in CI and GitHub Actions | Claude Code, or Cursor CLI |
+| Team works in JetBrains IDEs | Either: Claude Code plugin or Cursor's agent via ACP (paid plan) |
+| AI review on every pull request | Either: Cursor Bugbot or Claude Code GitHub Code Review |
+| Small budget, individual start | Cursor Plus ($8, Cursor models only) or Claude Pro ($20) |
+| SCIM, audit logs, invoicing required | Enterprise on either |
+| Strong engineers with different styles | Both, with shared rules |
+
+## Rollout checklist
+
+- [ ] Pilot with 2 to 4 people on real tasks from your repo, for at least two weeks
+- [ ] Company accounts, not personal subscriptions; SSO where available
+- [ ] Cursor: enforce Privacy Mode team-wide. Claude: Team or Enterprise rather than Pro or Max
+- [ ] Decide which repos agents may access (no production secrets, no real customer data)
+- [ ] Write project rules in `AGENTS.md` or `CLAUDE.md` and version them
+- [ ] Review rule: no agent-written code is merged without human review. See [testing AI-generated code](/blog/testing-ai-generated-code)
+- [ ] Set spend limits: Cursor credit and monthly cap; enable extra usage on Claude deliberately
+- [ ] After the pilot, measure lead time, review effort and post-merge defects
+
+## FAQ
+
+<div class="blog-faq">
+  <h3>Can you use Claude Code inside Cursor?</h3>
+  <p>Yes. Anthropic offers the Claude Code extension for Cursor explicitly. Usage counts against your Claude plan, not Cursor's pool.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is Claude Code free?</h3>
+  <p>No. The free Claude plan doesn't include Claude Code. You need at least Claude Pro ($20 a month, $17 billed annually), a Team or Enterprise seat, or a pay-as-you-go API account.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Which is cheaper, Cursor or Claude Code?</h3>
+  <p>It depends on the models. With Cursor's own models, Cursor starts at $8. For heavy Claude use, a Claude subscription is usually cheaper because Cursor bills Claude per token.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Is Cursor still worth it alongside Claude Code?</h3>
+  <p>Yes, for anyone who works in an editor and wants to review changes visually. Many teams use Cursor as the editor and Claude Code for larger tasks, often inside Cursor.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>Do Cursor or Anthropic train on our code?</h3>
+  <p>Cursor doesn't with Privacy Mode on. Anthropic doesn't on Team, Enterprise and the API. On Claude Free, Pro and Max it's your choice, so check the setting on every account.</p>
+</div>
+
+<div class="blog-faq">
+  <h3>What's the fastest way for a team to learn agentic coding?</h3>
+  <p>Real tasks from your own repo rather than demos. Anthropic's Claude Academy has free introductory courses. For shared rules, review discipline and tool choice across the team, a workshop on your own stack pays off.</p>
+</div>
+
+## Bottom line
+
+Both tools are strong. The choice comes down to working style and models: editor and model choice point to Cursor, delegation and Claude on a subscription point to Claude Code. Shared rules, solid reviews and clear data boundaries matter more than the logo. For the bigger picture, read [Vibe Coding vs Agentic Coding](/blog/vibe-coding-vs-agentic-coding). Founders building without a tech team should start with [Cursor or Claude Code for founders](/blog/cursor-or-claude-code-for-founders).
+
+In our [Agentic Coding Workshop](/workshops/agentic-coding) we work on your repository: we pick the right tools with you, set up rules and guardrails, and practise real tasks such as refactoring, tests and code review with agents. You leave with a 30-day plan. Half or full day, on site or hybrid in Switzerland.

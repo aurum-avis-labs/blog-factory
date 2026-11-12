@@ -583,3 +583,25 @@ Nie MVP-Slugs aus Abschnitt 6 in [`STRATEGY.md`](./STRATEGY.md).
 ## Tags (Vorschlag, 2–3 pro Post)
 
 `ki kmu` · `prozessautomatisierung` · `prozess-check` · `datenschutz` · `buchhaltung` · `reporting` · `microsoft copilot` — je nach Topic, nicht alle auf jeden Post.
+
+---
+
+## SEO-Welle 2026-10-15 (Ratgeber v2, reviewed)
+
+Quelle: Keyword-Strategie Aurum Avis Labs (14./15.10.2026), v2 geschrieben + unabhängig reviewed (CRITIQUE pro Post). #1–#5 `draft: true`; #6 ist In-place-Upgrade eines Live-Posts. Nicht mergen ohne Robert-OK.
+
+| ID | Funnel | `funnelStage` | Slug DE | Slug EN | `site` | pubDate | CTA |
+|----|--------|---------------|---------|---------|--------|---------|-----|
+| S01 | MOFU | interest | `chatgpt-business-kmu-schweiz` | `chatgpt-business-swiss-smes` | prozess-check | 2027-02-24 | Prozess-Check (gratis, 30 Min) |
+| S02 | MOFU | interest | `apertus-im-unternehmen` | `apertus-in-the-enterprise` | prozess-check | 2027-02-25 | Prozess-Check |
+| S03 | MOFU | interest | `ki-schulungspflicht-schweiz` | `ai-literacy-obligation-switzerland` | prozess-check | 2027-02-26 | Workshop KI im Unternehmen |
+| S04 | BOFU | consideration | `cursor-vs-claude-code` | `cursor-vs-claude-code` | studio | 2027-01-09 | Workshop Agentic Coding |
+| S05 | TOFU | awareness | `datenschutzgesetz-schweiz` | `swiss-data-protection-act-for-smes` | security | 2026-12-20 | /de/security/datenschutz |
+| S06 | MOFU | interest | `datenpanne-an-den-edoeb-melden` (live, überschrieben) | `report-a-data-breach-to-the-fdpic` | security | 2026-10-15 | /de/security/datenschutz |
+
+**Hub/Spoke**
+
+- S04 ↔ `cursor-claude-code-gruender` (Gründer solo, Lovable-Handoff); Gründer-Post neu positioniert, verlinkt auf S04.
+- S05 = Pillar «Datenschutzgesetz Schweiz»; `ndsg-pflichten-fuer-kmu` = Checkliste (neuer Titel/Meta, Up-Link). Kein 301; nach 4–6 Wochen GSC prüfen.
+- S03 besitzt Art. 4 / Schulungspflicht; `eu-ai-act-schweizer-kmu` bleibt «gilt der AI Act überhaupt».
+- Follow-up: in S05 nach 2027-01-21 Link auf `/de/prozess-check/blog/auskunftsbegehren-dsg` ergänzen.
