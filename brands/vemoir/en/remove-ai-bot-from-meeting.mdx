@@ -1,7 +1,9 @@
 ---
 title: "Remove an AI Bot From the Meeting You Did Not Start"
-description: "Remove an AI bot from a meeting on Zoom, Meet, or Teams, then stop it from rejoining. A local capture has no participant to kick."
+seoTitle: "Remove Otter.ai or Any AI Bot From Zoom, Teams or Meet"
+description: "Remove Otter.ai (OtterPilot) or another AI notetaker from a Zoom, Teams or Meet call, stop it from rejoining, and record locally instead."
 pubDate: 2026-10-08
+updatedDate: 2026-11-23
 author: "Vemoir Team"
 tags: ["meetings", "notetaker", "privacy"]
 funnelStage: "interest"
@@ -20,6 +22,7 @@ This is the in-call fix. Why bots show up, and what a meeting without one looks 
 
 - [Remove the bot from a meeting that is running](#remove-the-bot-from-a-meeting-that-is-running)
 - [Stop the same bot from joining the next call](#stop-the-same-bot-from-joining-the-next-call)
+- [Remove Otter.ai from Zoom and stop OtterPilot from rejoining](#remove-otterai-from-zoom-and-stop-otterpilot-from-rejoining)
 - [Local recording instead of a bot](#local-recording-instead-of-a-bot)
 - [What you tell the room](#what-you-tell-the-room)
 - [Frequently asked questions](#frequently-asked-questions)
@@ -59,6 +62,16 @@ Find the account that owns the bot:
 Run a short test meeting with the same account afterward and confirm no extra participant appears. That beats support chat saying "off" while the calendar link is still live.
 
 In Outlook or Google Calendar you sometimes see add-ins or connected apps beside the event. Whoever enabled a notetaker there should clear it before the next external call. Hosts who cannot see someone else's calendar need to ask that account owner directly.
+
+## Remove Otter.ai from Zoom and stop OtterPilot from rejoining
+
+Otter's help center calls this joiner Otter Notetaker. OtterPilot is the name people still search. Checked 23 November 2026.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Host removes the participant in Zoom</h3><p>Open Participants, open the menu on the Otter row, and choose Remove. Zoom says a removed participant cannot rejoin unless the meeting allows removed participants to rejoin (<a href="https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0065566">Managing participants in a meeting</a>, 23 November 2026). A guest without host or co-host rights asks the host.</p></li>
+  <li data-step="2"><h3>Turn off auto-join in the Otter account</h3><p>Set Default auto-join to Meetings I manually select, under Integrations then Meetings, or from AI Notetaker settings on the Meetings tab. Events you toggled by hand keep that choice, so open the calendar and turn those off too (<a href="https://help.otter.ai/hc/en-us/articles/12906714508823-Stop-Otter-Notetaker-from-automatically-joining-your-meetings">Stop Otter Notetaker from automatically joining your meetings</a>, 23 November 2026).</p></li>
+  <li data-step="3"><h3>Zoom admin blocks the third-party app</h3><p>An account owner or admin can disable or remove a Marketplace app for the account, which turns that app off for users on the account (<a href="https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060122">Using the Zoom Marketplace as an admin</a>, 23 November 2026). A notetaker that joins from a calendar link is still a participant, so keep the host Remove and the Otter auto-join change as well.</p></li>
+</ol>
 
 ## Local recording instead of a bot
 
@@ -100,6 +113,10 @@ No. It disconnects the participant from this call. The copy in the product accou
 ### Why did the bot come back five minutes later?
 
 Auto-join or a calendar connection is still on. The person who connected the tool must turn that off. A second Remove does not change their account.
+
+### Why does Otter.ai keep joining my Zoom meetings?
+
+Auto-join is still on for the Otter account tied to the calendar. Otter's help says switching the default to Meetings I manually select leaves events you already toggled, and those keep joining until you turn them off on the calendar ([Stop Otter Notetaker from automatically joining your meetings](https://help.otter.ai/hc/en-us/articles/12906714508823-Stop-Otter-Notetaker-from-automatically-joining-your-meetings), 23 November 2026). Remove in Zoom ends this call. If the tile belongs to someone else's Otter account, that person changes the setting.
 
 ### Will Zoom show a recording banner for a Mac app?
 
