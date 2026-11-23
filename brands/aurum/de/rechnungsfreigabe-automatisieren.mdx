@@ -1,5 +1,6 @@
 ---
 title: "Rechnungsfreigabe automatisieren: Visum und Kreditoren-Workflow"
+seoTitle: "Rechnungsfreigabe automatisieren: Visum-Workflow im KMU"
 description: "Rechnungsfreigabe (Visum) automatisieren: Zuweisung nach Lieferant, Kostenstelle oder Betrag, Freigabe in Outlook oder Teams, Stellvertretung, Protokoll."
 pubDate: 2026-11-02
 author: "Aurum Avis Labs"
@@ -48,7 +49,7 @@ Zwei Grundsätze halten die Tabelle zusammen. Jede Rechnung hat genau eine Perso
 
 ## Schritt 2: das Visum in Outlook oder Teams
 
-Visiert wird dort, wo die Person ohnehin arbeitet. In Microsoft 365 hat Power Automate die Aktion [«Genehmigung starten und darauf warten»](https://learn.microsoft.com/de-de/power-automate/get-started-approvals). Die visierende Person antwortet direkt aus einer Outlook-Mail, über eine Karte in Teams oder im Info-Center von Power Automate. Microsoft beschreibt mehrere Arten: Die erste Antwort entscheidet, alle müssen zustimmen, eigene Antwortmöglichkeiten oder eine sequenzielle Genehmigung, bei der die Personen in einer festen Reihenfolge antworten. Die sequenzielle Variante passt zur Regel «zuerst die Projektleitung, über CHF 5'000 danach die Geschäftsleitung».
+Visiert wird dort, wo die Person ohnehin arbeitet. So wird aus dem Kürzel auf dem Ausdruck eine automatisierte Rechnungsgenehmigung (Visum): Die Anfrage kommt von selbst, die Antwort ist ein Klick. In Microsoft 365 hat Power Automate die Aktion [«Genehmigung starten und darauf warten»](https://learn.microsoft.com/de-de/power-automate/get-started-approvals). Die visierende Person antwortet direkt aus einer Outlook-Mail, über eine Karte in Teams oder im Info-Center von Power Automate. Microsoft beschreibt mehrere Arten: Die erste Antwort entscheidet, alle müssen zustimmen, eigene Antwortmöglichkeiten oder eine sequenzielle Genehmigung, bei der die Personen in einer festen Reihenfolge antworten. Die sequenzielle Variante passt zur Regel «zuerst die Projektleitung, über CHF 5'000 danach die Geschäftsleitung».
 
 In Teams erscheinen die Anfragen in der [App «Genehmigungen»](https://learn.microsoft.com/de-de/microsoftteams/approval-admin). Microsoft beschreibt sie als Weg, Überwachung, Compliance, Verantwortlichkeit und Abläufe in die Genehmigungen in Teams zu bringen. Sie setzt eine Lizenz für Power Automate, Microsoft 365 oder Dynamics 365 voraus und speichert die Daten in Microsoft Dataverse.
 
@@ -68,7 +69,7 @@ Jeder Entscheid braucht einen Eintrag: welche Rechnung, welcher Betrag, wer visi
 
 Bewahren Sie diesen Eintrag mit der Rechnung auf. Geschäftsbücher und Buchungsbelege sind zehn Jahre aufzubewahren, und laut [kmu.admin.ch](https://www.kmu.admin.ch/de/elektronische-aufbewahrung-der-geschaeftsbuecher) müssen elektronische Daten so gespeichert sein, dass sie nicht geändert oder gelöscht werden können, ohne dass dies nachweisbar ist. Auch Protokolle und Log Files sind aufzubewahren. Fragen Sie Ihre Treuhand oder Revisionsstelle, wie sie das Visum sehen will, bevor Sie es umsetzen, nicht danach.
 
-Die Übergabe ist ein Status, keine Zahlung. Nach dem Visum bekommt die Rechnung im Buchhaltungsprogramm oder in der Prüfliste den Status «freigegeben», und die Buchhaltung bucht sie. Der Zahlungslauf entsteht weiterhin im Buchhaltungsprogramm oder im E-Banking. In der Schweiz geht der Zahlungsauftrag an die Bank als ISO-20022-Meldung pain.001, beschrieben in den [Swiss Payment Standards](https://www.six-group.com/dam/download/banking-services/standardization/sps/ig-credit-transfer-sps-2026-de.pdf), die SIX im Auftrag des Payments Committee Switzerland veröffentlicht. Abacus führt pain.001 unter seinen Zahlungsformaten. Der Freigabeablauf muss diese Datei nicht erzeugen, und er soll es auch nicht. Seine Aufgabe ist, dass nur visierte Rechnungen in den Zahlungslauf kommen.
+Die Übergabe ist ein Status, keine Zahlung. Nach dem Visum bekommt die Rechnung im Buchhaltungsprogramm oder in der Prüfliste den Status «freigegeben», und die Buchhaltung bucht sie. Der Zahlungslauf entsteht weiterhin im Buchhaltungsprogramm oder im E-Banking. In der Schweiz geht der Zahlungsauftrag an die Bank als ISO-20022-Meldung pain.001, beschrieben in den [Swiss Payment Standards](https://www.six-group.com/dam/download/banking-services/standardization/sps/ig-credit-transfer-sps-2026-de.pdf), die SIX im Auftrag des Payments Committee Switzerland veröffentlicht. Abacus führt pain.001 unter seinen Zahlungsformaten. Der Freigabeablauf muss diese Datei nicht erzeugen, und er soll es auch nicht. Seine Aufgabe ist, dass nur visierte Rechnungen in den Zahlungslauf kommen. Wer den Lauf danach in Bank oder ERP freigibt und ab welchem Betrag eine zweite Person mitzeichnet, beschreibt der Artikel [Vier-Augen-Prinzip bei Zahlungen](/de/security/blog/vier-augen-prinzip-zahlungen).
 
 <aside class="blog-callout blog-callout--limit">
   <span class="blog-kicker">Grenze</span>
@@ -88,6 +89,13 @@ Von Hand bleiben: Rechnungen ohne Projektnummer, die die Leitung Finanzen zuweis
 Lassen Sie es, wenn eine Handvoll Rechnungen im Monat von derselben Person visiert wird, die sie auch bezahlt. Lassen Sie es, wenn die Freigabe im Buchhaltungsprogramm schon alle erreicht, die visieren. Und lassen Sie es, solange die Regeln nicht klar sind. Kann niemand sagen, wer eine Rechnung ohne Projektnummer visiert, schreiben Sie das zuerst auf. Eine unklare Regel zu automatisieren, macht nur das Warten schneller.
 
 Liegt das grössere Problem davor, in einem Postfach, in dem Rechnungen und Unterlagen unsortiert ankommen, beschreibt [Mandantenpostfach sortieren und fehlende Belege nachfordern](/de/prozess-check/blog/treuhand-mandantenpostfach-fehlende-belege) dieselbe Logik.
+
+## Häufige Fragen
+
+<div class="blog-faq">
+  <h3>Was ist der Unterschied zwischen Rechnungsfreigabe und Rechnungsgenehmigung?</h3>
+  <p>Im Schweizer Büroalltag meinen beide Begriffe dasselbe: Eine berechtigte Person bestätigt, dass eine Lieferantenrechnung stimmt und bezahlt werden darf. Meist heisst dieser Schritt Visum, das Visum ist also die Freigabe. Manche Programme sagen Genehmigung, andere Freigabe. Für den Ablauf zählt nur, dass für jede Rechnung feststeht, wer visiert, und dass der Entscheid protokolliert wird.</p>
+</div>
 
 ## Ihren Freigabeweg in den Prozess-Check mitnehmen
 
