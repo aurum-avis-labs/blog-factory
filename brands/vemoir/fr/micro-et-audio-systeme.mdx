@@ -15,7 +15,7 @@ draft: false
 <p><em>Hero photo by <a href="https://unsplash.com/@sandrawilliams2025?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sandrawilliams2025</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 Le **micro et l'audio système** sur Mac sont, dans Vemoir, deux pistes locales séparées : votre micro, et le son que l'app de réunion diffuse dans les haut-parleurs ou le casque. Vous obtenez ainsi votre voix et l'interlocuteur distant sans fichier mélangé, sans capture d'écran et sans bot dans la liste.
 
-Vous démarrez et arrêtez depuis la barre des menus. Les deux pistes restent sur le Mac, sauf export, ou si vous activez un modèle de texte optionnel avec votre propre clé API.
+Vous démarrez et arrêtez depuis la barre des menus. Après traitement, l'audio est supprimé par défaut ; vous pouvez conserver les pistes en local si vous le souhaitez. Les transcriptions et comptes rendus restent sur le Mac, sauf export, ou si vous activez un modèle de texte optionnel avec votre propre clé API.
 
 ## Sommaire
 
@@ -45,13 +45,13 @@ Vous démarrez et arrêtez depuis la barre des menus. Les deux pistes restent su
 
 La capture micro est une session distincte de la capture de l’audio système. Vous choisissez le micro. Un micro de casque vous entend et peu la pièce. Un micro d'ordinateur entend la pièce et, si l'audio distant sort des haut-parleurs, un peu de l'appel. Ce recouvrement est de l'acoustique, pas un troisième mode.
 
-La piste système est la réunion telle que le Mac la joue. Vemoir ne capture que l'audio de la réunion et s'exclut elle-même, pour ne pas réinjecter sa propre lecture. L'autorisation macOS s'appelle Enregistrement d'écran, utilisée pour l'audio uniquement.
+La piste système est la réunion telle que le Mac la joue. Vemoir ne capture que l'audio de la réunion et s'exclut elle-même, pour ne pas réinjecter sa propre lecture. L'autorisation macOS s'appelle enregistrement audio système, utilisée pour l'audio uniquement.
 
 La [suppression du bruit micro](/fr/blog/suppression-bruit-micro) ne concerne que la piste micro, en Désactivée, Équilibrée ou Forte. Elle ne nettoie pas la piste système.
 
 ## L'autorisation porte sur le son, pas sur l'écran
 
-D'anciennes notes sur les apps Mac disent souvent qu'entendre une autre app exige Screen Recording. C'est aussi la permission que demande Vemoir, et ce nom promet plus que ce qui se passe. L'app capture l'audio de la réunion uniquement. Elle n'enregistre pas le contenu de l'écran, ni les pixels, ni une vidéo du bureau.
+D'anciennes notes sur les apps Mac disent souvent qu'entendre une autre app exige Screen Recording. Vemoir ne demande pas cette autorisation. Elle demande l'enregistrement audio système et capture l'audio de la réunion uniquement. Elle n'enregistre pas le contenu de l'écran, ni les pixels, ni une vidéo du bureau.
 
 L'accès au micro reste nécessaire pour votre piste. Deux sources, deux autorisations. Refuser l'audio système vous laisse le micro. Refuser le micro vous laisse l'appel, et presque rien de votre voix, sauf fuite par les haut-parleurs dans un micro que vous ne visiez pas.
 
@@ -91,7 +91,7 @@ Un casque change utilement la piste système : les voix distantes y restent et 
 
 Si vous gardez l'audio, écoutez d'abord la piste système après l'appel. Vous devriez entendre l'interlocuteur distant. Puis la piste micro pour votre voix. Cet ordre montre si le problème vient de l'appel ou du micro.
 
-Une piste système plate alors que l'on parlait dans l'appel signifie en général : app muette, sortie sur un autre périphérique, ou Enregistrement d’écran refusé. Corrigez la configuration dans [capture](/fr#capture) ou dans Confidentialité macOS. Changer de micro ne règle pas cela.
+Une piste système plate alors que l'on parlait dans l'appel signifie en général : app muette, sortie sur un autre périphérique, ou enregistrement audio système refusé. Corrigez la configuration dans [capture](/fr#capture) ou dans Confidentialité macOS. Changer de micro ne règle pas cela.
 
 ## Ce qui se passe après l'arrêt
 
@@ -111,7 +111,7 @@ Ils sont captés comme pistes locales séparées : le micro choisi, et l'audio 
 
 ### Vemoir enregistre-t-il l'écran pour obtenir l'audio de l'appel ?
 
-Non. La piste d'appel utilise l'Enregistrement d'écran pour l'audio uniquement. Le contenu de l'écran n'est pas enregistré.
+Non. La piste d'appel utilise l'enregistrement audio système pour l'audio uniquement. Vemoir ne demande pas l'enregistrement de l'écran. Le contenu de l'écran n'est pas enregistré.
 
 ### Les autres verront-ils un bot ?
 
@@ -135,6 +135,6 @@ Puce Apple, M1 ou plus récente, macOS Sonoma 14.2 ou plus récent, au moins 8 G
 
 ### Où activer les pistes ?
 
-Choisissez le micro, autorisez l’Enregistrement d’écran, et démarrez depuis la barre des menus. La section [capture](/fr#capture) montre ces contrôles. La réduction de bruit, si vous la voulez, ne porte que sur le micro, en Désactivée, Équilibrée ou Forte.
+Choisissez le micro, autorisez l’enregistrement audio système, et démarrez depuis la barre des menus. La section [capture](/fr#capture) montre ces contrôles. La réduction de bruit, si vous la voulez, ne porte que sur le micro, en Désactivée, Équilibrée ou Forte.
 
 La prochaine réunion est le test : casque, les deux autorisations, enregistrement depuis la barre des menus, arrêt à la fin de l'appel. [Capture](/fr#capture) indique où se trouvent les deux sources.

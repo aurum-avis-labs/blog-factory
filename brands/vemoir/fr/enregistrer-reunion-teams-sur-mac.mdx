@@ -61,7 +61,7 @@ Vous obtenez de la vidéo, pas des décisions. La fenêtre Teams doit rester vis
 
 [Vemoir](https://apps.apple.com/app/id6794693630) enregistre l'audio système et le micro pendant que Teams joue du son sur le Mac. Personne ne s'ajoute à la liste des participants. Vous démarrez et arrêtez l'enregistrement depuis la barre des menus. C'est utile quand vous êtes invité et ne pouvez pas lancer l'enregistrement du tenant, quand le bouton manque, quand un client ne veut ni bot ni copie cloud, ou quand l'audio doit rester sur la machine.
 
-macOS demande l'autorisation « Enregistrement de l'écran et des sons du système » (« Enregistrement de l'écran » sur les versions plus anciennes), parce que le système y rattache l'audio des autres apps. Vemoir s'en sert uniquement pour l'audio de la réunion et n'enregistre jamais l'écran. Autorisez aussi le micro, pour que votre voix soit sur la piste. Voir [capture et modèles](/fr#capture) et [apps de réunion](/fr#platforms).
+macOS demande l'enregistrement audio système et le microphone. Dans Réglages Système, le volet peut encore s'appeler « Enregistrement de l'écran et des sons du système » ; c'est le nom du volet, pas l'autorisation d'enregistrement de l'écran. Vemoir s'en sert uniquement pour l'audio de la réunion et n'enregistre jamais l'écran. Autorisez aussi le micro, pour que votre voix soit sur la piste. Voir [capture et modèles](/fr#capture) et [apps de réunion](/fr#platforms).
 
 Après l'arrêt, des modèles locaux sur le Mac produisent une transcription et un dossier : résumé, décisions, actions et un brouillon de suivi. Les notes que vous tapez pendant la réunion y sont intégrées. Vous n'exportez que les parties de votre choix ([export et partage](/fr#exports)). Les modèles cloud sont facultatifs et utilisent votre propre clé d'API. Une fois les modèles installés, la capture et la transcription peuvent fonctionner hors ligne.
 
@@ -73,7 +73,7 @@ Microsoft documente des contrôles d'admin qui détectent les bots de réunion e
 
 <ol class="blog-steps">
   <li data-step="1"><h3>Dites que vous enregistrez</h3><p>Teams n'affiche pas sa bannière cloud pour une capture depuis la barre des menus. Dites-le au début et, si possible, dès l'invitation.</p></li>
-  <li data-step="2"><h3>Autoriser l'audio</h3><p>Réglages Système, Confidentialité et sécurité : « Enregistrement de l'écran et des sons du système » et Micro. Le premier réglage permet à Vemoir d'entendre les autres apps.</p></li>
+  <li data-step="2"><h3>Autoriser l'audio</h3><p>Réglages Système, Confidentialité et sécurité : enregistrement audio système et Micro. Le volet peut encore s'appeler « Enregistrement de l'écran et des sons du système » ; autorisez l'audio, pas une capture d'écran.</p></li>
   <li data-step="3"><h3>Enregistrer depuis la barre des menus</h3><p>Rejoignez la réunion Teams avec le son diffusé par le Mac. Démarrez et arrêtez dans Vemoir. Un casque aide en cas d'écho.</p></li>
   <li data-step="4"><h3>Relire, puis exporter</h3><p>Vérifiez les noms et les décisions sur le Mac. Ne partagez que les sections destinées à l'autre partie.</p></li>
 </ol>
@@ -112,9 +112,9 @@ Non. La transcription relève d'une stratégie à part, et elle doit être activ
 
 Pour une courte démo visuelle, parfois. Pour des décisions et des actions, non : vous obtenez un film, et il faut encore transformer la parole en texte ailleurs.
 
-### Pourquoi Vemoir demande-t-il l'autorisation d'enregistrement de l'écran ?
+### Pourquoi Vemoir demande-t-il l'autorisation d'enregistrement audio système ?
 
-macOS rattache l'audio des autres apps, Teams compris, à cette autorisation. Vemoir n'enregistre que l'audio de la réunion, jamais le contenu de l'écran.
+Vemoir capte l'audio de la réunion avec un process tap Core Audio et demande uniquement l'enregistrement audio système et le microphone, pas l'enregistrement de l'écran. Il ne reçoit jamais le contenu de votre écran.
 
 ### Les autres voient-ils un bot ?
 
