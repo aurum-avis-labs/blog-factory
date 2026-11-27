@@ -1,0 +1,204 @@
+---
+title: "Meeting Recording App for Mac: Local, No Bot (2026)"
+description: "Meeting recording apps for Mac compared: which record Zoom, Teams and Meet without a bot, where the audio is stored, and what each costs. Updated 2026."
+pubDate: 2026-11-27
+author: "Vemoir Team"
+tags: ["recording", "mac", "comparison"]
+funnelStage: "consideration"
+translationKey: "meeting-recording-app-mac"
+relatedPosts: ["best-ai-notetaker-without-bot", "record-zoom-meeting-mac", "record-teams-meeting-mac"]
+image: "@/assets/blog/meeting-recording-app-mac/hero.webp"
+draft: false
+---
+
+A meeting recording app for Mac should capture two things at once: your microphone and the system audio of the call, without adding a bot to the participant list. Seven apps checked on 27 November 2026 can do that on a Mac, but only two of them (Vemoir and MacWhisper) also transcribe on the Mac by default. The others send the audio to a cloud speech service, even when no bot joins.
+
+That split is the real decision. "No bot" tells you who appears in the call. "Local" tells you where the recording goes afterwards. This guide compares both, with prices from each vendor's own pricing page, and says when a cloud app is the better choice.
+
+## Contents
+
+- [What a meeting recording app on the Mac needs](#what-a-meeting-recording-app-on-the-mac-needs)
+- [Meeting recording apps for Mac compared](#meeting-recording-apps-for-mac-compared)
+- [The seven apps, one by one](#the-seven-apps-one-by-one)
+- [Bot vs. local: who sees the recording](#bot-vs-local-who-sees-the-recording)
+- [Consent and announcing the recording](#consent-and-announcing-the-recording)
+- [When a cloud app fits better](#when-a-cloud-app-fits-better)
+- [How to test an AI meeting recorder in one afternoon](#how-to-test-an-ai-meeting-recorder-in-one-afternoon)
+- [Frequently asked questions](#frequently-asked-questions)
+
+## What a meeting recording app on the Mac needs
+
+A Mac does not let one app hear another app by default. To record the other people in a Zoom, Teams or Google Meet call, a recorder needs permission in `System Settings` > `Privacy & Security` > `Screen & System Audio Recording`. Apple's own guide notes that you can allow an app to record "both your screen and audio, or just your audio" ([Apple Support](https://support.apple.com/guide/mac-help/control-access-screen-system-audio-recording-mchld6aa7d23/mac)). Your own voice comes in through the separate `Microphone` permission.
+
+With both permissions in place, a desktop app can record any meeting app that plays sound on the Mac. Without them, you are left with two older paths: the meeting platform's own record button, or a bot that joins the call as a participant and records from the vendor's servers.
+
+Five questions sort the field quickly:
+
+<ul class="blog-checklist">
+  <li>Does it record microphone and system audio from the Mac, or does it need a bot in the call?</li>
+  <li>Where does speech-to-text run: on the Mac or on the vendor's servers?</li>
+  <li>Where is the audio stored after the call, if it is stored at all?</li>
+  <li>Does it work with every meeting app you use, or only with one platform?</li>
+  <li>Do you pay per user per month, or once?</li>
+</ul>
+
+The built-in recorders answer these differently. Zoom's "Record to computer files" saves the meeting on your Mac, but participants other than the host usually need the host's permission to record, and admins can turn the feature off ([Zoom Support](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0063640)). In Microsoft Teams, "one person can record at a time" and "everyone will be notified automatically" when the recording starts ([Microsoft Support](https://support.microsoft.com/en-us/office/record-a-meeting-in-microsoft-teams-34dfbe7f-b07d-4a27-b4c6-de62f1348c24)). Both are fine for a meeting you host on that platform. Neither helps when you are a guest in a client's call on a different tool every week. Step-by-step guides for each platform are in [record a Zoom meeting on Mac](/blog/record-zoom-meeting-mac) and [record a Teams meeting on Mac](/blog/record-teams-meeting-mac).
+
+## Meeting recording apps for Mac compared
+
+If you are looking for the best meeting recorder for a Mac, start with the second and third columns: who joins the call and where the audio is processed. All prices and plan details below were read on each vendor's official page on 27 November 2026, for one user, before tax. Plans change often, so open the linked page before you buy.
+
+| App | Bot joins the call | Where speech-to-text runs | Audio after the call | Platforms | Price (official page, 27 Nov 2026) |
+| --- | --- | --- | --- | --- | --- |
+| Vemoir | No | On the Mac | Stays on the Mac until you export | Mac (Apple silicon) | One-time: CHF 20, $22.99, €24.99 ([App Store](https://apps.apple.com/app/id6794693630)) |
+| [MacWhisper](https://www.macwhisper.com/) | No | Local models on the Mac | On the Mac | Mac | Free; Pro €64 one-time license |
+| [Granola](https://www.granola.ai/pricing) | No | Cloud providers (Deepgram, Assembly) | Not stored; transcript in US-hosted AWS | Mac, Windows, iOS, Android | Free (30-day history); Business $14 per user per month |
+| [Jamie](https://www.meetjamie.ai/pricing) | No | Vendor processing in the EEA, Switzerland and UK | Streamed, not stored | Mac, Windows, iOS, web | Free (10 notes a month, 30 min); paid plans listed from $24 a month |
+| [Otter](https://otter.ai/pricing) | Notetaker by default; desktop app records without it | Otter cloud | In your Otter account | Mac, Windows, web, iOS, Android | Free (300 min a month); Pro $16.99 monthly or $8.49 a month billed yearly |
+| [Fireflies](https://fireflies.ai/pricing) | Notetaker by default; desktop "Take Notes" records without it | Fireflies cloud | Bot-free mode saves no audio file | Mac, Windows, web, mobile | Free; Pro $10 per seat per month billed yearly, $18 monthly |
+| [Fathom](https://www.fathom.ai/pricing) | Bot by default; bot-free capture in beta on Mac | Fathom cloud | In your Fathom account | Web and desktop; bot-free only on Mac (beta) | Free (unlimited recordings); Premium $16 a month billed yearly, $20 monthly |
+
+<aside class="blog-callout">
+  <span class="blog-kicker">Note</span>
+  <p>No bot in the participant list is not the same as no upload. Five of the seven apps above can skip the bot and still process the audio in the cloud.</p>
+</aside>
+
+## The seven apps, one by one
+
+### Vemoir: best when the recording must stay on the Mac
+
+Vemoir records from the Mac menu bar. It captures the microphone and system audio, so no bot joins and nobody sees an extra participant. It works with Microsoft Teams, Zoom, Google Meet, Slack huddles, Discord and any other app that plays audio on the Mac ([meeting app support](/#platforms)). You start and stop each recording yourself.
+
+Transcription and summaries run on the Mac with local models. Recordings, transcripts and the generated record (minutes, decisions, action items and a follow-up draft) stay on the Mac until you export them, or until you choose a cloud model such as OpenAI GPT with your own API key. Once the models you picked are installed, the whole meeting workflow can run offline ([capture and models](/#capture)). Vemoir uses the Screen Recording permission only to capture meeting audio from other apps and never records your screen contents.
+
+It is a one-time Mac App Store purchase with every feature included: CHF 20 in Switzerland, $22.99 in the US, €24.99 in Germany, Austria, France and Italy (App Store lookup, 27 November 2026). It needs a Mac with Apple silicon (M1 or newer), macOS Sonoma 14.2 or later, at least 8 GB of memory and 10 GB of free storage. Intel Macs, Windows and phones are not supported.
+
+**Skip it if** you need Windows, a shared cloud library for a whole team, or a recorder that starts by itself without anyone pressing record.
+
+### MacWhisper: best for files and a one-time license
+
+MacWhisper transcribes with local models and "records all your online meetings" with "no bots joining", according to its site. Automatic meeting recording in Zoom, Teams, Webex, Discord and others is listed under the Pro license, which costs €64 once with lifetime updates ([MacWhisper](https://www.macwhisper.com/), 27 November 2026). Summaries can use local models or cloud providers you connect with your own API keys.
+
+Choose it when most of your work is "this file, on this Mac, export the text", with subtitles and batch transcription. It is less of a meeting library with decisions and owners. A closer comparison is in [MacWhisper alternative](/blog/macwhisper-alternative).
+
+### Granola: best notepad experience, if cloud is fine
+
+Granola does not add a bot. Its security page says you start it manually, it accesses your microphone and meeting audio on the computer, and it uses "transcription providers (like Deepgram and Assembly)" and AI providers such as OpenAI and Anthropic. It does not store meeting audio; notes are stored in "US-hosted AWS" ([Granola security](https://www.granola.ai/security)). Basic is free with 30 days of history; Business is $14 per user per month ([Granola pricing](https://www.granola.ai/pricing)).
+
+Granola is the better pick when you want the same notes on Mac, Windows and phone and your clients accept US-hosted transcripts. It is not an offline workflow.
+
+### Jamie: best for EU data residency
+
+Jamie runs on your device without a meeting bot, and states that storage and processing stay within the EEA, Switzerland and the UK. Audio "is streamed, not stored", except a few seconds per speaker when Speaker Clips are on ([Jamie](https://www.meetjamie.ai/)). The free plan covers 10 AI notes a month and meetings up to 30 minutes; paid plans are listed from $24 a month ([Jamie pricing](https://www.meetjamie.ai/pricing)).
+
+Jamie fits a European team that is allowed to use a cloud processor, as long as it stays in Europe. It is not local processing.
+
+### Otter: best for shared transcripts in a team
+
+Otter's Notetaker joins Zoom, Teams and Google Meet as a participant. Its desktop app for Mac (macOS 13 or later) and Windows can instead record "without Otter Notetaker joining as a participant", using the microphone and Screen & System Audio Recording permissions ([Otter Help Center](https://help.otter.ai/hc/en-us/articles/35973988280215-Otter-Desktop-App-Mac-Windows)). Transcripts live in your Otter account. Basic is free with 300 transcription minutes a month and 30 minutes per meeting; Pro is $16.99 monthly or $8.49 a month billed yearly ([Otter pricing](https://otter.ai/pricing)).
+
+### Fireflies: best for sales teams on the bot
+
+Fireflies is built around its Notetaker bot, and its desktop app adds a "Take Notes" button that captures system audio with no bot in the call. In that mode Fireflies "does not save audio or video files"; it produces a transcript and summary after the meeting ([Fireflies guide](https://guide.fireflies.ai/articles/6666374717-how-to-record-meetings-without-a-bot-on-the-fireflies-desktop-app)). Pro is $10 per seat per month billed yearly, or $18 monthly ([Fireflies pricing](https://fireflies.ai/pricing)).
+
+### Fathom: best free plan for video calls
+
+Fathom's free plan lists unlimited recordings and transcription, with a "choice of bot-free (in beta) or bot capture". The pricing page marks bot-free capture as a beta feature for Mac. Premium is $16 a month billed yearly, or $20 monthly ([Fathom pricing](https://www.fathom.ai/pricing)). Recordings live in your Fathom account.
+
+Want the shortlist without the subscriptions? Vemoir records the next call on your Mac and keeps the file there ([how it works](/#how)).
+
+## Bot vs. local: who sees the recording
+
+There are three different ways a meeting gets recorded, and each one has a different audience for the audio.
+
+<div class="blog-pair">
+  <div>
+    <h3>Bot in the call</h3>
+    <ul>
+      <li>Appears as a named participant everyone can see</li>
+      <li>Records from the vendor's servers, so the audio starts in the cloud</li>
+      <li>Works even when you are not in the meeting</li>
+      <li>Often blocked by client IT or by the host</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Desktop capture on the Mac</h3>
+    <ul>
+      <li>No extra participant in the list</li>
+      <li>You must be in the call and press record</li>
+      <li>Audio goes either to the vendor's cloud or stays on the Mac</li>
+      <li>Announcing the recording is your job, not the platform's</li>
+    </ul>
+  </div>
+</div>
+
+Inside desktop capture, the second question decides who else can read the transcript. With a cloud app, the vendor and its subprocessors handle the audio. Granola, for example, names Deepgram, Assembly, OpenAI and Anthropic on its security page. With a local app, the speech model runs on your Mac and no third party receives the audio unless you send it.
+
+That difference matters for a consultant under an NDA, a researcher with an ethics approval, or an HR lead in a performance conversation. In those cases "who has the file" is usually the first question a client or a data protection officer asks. If you want the longer explanation, read [cloud vs. local meeting transcription](/blog/cloud-vs-local-meeting-transcription) and [best AI notetaker without a bot](/blog/best-ai-notetaker-without-bot). For the macOS side of capturing call audio, see [system audio recording on a Mac](/blog/system-audio-recording-mac).
+
+## Consent and announcing the recording
+
+A bot announces itself by sitting in the participant list. A desktop recorder does not. Teams shows a notice when someone uses its own record button. An app that records the system audio on your Mac is not part of the meeting platform, so do not count on any notice. Say it yourself at the start, and ideally note it in the invite.
+
+The rules depend on where the people in the call are. This is not legal advice, only the primary texts worth reading:
+
+- **Switzerland:** Article 179ter of the Swiss Criminal Code covers a person who, "as a participant in a private conversation, records the conversation" without the permission of the other participants ([fedlex, SR 311.0](https://www.fedlex.admin.ch/eli/cc/54/757_781_799/en#art_179_ter)).
+- **Germany:** § 201 StGB makes it an offence to record the "nichtöffentlich gesprochene Wort" of another person without authorization ([gesetze-im-internet.de](https://www.gesetze-im-internet.de/stgb/__201.html)).
+- **United States, federal:** 18 U.S.C. § 2511(2)(d) allows a person to record a conversation they take part in, or where one party has consented ([govinfo.gov](https://www.govinfo.gov/content/pkg/USCODE-2023-title18/html/USCODE-2023-title18-partI-chap119-sec2511.htm)). Some states are stricter. California Penal Code § 632 requires the consent of all parties to a confidential communication ([California Legislative Information](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PEN&sectionNum=632)).
+
+Some cloud vendors add their own notice tools. Granola offers an automated message at the start of each meeting ([Granola pricing FAQ](https://www.granola.ai/pricing)), and Fireflies can post a consent message in the meeting chat on Mac. A local recorder leaves that step to you. A simple sentence works: "I am recording this call on my laptop for my notes; the audio stays on my machine. Is that okay?"
+
+## When a cloud app fits better
+
+A local recorder is not the right tool for every team. A cloud app is the better choice when:
+
+<ul class="blog-scenarios">
+  <li><h3>The whole team shares one library</h3><p>Otter, Fireflies and Fathom keep every call in a shared web workspace with search, comments and CRM sync. A Mac-only local app keeps records on one machine until you share them.</p></li>
+  <li><h3>You need Windows or a phone</h3><p>Granola, Jamie, Otter and Fireflies run on more than one platform. Vemoir and MacWhisper are Mac only.</p></li>
+  <li><h3>Someone must cover meetings you skip</h3><p>Only a bot can attend a call without you. Desktop capture always needs a person on the Mac who presses record.</p></li>
+</ul>
+
+The trade-off is clear in the table: the cloud apps charge per user per month, and the audio or transcript leaves the Mac. If neither is a problem for you and your clients, one of them may serve you better than a local app.
+
+## How to test an AI meeting recorder in one afternoon
+
+Before you buy seats, run the same short test with your two strongest candidates on a call you are allowed to record.
+
+<ol class="blog-steps">
+  <li data-step="1"><h3>Check the participant list</h3><p>Start the recording the way you would in real life. Open the participant list during the call. If a guest you did not invite appears, that path uses a bot.</p></li>
+  <li data-step="2"><h3>Check where the audio went</h3><p>Read the vendor's security page as it stands today and write one line: "stays on the Mac" or "goes to the vendor". If the page does not say, do not assume local.</p></li>
+  <li data-step="3"><h3>Check both sides of the call</h3><p>Wear headphones and confirm that both your voice and the other person's voice are in the transcript. A missing side usually means a permission is off; see <a href="/blog/meeting-recording-no-sound-mac">meeting recording has no sound on a Mac</a>.</p></li>
+  <li data-step="4"><h3>Check what you can find later</h3><p>Say one decision, a date and an owner during the test. Open the record afterwards and see whether the decision is still there, with the name.</p></li>
+</ol>
+
+If the audio must stay on the Mac and you want minutes, decisions and action items from each call, Vemoir is a one-time purchase in the [Mac App Store](https://apps.apple.com/app/id6794693630). If you only have a short recording today, try the free [transcribe recording](/tools/transcribe-recording) tool in the browser first.
+
+## Frequently asked questions
+
+### What is the best meeting recording app for Mac?
+
+It depends on where the audio may go. If it must stay on the Mac, Vemoir (meeting records, one-time purchase) and MacWhisper (file transcription, one-time Pro license) both transcribe locally. If cloud processing is fine, Granola, Jamie, Otter, Fireflies and Fathom all offer desktop capture on the Mac.
+
+### Can I record a Zoom or Teams meeting on a Mac without a bot?
+
+Yes. A desktop app with the Microphone and Screen & System Audio Recording permissions captures both sides of the call from the Mac, so no participant is added. Zoom's own computer recording may need the host's permission, and Teams notifies everyone when its record button is used.
+
+### Is an AI meeting recorder without a bot private?
+
+Not automatically. No bot only means no extra participant. Granola, Jamie, Otter, Fireflies and Fathom still process the audio in the cloud. Only a recorder that transcribes on the Mac keeps the audio off third-party servers.
+
+### Do I have to tell people I am recording?
+
+In many places, yes, and it is good practice everywhere. Article 179ter of the Swiss Criminal Code and § 201 of the German StGB address recording conversations without permission, and some US states, such as California, require the consent of all parties. Announce the recording at the start; this article is not legal advice.
+
+### Is there a meeting recording app for Mac without a subscription?
+
+Yes. Vemoir is a one-time Mac App Store purchase (CHF 20, $22.99 or €24.99 as of 27 November 2026), and MacWhisper Pro is a one-time €64 license. The other apps in this comparison use monthly or yearly plans.
+
+### Does Vemoir work on an Intel Mac or on Windows?
+
+No. Vemoir needs a Mac with Apple silicon (M1 or newer) and macOS Sonoma 14.2 or later. There is no Windows, iPhone or Intel Mac version.
+
+## Next step
+
+If your next client call must stay on your Mac, start with [how Vemoir captures a meeting](/#capture), then get it from the [Mac App Store](https://apps.apple.com/app/id6794693630). For a wider comparison of note-taking tools, read [best AI notetaker without a bot](/blog/best-ai-notetaker-without-bot).
