@@ -59,7 +59,7 @@ You get video, not decisions. The Teams window has to stay visible, so notificat
 
 [Vemoir](https://apps.apple.com/app/id6794693630) records system audio and the microphone while Teams plays sound on the Mac. Nothing joins the participant list. You start and stop from the menu bar. That fits when you are a guest and cannot start the tenant recording, when the Record button is off, when a client does not want a bot or a cloud copy, or when the audio should stay on the machine.
 
-macOS asks for the Screen & System Audio Recording permission (called Screen Recording on older versions) because that is how the system lets an app hear other apps. Vemoir uses it for meeting audio only and never records the screen. Allow the microphone too, so your voice is on the track. See [capture and models](/#capture) and [meeting app support](/#platforms).
+macOS asks for System Audio Recording and Microphone. Apple’s Settings pane may still be named “Screen & System Audio Recording”; that is the pane name, not a Screen Recording permission. Vemoir uses System Audio Recording for meeting audio only and never records the screen. Allow the microphone too, so your voice is on the track. See [capture and models](/#capture) and [meeting app support](/#platforms).
 
 After you stop, local models on the Mac write a transcript and a record: summary, decisions, action items, and a follow-up draft. Notes you type during the call are folded in. You export only the parts you choose ([export and share](/#exports)). Cloud models are opt-in and use your own API key. Once the models are installed, capture and transcription can run offline.
 
@@ -110,9 +110,9 @@ No. Transcription is its own policy, and both the organizer and the person who s
 
 For a short visual demo, sometimes. For decisions and action items, no. You get a movie. You still have to turn speech into text somewhere else.
 
-### Why does Vemoir ask for Screen & System Audio Recording?
+### Why does Vemoir ask for System Audio Recording?
 
-macOS ties audio from other apps, including Teams, to that permission. Vemoir records only the meeting audio and never the screen contents.
+Vemoir captures meeting audio with a Core Audio process tap and asks only for System Audio Recording and Microphone, not Screen Recording. It never receives your screen contents.
 
 ### Will people see a bot?
 

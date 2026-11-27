@@ -15,7 +15,7 @@ draft: false
 <p><em>Hero photo by <a href="https://unsplash.com/@sandrawilliams2025?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">sandrawilliams2025</a> on <a href="https://unsplash.com/?utm_source=blog_factory&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></em></p>
 **Mikrofon und Systemton** auf dem Mac sind in Vemoir zwei getrennte lokale Spuren: dein Mikrofon und der Ton, den die Meeting-App über Lautsprecher oder Headset abspielt. So hast du deine Stimme und die Gegenstelle ohne eine gemischte Datei, ohne Bildschirmaufnahme und ohne Bot in der Teilnehmerliste.
 
-Du startest und stoppst in der Menüleiste. Beide Spuren bleiben auf dem Mac, bis du sie exportierst oder ein optionales Textmodell mit eigenem API-Schlüssel einschaltest.
+Du startest und stoppst in der Menüleiste. Das Audio wird nach der Verarbeitung standardmässig gelöscht; du kannst die Spuren lokal behalten, wenn du willst. Transkripte und Protokolle bleiben auf dem Mac, bis du sie exportierst oder ein optionales Textmodell mit eigenem API-Schlüssel einschaltest.
 
 ## Inhalt
 
@@ -45,13 +45,13 @@ Du startest und stoppst in der Menüleiste. Beide Spuren bleiben auf dem Mac, bi
 
 Die Mikrofonaufnahme ist eine eigene Aufnahme, getrennt vom Systemton-Zugriff. Du wählst das Mikrofon. Ein Headset-Mikrofon hört dich und wenig vom Raum. Ein Laptop-Mikrofon hört den Raum und, wenn der Gegenton über Lautsprecher läuft, etwas vom Call. Das ist normale Akustik, kein dritter Aufnahmemodus.
 
-Die Systemtonspur ist die Sitzung, wie der Mac sie abspielt. Vemoir nimmt nur den Sitzungston auf und lässt die eigene Wiedergabe aussen vor, damit die App ihren eigenen Ton nicht selbst aufnimmt. Die Berechtigung, die macOS verlangt, heisst Bildschirmaufnahme, und Vemoir nutzt sie nur für Audio.
+Die Systemtonspur ist die Sitzung, wie der Mac sie abspielt. Vemoir nimmt nur den Sitzungston auf und lässt die eigene Wiedergabe aussen vor, damit die App ihren eigenen Ton nicht selbst aufnimmt. Die Berechtigung, die macOS verlangt, heisst Systemaudioaufnahme, und Vemoir nutzt sie nur für Audio.
 
 Die [Mikrofon-Rauschunterdrückung](/de/blog/mikrofon-rauschunterdrueckung) gilt nur für die Mikrofonspur, in Aus, Ausgewogen oder Stark. Sie putzt die Systemtonspur nicht.
 
 ## Die Berechtigung gilt für Ton, nicht für den Bildschirm
 
-Ältere Texte über Mac-Apps sagen oft, fremden App-Ton gebe es nur über die Bildschirmaufnahme. Genau diese Berechtigung verlangt Vemoir, und der Name sagt mehr, als passiert: Aufgenommen wird nur der Sitzungston. Keine Bildschirminhalte, keine Pixel, kein Video des Schreibtischs.
+Ältere Texte über Mac-Apps sagen oft, fremden App-Ton gebe es nur über die Bildschirmaufnahme. Vemoir verlangt das nicht. Es fragt nach der Systemaudioaufnahme, und aufgenommen wird nur der Sitzungston. Keine Bildschirminhalte, keine Pixel, kein Video des Schreibtischs.
 
 Für deine Spur brauchst du zusätzlich den Mikrofonzugriff. Zwei Quellen, zwei Berechtigungen. Verweigerst du den Systemton, bleibt das Mikrofon. Verweigerst du das Mikrofon, bleibt der Call, und von deiner Stimme fast nichts, ausser sie fällt über Lautsprecher in ein Mikrofon, das du nicht dafür wolltest.
 
@@ -91,7 +91,7 @@ Ein Headset verändert die Systemspur nützlich: die Gegenstimmen bleiben auf de
 
 Behältst du das Audio, spiele nach dem Call zuerst die Systemspur ab. Dort solltest du die Gegenstelle hören. Danach die Mikrofonspur für deine Stimme. So siehst du, ob der Fehler im Call-Pfad oder am Mikrofon liegt.
 
-Eine leere Systemspur, obwohl im Call gesprochen wurde, heisst meist: Meeting-App stumm, Ausgabe auf einem anderen Gerät, oder Bildschirmaufnahme verweigert. Einrichtung unter [Aufnahme](/de#capture) oder in den macOS-Datenschutzeinstellungen. Ein anderes Mikrofon löst das nicht.
+Eine leere Systemspur, obwohl im Call gesprochen wurde, heisst meist: Meeting-App stumm, Ausgabe auf einem anderen Gerät, oder Systemaudioaufnahme verweigert. Einrichtung unter [Aufnahme](/de#capture) oder in den macOS-Datenschutzeinstellungen. Ein anderes Mikrofon löst das nicht.
 
 ## Was nach dem Stopp passiert
 
@@ -111,7 +111,7 @@ Sie werden als getrennte lokale Spuren aufgenommen: das gewählte Mikrofon und d
 
 ### Nimmt Vemoir den Bildschirm auf, um den Call zu hören?
 
-Nein. Die Call-Spur nutzt die Bildschirmaufnahme-Berechtigung nur für Audio. Bildschirminhalte werden nicht aufgezeichnet.
+Nein. Die Call-Spur nutzt die Systemaudioaufnahme nur für Audio. Vemoir fragt nicht nach der Bildschirmaufnahme. Bildschirminhalte werden nicht aufgezeichnet.
 
 ### Sehen die anderen einen Bot?
 
@@ -135,6 +135,6 @@ Apple Silicon, M1 oder neuer, macOS Sonoma 14.2 oder neuer, mindestens 8 GB Spei
 
 ### Wo schalte ich die Spuren ein?
 
-Wähle das Mikrofon, erlaube Bildschirmaufnahme, und starte in der Menüleiste. Der Abschnitt [Aufnahme](/de#capture) zeigt die Steuerungen. Die Rauschminderung, wenn du sie willst, liegt nur auf dem Mikrofon, in Aus, Ausgewogen oder Stark.
+Wähle das Mikrofon, erlaube die Systemaudioaufnahme, und starte in der Menüleiste. Der Abschnitt [Aufnahme](/de#capture) zeigt die Steuerungen. Die Rauschminderung, wenn du sie willst, liegt nur auf dem Mikrofon, in Aus, Ausgewogen oder Stark.
 
 Die nächste Sitzung ist der Test: Headset auf, beide Berechtigungen erlaubt, Aufnahme in der Menüleiste, Stopp wenn der Call endet. [Aufnahme](/de#capture) zeigt, wo die zwei Quellen sitzen.

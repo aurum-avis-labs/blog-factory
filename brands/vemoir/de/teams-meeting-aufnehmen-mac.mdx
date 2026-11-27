@@ -61,7 +61,7 @@ Du bekommst Video, keine Entscheide. Das Teams-Fenster muss sichtbar bleiben, Be
 
 [Vemoir](https://apps.apple.com/app/id6794693630) nimmt Systemaudio und Mikrofon auf, während Teams Ton auf dem Mac abspielt. In der Teilnehmerliste erscheint niemand Zusätzliches. Start und Stopp machst du in der Menüleiste. Das passt, wenn du Gast bist und die Aufnahme im Tenant nicht starten darfst, wenn «Aufzeichnen» fehlt, wenn ein Kunde weder einen Bot noch eine Cloud-Kopie will oder wenn das Audio auf dem Gerät bleiben soll.
 
-macOS verlangt die Berechtigung «Aufnahme von Bildschirm & Systemaudio» (auf älteren Versionen «Bildschirmaufnahme»), weil das System den Ton anderer Apps darüber freigibt. Vemoir nutzt sie nur für den Sitzungston und nimmt den Bildschirm nie auf. Erlaube auch das Mikrofon, damit deine Stimme auf der Spur ist. Siehe [Aufnahme und Modelle](/de#capture) und [Meeting-Apps](/de#platforms).
+macOS fragt nach der Systemaudioaufnahme und dem Mikrofon. In den Systemeinstellungen kann der Bereich weiterhin «Aufnahme von Bildschirm & Systemaudio» heissen; das ist der Bereichsname, nicht die Bildschirmaufnahme-Berechtigung. Vemoir nutzt die Systemaudioaufnahme nur für den Sitzungston und nimmt den Bildschirm nie auf. Erlaube auch das Mikrofon, damit deine Stimme auf der Spur ist. Siehe [Aufnahme und Modelle](/de#capture) und [Meeting-Apps](/de#platforms).
 
 Nach dem Stopp schreiben lokale Modelle auf dem Mac ein Transkript und einen Record: Zusammenfassung, Entscheide, Aufgaben und einen Entwurf zum Nachfassen. Notizen, die du während der Sitzung tippst, fliessen ein. Du exportierst nur die Teile, die du auswählst ([Export und Teilen](/de#exports)). Cloud-Modelle sind optional und nutzen deinen eigenen API-Schlüssel. Sind die Modelle installiert, können Aufnahme und Transkription offline laufen.
 
@@ -112,9 +112,9 @@ Nein. Die Transkription ist eine eigene Richtlinie, und die organisierende Perso
 
 Für eine kurze Demo manchmal. Für Entscheide und Aufgaben nicht: Du bekommst einen Film, und die Sprache musst du anderswo in Text bringen.
 
-### Warum verlangt Vemoir die Berechtigung zur Bildschirmaufnahme?
+### Warum fragt Vemoir nach der Systemaudioaufnahme?
 
-macOS koppelt den Ton anderer Apps an diese Berechtigung, auch den von Teams. Vemoir nimmt nur den Sitzungston auf und nie den Bildschirminhalt.
+Vemoir erfasst den Sitzungston über einen Core-Audio-Process-Tap und fragt nur nach Systemaudioaufnahme und Mikrofon, nicht nach der Bildschirmaufnahme. Den Bildschirminhalt erhält es nie.
 
 ### Sehen die anderen einen Bot?
 
